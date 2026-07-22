@@ -1,0 +1,53 @@
+name: Release
+
+# Publishes a GitHub release whenever a version tag is pushed, using the matching
+# section of CHANGELOG.md as the release notes. A tag with a pre-release suffix
+# (e.g. v0.2.0-beta.1) is published as a pre-release.
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract changelog notes for this tag
+        id: notes
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+
+          # Pull the lines under "## [<version>]" up to the next release heading
+          # or the link-reference definitions at the foot of the changelog.
+          # A literal prefix match avoids escaping pitfalls with dynamic regexes.
+          awk -v ver="$version" '
+            BEGIN { header = "## [" ver "]" }
+            index($0, header) == 1 { flag = 1; next }
+            flag && /^## \[/ { exit }
+            flag && /^\[.*\]: http/ { exit }
+            flag { print }
+          ' CHANGELOG.md > RELEASE_NOTES.md
+
+          if [ ! -s RELEASE_NOTES.md ]; then
+            echo "No changelog entry for ${version}; GitHub will auto-generate notes." > RELEASE_NOTES.md
+            echo "fallback=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "fallback=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create the release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          body_path: RELEASE_NOTES.md
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          make_latest: ${{ !contains(github.ref_name, '-') }}
+          generate_release_notes: ${{ steps.notes.outputs.fallback == 'true' }}

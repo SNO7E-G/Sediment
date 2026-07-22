@@ -58,7 +58,8 @@ Most contributions add or refine a detection. The shape is consistent:
 
 - Keep each PR focused on one change.
 - `composer test` must be green, including the malformed-input case.
-- Update `CHANGELOG.md` under `## [Unreleased]`.
+- Note the change in `CHANGELOG.md` — under the next unreleased `## [x.y.z]`
+  heading, or start one if it doesn't exist yet.
 - Describe what the change detects (or fixes) and, if it touches resolution,
   which confidence level the affected keys land on and why.
 
@@ -68,3 +69,20 @@ If Sediment attributes a key incorrectly for a real plugin, that is a
 high-value bug report. Open an issue with the plugin, the version, the offending
 source line, and what the finding should have been. A failing fixture attached
 to the issue is the fastest path to a fix.
+
+## Releasing
+
+Releases are cut from tags, and the `Release` workflow does the publishing:
+
+1. Add a `## [X.Y.Z] — <date>` section to `CHANGELOG.md` describing the release.
+2. Commit it, then tag and push:
+
+   ```bash
+   git tag vX.Y.Z
+   git push origin vX.Y.Z
+   ```
+
+3. Pushing the tag runs [`.github/workflows/release.yml`](.github/workflows/release.yml),
+   which extracts that changelog section and publishes the GitHub release. A tag
+   with a pre-release suffix (for example `v0.2.0-beta.1`) is published as a
+   pre-release; a plain `vX.Y.Z` becomes the latest release.
