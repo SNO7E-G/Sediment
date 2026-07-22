@@ -92,7 +92,7 @@ The full specification lives in [`sediment-project-spec.md`](sediment-project-sp
 
 ## Status
 
-Early development. Today the analyzer detects option writes with confidence levels; table, cron, and transient detection, static key resolution, cleanup diffing, grading, and the `uninstall.php` generator are in progress. Public interfaces may change before the first tagged release.
+Early development. The analyzer detects **options, tables, cron events, and transients** today — each with a confidence level and honest coverage reporting — including keys built from constants, class constants, `$this->` properties, string interpolation, and `$wpdb->prefix`. Cleanup diffing (matching what a plugin removes against what it creates), grading, and the `uninstall.php` generator are next. Public interfaces may change before the first tagged release.
 
 ## Development
 

@@ -52,6 +52,7 @@ final class ScanCommand extends Command
             $io->success('No tracked artifact writes detected.');
         } else {
             $this->renderGroup($io, 'Options', $this->ofType($findings, 'option'), true);
+            $this->renderGroup($io, 'Tables', $this->ofType($findings, 'table'), false);
             $this->renderGroup($io, 'Cron events', $this->ofType($findings, 'cron'), false);
             $this->renderGroup($io, 'Transients', $this->ofType($findings, 'transient'), false);
             $this->renderCoverage($io, $findings);

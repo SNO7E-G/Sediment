@@ -30,6 +30,7 @@ final class Scanner
      * @var list<class-string>
      */
     private const OPTIONAL_VISITORS = [
+        'Sediment\\Analyzer\\Visitors\\TableVisitor',
         'Sediment\\Analyzer\\Visitors\\CronVisitor',
         'Sediment\\Analyzer\\Visitors\\TransientVisitor',
     ];

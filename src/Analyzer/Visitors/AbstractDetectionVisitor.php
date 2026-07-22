@@ -7,6 +7,10 @@ namespace Sediment\Analyzer\Visitors;
 use PhpParser\Node;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr;
+use PhpParser\Node\Expr\Assign;
+use PhpParser\Node\Expr\AssignOp;
+use PhpParser\Node\Expr\Variable;
+use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\NodeVisitorAbstract;
 use Sediment\Analyzer\ExpressionResolver;
@@ -14,12 +18,16 @@ use Sediment\Analyzer\Finding;
 use Sediment\Analyzer\Resolution;
 
 /**
- * Base class for detection visitors. Tracks the enclosing class so keys built
- * from `self::CONST` and `$this->prop` resolve correctly, and hands subclasses
- * the resolver and a place to collect findings.
+ * Base class for detection visitors. Provides three things subclasses rely on:
  *
- * Subclasses implement {@see inspect()} and push onto {@see $findings}. They must
- * not override enterNode/leaveNode (class tracking lives here).
+ *  - class context, so `self::CONST` and `$this->prop` resolve to the right class;
+ *  - straight-line local-variable tracking within a function, so the common
+ *    `$sql = "…"; dbDelta($sql);` pattern resolves. Tracking is scoped per
+ *    function and poisons a variable to dynamic on any conflicting or non-literal
+ *    reassignment — safety over coverage;
+ *  - the resolver, plus named-argument-safe argument access.
+ *
+ * Subclasses implement {@see inspect()} and must not override enterNode/leaveNode.
  */
 abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
 {
@@ -28,6 +36,9 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
 
     /** @var list<string> */
     private array $classStack = [];
+
+    /** @var list<array<string, string|null>> stack of per-function local scopes */
+    private array $localScopes = [[]];
 
     public function __construct(
         protected readonly string $file,
@@ -43,6 +54,14 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
             $this->classStack[] = $node->name?->toString() ?? ('@anon@' . $node->getStartLine());
         }
 
+        if ($node instanceof FunctionLike) {
+            $this->localScopes[] = [];
+        }
+
+        if ($node instanceof Assign || $node instanceof AssignOp) {
+            $this->recordLocalAssignment($node);
+        }
+
         $this->inspect($node);
 
         return null;
@@ -52,6 +71,10 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
     {
         if ($node instanceof Class_) {
             array_pop($this->classStack);
+        }
+
+        if ($node instanceof FunctionLike) {
+            array_pop($this->localScopes);
         }
 
         return null;
@@ -71,10 +94,40 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
         return $this->classStack === [] ? null : $this->classStack[count($this->classStack) - 1];
     }
 
-    /** Resolve an expression to a key using the current class context. */
+    /** Resolve an expression to a key using the current class and local scope. */
     protected function resolveKey(Expr $expr): Resolution
     {
-        return $this->resolver->resolve($expr, $this->currentClass());
+        return $this->resolver->resolve($expr, $this->currentClass(), $this->currentLocals());
+    }
+
+    /** @return array<string, string|null> */
+    private function currentLocals(): array
+    {
+        return $this->localScopes[count($this->localScopes) - 1];
+    }
+
+    private function recordLocalAssignment(Assign|AssignOp $node): void
+    {
+        if (!$node->var instanceof Variable || !is_string($node->var->name)) {
+            return;
+        }
+
+        // A plain literal/resolvable assignment records its value; a compound
+        // assignment (.=) or an unresolvable RHS records null (poison).
+        $value = null;
+        if ($node instanceof Assign) {
+            $resolution = $this->resolver->resolve($node->expr, $this->currentClass(), $this->currentLocals());
+            $value = $resolution->isResolved() ? $resolution->value : null;
+        }
+
+        $index = count($this->localScopes) - 1;
+        $name = $node->var->name;
+
+        if (!array_key_exists($name, $this->localScopes[$index])) {
+            $this->localScopes[$index][$name] = $value;
+        } elseif ($this->localScopes[$index][$name] !== $value) {
+            $this->localScopes[$index][$name] = null; // conflicting reassignment
+        }
     }
 
     /**

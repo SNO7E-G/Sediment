@@ -29,6 +29,15 @@ arg 3); site/network options are not autoloaded.
 setting with the Settings API but does not itself write an option row, so
 counting it would manufacture false positives.
 
+### Tables
+
+`dbDelta()` and direct `CREATE TABLE` via `$wpdb->query()`. The SQL string is
+resolved first — `$wpdb->prefix` and `$wpdb->base_prefix` become the `{prefix}`
+token, and SQL assigned to a local variable is followed — then the table name is
+read from the resolved string with a single regex. The `{prefix}` token is kept
+verbatim (never a hardcoded `wp_`) so the finding stays correct on custom-prefix
+sites.
+
 ### Cron
 
 `wp_schedule_event` (recurring, with a recurrence such as `daily`) and
@@ -45,5 +54,5 @@ later, by the uninstall generator.
 ## Not yet detected
 
 Metadata (post/user/term/comment), roles and capabilities, custom post types
-and taxonomies, filesystem writes, rewrite rules, and tables via direct `$wpdb`
-SQL are on the roadmap. See [limitations](limitations.md).
+and taxonomies, filesystem writes, and rewrite rules are on the roadmap. See
+[limitations](limitations.md).

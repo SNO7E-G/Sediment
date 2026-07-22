@@ -45,12 +45,21 @@ final class ExpressionResolver
     /**
      * @param string|null $class the enclosing class short name, for self:: / $this->
      */
-    public function resolve(Expr $expr, ?string $class = null): Resolution
+    /**
+     * @param array<string, string|null> $locals in-scope local variable values
+     *        (null = poisoned: known but not a single literal), supplied by the
+     *        visitor tracking straight-line assignments in the current function.
+     */
+    public function resolve(Expr $expr, ?string $class = null, array $locals = []): Resolution
     {
         if ($expr instanceof String_) {
             // An empty literal key is meaningless downstream (WP rejects it);
             // treat it as unresolved rather than a confident empty string.
             return $expr->value === '' ? Resolution::dynamic($this->raw($expr)) : Resolution::verified($expr->value);
+        }
+
+        if ($expr instanceof Variable) {
+            return $this->resolveLocal($expr, $locals);
         }
 
         if ($expr instanceof ConstFetch) {
@@ -66,14 +75,28 @@ final class ExpressionResolver
         }
 
         if ($expr instanceof Concat) {
-            return $this->resolveSegments([$expr->left, $expr->right], $class, $expr);
+            return $this->resolveSegments([$expr->left, $expr->right], $class, $locals, $expr);
         }
 
         if ($expr instanceof InterpolatedString) {
-            return $this->resolveSegments($expr->parts, $class, $expr);
+            return $this->resolveSegments($expr->parts, $class, $locals, $expr);
         }
 
         return Resolution::dynamic($this->raw($expr));
+    }
+
+    /**
+     * @param array<string, string|null> $locals
+     */
+    private function resolveLocal(Variable $expr, array $locals): Resolution
+    {
+        if (!is_string($expr->name) || !array_key_exists($expr->name, $locals)) {
+            return Resolution::dynamic($this->raw($expr));
+        }
+
+        $value = $locals[$expr->name];
+
+        return $value !== null ? Resolution::resolved($value) : Resolution::dynamic($this->raw($expr));
     }
 
     private function resolveConstant(ConstFetch $expr): Resolution
@@ -126,6 +149,18 @@ final class ExpressionResolver
 
     private function resolveProperty(PropertyFetch $expr, ?string $class): Resolution
     {
+        // $wpdb->prefix / $wpdb->base_prefix are the database table prefix. They
+        // resolve to the canonical {prefix} placeholder token (§9), never a
+        // hardcoded wp_, so the Index stays correct on custom-prefix sites.
+        if (
+            $expr->var instanceof Variable
+            && $expr->var->name === 'wpdb'
+            && $expr->name instanceof Identifier
+            && in_array(strtolower($expr->name->toString()), ['prefix', 'base_prefix'], true)
+        ) {
+            return Resolution::resolved('{prefix}');
+        }
+
         if (
             $class !== null
             && $expr->var instanceof Variable
@@ -151,7 +186,7 @@ final class ExpressionResolver
      *
      * @param array<Node> $segments
      */
-    private function resolveSegments(array $segments, ?string $class, Expr $original): Resolution
+    private function resolveSegments(array $segments, ?string $class, array $locals, Expr $original): Resolution
     {
         $full = '';
         $prefix = '';
@@ -174,7 +209,7 @@ final class ExpressionResolver
                 continue;
             }
 
-            $resolution = $this->resolve($segment, $class);
+            $resolution = $this->resolve($segment, $class, $locals);
 
             switch ($resolution->confidence) {
                 case Finding::CONFIDENCE_VERIFIED:
