@@ -51,8 +51,8 @@ final class CleanupDiffer
 
     public static function isUninstallFile(string $file): bool
     {
-        $parts = explode('/', str_replace('\\', '/', $file));
-
-        return strtolower((string) end($parts)) === 'uninstall.php';
+        // WordPress runs only the plugin-root uninstall.php (relative path
+        // "uninstall.php"), never a nested one — so only that credits cleanup.
+        return strtolower(str_replace('\\', '/', $file)) === 'uninstall.php';
     }
 }
