@@ -20,7 +20,7 @@ final class Finding
     public const CONFIDENCE_DYNAMIC  = 'dynamic';
 
     public function __construct(
-        public readonly string $type,        // artifact type: 'option' | 'cron' | 'transient'
+        public readonly string $type,        // artifact type: 'option' | 'table' | 'cron' | 'transient'
         public readonly string $function,    // the write call, e.g. 'add_option'
         public readonly ?string $key,        // resolved key (with '*' for pattern), or null when dynamic
         public readonly string $confidence,  // one of the CONFIDENCE_* levels (§8)
@@ -31,6 +31,13 @@ final class Finding
         public readonly ?string $recurrence = null, // cron recurrence, e.g. 'daily' | 'single'; null when N/A
         public readonly ?bool $cleaned = null,      // set by the cleanup diff; null until then
     ) {
+    }
+
+    /** Whether the key is confidently attributed (safe to act on): verified or resolved. */
+    public function isConfident(): bool
+    {
+        return $this->confidence === self::CONFIDENCE_VERIFIED
+            || $this->confidence === self::CONFIDENCE_RESOLVED;
     }
 
     /** Return a copy with the cleanup verdict set (§8, M8). */

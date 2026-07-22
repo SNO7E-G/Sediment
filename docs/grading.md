@@ -9,7 +9,7 @@ noise. This page is the reference every grade output links to.
 | --- | --- |
 | **A** | Removes 100% of what it creates, unconditionally, via `uninstall.php`. |
 | **B** | Removes 100%, but only when a user setting is enabled (*conditionally clean*). |
-| **C** | Removes some artifacts; leaves fewer than five items, none autoloaded, no tables. |
+| **C** | Removes some artifacts; leaves fewer than five items, none autoloaded, no tables or cron. |
 | **D** | Leaves tables, autoloaded options, or cron events behind. |
 | **F** | Ships no uninstall routine at all. |
 

@@ -10,8 +10,8 @@ use Sediment\Command\UninstallCommand;
 use Symfony\Component\Console\Application as BaseApplication;
 
 /**
- * The Sediment console application. Registers the command surface described in
- * the spec (§2): scan, grade, uninstall, check. Only `scan` exists in the spike.
+ * The Sediment console application. Registers the command surface: scan, grade,
+ * and uninstall. (A `check --fail-on=<grade>` command for CI is on the roadmap.)
  */
 final class Application extends BaseApplication
 {

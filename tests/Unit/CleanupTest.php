@@ -71,6 +71,33 @@ final class CleanupTest extends TestCase
         self::assertFalse($scan['findings']['option:pp_temp']->cleaned);
     }
 
+    public function test_a_dead_function_in_uninstall_php_does_not_credit_cleanup(): void
+    {
+        $scan = $this->scan('dead-uninstall-plugin');
+
+        // du_dead is never called, so du_settings is not actually removed...
+        self::assertFalse($scan['findings']['option:du_settings']->cleaned);
+        // ...but du_run() is called at the top level, so du_other is.
+        self::assertTrue($scan['findings']['option:du_other']->cleaned);
+    }
+
+    public function test_a_removal_in_a_same_short_named_class_in_another_namespace_is_not_credited(): void
+    {
+        $scan = $this->scan('ns-callback-plugin');
+
+        // The delete lives in Acme\Admin\Cleaner::run, but Acme\Cleaner::run is
+        // the registered (empty) callback — different classes, no credit.
+        self::assertFalse($scan['findings']['option:nc_settings']->cleaned);
+    }
+
+    public function test_uninstall_callback_matching_is_case_insensitive(): void
+    {
+        $scan = $this->scan('case-hook-plugin');
+
+        // Registered as 'CH_Uninstall', defined as ch_uninstall().
+        self::assertTrue($scan['findings']['option:ch_opt']->cleaned);
+    }
+
     public function test_a_plugin_with_no_uninstall_path_cleans_nothing(): void
     {
         $scan = $this->scan('dirty-plugin');

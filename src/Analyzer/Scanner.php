@@ -7,36 +7,30 @@ namespace Sediment\Analyzer;
 use PhpParser\Error;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
+use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\Parser;
 use PhpParser\ParserFactory;
+use Sediment\Analyzer\Visitors\AbstractDetectionVisitor;
+use Sediment\Analyzer\Visitors\CronVisitor;
 use Sediment\Analyzer\Visitors\OptionVisitor;
+use Sediment\Analyzer\Visitors\TableVisitor;
+use Sediment\Analyzer\Visitors\TransientVisitor;
 use Sediment\Cleanup\CleanupDiffer;
 use Sediment\Cleanup\CleanupVisitor;
 
 /**
  * Orchestrates the scan in two passes (§12):
- *  1. Parse every file and harvest literal symbols into a {@see SymbolTable}, so
- *     a constant defined in one file resolves a key written in another.
- *  2. Re-walk each file with the detection visitors, resolving keys against the
- *     symbol table.
+ *  1. Parse every file, resolve namespaced names to fully-qualified ones, and
+ *     harvest literal symbols into a {@see SymbolTable} — so a constant defined
+ *     in one file resolves a key written in another.
+ *  2. Re-walk each file with the detection and cleanup visitors, resolving keys
+ *     against the symbol table, then diff creates against removals.
  *
- * Parse errors never fatal (M14): a malformed file is recorded and skipped.
+ * Nothing ever fatals (M14): a malformed or unreadable file, or an unexpected
+ * node, is recorded and skipped.
  */
 final class Scanner
 {
-    /**
-     * Detection visitors always run. Additional visitors are picked up when
-     * present, so Cron/Transient detection activates as soon as those classes
-     * exist without touching this file.
-     *
-     * @var list<class-string>
-     */
-    private const OPTIONAL_VISITORS = [
-        'Sediment\\Analyzer\\Visitors\\TableVisitor',
-        'Sediment\\Analyzer\\Visitors\\CronVisitor',
-        'Sediment\\Analyzer\\Visitors\\TransientVisitor',
-    ];
-
     private Parser $parser;
 
     public function __construct(
@@ -64,7 +58,7 @@ final class Scanner
         /** @var list<array{file: string, ast: Node[]}> $parsed */
         $parsed = [];
 
-        // Pass 1 — parse and collect symbols.
+        // Pass 1 — parse, resolve names, collect symbols.
         foreach ($files as $file) {
             $code = @file_get_contents($file);
             if ($code === false) {
@@ -85,21 +79,28 @@ final class Scanner
 
             $relative = $this->relativePath($root, $file);
 
-            $collector = new NodeTraverser();
-            $collector->addVisitor(new SymbolCollector($symbols));
-            $collector->traverse($ast);
+            try {
+                $ast = $this->resolveNames($ast);
+
+                $collector = new NodeTraverser();
+                $collector->addVisitor(new SymbolCollector($symbols, $relative));
+                $collector->traverse($ast);
+            } catch (\Throwable $e) {
+                $errors[] = ['file' => $relative, 'message' => $e->getMessage()];
+                continue;
+            }
 
             $parsed[] = ['file' => $relative, 'ast' => $ast];
         }
 
-        // Pass 2 — detect creates and cleanup removals in one traversal per file,
-        // resolving against the now-complete symbol table.
         $symbols->reconcileInheritedProperties();
         $resolver = new ExpressionResolver($symbols);
 
+        // Pass 2 — detect creates and cleanup removals in one traversal per file.
         $findings = [];
         $removals = [];
         $callbacks = [];
+        $uninstallCalls = [];
         $hasUninstallPhp = false;
 
         foreach ($parsed as $entry) {
@@ -107,46 +108,39 @@ final class Scanner
                 $hasUninstallPhp = true;
             }
 
-            $visitors = [new OptionVisitor($entry['file'], $resolver)];
-
-            foreach (self::OPTIONAL_VISITORS as $class) {
-                if (class_exists($class)) {
-                    /** @var Visitors\AbstractDetectionVisitor $visitor */
-                    $visitor = new $class($entry['file'], $resolver);
-                    $visitors[] = $visitor;
-                }
-            }
-
+            $detectors = [
+                new OptionVisitor($entry['file'], $resolver),
+                new TableVisitor($entry['file'], $resolver),
+                new CronVisitor($entry['file'], $resolver),
+                new TransientVisitor($entry['file'], $resolver),
+            ];
             $cleanup = new CleanupVisitor($entry['file'], $resolver);
 
             try {
                 $traverser = new NodeTraverser();
-                foreach ($visitors as $visitor) {
-                    $traverser->addVisitor($visitor);
+                foreach ($detectors as $detector) {
+                    $traverser->addVisitor($detector);
                 }
                 $traverser->addVisitor($cleanup);
                 $traverser->traverse($entry['ast']);
-
-                foreach ($visitors as $visitor) {
-                    foreach ($visitor->findings() as $finding) {
-                        $findings[] = $finding;
-                    }
-                }
-
-                foreach ($cleanup->removals() as $removal) {
-                    $removals[] = $removal;
-                }
-                foreach ($cleanup->uninstallCallbacks() as $callback) {
-                    $callbacks[] = $callback;
-                }
             } catch (\Throwable $e) {
-                // M14 — an unexpected node or a visitor bug must never abort the
-                // whole scan; record it and move on.
+                // M14 — a visitor bug or unexpected node must never abort the scan.
                 $errors[] = ['file' => $entry['file'], 'message' => $e->getMessage()];
+                continue;
             }
+
+            foreach ($detectors as $detector) {
+                /** @var AbstractDetectionVisitor $detector */
+                foreach ($detector->findings() as $finding) {
+                    $findings[] = $finding;
+                }
+            }
+            array_push($removals, ...$cleanup->removals());
+            array_push($callbacks, ...$cleanup->uninstallCallbacks());
+            array_push($uninstallCalls, ...$cleanup->uninstallCalls());
         }
 
-        $findings = CleanupDiffer::apply($findings, $removals, $callbacks);
+        $findings = CleanupDiffer::apply($findings, $removals, $callbacks, $uninstallCalls);
 
         return [
             'files' => $files,
@@ -157,6 +151,18 @@ final class Scanner
                 'has_uninstall_hook' => $callbacks !== [],
             ],
         ];
+    }
+
+    /**
+     * @param Node[] $ast
+     * @return Node[]
+     */
+    private function resolveNames(array $ast): array
+    {
+        $traverser = new NodeTraverser();
+        $traverser->addVisitor(new NameResolver(null, ['preserveOriginalNames' => false]));
+
+        return $traverser->traverse($ast);
     }
 
     private function relativePath(string $root, string $file): string

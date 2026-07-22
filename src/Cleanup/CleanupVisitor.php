@@ -15,32 +15,31 @@ use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\MagicConst\Class_ as MagicClass;
 use PhpParser\Node\Scalar\String_;
+use Sediment\Analyzer\Sql\TableStatements;
 use Sediment\Analyzer\Visitors\AbstractDetectionVisitor;
 
 /**
  * Finds the cleanup path (M7): the removal calls a plugin makes to undo what it
- * created, and the `register_uninstall_hook` callbacks that run them.
+ * created, and the `register_uninstall_hook` callbacks that run them. Parsed
+ * with the same engine and resolver as detection.
  *
- * Parsed with the same engine and resolver as detection, so a
- * `delete_option($this->prefix . 'x')` is matched against the create it mirrors.
- * It records the enclosing function of each removal and the registered
- * uninstall callbacks; the {@see CleanupDiffer} decides which removals actually
- * run on uninstall.
+ * Only *confident* removals are recorded — a removal on a `pattern` or `dynamic`
+ * key cannot prove any specific create was removed, so it never credits cleanup.
+ * The {@see CleanupDiffer} decides which recorded removals actually run on
+ * uninstall.
  */
 final class CleanupVisitor extends AbstractDetectionVisitor
 {
-    /** removal function => [key arg index, artifact type] */
+    /** removal function => [key arg index, artifact type, key parameter name] */
     private const REMOVALS = [
-        'delete_option'          => [0, 'option'],
-        'delete_site_option'     => [0, 'option'],
-        'delete_transient'       => [0, 'transient'],
-        'delete_site_transient'  => [0, 'transient'],
-        'wp_clear_scheduled_hook' => [0, 'cron'],
-        'wp_unschedule_hook'     => [0, 'cron'],
-        'wp_unschedule_event'    => [1, 'cron'],
+        'delete_option'           => [0, 'option', 'option'],
+        'delete_site_option'      => [0, 'option', 'option'],
+        'delete_transient'        => [0, 'transient', 'transient'],
+        'delete_site_transient'   => [0, 'transient', 'transient'],
+        'wp_clear_scheduled_hook' => [0, 'cron', 'hook'],
+        'wp_unschedule_hook'      => [0, 'cron', 'hook'],
+        'wp_unschedule_event'     => [1, 'cron', 'hook'],
     ];
-
-    private const DROP_TABLE = '/DROP\s+TABLE\s+(?:IF\s+EXISTS\s+)?`?([^\s`(;]+)`?/i';
 
     /** @var list<array{type: string, key: string, function: string|null, file: string}> */
     private array $removals = [];
@@ -48,18 +47,21 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     /** @var list<string> */
     private array $callbacks = [];
 
+    /** @var list<string> lowercased function names called at the top level of uninstall.php */
+    private array $uninstallCalls = [];
+
     protected function inspect(Node $node): void
     {
         if ($node instanceof FuncCall && $node->name instanceof Name && !$node->isFirstClassCallable()) {
             $function = strtolower($node->name->toString());
 
-            if ($function === 'register_uninstall_hook') {
-                $this->recordCallback($node);
-
-                return;
+            if ($this->currentFunction() === null && $this->inUninstallPhp()) {
+                $this->uninstallCalls[] = $function;
             }
 
-            if (isset(self::REMOVALS[$function])) {
+            if ($function === 'register_uninstall_hook') {
+                $this->recordCallback($node);
+            } elseif (isset(self::REMOVALS[$function])) {
                 $this->recordRemoval($node, $function);
             }
 
@@ -86,25 +88,19 @@ final class CleanupVisitor extends AbstractDetectionVisitor
 
     private function recordRemoval(FuncCall $node, string $function): void
     {
-        [$keyIndex, $type] = self::REMOVALS[$function];
+        [$keyIndex, $type, $parameter] = self::REMOVALS[$function];
 
-        $value = $this->argValue($node->getArgs(), $keyIndex, 'option');
+        $value = $this->argValue($node->getArgs(), $keyIndex, $parameter);
         if ($value === null) {
             return;
         }
 
         $resolution = $this->resolveKey($value);
-        $key = $resolution->key();
-        if ($key === null) {
-            return; // an unresolvable removal cannot credit any specific create
+        if (!$resolution->isResolved()) {
+            return; // pattern/dynamic removals cannot credit a specific create
         }
 
-        $this->removals[] = [
-            'type' => $type,
-            'key' => $key,
-            'function' => $this->currentFunction(),
-            'file' => $this->file,
-        ];
+        $this->addRemoval($type, (string) $resolution->value);
     }
 
     private function recordDropTable(MethodCall $node): void
@@ -112,6 +108,8 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         if (
             !$node->var instanceof Variable
             || $node->var->name !== 'wpdb'
+            || !$node->name instanceof Node\Identifier
+            || strtolower($node->name->toString()) !== 'query'
             || $node->isFirstClassCallable()
         ) {
             return;
@@ -123,21 +121,28 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         }
 
         $resolution = $this->resolveKey($value);
-        if ($resolution->value === null || preg_match(self::DROP_TABLE, $resolution->value, $matches) !== 1) {
+        if ($resolution->value === null) {
             return;
         }
 
-        $name = trim($matches[1], '`');
-        if ($name === '') {
-            return;
+        foreach (TableStatements::dropped($resolution->value) as $name) {
+            $this->addRemoval('table', $name);
         }
+    }
 
+    private function addRemoval(string $type, string $key): void
+    {
         $this->removals[] = [
-            'type' => 'table',
-            'key' => $name,
+            'type' => $type,
+            'key' => $key,
             'function' => $this->currentFunction(),
             'file' => $this->file,
         ];
+    }
+
+    private function inUninstallPhp(): bool
+    {
+        return strtolower(str_replace('\\', '/', $this->file)) === 'uninstall.php';
     }
 
     private function callbackIdentifier(Expr $callback): ?string
@@ -172,11 +177,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
 
     private function resolveClassReference(Expr $expr): ?string
     {
-        if ($expr instanceof MagicClass) {
-            return $this->currentClass();
-        }
-
-        if ($expr instanceof Variable && $expr->name === 'this') {
+        if ($expr instanceof MagicClass || ($expr instanceof Variable && $expr->name === 'this')) {
             return $this->currentClass();
         }
 
@@ -189,7 +190,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
 
             return $reference === 'self' || $reference === 'static'
                 ? $this->currentClass()
-                : $expr->class->getLast();
+                : $expr->class->toString();
         }
 
         return null;
@@ -207,5 +208,11 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     public function uninstallCallbacks(): array
     {
         return $this->callbacks;
+    }
+
+    /** @return list<string> */
+    public function uninstallCalls(): array
+    {
+        return $this->uninstallCalls;
     }
 }

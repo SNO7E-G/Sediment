@@ -12,24 +12,21 @@ use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use Sediment\Analyzer\Finding;
 use Sediment\Analyzer\Resolution;
+use Sediment\Analyzer\Sql\TableStatements;
 
 /**
  * Detects table creation (M4, §7): dbDelta() and direct CREATE TABLE via
  * $wpdb->query().
  *
  * The method the spec insists on (§12): resolve the SQL *string* first — through
- * the same symbol/interpolation resolver as everything else, so
- * "{$wpdb->prefix}my_logs" becomes "{prefix}my_logs" — then run one lightweight
- * regex on the already-resolved string to pull the table name. Regex on a
- * resolved string is fine; regex on raw PHP is not.
- *
- * The table name keeps the {prefix} token (never a hardcoded wp_) so the finding
- * is correct on sites with a custom prefix.
+ * the same symbol/interpolation/local-variable resolver, so "{$wpdb->prefix}x"
+ * becomes "{prefix}x" — then read the table name(s) from the resolved string
+ * with {@see TableStatements}, which anchors to each statement so it never
+ * mistakes "CREATE TABLE" inside an INSERT value for a real create. One finding
+ * per CREATE statement; the {prefix} token is preserved for custom-prefix sites.
  */
 final class TableVisitor extends AbstractDetectionVisitor
 {
-    private const CREATE_TABLE = '/CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?`?([^\s`(]+)`?/i';
-
     protected function inspect(Node $node): void
     {
         if ($node instanceof FuncCall) {
@@ -49,12 +46,20 @@ final class TableVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $sqlValue = $this->argValue($node->getArgs(), 0, 'queries');
-        $resolution = $sqlValue !== null ? $this->resolveKey($sqlValue) : Resolution::dynamic();
+        $sql = $this->argValue($node->getArgs(), 0, 'queries');
+        $resolution = $sql !== null ? $this->resolveKey($sql) : Resolution::dynamic();
+        $names = $resolution->value !== null ? TableStatements::created($resolution->value) : [];
 
-        // dbDelta is always a schema write, so even an unresolvable argument is
-        // worth recording as a dynamic table finding.
-        $this->record('dbDelta', $resolution, $node->getStartLine());
+        if ($names === []) {
+            // dbDelta is always a schema write, so record the unresolved case.
+            $this->findings[] = $this->dynamicTable('dbDelta', $node->getStartLine(), $resolution->raw);
+
+            return;
+        }
+
+        foreach ($names as $name) {
+            $this->findings[] = $this->table('dbDelta', $name, $resolution->confidence, $node->getStartLine());
+        }
     }
 
     private function inspectWpdbQuery(MethodCall $node): void
@@ -69,70 +74,45 @@ final class TableVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $sqlValue = $this->argValue($node->getArgs(), 0, 'query');
-        if ($sqlValue === null) {
+        $sql = $this->argValue($node->getArgs(), 0, 'query');
+        if ($sql === null) {
             return;
         }
 
-        $resolution = $this->resolveKey($sqlValue);
-
-        // $wpdb->query runs any SQL; only treat it as a table create when the
-        // resolved statement actually is one. A dynamic query is not reported —
-        // we cannot tell whether it creates a table.
-        if ($resolution->value === null || !$this->looksLikeCreate($resolution->value)) {
-            return;
+        $resolution = $this->resolveKey($sql);
+        if ($resolution->value === null) {
+            return; // a dynamic query — cannot tell whether it creates a table
         }
 
-        $this->record('$wpdb->query', $resolution, $node->getStartLine());
+        foreach (TableStatements::created($resolution->value) as $name) {
+            $this->findings[] = $this->table('$wpdb->query', $name, $resolution->confidence, $node->getStartLine());
+        }
     }
 
-    private function record(string $function, Resolution $resolution, int $line): void
+    private function table(string $function, string $name, string $confidence, int $line): Finding
     {
-        $name = $resolution->value !== null ? $this->extractTableName($resolution->value) : null;
-
-        if ($name === null) {
-            $this->findings[] = new Finding(
-                type: 'table',
-                function: $function,
-                key: null,
-                confidence: Finding::CONFIDENCE_DYNAMIC,
-                file: $this->file,
-                line: $line,
-                expression: $resolution->raw,
-            );
-
-            return;
-        }
-
-        // The table NAME is fully known once extracted; a partly-dynamic SQL body
-        // (pattern) does not make the name itself uncertain, so treat it as resolved.
-        $confidence = $resolution->confidence === Finding::CONFIDENCE_PATTERN
-            ? Finding::CONFIDENCE_RESOLVED
-            : $resolution->confidence;
-
-        $this->findings[] = new Finding(
+        // The name is fully extracted, so a partly-dynamic (pattern) SQL body
+        // does not make the name itself uncertain.
+        return new Finding(
             type: 'table',
             function: $function,
             key: $name,
-            confidence: $confidence,
+            confidence: $confidence === Finding::CONFIDENCE_PATTERN ? Finding::CONFIDENCE_RESOLVED : $confidence,
             file: $this->file,
             line: $line,
         );
     }
 
-    private function looksLikeCreate(string $sql): bool
+    private function dynamicTable(string $function, int $line, ?string $raw): Finding
     {
-        return (bool) preg_match('/CREATE\s+TABLE/i', $sql);
-    }
-
-    private function extractTableName(string $sql): ?string
-    {
-        if (preg_match(self::CREATE_TABLE, $sql, $matches) === 1) {
-            $name = trim($matches[1], '`');
-
-            return $name !== '' ? $name : null;
-        }
-
-        return null;
+        return new Finding(
+            type: 'table',
+            function: $function,
+            key: null,
+            confidence: Finding::CONFIDENCE_DYNAMIC,
+            file: $this->file,
+            line: $line,
+            expression: $raw,
+        );
     }
 }

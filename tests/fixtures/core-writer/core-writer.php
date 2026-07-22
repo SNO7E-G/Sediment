@@ -8,6 +8,7 @@
 
 // Core — must never end up in a deletable set.
 update_option('siteurl', 'https://example.test');
+update_option('wp_user_roles', array()); // the most dangerous core option
 wp_schedule_event(time(), 'daily', 'wp_version_check');
 
 // The plugin's own artifacts — these are the ones a cleanup would target.

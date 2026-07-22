@@ -41,6 +41,11 @@ final class WordPressCore
         'comment_previously_approved' => true, 'auto_update_core_dev' => true,
         'auto_update_core_minor' => true, 'auto_update_core_major' => true,
         'wp_force_deactivated_plugins' => true, 'fresh_site' => true, 'blogimage' => true,
+        // Roles/capabilities and plugin-lifecycle state — deleting any of these
+        // breaks the site or other plugins, so they are the most important to guard.
+        '{prefix}user_roles' => true, 'wp_user_roles' => true, 'user_roles' => true,
+        'uninstall_plugins' => true, 'recently_activated' => true, 'category_children' => true,
+        'can_compress_scripts' => true, 'db_upgraded' => true, 'https_migration_required' => true,
         'thumbnail_size_w' => true, 'thumbnail_size_h' => true, 'medium_size_w' => true,
         'medium_size_h' => true, 'large_size_w' => true, 'large_size_h' => true,
         'medium_large_size_w' => true, 'medium_large_size_h' => true, 'avatar_default' => true,
@@ -68,6 +73,8 @@ final class WordPressCore
         'wp_privacy_delete_old_export_files' => true, 'wp_https_detection' => true,
         'wp_update_user_counts' => true, 'wp_site_health_scheduled_check' => true,
         'do_pings' => true, 'publish_future_post' => true, 'importer_scheduled_cleanup' => true,
+        'wp_maybe_auto_update' => true, 'wp_split_shared_term_batch' => true,
+        'wp_delete_temp_updater_backups' => true, 'wp_update_comment_type_batch' => true,
     ];
 
     public static function isCoreOption(string $key): bool

@@ -129,4 +129,42 @@ final class GraderTest extends TestCase
         $dirty = (new Scanner())->scan(dirname(__DIR__) . '/fixtures/dirty-plugin');
         self::assertSame('F', $grader->grade($dirty['findings'], $dirty['cleanup'])->letter);
     }
+
+    public function test_the_same_key_written_from_many_call_sites_counts_once(): void
+    {
+        $left = [];
+        for ($i = 0; $i < 5; $i++) {
+            $left[] = $this->finding('option', false, autoload: 'no', key: 'same_key');
+        }
+
+        $grade = (new Grader())->grade($left, $this->path());
+
+        self::assertSame('C', $grade->letter, 'five writes of one key are one minor leftover, not five');
+        self::assertSame(1, $grade->leftBehind);
+    }
+
+    public function test_unknown_autoload_option_is_treated_as_autoloaded(): void
+    {
+        $grade = (new Grader())->grade([$this->finding('option', false, autoload: 'unknown')], $this->path());
+
+        self::assertSame('D', $grade->letter);
+    }
+
+    public function test_the_F_score_is_capped_so_letter_and_number_agree(): void
+    {
+        $grade = (new Grader())->grade([$this->finding('transient', false, function: 'set_transient')], $this->path(false));
+
+        self::assertSame('F', $grade->letter);
+        self::assertLessThan(50, $grade->score);
+    }
+
+    public function test_an_all_dynamic_plugin_reports_low_coverage_not_cleanliness(): void
+    {
+        $grade = (new Grader())->grade(
+            [$this->finding('option', false, confidence: Finding::CONFIDENCE_DYNAMIC, key: 'k')],
+            $this->path(false),
+        );
+
+        self::assertStringContainsString('could not be resolved', $grade->summary);
+    }
 }

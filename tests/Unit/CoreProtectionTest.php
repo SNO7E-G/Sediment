@@ -23,6 +23,10 @@ final class CoreProtectionTest extends TestCase
         self::assertTrue(WordPressCore::isCoreOption('siteurl'));
         self::assertTrue(WordPressCore::isCoreOption('active_plugins'));
         self::assertTrue(WordPressCore::isCoreOption('cron'));
+        // Roles and plugin-lifecycle state — the most dangerous keys to delete.
+        self::assertTrue(WordPressCore::isCoreOption('wp_user_roles'));
+        self::assertTrue(WordPressCore::isCoreOption('{prefix}user_roles'));
+        self::assertTrue(WordPressCore::isCoreOption('uninstall_plugins'));
         self::assertFalse(WordPressCore::isCoreOption('corewriter_settings'));
         self::assertFalse(WordPressCore::isCoreOption('woocommerce_db_version'));
     }
@@ -58,6 +62,7 @@ final class CoreProtectionTest extends TestCase
 
         // The invariant: core artifacts are absent from the deletable set...
         self::assertNotContains('siteurl', $deletableKeys);
+        self::assertNotContains('wp_user_roles', $deletableKeys);
         self::assertNotContains('wp_version_check', $deletableKeys);
 
         // ...while the plugin's own artifacts are present.

@@ -41,16 +41,19 @@ final class SymbolCollector extends NodeVisitorAbstract
     /** @var list<string> stack of enclosing class contexts */
     private array $classStack = [];
 
-    public function __construct(private readonly SymbolTable $symbols)
-    {
+    public function __construct(
+        private readonly SymbolTable $symbols,
+        private readonly string $file = '',
+    ) {
     }
 
     public function enterNode(Node $node)
     {
         if ($node instanceof Class_) {
-            $this->classStack[] = $node->name?->toString() ?? ('@anon@' . $node->getStartLine());
-            if ($node->name !== null && $node->extends instanceof Name) {
-                $this->symbols->addParent($node->name->toString(), $node->extends->getLast());
+            $this->classStack[] = $this->classContext($node);
+            $child = ($node->namespacedName ?? null)?->toString() ?? $node->name?->toString();
+            if ($child !== null && $node->extends instanceof Name) {
+                $this->symbols->addParent($child, $node->extends->toString());
             }
 
             return null;
@@ -85,6 +88,16 @@ final class SymbolCollector extends NodeVisitorAbstract
     private function currentClass(): ?string
     {
         return $this->classStack === [] ? null : $this->classStack[count($this->classStack) - 1];
+    }
+
+    private function classContext(Class_ $node): string
+    {
+        // Fully-qualified after NameResolver (falling back to the short name if it
+        // has not run); anonymous classes get a per-file, per-line key so two
+        // anon classes never share a symbol bucket across files.
+        return ($node->namespacedName ?? null)?->toString()
+            ?? $node->name?->toString()
+            ?? ('@anon@' . $this->file . '@' . $node->getStartLine());
     }
 
     private static function literalOrNull(Node $value): ?string

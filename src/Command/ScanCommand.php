@@ -7,6 +7,7 @@ namespace Sediment\Command;
 use Sediment\Analyzer\Finding;
 use Sediment\Analyzer\Scanner;
 use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Formatter\OutputFormatter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -98,9 +99,15 @@ final class ScanCommand extends Command
 
         $rows = [];
         foreach ($findings as $f) {
+            // Scanned source (key/expression) may contain '<...>'; escape it so it
+            // can never be read as console formatting markup.
+            $keyCell = $f->key !== null
+                ? OutputFormatter::escape($f->key)
+                : '<fg=gray>— (' . OutputFormatter::escape($f->expression ?? 'unresolved') . ')</>';
+
             $row = [
                 $f->function,
-                $f->key ?? '<fg=gray>— (' . ($f->expression ?? 'unresolved') . ')</>',
+                $keyCell,
                 $this->badge($f->confidence),
             ];
             if ($showAutoload) {
@@ -120,11 +127,7 @@ final class ScanCommand extends Command
     private function renderCoverage(SymfonyStyle $io, array $findings): void
     {
         $total = count($findings);
-        $resolved = count(array_filter(
-            $findings,
-            static fn (Finding $f): bool => $f->confidence === Finding::CONFIDENCE_VERIFIED
-                || $f->confidence === Finding::CONFIDENCE_RESOLVED,
-        ));
+        $resolved = count(array_filter($findings, static fn (Finding $f): bool => $f->isConfident()));
 
         $rate = $total > 0 ? $resolved / $total : 1.0;
         $io->writeln(sprintf(

@@ -36,33 +36,44 @@ final class Grader
      */
     public function grade(array $findings, array $cleanup): Grade
     {
-        $confident = array_values(array_filter(
-            $findings,
-            static fn (Finding $f): bool => self::isConfident($f) && !WordPressCore::isCore($f),
-        ));
+        // Grade by unique artifact (type:key), not by call site, and only on
+        // confidently-attributed, non-core creates.
+        $confident = $this->uniqueConfidentCreates($findings);
 
         if ($confident === []) {
-            return new Grade('A', 100, 0, 0, 'Creates no persistent data that needs cleaning up.');
+            $unresolved = $this->hasUnresolved($findings);
+
+            return new Grade(
+                'A',
+                100,
+                0,
+                0,
+                $unresolved
+                    ? 'No high-confidence artifacts to grade; some writes could not be resolved — see coverage.'
+                    : 'Creates no persistent data that needs cleaning up.',
+            );
         }
 
         $left = array_values(array_filter($confident, static fn (Finding $f): bool => $f->cleaned !== true));
         $cleaned = count($confident) - count($left);
-        $score = $this->score($left);
         $hasPath = $cleanup['has_uninstall_php'] || $cleanup['has_uninstall_hook'];
 
         if (!$hasPath) {
-            return new Grade('F', $score, $cleaned, count($left), 'No uninstall routine — everything it creates is left behind.');
+            // No teardown at all — cap the score so the letter and number agree.
+            return new Grade('F', min($this->score($left), 49), $cleaned, count($left), 'No uninstall routine — everything it creates is left behind.');
         }
 
         if ($left === []) {
             return new Grade('A', 100, $cleaned, 0, 'Removes everything it creates on uninstall.');
         }
 
+        $score = $this->score($left);
         $tables = $this->countType($left, 'table');
         $cron = $this->countType($left, 'cron');
+        // 'unknown' autoload is treated as autoloaded for the grade — the safe direction.
         $autoloaded = count(array_filter(
             $left,
-            static fn (Finding $f): bool => $f->type === 'option' && $f->autoload === 'yes',
+            static fn (Finding $f): bool => $f->type === 'option' && ($f->autoload === 'yes' || $f->autoload === 'unknown'),
         ));
 
         if ($tables > 0 || $autoloaded > 0 || $cron > 0) {
@@ -80,6 +91,50 @@ final class Grader
         }
 
         return new Grade('D', $score, $cleaned, count($left), sprintf('Leaves %d items behind.', count($left)));
+    }
+
+    /**
+     * @param list<Finding> $findings
+     * @return list<Finding> one representative per type:key (preferring the
+     *         cleaned/most-damaging instance), core and unresolvable excluded
+     */
+    private function uniqueConfidentCreates(array $findings): array
+    {
+        $byKey = [];
+        foreach ($findings as $finding) {
+            if ($finding->key === null || !$finding->isConfident() || WordPressCore::isCore($finding)) {
+                continue;
+            }
+
+            $id = $finding->type . ':' . $finding->key;
+            $existing = $byKey[$id] ?? null;
+
+            if ($existing === null) {
+                $byKey[$id] = $finding;
+                continue;
+            }
+
+            // Collapse duplicates: cleaned if any is cleaned; keep the heavier autoload.
+            $cleaned = $existing->cleaned === true || $finding->cleaned === true;
+            $keep = $finding->autoload === 'yes' ? $finding : $existing;
+            $byKey[$id] = $keep->withCleaned($cleaned ? true : $keep->cleaned);
+        }
+
+        return array_values($byKey);
+    }
+
+    /**
+     * @param list<Finding> $findings
+     */
+    private function hasUnresolved(array $findings): bool
+    {
+        foreach ($findings as $finding) {
+            if (!$finding->isConfident()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -132,11 +187,5 @@ final class Grader
         }
 
         return 'Leaves ' . implode(', ', $parts) . ' behind.';
-    }
-
-    private static function isConfident(Finding $finding): bool
-    {
-        return $finding->confidence === Finding::CONFIDENCE_VERIFIED
-            || $finding->confidence === Finding::CONFIDENCE_RESOLVED;
     }
 }

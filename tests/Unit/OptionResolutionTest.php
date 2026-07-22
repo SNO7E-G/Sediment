@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Sediment\Tests\Unit;
 
 use PhpParser\NodeTraverser;
+use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\ParserFactory;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
@@ -28,6 +29,10 @@ final class OptionResolutionTest extends TestCase
         $parser = (new ParserFactory())->createForNewestSupportedVersion();
         $ast = $parser->parse("<?php\n" . $body);
         self::assertNotNull($ast);
+
+        $names = new NodeTraverser();
+        $names->addVisitor(new NameResolver(null, ['preserveOriginalNames' => false]));
+        $ast = $names->traverse($ast);
 
         $symbols = new SymbolTable();
         $collect = new NodeTraverser();
@@ -208,10 +213,10 @@ final class OptionResolutionTest extends TestCase
             null,
         ];
 
-        yield 'same short-name class in two namespaces poisons self constant' => [
+        yield 'same short-name class in two namespaces resolves each correctly' => [
             "namespace A { class Plugin { const PREFIX = 'a_'; function f() { add_option(self::PREFIX . 'x'); } } }\nnamespace B { class Plugin { const PREFIX = 'b_'; } }",
-            Finding::CONFIDENCE_DYNAMIC,
-            null,
+            Finding::CONFIDENCE_RESOLVED,
+            'a_x',
         ];
 
         yield 'overridden inherited property is poisoned' => [
@@ -222,6 +227,38 @@ final class OptionResolutionTest extends TestCase
 
         yield 'symbols do not leak between anonymous classes' => [
             "\$a = new class { private \$prefix = 'aaa_'; };\n\$b = new class { function f() { add_option(\$this->prefix . 'x'); } };",
+            Finding::CONFIDENCE_DYNAMIC,
+            null,
+        ];
+
+        // --- local-variable binding: only a plain literal assignment resolves ---
+
+        yield 'local variable assigned a literal resolves' => [
+            "function f() { \$k = 'lv_key'; add_option(\$k, 1); }",
+            Finding::CONFIDENCE_RESOLVED,
+            'lv_key',
+        ];
+
+        yield 'function parameter is dynamic' => [
+            "function f(\$key) { update_option(\$key, 1); }",
+            Finding::CONFIDENCE_DYNAMIC,
+            null,
+        ];
+
+        yield 'parameter conditionally reassigned stays dynamic' => [
+            "function f(\$key) { if (\$key === null) { \$key = 'fallback'; } update_option(\$key, 1); }",
+            Finding::CONFIDENCE_DYNAMIC,
+            null,
+        ];
+
+        yield 'foreach binding is dynamic' => [
+            "function f(array \$keys) { foreach (\$keys as \$key) { update_option(\$key, 1); } }",
+            Finding::CONFIDENCE_DYNAMIC,
+            null,
+        ];
+
+        yield 'global variable is dynamic' => [
+            "function f() { global \$key; update_option(\$key, 1); }",
             Finding::CONFIDENCE_DYNAMIC,
             null,
         ];

@@ -118,6 +118,26 @@ final class TableVisitorTest extends TestCase
         self::assertSame([], $findings, 'a non-CREATE query must not be reported as a table');
     }
 
+    public function test_create_table_words_inside_an_insert_value_are_not_a_table(): void
+    {
+        $findings = $this->tables(
+            "function f() { global \$wpdb; \$wpdb->query(\"INSERT INTO {\$wpdb->prefix}audit (msg) VALUES ('ran CREATE TABLE backup step')\"); }",
+        );
+
+        self::assertSame([], $findings, 'CREATE TABLE inside an INSERT value must not be mistaken for a create');
+    }
+
+    public function test_multiple_create_statements_in_one_dbdelta_are_all_detected(): void
+    {
+        $findings = $this->tables(
+            "function f() { global \$wpdb; dbDelta(\"CREATE TABLE {\$wpdb->prefix}mc_a (id INT); CREATE TABLE {\$wpdb->prefix}mc_b (id INT);\"); }",
+        );
+
+        $keys = array_map(static fn (Finding $f): ?string => $f->key, $findings);
+        self::assertContains('{prefix}mc_a', $keys);
+        self::assertContains('{prefix}mc_b', $keys);
+    }
+
     public function test_scanner_detects_tables_in_fixture(): void
     {
         $result = (new Scanner())->scan(dirname(__DIR__) . '/fixtures/table-plugin');

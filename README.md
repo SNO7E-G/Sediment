@@ -83,7 +83,7 @@ A plugin's letter grade reflects what it leaves behind, weighted by real-world c
 | --- | --- |
 | **A** | Removes everything it creates, unconditionally, on uninstall. |
 | **B** | Removes everything, but only if the user opts in (conditionally clean). |
-| **C** | Removes some data; leaves a few harmless rows — none autoloaded, no tables. |
+| **C** | Removes some data; leaves a few harmless rows — none autoloaded, no tables or cron. |
 | **D** | Leaves tables, autoloaded options, or cron events behind. |
 | **F** | Ships no uninstall routine at all. |
 

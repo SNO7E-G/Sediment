@@ -23,17 +23,27 @@ final class CleanupDiffer
      * @param list<Finding> $findings created artifacts
      * @param list<array{type: string, key: string, function: string|null, file: string}> $removals
      * @param list<string> $callbacks uninstall callback identifiers
+     * @param list<string> $uninstallCalls functions called at the top level of uninstall.php
      * @return list<Finding> the same findings with `cleaned` set
      */
-    public static function apply(array $findings, array $removals, array $callbacks): array
+    public static function apply(array $findings, array $removals, array $callbacks, array $uninstallCalls = []): array
     {
-        $uninstallFunctions = array_fill_keys($callbacks, true);
+        // A removal credits cleanup only if it actually runs on uninstall:
+        //  - a top-level statement in uninstall.php, or
+        //  - inside a registered uninstall callback, or a function uninstall.php
+        //    invokes at top level.
+        // PHP callables are case-insensitive, so identifiers are compared lowercased.
+        $scopedFunctions = array_fill_keys(
+            array_map('strtolower', array_merge($callbacks, $uninstallCalls)),
+            true,
+        );
 
         /** @var array<string, array<string, true>> $removed type => set of keys */
         $removed = [];
         foreach ($removals as $removal) {
-            $inScope = self::isUninstallFile($removal['file'])
-                || ($removal['function'] !== null && isset($uninstallFunctions[$removal['function']]));
+            $function = $removal['function'];
+            $inScope = ($function === null && self::isUninstallFile($removal['file']))
+                || ($function !== null && isset($scopedFunctions[strtolower($function)]));
 
             if ($inScope) {
                 $removed[$removal['type']][$removal['key']] = true;

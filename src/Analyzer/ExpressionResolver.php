@@ -43,9 +43,7 @@ final class ExpressionResolver
     }
 
     /**
-     * @param string|null $class the enclosing class short name, for self:: / $this->
-     */
-    /**
+     * @param string|null $class the enclosing class (fully-qualified), for self:: / $this->
      * @param array<string, string|null> $locals in-scope local variable values
      *        (null = poisoned: known but not a single literal), supplied by the
      *        visitor tracking straight-line assignments in the current function.
@@ -130,7 +128,9 @@ final class ExpressionResolver
             // is strictly more dynamic than self::. parent:: is not tracked.
             return Resolution::dynamic($this->raw($expr));
         } else {
-            $target = $expr->class->getLast();
+            // Fully-qualified by NameResolver, so out-of-tree/aliased classes no
+            // longer collide with an in-tree class of the same short name.
+            $target = $expr->class->toString();
         }
 
         if ($target === null) {

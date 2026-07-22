@@ -46,9 +46,18 @@ SQL, and Action Scheduler jobs. These are on the roadmap.
 - Bundled dependencies (`vendor/`, `node_modules/`) and test directories are
   excluded by design, so a plugin is never blamed for code it did not author.
 
-## Cross-namespace class names
+## Database and cleanup edges
 
-Classes are keyed by their short name. Two classes with the same short name in
-different namespaces can, in principle, collide in the symbol table. This is an
-accepted trade-off for now and is noted so you can weigh a `resolved` finding
-accordingly.
+Names are resolved to their fully-qualified form, so two classes or functions
+that share a short name across namespaces no longer collide. A few edges remain,
+and all err toward *not* crediting cleanup or resolution:
+
+- **`$wpdb` is recognized by variable name.** `$wpdb->prefix` and
+  `$wpdb->query(...)` are understood, but an aliased handle (`$db = $wpdb;`) or a
+  wrapped one (`$this->db->query(...)`) is not tracked. `base_prefix` is treated
+  the same as `prefix`, which differs on a multisite subsite.
+- **Cron events scheduled *with arguments*** are matched by hook name only. An
+  args-less `wp_clear_scheduled_hook()` is credited as clearing the hook, though
+  at runtime it clears only events scheduled without arguments.
+- **`pattern` keys are never matched during the cleanup diff** — a partly-dynamic
+  create is reported as *not cleaned* rather than guessed as removed.

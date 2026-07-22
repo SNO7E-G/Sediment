@@ -60,6 +60,24 @@ a tagged release.
 - PHP 8 named arguments are resolved by name, and first-class callables
   (`add_option(...)`) are ignored instead of crashing the scan (M14).
 - Detection is wrapped so an unexpected node can never abort a whole batch run.
+- Namespaces are resolved to fully-qualified names, so classes/functions sharing
+  a short name across namespaces no longer cross-resolve or falsely credit an
+  uninstall callback. Anonymous classes are keyed per file.
+- Local variables bound by parameters, `foreach`, `global`, `static`, `catch`,
+  and destructuring poison to `dynamic` — one literal assignment can no longer
+  claim a variable whose value actually varies.
+- Table SQL is read with anchored, statement-aware parsing shared by detection
+  and cleanup: `CREATE TABLE` inside an INSERT value is ignored, and every
+  `CREATE`/`DROP` in a multi-statement `dbDelta` string is captured.
+- Cleanup credit is scoped to what actually runs on uninstall: only confident
+  removals, only the plugin-root `uninstall.php` (top-level or a function it
+  invokes) or a registered callback (matched case-insensitively); a `$wpdb`
+  table drop requires the `->query` method.
+- Expanded the WordPress core allowlist (roles, `uninstall_plugins`, more cron
+  hooks) so the generator can never emit a delete for `wp_user_roles` and peers.
+- The grader counts unique keys (not call sites), treats unknown-autoload options
+  as autoloaded, caps the F score, and stops claiming "creates no data" when a
+  plugin's writes were merely unresolvable.
 
 ### Notes
 

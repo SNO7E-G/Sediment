@@ -70,6 +70,7 @@ final class UninstallGeneratorTest extends TestCase
             $this->finding('option', null, Finding::CONFIDENCE_DYNAMIC),
             $this->finding('option', 'pat_*', Finding::CONFIDENCE_PATTERN),
             $this->finding('option', 'siteurl'), // WordPress core
+            $this->finding('option', '{prefix}user_roles', Finding::CONFIDENCE_RESOLVED), // core roles
             $this->finding('option', 'keep_me'),
         ], 'Example');
 
@@ -78,6 +79,19 @@ final class UninstallGeneratorTest extends TestCase
         self::assertStringNotContainsString('already_gone', $code);
         self::assertStringNotContainsString('pat_', $code);
         self::assertStringNotContainsString('siteurl', $code);
+        self::assertStringNotContainsString('user_roles', $code);
+    }
+
+    public function test_it_rebuilds_the_prefix_token_for_non_table_artifacts(): void
+    {
+        $code = (new UninstallGenerator())->generate([
+            $this->finding('option', '{prefix}po_settings', Finding::CONFIDENCE_RESOLVED),
+        ], 'Example');
+
+        $this->assertValidPhp($code);
+        self::assertStringContainsString('global $wpdb;', $code);
+        self::assertStringContainsString("delete_option(\$wpdb->prefix . 'po_settings');", $code);
+        self::assertStringNotContainsString('{prefix}', $code);
     }
 
     public function test_empty_input_produces_a_valid_guarded_file(): void

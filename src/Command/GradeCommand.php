@@ -59,11 +59,7 @@ final class GradeCommand extends Command
             $grade->cleaned + $grade->leftBehind,
         ));
 
-        $unresolved = count(array_filter(
-            $result['findings'],
-            static fn (Finding $f): bool => $f->confidence === Finding::CONFIDENCE_DYNAMIC
-                || $f->confidence === Finding::CONFIDENCE_PATTERN,
-        ));
+        $unresolved = count(array_filter($result['findings'], static fn (Finding $f): bool => !$f->isConfident()));
         if ($unresolved > 0) {
             $io->writeln(sprintf(
                 ' <comment>%d finding(s) could not be fully resolved and were excluded from the grade.</comment>',

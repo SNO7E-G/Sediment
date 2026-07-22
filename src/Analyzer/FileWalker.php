@@ -74,12 +74,24 @@ final class FileWalker
             }
         );
 
+        // CATCH_GET_CHILD keeps an unreadable subdirectory (permissions) from
+        // aborting the whole walk — the scan must never fatal (M14).
+        $iterator = new RecursiveIteratorIterator(
+            $filter,
+            RecursiveIteratorIterator::LEAVES_ONLY,
+            RecursiveIteratorIterator::CATCH_GET_CHILD
+        );
+
         $files = [];
-        foreach (new RecursiveIteratorIterator($filter) as $fileInfo) {
-            /** @var SplFileInfo $fileInfo */
-            if ($fileInfo->isFile() && $this->isPhp($fileInfo->getPathname())) {
-                $files[] = $fileInfo->getPathname();
+        try {
+            foreach ($iterator as $fileInfo) {
+                /** @var SplFileInfo $fileInfo */
+                if ($fileInfo->isFile() && $this->isPhp($fileInfo->getPathname())) {
+                    $files[] = $fileInfo->getPathname();
+                }
             }
+        } catch (\Throwable) {
+            // Return whatever was collected rather than failing the scan.
         }
 
         sort($files);
