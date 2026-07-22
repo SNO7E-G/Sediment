@@ -1,0 +1,34 @@
+name: Core protection
+
+# The safety invariant (§13): no WordPress core option, table, or cron hook may
+# ever appear in a deletable result set. Runs as its own job so a failure here is
+# unmistakable — it is the assertion the project's credibility rests on.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  core-protection:
+    name: Safety invariant
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-interaction --no-progress
+
+      - name: Assert core artifacts are never deletable
+        run: php vendor/bin/phpunit --group core-protection

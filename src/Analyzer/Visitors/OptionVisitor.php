@@ -5,89 +5,106 @@ declare(strict_types=1);
 namespace Sediment\Analyzer\Visitors;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr;
+use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
-use PhpParser\NodeVisitorAbstract;
 use Sediment\Analyzer\Finding;
+use Sediment\Analyzer\Resolution;
 
 /**
  * Detects option writes (M3): add_option, update_option, and their site
- * variants, capturing the option key and source location.
+ * variants — capturing the key, its confidence, and the autoload flag.
  *
- * Spike behaviour: a literal string key is `verified`; anything else is
- * `dynamic`. Constant/class-const/property resolution (`resolved`) and prefix
- * extraction (`pattern`) arrive with the symbol-table pass (§6, day 3-5).
+ * Autoload matters because an orphaned *autoloaded* option loads on every
+ * request and is the whole basis of grade D, so it is captured explicitly:
+ *  - add_option($key, $value, $deprecated, $autoload) — 4th arg, defaults to yes
+ *  - update_option($key, $value, $autoload)           — 3rd arg, defaults to unknown
+ *  - add_site_option / update_site_option             — network scope, not autoloaded
  *
- * `register_setting` is deliberately excluded: it registers a setting with the
- * Settings API but does not itself write an option row, so treating it as a
- * definite create would manufacture false positives (see spec Appendix / §7 note).
+ * register_setting is intentionally excluded: it registers a setting with the
+ * Settings API but does not itself write an option row, so counting it would
+ * manufacture false positives.
  */
-final class OptionVisitor extends NodeVisitorAbstract
+final class OptionVisitor extends AbstractDetectionVisitor
 {
-    /**
-     * Option-writing functions mapped to the argument index holding the key.
-     *
-     * @var array<string, int>
-     */
+    /** function => autoload arg index (key is always arg 0 / 'option') */
     private const FUNCTIONS = [
-        'add_option'         => 0,
-        'update_option'      => 0,
-        'add_site_option'    => 0,
-        'update_site_option' => 0,
+        'add_option'         => 3,
+        'update_option'      => 2,
+        'add_site_option'    => null,
+        'update_site_option' => null,
     ];
 
-    /** @var list<Finding> */
-    private array $findings = [];
+    private const AUTOLOAD_YES = 'yes';
+    private const AUTOLOAD_NO = 'no';
+    private const AUTOLOAD_UNKNOWN = 'unknown';
 
-    public function __construct(private readonly string $file)
-    {
-    }
-
-    public function enterNode(Node $node)
+    protected function inspect(Node $node): void
     {
         if (!$node instanceof FuncCall || !$node->name instanceof Name) {
-            return null;
+            return;
         }
 
         $function = strtolower($node->name->toString());
-        if (!isset(self::FUNCTIONS[$function])) {
-            return null;
+        if (!array_key_exists($function, self::FUNCTIONS) || $node->isFirstClassCallable()) {
+            return;
         }
 
-        $keyArgument = $node->getArgs()[self::FUNCTIONS[$function]] ?? null;
+        $args = $node->getArgs();
+        $keyValue = $this->argValue($args, 0, 'option');
+        $resolution = $keyValue !== null ? $this->resolveKey($keyValue) : Resolution::dynamic();
 
-        if ($keyArgument !== null && $keyArgument->value instanceof String_) {
-            $this->findings[] = new Finding(
-                type: 'option',
-                function: $function,
-                key: $keyArgument->value->value,
-                confidence: Finding::CONFIDENCE_VERIFIED,
-                file: $this->file,
-                line: $node->getStartLine(),
-            );
-
-            return null;
-        }
-
-        // Unresolved at spike level. The symbol-table pass will reclassify many
-        // of these as `resolved` or `pattern`; for now they are honestly dynamic.
         $this->findings[] = new Finding(
             type: 'option',
             function: $function,
-            key: null,
-            confidence: Finding::CONFIDENCE_DYNAMIC,
+            key: $resolution->key(),
+            confidence: $resolution->confidence,
             file: $this->file,
             line: $node->getStartLine(),
-            expression: $keyArgument !== null ? '(unresolved expression)' : null,
+            autoload: $this->autoloadFor($function, self::FUNCTIONS[$function], $args),
+            expression: $resolution->raw,
         );
-
-        return null;
     }
 
-    /** @return list<Finding> */
-    public function findings(): array
+    /**
+     * @param list<\PhpParser\Node\Arg> $args
+     */
+    private function autoloadFor(string $function, ?int $autoloadIndex, array $args): ?string
     {
-        return $this->findings;
+        if ($autoloadIndex === null) {
+            return null; // site/network options are not autoloaded
+        }
+
+        $value = $this->argValue($args, $autoloadIndex, 'autoload');
+
+        if ($value === null) {
+            // add_option defaults autoload to 'yes'; update_option leaves it unchanged.
+            return $function === 'add_option' ? self::AUTOLOAD_YES : self::AUTOLOAD_UNKNOWN;
+        }
+
+        return $this->readAutoloadValue($value);
+    }
+
+    private function readAutoloadValue(Expr $value): string
+    {
+        if ($value instanceof ConstFetch) {
+            return match (strtolower($value->name->toString())) {
+                'true'  => self::AUTOLOAD_YES,
+                'false' => self::AUTOLOAD_NO,
+                default => self::AUTOLOAD_UNKNOWN,
+            };
+        }
+
+        if ($value instanceof String_) {
+            return match (strtolower($value->value)) {
+                'no', 'off', 'false', 'auto-off' => self::AUTOLOAD_NO,
+                'yes', 'on', 'true', 'auto', 'auto-on' => self::AUTOLOAD_YES,
+                default => self::AUTOLOAD_UNKNOWN,
+            };
+        }
+
+        return self::AUTOLOAD_UNKNOWN;
     }
 }
