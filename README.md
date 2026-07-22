@@ -55,7 +55,14 @@ Options (4)
  update_option     — (unresolved)     dynamic      includes/settings.php:210
 ```
 
-The `grade`, `uninstall`, and `check` commands are on the roadmap below.
+Grade a plugin, or generate an `uninstall.php` for what it leaves behind:
+
+```bash
+php bin/sediment grade path/to/plugin
+php bin/sediment uninstall path/to/plugin > uninstall.php
+```
+
+`grade` prints a letter (A–F) and a weighted-damage score; `uninstall` prints a syntactically valid teardown covering only the artifacts Sediment attributed with high confidence — never a core, cleaned, or guessed key. (A `check --fail-on=<grade>` command for CI is on the roadmap.)
 
 ## How confidence works
 
@@ -92,7 +99,7 @@ Design notes and the detection reference live in [`docs/`](docs/).
 
 ## Status
 
-Early development. The analyzer detects **options, tables, cron events, and transients** — each with a confidence level and honest coverage — resolving keys built from constants, class constants, `$this->` properties, string interpolation, local variables, and `$wpdb->prefix`. It then **diffs them against the plugin's `uninstall.php` / `register_uninstall_hook`** to mark every artifact *cleaned* or *left behind*. Grading and the `uninstall.php` generator are next. Public interfaces may change before the first tagged release.
+Early development. The analyzer detects **options, tables, cron events, and transients** — each with a confidence level and honest coverage — resolving keys built from constants, class constants, `$this->` properties, string interpolation, local variables, and `$wpdb->prefix`. It then **diffs them against the plugin's `uninstall.php` / `register_uninstall_hook`** to mark every artifact *cleaned* or *left behind*, **grades the result A–F**, and **generates an `uninstall.php`** for what's missing. That completes the v0.1 analyzer. Public interfaces may still change before the first tagged release.
 
 ## Development
 

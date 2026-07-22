@@ -26,6 +26,12 @@ harm they actually do on a live site — not by how many rows there are:
 - **Non-autoloaded options and transients** are the lightest — still worth
   removing, but cheap to leave.
 
+`sediment grade` computes the score as 100 minus the summed weight of every
+artifact left behind. Two things are deliberately excluded from the verdict:
+**WordPress core artifacts**, and **`dynamic`/`pattern` findings** — a key
+Sediment could not resolve is its own blind spot, not evidence against the
+plugin, so it is reported as coverage rather than held against the grade.
+
 ## Why conditional cleanup is its own grade
 
 Grade **B** exists because "delete data on uninstall" options almost always
@@ -33,6 +39,10 @@ default to *off* and sit somewhere a user never sees before clicking Delete. Suc
 a plugin is technically clean and practically dirty. Folding it into A would
 overstate it; folding it into C would understate it. Naming it honestly is more
 useful than either.
+
+Detecting the gate requires conditional-cleanup analysis, which is on the
+roadmap; until it lands, a fully-clean plugin is graded **A**, and grade **B**
+is held in reserve.
 
 ## What does not count against a grade
 

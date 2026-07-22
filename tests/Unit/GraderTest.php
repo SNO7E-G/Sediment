@@ -1,0 +1,132 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Sediment\Tests\Unit;
+
+use PHPUnit\Framework\TestCase;
+use Sediment\Analyzer\Finding;
+use Sediment\Analyzer\Scanner;
+use Sediment\Manifest\Grader;
+
+final class GraderTest extends TestCase
+{
+    private function finding(
+        string $type,
+        ?bool $cleaned,
+        string $confidence = Finding::CONFIDENCE_VERIFIED,
+        ?string $autoload = null,
+        string $function = 'add_option',
+        string $key = 'k',
+    ): Finding {
+        return new Finding(
+            type: $type,
+            function: $function,
+            key: $key,
+            confidence: $confidence,
+            file: 'plugin.php',
+            line: 1,
+            autoload: $autoload,
+            cleaned: $cleaned,
+        );
+    }
+
+    /** @return array{has_uninstall_php: bool, has_uninstall_hook: bool} */
+    private function path(bool $has = true): array
+    {
+        return ['has_uninstall_php' => $has, 'has_uninstall_hook' => false];
+    }
+
+    public function test_everything_cleaned_is_A(): void
+    {
+        $grade = (new Grader())->grade([$this->finding('option', true, autoload: 'yes')], $this->path());
+
+        self::assertSame('A', $grade->letter);
+        self::assertSame(100, $grade->score);
+    }
+
+    public function test_no_uninstall_routine_is_F(): void
+    {
+        $grade = (new Grader())->grade([$this->finding('option', false)], $this->path(false));
+
+        self::assertSame('F', $grade->letter);
+    }
+
+    public function test_left_table_is_D(): void
+    {
+        $grade = (new Grader())->grade([$this->finding('table', false, function: 'dbDelta')], $this->path());
+
+        self::assertSame('D', $grade->letter);
+        self::assertSame(85, $grade->score);
+    }
+
+    public function test_left_autoloaded_option_is_D(): void
+    {
+        $grade = (new Grader())->grade([$this->finding('option', false, autoload: 'yes')], $this->path());
+
+        self::assertSame('D', $grade->letter);
+        self::assertSame(82, $grade->score);
+    }
+
+    public function test_left_cron_is_D(): void
+    {
+        $grade = (new Grader())->grade([$this->finding('cron', false, function: 'wp_schedule_event')], $this->path());
+
+        self::assertSame('D', $grade->letter);
+    }
+
+    public function test_minor_non_autoloaded_leftover_is_C(): void
+    {
+        $grade = (new Grader())->grade([$this->finding('option', false, autoload: 'no')], $this->path());
+
+        self::assertSame('C', $grade->letter);
+    }
+
+    public function test_five_minor_leftovers_drop_to_D(): void
+    {
+        $left = [];
+        for ($i = 0; $i < 5; $i++) {
+            $left[] = $this->finding('option', false, autoload: 'no', key: "opt_$i");
+        }
+
+        self::assertSame('D', (new Grader())->grade($left, $this->path())->letter);
+    }
+
+    public function test_a_plugin_that_creates_nothing_is_A(): void
+    {
+        self::assertSame('A', (new Grader())->grade([], $this->path(false))->letter);
+    }
+
+    public function test_core_artifacts_do_not_affect_the_grade(): void
+    {
+        // Only a core option is "left" — it must be excluded, leaving nothing to grade.
+        $grade = (new Grader())->grade([$this->finding('option', false, key: 'siteurl')], $this->path(false));
+
+        self::assertSame('A', $grade->letter);
+    }
+
+    public function test_dynamic_findings_are_excluded_from_the_grade(): void
+    {
+        $grade = (new Grader())->grade(
+            [$this->finding('option', false, confidence: Finding::CONFIDENCE_DYNAMIC, key: 'k')],
+            $this->path(false),
+        );
+
+        // Nothing confidently attributed -> nothing to hold against the plugin.
+        self::assertSame('A', $grade->letter);
+    }
+
+    public function test_grades_real_fixtures(): void
+    {
+        $grader = new Grader();
+
+        $clean = (new Scanner())->scan(dirname(__DIR__) . '/fixtures/clean-plugin');
+        self::assertSame('A', $grader->grade($clean['findings'], $clean['cleanup'])->letter);
+
+        $partial = (new Scanner())->scan(dirname(__DIR__) . '/fixtures/partial-plugin');
+        self::assertSame('D', $grader->grade($partial['findings'], $partial['cleanup'])->letter);
+
+        $dirty = (new Scanner())->scan(dirname(__DIR__) . '/fixtures/dirty-plugin');
+        self::assertSame('F', $grader->grade($dirty['findings'], $dirty['cleanup'])->letter);
+    }
+}

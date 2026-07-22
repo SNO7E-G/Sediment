@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Sediment;
 
+use Sediment\Command\GradeCommand;
 use Sediment\Command\ScanCommand;
+use Sediment\Command\UninstallCommand;
 use Symfony\Component\Console\Application as BaseApplication;
 
 /**
@@ -21,5 +23,7 @@ final class Application extends BaseApplication
         parent::__construct(self::NAME, self::VERSION);
 
         $this->add(new ScanCommand());
+        $this->add(new GradeCommand());
+        $this->add(new UninstallCommand());
     }
 }

@@ -34,6 +34,13 @@ a tagged release.
   uninstall — inside `uninstall.php` or a registered callback — never at runtime.
 - `sediment scan` — a grouped terminal report with a per-scan resolution rate and
   a cleanup summary.
+- `sediment grade` — an A–F letter and a 0–100 weighted-damage score derived from
+  the cleanup diff, weighting autoloaded options, tables, and cron the heaviest,
+  and excluding core and unresolvable artifacts from the verdict.
+- `sediment uninstall` — generates a syntactically valid `uninstall.php` covering
+  the verified/resolved artifacts a plugin leaves behind. It never emits a core,
+  already-cleaned, `pattern`, or `dynamic` key, and rebuilds `{prefix}` from
+  `$wpdb->prefix`.
 - WordPress core allowlist (options, tables, cron hooks) and the safety-invariant
   test — core artifacts never enter a deletable set — with its own
   `core-protection` CI job (§13).
