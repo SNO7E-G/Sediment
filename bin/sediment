@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Sediment CLI entry point.
+ *
+ * Works both from a local clone (vendor/ alongside) and when installed as a
+ * Composer dependency (vendor/bin/sediment -> this file, autoload three levels up).
+ */
+(static function (): void {
+    $candidates = [
+        __DIR__ . '/../vendor/autoload.php',   // local clone / PHAR
+        __DIR__ . '/../../../autoload.php',     // installed as a dependency
+    ];
+
+    foreach ($candidates as $autoload) {
+        if (is_file($autoload)) {
+            require $autoload;
+            return;
+        }
+    }
+
+    fwrite(STDERR, "Sediment: dependencies not installed. Run `composer install`.\n");
+    exit(1);
+})();
+
+exit((new Sediment\Application())->run());
