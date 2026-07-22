@@ -12,6 +12,8 @@ use PhpParser\Node\Expr\AssignOp;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Class_;
+use PhpParser\Node\Stmt\ClassMethod;
+use PhpParser\Node\Stmt\Function_;
 use PhpParser\NodeVisitorAbstract;
 use Sediment\Analyzer\ExpressionResolver;
 use Sediment\Analyzer\Finding;
@@ -40,6 +42,9 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
     /** @var list<array<string, string|null>> stack of per-function local scopes */
     private array $localScopes = [[]];
 
+    /** @var list<string|null> stack of enclosing function identifiers (null = anonymous) */
+    private array $functionStack = [];
+
     public function __construct(
         protected readonly string $file,
         protected readonly ExpressionResolver $resolver,
@@ -56,6 +61,7 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
 
         if ($node instanceof FunctionLike) {
             $this->localScopes[] = [];
+            $this->functionStack[] = $this->functionIdentifier($node);
         }
 
         if ($node instanceof Assign || $node instanceof AssignOp) {
@@ -75,9 +81,35 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
 
         if ($node instanceof FunctionLike) {
             array_pop($this->localScopes);
+            array_pop($this->functionStack);
         }
 
         return null;
+    }
+
+    /**
+     * The enclosing named function ("func") or method ("Class::method"), used to
+     * scope cleanup detection to an uninstall callback. Null inside a closure or
+     * arrow function.
+     */
+    protected function currentFunction(): ?string
+    {
+        return $this->functionStack === [] ? null : $this->functionStack[count($this->functionStack) - 1];
+    }
+
+    private function functionIdentifier(FunctionLike $node): ?string
+    {
+        if ($node instanceof Function_) {
+            return $node->name->toString();
+        }
+
+        if ($node instanceof ClassMethod) {
+            $class = $this->currentClass();
+
+            return $class !== null ? $class . '::' . $node->name->toString() : $node->name->toString();
+        }
+
+        return null; // closure / arrow function
     }
 
     /** Inspect a single node and record any findings. */

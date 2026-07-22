@@ -10,6 +10,8 @@ use PhpParser\NodeTraverser;
 use PhpParser\Parser;
 use PhpParser\ParserFactory;
 use Sediment\Analyzer\Visitors\OptionVisitor;
+use Sediment\Cleanup\CleanupDiffer;
+use Sediment\Cleanup\CleanupVisitor;
 
 /**
  * Orchestrates the scan in two passes (§12):
@@ -48,7 +50,8 @@ final class Scanner
      * @return array{
      *     files: list<string>,
      *     findings: list<Finding>,
-     *     errors: list<array{file: string, message: string}>
+     *     errors: list<array{file: string, message: string}>,
+     *     cleanup: array{has_uninstall_php: bool, has_uninstall_hook: bool}
      * }
      */
     public function scan(string $root): array
@@ -89,12 +92,21 @@ final class Scanner
             $parsed[] = ['file' => $relative, 'ast' => $ast];
         }
 
-        // Pass 2 — detect, resolving against the now-complete symbol table.
+        // Pass 2 — detect creates and cleanup removals in one traversal per file,
+        // resolving against the now-complete symbol table.
         $symbols->reconcileInheritedProperties();
         $resolver = new ExpressionResolver($symbols);
+
         $findings = [];
+        $removals = [];
+        $callbacks = [];
+        $hasUninstallPhp = false;
 
         foreach ($parsed as $entry) {
+            if (CleanupDiffer::isUninstallFile($entry['file'])) {
+                $hasUninstallPhp = true;
+            }
+
             $visitors = [new OptionVisitor($entry['file'], $resolver)];
 
             foreach (self::OPTIONAL_VISITORS as $class) {
@@ -105,17 +117,27 @@ final class Scanner
                 }
             }
 
+            $cleanup = new CleanupVisitor($entry['file'], $resolver);
+
             try {
                 $traverser = new NodeTraverser();
                 foreach ($visitors as $visitor) {
                     $traverser->addVisitor($visitor);
                 }
+                $traverser->addVisitor($cleanup);
                 $traverser->traverse($entry['ast']);
 
                 foreach ($visitors as $visitor) {
                     foreach ($visitor->findings() as $finding) {
                         $findings[] = $finding;
                     }
+                }
+
+                foreach ($cleanup->removals() as $removal) {
+                    $removals[] = $removal;
+                }
+                foreach ($cleanup->uninstallCallbacks() as $callback) {
+                    $callbacks[] = $callback;
                 }
             } catch (\Throwable $e) {
                 // M14 — an unexpected node or a visitor bug must never abort the
@@ -124,10 +146,16 @@ final class Scanner
             }
         }
 
+        $findings = CleanupDiffer::apply($findings, $removals, $callbacks);
+
         return [
             'files' => $files,
             'findings' => $findings,
             'errors' => $errors,
+            'cleanup' => [
+                'has_uninstall_php' => $hasUninstallPhp,
+                'has_uninstall_hook' => $callbacks !== [],
+            ],
         ];
     }
 

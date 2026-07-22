@@ -56,6 +56,7 @@ final class ScanCommand extends Command
             $this->renderGroup($io, 'Cron events', $this->ofType($findings, 'cron'), false);
             $this->renderGroup($io, 'Transients', $this->ofType($findings, 'transient'), false);
             $this->renderCoverage($io, $findings);
+            $this->renderCleanup($io, $findings, $result['cleanup']);
         }
 
         if ($result['errors'] !== []) {
@@ -92,6 +93,7 @@ final class ScanCommand extends Command
         if ($showAutoload) {
             $headers[] = 'autoload';
         }
+        $headers[] = 'cleaned';
         $headers[] = 'source';
 
         $rows = [];
@@ -104,6 +106,7 @@ final class ScanCommand extends Command
             if ($showAutoload) {
                 $row[] = $this->autoloadBadge($f->autoload);
             }
+            $row[] = $this->cleanedBadge($f->cleaned);
             $row[] = $f->file . ':' . $f->line;
             $rows[] = $row;
         }
@@ -133,6 +136,33 @@ final class ScanCommand extends Command
         $io->newLine();
     }
 
+    /**
+     * @param list<Finding> $findings
+     * @param array{has_uninstall_php: bool, has_uninstall_hook: bool} $cleanup
+     */
+    private function renderCleanup(SymfonyStyle $io, array $findings, array $cleanup): void
+    {
+        $total = count($findings);
+        $cleaned = count(array_filter($findings, static fn (Finding $f): bool => $f->cleaned === true));
+
+        $path = [];
+        if ($cleanup['has_uninstall_php']) {
+            $path[] = 'uninstall.php';
+        }
+        if ($cleanup['has_uninstall_hook']) {
+            $path[] = 'register_uninstall_hook';
+        }
+        $pathText = $path === [] ? '<fg=red>none</>' : implode(' + ', $path);
+
+        $io->writeln(sprintf(
+            ' Cleanup path: %s — <info>%d</info> of %d detected artifacts removed on uninstall.',
+            $pathText,
+            $cleaned,
+            $total
+        ));
+        $io->newLine();
+    }
+
     private function badge(string $confidence): string
     {
         return match ($confidence) {
@@ -150,6 +180,15 @@ final class ScanCommand extends Command
             'no'      => '<fg=green>no</>',
             'unknown' => '<fg=gray>?</>',
             default   => '',
+        };
+    }
+
+    private function cleanedBadge(?bool $cleaned): string
+    {
+        return match ($cleaned) {
+            true  => '<fg=green>yes</>',
+            false => '<fg=red>no</>',
+            default => '',
         };
     }
 }

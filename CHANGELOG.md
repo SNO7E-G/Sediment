@@ -27,7 +27,13 @@ a tagged release.
 - Straight-line local-variable resolution within a function, poisoned on any
   conflicting or non-literal reassignment, so a key or SQL string assigned to a
   variable before use still resolves.
-- `sediment scan` — a grouped terminal report with a per-scan resolution rate.
+- Cleanup diff: `uninstall.php` and `register_uninstall_hook` callbacks are parsed
+  with the same engine to detect removals (`delete_option`, `DROP TABLE`,
+  `wp_clear_scheduled_hook`, `delete_transient`, …). Every created artifact gets a
+  per-item `cleaned` flag, and a removal only counts when it actually runs on
+  uninstall — inside `uninstall.php` or a registered callback — never at runtime.
+- `sediment scan` — a grouped terminal report with a per-scan resolution rate and
+  a cleanup summary.
 - WordPress core allowlist (options, tables, cron hooks) and the safety-invariant
   test — core artifacts never enter a deletable set — with its own
   `core-protection` CI job (§13).

@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['8.1', '8.2', '8.3', '8.4']
+        php: ['8.3', '8.4', '8.5']
 
     steps:
       - uses: actions/checkout@v4
@@ -30,8 +30,7 @@ jobs:
       - name: Validate composer.json
         run: composer validate --strict
 
-      # No committed lock file (this is a library): resolve per PHP version so
-      # 8.1 picks symfony/console 6.4 and 8.2+ picks 7.x.
+      # No committed lock file (this is a library): resolve fresh per PHP version.
       - name: Install dependencies
         run: composer update --prefer-dist --no-interaction --no-progress
 

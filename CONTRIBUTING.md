@@ -7,7 +7,7 @@ This guide covers how to get set up and what a good change looks like.
 
 ## Getting started
 
-You need PHP 8.1+ and Composer. No WordPress install is required; Sediment reads
+You need PHP 8.3+ and Composer. No WordPress install is required; Sediment reads
 source, it never runs it.
 
 ```bash

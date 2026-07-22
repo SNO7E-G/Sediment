@@ -29,6 +29,24 @@ final class Finding
         public readonly ?string $autoload = null,   // 'yes' | 'no' | 'unknown' for options; null when N/A
         public readonly ?string $expression = null, // pretty-printed source when unresolved
         public readonly ?string $recurrence = null, // cron recurrence, e.g. 'daily' | 'single'; null when N/A
+        public readonly ?bool $cleaned = null,      // set by the cleanup diff; null until then
     ) {
+    }
+
+    /** Return a copy with the cleanup verdict set (§8, M8). */
+    public function withCleaned(?bool $cleaned): self
+    {
+        return new self(
+            type: $this->type,
+            function: $this->function,
+            key: $this->key,
+            confidence: $this->confidence,
+            file: $this->file,
+            line: $this->line,
+            autoload: $this->autoload,
+            expression: $this->expression,
+            recurrence: $this->recurrence,
+            cleaned: $cleaned,
+        );
     }
 }

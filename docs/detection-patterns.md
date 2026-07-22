@@ -51,6 +51,20 @@ transient is stored by WordPress as two option rows — `_transient_{key}` and
 Sediment records the canonical transient name; the twin rows are materialized
 later, by the uninstall generator.
 
+## Cleanup
+
+The cleanup path is parsed with the same engine. Removal calls — `delete_option`,
+`delete_site_option`, `delete_transient`, `delete_site_transient`,
+`wp_clear_scheduled_hook`, `wp_unschedule_hook`, `wp_unschedule_event`, and
+`DROP TABLE` via `$wpdb->query()` — are matched against the creates they mirror,
+and every created artifact carries a `cleaned` flag.
+
+A removal only counts when it actually runs on uninstall: inside `uninstall.php`,
+or inside a function or method registered via `register_uninstall_hook`. A
+`delete_option()` called during normal operation does not credit cleanup.
+Matching is by exact key within an artifact type; a partly-dynamic (`pattern`)
+key is reported as not cleaned rather than guessed.
+
 ## Not yet detected
 
 Metadata (post/user/term/comment), roles and capabilities, custom post types

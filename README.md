@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/SNO7E-G/Sediment/actions/workflows/tests.yml"><img src="https://github.com/SNO7E-G/Sediment/actions/workflows/tests.yml/badge.svg" alt="Tests"></a>
-  <img src="https://img.shields.io/badge/PHP-8.1%2B-777bb4.svg" alt="PHP 8.1+">
+  <img src="https://img.shields.io/badge/PHP-8.3%2B-777bb4.svg" alt="PHP 8.3+">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--2.0--or--later-blue.svg" alt="License: GPL-2.0-or-later"></a>
 </p>
 
@@ -20,7 +20,7 @@ Sediment takes a different route: **it reads the source.** A plugin's own code c
 
 ## Why it's different
 
-- **Reads code, never runs it.** Pure static analysis — no WordPress install, no database, nothing executed. It runs anywhere PHP 8.1+ runs.
+- **Reads code, never runs it.** Pure static analysis — no WordPress install, no database, nothing executed. It runs anywhere PHP 8.3+ runs.
 - **Honest about certainty.** Every finding carries a confidence level, and the report states what fraction of write calls it was able to resolve. It never presents a guess as a fact.
 - **Real AST analysis.** Built on `nikic/php-parser`, not regular expressions.
 
@@ -88,11 +88,11 @@ Sediment is built in stages, each useful on its own:
 2. **The Index** — a public, openly licensed dataset mapping thousands of plugins to the data they create.
 3. **Inspector** — a read-only WordPress plugin that attributes leftover data on a live site against the Index.
 
-The full specification lives in [`sediment-project-spec.md`](sediment-project-spec.md).
+Design notes and the detection reference live in [`docs/`](docs/).
 
 ## Status
 
-Early development. The analyzer detects **options, tables, cron events, and transients** today — each with a confidence level and honest coverage reporting — including keys built from constants, class constants, `$this->` properties, string interpolation, and `$wpdb->prefix`. Cleanup diffing (matching what a plugin removes against what it creates), grading, and the `uninstall.php` generator are next. Public interfaces may change before the first tagged release.
+Early development. The analyzer detects **options, tables, cron events, and transients** — each with a confidence level and honest coverage — resolving keys built from constants, class constants, `$this->` properties, string interpolation, local variables, and `$wpdb->prefix`. It then **diffs them against the plugin's `uninstall.php` / `register_uninstall_hook`** to mark every artifact *cleaned* or *left behind*. Grading and the `uninstall.php` generator are next. Public interfaces may change before the first tagged release.
 
 ## Development
 

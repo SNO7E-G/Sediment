@@ -37,8 +37,7 @@ Where a key has a stable leading literal (`'mp_' . $x`), it is reported as a
 
 Metadata (post/user/term/comment), roles and capabilities, custom post types and
 taxonomies, filesystem writes, rewrite rules, options written via direct `$wpdb`
-SQL, and Action Scheduler jobs. These are on the roadmap and tracked in the
-project specification.
+SQL, and Action Scheduler jobs. These are on the roadmap.
 
 ## Scope of a scan
 
