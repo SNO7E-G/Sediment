@@ -2,50 +2,77 @@
 
 All notable changes to Sediment are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project follows
-[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html). While the project is
+pre-1.0, minor versions may still change public interfaces.
 
-## [Unreleased]
+## [0.1.1] — 2026-07-22
 
-### Changed — correctness and safety hardening
+A correctness and safety pass following a full adversarial review of the
+analyzer. Every change here errs toward under-claiming rather than guessing: a
+key is only reported as owned, cleaned, or safe to delete when the source
+genuinely proves it.
 
-Following a full adversarial review of the analyzer, a set of false-confidence,
-unsafe-generation, and robustness issues were closed. Each fix errs toward
-under-claiming, never toward guessing:
+### Fixed
 
-- Namespaces resolve to fully-qualified names, so classes or functions that share
-  a short name across namespaces no longer cross-resolve or wrongly credit an
-  uninstall callback. Anonymous classes are keyed per file.
-- Variables bound by parameters, `foreach`, `global`, `static`, `catch`, and
-  destructuring resolve to `dynamic` — a single literal assignment can no longer
-  claim a variable whose value actually varies at runtime.
-- Table SQL is read with anchored, statement-aware parsing shared by detection
-  and cleanup: `CREATE TABLE` inside an INSERT value is ignored, and every
-  statement in a multi-statement `dbDelta` is captured.
-- Cleanup credit is scoped to what actually runs on uninstall — confident
-  removals only, in the plugin-root `uninstall.php` (a top-level statement or a
-  function it invokes) or a registered callback, matched case-insensitively. A
-  `$wpdb` table drop requires the `->query` method.
-- The WordPress core allowlist gained roles, `uninstall_plugins`, and more cron
-  hooks, so a generated `uninstall.php` can never delete `wp_user_roles` or peers.
-- The generator rebuilds the `{prefix}` token from `$wpdb->prefix` for every
-  artifact type, wherever it appears in the key.
-- The grader counts unique keys rather than call sites, treats unknown-autoload
-  options as autoloaded, caps the score when there is no uninstall routine, and
-  no longer reports "creates no data" for a plugin whose writes were merely
-  unresolvable.
-- Scans survive an unreadable directory, and scanned source is escaped before it
-  reaches the terminal report.
-
-## [0.1.0-beta] — 2026-07-22
-
-The first public preview: a complete static analyzer for a WordPress plugin's
-database footprint, from detection through grading and teardown generation. It
-reads source only — no WordPress runtime, no database.
+- **Cross-namespace resolution.** Names are resolved to their fully-qualified
+  form, so two classes or functions that share a short name in different
+  namespaces no longer cross-resolve, and a same-named method in an unrelated
+  class can no longer credit an uninstall callback.
+- **Local-variable binding.** Variables bound by function parameters, `foreach`,
+  `global`, `static`, `catch`, and list/array destructuring now resolve to
+  `dynamic`. Previously a single literal assignment could claim a variable whose
+  value actually varies at runtime, which could flow into a generated deletion.
+- **Anonymous-class collisions.** Anonymous classes are keyed per file, closing a
+  cross-file symbol leak.
+- **Table SQL parsing.** Detection and cleanup share one anchored, statement-aware
+  parser: `CREATE TABLE` appearing inside an INSERT value or a comment is no
+  longer mistaken for a table, and every statement in a multi-statement `dbDelta`
+  string is captured rather than only the first.
+- **Cleanup scoping.** Credit is limited to code that actually runs on uninstall:
+  only confident removals count, only inside the plugin-root `uninstall.php` (a
+  top-level statement or a function it invokes) or a registered callback matched
+  case-insensitively. A dead function defined in `uninstall.php` no longer credits
+  cleanup, a `$wpdb` table drop now requires the `->query` method, and a
+  `pattern`/`dynamic` removal never credits a specific create.
+- **Never crash (M14).** A scan survives an unreadable subdirectory instead of
+  aborting, and the first pass is guarded like the second.
 
 ### Added
 
-- A two-pass analyzer with a symbol-table pass — `define()` and `const`, class
-  constants, and literal properties — so a key built from a symbol in one file
+- Roles and plugin-lifecycle options — `user_roles` / `wp_user_roles` /
+  `{prefix}user_roles`, `uninstall_plugins`, `recently_activated`, and more — plus
+  additional core cron hooks in the WordPress core allowlist, so a generated
+  `uninstall.php` can never emit a delete for `wp_user_roles` or its peers.
+- Case-insensitive uninstall-callback matching, and per-function argument names
+  for removal detection.
+
+### Changed
+
+- The generated `uninstall.php` rebuilds the `{prefix}` token from `$wpdb->prefix`
+  for options, cron, and transients (not only tables) and wherever it appears in
+  a key; the plugin name in the header docblock is sanitized.
+- The grader counts unique keys rather than call sites, treats unknown-autoload
+  options as autoloaded, caps the score when a plugin has no uninstall routine,
+  and reports low coverage instead of "creates no data" when a plugin's writes
+  were merely unresolvable.
+- Scanned source is escaped before it reaches the terminal report.
+
+### Documentation
+
+- Rewrote the README with an accurate sample of the scan output and a Limitations
+  section, and documented the remaining `$wpdb`-aliasing and cron-with-arguments
+  edges.
+
+## [0.1.0] — 2026-07-22
+
+The first public preview: a complete static analyzer for a WordPress plugin's
+database footprint, from detection through grading and teardown generation. It
+reads source only — no WordPress runtime, no database — and runs on PHP 8.3+.
+
+### Added
+
+- A two-pass analyzer with a symbol-table pass (`define()` and `const`, class
+  constants, and literal properties) so a key built from a symbol in one file
   resolves even when it is used in another.
 - An expression resolver covering literals, constants, class constants (`self::`,
   `Foo::`), `$this->` properties, string concatenation, string interpolation, and
@@ -56,7 +83,7 @@ reads source only — no WordPress runtime, no database.
   `{prefix}` token), **cron events** (with recurrence), and **transients**.
 - A cleanup diff that parses `uninstall.php` and `register_uninstall_hook`
   callbacks with the same engine and marks every artifact cleaned or left behind.
-- Three commands: `sediment scan` (a grouped report with a resolution rate and
+- Three commands — `sediment scan` (a grouped report with a resolution rate and
   cleanup summary), `sediment grade` (an A–F letter and a 0–100 weighted-damage
   score), and `sediment uninstall` (a generated, `php -l`-valid teardown covering
   only the high-confidence, non-core artifacts a plugin leaves behind).
@@ -64,7 +91,7 @@ reads source only — no WordPress runtime, no database.
   that core artifacts can never enter a deletable set.
 - A test suite spanning symbol resolution, autoload capture, interpolation and
   pattern extraction, cross-file constants, the cleanup diff, grading, generation,
-  and hostile-input degradation.
+  and hostile-input degradation, on a PHP 8.3 / 8.4 / 8.5 matrix.
 
 ### Security
 
@@ -73,5 +100,5 @@ reads source only — no WordPress runtime, no database.
   properties never resolve to a stale literal. PHP 8 named arguments resolve by
   name, and first-class callables are ignored rather than crashing a scan.
 
-[Unreleased]: https://github.com/SNO7E-G/Sediment/compare/Beta...main
-[0.1.0-beta]: https://github.com/SNO7E-G/Sediment/releases/tag/Beta
+[0.1.1]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.1.1
+[0.1.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.1.0
