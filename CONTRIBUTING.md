@@ -72,17 +72,24 @@ to the issue is the fastest path to a fix.
 
 ## Releasing
 
-Releases are cut from tags, and the `Release` workflow does the publishing:
+`CHANGELOG.md` is the source of truth — there is no tagging step.
 
-1. Add a `## [X.Y.Z] — <date>` section to `CHANGELOG.md` describing the release.
-2. Commit it, then tag and push:
+Sediment is in alpha, so a release carries a meaningful body of work rather than
+a single change. Accumulate that work under a heading marked unreleased:
 
-   ```bash
-   git tag vX.Y.Z
-   git push origin vX.Y.Z
-   ```
+```markdown
+## [0.3.0] — unreleased
+```
 
-3. Pushing the tag runs [`.github/workflows/release.yml`](.github/workflows/release.yml),
-   which extracts that changelog section and publishes the GitHub release. A tag
-   with a pre-release suffix (for example `v0.2.0-beta.1`) is published as a
-   pre-release; a plain `vX.Y.Z` becomes the latest release.
+When it's ready to ship, swap "unreleased" for the date and push to `main`:
+
+```markdown
+## [0.3.0] — 2026-08-14
+```
+
+[`.github/workflows/release.yml`](.github/workflows/release.yml) then tags the
+commit and publishes the release with that section as its notes. The date is the
+switch, so the changelog and the releases page can never disagree. A version with
+a pre-release suffix (`0.3.0-beta.1`) is published as a pre-release; a plain
+`X.Y.Z` becomes the latest release. Re-publishing is a no-op: if the release
+already exists, the workflow does nothing.

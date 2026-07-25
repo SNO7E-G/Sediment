@@ -38,6 +38,13 @@ and custom content types — and can be consumed by other tools and by CI.
 - **`sediment check --fail-on=<grade>`** exits non-zero when a plugin grades worse
   than a threshold, so a plugin author can gate their own CI on their database
   footprint the same way they gate on tests.
+- `docs/manifest-schema.md` documents the manifest and the guarantees a consumer
+  can rely on — every group always present, `{prefix}` never expanded, `sources`
+  always an array, `cleaned` per item, and `unresolved` reported rather than
+  hidden.
+- Releases are now published straight from this changelog: when the top section
+  carries a date instead of "unreleased", pushing it to `main` tags the commit and
+  publishes the release with those notes.
 - Cleanup detection for the new types: `delete_post_meta`,
   `delete_post_meta_by_key`, `delete_user_meta`, `delete_term_meta`,
   `delete_comment_meta`, `delete_metadata` (with its object type resolved), and

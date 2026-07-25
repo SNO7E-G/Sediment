@@ -72,7 +72,7 @@ php bin/sediment scan path/to/plugin --json > manifest.json
 php bin/sediment check path/to/plugin --fail-on=C   # exit 1 if worse than C
 ```
 
-The manifest carries the grade, the coverage counts, and every artifact with its confidence, `cleaned` flag, and source lines — it is the contract other tools build on. `check` is the same analysis wired for CI, so a plugin author can fail a build on their database footprint the way they already fail it on tests.
+The manifest carries the grade, the coverage counts, and every artifact with its confidence, `cleaned` flag, and source lines — it is the contract other tools build on, documented in [`docs/manifest-schema.md`](docs/manifest-schema.md). `check` is the same analysis wired for CI, so a plugin author can fail a build on their database footprint the way they already fail it on tests.
 
 ## What it detects
 

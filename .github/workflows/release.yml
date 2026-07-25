@@ -1,33 +1,59 @@
 name: Release
 
-# Publishes a GitHub release whenever a version tag is pushed, using the matching
-# section of CHANGELOG.md as the release notes. A tag with a pre-release suffix
-# (e.g. v0.2.0-beta.1) is published as a pre-release.
+# Publishes a GitHub release straight from CHANGELOG.md.
+#
+# The top `## [X.Y.Z]` section of the changelog is the source of truth. When that
+# section carries a date instead of "unreleased", pushing it to main tags the
+# commit and publishes the release with those notes. Marking a section
+# "unreleased" is how you accumulate work without shipping it, so the date is the
+# release switch.
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches: [ main ]
+    paths: [ 'CHANGELOG.md' ]
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   release:
-    name: Publish release
+    name: Publish from changelog
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Extract changelog notes for this tag
-        id: notes
+      - name: Read the top changelog section
+        id: changelog
         run: |
-          version="${GITHUB_REF_NAME#v}"
+          heading=$(grep -m1 '^## \[' CHANGELOG.md || true)
+          if [ -z "$heading" ]; then
+            echo "No release section found in CHANGELOG.md."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
 
-          # Pull the lines under "## [<version>]" up to the next release heading
-          # or the link-reference definitions at the foot of the changelog.
-          # A literal prefix match avoids escaping pitfalls with dynamic regexes.
+          version=$(printf '%s\n' "$heading" | sed -E 's/^## \[([^]]+)\].*/\1/')
+
+          # A section still marked "unreleased" is work in progress, not a release.
+          if printf '%s\n' "$heading" | grep -qi 'unreleased'; then
+            echo "Top section ${version} is marked unreleased; nothing to publish."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Already shipped? Then this push changed something else in the file.
+          if gh release view "v${version}" >/dev/null 2>&1; then
+            echo "Release v${version} already exists; nothing to publish."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Body: everything under this heading, up to the next release or the
+          # link definitions at the foot of the file. Literal prefix match avoids
+          # escaping pitfalls with a dynamic regex.
           awk -v ver="$version" '
             BEGIN { header = "## [" ver "]" }
             index($0, header) == 1 { flag = 1; next }
@@ -36,18 +62,19 @@ jobs:
             flag { print }
           ' CHANGELOG.md > RELEASE_NOTES.md
 
-          if [ ! -s RELEASE_NOTES.md ]; then
-            echo "No changelog entry for ${version}; GitHub will auto-generate notes." > RELEASE_NOTES.md
-            echo "fallback=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "fallback=false" >> "$GITHUB_OUTPUT"
-          fi
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          echo "publish=true" >> "$GITHUB_OUTPUT"
+          echo "Publishing v${version}."
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Create the release
+        if: steps.changelog.outputs.publish == 'true'
         uses: softprops/action-gh-release@v2
         with:
-          name: ${{ github.ref_name }}
+          tag_name: v${{ steps.changelog.outputs.version }}
+          target_commitish: ${{ github.sha }}
+          name: v${{ steps.changelog.outputs.version }}
           body_path: RELEASE_NOTES.md
-          prerelease: ${{ contains(github.ref_name, '-') }}
-          make_latest: ${{ !contains(github.ref_name, '-') }}
-          generate_release_notes: ${{ steps.notes.outputs.fallback == 'true' }}
+          prerelease: ${{ contains(steps.changelog.outputs.version, '-') }}
+          make_latest: ${{ !contains(steps.changelog.outputs.version, '-') }}
