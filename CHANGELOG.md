@@ -8,7 +8,7 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
-## [0.2.0] — unreleased
+## [0.2.0] — 2026-07-26
 
 Coverage expansion and the machine-readable output. The analyzer now sees the
 artifact types that prefix-matching tools structurally cannot — metadata, roles,
