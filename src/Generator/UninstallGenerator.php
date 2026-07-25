@@ -31,6 +31,9 @@ final class UninstallGenerator
         $tables = [];
         $cron = [];
         $transients = [];   // key => delete function
+        $meta = [];         // key => meta object type
+        $roles = [];
+        $content = [];      // post types / taxonomies — reported, never deleted
 
         foreach ($findings as $finding) {
             if (!$this->isDeletable($finding)) {
@@ -45,17 +48,19 @@ final class UninstallGenerator
                 'table'     => $tables[$key] = true,
                 'cron'      => $cron[$key] = true,
                 'transient' => $transients[$key] = $this->isSiteScoped($finding) ? 'delete_site_transient' : 'delete_transient',
+                'post_meta', 'user_meta', 'term_meta', 'comment_meta' => $meta[$key] = str_replace('_meta', '', $finding->type),
+                'role'      => $roles[$key] = true,
+                'post_type', 'taxonomy' => $content[$key] = $finding->type,
                 default     => null,
             };
         }
 
-        ksort($options);
-        ksort($siteOptions);
-        ksort($tables);
-        ksort($cron);
-        ksort($transients);
+        foreach ([&$options, &$siteOptions, &$tables, &$cron, &$transients, &$meta, &$roles, &$content] as &$group) {
+            ksort($group);
+        }
+        unset($group);
 
-        return $this->render($pluginName, $options, $siteOptions, $tables, $cron, $transients);
+        return $this->render($pluginName, $options, $siteOptions, $tables, $cron, $transients, $meta, $roles, $content);
     }
 
     private function isDeletable(Finding $finding): bool
@@ -77,10 +82,16 @@ final class UninstallGenerator
      * @param array<string, true> $tables
      * @param array<string, true> $cron
      * @param array<string, string> $transients
+     * @param array<string, string> $meta key => object type (post|user|term|comment)
+     * @param array<string, true> $roles
+     * @param array<string, string> $content post type / taxonomy names, reported only
      */
-    private function render(string $pluginName, array $options, array $siteOptions, array $tables, array $cron, array $transients): string
+    private function render(string $pluginName, array $options, array $siteOptions, array $tables, array $cron, array $transients, array $meta = [], array $roles = [], array $content = []): string
     {
-        $needsWpdb = $tables !== [] || $this->anyPrefixed([...array_keys($options), ...array_keys($siteOptions), ...array_keys($cron), ...array_keys($transients)]);
+        $needsWpdb = $tables !== [] || $this->anyPrefixed([
+            ...array_keys($options), ...array_keys($siteOptions), ...array_keys($cron),
+            ...array_keys($transients), ...array_keys($meta), ...array_keys($roles),
+        ]);
 
         $lines = [
             '<?php',
@@ -136,6 +147,35 @@ final class UninstallGenerator
             $lines[] = '// Transients';
             foreach ($transients as $key => $function) {
                 $lines[] = $function . '(' . $this->keyExpression($key) . ');';
+            }
+        }
+
+        if ($meta !== []) {
+            $lines[] = '';
+            $lines[] = '// Metadata (removed across every object)';
+            foreach ($meta as $key => $objectType) {
+                $lines[] = $objectType === 'post'
+                    ? 'delete_post_meta_by_key(' . $this->keyExpression($key) . ');'
+                    : sprintf("delete_metadata('%s', 0, %s, '', true);", $objectType, $this->keyExpression($key));
+            }
+        }
+
+        if ($roles !== []) {
+            $lines[] = '';
+            $lines[] = '// Roles (this also drops the capabilities they were created with)';
+            foreach (array_keys($roles) as $role) {
+                $lines[] = 'remove_role(' . $this->keyExpression($role) . ');';
+            }
+        }
+
+        if ($content !== []) {
+            // Deleting posts or terms destroys user content, which an uninstall
+            // routine must never do silently. Report them and let a human decide.
+            $lines[] = '';
+            $lines[] = '// This plugin also registers content that is intentionally NOT deleted here,';
+            $lines[] = '// because removing it would destroy user data:';
+            foreach ($content as $name => $type) {
+                $lines[] = sprintf('//   - %s "%s"', str_replace('_', ' ', $type), $name);
             }
         }
 

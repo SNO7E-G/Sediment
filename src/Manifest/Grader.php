@@ -27,6 +27,25 @@ final class Grader
     private const WEIGHT_OPTION = 4;
     private const WEIGHT_TRANSIENT = 3;
 
+    /**
+     * A registered post type left behind orphans its content as unreachable rows
+     * in wp_posts — often tens of thousands — so it weighs like a table. Metadata
+     * multiplies per object, roles and capabilities ride on every user.
+     */
+    private const WEIGHT_BY_TYPE = [
+        'post_type'    => 15,
+        'taxonomy'     => 9,
+        'post_meta'    => 10,
+        'user_meta'    => 8,
+        'term_meta'    => 6,
+        'comment_meta' => 6,
+        'role'         => 8,
+        'capability'   => 5,
+    ];
+
+    /** Artifact types heavy enough to cap a plugin at grade D (§10). */
+    private const HEAVY_TYPES = ['table', 'cron', 'post_type'];
+
     /** Below this many leftover light items a plugin can still reach grade C. */
     private const MINOR_LEFTOVER_LIMIT = 5;
 
@@ -70,14 +89,15 @@ final class Grader
         $score = $this->score($left);
         $tables = $this->countType($left, 'table');
         $cron = $this->countType($left, 'cron');
+        $postTypes = $this->countType($left, 'post_type');
         // 'unknown' autoload is treated as autoloaded for the grade — the safe direction.
         $autoloaded = count(array_filter(
             $left,
             static fn (Finding $f): bool => $f->type === 'option' && ($f->autoload === 'yes' || $f->autoload === 'unknown'),
         ));
 
-        if ($tables > 0 || $autoloaded > 0 || $cron > 0) {
-            return new Grade('D', $score, $cleaned, count($left), $this->describeHeavy($tables, $autoloaded, $cron));
+        if ($tables > 0 || $autoloaded > 0 || $cron > 0 || $postTypes > 0) {
+            return new Grade('D', $score, $cleaned, count($left), $this->describeHeavy($tables, $autoloaded, $cron, $postTypes));
         }
 
         if (count($left) < self::MINOR_LEFTOVER_LIMIT) {
@@ -161,7 +181,7 @@ final class Grader
                 'unknown' => self::WEIGHT_OPTION_MAYBE_AUTOLOAD,
                 default   => self::WEIGHT_OPTION,
             },
-            default     => self::WEIGHT_OPTION,
+            default     => self::WEIGHT_BY_TYPE[$finding->type] ?? self::WEIGHT_OPTION,
         };
     }
 
@@ -173,7 +193,7 @@ final class Grader
         return count(array_filter($findings, static fn (Finding $f): bool => $f->type === $type));
     }
 
-    private function describeHeavy(int $tables, int $autoloaded, int $cron): string
+    private function describeHeavy(int $tables, int $autoloaded, int $cron, int $postTypes = 0): string
     {
         $parts = [];
         if ($tables > 0) {
@@ -184,6 +204,9 @@ final class Grader
         }
         if ($cron > 0) {
             $parts[] = sprintf('%d cron event(s)', $cron);
+        }
+        if ($postTypes > 0) {
+            $parts[] = sprintf('%d post type(s) with orphaned content', $postTypes);
         }
 
         return 'Leaves ' . implode(', ', $parts) . ' behind.';

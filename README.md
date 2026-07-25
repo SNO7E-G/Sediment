@@ -7,6 +7,7 @@
 <p align="center">
   <a href="https://github.com/SNO7E-G/Sediment/actions/workflows/tests.yml"><img src="https://github.com/SNO7E-G/Sediment/actions/workflows/tests.yml/badge.svg" alt="Tests"></a>
   <a href="https://github.com/SNO7E-G/Sediment/releases"><img src="https://img.shields.io/github/v/release/SNO7E-G/Sediment?include_prereleases&label=release&color=blue" alt="Latest release"></a>
+  <img src="https://img.shields.io/badge/status-alpha-orange.svg" alt="Status: alpha">
   <img src="https://img.shields.io/badge/PHP-8.3%2B-777bb4.svg" alt="PHP 8.3+">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--2.0--or--later-blue.svg" alt="License: GPL-2.0-or-later"></a>
 </p>
@@ -62,15 +63,22 @@ Tables (1)
  Cleanup path: uninstall.php — 8 of 12 detected artifacts removed on uninstall.
 ```
 
-Grade a plugin, generate the `uninstall.php` it should have shipped with, or emit a machine-readable manifest:
+Grade a plugin, generate the `uninstall.php` it should have shipped with, emit a machine-readable manifest, or gate your CI on the result:
 
 ```bash
 php bin/sediment grade path/to/plugin
 php bin/sediment uninstall path/to/plugin > uninstall.php
 php bin/sediment scan path/to/plugin --json > manifest.json
+php bin/sediment check path/to/plugin --fail-on=C   # exit 1 if worse than C
 ```
 
-The manifest carries the grade, the coverage counts, and every artifact with its confidence, `cleaned` flag, and source lines — it is the contract other tools build on.
+The manifest carries the grade, the coverage counts, and every artifact with its confidence, `cleaned` flag, and source lines — it is the contract other tools build on. `check` is the same analysis wired for CI, so a plugin author can fail a build on their database footprint the way they already fail it on tests.
+
+## What it detects
+
+Options (with the autoload flag), custom tables, cron events, transients, post/user/term/comment metadata, roles and capabilities, and custom post types and taxonomies.
+
+That last group is the one prefix-matching tools structurally cannot reach. Uninstall an e-commerce plugin and its products stay behind as unreachable rows in `wp_posts` — often tens of thousands. No prefix reveals that. Reading the source does.
 
 `grade` returns a letter and a weighted-damage score. `uninstall` writes a teardown that removes only the artifacts Sediment attributed with high confidence — never a WordPress core key, an already-cleaned key, or a guess. (A `check --fail-on=<grade>` command for CI is planned.)
 
@@ -94,7 +102,7 @@ A grade reflects what a plugin leaves behind, weighted by real-world cost rather
 | **A** | Removes everything it creates, unconditionally, on uninstall. |
 | **B** | Removes everything, but only when the user opts in (conditionally clean). |
 | **C** | Removes some data; leaves a few harmless rows — none autoloaded, no tables or cron. |
-| **D** | Leaves tables, autoloaded options, or cron events behind. |
+| **D** | Leaves tables, autoloaded options, cron events, or orphaned content behind. |
 | **F** | Ships no uninstall routine at all. |
 
 The rubric is published in full at [`docs/grading.md`](docs/grading.md) so a grade is always something you can explain, not a black box.
@@ -113,7 +121,7 @@ Sediment is built in stages, each useful on its own:
 
 ## Status
 
-The analyzer is feature-complete and available as the [`0.1.0-beta`](https://github.com/SNO7E-G/Sediment/releases) preview: detection, static resolution, the cleanup diff, grading, and the `uninstall.php` generator all work today, backed by a broad test suite. It is pre-1.0, so public interfaces may still change.
+**Alpha.** Detection, static resolution, the cleanup diff, grading, the manifest, the CI check, and the `uninstall.php` generator all work today, backed by a broad test suite. Releases are cut when a meaningful body of work is ready rather than per change, so each one carries real features — see the [changelog](CHANGELOG.md) and the [releases](https://github.com/SNO7E-G/Sediment/releases). Public interfaces, including the manifest schema, may still change before 1.0.
 
 ## Development
 

@@ -65,8 +65,29 @@ or inside a function or method registered via `register_uninstall_hook`. A
 Matching is by exact key within an artifact type; a partly-dynamic (`pattern`)
 key is reported as not cleaned rather than guessed.
 
+### Metadata
+
+`add_*_meta` and `update_*_meta` for posts, users, terms, and comments, keyed by
+the meta key. `register_meta` is also read, but its object type comes from the
+first argument rather than the function name: that argument is resolved and
+mapped to one of `post`, `user`, `term`, or `comment`. If it does not resolve to
+one of those four, nothing is emitted — guessing which meta table a call touches
+would be worse than missing it.
+
+### Roles, capabilities, and content types
+
+`add_role` (including the capability names in its literal capabilities array),
+`$role->add_cap()`, `register_post_type`, and `register_taxonomy`.
+
+Content types matter more than their row count suggests. Uninstall a plugin that
+registered one and its posts remain in `wp_posts` with no UI that renders them —
+often tens of thousands of rows. Prefix matching cannot detect this at all, which
+is why an orphaned post type caps a plugin's grade at D.
+
+Sediment reports registered content but **never generates code to delete it**.
+Removing posts or terms destroys user data, and that decision belongs to a human.
+
 ## Not yet detected
 
-Metadata (post/user/term/comment), roles and capabilities, custom post types
-and taxonomies, filesystem writes, and rewrite rules are on the roadmap. See
-[limitations](limitations.md).
+Filesystem writes, rewrite rules, options written through direct `$wpdb` SQL, and
+Action Scheduler jobs. See [limitations](limitations.md).

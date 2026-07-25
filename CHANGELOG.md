@@ -2,23 +2,60 @@
 
 All notable changes to Sediment are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project follows
-[Semantic Versioning](https://semver.org/spec/v2.0.0.html). While the project is
-pre-1.0, minor versions may still change public interfaces.
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.2] — 2026-07-26
+**Sediment is in alpha.** Releases are cut when a meaningful body of work is
+ready rather than per change, so each one carries real features. Public
+interfaces — including the manifest schema — may still change before 1.0.
+
+## [0.2.0] — unreleased
+
+Coverage expansion and the machine-readable output. The analyzer now sees the
+artifact types that prefix-matching tools structurally cannot — metadata, roles,
+and custom content types — and can be consumed by other tools and by CI.
 
 ### Added
 
-- **`sediment scan --json`** emits the machine-readable manifest (schema `1.0`):
-  plugin metadata read from the plugin header, grade and score, coverage counts
-  with a resolution rate, the cleanup path, and every artifact grouped by key
-  with its confidence, `cleaned` flag, and all the `sources` that write it.
-  Unresolvable writes are listed under `unresolved` rather than hidden, and the
-  artifact types arriving in v0.2 are present as empty arrays so the schema never
-  breaks for consumers.
+- **Metadata detection** — `add_*_meta` / `update_*_meta` for posts, users, terms,
+  and comments, plus `register_meta`. Because `register_meta`'s object type comes
+  from its first argument rather than the function name, that argument is resolved
+  and mapped; if it does not resolve to one of the four known literals, nothing is
+  emitted rather than guessing which meta table is touched.
+- **Roles and capabilities** — `add_role` (including the capability names in its
+  literal capabilities array) and `$role->add_cap()`.
+- **Custom content types** — `register_post_type` and `register_taxonomy`. This is
+  the class of leftovers competitors miss entirely: uninstall an e-commerce plugin
+  and its products remain as unreachable rows in `wp_posts`, often tens of
+  thousands of them. Prefix matching cannot see this; source parsing can.
+- **`sediment scan --json`** emits the manifest (schema `1.0`): plugin metadata
+  read from the plugin header, grade and score, coverage counts with a resolution
+  rate, the cleanup path, and every artifact grouped by key with its confidence,
+  `cleaned` flag, and all the `sources` that write it. Unresolvable writes are
+  listed under `unresolved` rather than hidden, and artifact types not yet
+  detected ship as empty arrays so the schema never breaks for consumers. This is
+  the contract every downstream consumer reads — CI, the Index, and the WordPress
+  plugin — instead of reaching into the analyzer.
+- **`sediment check --fail-on=<grade>`** exits non-zero when a plugin grades worse
+  than a threshold, so a plugin author can gate their own CI on their database
+  footprint the same way they gate on tests.
+- Cleanup detection for the new types: `delete_post_meta`,
+  `delete_post_meta_by_key`, `delete_user_meta`, `delete_term_meta`,
+  `delete_comment_meta`, `delete_metadata` (with its object type resolved), and
+  `remove_role`.
 
-  This is the contract every downstream consumer uses — CI checks, the Index, and
-  the WordPress plugin all read the manifest rather than the analyzer's internals.
+### Changed
+
+- **A post type left behind now caps the grade at D.** Orphaned content is rows in
+  `wp_posts` that no longer render anywhere, which is as damaging as an orphaned
+  table. The rubric in `docs/grading.md` and the README was updated to match.
+- The grader weighs the new artifact types by damage: a post type like a table,
+  metadata above a plain option because it multiplies per object, roles and
+  capabilities because every user carries them.
+- The generated `uninstall.php` removes metadata (`delete_post_meta_by_key` /
+  `delete_metadata`) and roles (`remove_role`), and **deliberately never deletes
+  posts or terms** — an uninstall routine must not destroy user content silently.
+  Registered post types and taxonomies are listed as a comment for a human to
+  decide on.
 
 ## [0.1.1] — 2026-07-22
 
@@ -115,6 +152,6 @@ reads source only — no WordPress runtime, no database — and runs on PHP 8.3+
   properties never resolve to a stale literal. PHP 8 named arguments resolve by
   name, and first-class callables are ignored rather than crashing a scan.
 
-[0.1.2]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.1.2
+[0.2.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.2.0
 [0.1.1]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.1.1
 [0.1.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.1.0

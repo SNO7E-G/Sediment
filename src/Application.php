@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Sediment;
 
+use Sediment\Command\CheckCommand;
 use Sediment\Command\GradeCommand;
 use Sediment\Command\ScanCommand;
 use Sediment\Command\UninstallCommand;
 use Symfony\Component\Console\Application as BaseApplication;
 
 /**
- * The Sediment console application. Registers the command surface: scan, grade,
- * and uninstall. (A `check --fail-on=<grade>` command for CI is on the roadmap.)
+ * The Sediment console application: scan, grade, check, and uninstall.
  */
 final class Application extends BaseApplication
 {
@@ -24,6 +24,7 @@ final class Application extends BaseApplication
 
         $this->add(new ScanCommand());
         $this->add(new GradeCommand());
+        $this->add(new CheckCommand());
         $this->add(new UninstallCommand());
     }
 }

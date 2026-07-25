@@ -20,13 +20,24 @@ final class Manifest
 {
     public const SCHEMA_VERSION = '1.0';
 
-    private const TYPE_KEYS = ['option' => 'options', 'table' => 'tables', 'cron' => 'cron', 'transient' => 'transients'];
-
-    /** Populated in v0.2; present now so the schema never breaks. */
-    private const FUTURE_KEYS = [
-        'post_meta', 'user_meta', 'term_meta', 'comment_meta',
-        'roles', 'capabilities', 'post_types', 'taxonomies', 'directories', 'rewrite_rules',
+    /** Finding type => manifest group (§9). */
+    private const TYPE_KEYS = [
+        'option' => 'options',
+        'table' => 'tables',
+        'cron' => 'cron',
+        'transient' => 'transients',
+        'post_meta' => 'post_meta',
+        'user_meta' => 'user_meta',
+        'term_meta' => 'term_meta',
+        'comment_meta' => 'comment_meta',
+        'role' => 'roles',
+        'capability' => 'capabilities',
+        'post_type' => 'post_types',
+        'taxonomy' => 'taxonomies',
     ];
+
+    /** Not detected yet; present so the schema never breaks for consumers. */
+    private const FUTURE_KEYS = ['directories', 'rewrite_rules'];
 
     /**
      * @param array{files: list<string>, findings: list<Finding>, errors: list<array{file: string, message: string}>, cleanup: array{has_uninstall_php: bool, has_uninstall_hook: bool}} $scan

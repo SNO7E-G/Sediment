@@ -77,6 +77,14 @@ final class ScanCommand extends Command
             $this->renderGroup($io, 'Tables', $this->ofType($findings, 'table'), false);
             $this->renderGroup($io, 'Cron events', $this->ofType($findings, 'cron'), false);
             $this->renderGroup($io, 'Transients', $this->ofType($findings, 'transient'), false);
+            $this->renderGroup($io, 'Post meta', $this->ofType($findings, 'post_meta'), false);
+            $this->renderGroup($io, 'User meta', $this->ofType($findings, 'user_meta'), false);
+            $this->renderGroup($io, 'Term meta', $this->ofType($findings, 'term_meta'), false);
+            $this->renderGroup($io, 'Comment meta', $this->ofType($findings, 'comment_meta'), false);
+            $this->renderGroup($io, 'Roles', $this->ofType($findings, 'role'), false);
+            $this->renderGroup($io, 'Capabilities', $this->ofType($findings, 'capability'), false);
+            $this->renderGroup($io, 'Post types', $this->ofType($findings, 'post_type'), false);
+            $this->renderGroup($io, 'Taxonomies', $this->ofType($findings, 'taxonomy'), false);
             $this->renderCoverage($io, $findings);
             $this->renderCleanup($io, $findings, $result['cleanup']);
         }

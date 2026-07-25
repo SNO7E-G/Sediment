@@ -35,9 +35,14 @@ Where a key has a stable leading literal (`'mp_' . $x`), it is reported as a
 
 ## What is not detected yet
 
-Metadata (post/user/term/comment), roles and capabilities, custom post types and
-taxonomies, filesystem writes, rewrite rules, options written via direct `$wpdb`
-SQL, and Action Scheduler jobs. These are on the roadmap.
+Filesystem writes, rewrite rules, options written via direct `$wpdb` SQL, and
+Action Scheduler jobs. These are on the roadmap.
+
+Two things are detected but deliberately never generated into an `uninstall.php`:
+**registered post types and taxonomies**, because deleting posts or terms
+destroys user content, and **capabilities granted via `$role->add_cap()`**,
+because Sediment does not track which role received them. Both are reported so a
+human can decide.
 
 ## Scope of a scan
 

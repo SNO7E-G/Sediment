@@ -12,7 +12,9 @@ use PhpParser\Parser;
 use PhpParser\ParserFactory;
 use Sediment\Analyzer\Visitors\AbstractDetectionVisitor;
 use Sediment\Analyzer\Visitors\CronVisitor;
+use Sediment\Analyzer\Visitors\MetaVisitor;
 use Sediment\Analyzer\Visitors\OptionVisitor;
+use Sediment\Analyzer\Visitors\StructureVisitor;
 use Sediment\Analyzer\Visitors\TableVisitor;
 use Sediment\Analyzer\Visitors\TransientVisitor;
 use Sediment\Cleanup\CleanupDiffer;
@@ -113,6 +115,8 @@ final class Scanner
                 new TableVisitor($entry['file'], $resolver),
                 new CronVisitor($entry['file'], $resolver),
                 new TransientVisitor($entry['file'], $resolver),
+                new MetaVisitor($entry['file'], $resolver),
+                new StructureVisitor($entry['file'], $resolver),
             ];
             $cleanup = new CleanupVisitor($entry['file'], $resolver);
 

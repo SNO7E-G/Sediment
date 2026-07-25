@@ -39,6 +39,17 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         'wp_clear_scheduled_hook' => [0, 'cron', 'hook'],
         'wp_unschedule_hook'      => [0, 'cron', 'hook'],
         'wp_unschedule_event'     => [1, 'cron', 'hook'],
+        'delete_post_meta'        => [1, 'post_meta', 'meta_key'],
+        'delete_post_meta_by_key' => [0, 'post_meta', 'post_meta_key'],
+        'delete_user_meta'        => [1, 'user_meta', 'meta_key'],
+        'delete_term_meta'        => [1, 'term_meta', 'meta_key'],
+        'delete_comment_meta'     => [1, 'comment_meta', 'meta_key'],
+        'remove_role'             => [0, 'role', 'role'],
+    ];
+
+    /** delete_metadata()'s object type comes from its first argument. */
+    private const META_OBJECT_TYPES = [
+        'post' => 'post_meta', 'user' => 'user_meta', 'term' => 'term_meta', 'comment' => 'comment_meta',
     ];
 
     /** @var list<array{type: string, key: string, function: string|null, file: string}> */
@@ -61,6 +72,8 @@ final class CleanupVisitor extends AbstractDetectionVisitor
 
             if ($function === 'register_uninstall_hook') {
                 $this->recordCallback($node);
+            } elseif ($function === 'delete_metadata') {
+                $this->recordDeleteMetadata($node);
             } elseif (isset(self::REMOVALS[$function])) {
                 $this->recordRemoval($node, $function);
             }
@@ -101,6 +114,31 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         }
 
         $this->addRemoval($type, (string) $resolution->value);
+    }
+
+    /**
+     * delete_metadata($meta_type, $object_id, $meta_key, $meta_value, $delete_all)
+     * — the generated uninstall.php uses this form, so credit it when the object
+     * type resolves to one of the four known literals.
+     */
+    private function recordDeleteMetadata(FuncCall $node): void
+    {
+        $args = $node->getArgs();
+
+        $typeValue = $this->argValue($args, 0, 'meta_type');
+        $keyValue = $this->argValue($args, 2, 'meta_key');
+        if ($typeValue === null || $keyValue === null) {
+            return;
+        }
+
+        $type = $this->resolveKey($typeValue);
+        $key = $this->resolveKey($keyValue);
+
+        if (!$type->isResolved() || !$key->isResolved() || !isset(self::META_OBJECT_TYPES[(string) $type->value])) {
+            return;
+        }
+
+        $this->addRemoval(self::META_OBJECT_TYPES[(string) $type->value], (string) $key->value);
     }
 
     private function recordDropTable(MethodCall $node): void

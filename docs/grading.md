@@ -10,7 +10,7 @@ noise. This page is the reference every grade output links to.
 | **A** | Removes 100% of what it creates, unconditionally, via `uninstall.php`. |
 | **B** | Removes 100%, but only when a user setting is enabled (*conditionally clean*). |
 | **C** | Removes some artifacts; leaves fewer than five items, none autoloaded, no tables or cron. |
-| **D** | Leaves tables, autoloaded options, or cron events behind. |
+| **D** | Leaves tables, autoloaded options, cron events, or a registered post type behind. |
 | **F** | Ships no uninstall routine at all. |
 
 ## Weight by damage, not by count
@@ -23,6 +23,11 @@ harm they actually do on a live site — not by how many rows there are:
   option outweighs twenty small non-autoloaded rows.
 - **Custom tables** bloat backups and slow migrations, and never garbage-collect.
 - **Cron events** keep firing hooks whose callbacks no longer exist.
+- **Registered post types** orphan their content: the posts stay in `wp_posts`
+  with nothing left to render them, often tens of thousands of rows. This weighs
+  like a table and caps the grade at D.
+- **Metadata** multiplies per object, and **roles and capabilities** ride on every
+  user, so both weigh above a plain option.
 - **Non-autoloaded options and transients** are the lightest — still worth
   removing, but cheap to leave.
 
