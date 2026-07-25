@@ -6,11 +6,14 @@ namespace Sediment\Command;
 
 use Sediment\Analyzer\Finding;
 use Sediment\Analyzer\Scanner;
+use Sediment\Manifest\Grader;
+use Sediment\Manifest\Manifest;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Formatter\OutputFormatter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
@@ -28,6 +31,7 @@ final class ScanCommand extends Command
     protected function configure(): void
     {
         $this->addArgument('path', InputArgument::REQUIRED, 'Path to the plugin directory (or file) to scan');
+        $this->addOption('json', null, InputOption::VALUE_NONE, 'Emit a JSON manifest instead of the terminal report');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -42,6 +46,23 @@ final class ScanCommand extends Command
         }
 
         $result = (new Scanner())->scan($path);
+
+        if ($input->getOption('json')) {
+            $manifest = Manifest::build(
+                $result,
+                (new Grader())->grade($result['findings'], $result['cleanup']),
+                $path,
+                gmdate('Y-m-d\TH:i:s\Z'),
+            );
+
+            $output->writeln(
+                (string) json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+                OutputInterface::OUTPUT_RAW,
+            );
+
+            return Command::SUCCESS;
+        }
+
         /** @var list<Finding> $findings */
         $findings = $result['findings'];
 

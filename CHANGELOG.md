@@ -5,6 +5,21 @@ All notable changes to Sediment are recorded here. The format follows
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html). While the project is
 pre-1.0, minor versions may still change public interfaces.
 
+## [0.1.2] — 2026-07-26
+
+### Added
+
+- **`sediment scan --json`** emits the machine-readable manifest (schema `1.0`):
+  plugin metadata read from the plugin header, grade and score, coverage counts
+  with a resolution rate, the cleanup path, and every artifact grouped by key
+  with its confidence, `cleaned` flag, and all the `sources` that write it.
+  Unresolvable writes are listed under `unresolved` rather than hidden, and the
+  artifact types arriving in v0.2 are present as empty arrays so the schema never
+  breaks for consumers.
+
+  This is the contract every downstream consumer uses — CI checks, the Index, and
+  the WordPress plugin all read the manifest rather than the analyzer's internals.
+
 ## [0.1.1] — 2026-07-22
 
 A correctness and safety pass following a full adversarial review of the
@@ -100,5 +115,6 @@ reads source only — no WordPress runtime, no database — and runs on PHP 8.3+
   properties never resolve to a stale literal. PHP 8 named arguments resolve by
   name, and first-class callables are ignored rather than crashing a scan.
 
+[0.1.2]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.1.2
 [0.1.1]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.1.1
 [0.1.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.1.0

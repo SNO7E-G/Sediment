@@ -62,12 +62,15 @@ Tables (1)
  Cleanup path: uninstall.php — 8 of 12 detected artifacts removed on uninstall.
 ```
 
-Grade a plugin, or generate the `uninstall.php` it should have shipped with:
+Grade a plugin, generate the `uninstall.php` it should have shipped with, or emit a machine-readable manifest:
 
 ```bash
 php bin/sediment grade path/to/plugin
 php bin/sediment uninstall path/to/plugin > uninstall.php
+php bin/sediment scan path/to/plugin --json > manifest.json
 ```
+
+The manifest carries the grade, the coverage counts, and every artifact with its confidence, `cleaned` flag, and source lines — it is the contract other tools build on.
 
 `grade` returns a letter and a weighted-damage score. `uninstall` writes a teardown that removes only the artifacts Sediment attributed with high confidence — never a WordPress core key, an already-cleaned key, or a guess. (A `check --fail-on=<grade>` command for CI is planned.)
 
@@ -105,8 +108,8 @@ Static analysis cannot see a key that is assembled entirely at runtime, so those
 Sediment is built in stages, each useful on its own:
 
 1. **Analyzer** (this repository) — detect options, tables, cron, and transients; diff them against the plugin's cleanup routine; grade the result and generate an `uninstall.php`.
-2. **The Index** — a public, openly licensed dataset mapping thousands of plugins to the data they create.
-3. **Inspector** — a read-only WordPress plugin that attributes leftover data on a live site against the Index.
+2. **Inspector** — a read-only WordPress plugin that bundles the analyzer and scans the plugins installed on a site, so it can tell you what each one will leave behind *before* you click Delete. Because the source is on disk, attribution is ground truth and needs no dataset.
+3. **The Index** — a public, openly licensed dataset mapping thousands of plugins to the data they create, which extends the Inspector to rows left by plugins whose files are already gone.
 
 ## Status
 
