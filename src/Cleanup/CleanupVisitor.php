@@ -13,10 +13,14 @@ use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Name;
+use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Scalar\MagicConst\Class_ as MagicClass;
 use PhpParser\Node\Scalar\String_;
+use PhpParser\Node\Stmt\If_;
+use PhpParser\NodeFinder;
 use Sediment\Analyzer\Sql\TableStatements;
 use Sediment\Analyzer\Visitors\AbstractDetectionVisitor;
+use Sediment\Analyzer\Wpdb;
 
 /**
  * Finds the cleanup path (M7): the removal calls a plugin makes to undo what it
@@ -52,7 +56,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         'post' => 'post_meta', 'user' => 'user_meta', 'term' => 'term_meta', 'comment' => 'comment_meta',
     ];
 
-    /** @var list<array{type: string, key: string, function: string|null, file: string}> */
+    /** @var list<array{type: string, key: string, via: string, function: string|null, file: string}> */
     private array $removals = [];
 
     /** @var list<string> */
@@ -61,8 +65,17 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     /** @var list<string> lowercased function names called at the top level of uninstall.php */
     private array $uninstallCalls = [];
 
+    /** @var list<array{option: string, default: bool|string|null, function: string|null, file: string}> */
+    private array $guards = [];
+
     protected function inspect(Node $node): void
     {
+        if ($node instanceof If_) {
+            $this->recordGuard($node);
+
+            return;
+        }
+
         if ($node instanceof FuncCall && $node->name instanceof Name && !$node->isFirstClassCallable()) {
             $function = strtolower($node->name->toString());
 
@@ -84,6 +97,72 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         if ($node instanceof MethodCall) {
             $this->recordDropTable($node);
         }
+    }
+
+    /**
+     * A cleanup routine gated on a stored setting — `if (!get_option('x')) return;`
+     * — is the "conditionally clean" case the rubric grades B (§10). In practice
+     * that setting defaults to off and sits where no user finds it before hitting
+     * Delete, so the plugin is technically clean and practically dirty.
+     *
+     * Any `if` whose condition reads an option counts, regardless of how it is
+     * compared or negated: what matters downstream is which option decides
+     * whether cleanup runs, and what that option defaults to.
+     */
+    private function recordGuard(If_ $node): void
+    {
+        foreach ((new NodeFinder())->findInstanceOf($node->cond, FuncCall::class) as $call) {
+            if (!$call instanceof FuncCall || !$call->name instanceof Name || $call->isFirstClassCallable()) {
+                continue;
+            }
+
+            if (!in_array(strtolower($call->name->toString()), ['get_option', 'get_site_option'], true)) {
+                continue;
+            }
+
+            $keyValue = $this->argValue($call->getArgs(), 0, 'option');
+            if ($keyValue === null) {
+                continue;
+            }
+
+            $key = $this->resolveKey($keyValue);
+            if (!$key->isResolved()) {
+                continue; // cannot name the setting, so cannot report it honestly
+            }
+
+            $this->guards[] = [
+                'option' => (string) $key->value,
+                'default' => $this->guardDefault($call),
+                'function' => $this->currentFunction(),
+                'file' => $this->file,
+            ];
+
+            return; // one guard per `if` is enough to mark cleanup conditional
+        }
+    }
+
+    /**
+     * get_option()'s second argument is the value returned when the option was
+     * never saved — the default that decides what happens on a site where the
+     * user never touched the setting. Absent means false.
+     */
+    private function guardDefault(FuncCall $call): bool|string|null
+    {
+        $default = $this->argValue($call->getArgs(), 1, 'default');
+
+        if ($default === null) {
+            return false;
+        }
+
+        if ($default instanceof ConstFetch) {
+            return match (strtolower($default->name->toString())) {
+                'true' => true,
+                'false' => false,
+                default => null,
+            };
+        }
+
+        return $default instanceof String_ ? $default->value : null;
     }
 
     private function recordCallback(FuncCall $node): void
@@ -113,7 +192,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             return; // pattern/dynamic removals cannot credit a specific create
         }
 
-        $this->addRemoval($type, (string) $resolution->value);
+        $this->addRemoval($type, (string) $resolution->value, $function);
     }
 
     /**
@@ -143,13 +222,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
 
     private function recordDropTable(MethodCall $node): void
     {
-        if (
-            !$node->var instanceof Variable
-            || $node->var->name !== 'wpdb'
-            || !$node->name instanceof Node\Identifier
-            || strtolower($node->name->toString()) !== 'query'
-            || $node->isFirstClassCallable()
-        ) {
+        if (!Wpdb::isMethodCall($node, 'query')) {
             return;
         }
 
@@ -168,12 +241,13 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         }
     }
 
-    private function addRemoval(string $type, string $key): void
+    private function addRemoval(string $type, string $key, string $via = ''): void
     {
         $this->removals[] = [
             'type' => $type,
             'key' => $key,
-            'function' => $this->currentFunction(),
+            'via' => $via,                          // the removal call itself
+            'function' => $this->currentFunction(), // the function it sits in
             'file' => $this->file,
         ];
     }
@@ -235,7 +309,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     }
 
     /**
-     * @return list<array{type: string, key: string, function: string|null, file: string}>
+     * @return list<array{type: string, key: string, via: string, function: string|null, file: string}>
      */
     public function removals(): array
     {
@@ -252,5 +326,11 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     public function uninstallCalls(): array
     {
         return $this->uninstallCalls;
+    }
+
+    /** @return list<array{option: string, default: bool|string|null, function: string|null, file: string}> */
+    public function guards(): array
+    {
+        return $this->guards;
     }
 }

@@ -7,12 +7,11 @@ namespace Sediment\Analyzer\Visitors;
 use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
-use PhpParser\Node\Expr\Variable;
-use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use Sediment\Analyzer\Finding;
 use Sediment\Analyzer\Resolution;
 use Sediment\Analyzer\Sql\TableStatements;
+use Sediment\Analyzer\Wpdb;
 
 /**
  * Detects table creation (M4, §7): dbDelta() and direct CREATE TABLE via
@@ -64,13 +63,7 @@ final class TableVisitor extends AbstractDetectionVisitor
 
     private function inspectWpdbQuery(MethodCall $node): void
     {
-        if (
-            !$node->var instanceof Variable
-            || $node->var->name !== 'wpdb'
-            || !$node->name instanceof Identifier
-            || strtolower($node->name->toString()) !== 'query'
-            || $node->isFirstClassCallable()
-        ) {
+        if (!Wpdb::isMethodCall($node, 'query')) {
             return;
         }
 

@@ -85,6 +85,9 @@ final class ScanCommand extends Command
             $this->renderGroup($io, 'Capabilities', $this->ofType($findings, 'capability'), false);
             $this->renderGroup($io, 'Post types', $this->ofType($findings, 'post_type'), false);
             $this->renderGroup($io, 'Taxonomies', $this->ofType($findings, 'taxonomy'), false);
+            $this->renderGroup($io, 'Directories', $this->ofType($findings, 'directory'), false);
+            $this->renderGroup($io, 'Rewrite rules', $this->ofType($findings, 'rewrite_rule'), false);
+            $this->renderGroup($io, 'Action Scheduler jobs', $this->ofType($findings, 'action'), false);
             $this->renderCoverage($io, $findings);
             $this->renderCleanup($io, $findings, $result['cleanup']);
         }
@@ -170,7 +173,7 @@ final class ScanCommand extends Command
 
     /**
      * @param list<Finding> $findings
-     * @param array{has_uninstall_php: bool, has_uninstall_hook: bool} $cleanup
+     * @param array{has_uninstall_php: bool, has_uninstall_hook: bool, conditional?: bool, condition_option?: string|null, condition_default?: bool|string|null} $cleanup
      */
     private function renderCleanup(SymfonyStyle $io, array $findings, array $cleanup): void
     {
@@ -192,6 +195,15 @@ final class ScanCommand extends Command
             $cleaned,
             $total
         ));
+
+        if (($cleanup['conditional'] ?? false) === true) {
+            $io->writeln(sprintf(
+                ' <comment>Conditional:</comment> cleanup only runs when %s is enabled%s.',
+                $cleanup['condition_option'] !== null ? '"' . OutputFormatter::escape((string) $cleanup['condition_option']) . '"' : 'a stored setting',
+                ($cleanup['condition_default'] ?? false) === false ? ', which is off by default' : '',
+            ));
+        }
+
         $io->newLine();
     }
 

@@ -30,6 +30,7 @@ final class Finding
         public readonly ?string $expression = null, // pretty-printed source when unresolved
         public readonly ?string $recurrence = null, // cron recurrence, e.g. 'daily' | 'single'; null when N/A
         public readonly ?bool $cleaned = null,      // set by the cleanup diff; null until then
+        public readonly bool $hasArgs = false,      // cron scheduled with arguments (changes how it must be cleared)
     ) {
     }
 
@@ -54,6 +55,7 @@ final class Finding
             expression: $this->expression,
             recurrence: $this->recurrence,
             cleaned: $cleaned,
+            hasArgs: $this->hasArgs,
         );
     }
 }

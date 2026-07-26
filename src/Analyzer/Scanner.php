@@ -12,8 +12,11 @@ use PhpParser\Parser;
 use PhpParser\ParserFactory;
 use Sediment\Analyzer\Visitors\AbstractDetectionVisitor;
 use Sediment\Analyzer\Visitors\CronVisitor;
+use Sediment\Analyzer\Visitors\FilesystemVisitor;
 use Sediment\Analyzer\Visitors\MetaVisitor;
+use Sediment\Analyzer\Visitors\ScheduleVisitor;
 use Sediment\Analyzer\Visitors\OptionVisitor;
+use Sediment\Analyzer\Visitors\RewriteVisitor;
 use Sediment\Analyzer\Visitors\StructureVisitor;
 use Sediment\Analyzer\Visitors\TableVisitor;
 use Sediment\Analyzer\Visitors\TransientVisitor;
@@ -47,7 +50,7 @@ final class Scanner
      *     files: list<string>,
      *     findings: list<Finding>,
      *     errors: list<array{file: string, message: string}>,
-     *     cleanup: array{has_uninstall_php: bool, has_uninstall_hook: bool}
+     *     cleanup: array{has_uninstall_php: bool, has_uninstall_hook: bool, conditional: bool, condition_option: string|null, condition_default: bool|string|null}
      * }
      */
     public function scan(string $root): array
@@ -103,6 +106,7 @@ final class Scanner
         $removals = [];
         $callbacks = [];
         $uninstallCalls = [];
+        $guards = [];
         $hasUninstallPhp = false;
 
         foreach ($parsed as $entry) {
@@ -117,6 +121,9 @@ final class Scanner
                 new TransientVisitor($entry['file'], $resolver),
                 new MetaVisitor($entry['file'], $resolver),
                 new StructureVisitor($entry['file'], $resolver),
+                new RewriteVisitor($entry['file'], $resolver),
+                new FilesystemVisitor($entry['file'], $resolver),
+                new ScheduleVisitor($entry['file'], $resolver),
             ];
             $cleanup = new CleanupVisitor($entry['file'], $resolver);
 
@@ -142,9 +149,11 @@ final class Scanner
             array_push($removals, ...$cleanup->removals());
             array_push($callbacks, ...$cleanup->uninstallCallbacks());
             array_push($uninstallCalls, ...$cleanup->uninstallCalls());
+            array_push($guards, ...$cleanup->guards());
         }
 
         $findings = CleanupDiffer::apply($findings, $removals, $callbacks, $uninstallCalls);
+        $condition = CleanupDiffer::condition($guards, $callbacks, $uninstallCalls);
 
         return [
             'files' => $files,
@@ -153,6 +162,9 @@ final class Scanner
             'cleanup' => [
                 'has_uninstall_php' => $hasUninstallPhp,
                 'has_uninstall_hook' => $callbacks !== [],
+                'conditional' => $condition !== null,
+                'condition_option' => $condition['option'] ?? null,
+                'condition_default' => $condition['default'] ?? null,
             ],
         ];
     }

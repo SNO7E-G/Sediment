@@ -46,7 +46,9 @@ final class UninstallGenerator
             match ($finding->type) {
                 'option'    => $this->isSiteScoped($finding) ? $siteOptions[$key] = true : $options[$key] = true,
                 'table'     => $tables[$key] = true,
-                'cron'      => $cron[$key] = true,
+                // An event scheduled with arguments is not removed by
+                // wp_clear_scheduled_hook(), so it needs the broader call.
+                'cron'      => $cron[$key] = $finding->hasArgs ? 'wp_unschedule_hook' : 'wp_clear_scheduled_hook',
                 'transient' => $transients[$key] = $this->isSiteScoped($finding) ? 'delete_site_transient' : 'delete_transient',
                 'post_meta', 'user_meta', 'term_meta', 'comment_meta' => $meta[$key] = str_replace('_meta', '', $finding->type),
                 'role'      => $roles[$key] = true,
@@ -80,7 +82,7 @@ final class UninstallGenerator
      * @param array<string, true> $options
      * @param array<string, true> $siteOptions
      * @param array<string, true> $tables
-     * @param array<string, true> $cron
+     * @param array<string, string> $cron hook => clearing function
      * @param array<string, string> $transients
      * @param array<string, string> $meta key => object type (post|user|term|comment)
      * @param array<string, true> $roles
@@ -137,8 +139,8 @@ final class UninstallGenerator
         if ($cron !== []) {
             $lines[] = '';
             $lines[] = '// Scheduled events';
-            foreach (array_keys($cron) as $hook) {
-                $lines[] = 'wp_clear_scheduled_hook(' . $this->keyExpression($hook) . ');';
+            foreach ($cron as $hook => $function) {
+                $lines[] = $function . '(' . $this->keyExpression($hook) . ');';
             }
         }
 

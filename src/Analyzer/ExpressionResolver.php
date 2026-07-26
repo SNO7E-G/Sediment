@@ -152,12 +152,7 @@ final class ExpressionResolver
         // $wpdb->prefix / $wpdb->base_prefix are the database table prefix. They
         // resolve to the canonical {prefix} placeholder token (§9), never a
         // hardcoded wp_, so the Index stays correct on custom-prefix sites.
-        if (
-            $expr->var instanceof Variable
-            && $expr->var->name === 'wpdb'
-            && $expr->name instanceof Identifier
-            && in_array(strtolower($expr->name->toString()), ['prefix', 'base_prefix'], true)
-        ) {
+        if (Wpdb::isPrefix($expr)) {
             return Resolution::resolved('{prefix}');
         }
 

@@ -34,13 +34,16 @@ final class Manifest
         'capability' => 'capabilities',
         'post_type' => 'post_types',
         'taxonomy' => 'taxonomies',
+        'directory' => 'directories',
+        'rewrite_rule' => 'rewrite_rules',
+        'action' => 'actions',
     ];
 
     /** Not detected yet; present so the schema never breaks for consumers. */
-    private const FUTURE_KEYS = ['directories', 'rewrite_rules'];
+    private const FUTURE_KEYS = [];
 
     /**
-     * @param array{files: list<string>, findings: list<Finding>, errors: list<array{file: string, message: string}>, cleanup: array{has_uninstall_php: bool, has_uninstall_hook: bool}} $scan
+     * @param array{files: list<string>, findings: list<Finding>, errors: list<array{file: string, message: string}>, cleanup: array{has_uninstall_php: bool, has_uninstall_hook: bool, conditional?: bool, condition_option?: string|null, condition_default?: bool|string|null}} $scan
      * @return array<string, mixed>
      */
     public static function build(array $scan, Grade $grade, string $path, string $scannedAt): array
@@ -56,6 +59,9 @@ final class Manifest
             'cleanup' => [
                 'has_uninstall_php' => $scan['cleanup']['has_uninstall_php'],
                 'has_uninstall_hook' => $scan['cleanup']['has_uninstall_hook'],
+                'conditional' => $scan['cleanup']['conditional'] ?? false,
+                'condition_option' => $scan['cleanup']['condition_option'] ?? null,
+                'condition_default' => $scan['cleanup']['condition_default'] ?? null,
             ],
             'creates' => self::creates($findings),
             'unresolved' => self::unresolved($findings),

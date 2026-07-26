@@ -41,6 +41,13 @@ final class Grader
         'comment_meta' => 6,
         'role'         => 8,
         'capability'   => 5,
+        // A queued Action Scheduler job behaves like a cron event: it keeps
+        // firing a hook whose callback is gone.
+        'action'       => 12,
+        // A directory of logs or exports sits on disk forever, but costs nothing
+        // per request. A rewrite rule is one entry in a single option.
+        'directory'    => 7,
+        'rewrite_rule' => 2,
     ];
 
     /** Artifact types heavy enough to cap a plugin at grade D (§10). */
@@ -50,8 +57,15 @@ final class Grader
     private const MINOR_LEFTOVER_LIMIT = 5;
 
     /**
+     * Conditionally clean: the code removes everything, so this sits close to A,
+     * but on a site where the user never enabled the setting nothing is removed —
+     * which is why it is not A.
+     */
+    private const CONDITIONAL_SCORE = 80;
+
+    /**
      * @param list<Finding> $findings
-     * @param array{has_uninstall_php: bool, has_uninstall_hook: bool} $cleanup
+     * @param array{has_uninstall_php: bool, has_uninstall_hook: bool, conditional?: bool, condition_option?: string|null, condition_default?: bool|string|null} $cleanup
      */
     public function grade(array $findings, array $cleanup): Grade
     {
@@ -83,6 +97,20 @@ final class Grader
         }
 
         if ($left === []) {
+            // Conditionally clean (§10): everything is removed, but only when a
+            // stored setting says so — and that setting almost always defaults to
+            // off, so on a real site nothing is removed. Technically clean,
+            // practically dirty, and worth naming rather than folding into A.
+            if (($cleanup['conditional'] ?? false) === true) {
+                return new Grade(
+                    'B',
+                    self::CONDITIONAL_SCORE,
+                    $cleaned,
+                    0,
+                    $this->describeConditional($cleanup),
+                );
+            }
+
             return new Grade('A', 100, $cleaned, 0, 'Removes everything it creates on uninstall.');
         }
 
@@ -191,6 +219,26 @@ final class Grader
     private function countType(array $findings, string $type): int
     {
         return count(array_filter($findings, static fn (Finding $f): bool => $f->type === $type));
+    }
+
+    /**
+     * @param array{conditional?: bool, condition_option?: string|null, condition_default?: bool|string|null} $cleanup
+     */
+    private function describeConditional(array $cleanup): string
+    {
+        $option = $cleanup['condition_option'] ?? null;
+        if ($option === null) {
+            return 'Removes everything it creates, but only when a stored setting opts in.';
+        }
+
+        $default = $cleanup['condition_default'] ?? null;
+        $offByDefault = $default === false || $default === null || $default === '' || $default === '0' || $default === 'no';
+
+        return sprintf(
+            'Removes everything it creates, but only when "%s" is enabled%s.',
+            $option,
+            $offByDefault ? ', which is off by default' : '',
+        );
     }
 
     private function describeHeavy(int $tables, int $autoloaded, int $cron, int $postTypes = 0): string
