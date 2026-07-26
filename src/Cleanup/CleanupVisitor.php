@@ -14,9 +14,11 @@ use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Name;
 use PhpParser\Node\Expr\ConstFetch;
+use PhpParser\Node\Expr\Exit_;
 use PhpParser\Node\Scalar\MagicConst\Class_ as MagicClass;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt\If_;
+use PhpParser\Node\Stmt\Return_;
 use PhpParser\NodeFinder;
 use Sediment\Analyzer\Sql\TableStatements;
 use Sediment\Analyzer\Visitors\AbstractDetectionVisitor;
@@ -105,12 +107,19 @@ final class CleanupVisitor extends AbstractDetectionVisitor
      * that setting defaults to off and sits where no user finds it before hitting
      * Delete, so the plugin is technically clean and practically dirty.
      *
-     * Any `if` whose condition reads an option counts, regardless of how it is
-     * compared or negated: what matters downstream is which option decides
-     * whether cleanup runs, and what that option defaults to.
+     * The condition may be written any way round — negated, compared to a
+     * string, whatever — so the comparison itself is not inspected. What is
+     * required is that the `if` actually gates cleanup: either it bails out
+     * early (`return`/`exit`), or removals sit inside it. An unrelated
+     * `if (get_option('schema') === 'v2') { migrate(); }` in the same file must
+     * not cost an otherwise clean plugin its A.
      */
     private function recordGuard(If_ $node): void
     {
+        if (!$this->gatesCleanup($node)) {
+            return;
+        }
+
         foreach ((new NodeFinder())->findInstanceOf($node->cond, FuncCall::class) as $call) {
             if (!$call instanceof FuncCall || !$call->name instanceof Name || $call->isFirstClassCallable()) {
                 continue;
@@ -139,6 +148,34 @@ final class CleanupVisitor extends AbstractDetectionVisitor
 
             return; // one guard per `if` is enough to mark cleanup conditional
         }
+    }
+
+    /**
+     * Does this `if` decide whether cleanup happens? Two shapes qualify: the
+     * early bail (`if (!get_option('x')) { return; }`, with the removals after
+     * it), and the wrapper (`if (get_option('x')) { delete_option(...); }`).
+     */
+    private function gatesCleanup(If_ $node): bool
+    {
+        $finder = new NodeFinder();
+
+        // Early bail: return/exit anywhere in the guarded branch.
+        if ($finder->findFirst($node->stmts, static fn (Node $n): bool => $n instanceof Return_ || $n instanceof Exit_) !== null) {
+            return true;
+        }
+
+        // Wrapper: a removal call sits inside the `if` (including else branches).
+        $removal = $finder->findFirst($node, static function (Node $n): bool {
+            if ($n instanceof FuncCall && $n->name instanceof Name) {
+                $name = strtolower($n->name->toString());
+
+                return isset(self::REMOVALS[$name]) || $name === 'delete_metadata';
+            }
+
+            return Wpdb::isMethodCall($n, 'query');
+        });
+
+        return $removal !== null;
     }
 
     /**
@@ -217,7 +254,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $this->addRemoval(self::META_OBJECT_TYPES[(string) $type->value], (string) $key->value);
+        $this->addRemoval(self::META_OBJECT_TYPES[(string) $type->value], (string) $key->value, 'delete_metadata');
     }
 
     private function recordDropTable(MethodCall $node): void
@@ -237,11 +274,11 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         }
 
         foreach (TableStatements::dropped($resolution->value) as $name) {
-            $this->addRemoval('table', $name);
+            $this->addRemoval('table', $name, 'wpdb::query');
         }
     }
 
-    private function addRemoval(string $type, string $key, string $via = ''): void
+    private function addRemoval(string $type, string $key, string $via): void
     {
         $this->removals[] = [
             'type' => $type,

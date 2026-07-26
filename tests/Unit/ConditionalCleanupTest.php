@@ -57,6 +57,28 @@ final class ConditionalCleanupTest extends TestCase
         self::assertFalse($this->scan('partial-plugin')['cleanup']['conditional']);
     }
 
+    public function test_an_if_that_reads_an_option_but_gates_nothing_is_not_a_condition(): void
+    {
+        // The uninstall routine branches on an option for a migration, then
+        // cleans up unconditionally. That is an A, not a B.
+        $scan = $this->scan('unrelated-guard-plugin');
+
+        self::assertFalse($scan['cleanup']['conditional']);
+        self::assertNull($scan['cleanup']['condition_option']);
+        self::assertSame('A', (new Grader())->grade($scan['findings'], $scan['cleanup'])->letter);
+    }
+
+    public function test_a_wrapper_style_gate_is_detected_too(): void
+    {
+        // if (get_option('x')) { delete_option(...); } — no early return, but the
+        // removal sits inside the guard.
+        $scan = $this->scan('wrapper-guard-plugin');
+
+        self::assertTrue($scan['cleanup']['conditional']);
+        self::assertSame('wgp_remove_data', $scan['cleanup']['condition_option']);
+        self::assertSame('B', (new Grader())->grade($scan['findings'], $scan['cleanup'])->letter);
+    }
+
     public function test_the_condition_is_reported_in_the_manifest(): void
     {
         $scan = $this->scan('conditional-plugin');

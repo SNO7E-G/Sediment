@@ -47,8 +47,11 @@ final class UninstallGenerator
                 'option'    => $this->isSiteScoped($finding) ? $siteOptions[$key] = true : $options[$key] = true,
                 'table'     => $tables[$key] = true,
                 // An event scheduled with arguments is not removed by
-                // wp_clear_scheduled_hook(), so it needs the broader call.
-                'cron'      => $cron[$key] = $finding->hasArgs ? 'wp_unschedule_hook' : 'wp_clear_scheduled_hook',
+                // wp_clear_scheduled_hook(), so it needs the broader call. If the
+                // same hook is scheduled both ways, the broader call wins.
+                'cron'      => $cron[$key] = ($finding->hasArgs || ($cron[$key] ?? null) === 'wp_unschedule_hook')
+                    ? 'wp_unschedule_hook'
+                    : 'wp_clear_scheduled_hook',
                 'transient' => $transients[$key] = $this->isSiteScoped($finding) ? 'delete_site_transient' : 'delete_transient',
                 'post_meta', 'user_meta', 'term_meta', 'comment_meta' => $meta[$key] = str_replace('_meta', '', $finding->type),
                 'role'      => $roles[$key] = true,
