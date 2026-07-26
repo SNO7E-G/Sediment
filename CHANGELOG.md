@@ -8,7 +8,7 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
-## [0.3.0] — unreleased
+## [0.3.0] — 2026-07-26
 
 Completes the grading rubric and the artifact surface. Grade B was published
 from the start but could never be assigned, because nothing detected the
@@ -55,10 +55,39 @@ types the manifest reserved are detected.
   hand-rolled checks, and still requires the name `wpdb` — an alias under a
   different name is missed rather than guessed at.
 
+- Cleanup detection for the new types — `as_unschedule_all_actions`,
+  `as_unschedule_action`, `rmdir`, and `flush_rewrite_rules` — so a plugin that
+  tidies up after itself is credited for it.
+
 ### Changed
 
+- **A key written from several places counts as cleaned only when every write of
+  it is cleaned.** A hook scheduled both with and without arguments is one key
+  with two fates; the previous "any write cleaned" merge could report such a
+  plugin as spotless while an event kept firing.
+- **Scores are held inside the band their letter allows**, so a C with one stray
+  transient can no longer outrank a B on a leaderboard.
+- **Grade summaries no longer state which way a gating setting must be set.**
+  Sediment sees which option decides, not the polarity of the comparison, and
+  "keep my data" gates are as common as "delete my data" ones — so the wording
+  names the setting and its default rather than asserting a direction.
 - Every artifact type the manifest reserves is now populated by detection; the
-  `creates` groups are unchanged, so consumers need no update.
+  `creates` groups are unchanged, so consumers need no update. A finding type
+  with no group now raises an error instead of vanishing from the document.
+- WordPress's own directories (`uploads`, `plugins`, `themes`, …) are recognised
+  as core, so they are never attributed to a plugin or offered for deletion.
+
+### Security
+
+- **A table name cut short by a dynamic tail is no longer claimed.** Resolving
+  `"CREATE TABLE {$wpdb->prefix}logs{$suffix}"` stops mid-name, and treating the
+  fragment as the table invented one the plugin never creates — which a generated
+  `uninstall.php` would then drop. Such names now require proof that the name
+  ended before the cut.
+- `wp_clear_scheduled_hook($hook, $args)` no longer credits an argument-less
+  event, since it clears only events registered with those exact arguments.
+- The `$wpdb` handle is accepted only as `$wpdb`, `$this->wpdb`, or
+  `self::$wpdb`, so an unrelated object's `->wpdb` cannot credit a table drop.
 
 ## [0.2.0] — 2026-07-26
 

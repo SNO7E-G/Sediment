@@ -57,15 +57,21 @@ Names are resolved to their fully-qualified form, so two classes or functions
 that share a short name across namespaces no longer collide. A few edges remain,
 and all err toward *not* crediting cleanup or resolution:
 
-- **`$wpdb` is recognized by name.** The global `$wpdb` and a handle held as a
-  property named `wpdb` (`$this->wpdb`, `self::$wpdb`) are understood, but an
-  alias under a different name (`$db = $wpdb;`) is not tracked. `base_prefix` is
-  treated the same as `prefix`, which differs on a multisite subsite.
+- **`$wpdb` is recognized by name, in three shapes only:** `$wpdb`,
+  `$this->wpdb`, and `self::$wpdb`. An alias under a different name
+  (`$db = $wpdb;`) or reached through another object is missed rather than
+  assumed, because accepting it would let an unrelated `->query()` credit a table
+  drop that never happens. `base_prefix` is treated the same as `prefix`, which
+  differs on a multisite subsite.
+- **A table name cut short by a dynamic tail is not reported at all.**
+  `"CREATE TABLE {$wpdb->prefix}logs{$suffix}"` resolves only as far as
+  `{prefix}logs`, which is not the real name, so nothing is claimed.
 - **`pattern` keys are never matched during the cleanup diff** — a partly-dynamic
   create is reported as *not cleaned* rather than guessed as removed.
 - **Conditional cleanup is detected structurally, not semantically.** Sediment
   sees that an `if` gates the uninstall path and which option it reads; it does
-  not evaluate the comparison. A gate that can never actually be false is still
+  not evaluate the comparison, so it reports which setting decides but never
+  which way it must be set. A gate that can never actually be false is still
   reported as conditional.
 - **Directories and rewrite rules are reported but never removed** by the
   generated `uninstall.php`. Deleting a directory can destroy user uploads, and

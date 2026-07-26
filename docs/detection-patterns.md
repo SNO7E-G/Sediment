@@ -69,14 +69,26 @@ Naming the key is not always enough. A cron event scheduled *with arguments* is
 not removed by an argument-less `wp_clear_scheduled_hook()` — that call only
 clears events registered without arguments — so such an event is reported as not
 cleaned unless `wp_unschedule_hook()` is used, which clears every event for the
-hook.
+hook. The mirror also holds: a `wp_clear_scheduled_hook($hook, $args)` clears
+only events registered with those arguments, so it does not credit an
+argument-less one.
 
-**Conditional cleanup.** When the uninstall path is gated on a stored setting —
-an `if` that bails out early, or one that wraps the removals — the cleanup is
-recorded as conditional along with the gating option and its default. That is
-what grade B describes: everything is removed in the code, and nothing is removed
-on a site where the user never enabled the setting. An `if` that reads an option
-without gating cleanup is not treated as a condition.
+Removals are also read for the newer types: `as_unschedule_all_actions` and
+`as_unschedule_action` for Action Scheduler, `rmdir` for directories, and
+`flush_rewrite_rules`, which rebuilds the routing table and so clears every rule
+the plugin registered.
+
+**Conditional cleanup.** When the uninstall path is gated on a stored setting,
+the cleanup is recorded as conditional along with the gating option and its
+default. Four shapes are recognised: an `if` that bails out early, one that wraps
+the removals, one that calls a function which performs them, and one written as
+an `elseif`. The option may be read in the condition itself or into a variable
+the condition tests.
+
+An `if` that reads an option without gating cleanup is not a condition, and a
+`return` inside a closure is not a bail-out. Sediment reports *which* setting
+decides, never which way it must be set — "keep my data" gates are as common as
+"delete my data" ones, and the comparison itself is not evaluated.
 
 ### Metadata
 
