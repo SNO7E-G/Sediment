@@ -33,7 +33,8 @@ final class UninstallGenerator
         $transients = [];   // key => delete function
         $meta = [];         // key => meta object type
         $roles = [];
-        $content = [];      // post types / taxonomies — reported, never deleted
+        $actions = [];
+        $content = [];      // reported as a comment, never deleted
 
         foreach ($findings as $finding) {
             if (!$this->isDeletable($finding)) {
@@ -55,17 +56,18 @@ final class UninstallGenerator
                 'transient' => $transients[$key] = $this->isSiteScoped($finding) ? 'delete_site_transient' : 'delete_transient',
                 'post_meta', 'user_meta', 'term_meta', 'comment_meta' => $meta[$key] = str_replace('_meta', '', $finding->type),
                 'role'      => $roles[$key] = true,
-                'post_type', 'taxonomy' => $content[$key] = $finding->type,
+                'action'    => $actions[$key] = true,
+                'post_type', 'taxonomy', 'directory', 'rewrite_rule' => $content[$key] = $finding->type,
                 default     => null,
             };
         }
 
-        foreach ([&$options, &$siteOptions, &$tables, &$cron, &$transients, &$meta, &$roles, &$content] as &$group) {
+        foreach ([&$options, &$siteOptions, &$tables, &$cron, &$transients, &$meta, &$roles, &$actions, &$content] as &$group) {
             ksort($group);
         }
         unset($group);
 
-        return $this->render($pluginName, $options, $siteOptions, $tables, $cron, $transients, $meta, $roles, $content);
+        return $this->render($pluginName, $options, $siteOptions, $tables, $cron, $transients, $meta, $roles, $actions, $content);
     }
 
     private function isDeletable(Finding $finding): bool
@@ -89,13 +91,14 @@ final class UninstallGenerator
      * @param array<string, string> $transients
      * @param array<string, string> $meta key => object type (post|user|term|comment)
      * @param array<string, true> $roles
-     * @param array<string, string> $content post type / taxonomy names, reported only
+     * @param array<string, true> $actions Action Scheduler hooks
+     * @param array<string, string> $content artifacts reported as a comment only
      */
-    private function render(string $pluginName, array $options, array $siteOptions, array $tables, array $cron, array $transients, array $meta = [], array $roles = [], array $content = []): string
+    private function render(string $pluginName, array $options, array $siteOptions, array $tables, array $cron, array $transients, array $meta = [], array $roles = [], array $actions = [], array $content = []): string
     {
         $needsWpdb = $tables !== [] || $this->anyPrefixed([
             ...array_keys($options), ...array_keys($siteOptions), ...array_keys($cron),
-            ...array_keys($transients), ...array_keys($meta), ...array_keys($roles),
+            ...array_keys($transients), ...array_keys($meta), ...array_keys($roles), ...array_keys($actions),
         ]);
 
         $lines = [
@@ -173,12 +176,23 @@ final class UninstallGenerator
             }
         }
 
-        if ($content !== []) {
-            // Deleting posts or terms destroys user content, which an uninstall
-            // routine must never do silently. Report them and let a human decide.
+        if ($actions !== []) {
             $lines[] = '';
-            $lines[] = '// This plugin also registers content that is intentionally NOT deleted here,';
-            $lines[] = '// because removing it would destroy user data:';
+            $lines[] = '// Action Scheduler jobs (the library may already be gone, so guard the call)';
+            $lines[] = "if (function_exists('as_unschedule_all_actions')) {";
+            foreach (array_keys($actions) as $hook) {
+                $lines[] = '    as_unschedule_all_actions(' . $this->keyExpression($hook) . ');';
+            }
+            $lines[] = '}';
+        }
+
+        if ($content !== []) {
+            // Deleting posts, terms, or an upload directory destroys user data,
+            // and flushing rewrite rules is the site's call. An uninstall routine
+            // must not do any of it silently — report and let a human decide.
+            $lines[] = '';
+            $lines[] = '// This plugin also leaves the following behind. They are intentionally NOT';
+            $lines[] = '// removed here, because doing so could destroy data you want to keep:';
             foreach ($content as $name => $type) {
                 $lines[] = sprintf('//   - %s "%s"', str_replace('_', ' ', $type), $name);
             }

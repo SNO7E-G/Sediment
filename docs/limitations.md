@@ -57,12 +57,16 @@ Names are resolved to their fully-qualified form, so two classes or functions
 that share a short name across namespaces no longer collide. A few edges remain,
 and all err toward *not* crediting cleanup or resolution:
 
-- **`$wpdb` is recognized by variable name.** `$wpdb->prefix` and
-  `$wpdb->query(...)` are understood, but an aliased handle (`$db = $wpdb;`) or a
-  wrapped one (`$this->db->query(...)`) is not tracked. `base_prefix` is treated
-  the same as `prefix`, which differs on a multisite subsite.
-- **Cron events scheduled *with arguments*** are matched by hook name only. An
-  args-less `wp_clear_scheduled_hook()` is credited as clearing the hook, though
-  at runtime it clears only events scheduled without arguments.
+- **`$wpdb` is recognized by name.** The global `$wpdb` and a handle held as a
+  property named `wpdb` (`$this->wpdb`, `self::$wpdb`) are understood, but an
+  alias under a different name (`$db = $wpdb;`) is not tracked. `base_prefix` is
+  treated the same as `prefix`, which differs on a multisite subsite.
 - **`pattern` keys are never matched during the cleanup diff** — a partly-dynamic
   create is reported as *not cleaned* rather than guessed as removed.
+- **Conditional cleanup is detected structurally, not semantically.** Sediment
+  sees that an `if` gates the uninstall path and which option it reads; it does
+  not evaluate the comparison. A gate that can never actually be false is still
+  reported as conditional.
+- **Directories and rewrite rules are reported but never removed** by the
+  generated `uninstall.php`. Deleting a directory can destroy user uploads, and
+  flushing rewrite rules on uninstall is the site's decision, not a plugin's.

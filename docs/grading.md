@@ -28,6 +28,11 @@ harm they actually do on a live site — not by how many rows there are:
   like a table and caps the grade at D.
 - **Metadata** multiplies per object, and **roles and capabilities** ride on every
   user, so both weigh above a plain option.
+- **Action Scheduler jobs** behave like cron events — a queued job keeps firing a
+  hook whose callback is gone — so they weigh the same.
+- **Directories** sit on disk forever but cost nothing per request, and **rewrite
+  rules** are single entries in one option that vanish on the next flush, so both
+  weigh lightly.
 - **Non-autoloaded options and transients** are the lightest — still worth
   removing, but cheap to leave.
 
@@ -45,9 +50,11 @@ a plugin is technically clean and practically dirty. Folding it into A would
 overstate it; folding it into C would understate it. Naming it honestly is more
 useful than either.
 
-Detecting the gate requires conditional-cleanup analysis, which is on the
-roadmap; until it lands, a fully-clean plugin is graded **A**, and grade **B**
-is held in reserve.
+Sediment detects the gate by reading the uninstall path for an `if` that decides
+whether cleanup runs — either bailing out early (`if (!get_option('x')) return;`)
+or wrapping the removals. The gating option and the value it defaults to are
+reported alongside the grade, so a B always comes with the specific setting that
+caused it. An `if` that reads an option but gates nothing does not count.
 
 ## What does not count against a grade
 

@@ -8,6 +8,58 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [0.3.0] — unreleased
+
+Completes the grading rubric and the artifact surface. Grade B was published
+from the start but could never be assigned, because nothing detected the
+conditional cleanup it describes; that gap is now closed, and the last artifact
+types the manifest reserved are detected.
+
+### Added
+
+- **Conditional cleanup detection, and with it grade B.** An uninstall routine
+  gated on a stored setting — `if (!get_option('..._delete_data')) return;`, or
+  the same removals wrapped inside the `if` — is now recognised, and the gating
+  option and its default are reported in the cleanup block and the manifest.
+  This is the plugin that is technically clean and practically dirty: the setting
+  almost always defaults to off, so on a real site nothing is removed. Naming it
+  B is more useful than folding it into A or C.
+
+  A guard only counts when it actually gates cleanup — it bails out early, or a
+  removal sits inside it — so an unrelated `if (get_option('schema') === 'v2')`
+  in the same routine does not cost an otherwise clean plugin its A.
+- **Directories** — `wp_mkdir_p` and `mkdir`, with `WP_CONTENT_DIR`,
+  `WP_PLUGIN_DIR`, and `ABSPATH` rewritten to portable `{content_dir}`,
+  `{plugin_dir}`, and `{abspath}` tokens, the same way `{prefix}` works for
+  tables. A path that is only a root with nothing under it is skipped rather than
+  reported as a directory the plugin created.
+- **Rewrite rules** — `add_rewrite_rule`, `add_rewrite_endpoint`, and
+  `add_rewrite_tag`. They weigh lightly: a rule is one entry in a single option
+  and disappears on the next permalink flush.
+- **Action Scheduler jobs** — `as_schedule_recurring_action`,
+  `as_schedule_single_action`, `as_schedule_cron_action`, and
+  `as_enqueue_async_action`. A queued job behaves like a cron event, so it weighs
+  like one.
+
+### Fixed
+
+- **A cron event scheduled with arguments is no longer reported as cleaned by an
+  argument-less `wp_clear_scheduled_hook()`.** That call only removes events
+  registered without arguments, so the event actually survives and keeps firing —
+  Sediment was crediting a cleanup that does not happen. Clearing it needs
+  `wp_unschedule_hook()`, which is what the generated `uninstall.php` now emits
+  for those events.
+- **The `$wpdb` handle is recognised when held as a property** (`$this->wpdb`),
+  not only as the global variable, so table creation and drops written that way
+  are no longer missed. Recognition lives in one helper rather than three
+  hand-rolled checks, and still requires the name `wpdb` — an alias under a
+  different name is missed rather than guessed at.
+
+### Changed
+
+- Every artifact type the manifest reserves is now populated by detection; the
+  `creates` groups are unchanged, so consumers need no update.
+
 ## [0.2.0] — 2026-07-26
 
 Coverage expansion and the machine-readable output. The analyzer now sees the
@@ -159,6 +211,7 @@ reads source only — no WordPress runtime, no database — and runs on PHP 8.3+
   properties never resolve to a stale literal. PHP 8 named arguments resolve by
   name, and first-class callables are ignored rather than crashing a scan.
 
+[0.3.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.3.0
 [0.2.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.2.0
 [0.1.1]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.1.1
 [0.1.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.1.0

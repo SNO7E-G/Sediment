@@ -65,6 +65,19 @@ or inside a function or method registered via `register_uninstall_hook`. A
 Matching is by exact key within an artifact type; a partly-dynamic (`pattern`)
 key is reported as not cleaned rather than guessed.
 
+Naming the key is not always enough. A cron event scheduled *with arguments* is
+not removed by an argument-less `wp_clear_scheduled_hook()` — that call only
+clears events registered without arguments — so such an event is reported as not
+cleaned unless `wp_unschedule_hook()` is used, which clears every event for the
+hook.
+
+**Conditional cleanup.** When the uninstall path is gated on a stored setting —
+an `if` that bails out early, or one that wraps the removals — the cleanup is
+recorded as conditional along with the gating option and its default. That is
+what grade B describes: everything is removed in the code, and nothing is removed
+on a site where the user never enabled the setting. An `if` that reads an option
+without gating cleanup is not treated as a condition.
+
 ### Metadata
 
 `add_*_meta` and `update_*_meta` for posts, users, terms, and comments, keyed by
@@ -87,7 +100,19 @@ is why an orphaned post type caps a plugin's grade at D.
 Sediment reports registered content but **never generates code to delete it**.
 Removing posts or terms destroys user data, and that decision belongs to a human.
 
+### Directories, rewrite rules, and Action Scheduler
+
+`wp_mkdir_p` and `mkdir` for directories, with `WP_CONTENT_DIR`, `WP_PLUGIN_DIR`,
+and `ABSPATH` rewritten to `{content_dir}`, `{plugin_dir}`, and `{abspath}` —
+the same portability trick as `{prefix}`, so a finding is not tied to one
+install's layout. A path that is only a root, with nothing under it, is skipped.
+
+`add_rewrite_rule`, `add_rewrite_endpoint`, and `add_rewrite_tag` for routing.
+`as_schedule_recurring_action`, `as_schedule_single_action`,
+`as_schedule_cron_action`, and `as_enqueue_async_action` for Action Scheduler,
+the queue library many larger plugins use instead of WP-Cron.
+
 ## Not yet detected
 
-Filesystem writes, rewrite rules, options written through direct `$wpdb` SQL, and
-Action Scheduler jobs. See [limitations](limitations.md).
+Options written through direct `$wpdb` SQL, widget instances, theme mods, and
+`wp-config.php` / `.htaccess` edits. See [limitations](limitations.md).
