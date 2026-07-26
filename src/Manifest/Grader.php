@@ -15,8 +15,8 @@ use Sediment\Analyzer\WordPressCore;
  * Grading considers only *confidently* attributed creates (verified/resolved):
  * a `dynamic` key is Sediment's blind spot, not evidence against the plugin, so
  * it is excluded and reported separately as coverage. WordPress core artifacts
- * never count. Grade B (conditionally clean) awaits conditional-gate detection;
- * until then a fully-clean plugin is graded A.
+ * never count. A plugin whose cleanup is gated behind a stored setting is graded
+ * B rather than A, and the score is held inside the band its letter allows.
  */
 final class Grader
 {
@@ -58,10 +58,16 @@ final class Grader
 
     /**
      * Conditionally clean: the code removes everything, so this sits close to A,
-     * but on a site where the user never enabled the setting nothing is removed —
-     * which is why it is not A.
+     * but whether it runs depends on a setting — which is why it is not A.
      */
-    private const CONDITIONAL_SCORE = 80;
+    private const CONDITIONAL_SCORE = 90;
+
+    /**
+     * The highest score each letter may carry, so the number never contradicts
+     * the letter. Without this a C plugin with one stray transient scores 97 and
+     * outranks a B, which reads as a bug on any leaderboard.
+     */
+    private const SCORE_CEILING = ['A' => 100, 'B' => 90, 'C' => 85, 'D' => 65, 'F' => 49];
 
     /**
      * @param list<Finding> $findings
@@ -76,7 +82,7 @@ final class Grader
         if ($confident === []) {
             $unresolved = $this->hasUnresolved($findings);
 
-            return new Grade(
+            return self::make(
                 'A',
                 100,
                 0,
@@ -93,16 +99,17 @@ final class Grader
 
         if (!$hasPath) {
             // No teardown at all — cap the score so the letter and number agree.
-            return new Grade('F', min($this->score($left), 49), $cleaned, count($left), 'No uninstall routine — everything it creates is left behind.');
+            return self::make('F', $this->score($left), $cleaned, count($left), 'No uninstall routine — everything it creates is left behind.');
         }
 
         if ($left === []) {
-            // Conditionally clean (§10): everything is removed, but only when a
-            // stored setting says so — and that setting almost always defaults to
-            // off, so on a real site nothing is removed. Technically clean,
-            // practically dirty, and worth naming rather than folding into A.
+            // Conditionally clean (§10): the code removes everything, but only
+            // when a stored setting allows it — so on a site where that setting
+            // was never touched, nothing may be removed at all. Technically
+            // clean, practically uncertain, and worth naming rather than
+            // folding into A.
             if (($cleanup['conditional'] ?? false) === true) {
-                return new Grade(
+                return self::make(
                     'B',
                     self::CONDITIONAL_SCORE,
                     $cleaned,
@@ -111,7 +118,7 @@ final class Grader
                 );
             }
 
-            return new Grade('A', 100, $cleaned, 0, 'Removes everything it creates on uninstall.');
+            return self::make('A', 100, $cleaned, 0, 'Removes everything it creates on uninstall.');
         }
 
         $score = $this->score($left);
@@ -125,11 +132,11 @@ final class Grader
         ));
 
         if ($tables > 0 || $autoloaded > 0 || $cron > 0 || $postTypes > 0) {
-            return new Grade('D', $score, $cleaned, count($left), $this->describeHeavy($tables, $autoloaded, $cron, $postTypes));
+            return self::make('D', $score, $cleaned, count($left), $this->describeHeavy($tables, $autoloaded, $cron, $postTypes));
         }
 
         if (count($left) < self::MINOR_LEFTOVER_LIMIT) {
-            return new Grade(
+            return self::make(
                 'C',
                 $score,
                 $cleaned,
@@ -138,7 +145,7 @@ final class Grader
             );
         }
 
-        return new Grade('D', $score, $cleaned, count($left), sprintf('Leaves %d items behind.', count($left)));
+        return self::make('D', $score, $cleaned, count($left), sprintf('Leaves %d items behind.', count($left)));
     }
 
     /**
@@ -162,10 +169,14 @@ final class Grader
                 continue;
             }
 
-            // Collapse duplicates: cleaned if any is cleaned; keep the heavier autoload.
-            $cleaned = $existing->cleaned === true || $finding->cleaned === true;
+            // Collapse duplicates conservatively: the key counts as cleaned only
+            // when EVERY write of it is cleaned. The same hook scheduled with and
+            // without arguments is one key with two fates — an args-less clear
+            // removes only one of them, so "any cleaned" would report a plugin as
+            // spotless while an event keeps firing.
+            $cleaned = $existing->cleaned === true && $finding->cleaned === true;
             $keep = $finding->autoload === 'yes' ? $finding : $existing;
-            $byKey[$id] = $keep->withCleaned($cleaned ? true : $keep->cleaned);
+            $byKey[$id] = $keep->withCleaned($cleaned);
         }
 
         return array_values($byKey);
@@ -228,17 +239,38 @@ final class Grader
     {
         $option = $cleanup['condition_option'] ?? null;
         if ($option === null) {
-            return 'Removes everything it creates, but only when a stored setting opts in.';
+            return 'Removes everything it creates, but only when a stored setting allows it.';
         }
 
-        $default = $cleanup['condition_default'] ?? null;
-        $offByDefault = $default === false || $default === null || $default === '' || $default === '0' || $default === 'no';
-
+        // The polarity of the gate is not inspected — "delete my data" and "keep
+        // my data" are both common — so the wording states which setting decides,
+        // not which way it has to be set. Claiming a direction Sediment did not
+        // check would be a confident falsehood in half the cases.
         return sprintf(
-            'Removes everything it creates, but only when "%s" is enabled%s.',
+            'Removes everything it creates, but only when the "%s" setting allows it%s.',
             $option,
-            $offByDefault ? ', which is off by default' : '',
+            array_key_exists('condition_default', $cleanup) && $cleanup['condition_default'] !== null
+                ? sprintf(' (it defaults to %s)', self::describeDefault($cleanup['condition_default']))
+                : '',
         );
+    }
+
+    /**
+     * Build a grade, holding the score inside the band its letter allows so the
+     * number and the letter can never tell different stories.
+     */
+    private static function make(string $letter, int $score, int $cleaned, int $leftBehind, string $summary): Grade
+    {
+        return new Grade($letter, min($score, self::SCORE_CEILING[$letter]), $cleaned, $leftBehind, $summary);
+    }
+
+    private static function describeDefault(bool|string $default): string
+    {
+        if (is_bool($default)) {
+            return $default ? 'true' : 'false';
+        }
+
+        return $default === '' ? 'an empty value' : '"' . $default . '"';
     }
 
     private function describeHeavy(int $tables, int $autoloaded, int $cron, int $postTypes = 0): string

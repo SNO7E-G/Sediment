@@ -158,8 +158,15 @@ final class Manifest
         $grouped = [];
 
         foreach ($findings as $finding) {
-            if ($finding->key === null || !isset(self::TYPE_KEYS[$finding->type])) {
+            if ($finding->key === null) {
                 continue; // unresolvable writes are reported under `unresolved`
+            }
+
+            if (!isset(self::TYPE_KEYS[$finding->type])) {
+                // A detector emitting a type with no manifest group would drop it
+                // silently, which is the one way this document could lie. Fail
+                // loudly instead so it is caught the first time it happens.
+                throw new \LogicException(sprintf('No manifest group for finding type "%s".', $finding->type));
             }
 
             $group = self::TYPE_KEYS[$finding->type];
@@ -170,10 +177,12 @@ final class Manifest
                 continue;
             }
 
-            // Same key written from several places: merge into one entry.
+            // Same key written from several places: merge into one entry. It is
+            // cleaned only when every write of it is cleaned — a cron hook
+            // scheduled both with and without arguments needs both cleared.
             $entry = &$grouped[$group][$finding->key];
             $entry['sources'][] = $source;
-            $entry['cleaned'] = $entry['cleaned'] || $finding->cleaned === true;
+            $entry['cleaned'] = $entry['cleaned'] && $finding->cleaned === true;
             if (($entry['autoload'] ?? null) !== null && $finding->autoload === 'yes') {
                 $entry['autoload'] = 'yes';
             }
@@ -198,7 +207,7 @@ final class Manifest
         if ($finding->type === 'option') {
             $item['autoload'] = $finding->autoload ?? 'unknown';
         }
-        if ($finding->type === 'cron') {
+        if ($finding->type === 'cron' || $finding->type === 'action') {
             $item['recurrence'] = $finding->recurrence;
         }
 

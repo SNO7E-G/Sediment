@@ -107,6 +107,7 @@ final class Scanner
         $callbacks = [];
         $uninstallCalls = [];
         $guards = [];
+        $blankets = [];
         $hasUninstallPhp = false;
 
         foreach ($parsed as $entry) {
@@ -150,10 +151,11 @@ final class Scanner
             array_push($callbacks, ...$cleanup->uninstallCallbacks());
             array_push($uninstallCalls, ...$cleanup->uninstallCalls());
             array_push($guards, ...$cleanup->guards());
+            array_push($blankets, ...$cleanup->blanketRemovals());
         }
 
-        $findings = CleanupDiffer::apply($findings, $removals, $callbacks, $uninstallCalls);
-        $condition = CleanupDiffer::condition($guards, $callbacks, $uninstallCalls);
+        $findings = CleanupDiffer::apply($findings, $removals, $callbacks, $uninstallCalls, $blankets);
+        $condition = CleanupDiffer::condition($guards, $callbacks, $uninstallCalls, $removals);
 
         return [
             'files' => $files,

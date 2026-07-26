@@ -47,7 +47,9 @@ final class TableVisitor extends AbstractDetectionVisitor
 
         $sql = $this->argValue($node->getArgs(), 0, 'queries');
         $resolution = $sql !== null ? $this->resolveKey($sql) : Resolution::dynamic();
-        $names = $resolution->value !== null ? TableStatements::created($resolution->value) : [];
+        $names = $resolution->value !== null
+            ? TableStatements::created($resolution->value, $resolution->confidence === Finding::CONFIDENCE_PATTERN)
+            : [];
 
         if ($names === []) {
             // dbDelta is always a schema write, so record the unresolved case.
@@ -77,7 +79,8 @@ final class TableVisitor extends AbstractDetectionVisitor
             return; // a dynamic query — cannot tell whether it creates a table
         }
 
-        foreach (TableStatements::created($resolution->value) as $name) {
+        $truncated = $resolution->confidence === Finding::CONFIDENCE_PATTERN;
+        foreach (TableStatements::created($resolution->value, $truncated) as $name) {
             $this->findings[] = $this->table('$wpdb->query', $name, $resolution->confidence, $node->getStartLine());
         }
     }

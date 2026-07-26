@@ -197,10 +197,13 @@ final class ScanCommand extends Command
         ));
 
         if (($cleanup['conditional'] ?? false) === true) {
+            // The gate's polarity is not inspected, so say which setting decides
+            // rather than which way it must be set.
             $io->writeln(sprintf(
-                ' <comment>Conditional:</comment> cleanup only runs when %s is enabled%s.',
-                $cleanup['condition_option'] !== null ? '"' . OutputFormatter::escape((string) $cleanup['condition_option']) . '"' : 'a stored setting',
-                ($cleanup['condition_default'] ?? false) === false ? ', which is off by default' : '',
+                ' <comment>Conditional:</comment> cleanup only runs when the %s setting allows it.',
+                ($cleanup['condition_option'] ?? null) !== null
+                    ? '"' . OutputFormatter::escape((string) $cleanup['condition_option']) . '"'
+                    : 'stored',
             ));
         }
 

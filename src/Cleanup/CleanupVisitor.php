@@ -8,6 +8,7 @@ use PhpParser\Node;
 use PhpParser\Node\ArrayItem;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Array_;
+use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
@@ -15,6 +16,7 @@ use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Name;
 use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\Exit_;
+use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Scalar\MagicConst\Class_ as MagicClass;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt\If_;
@@ -51,7 +53,17 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         'delete_term_meta'        => [1, 'term_meta', 'meta_key'],
         'delete_comment_meta'     => [1, 'comment_meta', 'meta_key'],
         'remove_role'             => [0, 'role', 'role'],
+        'as_unschedule_all_actions' => [0, 'action', 'hook'],
+        'as_unschedule_action'      => [0, 'action', 'hook'],
+        'rmdir'                     => [0, 'directory', 'directory'],
     ];
+
+    /**
+     * Removals that clear a whole artifact type at once rather than naming a key.
+     * flush_rewrite_rules() rebuilds the routing table, which removes every rule
+     * the plugin registered, so it credits all of them.
+     */
+    private const BLANKET_REMOVALS = ['flush_rewrite_rules' => 'rewrite_rule'];
 
     /** delete_metadata()'s object type comes from its first argument. */
     private const META_OBJECT_TYPES = [
@@ -67,11 +79,23 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     /** @var list<string> lowercased function names called at the top level of uninstall.php */
     private array $uninstallCalls = [];
 
-    /** @var list<array{option: string, default: bool|string|null, function: string|null, file: string}> */
+    /** @var list<array{option: string, default: bool|string|null, function: string|null, file: string, exits: bool, removes: bool, calls: list<string>}> */
     private array $guards = [];
+
+    /** @var array<string, FuncCall> variable name => the option read assigned to it */
+    private array $optionReads = [];
+
+    /** @var list<array{type: string, function: string|null, file: string}> */
+    private array $blankets = [];
 
     protected function inspect(Node $node): void
     {
+        if ($node instanceof Assign) {
+            $this->trackOptionRead($node);
+
+            return;
+        }
+
         if ($node instanceof If_) {
             $this->recordGuard($node);
 
@@ -87,6 +111,12 @@ final class CleanupVisitor extends AbstractDetectionVisitor
 
             if ($function === 'register_uninstall_hook') {
                 $this->recordCallback($node);
+            } elseif (isset(self::BLANKET_REMOVALS[$function])) {
+                $this->blankets[] = [
+                    'type' => self::BLANKET_REMOVALS[$function],
+                    'function' => $this->currentFunction(),
+                    'file' => $this->file,
+                ];
             } elseif ($function === 'delete_metadata') {
                 $this->recordDeleteMetadata($node);
             } elseif (isset(self::REMOVALS[$function])) {
@@ -116,11 +146,14 @@ final class CleanupVisitor extends AbstractDetectionVisitor
      */
     private function recordGuard(If_ $node): void
     {
-        if (!$this->gatesCleanup($node)) {
-            return;
+        // The option may be read in the condition itself, or a line earlier into
+        // a variable the condition tests (`$keep = get_option('x'); if ($keep)`).
+        $reads = (new NodeFinder())->findInstanceOf($this->conditions($node), FuncCall::class);
+        foreach ($this->conditionVariableReads($node) as $call) {
+            $reads[] = $call;
         }
 
-        foreach ((new NodeFinder())->findInstanceOf($node->cond, FuncCall::class) as $call) {
+        foreach ($reads as $call) {
             if (!$call instanceof FuncCall || !$call->name instanceof Name || $call->isFirstClassCallable()) {
                 continue;
             }
@@ -144,28 +177,126 @@ final class CleanupVisitor extends AbstractDetectionVisitor
                 'default' => $this->guardDefault($call),
                 'function' => $this->currentFunction(),
                 'file' => $this->file,
+                // Evidence that this `if` gates cleanup. Whether the calls it
+                // makes are themselves part of the uninstall path is something
+                // only the differ knows, so it decides.
+                'exits' => $this->bailsOut($node),
+                'removes' => $this->containsRemoval($node),
+                'calls' => $this->calledFunctions($node),
             ];
 
-            return; // one guard per `if` is enough to mark cleanup conditional
+            return; // one guard per `if` is enough
+        }
+    }
+
+    /** Was a non-empty arguments array passed at this position? */
+    private function passesArgs(FuncCall $node, int $index, string $parameter): bool
+    {
+        $value = $this->argValue($node->getArgs(), $index, $parameter);
+
+        if ($value === null) {
+            return false;
+        }
+
+        return !($value instanceof Array_ && $value->items === []);
+    }
+
+    /** Remember `$keep = get_option('x');` so a later `if ($keep)` can be read. */
+    private function trackOptionRead(Assign $node): void
+    {
+        if (
+            $node->var instanceof Variable
+            && is_string($node->var->name)
+            && $node->expr instanceof FuncCall
+            && $node->expr->name instanceof Name
+            && in_array(strtolower($node->expr->name->toString()), ['get_option', 'get_site_option'], true)
+        ) {
+            $this->optionReads[$node->var->name] = $node->expr;
         }
     }
 
     /**
-     * Does this `if` decide whether cleanup happens? Two shapes qualify: the
-     * early bail (`if (!get_option('x')) { return; }`, with the removals after
-     * it), and the wrapper (`if (get_option('x')) { delete_option(...); }`).
+     * The conditions of an `if` and of every `elseif` attached to it — a gate is
+     * often the second branch (`if (defined(...)) return; elseif (!get_option(...))`).
+     *
+     * @return list<Node>
      */
-    private function gatesCleanup(If_ $node): bool
+    private function conditions(If_ $node): array
     {
-        $finder = new NodeFinder();
-
-        // Early bail: return/exit anywhere in the guarded branch.
-        if ($finder->findFirst($node->stmts, static fn (Node $n): bool => $n instanceof Return_ || $n instanceof Exit_) !== null) {
-            return true;
+        $conditions = [$node->cond];
+        foreach ($node->elseifs as $elseif) {
+            $conditions[] = $elseif->cond;
         }
 
-        // Wrapper: a removal call sits inside the `if` (including else branches).
-        $removal = $finder->findFirst($node, static function (Node $n): bool {
+        return $conditions;
+    }
+
+    /**
+     * Option reads assigned to a variable that the condition then tests. Only
+     * assignments seen earlier in the traversal are known, which is exactly the
+     * code that runs before the `if`.
+     *
+     * @return list<FuncCall>
+     */
+    private function conditionVariableReads(If_ $node): array
+    {
+        $calls = [];
+        foreach ((new NodeFinder())->findInstanceOf($this->conditions($node), Variable::class) as $variable) {
+            if ($variable instanceof Variable && is_string($variable->name) && isset($this->optionReads[$variable->name])) {
+                $calls[] = $this->optionReads[$variable->name];
+            }
+        }
+
+        return $calls;
+    }
+
+    /**
+     * Does a branch of this `if` bail out, leaving the removals after it to be
+     * skipped? A `return` inside a closure belongs to the closure, not to the
+     * uninstall routine, so the search does not descend into one.
+     */
+    private function bailsOut(If_ $node): bool
+    {
+        foreach ([$node->stmts, ...array_map(static fn ($e) => $e->stmts, $node->elseifs), $node->else?->stmts ?? []] as $branch) {
+            if ($this->hasEarlyExit($branch)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @param array<Node> $nodes
+     */
+    private function hasEarlyExit(array $nodes): bool
+    {
+        foreach ($nodes as $node) {
+            if ($node instanceof Return_ || $node instanceof Exit_) {
+                return true;
+            }
+
+            if ($node instanceof FunctionLike) {
+                continue; // a closure's return exits the closure, not the routine
+            }
+
+            foreach ($node->getSubNodeNames() as $name) {
+                $child = $node->$name;
+                $children = is_array($child) ? $child : [$child];
+
+                if ($this->hasEarlyExit(array_filter($children, static fn ($c): bool => $c instanceof Node))) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /** Does a removal call sit inside this `if`? */
+    private function containsRemoval(If_ $node): bool
+    {
+        return (new NodeFinder())->findFirst($node, static function (Node $n): bool {
             if ($n instanceof FuncCall && $n->name instanceof Name) {
                 $name = strtolower($n->name->toString());
 
@@ -173,9 +304,26 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             }
 
             return Wpdb::isMethodCall($n, 'query');
-        });
+        }) !== null;
+    }
 
-        return $removal !== null;
+    /**
+     * Functions called inside this `if`. When one of them turns out to be part of
+     * the uninstall path, the `if` is gating cleanup indirectly — the common
+     * `if (get_option('x')) { my_plugin_cleanup(); }` shape.
+     *
+     * @return list<string>
+     */
+    private function calledFunctions(If_ $node): array
+    {
+        $names = [];
+        foreach ((new NodeFinder())->findInstanceOf($node, FuncCall::class) as $call) {
+            if ($call instanceof FuncCall && $call->name instanceof Name) {
+                $names[] = strtolower($call->name->toString());
+            }
+        }
+
+        return $names;
     }
 
     /**
@@ -229,6 +377,12 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             return; // pattern/dynamic removals cannot credit a specific create
         }
 
+        // wp_clear_scheduled_hook($hook, $args) clears only the events registered
+        // with those exact arguments, so it cannot stand for a blanket clear.
+        if ($function === 'wp_clear_scheduled_hook' && $this->passesArgs($node, 1, 'args')) {
+            return;
+        }
+
         $this->addRemoval($type, (string) $resolution->value, $function);
     }
 
@@ -273,7 +427,8 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        foreach (TableStatements::dropped($resolution->value) as $name) {
+        $truncated = !$resolution->isResolved();
+        foreach (TableStatements::dropped($resolution->value, $truncated) as $name) {
             $this->addRemoval('table', $name, 'wpdb::query');
         }
     }
@@ -365,7 +520,13 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         return $this->uninstallCalls;
     }
 
-    /** @return list<array{option: string, default: bool|string|null, function: string|null, file: string}> */
+    /** @return list<array{type: string, function: string|null, file: string}> */
+    public function blanketRemovals(): array
+    {
+        return $this->blankets;
+    }
+
+    /** @return list<array{option: string, default: bool|string|null, function: string|null, file: string, exits: bool, removes: bool, calls: list<string>}> */
     public function guards(): array
     {
         return $this->guards;

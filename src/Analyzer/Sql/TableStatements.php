@@ -19,24 +19,43 @@ final class TableStatements
     // paren, comma, semicolon, or a quote, so junk like `backup')` is excluded.
     private const NAME = '`?([^\s`(;,\'"]+)`?';
 
-    /** @return list<string> names from every CREATE TABLE statement, in order */
-    public static function created(string $sql): array
+    /**
+     * @param bool $truncated the SQL was only partly resolved, so it may stop
+     *        mid-name — see {@see names()}
+     * @return list<string> names from every CREATE TABLE statement, in order
+     */
+    public static function created(string $sql, bool $truncated = false): array
     {
-        return self::names($sql, 'CREATE');
-    }
-
-    /** @return list<string> names from every DROP TABLE statement, in order */
-    public static function dropped(string $sql): array
-    {
-        return self::names($sql, 'DROP');
+        return self::names($sql, 'CREATE', $truncated);
     }
 
     /**
+     * @param bool $truncated the SQL was only partly resolved
+     * @return list<string> names from every DROP TABLE statement, in order
+     */
+    public static function dropped(string $sql, bool $truncated = false): array
+    {
+        return self::names($sql, 'DROP', $truncated);
+    }
+
+    /**
+     * When the SQL was only partly resolved, its tail was cut off at the first
+     * unresolvable piece — and that cut may land inside the table name itself:
+     * `"CREATE TABLE {$wpdb->prefix}logs{$suffix}"` resolves to
+     * `CREATE TABLE {prefix}logs`, whose real name is not `{prefix}logs`. Reading
+     * a name from it would invent a table the plugin never creates, and a
+     * generated DROP would then target a table it does not own.
+     *
+     * So for truncated SQL the name must be followed by a real terminator —
+     * whitespace, a bracket, a comma, or a semicolon — proving the name ended
+     * before the cut.
+     *
      * @return list<string>
      */
-    private static function names(string $sql, string $verb): array
+    private static function names(string $sql, string $verb, bool $truncated = false): array
     {
-        $pattern = '/^\s*' . $verb . '\s+TABLE\s+(?:IF\s+(?:NOT\s+)?EXISTS\s+)?' . self::NAME . '/i';
+        $terminator = $truncated ? '(?=[\s`(;,])' : '(?=[\s`(;,]|$)';
+        $pattern = '/^\s*' . $verb . '\s+TABLE\s+(?:IF\s+(?:NOT\s+)?EXISTS\s+)?' . self::NAME . $terminator . '/i';
 
         $names = [];
         foreach (explode(';', $sql) as $statement) {

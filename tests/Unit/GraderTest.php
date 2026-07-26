@@ -57,7 +57,7 @@ final class GraderTest extends TestCase
         $grade = (new Grader())->grade([$this->finding('table', false, function: 'dbDelta')], $this->path());
 
         self::assertSame('D', $grade->letter);
-        self::assertSame(85, $grade->score);
+        self::assertSame(65, $grade->score, 'a D score is held inside the D band');
     }
 
     public function test_left_autoloaded_option_is_D(): void
@@ -65,7 +65,7 @@ final class GraderTest extends TestCase
         $grade = (new Grader())->grade([$this->finding('option', false, autoload: 'yes')], $this->path());
 
         self::assertSame('D', $grade->letter);
-        self::assertSame(82, $grade->score);
+        self::assertSame(65, $grade->score, 'a D score is held inside the D band');
     }
 
     public function test_left_cron_is_D(): void

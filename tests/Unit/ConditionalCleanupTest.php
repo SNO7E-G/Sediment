@@ -40,7 +40,10 @@ final class ConditionalCleanupTest extends TestCase
         self::assertSame('B', $grade->letter);
         self::assertSame(0, $grade->leftBehind, 'the code does remove everything — that is why it is B and not D');
         self::assertStringContainsString('cnd_delete_data_on_uninstall', $grade->summary);
-        self::assertStringContainsString('off by default', $grade->summary);
+        // The gate's polarity is not inspected ("delete my data" and "keep my
+        // data" are both common), so the wording must not claim a direction.
+        self::assertStringContainsString('defaults to false', $grade->summary);
+        self::assertStringNotContainsString('is enabled', $grade->summary);
     }
 
     public function test_unconditional_cleanup_still_grades_A(): void
@@ -77,6 +80,44 @@ final class ConditionalCleanupTest extends TestCase
         self::assertTrue($scan['cleanup']['conditional']);
         self::assertSame('wgp_remove_data', $scan['cleanup']['condition_option']);
         self::assertSame('B', (new Grader())->grade($scan['findings'], $scan['cleanup'])->letter);
+    }
+
+    public function test_a_gate_that_calls_a_cleanup_function_is_detected(): void
+    {
+        // if (get_option('x')) { gwc_do_cleanup(); } — the removals are one call
+        // away, which is how most conditional uninstall routines are written.
+        $scan = $this->scan('guard-wrapper-call-plugin');
+
+        self::assertTrue($scan['cleanup']['conditional']);
+        self::assertSame('gwc_remove_data', $scan['cleanup']['condition_option']);
+        self::assertSame('B', (new Grader())->grade($scan['findings'], $scan['cleanup'])->letter);
+    }
+
+    public function test_a_gate_reading_the_option_through_a_variable_is_detected(): void
+    {
+        $scan = $this->scan('guard-local-var-plugin');
+
+        self::assertTrue($scan['cleanup']['conditional']);
+        self::assertSame('glv_keep_data', $scan['cleanup']['condition_option']);
+    }
+
+    public function test_a_gate_in_an_elseif_is_detected(): void
+    {
+        $scan = $this->scan('guard-elseif-plugin');
+
+        self::assertTrue($scan['cleanup']['conditional']);
+        self::assertSame('gel_remove_data', $scan['cleanup']['condition_option']);
+    }
+
+    public function test_a_return_inside_a_closure_is_not_an_early_exit(): void
+    {
+        // The `if` posts a notification and returns nothing; cleanup after it is
+        // unconditional, so this is an A and no condition may be claimed.
+        $scan = $this->scan('guard-closure-plugin');
+
+        self::assertFalse($scan['cleanup']['conditional']);
+        self::assertNull($scan['cleanup']['condition_option']);
+        self::assertSame('A', (new Grader())->grade($scan['findings'], $scan['cleanup'])->letter);
     }
 
     public function test_the_condition_is_reported_in_the_manifest(): void

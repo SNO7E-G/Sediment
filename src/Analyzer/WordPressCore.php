@@ -77,6 +77,22 @@ final class WordPressCore
         'wp_delete_temp_updater_backups' => true, 'wp_update_comment_type_batch' => true,
     ];
 
+    /**
+     * @var array<string, true> directories WordPress owns, in the placeholder
+     *      form the filesystem detector emits
+     */
+    private const DIRECTORIES = [
+        '{content_dir}' => true, '{content_dir}/uploads' => true, '{content_dir}/plugins' => true,
+        '{content_dir}/themes' => true, '{content_dir}/mu-plugins' => true, '{content_dir}/upgrade' => true,
+        '{content_dir}/languages' => true, '{content_dir}/upgrade-temp-backup' => true,
+        '{plugin_dir}' => true, '{abspath}' => true, '{abspath}/wp-admin' => true, '{abspath}/wp-includes' => true,
+    ];
+
+    public static function isCoreDirectory(string $path): bool
+    {
+        return isset(self::DIRECTORIES[rtrim(strtolower($path), '/')]);
+    }
+
     public static function isCoreOption(string $key): bool
     {
         return isset(self::OPTIONS[$key]);
@@ -106,6 +122,7 @@ final class WordPressCore
             'option'    => self::isCoreOption($finding->key),
             'cron'      => self::isCoreCronHook($finding->key),
             'table'     => self::isCoreTable($finding->key),
+            'directory' => self::isCoreDirectory($finding->key),
             default     => false,
         };
     }

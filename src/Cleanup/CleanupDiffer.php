@@ -24,9 +24,10 @@ final class CleanupDiffer
      * @param list<array{type: string, key: string, via: string, function: string|null, file: string}> $removals
      * @param list<string> $callbacks uninstall callback identifiers
      * @param list<string> $uninstallCalls functions called at the top level of uninstall.php
+     * @param list<array{type: string, function: string|null, file: string}> $blankets removals that clear a whole type
      * @return list<Finding> the same findings with `cleaned` set
      */
-    public static function apply(array $findings, array $removals, array $callbacks, array $uninstallCalls = []): array
+    public static function apply(array $findings, array $removals, array $callbacks, array $uninstallCalls = [], array $blankets = []): array
     {
         $scopedFunctions = self::scopedFunctions($callbacks, $uninstallCalls);
 
@@ -38,8 +39,21 @@ final class CleanupDiffer
             }
         }
 
+        /** @var array<string, true> $clearedWholesale artifact types cleared in one call */
+        $clearedWholesale = [];
+        foreach ($blankets as $blanket) {
+            if (self::runsOnUninstall($blanket['file'], $blanket['function'], $scopedFunctions)) {
+                $clearedWholesale[$blanket['type']] = true;
+            }
+        }
+
         $result = [];
         foreach ($findings as $finding) {
+            if (isset($clearedWholesale[$finding->type])) {
+                $result[] = $finding->withCleaned(true);
+                continue;
+            }
+
             $via = ($finding->key !== null ? $removed[$finding->type][$finding->key] ?? null : null);
             $result[] = $finding->withCleaned($via !== null && self::clears($finding, $via));
         }
@@ -69,24 +83,76 @@ final class CleanupDiffer
 
     /**
      * The setting a plugin's cleanup is gated on, or null when cleanup is
-     * unconditional. Only guards that themselves run on uninstall count.
+     * unconditional.
      *
-     * @param list<array{option: string, default: bool|string|null, function: string|null, file: string}> $guards
+     * A guard counts only if it runs on uninstall AND actually decides whether
+     * cleanup happens — it bails out early, wraps a removal, or calls a function
+     * that is itself part of the uninstall path (`if (get_option('x')) {
+     * my_cleanup(); }`). An `if` that merely reads an option without gating
+     * anything is not a condition, and must not cost a clean plugin its A.
+     *
+     * @param list<array{option: string, default: bool|string|null, function: string|null, file: string, exits?: bool, removes?: bool, calls?: list<string>}> $guards
      * @param list<string> $callbacks
      * @param list<string> $uninstallCalls
+     * @param list<array{type: string, key: string, via: string, function: string|null, file: string}> $removals
      * @return array{option: string, default: bool|string|null}|null
      */
-    public static function condition(array $guards, array $callbacks, array $uninstallCalls = []): ?array
+    public static function condition(array $guards, array $callbacks, array $uninstallCalls = [], array $removals = []): ?array
     {
         $scopedFunctions = self::scopedFunctions($callbacks, $uninstallCalls);
+        $cleanupFunctions = self::functionsThatRemove($removals, $scopedFunctions);
 
         foreach ($guards as $guard) {
-            if (self::runsOnUninstall($guard['file'], $guard['function'], $scopedFunctions)) {
+            if (!self::runsOnUninstall($guard['file'], $guard['function'], $scopedFunctions)) {
+                continue;
+            }
+
+            $gates = ($guard['exits'] ?? false)
+                || ($guard['removes'] ?? false)
+                || self::callsCleanup($guard['calls'] ?? [], $cleanupFunctions);
+
+            if ($gates) {
                 return ['option' => $guard['option'], 'default' => $guard['default']];
             }
         }
 
         return null;
+    }
+
+    /**
+     * Functions that both run on uninstall and actually remove something. Calling
+     * one from inside an `if` is what makes that `if` a gate — calling a function
+     * that removes nothing (logging, a migration) is not.
+     *
+     * @param list<array{type: string, key: string, via: string, function: string|null, file: string}> $removals
+     * @param array<string, true> $scopedFunctions
+     * @return array<string, true>
+     */
+    private static function functionsThatRemove(array $removals, array $scopedFunctions): array
+    {
+        $functions = [];
+        foreach ($removals as $removal) {
+            if ($removal['function'] !== null && self::runsOnUninstall($removal['file'], $removal['function'], $scopedFunctions)) {
+                $functions[strtolower($removal['function'])] = true;
+            }
+        }
+
+        return $functions;
+    }
+
+    /**
+     * @param list<string> $calls
+     * @param array<string, true> $cleanupFunctions
+     */
+    private static function callsCleanup(array $calls, array $cleanupFunctions): bool
+    {
+        foreach ($calls as $call) {
+            if (isset($cleanupFunctions[strtolower($call)])) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

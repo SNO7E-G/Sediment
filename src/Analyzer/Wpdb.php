@@ -11,6 +11,7 @@ use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\StaticPropertyFetch;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Identifier;
+use PhpParser\Node\Name;
 
 /**
  * Recognises the WordPress database handle, in the shapes plugins actually use.
@@ -25,18 +26,37 @@ final class Wpdb
 {
     private const NAME = 'wpdb';
 
-    /** Is this expression the $wpdb handle? */
+    /**
+     * Is this expression the $wpdb handle?
+     *
+     * Only three shapes are accepted: the global `$wpdb`, `$this->wpdb`, and
+     * `self::$wpdb`. The bound is deliberate — this feeds cleanup crediting,
+     * where accepting an unrelated `$logger->wpdb->query(...)` would credit a
+     * table drop that never happens. A handle reached any other way is missed
+     * rather than assumed.
+     */
     public static function isHandle(Node $expr): bool
     {
         if ($expr instanceof Variable) {
             return $expr->name === self::NAME;
         }
 
-        if ($expr instanceof PropertyFetch || $expr instanceof StaticPropertyFetch) {
-            return $expr->name instanceof Identifier && strtolower($expr->name->toString()) === self::NAME;
+        if (!self::named($expr)) {
+            return false;
         }
 
-        return false;
+        if ($expr instanceof PropertyFetch) {
+            return $expr->var instanceof Variable && $expr->var->name === 'this';
+        }
+
+        return $expr instanceof StaticPropertyFetch && $expr->class instanceof Name;
+    }
+
+    private static function named(Node $expr): bool
+    {
+        return ($expr instanceof PropertyFetch || $expr instanceof StaticPropertyFetch)
+            && $expr->name instanceof Identifier
+            && strtolower($expr->name->toString()) === self::NAME;
     }
 
     /**
