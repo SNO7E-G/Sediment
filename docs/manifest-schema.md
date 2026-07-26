@@ -33,7 +33,10 @@ still change before 1.0; the field exists so a consumer can tell.
   },
   "cleanup": {
     "has_uninstall_php": true,
-    "has_uninstall_hook": false
+    "has_uninstall_hook": false,
+    "conditional": true,                        // cleanup runs only if a setting says so
+    "condition_option": "example_delete_data",  // the gating option, null when unconditional
+    "condition_default": false                  // what that option defaults to
   },
   "creates": {
     "options": [
@@ -51,7 +54,8 @@ still change before 1.0; the field exists so a consumer can tell.
     "post_meta": [], "user_meta": [], "term_meta": [], "comment_meta": [],
     "roles": [], "capabilities": [],
     "post_types": [], "taxonomies": [],
-    "directories": [], "rewrite_rules": []
+    "directories": [], "rewrite_rules": [],
+    "actions": []                 // Action Scheduler jobs
   },
   "unresolved": [
     {
@@ -66,12 +70,17 @@ still change before 1.0; the field exists so a consumer can tell.
 
 ## Rules a consumer can rely on
 
-- **Every group in `creates` is always present**, even when empty — including
-  types Sediment does not detect yet (`directories`, `rewrite_rules`). Adding
-  detection for one never changes the shape of the document.
-- **`{prefix}` is a literal placeholder**, never a hardcoded `wp_`. Substitute the
-  real table prefix at the point of use. Getting this wrong makes every finding
-  wrong on a site with a custom prefix.
+- **Every group in `creates` is always present**, even when empty. Adding
+  detection for a new artifact type never changes the shape of the document.
+- **Placeholders are literal tokens, never expanded.** `{prefix}` stands for the
+  table prefix, and `{content_dir}`, `{plugin_dir}`, and `{abspath}` stand for
+  the corresponding filesystem roots. Substitute the real values at the point of
+  use; treating them literally makes every finding wrong on a site whose prefix
+  or layout differs from the default.
+- **`cleanup.conditional` marks a plugin that only cleans up when a setting says
+  so**, with `condition_option` naming that setting and `condition_default`
+  giving the value it takes on a site where the user never touched it. This is
+  what separates grade B from grade A.
 - **`sources` is always an array.** The same key is often written from several
   places, and all of them are reported.
 - **`cleaned` is per item**, not per plugin. Partial cleanup is the common case,

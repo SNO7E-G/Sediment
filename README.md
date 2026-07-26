@@ -76,9 +76,11 @@ The manifest carries the grade, the coverage counts, and every artifact with its
 
 ## What it detects
 
-Options (with the autoload flag), custom tables, cron events, transients, post/user/term/comment metadata, roles and capabilities, and custom post types and taxonomies.
+Options (with the autoload flag), custom tables, cron events, transients, post/user/term/comment metadata, roles and capabilities, custom post types and taxonomies, directories, rewrite rules, and Action Scheduler jobs.
 
-That last group is the one prefix-matching tools structurally cannot reach. Uninstall an e-commerce plugin and its products stay behind as unreachable rows in `wp_posts` — often tens of thousands. No prefix reveals that. Reading the source does.
+Custom post types are the group prefix-matching tools structurally cannot reach. Uninstall an e-commerce plugin and its products stay behind as unreachable rows in `wp_posts` — often tens of thousands. No prefix reveals that. Reading the source does.
+
+Sediment also reads *how* a plugin cleans up. A routine gated behind a "delete my data on uninstall" setting is reported as conditional — with the exact option and the value it defaults to — because a plugin that only cleans up for the few users who found that checkbox is clean in its code and dirty on real sites.
 
 `grade` returns a letter and a weighted-damage score. `uninstall` writes a teardown that removes only the artifacts Sediment attributed with high confidence — never a WordPress core key, an already-cleaned key, or a guess. (A `check --fail-on=<grade>` command for CI is planned.)
 
@@ -100,7 +102,7 @@ A grade reflects what a plugin leaves behind, weighted by real-world cost rather
 | Grade | Meaning |
 | --- | --- |
 | **A** | Removes everything it creates, unconditionally, on uninstall. |
-| **B** | Removes everything, but only when the user opts in (conditionally clean). |
+| **B** | Removes everything, but only when the user opts in (conditionally clean) — the grade names the setting. |
 | **C** | Removes some data; leaves a few harmless rows — none autoloaded, no tables or cron. |
 | **D** | Leaves tables, autoloaded options, cron events, or orphaned content behind. |
 | **F** | Ships no uninstall routine at all. |
@@ -121,7 +123,7 @@ Sediment is built in stages, each useful on its own:
 
 ## Status
 
-**Alpha.** Detection, static resolution, the cleanup diff, grading, the manifest, the CI check, and the `uninstall.php` generator all work today, backed by a broad test suite. Releases are cut when a meaningful body of work is ready rather than per change, so each one carries real features — see the [changelog](CHANGELOG.md) and the [releases](https://github.com/SNO7E-G/Sediment/releases). Public interfaces, including the manifest schema, may still change before 1.0.
+**Alpha.** Detection across every artifact type above, static resolution, the cleanup diff (including conditional cleanup), grading, the manifest, the CI check, and the `uninstall.php` generator all work today, backed by a broad test suite. Releases are cut when a meaningful body of work is ready rather than per change, so each one carries real features — see the [changelog](CHANGELOG.md) and the [releases](https://github.com/SNO7E-G/Sediment/releases). Public interfaces, including the manifest schema, may still change before 1.0.
 
 ## Development
 
