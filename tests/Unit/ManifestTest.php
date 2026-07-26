@@ -65,6 +65,46 @@ final class ManifestTest extends TestCase
         self::assertNotSame('', $manifest['unresolved'][0]['expression']);
     }
 
+    public function test_every_detected_artifact_reaches_the_manifest(): void
+    {
+        // A finding type that no manifest group maps would disappear silently,
+        // which is the one way this document can lie. Sweep every fixture and
+        // assert nothing is dropped on the way in.
+        $fixtures = glob(dirname(__DIR__) . '/fixtures/*', GLOB_ONLYDIR) ?: [];
+        self::assertNotEmpty($fixtures);
+
+        foreach ($fixtures as $path) {
+            $scan = (new Scanner())->scan($path);
+            $manifest = Manifest::build($scan, (new Grader())->grade($scan['findings'], $scan['cleanup']), $path, '2026-07-26T00:00:00Z');
+
+            $keysInManifest = [];
+            foreach ($manifest['creates'] as $group => $items) {
+                foreach ($items as $item) {
+                    $keysInManifest[$group . ':' . $item['key']] = true;
+                }
+            }
+
+            foreach ($scan['findings'] as $finding) {
+                if ($finding->key === null) {
+                    continue; // reported under `unresolved` instead
+                }
+
+                $found = false;
+                foreach (array_keys($keysInManifest) as $entry) {
+                    if (str_ends_with($entry, ':' . $finding->key)) {
+                        $found = true;
+                        break;
+                    }
+                }
+
+                self::assertTrue(
+                    $found,
+                    sprintf('%s finding "%s" (%s) is missing from the manifest', $finding->type, $finding->key, basename($path)),
+                );
+            }
+        }
+    }
+
     public function test_the_manifest_is_json_serializable(): void
     {
         $json = json_encode($this->manifest('clean-plugin'));
