@@ -39,6 +39,14 @@ never would have.
   removable set is precisely the misattribution this project exists to prevent.
   They are now reported under a new **`modifies_core`** section, and a
   corpus-wide test asserts no plugin is ever credited with creating core data.
+- **A manifest was not the same document on every platform.** File paths were
+  sorted with their native separators, and `\` and `/` sort differently against
+  the characters between them, so `admin/x.php` and `admin\x.php` fall on
+  opposite sides of `adminA.php`. The same plugin therefore scanned in a
+  different order on Linux than on Windows, reordering every findings list.
+  Paths are now normalised before sorting, and artifacts are ordered by key
+  rather than by the order files happened to be read, so the document depends on
+  its contents alone. Found by CI failing on a tree that passed locally.
 - **A manifest did not survive a JSON round trip.** A resolution rate of exactly
   `1.0` encoded as `1` and decoded as an integer, so re-reading a manifest
   produced a different type than the scan that wrote it — enough to make `diff`
