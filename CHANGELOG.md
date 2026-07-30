@@ -8,6 +8,33 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [0.4.1] — 2026-07-27
+
+Stability and coverage, both driven by what real plugins actually do.
+
+### Fixed
+
+- **A scan no longer holds every syntax tree in memory.** Scanning Yoast SEO
+  peaked at **242 MB** — past PHP's default 128 MB limit, so the scan died
+  outright, and in a batch run one such plugin would have ended the whole job.
+  Files are re-read for the second pass instead, which makes the cost of a scan
+  proportional to the largest single file rather than the whole tree: the same
+  scan now peaks at **36 MB** and finds exactly the same 123 artifacts. The
+  trade is some time for a bound that holds, and a regression test pins it.
+
+### Added
+
+- **The multisite network option API** — `add_network_option`,
+  `update_network_option`, and `delete_network_option`. Their key is the *second*
+  argument, after the network id, which is precisely why they were invisible.
+  Network options are never autoloaded, and a generated `uninstall.php` removes
+  them with `delete_site_option`.
+- **The generic metadata API** — `add_metadata` and `update_metadata`, which the
+  typed `add_post_meta`-style helpers delegate to. `delete_metadata` was already
+  credited as cleanup, so not detecting the create side left the two halves out
+  of step. As with `register_meta`, the object type is resolved rather than
+  guessed: an unknowable one emits nothing.
+
 ## [0.4.0] — 2026-07-27
 
 The release where Sediment was first pointed at real plugins instead of
@@ -280,6 +307,7 @@ reads source only — no WordPress runtime, no database — and runs on PHP 8.3+
   properties never resolve to a stale literal. PHP 8 named arguments resolve by
   name, and first-class callables are ignored rather than crashing a scan.
 
+[0.4.1]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.4.1
 [0.4.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.4.0
 [0.3.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.3.0
 [0.2.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.2.0

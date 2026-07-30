@@ -21,9 +21,11 @@ then detection resolves each key against that table. This is what lets
 
 ### Options
 
-`add_option`, `update_option`, `add_site_option`, `update_site_option`. The
-autoload flag is captured where it applies (`add_option` arg 4, `update_option`
-arg 3); site/network options are not autoloaded.
+`add_option`, `update_option`, `add_site_option`, `update_site_option`, and the
+multisite `add_network_option` / `update_network_option` — whose key is the
+second argument, after the network id. The autoload flag is captured where it
+applies (`add_option` arg 4, `update_option` arg 3); site and network options are
+never autoloaded.
 
 `register_setting` is intentionally *not* treated as a create: it registers a
 setting with the Settings API but does not itself write an option row, so
@@ -93,11 +95,13 @@ decides, never which way it must be set — "keep my data" gates are as common a
 ### Metadata
 
 `add_*_meta` and `update_*_meta` for posts, users, terms, and comments, keyed by
-the meta key. `register_meta` is also read, but its object type comes from the
-first argument rather than the function name: that argument is resolved and
-mapped to one of `post`, `user`, `term`, or `comment`. If it does not resolve to
-one of those four, nothing is emitted — guessing which meta table a call touches
-would be worse than missing it.
+the meta key.
+
+`register_meta` and the generic `add_metadata` / `update_metadata` are also read.
+Their object type comes from an argument rather than from the function name, so
+that argument is resolved and mapped to one of `post`, `user`, `term`, or
+`comment`. If it does not resolve to one of those four, nothing is emitted —
+guessing which meta table a call touches would be worse than missing it.
 
 ### Roles, capabilities, and content types
 

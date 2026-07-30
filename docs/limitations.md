@@ -35,8 +35,9 @@ Where a key has a stable leading literal (`'mp_' . $x`), it is reported as a
 
 ## What is not detected yet
 
-Options written via direct `$wpdb` SQL, widget instances, theme mods, and
-`wp-config.php` / `.htaccess` edits. These are on the roadmap.
+Options written via direct `$wpdb` SQL, widget instances, theme mods
+(`set_theme_mod`), site meta on multisite, and `wp-config.php` / `.htaccess`
+edits. These are on the roadmap.
 
 Some things are detected but deliberately never written into a generated
 `uninstall.php`: **post types and taxonomies**, because deleting posts or terms
