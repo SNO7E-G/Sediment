@@ -220,7 +220,12 @@ final class Manifest
             unset($entry);
         }
 
+        // Sorted by key rather than left in scan order. The manifest is a
+        // published document that gets diffed, so its ordering should depend on
+        // its contents alone — not on the order a filesystem happened to hand
+        // files over.
         foreach ($grouped as $group => $entries) {
+            ksort($entries);
             $creates[$group] = array_values($entries);
         }
 

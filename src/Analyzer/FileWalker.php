@@ -87,7 +87,13 @@ final class FileWalker
             foreach ($iterator as $fileInfo) {
                 /** @var SplFileInfo $fileInfo */
                 if ($fileInfo->isFile() && $this->isPhp($fileInfo->getPathname())) {
-                    $files[] = $fileInfo->getPathname();
+                    // Separators are normalised before sorting, not after: '\'
+                    // and '/' sort differently against the characters between
+                    // them, so "admin\x.php" and "admin/x.php" land either side
+                    // of "adminA.php". Left alone, the same plugin scans in a
+                    // different order on Windows and Linux, which reorders every
+                    // findings list and makes a manifest platform-dependent.
+                    $files[] = str_replace('\\', '/', $fileInfo->getPathname());
                 }
             }
         } catch (\Throwable) {
