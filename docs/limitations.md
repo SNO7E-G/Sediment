@@ -18,10 +18,10 @@ Sediment errs toward `dynamic` whenever it cannot be certain — under-claiming 
 key can never cause a wrong deletion, while over-claiming can. The following are
 known cases it does not yet resolve, and reports honestly instead of guessing:
 
-- **`static::` and `parent::` members**, and any constant or property declared
-  only on a parent class. The inheritance graph is walked just far enough to
-  *poison* an overridden property (so it degrades to `dynamic`), not to resolve
-  an inherited one.
+- **Members reached through a subclass that redefines them.** A constant or
+  property declared on a base class resolves for subclasses that do not redefine
+  it, and `static::` resolves when no subclass redefines it — but when one does,
+  the value depends on the object at runtime, so it stays `dynamic`.
 - **Constants in traits, enums, and interfaces.**
 - **`define()` / `const` values built from concatenation or other constants**, and
   keys built with `sprintf()` or other function calls.
@@ -35,14 +35,15 @@ Where a key has a stable leading literal (`'mp_' . $x`), it is reported as a
 
 ## What is not detected yet
 
-Filesystem writes, rewrite rules, options written via direct `$wpdb` SQL, and
-Action Scheduler jobs. These are on the roadmap.
+Options written via direct `$wpdb` SQL, widget instances, theme mods, and
+`wp-config.php` / `.htaccess` edits. These are on the roadmap.
 
-Two things are detected but deliberately never generated into an `uninstall.php`:
-**registered post types and taxonomies**, because deleting posts or terms
-destroys user content, and **capabilities granted via `$role->add_cap()`**,
-because Sediment does not track which role received them. Both are reported so a
-human can decide.
+Some things are detected but deliberately never written into a generated
+`uninstall.php`: **post types and taxonomies**, because deleting posts or terms
+destroys user content; **directories**, because removing one can take user
+uploads with it; **rewrite rules**, because flushing routing is the site's call;
+and **capabilities granted via `$role->add_cap()`**, because Sediment does not
+track which role received them. All are reported so a human can decide.
 
 ## Scope of a scan
 

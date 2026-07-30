@@ -8,6 +8,46 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [0.4.0] — 2026-07-27
+
+The release where Sediment was first pointed at real plugins instead of
+hand-written fixtures — and gained the commands for using it repeatedly and over
+a whole collection.
+
+### Added
+
+- **`sediment diff <baseline.json> <path>`** compares a plugin against a manifest
+  saved earlier and exits non-zero when the footprint got worse: a new artifact
+  that is not cleaned up, one that stopped being cleaned up, or a worse grade.
+  Adding data the plugin also removes on uninstall is not a regression. Commit
+  the manifest and an accidental autoloaded option becomes a failing build rather
+  than a discovery years later.
+- **`sediment batch <dir>`** scans every plugin directory under a path, writing
+  one manifest each plus a grade distribution and an overall resolution rate. A
+  plugin that fails to scan is recorded and skipped, so one bad plugin cannot
+  sink a run of thousands.
+
+### Changed — resolution
+
+Running against real plugins showed exactly where the resolution rate was going.
+Members are now looked up the way PHP looks them up, which recovers the largest
+missed buckets without loosening any safety rule:
+
+- A constant or property declared on a base class resolves for subclasses that do
+  not redefine it, and `parent::CONST` follows the recorded hierarchy.
+- `static::CONST` resolves when no subclass in the plugin redefines it — exactly
+  the case where late binding cannot change the value. When one does, it stays
+  `dynamic` as before.
+- `self::$prop` and `static::$prop` resolve.
+
+Measured on Yoast SEO (1,680 files): **56.9% → 61.8%** of write calls resolved.
+
+### Fixed
+
+- **A write through `self::$prop` now poisons that symbol** just as `$this->prop`
+  does. Previously a literal default survived a dynamic reassignment made through
+  the static form, so a key could resolve to a value that never runs.
+
 ## [0.3.0] — 2026-07-26
 
 Completes the grading rubric and the artifact surface. Grade B was published
@@ -240,6 +280,7 @@ reads source only — no WordPress runtime, no database — and runs on PHP 8.3+
   properties never resolve to a stale literal. PHP 8 named arguments resolve by
   name, and first-class callables are ignored rather than crashing a scan.
 
+[0.4.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.4.0
 [0.3.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.3.0
 [0.2.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.2.0
 [0.1.1]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.1.1

@@ -72,6 +72,15 @@ php bin/sediment scan path/to/plugin --json > manifest.json
 php bin/sediment check path/to/plugin --fail-on=C   # exit 1 if worse than C
 ```
 
+Guard a release against footprint creep, or scan a whole collection at once:
+
+```bash
+php bin/sediment diff manifest.json path/to/plugin   # exit 1 if the footprint got worse
+php bin/sediment batch path/to/plugins --out ./manifests
+```
+
+`diff` compares against a manifest you committed earlier: a new artifact that isn't cleaned up, one that stopped being cleaned up, or a worse grade fails the build. Adding data you also remove on uninstall doesn't. `batch` writes one manifest per plugin plus a grade distribution.
+
 The manifest carries the grade, the coverage counts, and every artifact with its confidence, `cleaned` flag, and source lines — it is the contract other tools build on, documented in [`docs/manifest-schema.md`](docs/manifest-schema.md). `check` is the same analysis wired for CI, so a plugin author can fail a build on their database footprint the way they already fail it on tests.
 
 ## What it detects
@@ -111,7 +120,7 @@ The rubric is published in full at [`docs/grading.md`](docs/grading.md) so a gra
 
 ## Limitations
 
-Static analysis cannot see a key that is assembled entirely at runtime, so those are reported as `dynamic` and never acted on — the resolution rate tells you how much of a plugin fell into that bucket. A handful of narrower edges (cron events scheduled with arguments, an aliased `$wpdb` handle) are documented plainly in [`docs/limitations.md`](docs/limitations.md). Publishing these is deliberate: an audit tool earns trust by being honest about its own blind spots.
+Static analysis cannot see a key that is assembled entirely at runtime, so those are reported as `dynamic` and never acted on — the resolution rate tells you how much of a plugin fell into that bucket. On large real-world plugins that share is substantial: Yoast SEO resolves at about 62%, because much of what it writes is keyed by a method call or a parameter. Sediment reports that number rather than papering over it, and every unresolved write is listed with its source line so a human can settle it. A handful of narrower edges (cron events scheduled with arguments, an aliased `$wpdb` handle) are documented plainly in [`docs/limitations.md`](docs/limitations.md). Publishing these is deliberate: an audit tool earns trust by being honest about its own blind spots.
 
 ## Roadmap
 
