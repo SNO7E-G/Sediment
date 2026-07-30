@@ -18,7 +18,13 @@ use Symfony\Component\Console\Application as BaseApplication;
 final class Application extends BaseApplication
 {
     public const NAME = 'sediment';
-    public const VERSION = '0.1.0-dev';
+
+    /**
+     * Kept in step with the top entry of CHANGELOG.md, which a test enforces —
+     * this is stamped into every manifest as `analyzer_version`, so a stale value
+     * silently mislabels the data downstream consumers keep.
+     */
+    public const VERSION = '0.5.0';
 
     public function __construct()
     {

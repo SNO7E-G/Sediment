@@ -70,6 +70,19 @@ high-value bug report. Open an issue with the plugin, the version, the offending
 source line, and what the finding should have been. A failing fixture attached
 to the issue is the fastest path to a fix.
 
+## Building the PHAR
+
+```bash
+composer install --no-dev --optimize-autoloader
+php -d phar.readonly=0 bin/build-phar.php
+php build/sediment.phar --version
+```
+
+The archive holds `src/` and the runtime dependencies. Release builds use
+`--no-dev`; building with dev dependencies installed still works but produces a
+much larger file, and the script says so. CI builds and then *runs* the binary
+against a fixture, because a PHAR that builds but cannot scan is worse than none.
+
 ## Releasing
 
 `CHANGELOG.md` is the source of truth — there is no tagging step.

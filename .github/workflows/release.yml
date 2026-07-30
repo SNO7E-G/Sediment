@@ -68,6 +68,24 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
+      # Every release carries a runnable binary, so someone can use Sediment
+      # without Composer or a PHP toolchain of their own.
+      - name: Set up PHP
+        if: steps.changelog.outputs.publish == 'true'
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer:v2
+          ini-values: phar.readonly=0
+
+      - name: Build the PHAR
+        if: steps.changelog.outputs.publish == 'true'
+        run: |
+          composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
+          php bin/build-phar.php
+          php build/sediment.phar --version
+
       - name: Create the release
         if: steps.changelog.outputs.publish == 'true'
         uses: softprops/action-gh-release@v2
@@ -76,5 +94,6 @@ jobs:
           target_commitish: ${{ github.sha }}
           name: v${{ steps.changelog.outputs.version }}
           body_path: RELEASE_NOTES.md
+          files: build/sediment.phar
           prerelease: ${{ contains(steps.changelog.outputs.version, '-') }}
           make_latest: ${{ !contains(steps.changelog.outputs.version, '-') }}

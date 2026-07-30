@@ -36,3 +36,35 @@ jobs:
 
       - name: Run tests
         run: composer test
+
+  phar:
+    name: PHAR builds and runs
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer:v2
+          ini-values: phar.readonly=0
+
+      - name: Install runtime dependencies only
+        run: composer install --no-dev --prefer-dist --no-interaction --no-progress --optimize-autoloader
+
+      - name: Build
+        run: php bin/build-phar.php
+
+      # A binary that builds but cannot scan is worse than no binary, so run a
+      # real scan through it rather than only checking the file exists.
+      - name: Run a scan through the built PHAR
+        run: |
+          php build/sediment.phar --version
+          php build/sediment.phar scan tests/fixtures/clean-plugin --json > manifest.json
+          php -r '$m = json_decode(file_get_contents("manifest.json"), true);
+                  if (($m["grade"] ?? null) !== "A") { fwrite(STDERR, "PHAR produced an unexpected manifest\n"); exit(1); }
+                  echo "PHAR scan produced a valid manifest\n";'
+          php build/sediment.phar check tests/fixtures/clean-plugin --fail-on=C

@@ -8,6 +8,30 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [0.5.0] — unreleased
+
+Distribution. Sediment was finished but not obtainable: the README's first
+instruction, `composer require --dev sediment/analyzer`, returned a 404, so
+anyone following it failed at step one.
+
+### Added
+
+- **A self-contained `sediment.phar`, attached to every release.** One file, no
+  Composer and no vendor directory — download it and run
+  `php sediment.phar scan path/to/plugin`. That matters for an audit tool whose
+  audience includes people who do not otherwise write PHP.
+- **CI builds the PHAR and runs a real scan through it** on every push, checking
+  the manifest it emits rather than only that the file exists. A binary that
+  builds but cannot scan is worse than no binary.
+
+### Fixed
+
+- **The reported version was wrong in every manifest ever produced.** The
+  application still identified itself as `0.1.0-dev` four releases on, and that
+  string is stamped into each manifest as `analyzer_version` — so published data
+  was mislabelled with a version that was never released. The version now tracks
+  the changelog, and a test fails the build if the two ever disagree again.
+
 ## [0.4.1] — 2026-07-27
 
 Stability and coverage, both driven by what real plugins actually do.
@@ -307,6 +331,7 @@ reads source only — no WordPress runtime, no database — and runs on PHP 8.3+
   properties never resolve to a stale literal. PHP 8 named arguments resolve by
   name, and first-class callables are ignored rather than crashing a scan.
 
+[0.5.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.5.0
 [0.4.1]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.4.1
 [0.4.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.4.0
 [0.3.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.3.0

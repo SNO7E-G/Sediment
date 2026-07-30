@@ -26,7 +26,13 @@ It reads code but never runs it. There is no WordPress install, no database, and
 
 ## Installation
 
-Add it to a plugin project as a development dependency:
+Download the PHAR from the [latest release](https://github.com/SNO7E-G/Sediment/releases/latest) and run it — one file, no Composer, no dependencies beyond PHP 8.3:
+
+```bash
+php sediment.phar scan path/to/plugin
+```
+
+Or add it to a plugin project as a development dependency:
 
 ```bash
 composer require --dev sediment/analyzer
@@ -38,6 +44,7 @@ Or work from a clone:
 git clone https://github.com/SNO7E-G/Sediment.git
 cd Sediment
 composer install
+php bin/sediment scan path/to/plugin
 ```
 
 ## Usage
