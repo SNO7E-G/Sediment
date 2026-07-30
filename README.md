@@ -98,7 +98,7 @@ Custom post types are the group prefix-matching tools structurally cannot reach.
 
 Sediment also reads *how* a plugin cleans up. A routine gated behind a "delete my data on uninstall" setting is reported as conditional — with the exact option and the value it defaults to — because a plugin that only cleans up for the few users who found that checkbox is clean in its code and dirty on real sites.
 
-`grade` returns a letter and a weighted-damage score. `uninstall` writes a teardown that removes only the artifacts Sediment attributed with high confidence — never a WordPress core key, an already-cleaned key, or a guess. (A `check --fail-on=<grade>` command for CI is planned.)
+`grade` returns a letter and a weighted-damage score. `uninstall` writes a teardown that removes only the artifacts Sediment attributed with high confidence — never a WordPress core key, an already-cleaned key, or a guess.
 
 ## How confidence works
 
