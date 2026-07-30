@@ -35,6 +35,9 @@ final class SymbolTable
     /** @var array<string, string> class inheritance: child => parent (both lowercased) */
     private array $parents = [];
 
+    /** @var array<string, list<string>> parent => direct children, built during reconciliation */
+    private array $children = [];
+
     public function addConstant(string $name, ?string $value): void
     {
         self::merge($this->constants, $name, $value);
@@ -65,24 +68,107 @@ final class SymbolTable
         return $this->constants[$name] ?? null;
     }
 
+    /** The class a `parent::` reference points at, if it is known. */
+    public function parentOf(?string $class): ?string
+    {
+        return $class === null ? null : ($this->parents[strtolower($class)] ?? null);
+    }
+
     public function hasClassConstant(string $class, string $constant): bool
     {
-        return array_key_exists(self::classKey($class, $constant), $this->classConstants);
+        return $this->declaringClass($this->classConstants, $class, $constant) !== null;
     }
 
     public function classConstant(string $class, string $constant): ?string
     {
-        return $this->classConstants[self::classKey($class, $constant)] ?? null;
+        $declaring = $this->declaringClass($this->classConstants, $class, $constant);
+
+        return $declaring !== null ? $this->classConstants[$declaring . '::' . $constant] : null;
     }
 
     public function hasProperty(string $class, string $property): bool
     {
-        return array_key_exists(self::classKey($class, $property), $this->properties);
+        return $this->declaringClass($this->properties, $class, $property) !== null;
     }
 
     public function property(string $class, string $property): ?string
     {
-        return $this->properties[self::classKey($class, $property)] ?? null;
+        $declaring = $this->declaringClass($this->properties, $class, $property);
+
+        return $declaring !== null ? $this->properties[$declaring . '::' . $property] : null;
+    }
+
+    /**
+     * A constant reached through `static::`, which is late-bound: the value that
+     * runs is the one on whatever class the call was made against. Resolving it is
+     * only sound when no subclass in the plugin redefines it.
+     */
+    public function lateBoundClassConstant(string $class, string $constant): ?string
+    {
+        if ($this->overriddenBelow($this->classConstants, $class, $constant)) {
+            return null;
+        }
+
+        return $this->classConstant($class, $constant);
+    }
+
+    public function hasLateBoundClassConstant(string $class, string $constant): bool
+    {
+        return $this->hasClassConstant($class, $constant)
+            && !$this->overriddenBelow($this->classConstants, $class, $constant);
+    }
+
+    /**
+     * The class a member is actually declared on: the class itself, or the nearest
+     * ancestor that declares it. PHP looks members up the same way, so a constant
+     * or property defined on a base class resolves for every subclass that does
+     * not redefine it.
+     *
+     * @param array<string, string|null> $map
+     */
+    private function declaringClass(array $map, string $class, string $member): ?string
+    {
+        $current = strtolower($class);
+        $seen = [];
+
+        while ($current !== '' && !isset($seen[$current])) {
+            $seen[$current] = true;
+
+            if (array_key_exists($current . '::' . $member, $map)) {
+                return $current;
+            }
+
+            $current = $this->parents[$current] ?? '';
+        }
+
+        return null;
+    }
+
+    /**
+     * @param array<string, string|null> $map
+     */
+    private function overriddenBelow(array $map, string $class, string $member): bool
+    {
+        $stack = $this->children[strtolower($class)] ?? [];
+        $seen = [];
+
+        while ($stack !== []) {
+            $descendant = array_pop($stack);
+            if (isset($seen[$descendant])) {
+                continue;
+            }
+            $seen[$descendant] = true;
+
+            if (array_key_exists($descendant . '::' . $member, $map)) {
+                return true;
+            }
+
+            foreach ($this->children[$descendant] ?? [] as $grandchild) {
+                $stack[] = $grandchild;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -98,6 +184,7 @@ final class SymbolTable
         foreach ($this->parents as $child => $parent) {
             $children[$parent][] = $child;
         }
+        $this->children = $children;
 
         foreach (array_keys($this->properties) as $key) {
             if ($this->properties[$key] === null) {

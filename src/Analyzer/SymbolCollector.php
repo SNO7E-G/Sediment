@@ -10,11 +10,13 @@ use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\AssignOp;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\PropertyFetch;
+use PhpParser\Node\Expr\StaticPropertyFetch;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use PhpParser\Node\Param;
 use PhpParser\Node\PropertyItem;
+use PhpParser\Node\VarLikeIdentifier;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassConst;
@@ -178,6 +180,18 @@ final class SymbolCollector extends NodeVisitorAbstract
     {
         $class = $this->currentClass();
         if ($class === null) {
+            return;
+        }
+
+        // A write through `self::$prop` reaches the same symbol as `$this->prop`,
+        // so it must poison it the same way — otherwise a literal default survives
+        // a dynamic reassignment and resolves to a value that never runs.
+        if ($node->var instanceof StaticPropertyFetch) {
+            if ($node->var->name instanceof VarLikeIdentifier) {
+                $value = ($node instanceof Assign) ? self::literalOrNull($node->expr) : null;
+                $this->symbols->addProperty($class, $node->var->name->toString(), $value);
+            }
+
             return;
         }
 

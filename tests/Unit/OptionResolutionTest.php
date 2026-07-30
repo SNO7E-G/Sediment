@@ -262,6 +262,62 @@ final class OptionResolutionTest extends TestCase
             Finding::CONFIDENCE_DYNAMIC,
             null,
         ];
+
+        // --- inheritance-aware resolution (0.4.0) ---
+
+        yield 'static constant resolves when no subclass overrides it' => [
+            "class Base { const PREFIX = 'base_'; function f() { add_option(static::PREFIX . 'x'); } }\nclass Child extends Base {}",
+            Finding::CONFIDENCE_RESOLVED,
+            'base_x',
+        ];
+
+        yield 'static constant stays dynamic when a subclass overrides it' => [
+            "class Base { const PREFIX = 'base_'; function f() { add_option(static::PREFIX . 'x'); } }\nclass Child extends Base { const PREFIX = 'child_'; }",
+            Finding::CONFIDENCE_DYNAMIC,
+            null,
+        ];
+
+        yield 'a constant inherited from a parent resolves' => [
+            "class Base { const PREFIX = 'base_'; }\nclass Child extends Base { function f() { add_option(self::PREFIX . 'x'); } }",
+            Finding::CONFIDENCE_RESOLVED,
+            'base_x',
+        ];
+
+        yield 'parent constant resolves through the class hierarchy' => [
+            "class Base { const PREFIX = 'base_'; }\nclass Child extends Base { function f() { add_option(parent::PREFIX . 'x'); } }",
+            Finding::CONFIDENCE_RESOLVED,
+            'base_x',
+        ];
+
+        yield 'static property resolves via self' => [
+            "class P { private static \$prefix = 'sp_'; function f() { add_option(self::\$prefix . 'x'); } }",
+            Finding::CONFIDENCE_RESOLVED,
+            'sp_x',
+        ];
+
+        yield 'static property resolves via static' => [
+            "class P { private static \$prefix = 'sp_'; function f() { add_option(static::\$prefix . 'x'); } }",
+            Finding::CONFIDENCE_RESOLVED,
+            'sp_x',
+        ];
+
+        yield 'a poisoned static property stays dynamic' => [
+            "class P { private static \$prefix = 'sp_'; function init() { self::\$prefix = foo(); } function f() { add_option(self::\$prefix . 'x'); } }",
+            Finding::CONFIDENCE_DYNAMIC,
+            null,
+        ];
+
+        yield 'a subclass reading its own overriding property resolves to its value' => [
+            "class Base { protected \$prefix = 'base_'; }\nclass Child extends Base { protected \$prefix = 'child_'; function f() { add_option(\$this->prefix . 'x'); } }",
+            Finding::CONFIDENCE_RESOLVED,
+            'child_x',
+        ];
+
+        yield 'a property inherited from a parent resolves' => [
+            "class Base { protected \$prefix = 'base_'; }\nclass Child extends Base { function f() { add_option(\$this->prefix . 'x'); } }",
+            Finding::CONFIDENCE_RESOLVED,
+            'base_x',
+        ];
     }
 
     #[DataProvider('keyCases')]

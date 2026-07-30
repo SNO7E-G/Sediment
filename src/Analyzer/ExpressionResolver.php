@@ -10,10 +10,12 @@ use PhpParser\Node\Expr\BinaryOp\Concat;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\PropertyFetch;
+use PhpParser\Node\Expr\StaticPropertyFetch;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\InterpolatedStringPart;
 use PhpParser\Node\Name;
+use PhpParser\Node\VarLikeIdentifier;
 use PhpParser\Node\Scalar\InterpolatedString;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\PrettyPrinter\Standard as PrettyPrinter;
@@ -72,6 +74,10 @@ final class ExpressionResolver
             return $this->resolveProperty($expr, $class);
         }
 
+        if ($expr instanceof StaticPropertyFetch) {
+            return $this->resolveStaticProperty($expr, $class);
+        }
+
         if ($expr instanceof Concat) {
             return $this->resolveSegments([$expr->left, $expr->right], $class, $locals, $expr);
         }
@@ -123,10 +129,22 @@ final class ExpressionResolver
         $reference = strtolower($expr->class->toString());
         if ($reference === 'self') {
             $target = $class;
-        } elseif ($reference === 'static' || $reference === 'parent') {
-            // static:: is late-bound — a subclass may override the constant, so it
-            // is strictly more dynamic than self::. parent:: is not tracked.
-            return Resolution::dynamic($this->raw($expr));
+        } elseif ($reference === 'static') {
+            // static:: is late-bound: the value that runs belongs to whatever class
+            // the call was made against. Resolve it only when no subclass in the
+            // plugin redefines the constant, which makes the two identical.
+            if ($class === null || !$this->symbols->hasLateBoundClassConstant($class, $expr->name->toString())) {
+                return Resolution::dynamic($this->raw($expr));
+            }
+
+            $value = $this->symbols->lateBoundClassConstant($class, $expr->name->toString());
+
+            return $value !== null ? Resolution::resolved($value) : Resolution::dynamic($this->raw($expr));
+        } elseif ($reference === 'parent') {
+            $target = $this->symbols->parentOf($class);
+            if ($target === null) {
+                return Resolution::dynamic($this->raw($expr));
+            }
         } else {
             // Fully-qualified by NameResolver, so out-of-tree/aliased classes no
             // longer collide with an in-tree class of the same short name.
@@ -145,6 +163,33 @@ final class ExpressionResolver
         }
 
         return Resolution::dynamic($this->raw($expr));
+    }
+
+    /**
+     * `self::$prefix` / `static::$prefix` / `Foo::$prefix`. Static properties are
+     * collected alongside instance ones, so the same literal-or-poison rules
+     * apply; only the way they are written differs.
+     */
+    private function resolveStaticProperty(StaticPropertyFetch $expr, ?string $class): Resolution
+    {
+        if (!$expr->class instanceof Name || !$expr->name instanceof VarLikeIdentifier) {
+            return Resolution::dynamic($this->raw($expr));
+        }
+
+        $reference = strtolower($expr->class->toString());
+        $target = match ($reference) {
+            'self', 'static' => $class,
+            'parent' => $this->symbols->parentOf($class),
+            default => $expr->class->toString(),
+        };
+
+        if ($target === null || !$this->symbols->hasProperty($target, $expr->name->toString())) {
+            return Resolution::dynamic($this->raw($expr));
+        }
+
+        $value = $this->symbols->property($target, $expr->name->toString());
+
+        return $value !== null ? Resolution::resolved($value) : Resolution::dynamic($this->raw($expr));
     }
 
     private function resolveProperty(PropertyFetch $expr, ?string $class): Resolution
