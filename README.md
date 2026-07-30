@@ -127,7 +127,9 @@ The rubric is published in full at [`docs/grading.md`](docs/grading.md) so a gra
 
 ## Limitations
 
-Static analysis cannot see a key that is assembled entirely at runtime, so those are reported as `dynamic` and never acted on — the resolution rate tells you how much of a plugin fell into that bucket. On large real-world plugins that share is substantial: Yoast SEO resolves at about 62%, because much of what it writes is keyed by a method call or a parameter. Sediment reports that number rather than papering over it, and every unresolved write is listed with its source line so a human can settle it. A handful of narrower edges (cron events scheduled with arguments, an aliased `$wpdb` handle) are documented plainly in [`docs/limitations.md`](docs/limitations.md). Publishing these is deliberate: an audit tool earns trust by being honest about its own blind spots.
+Static analysis cannot see a key that is assembled entirely at runtime, so those are reported as `dynamic` and never acted on — the resolution rate tells you how much of a plugin fell into that bucket.
+
+Across a corpus of ten real plugins the median resolves at 82%, but the largest ones resolve least: Yoast SEO manages 62% and WooCommerce 78%, because both funnel writes through their own settings layers. Sediment publishes those numbers rather than papering over them, and every unresolved write is listed with its source line so a human can settle it. The full corpus and its results are in [`docs/corpus.md`](docs/corpus.md). A handful of narrower edges (cron events scheduled with arguments, an aliased `$wpdb` handle) are documented plainly in [`docs/limitations.md`](docs/limitations.md). Publishing these is deliberate: an audit tool earns trust by being honest about its own blind spots.
 
 ## Roadmap
 

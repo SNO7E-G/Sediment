@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Sediment\Manifest;
 
 use Sediment\Analyzer\Finding;
+use Sediment\Analyzer\WordPressCore;
 use Sediment\Application;
 
 /**
@@ -64,8 +65,28 @@ final class Manifest
                 'condition_default' => $scan['cleanup']['condition_default'] ?? null,
             ],
             'creates' => self::creates($findings),
+            'modifies_core' => self::modifiesCore($findings),
             'unresolved' => self::unresolved($findings),
         ];
+    }
+
+    /**
+     * Serialise a manifest.
+     *
+     * `JSON_PRESERVE_ZERO_FRACTION` is not cosmetic: without it a
+     * `resolution_rate` of exactly 1.0 encodes as `1` and decodes as an integer,
+     * so the same scan round-trips to a different type. That makes `diff` report
+     * a change where nothing changed, and gives the Index two types for one
+     * field. Encoding goes through here so the flag cannot be forgotten.
+     *
+     * @param array<string, mixed> $manifest
+     */
+    public static function toJson(array $manifest): string
+    {
+        return (string) json_encode(
+            $manifest,
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION,
+        );
     }
 
     /**
@@ -162,6 +183,16 @@ final class Manifest
                 continue; // unresolvable writes are reported under `unresolved`
             }
 
+            // Writing to `active_plugins` or `blogname` is touching WordPress's
+            // own data, not leaving something behind. Reporting it under
+            // `creates` would attribute core rows to a plugin, which is exactly
+            // the misattribution this project exists to avoid — and would put
+            // core keys into what consumers treat as a removable set. They are
+            // reported under `modifies_core` instead.
+            if (WordPressCore::isCore($finding)) {
+                continue;
+            }
+
             if (!isset(self::TYPE_KEYS[$finding->type])) {
                 // A detector emitting a type with no manifest group would drop it
                 // silently, which is the one way this document could lie. Fail
@@ -216,6 +247,45 @@ final class Manifest
         $item['sources'] = [$source];
 
         return $item;
+    }
+
+    /**
+     * WordPress core artifacts the plugin writes to. Worth knowing — a plugin
+     * that rewrites `active_plugins` or `blogname` is doing something notable —
+     * but it is not the plugin's own footprint and must never be mistaken for
+     * something removable.
+     *
+     * @param list<Finding> $findings
+     * @return list<array<string, mixed>>
+     */
+    private static function modifiesCore(array $findings): array
+    {
+        $byKey = [];
+
+        foreach ($findings as $finding) {
+            if ($finding->key === null || !WordPressCore::isCore($finding)) {
+                continue;
+            }
+
+            $id = $finding->type . ':' . $finding->key;
+            $source = ['file' => $finding->file, 'line' => $finding->line];
+
+            if (!isset($byKey[$id])) {
+                $byKey[$id] = [
+                    'type' => $finding->type,
+                    'key' => $finding->key,
+                    'confidence' => $finding->confidence,
+                    'sources' => [$source],
+                ];
+                continue;
+            }
+
+            $byKey[$id]['sources'][] = $source;
+        }
+
+        ksort($byKey);
+
+        return array_values($byKey);
     }
 
     /**

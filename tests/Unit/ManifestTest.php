@@ -84,6 +84,12 @@ final class ManifestTest extends TestCase
                 }
             }
 
+            // A write to a WordPress core artifact is reported, but under
+            // `modifies_core` rather than as something the plugin created.
+            foreach ($manifest['modifies_core'] as $item) {
+                $keysInManifest['core:' . $item['key']] = true;
+            }
+
             foreach ($scan['findings'] as $finding) {
                 if ($finding->key === null) {
                     continue; // reported under `unresolved` instead
@@ -103,6 +109,23 @@ final class ManifestTest extends TestCase
                 );
             }
         }
+    }
+
+    public function test_a_manifest_survives_a_json_round_trip_unchanged(): void
+    {
+        // A perfect resolution rate is exactly 1.0. Encoded without
+        // JSON_PRESERVE_ZERO_FRACTION it becomes `1` and decodes as an integer,
+        // so the same scan round-trips to a different type — which makes `diff`
+        // report a change that did not happen, and gives the Index two types for
+        // one field. Found by the golden corpus on the two plugins that resolve
+        // completely.
+        $manifest = $this->manifest('clean-plugin');
+        self::assertSame(1.0, $manifest['coverage']['resolution_rate']);
+
+        $decoded = json_decode(Manifest::toJson($manifest), true);
+
+        self::assertSame($manifest, $decoded, 'a manifest must decode to exactly what was encoded');
+        self::assertIsFloat($decoded['coverage']['resolution_rate']);
     }
 
     public function test_the_manifest_is_json_serializable(): void

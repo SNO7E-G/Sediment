@@ -8,6 +8,56 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [0.6.0] — 2026-07-31
+
+Proof. Until now every correctness claim rested on hand-written fixtures and two
+real plugins read by eye. This release checks Sediment against ten real, pinned
+plugins on every push — and doing so immediately found two defects that fixtures
+never would have.
+
+### Added
+
+- **`sediment fetch <slug> [version]`** downloads a plugin from wordpress.org
+  into a local cache, recording a `sha256` so a pinned version is reproducible.
+- **A golden corpus of ten pinned plugins**, spanning the grade range and the
+  awkward shapes: from `classic-editor` (small and literal) through
+  `wp-super-cache` (writes directories) and `redirection` (tables via its own
+  schema layer) to `wordpress-seo` and `woocommerce` (3,500 scanned files, 789
+  write calls). Their source is never committed — only the expected manifests,
+  with the plugins fetched and cached in CI. Any change to what Sediment says
+  about a real plugin now shows up as a diff instead of silently.
+- `docs/corpus.md` — the corpus, the measured results, and the hand-verification
+  notes, including what is knowingly under-detected.
+
+### Fixed
+
+- **Plugins were credited with creating WordPress core data.** Six of the ten
+  corpus plugins listed core options — `active_plugins`, `blogname`,
+  `admin_email`, `rewrite_rules` — under `creates`, and one listed a core cron
+  hook. The writes are real, but modifying WordPress's own settings is not
+  leaving something behind, and putting core keys in what a consumer reads as a
+  removable set is precisely the misattribution this project exists to prevent.
+  They are now reported under a new **`modifies_core`** section, and a
+  corpus-wide test asserts no plugin is ever credited with creating core data.
+- **A manifest did not survive a JSON round trip.** A resolution rate of exactly
+  `1.0` encoded as `1` and decoded as an integer, so re-reading a manifest
+  produced a different type than the scan that wrote it — enough to make `diff`
+  report a change that never happened, and to give the Index two types for one
+  field. All manifest encoding now goes through one method that cannot forget
+  the flag. Found by the corpus, on exactly the two plugins that resolve
+  completely.
+
+### Measured
+
+Resolution across the corpus: **median 82%, mean 81%, 77% pooled** across 1,226
+write calls, with five of ten plugins at 80% or better.
+
+The MVP target of ">80%" is therefore met per plugin and missed when pooled,
+because the largest plugins are the least resolvable — Yoast SEO and WooCommerce
+alone are three quarters of the corpus's write calls, and both funnel writes
+through their own settings layers. Both numbers are published rather than the
+target being tuned to whichever one flatters the tool. See `docs/corpus.md`.
+
 ## [0.5.1] — 2026-07-30
 
 ### Added
@@ -350,6 +400,7 @@ reads source only — no WordPress runtime, no database — and runs on PHP 8.3+
   properties never resolve to a stale literal. PHP 8 named arguments resolve by
   name, and first-class callables are ignored rather than crashing a scan.
 
+[0.6.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.6.0
 [0.5.1]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.5.1
 [0.5.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.5.0
 [0.4.1]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.4.1

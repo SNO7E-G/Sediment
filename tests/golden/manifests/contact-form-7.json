@@ -1,0 +1,198 @@
+{
+    "schema_version": "1.0",
+    "plugin": {
+        "slug": "contact-form-7",
+        "name": "Contact Form 7",
+        "version": "6.1.6",
+        "source": "local"
+    },
+    "grade": "D",
+    "score": 27,
+    "coverage": {
+        "write_calls_found": 18,
+        "verified": 8,
+        "resolved": 1,
+        "pattern": 3,
+        "dynamic": 6,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpcf7",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "load.php",
+                        "line": 119
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_config_validation",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/config-validator/validator.php",
+                        "line": 356
+                    }
+                ]
+            },
+            {
+                "key": "_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/contact-form.php",
+                        "line": 1283
+                    },
+                    {
+                        "file": "includes/upgrade.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "includes/upgrade.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "_locale",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/contact-form.php",
+                        "line": 1289
+                    }
+                ]
+            },
+            {
+                "key": "_hash",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/contact-form.php",
+                        "line": 1292
+                    },
+                    {
+                        "file": "includes/upgrade.php",
+                        "line": 27
+                    }
+                ]
+            },
+            {
+                "key": "_old_cf7_unit_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrade.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "_flamingo",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/flamingo.php",
+                        "line": 117
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "wpcf7_hide_welcome_panel_on",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/welcome-panel.php",
+                        "line": 232
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wpcf7_contact_form",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/contact-form.php",
+                        "line": 49
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir_new",
+            "file": "includes/file.php",
+            "line": 315
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "includes/file.php",
+            "line": 337
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "includes/file.php",
+            "line": 345
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "modules/really-simple-captcha.php",
+            "line": 326
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "modules/really-simple-captcha.php",
+            "line": 380
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "modules/really-simple-captcha.php",
+            "line": 388
+        }
+    ]
+}

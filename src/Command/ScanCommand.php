@@ -55,10 +55,7 @@ final class ScanCommand extends Command
                 gmdate('Y-m-d\TH:i:s\Z'),
             );
 
-            $output->writeln(
-                (string) json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
-                OutputInterface::OUTPUT_RAW,
-            );
+            $output->writeln(Manifest::toJson($manifest), OutputInterface::OUTPUT_RAW);
 
             return Command::SUCCESS;
         }

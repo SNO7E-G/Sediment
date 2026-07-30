@@ -1,0 +1,49 @@
+name: Golden corpus
+
+# Checks Sediment's output against ten real, pinned plugins from wordpress.org.
+# Hand-written fixtures prove the analyzer handles the shapes we thought of; this
+# proves it handles the shapes other people actually wrote, and makes any change
+# in what we say about a real plugin show up as a diff instead of silently.
+#
+# Kept separate from the unit suite: it downloads several plugins and scans
+# thousands of files, so it takes minutes rather than seconds.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  golden:
+    name: Manifests match the recorded expectations
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: zip
+          coverage: none
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-interaction --no-progress
+
+      # Pinned versions, so the cache is valid until the corpus itself changes.
+      - name: Cache the plugin corpus
+        uses: actions/cache@v4
+        with:
+          path: build/plugins
+          key: golden-corpus-${{ hashFiles('tests/Golden/GoldenCorpus.php') }}
+
+      - name: Check the corpus
+        env:
+          SEDIMENT_FETCH_GOLDEN: '1'
+        run: php vendor/bin/phpunit --testsuite Golden

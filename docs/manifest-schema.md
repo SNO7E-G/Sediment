@@ -57,6 +57,14 @@ still change before 1.0; the field exists so a consumer can tell.
     "directories": [], "rewrite_rules": [],
     "actions": []                 // Action Scheduler jobs
   },
+  "modifies_core": [
+    {
+      "type": "option",
+      "key": "active_plugins",     // WordPress's own data, not the plugin's
+      "confidence": "verified",
+      "sources": [{ "file": "api/api-plugin.php", "line": 224 }]
+    }
+  ],
   "unresolved": [
     {
       "function": "update_option",
@@ -91,11 +99,17 @@ still change before 1.0; the field exists so a consumer can tell.
 - **`unresolved` is first-class, not hidden.** Writes Sediment could not resolve
   are listed with their raw expression and location, which is what makes the
   `resolution_rate` auditable rather than a claim.
-- **WordPress core artifacts never appear** in a form that invites deletion.
+- **WordPress core artifacts never appear under `creates`.** Plugins really do
+  write `active_plugins`, `blogname`, and `rewrite_rules`; that is modifying
+  WordPress's own data, not leaving something behind. Such writes are reported
+  under **`modifies_core`** — useful to know, never removable, and never counted
+  against a grade.
 
 ## Grouping
 
 Findings are grouped by key within their type: one option written from three
-places is a single entry with three `sources`. An entry is `cleaned` if any of
-those writes is matched by a removal that actually runs on uninstall, and an
-option is reported as autoloaded if any write autoloads it.
+places is a single entry with three `sources`. An entry is `cleaned` only when
+**every** one of those writes is matched by a removal that actually runs on
+uninstall — a cron hook scheduled both with and without arguments needs both
+cleared, and crediting it on one would report a plugin as spotless while an
+event kept firing. An option is reported as autoloaded if any write autoloads it.

@@ -1,0 +1,759 @@
+{
+    "schema_version": "1.0",
+    "plugin": {
+        "slug": "wordfence",
+        "name": "Wordfence Security",
+        "version": "8.2.2",
+        "source": "local"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "write_calls_found": 81,
+        "verified": 49,
+        "resolved": 15,
+        "pattern": 4,
+        "dynamic": 13,
+        "resolution_rate": 0.79
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wordfence_installed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wfConfig.php",
+                        "line": 334
+                    },
+                    {
+                        "file": "lib/wfConfig.php",
+                        "line": 337
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_case",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wfSchema.php",
+                        "line": 332
+                    },
+                    {
+                        "file": "lib/wfSchema.php",
+                        "line": 336
+                    }
+                ]
+            },
+            {
+                "key": "wordfenceActivated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 107
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 474
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_syncingAttackData",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 1423
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 8715
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_syncAttackDataAttempts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 2464
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 8716
+                    }
+                ]
+            },
+            {
+                "key": "limit_login_retries",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 3058
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 3097
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 3154
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_lastSyncAttackData",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 8717
+                    }
+                ]
+            },
+            {
+                "key": "wfls_last_role_sync",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/login-security/classes/controller/permissions.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "wfls_last_role_change",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/login-security/classes/controller/permissions.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_ls_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/login-security/classes/controller/wordfencels.php",
+                        "line": 281
+                    },
+                    {
+                        "file": "modules/login-security/classes/controller/wordfencels.php",
+                        "line": 284
+                    }
+                ]
+            },
+            {
+                "key": "wf_plugin_act_error",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wordfence.php",
+                        "line": 106
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wordfence_email_activity_report",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wfActivityReport.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_batchSendAuditEvents",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wfAuditLog.php",
+                        "line": 895
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_batchSendSecurityEvents",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wfCentralAPI.php",
+                        "line": 742
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_daily_autoUpdate",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wfConfig.php",
+                        "line": 1031
+                    }
+                ]
+            },
+            {
+                "key": "wf_scan_monitor",
+                "recurrence": "wf_scan_monitor_interval",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wfScanMonitor.php",
+                        "line": 23
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_refreshUpdateNotification",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 392
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_completeCoreUpdateNotification",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 445
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_daily_cron",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 458
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 2225
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_hourly_cron",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 459
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 2230
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_version_check",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 1138
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_batchReportBlockedAttempts",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 3409
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_batchReportFailedAttempts",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 3483
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_processAttackData",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 8007
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_start_scheduled_scan",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/scanner/wfScanner.php",
+                        "line": 1199
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_ls_role_sync_cron",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/login-security/classes/controller/permissions.php",
+                        "line": 108
+                    },
+                    {
+                        "file": "modules/login-security/classes/controller/permissions.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_ls_ntp_cron",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/login-security/classes/controller/time.php",
+                        "line": 26
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wordfenceCentralDisconnectCount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wfCentralAPI.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "wordfenceCentralJWT*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wfCentralAPI.php",
+                        "line": 283
+                    }
+                ]
+            },
+            {
+                "key": "wfRegistrationToken",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wfLicense.php",
+                        "line": 391
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_updating_notifications",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 388
+                    }
+                ]
+            },
+            {
+                "key": "wordfenceUnlockTries",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 2010
+                    }
+                ]
+            },
+            {
+                "key": "wfunlock_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 2036
+                    }
+                ]
+            },
+            {
+                "key": "wfSyncGeoIPActive",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 2248
+                    }
+                ]
+            },
+            {
+                "key": "wfsn_backoff",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 3519
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 3529
+                    }
+                ]
+            },
+            {
+                "key": "wflsbucket:*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/login-security/classes/model/tokenbucket.php",
+                        "line": 164
+                    },
+                    {
+                        "file": "modules/login-security/classes/model/tokenbucket.php",
+                        "line": 195
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "_wf_twoFactorNonce",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 2935
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 2986
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 3009
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 3040
+                    }
+                ]
+            },
+            {
+                "key": "_wf_twoFactorNonceTime",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 2936
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 2987
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 3010
+                    },
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 3041
+                    }
+                ]
+            },
+            {
+                "key": "wordfence-notifications",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordfenceClass.php",
+                        "line": 6581
+                    }
+                ]
+            },
+            {
+                "key": "wfls_notices",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/login-security/classes/controller/notices.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "wfls-last-captcha-score",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/login-security/classes/controller/users.php",
+                        "line": 334
+                    }
+                ]
+            },
+            {
+                "key": "wfls-verification-tokens",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/login-security/classes/controller/users.php",
+                        "line": 952
+                    }
+                ]
+            },
+            {
+                "key": "wfls-captcha-scores",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/login-security/classes/controller/users.php",
+                        "line": 1015
+                    },
+                    {
+                        "file": "modules/login-security/classes/controller/users.php",
+                        "line": 1088
+                    }
+                ]
+            },
+            {
+                "key": "wfls-last-login",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/login-security/classes/controller/wordfencels.php",
+                        "line": 827
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "wordfence-2fa",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/login-security/classes/controller/wordfencels.php",
+                        "line": 309
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "rewrite_rules",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "modules/login-security/classes/controller/wordfencels.php",
+                    "line": 302
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "lib/wfAuditLog.php",
+            "line": 218
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "lib/wfCredentialsController.php",
+            "line": 131
+        },
+        {
+            "function": "set_transient",
+            "expression": "$tKey",
+            "file": "lib/wordfenceClass.php",
+            "line": 1913
+        },
+        {
+            "function": "set_transient",
+            "expression": "$tKey",
+            "file": "lib/wordfenceClass.php",
+            "line": 3318
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "self::getNoticeHideKey($id)",
+            "file": "lib/wordfenceClass.php",
+            "line": 6185
+        },
+        {
+            "function": "add_cap",
+            "expression": "$role_name",
+            "file": "modules/login-security/classes/controller/permissions.php",
+            "line": 298
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "modules/login-security/classes/controller/users.php",
+            "line": 951
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "modules/login-security/classes/controller/users.php",
+            "line": 1087
+        },
+        {
+            "function": "add_network_option",
+            "expression": "$key",
+            "file": "modules/login-security/classes/model/settings/wpoptions.php",
+            "line": 22
+        },
+        {
+            "function": "add_option",
+            "expression": "$key",
+            "file": "modules/login-security/classes/model/settings/wpoptions.php",
+            "line": 25
+        },
+        {
+            "function": "update_network_option",
+            "expression": "$key",
+            "file": "modules/login-security/classes/model/settings/wpoptions.php",
+            "line": 30
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "modules/login-security/classes/model/settings/wpoptions.php",
+            "line": 33
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\WFWAF_LOG_PATH",
+            "file": "waf/bootstrap.php",
+            "line": 829
+        }
+    ]
+}

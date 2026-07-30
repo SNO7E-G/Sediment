@@ -78,10 +78,7 @@ final class BatchCommand extends Command
                 $grade = $grader->grade($scan['findings'], $scan['cleanup']);
                 $manifest = Manifest::build($scan, $grade, $path, gmdate('Y-m-d\TH:i:s\Z'));
 
-                file_put_contents(
-                    $out . '/' . $slug . '.json',
-                    (string) json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
-                );
+                file_put_contents($out . '/' . $slug . '.json', Manifest::toJson($manifest));
 
                 $grades[$grade->letter] = ($grades[$grade->letter] ?? 0) + 1;
                 $resolutionTotals['resolved'] += $manifest['coverage']['verified'] + $manifest['coverage']['resolved'];

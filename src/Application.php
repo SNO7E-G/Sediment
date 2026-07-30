@@ -7,13 +7,14 @@ namespace Sediment;
 use Sediment\Command\BatchCommand;
 use Sediment\Command\CheckCommand;
 use Sediment\Command\DiffCommand;
+use Sediment\Command\FetchCommand;
 use Sediment\Command\GradeCommand;
 use Sediment\Command\ScanCommand;
 use Sediment\Command\UninstallCommand;
 use Symfony\Component\Console\Application as BaseApplication;
 
 /**
- * The Sediment console application: scan, grade, check, diff, batch, uninstall.
+ * The Sediment console application: scan, grade, check, diff, batch, fetch, uninstall.
  */
 final class Application extends BaseApplication
 {
@@ -24,7 +25,7 @@ final class Application extends BaseApplication
      * this is stamped into every manifest as `analyzer_version`, so a stale value
      * silently mislabels the data downstream consumers keep.
      */
-    public const VERSION = '0.5.1';
+    public const VERSION = '0.6.0';
 
     public function __construct()
     {
@@ -35,6 +36,7 @@ final class Application extends BaseApplication
         $this->add(new CheckCommand());
         $this->add(new DiffCommand());
         $this->add(new BatchCommand());
+        $this->add(new FetchCommand());
         $this->add(new UninstallCommand());
     }
 }
