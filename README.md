@@ -133,9 +133,11 @@ Static analysis cannot see a key that is assembled entirely at runtime, so those
 
 Sediment is built in stages, each useful on its own:
 
-1. **Analyzer** (this repository) — detect options, tables, cron, and transients; diff them against the plugin's cleanup routine; grade the result and generate an `uninstall.php`.
-2. **Inspector** — a read-only WordPress plugin that bundles the analyzer and scans the plugins installed on a site, so it can tell you what each one will leave behind *before* you click Delete. Because the source is on disk, attribution is ground truth and needs no dataset.
-3. **The Index** — a public, openly licensed dataset mapping thousands of plugins to the data they create, which extends the Inspector to rows left by plugins whose files are already gone.
+1. **Analyzer** (this repository) — detect what a plugin writes, diff it against the plugin's cleanup routine, grade the result, and generate the `uninstall.php` it should have shipped with.
+2. **The Index** — a public, openly licensed dataset mapping thousands of plugins to the data they create, so a leftover row can be traced back to the plugin that made it.
+3. **Inspector** — a read-only WordPress plugin that scans installed plugins on disk and shows what each will leave behind *before* you click Delete.
+
+The full plan, with what each release has to prove before the next begins, is in [ROADMAP.md](ROADMAP.md).
 
 ## Status
 
