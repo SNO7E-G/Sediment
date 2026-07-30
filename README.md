@@ -7,6 +7,7 @@
 <p align="center">
   <a href="https://github.com/SNO7E-G/Sediment/actions/workflows/tests.yml"><img src="https://github.com/SNO7E-G/Sediment/actions/workflows/tests.yml/badge.svg" alt="Tests"></a>
   <a href="https://github.com/SNO7E-G/Sediment/releases"><img src="https://img.shields.io/github/v/release/SNO7E-G/Sediment?include_prereleases&label=release&color=blue" alt="Latest release"></a>
+  <a href="https://packagist.org/packages/sediment/analyzer"><img src="https://img.shields.io/packagist/v/sediment/analyzer?label=packagist&color=orange" alt="Packagist"></a>
   <img src="https://img.shields.io/badge/status-alpha-orange.svg" alt="Status: alpha">
   <img src="https://img.shields.io/badge/PHP-8.3%2B-777bb4.svg" alt="PHP 8.3+">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--2.0--or--later-blue.svg" alt="License: GPL-2.0-or-later"></a>
