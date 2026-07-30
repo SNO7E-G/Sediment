@@ -226,6 +226,12 @@ final class Manifest
         // files over.
         foreach ($grouped as $group => $entries) {
             ksort($entries);
+
+            foreach ($entries as &$entry) {
+                self::sortSources($entry['sources']);
+            }
+            unset($entry);
+
             $creates[$group] = array_values($entries);
         }
 
@@ -252,6 +258,19 @@ final class Manifest
         $item['sources'] = [$source];
 
         return $item;
+    }
+
+    /**
+     * Order source locations by where they are, not by when they were read.
+     * Nothing else in the manifest is allowed to depend on scan order, and a
+     * `sources` list is no exception — it is the part most likely to differ
+     * between two machines.
+     *
+     * @param list<array{file: string, line: int}> $sources
+     */
+    private static function sortSources(array &$sources): void
+    {
+        usort($sources, static fn (array $a, array $b): int => [$a['file'], $a['line']] <=> [$b['file'], $b['line']]);
     }
 
     /**
@@ -290,6 +309,11 @@ final class Manifest
 
         ksort($byKey);
 
+        foreach ($byKey as &$entry) {
+            self::sortSources($entry['sources']);
+        }
+        unset($entry);
+
         return array_values($byKey);
     }
 
@@ -312,6 +336,11 @@ final class Manifest
                 'line' => $finding->line,
             ];
         }
+
+        usort(
+            $unresolved,
+            static fn (array $a, array $b): int => [$a['file'], $a['line'], $a['function']] <=> [$b['file'], $b['line'], $b['function']],
+        );
 
         return $unresolved;
     }
