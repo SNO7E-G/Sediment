@@ -29,13 +29,25 @@ use Sediment\Analyzer\Resolution;
  */
 final class OptionVisitor extends AbstractDetectionVisitor
 {
-    /** function => autoload arg index (key is always arg 0 / 'option') */
+    /**
+     * function => autoload arg index (key is always arg 0 / 'option').
+     *
+     * The network variants take the network id first, so their key sits at a
+     * different position and is handled separately below.
+     */
     private const FUNCTIONS = [
         'add_option'         => 3,
         'update_option'      => 2,
         'add_site_option'    => null,
         'update_site_option' => null,
     ];
+
+    /**
+     * add_network_option($network_id, $option, $value) and its update twin — the
+     * modern multisite API that add_site_option now delegates to. Network options
+     * live in the sitemeta table and are never autoloaded.
+     */
+    private const NETWORK_FUNCTIONS = ['add_network_option', 'update_network_option'];
 
     private const AUTOLOAD_YES = 'yes';
     private const AUTOLOAD_NO = 'no';
@@ -48,13 +60,33 @@ final class OptionVisitor extends AbstractDetectionVisitor
         }
 
         $function = strtolower($node->name->toString());
-        if (!array_key_exists($function, self::FUNCTIONS) || $node->isFirstClassCallable()) {
+        if ($node->isFirstClassCallable()) {
+            return;
+        }
+
+        $isNetwork = in_array($function, self::NETWORK_FUNCTIONS, true);
+        if (!$isNetwork && !array_key_exists($function, self::FUNCTIONS)) {
             return;
         }
 
         $args = $node->getArgs();
-        $keyValue = $this->argValue($args, 0, 'option');
+        $keyValue = $this->argValue($args, $isNetwork ? 1 : 0, 'option');
         $resolution = $keyValue !== null ? $this->resolveKey($keyValue) : Resolution::dynamic();
+
+        if ($isNetwork) {
+            $this->findings[] = new Finding(
+                type: 'option',
+                function: $function,
+                key: $resolution->key(),
+                confidence: $resolution->confidence,
+                file: $this->file,
+                line: $node->getStartLine(),
+                autoload: null, // network options are never autoloaded
+                expression: $resolution->raw,
+            );
+
+            return;
+        }
 
         $this->findings[] = new Finding(
             type: 'option',

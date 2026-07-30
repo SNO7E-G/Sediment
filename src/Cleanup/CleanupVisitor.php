@@ -42,6 +42,8 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     private const REMOVALS = [
         'delete_option'           => [0, 'option', 'option'],
         'delete_site_option'      => [0, 'option', 'option'],
+        // The network variant takes the network id first.
+        'delete_network_option'   => [1, 'option', 'option'],
         'delete_transient'        => [0, 'transient', 'transient'],
         'delete_site_transient'   => [0, 'transient', 'transient'],
         'wp_clear_scheduled_hook' => [0, 'cron', 'hook'],

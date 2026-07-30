@@ -60,33 +60,25 @@ final class Scanner
         $symbols = new SymbolTable();
         $errors = [];
 
-        /** @var list<array{file: string, ast: Node[]}> $parsed */
+        /** @var list<array{path: string, file: string}> $parsed files that parsed cleanly */
         $parsed = [];
 
         // Pass 1 — parse, resolve names, collect symbols.
+        //
+        // Syntax trees are deliberately not kept between the passes. Holding them
+        // all costs hundreds of megabytes on a large plugin — enough to exceed
+        // PHP's default memory limit and end a batch run on the first big plugin
+        // it meets. Re-reading in pass 2 costs some time and makes the footprint
+        // of a scan proportional to the largest single file rather than the whole tree.
         foreach ($files as $file) {
-            $code = @file_get_contents($file);
-            if ($code === false) {
-                $errors[] = ['file' => $file, 'message' => 'unreadable'];
-                continue;
-            }
-
-            try {
-                $ast = $this->parser->parse($code);
-            } catch (Error $e) {
-                $errors[] = ['file' => $file, 'message' => $e->getMessage()];
-                continue;
-            }
+            $relative = $this->relativePath($root, $file);
+            $ast = $this->parse($file, $relative, $errors);
 
             if ($ast === null) {
                 continue;
             }
 
-            $relative = $this->relativePath($root, $file);
-
             try {
-                $ast = $this->resolveNames($ast);
-
                 $collector = new NodeTraverser();
                 $collector->addVisitor(new SymbolCollector($symbols, $relative));
                 $collector->traverse($ast);
@@ -95,7 +87,7 @@ final class Scanner
                 continue;
             }
 
-            $parsed[] = ['file' => $relative, 'ast' => $ast];
+            $parsed[] = ['path' => $file, 'file' => $relative];
         }
 
         $symbols->reconcileInheritedProperties();
@@ -113,6 +105,15 @@ final class Scanner
         foreach ($parsed as $entry) {
             if (CleanupDiffer::isUninstallFile($entry['file'])) {
                 $hasUninstallPhp = true;
+            }
+
+            // Re-read rather than held from pass 1, to keep memory bounded. It
+            // parsed cleanly then, so a failure here is not recorded twice — it
+            // simply leaves nothing to detect in this file.
+            $ignored = [];
+            $ast = $this->parse($entry['path'], $entry['file'], $ignored);
+            if ($ast === null) {
+                continue;
             }
 
             $detectors = [
@@ -134,7 +135,7 @@ final class Scanner
                     $traverser->addVisitor($detector);
                 }
                 $traverser->addVisitor($cleanup);
-                $traverser->traverse($entry['ast']);
+                $traverser->traverse($ast);
             } catch (\Throwable $e) {
                 // M14 — a visitor bug or unexpected node must never abort the scan.
                 $errors[] = ['file' => $entry['file'], 'message' => $e->getMessage()];
@@ -169,6 +170,34 @@ final class Scanner
                 'condition_default' => $condition['default'] ?? null,
             ],
         ];
+    }
+
+    /**
+     * Read and parse one file, with names resolved to their fully-qualified form.
+     * Returns null when the file cannot be read or parsed, recording why — a
+     * malformed file never ends a scan (M14).
+     *
+     * @param list<array{file: string, message: string}>|null $errors
+     * @return Node[]|null
+     */
+    private function parse(string $path, string $relative, ?array &$errors): ?array
+    {
+        $code = @file_get_contents($path);
+        if ($code === false) {
+            $errors[] = ['file' => $relative, 'message' => 'unreadable'];
+
+            return null;
+        }
+
+        try {
+            $ast = $this->parser->parse($code);
+
+            return $ast === null ? null : $this->resolveNames($ast);
+        } catch (Error | \Throwable $e) {
+            $errors[] = ['file' => $relative, 'message' => $e->getMessage()];
+
+            return null;
+        }
     }
 
     /**

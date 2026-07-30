@@ -61,7 +61,17 @@ final class MetaVisitor extends AbstractDetectionVisitor
         }
 
         if ($fn === 'register_meta') {
-            $this->recordRegisterMeta($node, $fn, $args);
+            $this->recordRegisterMeta($node, $fn, $args, 0, 1);
+
+            return;
+        }
+
+        // add_metadata($meta_type, $object_id, $meta_key, ...) — the generic API
+        // the typed helpers above delegate to. Its removal twin, delete_metadata,
+        // was already credited as cleanup, so not detecting the create side left
+        // the two halves out of step.
+        if ($fn === 'add_metadata' || $fn === 'update_metadata') {
+            $this->recordRegisterMeta($node, $fn, $args, 0, 2);
         }
     }
 
@@ -87,9 +97,9 @@ final class MetaVisitor extends AbstractDetectionVisitor
     /**
      * @param list<\PhpParser\Node\Arg> $args
      */
-    private function recordRegisterMeta(Node $node, string $fn, array $args): void
+    private function recordRegisterMeta(Node $node, string $fn, array $args, int $typeIndex, int $keyIndex): void
     {
-        $objectTypeValue = $this->argValue($args, 0, 'object_type');
+        $objectTypeValue = $this->argValue($args, $typeIndex, $typeIndex === 0 && $keyIndex === 1 ? 'object_type' : 'meta_type');
         if ($objectTypeValue === null) {
             return;
         }
@@ -99,6 +109,6 @@ final class MetaVisitor extends AbstractDetectionVisitor
             return; // unknowable object type — never guess which meta table this touches
         }
 
-        $this->recordMeta($node, $fn, self::OBJECT_TYPES[$objectType->value], $args, 1, 'meta_key');
+        $this->recordMeta($node, $fn, self::OBJECT_TYPES[$objectType->value], $args, $keyIndex, 'meta_key');
     }
 }

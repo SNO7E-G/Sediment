@@ -78,9 +78,13 @@ final class UninstallGenerator
             && !WordPressCore::isCore($finding);
     }
 
+    /**
+     * Network options and site options are the same rows; delete_site_option
+     * delegates to delete_network_option, so both are removed the site way.
+     */
     private function isSiteScoped(Finding $finding): bool
     {
-        return str_contains($finding->function, 'site');
+        return str_contains($finding->function, 'site') || str_contains($finding->function, 'network');
     }
 
     /**
