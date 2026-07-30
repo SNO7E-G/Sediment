@@ -8,7 +8,7 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
-## [0.5.0] — unreleased
+## [0.5.0] — 2026-07-30
 
 Distribution. Sediment was finished but not obtainable: the README's first
 instruction, `composer require --dev sediment/analyzer`, returned a 404, so
