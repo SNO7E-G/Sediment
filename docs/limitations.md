@@ -4,6 +4,30 @@ Publishing its own blind spots is the most credibility-building thing an audit
 tool can do, and it pre-empts the first issue anyone would file. Here is what
 Sediment cannot do, and why.
 
+## Why this is still 0.x
+
+The analyzer is feature-complete — every detection, the cleanup diff, grading,
+the manifest, and the generator all work — but three things the project set as
+its own bar for "done" are not yet proven, which is why the version has not
+moved to 1.0:
+
+- **Only two real plugins have been hand-verified** (Contact Form 7 and Yoast
+  SEO) against a target of ten spanning clean, partly clean, and dirty. There are
+  no golden-file tests pinning real plugins yet.
+- **A generated `uninstall.php` has never been executed against a real
+  WordPress database.** It is checked for syntax, and its contents are tested,
+  but "removes exactly what it claims and nothing else" is asserted by unit tests
+  rather than demonstrated on a live install.
+- **The original 80% resolution target does not survive contact with large
+  plugins.** Measured: ~62% on Yoast SEO, because much of what big plugins write
+  is keyed by a method call or a parameter. The number is reported honestly on
+  every scan rather than tuned, and the target itself needs revising with
+  evidence rather than the tool being bent to meet it.
+
+None of these affect the safety of what Sediment *does* report — under-claiming
+is the invariant throughout — but they are the difference between "works" and
+"proven", and 1.0 should mean the latter.
+
 ## Static analysis cannot see runtime values
 
 A key assembled entirely at runtime — `update_option($key)` where `$key` comes
