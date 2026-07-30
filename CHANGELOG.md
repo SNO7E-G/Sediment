@@ -8,6 +8,25 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [0.5.1] — 2026-07-30
+
+### Added
+
+- **The generated `uninstall.php` is now proven against a real WordPress
+  database, not just asserted.** A live check installs WordPress, lets a fixture
+  plugin create one of every artifact type for real, generates the teardown
+  Sediment would ship, runs it exactly as WordPress does, and compares full
+  before/after snapshots of options, tables, metadata and roles.
+
+  It removes every artifact the plugin created — including the timeout row a
+  transient quietly writes alongside itself — and touches nothing else: a full
+  core install is still standing afterwards. This was the project's central
+  claim and the one acceptance criterion never actually tested.
+
+  The check runs in CI on every push against a fresh WordPress and MySQL, and
+  skips locally unless `SEDIMENT_WP_PATH` points at a configured install, so the
+  unit suite stays runnable anywhere.
+
 ## [0.5.0] — 2026-07-30
 
 Distribution. Sediment was finished but not obtainable: the README's first
@@ -331,6 +350,7 @@ reads source only — no WordPress runtime, no database — and runs on PHP 8.3+
   properties never resolve to a stale literal. PHP 8 named arguments resolve by
   name, and first-class callables are ignored rather than crashing a scan.
 
+[0.5.1]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.5.1
 [0.5.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.5.0
 [0.4.1]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.4.1
 [0.4.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.4.0

@@ -1,0 +1,81 @@
+name: Live WordPress
+
+# Runs a generated uninstall.php against a real WordPress database and asserts it
+# removes exactly the plugin's own data and nothing else. Unit tests can show the
+# generated file says the right thing; only this shows it does the right thing.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  uninstall-execution:
+    name: Generated uninstall.php against WordPress
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+          MYSQL_DATABASE: sediment_wp
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mysqli
+          coverage: none
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-interaction --no-progress
+
+      - name: Download WordPress
+        run: |
+          curl -sSL https://wordpress.org/latest.tar.gz -o wordpress.tar.gz
+          tar -xzf wordpress.tar.gz
+          echo "SEDIMENT_WP_PATH=$GITHUB_WORKSPACE/wordpress" >> "$GITHUB_ENV"
+
+      - name: Configure and install WordPress
+        run: |
+          cat > wordpress/wp-config.php <<'PHP'
+          <?php
+          define('DB_NAME', 'sediment_wp');
+          define('DB_USER', 'root');
+          define('DB_PASSWORD', '');
+          define('DB_HOST', '127.0.0.1');
+          define('DB_CHARSET', 'utf8mb4');
+          define('DB_COLLATE', '');
+          define('AUTH_KEY','s1');define('SECURE_AUTH_KEY','s2');define('LOGGED_IN_KEY','s3');define('NONCE_KEY','s4');
+          define('AUTH_SALT','s5');define('SECURE_AUTH_SALT','s6');define('LOGGED_IN_SALT','s7');define('NONCE_SALT','s8');
+          $table_prefix = 'wp_';
+          if (!defined('ABSPATH')) define('ABSPATH', __DIR__ . '/');
+          require_once ABSPATH . 'wp-settings.php';
+          PHP
+
+          php -r '
+            define("WP_INSTALLING", true);
+            require getenv("SEDIMENT_WP_PATH") . "/wp-load.php";
+            require ABSPATH . "wp-admin/includes/upgrade.php";
+            if (!is_blog_installed()) {
+              wp_install("Sediment CI", "admin", "admin@example.test", true, "", "password");
+            }
+            echo "WordPress " . get_bloginfo("version") . " installed\n";
+          '
+
+      - name: Run the live uninstall check
+        run: php vendor/bin/phpunit --testsuite Integration

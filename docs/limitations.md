@@ -14,19 +14,21 @@ moved to 1.0:
 - **Only two real plugins have been hand-verified** (Contact Form 7 and Yoast
   SEO) against a target of ten spanning clean, partly clean, and dirty. There are
   no golden-file tests pinning real plugins yet.
-- **A generated `uninstall.php` has never been executed against a real
-  WordPress database.** It is checked for syntax, and its contents are tested,
-  but "removes exactly what it claims and nothing else" is asserted by unit tests
-  rather than demonstrated on a live install.
 - **The original 80% resolution target does not survive contact with large
   plugins.** Measured: ~62% on Yoast SEO, because much of what big plugins write
   is keyed by a method call or a parameter. The number is reported honestly on
   every scan rather than tuned, and the target itself needs revising with
   evidence rather than the tool being bent to meet it.
 
-None of these affect the safety of what Sediment *does* report — under-claiming
-is the invariant throughout — but they are the difference between "works" and
-"proven", and 1.0 should mean the latter.
+Neither affects the safety of what Sediment *does* report — under-claiming is the
+invariant throughout — but they are the difference between "works" and "proven",
+and 1.0 should mean the latter.
+
+What *is* proven: a generated `uninstall.php` has been run against a real
+WordPress database and removes exactly the plugin's own data — including the
+timeout row a transient quietly writes alongside itself — while leaving every
+core option and table standing. That check runs in CI on every push, against a
+fresh WordPress and MySQL.
 
 ## Static analysis cannot see runtime values
 
