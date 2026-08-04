@@ -34,6 +34,8 @@ final class BatchCommand extends Command
     {
         $this->addArgument('directory', InputArgument::REQUIRED, 'Directory containing one subdirectory per plugin');
         $this->addOption('out', 'o', InputOption::VALUE_REQUIRED, 'Where to write manifests', 'sediment-manifests');
+        $this->addOption('resume', null, InputOption::VALUE_NONE, 'Skip plugins that already have a manifest in the output directory');
+        $this->addOption('report', null, InputOption::VALUE_REQUIRED, 'Write a JSON summary of the run, including every failure');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -70,8 +72,21 @@ final class BatchCommand extends Command
         $failed = [];
         $resolutionTotals = ['resolved' => 0, 'total' => 0];
 
+        $resume = (bool) $input->getOption('resume');
+        $skipped = 0;
+
         foreach ($plugins as $path) {
             $slug = basename($path);
+
+            // A run over thousands of plugins will be interrupted — a timeout, a
+            // full disk, a machine going away. Resuming from the manifests
+            // already written turns that from "start again" into "carry on".
+            if ($resume && is_file($out . '/' . $slug . '.json')) {
+                $skipped++;
+                $io->progressAdvance();
+
+                continue;
+            }
 
             try {
                 $scan = $scanner->scan($path);
@@ -94,7 +109,11 @@ final class BatchCommand extends Command
         $io->progressFinish();
 
         ksort($grades);
-        $scanned = count($plugins) - count($failed);
+        $scanned = count($plugins) - count($failed) - $skipped;
+
+        if ($skipped > 0) {
+            $io->writeln(sprintf(' Resumed: skipped <info>%d</info> plugin(s) already scanned.', $skipped));
+        }
 
         $io->writeln(sprintf(' Scanned <info>%d</info> plugin(s) into <comment>%s/</comment>.', $scanned, $out));
         $io->newLine();
@@ -119,6 +138,24 @@ final class BatchCommand extends Command
             $resolutionTotals['total'] > 0 ? $resolutionTotals['resolved'] / $resolutionTotals['total'] * 100 : 100,
             $resolutionTotals['total'],
         ));
+
+        $report = $input->getOption('report');
+        if (is_string($report) && $report !== '') {
+            // A run of thousands cannot be debugged from a terminal warning that
+            // scrolled past, so the failures are written down with their reasons.
+            file_put_contents($report, (string) json_encode([
+                'scanned' => $scanned,
+                'skipped' => $skipped,
+                'grades' => $grades,
+                'resolution' => [
+                    'resolved' => $resolutionTotals['resolved'],
+                    'write_calls' => $resolutionTotals['total'],
+                ],
+                'failed' => $failed,
+            ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+
+            $io->writeln(sprintf(' Report written to <comment>%s</comment>.', $report));
+        }
 
         if ($failed !== []) {
             $io->newLine();

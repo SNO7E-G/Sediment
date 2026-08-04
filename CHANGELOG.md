@@ -8,6 +8,51 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [0.7.0] — 2026-08-04
+
+Reach. The corpus showed the largest plugins were the ones Sediment could say
+least about, because they funnel every write through their own settings layer.
+This release follows those writes one hop back to the callers — and reports
+honestly that doing so bought less than the roadmap predicted.
+
+### Added
+
+- **One-hop wrapper resolution.** A write keyed on a function's parameter is
+  resolved from the literals its callers actually pass, so `update_option($key,
+  ...)` inside a settings helper now names the options it really writes. Handles
+  the `self::$prefix . $key` shape the large plugins favour, follows plain
+  functions, `$this->method()`, static calls, and calls through a *declared*
+  type (a typed property or injected dependency) — reading types the author
+  wrote rather than inferring them. Deliberately one hop, and never across two.
+- **Removals resolve the same way.** A plugin that writes through a wrapper
+  usually deletes through one too; expanding only the creates would have
+  reported those keys as abandoned and cost plugins a grade for cleanup they do
+  perform.
+- **Coverage beside the grade.** Below 90% resolution, `grade` now says so and
+  calls the letter a floor — what could not be read can only add to a footprint,
+  never subtract from it.
+- **`batch --resume`** skips plugins already scanned, so an interrupted run over
+  thousands carries on instead of starting again, and **`batch --report`** writes
+  the grade spread, resolution totals, and every failure with its reason to JSON.
+
+### Measured
+
+Pooled resolution moved **77% → 78%**, the corpus median **82% → 84%**, and six
+of ten plugins now resolve at 80% or better rather than five. UpdraftPlus went
+73% → 83%, Yoast SEO 62% → 64%; Akismet lost a point because an unresolved write
+is kept alongside the keys found rather than replaced by them, which is the
+honest accounting.
+
+The ratio understates it. The feature surfaced **49 artifacts across the corpus
+that were previously invisible**, 38 of them in UpdraftPlus, whose known
+footprint more than doubled — a wrapper called with twenty literal keys was one
+unresolved write before and is twenty named artifacts now.
+
+It is still less than the roadmap predicted, and `docs/corpus.md` records why:
+the unresolved remainder is mostly not wrapper parameters at all, but
+runtime-assigned properties, keys arriving through interfaces and dependency
+injection, and filesystem paths. The ">80% pooled" target remains open.
+
 ## [0.6.0] — 2026-07-31
 
 Proof. Until now every correctness claim rested on hand-written fixtures and two
@@ -408,6 +453,7 @@ reads source only — no WordPress runtime, no database — and runs on PHP 8.3+
   properties never resolve to a stale literal. PHP 8 named arguments resolve by
   name, and first-class callables are ignored rather than crashing a scan.
 
+[0.7.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.7.0
 [0.6.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.6.0
 [0.5.1]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.5.1
 [0.5.0]: https://github.com/SNO7E-G/Sediment/releases/tag/v0.5.0

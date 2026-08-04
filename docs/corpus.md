@@ -28,7 +28,7 @@ expected manifests live in the repository, under `tests/Golden/manifests/`.
 
 ## Measured results
 
-Recorded at v0.6.0. Resolution is the share of write calls whose key Sediment
+Recorded at v0.7.0. Resolution is the share of write calls whose key Sediment
 could resolve to a literal.
 
 | Plugin | Grade | Write calls | Resolution | Artifacts | Core writes |
@@ -38,14 +38,54 @@ could resolve to a literal.
 | `health-check` | D | 27 | 93% | 9 | 1 |
 | `akismet` | F | 38 | 90% | 20 | 1 |
 | `wp-super-cache` | D | 69 | 84% | 24 | 0 |
-| `wordfence` | F | 81 | 79% | 46 | 1 |
-| `woocommerce` | D | 789 | 78% | 448 | 3 |
-| `updraftplus` | D | 67 | 73% | 34 | 6 |
-| `wordpress-seo` | D | 123 | 62% | 54 | 1 |
+| `updraftplus` | D | 105 | 83% | 72 | 6 |
+| `wordfence` | F | 82 | 79% | 47 | 1 |
+| `woocommerce` | D | 795 | 78% | 455 | 3 |
+| `wordpress-seo` | D | 129 | 64% | 57 | 1 |
 | `contact-form-7` | D | 18 | 50% | 9 | 0 |
 
-**Distribution: median 82%, mean 81%, and 77% pooled across all 1,226 write
-calls.** Five of ten plugins resolve at 80% or better.
+**Distribution: median 84%, mean 82%, and 78% pooled across all 1277 write
+calls.** 6 of ten plugins resolve at 80% or better.
+
+## What one-hop wrapper resolution actually bought (0.7.0)
+
+0.7 followed writes through a plugin's own settings layer: a key that is a
+wrapper's parameter is resolved from the literals its callers pass, including
+the common `self::$prefix . $key` shape. The roadmap expected this to fix Yoast
+and Contact Form 7. It did not.
+
+| Plugin | Resolution | Artifacts found |
+| --- | --- | --- |
+| `updraftplus` | 73% → **83%** | 34 → **72** |
+| `wordpress-seo` | 62% → **64%** | 54 → **57** |
+| `akismet` | 90% → 89% | 20 → 20 |
+| everything else | unchanged | unchanged |
+
+**Pooled resolution moved 77% → 78%; the corpus median moved 82% → 84%, and six
+of ten plugins now resolve at 80% or better rather than five.**
+
+The ratio understates it. What the feature actually did was surface **49 real
+artifacts across the corpus that were previously invisible** — 38 of them in
+UpdraftPlus, which more than doubled its known footprint. A wrapper called with
+twenty literal keys was one unresolved write before and is twenty named
+artifacts now, which barely moves a ratio while changing what the tool can
+actually tell you.
+
+Still: one plugin gained substantially, one slightly, and the rest not at all. Reading the actual unresolved expressions explains why: they
+are not mostly wrapper parameters. Yoast's remainder is spread across
+`$this->option_name` (a property assigned at runtime), keys reaching wrappers
+through interfaces and dependency injection, and hook callbacks — none of which
+one static hop can follow. Contact Form 7's nine unresolved writes are mostly
+`$dir` filesystem paths, not options at all.
+
+Akismet's single point is a real cost, not noise: where a wrapper is called once
+with a literal and once with a runtime value, the unresolved write is kept
+*alongside* the resolved keys rather than being replaced by them, which is the
+honest accounting and slightly lowers the ratio.
+
+The feature stays because it is correct and it finds real artifacts that were
+invisible before. But it is recorded here as a small gain, not the fix the
+roadmap predicted, and the ">80% pooled" target remains unmet.
 
 ## What that says about the 80% target
 

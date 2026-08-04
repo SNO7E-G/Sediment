@@ -45,7 +45,13 @@ Stop arguing from two data points.
 **Done when:** ten of ten golden manifests are green, and both the call-site
 distribution and runtime recall are measured and published.
 
-## 0.7 — Reach
+## 0.7 — shipped
+
+Wrapper resolution landed but moved pooled resolution only 77% -> 78%; see
+`docs/corpus.md` for why and what the remainder actually is. The ">80% pooled"
+target is still open and now needs a different approach than one more static hop.
+
+## 0.7 (original plan) — Reach
 
 Close the measured gaps; make batch survive the real world.
 

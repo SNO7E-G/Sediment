@@ -41,6 +41,27 @@ final class Finding
             || $this->confidence === self::CONFIDENCE_RESOLVED;
     }
 
+    /**
+     * Return a copy naming a key the write's callers supply — the same call
+     * site, now attributed to one of the keys that actually reaches it.
+     */
+    public function withKey(string $key, string $confidence): self
+    {
+        return new self(
+            type: $this->type,
+            function: $this->function,
+            key: $key,
+            confidence: $confidence,
+            file: $this->file,
+            line: $this->line,
+            autoload: $this->autoload,
+            expression: $this->expression,
+            recurrence: $this->recurrence,
+            cleaned: $this->cleaned,
+            hasArgs: $this->hasArgs,
+        );
+    }
+
     /** Return a copy with the cleanup verdict set (§8, M8). */
     public function withCleaned(?bool $cleaned): self
     {

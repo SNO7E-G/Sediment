@@ -58,6 +58,7 @@ final class Scanner
         $files = $this->walker->walk($root);
 
         $symbols = new SymbolTable();
+        $callSites = new CallSites();
         $errors = [];
 
         /** @var list<array{path: string, file: string}> $parsed files that parsed cleanly */
@@ -80,7 +81,7 @@ final class Scanner
 
             try {
                 $collector = new NodeTraverser();
-                $collector->addVisitor(new SymbolCollector($symbols, $relative));
+                $collector->addVisitor(new SymbolCollector($symbols, $relative, $callSites));
                 $collector->traverse($ast);
             } catch (\Throwable $e) {
                 $errors[] = ['file' => $relative, 'message' => $e->getMessage()];
@@ -117,17 +118,17 @@ final class Scanner
             }
 
             $detectors = [
-                new OptionVisitor($entry['file'], $resolver),
-                new TableVisitor($entry['file'], $resolver),
-                new CronVisitor($entry['file'], $resolver),
-                new TransientVisitor($entry['file'], $resolver),
-                new MetaVisitor($entry['file'], $resolver),
-                new StructureVisitor($entry['file'], $resolver),
-                new RewriteVisitor($entry['file'], $resolver),
-                new FilesystemVisitor($entry['file'], $resolver),
-                new ScheduleVisitor($entry['file'], $resolver),
+                new OptionVisitor($entry['file'], $resolver, $callSites),
+                new TableVisitor($entry['file'], $resolver, $callSites),
+                new CronVisitor($entry['file'], $resolver, $callSites),
+                new TransientVisitor($entry['file'], $resolver, $callSites),
+                new MetaVisitor($entry['file'], $resolver, $callSites),
+                new StructureVisitor($entry['file'], $resolver, $callSites),
+                new RewriteVisitor($entry['file'], $resolver, $callSites),
+                new FilesystemVisitor($entry['file'], $resolver, $callSites),
+                new ScheduleVisitor($entry['file'], $resolver, $callSites),
             ];
-            $cleanup = new CleanupVisitor($entry['file'], $resolver);
+            $cleanup = new CleanupVisitor($entry['file'], $resolver, $callSites);
 
             try {
                 $traverser = new NodeTraverser();
@@ -145,7 +146,12 @@ final class Scanner
             foreach ($detectors as $detector) {
                 /** @var AbstractDetectionVisitor $detector */
                 foreach ($detector->findings() as $finding) {
-                    $findings[] = $finding;
+                    // A write keyed on a wrapper's parameter is replaced by the
+                    // keys its callers actually pass (§0.7). Everything else
+                    // comes through untouched.
+                    foreach (WrapperExpander::expand($finding, $detector->expansionsAt($finding->line)) as $expanded) {
+                        $findings[] = $expanded;
+                    }
                 }
             }
             array_push($removals, ...$cleanup->removals());

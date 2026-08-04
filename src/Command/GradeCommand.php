@@ -25,6 +25,13 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 final class GradeCommand extends Command
 {
+    /**
+     * Below this share of resolved write calls, the grade is reported as a floor
+     * rather than a verdict. Set where the corpus splits: the plugins above it
+     * are ones Sediment can read almost completely.
+     */
+    private const CONFIDENT_COVERAGE = 0.90;
+
     protected function configure(): void
     {
         $this->addArgument('path', InputArgument::REQUIRED, 'Path to the plugin directory to grade');
@@ -65,6 +72,23 @@ final class GradeCommand extends Command
                 ' <comment>%d finding(s) could not be fully resolved and were excluded from the grade.</comment>',
                 $unresolved,
             ));
+        }
+
+        // A grade is only as good as the share of writes behind it. Yoast SEO
+        // resolves 64% of its write calls, so its D is a floor rather than a
+        // verdict — the third of its writes nobody can read statically can only
+        // make the real footprint larger. Saying so beside the letter stops the
+        // grade being read as more certain than it is.
+        $total = count($result['findings']);
+        $coverage = $total > 0 ? ($total - $unresolved) / $total : 1.0;
+
+        if ($coverage < self::CONFIDENT_COVERAGE && $total > 0) {
+            $io->newLine();
+            $io->writeln(sprintf(
+                ' <comment>Coverage: %.0f%% of write calls resolved — treat this grade as a floor.</comment>',
+                $coverage * 100,
+            ));
+            $io->writeln(' <comment>What could not be read can only add to the footprint, never subtract from it.</comment>');
         }
 
         $io->newLine();

@@ -8,6 +8,7 @@ use PhpParser\Node;
 use PhpParser\Node\Arg;
 use PhpParser\Node\ArrayItem;
 use PhpParser\Node\Expr;
+use PhpParser\Node\Expr\BinaryOp\Concat;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\AssignOp;
@@ -23,6 +24,7 @@ use PhpParser\Node\Stmt\Function_;
 use PhpParser\Node\Stmt\Global_;
 use PhpParser\Node\Stmt\Static_;
 use PhpParser\NodeVisitorAbstract;
+use Sediment\Analyzer\CallSites;
 use Sediment\Analyzer\ExpressionResolver;
 use Sediment\Analyzer\Finding;
 use Sediment\Analyzer\Resolution;
@@ -54,10 +56,31 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
     /** @var list<array<string, string|null>> per-function local scopes (null = poisoned) */
     private array $localScopes = [[]];
 
+    /** @var array<int, string|null> line => the function enclosing it */
+    private array $scopeByLine = [];
+
+    /** @var array<int, array{literals: list<string>, complete: bool}> line => keys its callers supply */
+    private array $expansionsByLine = [];
+
     public function __construct(
         protected readonly string $file,
         protected readonly ExpressionResolver $resolver,
+        protected readonly ?CallSites $callSites = null,
     ) {
+    }
+
+    /**
+     * The function enclosing a given line, which is what turns a write keyed on
+     * `$key` into a question the call-site index can answer.
+     *
+     * Recorded per line during the traversal because a finding is inspected
+     * again once traversal is over, when the function stack is long gone. The
+     * first (outermost) node on a line wins, so a statement is attributed to the
+     * named function containing it rather than to a closure nested inside.
+     */
+    public function scopeAt(int $line): ?string
+    {
+        return $this->scopeByLine[$line] ?? null;
     }
 
     final public function enterNode(Node $node)
@@ -75,10 +98,39 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
             $this->functionStack[] = $this->functionIdentifier($node);
         }
 
+        if (!array_key_exists($node->getStartLine(), $this->scopeByLine)) {
+            $this->scopeByLine[$node->getStartLine()] = $this->currentFunction();
+        }
+
         $this->trackBindings($node);
         $this->inspect($node);
 
         return null;
+    }
+
+    /**
+     * The literal keys a wrapper's parameter receives at its call sites, for a
+     * write whose key is simply that parameter.
+     *
+     * `update_option($key, ...)` inside `Options_Helper::set($key)` says nothing
+     * on its own; what the plugin actually creates is whatever its callers pass.
+     *
+     * @return array{literals: list<string>, complete: bool}|null
+     */
+    protected function wrapperLiterals(Expr $expr, ?string $scope): ?array
+    {
+        if ($this->callSites === null || $scope === null) {
+            return null;
+        }
+
+        // Only a bare `$key` — an expression built *from* a parameter is a
+        // different value than the parameter, and substituting one for the other
+        // would name an artifact the plugin never wrote.
+        if (!$expr instanceof Variable || !is_string($expr->name)) {
+            return null;
+        }
+
+        return $this->callSites->forParameter($scope, $expr->name);
     }
 
     final public function leaveNode(Node $node)
@@ -121,7 +173,76 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
     /** Resolve an expression to a key using the current class and local scope. */
     protected function resolveKey(Expr $expr): Resolution
     {
-        return $this->resolver->resolve($expr, $this->currentClass(), $this->currentLocals());
+        $resolution = $this->resolver->resolve($expr, $this->currentClass(), $this->currentLocals());
+
+        // When the key cannot be read here, it may still be readable at the call
+        // sites of the function this sits in. Worked out now, while the syntax
+        // tree and the enclosing function are both in hand, and stashed by line
+        // for the scan to pick up once the traversal is over.
+        if (!$resolution->isResolved()) {
+            $expansion = $this->expandThroughCallers($expr);
+            if ($expansion !== null) {
+                $this->expansionsByLine[$expr->getStartLine()] = $expansion;
+            }
+        }
+
+        return $resolution;
+    }
+
+    /** @return array{literals: list<string>, complete: bool}|null */
+    public function expansionsAt(int $line): ?array
+    {
+        return $this->expansionsByLine[$line] ?? null;
+    }
+
+    /**
+     * The keys an unresolvable expression takes once the callers are known.
+     *
+     * Handles a bare parameter (`update_option($key, ...)`) and a parameter
+     * joined to something already resolvable (`self::$meta_prefix . $key`), which
+     * is how the large plugins in the corpus actually write: a prefix the class
+     * knows, plus a name the caller supplies.
+     *
+     * @return array{literals: list<string>, complete: bool}|null
+     */
+    private function expandThroughCallers(Expr $expr): ?array
+    {
+        $scope = $this->currentFunction();
+
+        if ($expr instanceof Concat) {
+            $left = $this->resolver->resolve($expr->left, $this->currentClass(), $this->currentLocals());
+            $right = $this->resolver->resolve($expr->right, $this->currentClass(), $this->currentLocals());
+
+            // Exactly one side must be the caller-supplied part; if both are
+            // unknown there is nothing to anchor the key to.
+            if ($left->isResolved() && !$right->isResolved()) {
+                return self::prefixed((string) $left->value, $this->wrapperLiterals($expr->right, $scope), '');
+            }
+
+            if ($right->isResolved() && !$left->isResolved()) {
+                return self::prefixed('', $this->wrapperLiterals($expr->left, $scope), (string) $right->value);
+            }
+
+            return null;
+        }
+
+        return $this->wrapperLiterals($expr, $scope);
+    }
+
+    /**
+     * @param array{literals: list<string>, complete: bool}|null $known
+     * @return array{literals: list<string>, complete: bool}|null
+     */
+    private static function prefixed(string $prefix, ?array $known, string $suffix): ?array
+    {
+        if ($known === null) {
+            return null;
+        }
+
+        return [
+            'literals' => array_map(static fn (string $k): string => $prefix . $k . $suffix, $known['literals']),
+            'complete' => $known['complete'],
+        ];
     }
 
     private function functionIdentifier(FunctionLike $node): ?string

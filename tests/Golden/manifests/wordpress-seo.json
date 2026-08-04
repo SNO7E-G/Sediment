@@ -9,12 +9,12 @@
     "grade": "D",
     "score": 0,
     "coverage": {
-        "write_calls_found": 123,
+        "write_calls_found": 129,
         "verified": 35,
-        "resolved": 41,
+        "resolved": 48,
         "pattern": 9,
-        "dynamic": 38,
-        "resolution_rate": 0.618
+        "dynamic": 37,
+        "resolution_rate": 0.643
     },
     "cleanup": {
         "has_uninstall_php": false,
@@ -78,6 +78,10 @@
                     {
                         "file": "inc/class-upgrade.php",
                         "line": 791
+                    },
+                    {
+                        "file": "inc/class-upgrade.php",
+                        "line": 1391
                     },
                     {
                         "file": "inc/class-wpseo-installation.php",
@@ -174,6 +178,10 @@
                     {
                         "file": "inc/class-upgrade.php",
                         "line": 903
+                    },
+                    {
+                        "file": "inc/class-upgrade.php",
+                        "line": 1391
                     }
                 ]
             },
@@ -200,9 +208,13 @@
             {
                 "key": "wpseo_titles",
                 "autoload": "unknown",
-                "confidence": "verified",
+                "confidence": "resolved",
                 "cleaned": false,
                 "sources": [
+                    {
+                        "file": "inc/class-upgrade.php",
+                        "line": 1391
+                    },
                     {
                         "file": "inc/class-upgrade.php",
                         "line": 1539
@@ -558,6 +570,17 @@
                 ]
             },
             {
+                "key": "_yoast_wpseo_bctitle",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpseo-meta.php",
+                        "line": 714
+                    }
+                ]
+            },
+            {
                 "key": "_yoast_wpseo_meta-robots-*",
                 "confidence": "pattern",
                 "cleaned": false,
@@ -597,7 +620,22 @@
                 "sources": [
                     {
                         "file": "inc/class-wpseo-meta.php",
+                        "line": 714
+                    },
+                    {
+                        "file": "inc/class-wpseo-meta.php",
                         "line": 826
+                    }
+                ]
+            },
+            {
+                "key": "_yoast_wpseo_metadesc",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpseo-meta.php",
+                        "line": 714
                     }
                 ]
             },
@@ -609,6 +647,17 @@
                     {
                         "file": "inc/class-wpseo-primary-term.php",
                         "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "_yoast_wpseo_title",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpseo-meta.php",
+                        "line": 714
                     }
                 ]
             },
@@ -839,12 +888,6 @@
             "expression": "$this->get_option_name()",
             "file": "inc/class-upgrade-history.php",
             "line": 114
-        },
-        {
-            "function": "update_option",
-            "expression": "$option_name",
-            "file": "inc/class-upgrade.php",
-            "line": 1391
         },
         {
             "function": "update_post_meta",

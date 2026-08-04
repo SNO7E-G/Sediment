@@ -374,15 +374,24 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $resolution = $this->resolveKey($value);
-        if (!$resolution->isResolved()) {
-            return; // pattern/dynamic removals cannot credit a specific create
-        }
-
         // wp_clear_scheduled_hook($hook, $args) clears only the events registered
         // with those exact arguments, so it cannot stand for a blanket clear.
         if ($function === 'wp_clear_scheduled_hook' && $this->passesArgs($node, 1, 'args')) {
             return;
+        }
+
+        $resolution = $this->resolveKey($value);
+
+        if (!$resolution->isResolved()) {
+            // A plugin that writes through a wrapper usually deletes through one
+            // too. Expanding creates but not removals would report those keys as
+            // abandoned and drop the plugin's grade for cleanup it does perform,
+            // so both ends resolve the same way.
+            foreach ($this->wrapperRemovalKeys($value, $node->getStartLine()) as $key) {
+                $this->addRemoval($type, $key, $function);
+            }
+
+            return; // pattern/dynamic removals cannot credit a specific create
         }
 
         $this->addRemoval($type, (string) $resolution->value, $function);
@@ -433,6 +442,16 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         foreach (TableStatements::dropped($resolution->value, $truncated) as $name) {
             $this->addRemoval('table', $name, 'wpdb::query');
         }
+    }
+
+    /**
+     * The keys a removal keyed on a wrapper's parameter actually deletes.
+     *
+     * @return list<string>
+     */
+    private function wrapperRemovalKeys(Expr $value, int $line): array
+    {
+        return $this->expansionsAt($line)['literals'] ?? [];
     }
 
     private function addRemoval(string $type, string $key, string $via): void

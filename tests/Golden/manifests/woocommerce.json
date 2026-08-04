@@ -9,12 +9,12 @@
     "grade": "D",
     "score": 0,
     "coverage": {
-        "write_calls_found": 789,
+        "write_calls_found": 795,
         "verified": 416,
-        "resolved": 198,
-        "pattern": 28,
-        "dynamic": 147,
-        "resolution_rate": 0.778
+        "resolved": 206,
+        "pattern": 27,
+        "dynamic": 146,
+        "resolution_rate": 0.782
     },
     "cleanup": {
         "has_uninstall_php": true,
@@ -2106,9 +2106,21 @@
                 ]
             },
             {
-                "key": "woocommerce_setup_background_installing_*",
+                "key": "woocommerce_setup_background_installing_jetpack",
                 "autoload": "unknown",
-                "confidence": "pattern",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wc-admin-setup-wizard.php",
+                        "line": 769
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_setup_background_installing_woocommerce-services",
+                "autoload": "unknown",
+                "confidence": "resolved",
                 "cleaned": false,
                 "sources": [
                     {
@@ -2932,6 +2944,17 @@
                     {
                         "file": "includes/rest-api/Controllers/Version3/class-wc-rest-report-coupons-totals-controller.php",
                         "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "wc_addons_sections",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wc-admin-addons.php",
+                        "line": 300
                     }
                 ]
             },
@@ -5323,6 +5346,28 @@
                 ]
             },
             {
+                "key": "shop_order",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wc-order-functions.php",
+                        "line": 354
+                    }
+                ]
+            },
+            {
+                "key": "shop_order_refund",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wc-order-functions.php",
+                        "line": 354
+                    }
+                ]
+            },
+            {
                 "key": "shop_webhook",
                 "confidence": "verified",
                 "cleaned": false,
@@ -5637,7 +5682,7 @@
                 "key": "wc_product_end_scheduled_sale",
                 "recurrence": "single",
                 "confidence": "verified",
-                "cleaned": false,
+                "cleaned": true,
                 "sources": [
                     {
                         "file": "includes/wc-product-functions.php",
@@ -5649,7 +5694,7 @@
                 "key": "wc_product_start_scheduled_sale",
                 "recurrence": "single",
                 "confidence": "verified",
-                "cleaned": false,
+                "cleaned": true,
                 "sources": [
                     {
                         "file": "includes/wc-product-functions.php",
@@ -5678,6 +5723,42 @@
                     {
                         "file": "src/Internal/PushNotifications/Services/PendingNotificationStore.php",
                         "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "wc_regenerate_attribute_variation_summaries",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-post-data.php",
+                        "line": 1139
+                    }
+                ]
+            },
+            {
+                "key": "wc_regenerate_product_variation_summaries",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-post-data.php",
+                        "line": 1139
+                    }
+                ]
+            },
+            {
+                "key": "wc_regenerate_term_variation_summaries",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-post-data.php",
+                        "line": 1139
                     }
                 ]
             },
@@ -5953,7 +6034,7 @@
                 "key": "woocommerce_tracker_send_event_wrapper",
                 "recurrence": null,
                 "confidence": "verified",
-                "cleaned": false,
+                "cleaned": true,
                 "sources": [
                     {
                         "file": "includes/class-woocommerce.php",
@@ -6154,12 +6235,6 @@
             "expression": "$meta_key",
             "file": "includes/class-wc-post-data.php",
             "line": 334
-        },
-        {
-            "function": "as_schedule_single_action",
-            "expression": "$action_name",
-            "file": "includes/class-wc-post-data.php",
-            "line": 1139
         },
         {
             "function": "register_taxonomy",

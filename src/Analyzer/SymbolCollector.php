@@ -9,16 +9,21 @@ use PhpParser\Node\Const_;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\AssignOp;
 use PhpParser\Node\Expr\FuncCall;
+use PhpParser\Node\Expr\MethodCall;
+use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\StaticPropertyFetch;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
+use PhpParser\Node\NullableType;
 use PhpParser\Node\Param;
 use PhpParser\Node\PropertyItem;
 use PhpParser\Node\VarLikeIdentifier;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt\Class_;
+use PhpParser\Node\Stmt\ClassMethod;
+use PhpParser\Node\Stmt\Function_;
 use PhpParser\Node\Stmt\ClassConst;
 use PhpParser\Node\Stmt\Const_ as ConstStmt;
 use PhpParser\Node\Stmt\Property;
@@ -43,9 +48,16 @@ final class SymbolCollector extends NodeVisitorAbstract
     /** @var list<string> stack of enclosing class contexts */
     private array $classStack = [];
 
+    /** @var array<string, Node|null> parameter name => declared type, within the current function */
+    private array $parameterTypes = [];
+
+    /** @var array<string, Node|null> "Class::property" => declared type */
+    private array $propertyTypes = [];
+
     public function __construct(
         private readonly SymbolTable $symbols,
         private readonly string $file = '',
+        private readonly ?CallSites $callSites = null,
     ) {
     }
 
@@ -61,8 +73,18 @@ final class SymbolCollector extends NodeVisitorAbstract
             return null;
         }
 
+        if ($node instanceof Function_ || $node instanceof ClassMethod) {
+            $this->collectParameters($node);
+            $this->collectParameterTypes($node);
+        } elseif ($node instanceof Property) {
+            $this->collectPropertyTypes($node);
+        } elseif ($node instanceof StaticCall || $node instanceof MethodCall) {
+            $this->collectCallArguments($node);
+        }
+
         if ($node instanceof FuncCall) {
             $this->collectDefine($node);
+            $this->collectCallArguments($node);
         } elseif ($node instanceof ConstStmt) {
             $this->collectTopLevelConst($node);
         } elseif ($node instanceof ClassConst) {
@@ -105,6 +127,185 @@ final class SymbolCollector extends NodeVisitorAbstract
     private static function literalOrNull(Node $value): ?string
     {
         return $value instanceof String_ ? $value->value : null;
+    }
+
+    /**
+     * Record a function's parameter names, so a write keyed on `$key` inside it
+     * can be matched to the argument position its callers fill.
+     */
+    private function collectParameters(Function_|ClassMethod $node): void
+    {
+        $callee = $this->calleeName($node);
+        if ($callee === null || $this->callSites === null) {
+            return;
+        }
+
+        $names = [];
+        foreach ($node->params as $param) {
+            // A variadic parameter collects an unbounded number of arguments, so
+            // position no longer identifies a value; leave it out entirely.
+            if ($param->variadic || !$param->var instanceof Variable || !is_string($param->var->name)) {
+                return;
+            }
+
+            $names[] = $param->var->name;
+        }
+
+        $this->callSites->declareFunction($callee, $names);
+    }
+
+    /**
+     * Record the literal arguments at one call site of a user-defined function.
+     *
+     * Only calls whose target can be named statically are followed: a plain
+     * function, `Class::method()`, and `$this->method()`. A call through a
+     * variable could be anything at runtime, and guessing at it would put a key
+     * on the wrong plugin's artifact.
+     */
+    private function collectCallArguments(FuncCall|StaticCall|MethodCall $node): void
+    {
+        if ($this->callSites === null || $node->isFirstClassCallable()) {
+            return;
+        }
+
+        $callee = $this->callTarget($node);
+        if ($callee === null) {
+            return;
+        }
+
+        foreach ($node->getArgs() as $index => $arg) {
+            // A named or spread argument breaks the position-to-parameter
+            // mapping this relies on, so the whole call is treated as unreadable
+            // rather than silently mis-attributed.
+            if ($arg->name !== null || $arg->unpack) {
+                $this->callSites->recordCall($callee, $index, null);
+
+                continue;
+            }
+
+            $this->callSites->recordCall($callee, $index, self::literalOrNull($arg->value));
+        }
+    }
+
+    private function callTarget(FuncCall|StaticCall|MethodCall $node): ?string
+    {
+        if ($node instanceof FuncCall) {
+            return $node->name instanceof Name ? $node->name->toString() : null;
+        }
+
+        if (!$node->name instanceof Identifier) {
+            return null;
+        }
+
+        if ($node instanceof StaticCall) {
+            if (!$node->class instanceof Name) {
+                return null;
+            }
+
+            // `self::` and `static::` mean the class being collected right now.
+            $class = in_array(strtolower($node->class->toString()), ['self', 'static', 'parent'], true)
+                ? $this->currentClass()
+                : $node->class->toString();
+
+            return $class === null ? null : $class . '::' . $node->name->toString();
+        }
+
+        // `$this->method()` resolves against the enclosing class.
+        if ($node->var instanceof Variable && $node->var->name === 'this') {
+            $class = $this->currentClass();
+
+            return $class === null ? null : $class . '::' . $node->name->toString();
+        }
+
+        // `$helper->set(...)` where `$helper` was *declared* with a class type.
+        // This reads a type the author wrote down; it does not infer one. The
+        // distinction matters — plugins reach their settings layer through a
+        // typed property or an injected dependency far more often than through
+        // `$this`, and guessing at an untyped variable would risk naming another
+        // plugin's artifact.
+        $type = $this->declaredType($node->var);
+
+        return $type === null ? null : $type . '::' . $node->name->toString();
+    }
+
+    /**
+     * Remember the declared types of a function's parameters, including
+     * constructor-promoted ones, for the duration of that function.
+     */
+    private function collectParameterTypes(Function_|ClassMethod $node): void
+    {
+        $this->parameterTypes = [];
+
+        foreach ($node->params as $param) {
+            if (!$param->var instanceof Variable || !is_string($param->var->name)) {
+                continue;
+            }
+
+            $this->parameterTypes[$param->var->name] = $param->type;
+
+            // A promoted parameter is also a property, and the settings layer is
+            // very often injected exactly this way.
+            if ($param->flags !== 0 && $this->currentClass() !== null) {
+                $this->propertyTypes[$this->currentClass() . '::' . $param->var->name] = $param->type;
+            }
+        }
+    }
+
+    private function collectPropertyTypes(Property $node): void
+    {
+        $class = $this->currentClass();
+        if ($class === null) {
+            return;
+        }
+
+        foreach ($node->props as $prop) {
+            /** @var PropertyItem $prop */
+            $this->propertyTypes[$class . '::' . $prop->name->toString()] = $node->type;
+        }
+    }
+
+    /**
+     * The class a variable or property was declared to hold, from a type the
+     * author wrote. Nullable types (`?Foo`) count; unions and intersections do
+     * not, because more than one class means more than one possible target.
+     */
+    private function declaredType(Node $var): ?string
+    {
+        if ($var instanceof Variable && is_string($var->name)) {
+            return self::className($this->parameterTypes[$var->name] ?? null);
+        }
+
+        if (
+            $var instanceof PropertyFetch
+            && $var->var instanceof Variable
+            && $var->var->name === 'this'
+            && $var->name instanceof Identifier
+        ) {
+            return self::className($this->propertyTypes[$this->currentClass() . '::' . $var->name->toString()] ?? null);
+        }
+
+        return null;
+    }
+
+    private static function className(?Node $type): ?string
+    {
+        if ($type instanceof NullableType) {
+            $type = $type->type;
+        }
+
+        // A Name here is already fully qualified by NameResolver.
+        return $type instanceof Name ? $type->toString() : null;
+    }
+
+    private function calleeName(Function_|ClassMethod $node): ?string
+    {
+        if ($node instanceof Function_) {
+            return ($node->namespacedName ?? null)?->toString() ?? $node->name->toString();
+        }
+
+        $class = $this->currentClass();
+
+        return $class === null ? null : $class . '::' . $node->name->toString();
     }
 
     private function collectDefine(FuncCall $node): void
