@@ -4,7 +4,7 @@ Where Sediment is going, and what each release has to prove before the next one
 starts. Every release ships publicly on its own, so a pause between any two
 still leaves something finished.
 
-Current: **v0.5.1**. The analyzer is feature-complete; what remains before 1.0
+Current: **v0.8.0**. The analyzer is feature-complete; what remains before 1.0
 is evidence and commitment, not features.
 
 ## What is already proven
@@ -68,7 +68,20 @@ Close the measured gaps; make batch survive the real world.
 **Done when:** a 500-plugin run completes unattended with no hangs, and the
 schema changes the pilot demands are written up.
 
-## 0.8 — Contract
+## 0.8 — shipped
+
+The manifest became an API: `schema/manifest.schema.json` (frozen at
+`schema_version: "2.0"`, with `1.0` self-identifying as alpha output), every
+manifest the suite produces validated against it in CI, and `docs/stability.md`
+stating what is covered, what is not, and how deprecation works.
+
+It also finished what 0.7 left open: `batch` now scans each plugin in its own
+child process under a wall-clock timeout and a memory cap, so one pathological
+plugin costs one report line instead of the run. The 500-plugin pilot itself
+has still not run — it needs a machine and an afternoon, not more code — and
+remains the gate before 0.9.
+
+## 0.8 (original plan) — Contract
 
 The manifest becomes an API. Deliberately boring.
 

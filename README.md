@@ -87,9 +87,9 @@ php bin/sediment diff manifest.json path/to/plugin   # exit 1 if the footprint g
 php bin/sediment batch path/to/plugins --out ./manifests
 ```
 
-`diff` compares against a manifest you committed earlier: a new artifact that isn't cleaned up, one that stopped being cleaned up, or a worse grade fails the build. Adding data you also remove on uninstall doesn't. `batch` writes one manifest per plugin plus a grade distribution.
+`diff` compares against a manifest you committed earlier: a new artifact that isn't cleaned up, one that stopped being cleaned up, or a worse grade fails the build. Adding data you also remove on uninstall doesn't. `batch` writes one manifest per plugin plus a grade distribution, and is built to survive a run of thousands: each plugin is scanned in its own child process under a wall-clock `--timeout` and a `--memory-limit`, one pathological plugin costs one line in the `--report` instead of the run, and `--resume` carries on from the manifests already written.
 
-The manifest carries the grade, the coverage counts, and every artifact with its confidence, `cleaned` flag, and source lines — it is the contract other tools build on, documented in [`docs/manifest-schema.md`](docs/manifest-schema.md). `check` is the same analysis wired for CI, so a plugin author can fail a build on their database footprint the way they already fail it on tests.
+The manifest carries the grade, the coverage counts, and every artifact with its confidence, `cleaned` flag, and source lines — it is the contract other tools build on, frozen as a [JSON Schema](schema/manifest.schema.json) and documented in [`docs/manifest-schema.md`](docs/manifest-schema.md), with the stability rules in [`docs/stability.md`](docs/stability.md). `check` is the same analysis wired for CI, so a plugin author can fail a build on their database footprint the way they already fail it on tests.
 
 ## What it detects
 
@@ -144,7 +144,7 @@ The full plan, with what each release has to prove before the next begins, is in
 
 ## Status
 
-**Alpha.** Detection across every artifact type above, static resolution, the cleanup diff (including conditional cleanup), grading, the manifest, the CI check, and the `uninstall.php` generator all work today, backed by a broad test suite. Releases are cut when a meaningful body of work is ready rather than per change, so each one carries real features — see the [changelog](CHANGELOG.md) and the [releases](https://github.com/SNO7E-G/Sediment/releases). Public interfaces, including the manifest schema, may still change before 1.0.
+**Alpha.** Detection across every artifact type above, static resolution, the cleanup diff (including conditional cleanup), grading, the manifest, the CI check, and the `uninstall.php` generator all work today, backed by a broad test suite. Releases are cut when a meaningful body of work is ready rather than per change, so each one carries real features — see the [changelog](CHANGELOG.md) and the [releases](https://github.com/SNO7E-G/Sediment/releases). The manifest schema is frozen at `2.0` and covered by the rules in [`docs/stability.md`](docs/stability.md); the rest of the tool may still change before 1.0.
 
 ## Development
 

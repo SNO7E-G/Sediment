@@ -8,6 +8,98 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [0.8.0] — 2026-08-11
+
+Contract. The manifest has been the input to everything downstream since 0.2;
+this release makes that dependable rather than incidental. It also finishes the
+batch hardening 0.7 promised, so a run over thousands of plugins can actually
+be left alone.
+
+### Added
+
+- **The manifest schema is now a published contract.**
+  `schema/manifest.schema.json` (JSON Schema 2020-12) defines the document
+  exactly, and the test suite validates every manifest it produces — the golden
+  corpus and fixtures alike — against it, so the file and the output cannot
+  drift apart. `schema_version` is bumped to **`2.0` and frozen**: manifests
+  published under the mutable alpha `1.0` stay self-identifying, and from here
+  a change to the document's shape is a breaking change and versioned as one.
+- **`docs/stability.md`** — what you can build on (the manifest, exit codes,
+  the CLI), what you cannot (terminal output, any given plugin's grade, the PHP
+  classes), and the three-step deprecation policy nothing covered may skip.
+- **`coverage` now reports `files_scanned` and `files_skipped`.** A resolution
+  rate over the write calls found says nothing about the files that could not
+  be parsed at all; both numbers now travel with the manifest so a consumer can
+  weigh a grade by how much source actually stood behind it.
+- **`batch` scans each plugin in its own child process**, under a wall-clock
+  `--timeout` (default 300s) and a `--memory-limit` (default 512M). In-process,
+  one pathological plugin — a parser blow-up, a file that exhausts memory, an
+  infinite loop — took the whole run down with it; now it costs one manifest,
+  and the `--report` records the failure with a machine-readable reason
+  (`timeout` or `error`) and the child's actual complaint.
+
+### Changed
+
+- Failures in the `batch` report carry a structured `{reason, detail}` instead
+  of a bare message string, so a run over thousands can be triaged by kind.
+
+### Fixed
+
+A full-source review before release found real defects; the two that matter
+most were in the newest feature and the oldest safety promise respectively.
+
+- **Wrapper resolution silently failed on multi-line calls.** The keys a
+  wrapper's callers pass were stashed under the *argument's* line but read back
+  under the *call's* — the same line only when the call fits on one. A wrapper
+  written with each argument on its own line, which is exactly how the large,
+  well-formatted plugins write, lost its expansion and stayed `dynamic`. The
+  0.7 resolution numbers were formatting-dependent without anyone intending it.
+- **One expansion slot per line invited cross-contamination.** A cron wrapper
+  whose recurrence *and* hook both came from parameters could report the
+  recurrence's values — `hourly` — as the names of scheduled hooks, and a
+  `dbDelta` wrapper could report its callers' entire SQL strings as table
+  names. Only the key argument of a detected call may expand now, stashed by
+  the call that owns it; SQL and filesystem paths never expand at all, since
+  their values only mean something after parsing.
+- **A wrapper handed out as a callback no longer claims complete coverage.**
+  WordPress calls hook callbacks itself, with arguments the source never
+  shows. A function registered via `add_action`, written as `[$this, 'method']`,
+  or made into a first-class callable now keeps its unresolved write in the
+  report alongside the keys its visible callers pass.
+- **Action Scheduler jobs scheduled with arguments were falsely credited as
+  cleaned.** `as_unschedule_action($hook)` matches pending actions by their
+  arguments, exactly like `wp_clear_scheduled_hook` — a job scheduled with
+  arguments survives it and keeps firing after uninstall. Such jobs are now
+  credited only to the blanket `as_unschedule_all_actions()`, mirroring the
+  cron handling that has been in place since 0.3.
+- **A newline in a scanned name could inject code into the generated
+  `uninstall.php`.** Artifact names reported in the "intentionally not removed"
+  comment were interpolated verbatim; a registered post type or directory name
+  containing a newline ended the comment and turned the remainder into live
+  PHP in a file people are told to ship. Names are flattened to one line now —
+  the deletion calls themselves were already safe, built through `var_export`.
+- **Scanned names could crash the report instead of appearing in it.** File
+  paths and keys from the scanned plugin (and `--out`/`--report`/path options)
+  were passed to the console formatter unescaped, so a name containing `<...>`
+  markup threw mid-report on Linux, where those are legal filename characters.
+- **`diff` accepted any JSON object as a baseline** and would report a
+  regression that never happened against a file that was not a manifest at
+  all. It now requires the fields a manifest cannot lack.
+- **`fetch` trusted its cache and its inputs too far.** An unreadable checksum
+  record silently reported an empty `sha256` for a cached plugin — it now
+  re-fetches instead — and the version string, which ends up in a URL and a
+  filesystem path, is validated the way the slug always was.
+- **The same option written with autoload `no` and `unknown` now grades the
+  same whichever write is seen first** — `unknown` counts as autoloaded, the
+  safe direction, regardless of scan order.
+
+Across the golden corpus these fixes changed exactly one document: WooCommerce's
+two scheduled-sale actions lost a `cleaned` credit they had not earned — they
+are scheduled per-product with arguments and nothing blanket-clears them at
+uninstall. The other defects are proven by unit reproductions and happen not to
+fire in the ten pinned plugins, which is the difference between "no impact" and
+"no impact measured here".
+
 ## [0.7.0] — 2026-08-04
 
 Reach. The corpus showed the largest plugins were the ones Sediment could say
