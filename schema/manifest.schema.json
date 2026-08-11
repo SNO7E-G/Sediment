@@ -1,0 +1,201 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/SNO7E-G/Sediment/main/schema/manifest.schema.json",
+    "title": "Sediment manifest",
+    "description": "The machine-readable result of scanning one WordPress plugin: what it writes to the database and filesystem, whether it cleans up, and how much of its source the analyzer could actually read. Schema version 2.0 is frozen; see docs/stability.md for what a change here costs.",
+    "type": "object",
+    "required": [
+        "schema_version",
+        "plugin",
+        "grade",
+        "score",
+        "coverage",
+        "cleanup",
+        "creates",
+        "modifies_core",
+        "unresolved"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "schema_version": {
+            "const": "2.0"
+        },
+        "plugin": {
+            "type": "object",
+            "required": ["slug", "name", "version", "source", "scanned_at", "analyzer_version"],
+            "additionalProperties": false,
+            "properties": {
+                "slug": { "type": ["string", "null"] },
+                "name": { "type": ["string", "null"] },
+                "version": { "type": ["string", "null"] },
+                "source": { "type": "string" },
+                "scanned_at": { "type": "string", "format": "date-time" },
+                "analyzer_version": { "type": "string" }
+            }
+        },
+        "grade": {
+            "enum": ["A", "B", "C", "D", "F"]
+        },
+        "score": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "coverage": {
+            "type": "object",
+            "required": [
+                "files_scanned",
+                "files_skipped",
+                "write_calls_found",
+                "verified",
+                "resolved",
+                "pattern",
+                "dynamic",
+                "resolution_rate"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "files_scanned": { "type": "integer", "minimum": 0 },
+                "files_skipped": { "type": "integer", "minimum": 0 },
+                "write_calls_found": { "type": "integer", "minimum": 0 },
+                "verified": { "type": "integer", "minimum": 0 },
+                "resolved": { "type": "integer", "minimum": 0 },
+                "pattern": { "type": "integer", "minimum": 0 },
+                "dynamic": { "type": "integer", "minimum": 0 },
+                "resolution_rate": { "type": "number", "minimum": 0, "maximum": 1 }
+            }
+        },
+        "cleanup": {
+            "type": "object",
+            "required": ["has_uninstall_php", "has_uninstall_hook", "conditional", "condition_option", "condition_default"],
+            "additionalProperties": false,
+            "properties": {
+                "has_uninstall_php": { "type": "boolean" },
+                "has_uninstall_hook": { "type": "boolean" },
+                "conditional": { "type": "boolean" },
+                "condition_option": { "type": ["string", "null"] },
+                "condition_default": { "type": ["boolean", "string", "null"] }
+            }
+        },
+        "creates": {
+            "type": "object",
+            "required": [
+                "options",
+                "tables",
+                "cron",
+                "transients",
+                "post_meta",
+                "user_meta",
+                "term_meta",
+                "comment_meta",
+                "roles",
+                "capabilities",
+                "post_types",
+                "taxonomies",
+                "directories",
+                "rewrite_rules",
+                "actions"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "options": { "type": "array", "items": { "$ref": "#/$defs/option_artifact" } },
+                "tables": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+                "cron": { "type": "array", "items": { "$ref": "#/$defs/scheduled_artifact" } },
+                "transients": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+                "post_meta": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+                "user_meta": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+                "term_meta": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+                "comment_meta": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+                "roles": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+                "capabilities": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+                "post_types": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+                "taxonomies": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+                "directories": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+                "rewrite_rules": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+                "actions": { "type": "array", "items": { "$ref": "#/$defs/scheduled_artifact" } }
+            }
+        },
+        "modifies_core": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["type", "key", "confidence", "sources"],
+                "additionalProperties": false,
+                "properties": {
+                    "type": { "type": "string" },
+                    "key": { "type": "string" },
+                    "confidence": { "$ref": "#/$defs/confidence" },
+                    "sources": { "$ref": "#/$defs/sources" }
+                }
+            }
+        },
+        "unresolved": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["function", "expression", "file", "line"],
+                "additionalProperties": false,
+                "properties": {
+                    "function": { "type": "string" },
+                    "expression": { "type": "string" },
+                    "file": { "type": "string" },
+                    "line": { "type": "integer", "minimum": 1 }
+                }
+            }
+        }
+    },
+    "$defs": {
+        "confidence": {
+            "description": "How the key was established. Only `verified` and `resolved` are safe to act on; `dynamic` findings carry no key and therefore never appear in `creates`.",
+            "enum": ["verified", "resolved", "pattern"]
+        },
+        "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "required": ["file", "line"],
+                "additionalProperties": false,
+                "properties": {
+                    "file": { "type": "string" },
+                    "line": { "type": "integer", "minimum": 1 }
+                }
+            }
+        },
+        "artifact": {
+            "type": "object",
+            "required": ["key", "confidence", "cleaned", "sources"],
+            "additionalProperties": false,
+            "properties": {
+                "key": { "type": "string" },
+                "confidence": { "$ref": "#/$defs/confidence" },
+                "cleaned": { "type": "boolean" },
+                "sources": { "$ref": "#/$defs/sources" }
+            }
+        },
+        "option_artifact": {
+            "type": "object",
+            "required": ["key", "autoload", "confidence", "cleaned", "sources"],
+            "additionalProperties": false,
+            "properties": {
+                "key": { "type": "string" },
+                "autoload": { "enum": ["yes", "no", "unknown"] },
+                "confidence": { "$ref": "#/$defs/confidence" },
+                "cleaned": { "type": "boolean" },
+                "sources": { "$ref": "#/$defs/sources" }
+            }
+        },
+        "scheduled_artifact": {
+            "type": "object",
+            "required": ["key", "recurrence", "confidence", "cleaned", "sources"],
+            "additionalProperties": false,
+            "properties": {
+                "key": { "type": "string" },
+                "recurrence": { "type": ["string", "null"] },
+                "confidence": { "$ref": "#/$defs/confidence" },
+                "cleaned": { "type": "boolean" },
+                "sources": { "$ref": "#/$defs/sources" }
+            }
+        }
+    }
+}

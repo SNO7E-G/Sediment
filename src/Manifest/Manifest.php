@@ -19,7 +19,13 @@ use Sediment\Application;
  */
 final class Manifest
 {
-    public const SCHEMA_VERSION = '1.0';
+    /**
+     * Frozen at 2.0 (see docs/stability.md). Manifests published under the
+     * mutable alpha schema self-identify as `1.0`; from here a change to the
+     * shape of this document is a breaking change and versioned as one.
+     * The machine-readable contract lives in schema/manifest.schema.json.
+     */
+    public const SCHEMA_VERSION = '2.0';
 
     /** Finding type => manifest group (§9). */
     private const TYPE_KEYS = [
@@ -56,7 +62,7 @@ final class Manifest
             'plugin' => self::plugin($path, $scan['files'], $scannedAt),
             'grade' => $grade->letter,
             'score' => $grade->score,
-            'coverage' => self::coverage($findings),
+            'coverage' => self::coverage($findings, count($scan['files']), count($scan['errors'])),
             'cleanup' => [
                 'has_uninstall_php' => $scan['cleanup']['has_uninstall_php'],
                 'has_uninstall_hook' => $scan['cleanup']['has_uninstall_hook'],
@@ -140,7 +146,7 @@ final class Manifest
      * @param list<Finding> $findings
      * @return array<string, int|float>
      */
-    private static function coverage(array $findings): array
+    private static function coverage(array $findings, int $filesScanned, int $filesSkipped): array
     {
         $counts = [
             Finding::CONFIDENCE_VERIFIED => 0,
@@ -157,6 +163,12 @@ final class Manifest
         $resolved = $counts[Finding::CONFIDENCE_VERIFIED] + $counts[Finding::CONFIDENCE_RESOLVED];
 
         return [
+            // A resolution rate over the write calls that were found says
+            // nothing about the files that could not be read at all. Both
+            // numbers travel with the manifest so a consumer can weigh a grade
+            // by how much source actually stood behind it.
+            'files_scanned' => $filesScanned,
+            'files_skipped' => $filesSkipped,
             'write_calls_found' => $total,
             'verified' => $counts[Finding::CONFIDENCE_VERIFIED],
             'resolved' => $counts[Finding::CONFIDENCE_RESOLVED],

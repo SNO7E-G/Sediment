@@ -24,7 +24,7 @@ final class ManifestTest extends TestCase
     {
         $manifest = $this->manifest('partial-plugin');
 
-        self::assertSame('1.0', $manifest['schema_version']);
+        self::assertSame('2.0', $manifest['schema_version']);
         self::assertSame('partial-plugin', $manifest['plugin']['slug']);
         self::assertSame('Partial Plugin (fixture)', $manifest['plugin']['name']);
         self::assertSame('D', $manifest['grade']);

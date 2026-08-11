@@ -5,14 +5,20 @@ a scan. It is the contract other tools build on — CI checks, the forthcoming
 Index, and the WordPress plugin all read the manifest rather than reaching into
 the analyzer.
 
-Current `schema_version`: **`1.0`**. Sediment is in alpha, so the schema may
-still change before 1.0; the field exists so a consumer can tell.
+Current `schema_version`: **`2.0`**, and frozen: the machine-readable
+definition is [`schema/manifest.schema.json`](../schema/manifest.schema.json),
+every manifest the test suite produces is validated against it in CI, and what
+a change to it costs is written down in [stability.md](stability.md). Build a
+consumer from the schema file; this page is the commentary, not the authority.
+
+Manifests published with `schema_version: "1.0"` predate the freeze — that
+version was mutable alpha output and self-identifies as such.
 
 ## Shape
 
 ```jsonc
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "plugin": {
     "slug": "example-plugin",     // directory name
     "name": "Example Plugin",     // from the plugin header, null if absent
@@ -24,6 +30,8 @@ still change before 1.0; the field exists so a consumer can tell.
   "grade": "D",
   "score": 55,                    // 0–100, weighted by damage
   "coverage": {
+    "files_scanned": 214,          // PHP files read
+    "files_skipped": 2,            // of those, files that could not be parsed
     "write_calls_found": 25,
     "verified": 18,
     "resolved": 5,
@@ -96,6 +104,10 @@ still change before 1.0; the field exists so a consumer can tell.
 - **`confidence` travels with every item**, so filter on it rather than trusting
   the list wholesale. Only `verified` and `resolved` are safe to act on; `pattern`
   needs human confirmation and `dynamic` is never actionable.
+- **`coverage` says how much source stood behind the document.** A parse
+  failure never aborts a scan — the file is skipped and counted in
+  `files_skipped` — and `resolution_rate` covers only the write calls that were
+  found. Weigh a grade by both before trusting it.
 - **`unresolved` is first-class, not hidden.** Writes Sediment could not resolve
   are listed with their raw expression and location, which is what makes the
   `resolution_rate` auditable rather than a claim.
