@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace Sediment\Command;
 
-use Sediment\Analyzer\Scanner;
-use Sediment\Manifest\Grader;
 use Sediment\Manifest\Manifest;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Formatter\OutputFormatter;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Process\Exception\ProcessTimedOutException;
+use Symfony\Component\Process\Process;
 
 /**
  * `sediment batch <dir>` — scan every plugin directory under `<dir>`, writing a
@@ -21,8 +22,13 @@ use Symfony\Component\Console\Style\SymfonyStyle;
  *
  * One plugin at a time answers "what does this leave behind"; a batch answers
  * "what does this ecosystem leave behind", which is the question the Index
- * exists to answer. A plugin that fails to scan is recorded and skipped — one
- * bad plugin must never sink a run of thousands.
+ * exists to answer.
+ *
+ * Each plugin is scanned in its own child process with a wall-clock timeout and
+ * a memory cap. In-process, one pathological plugin — a parser blow-up, an
+ * infinite loop in a visitor, a file that exhausts memory — takes the whole run
+ * of thousands down with it. In a child, it costs one manifest and a line in
+ * the report.
  */
 #[AsCommand(
     name: 'batch',
@@ -36,6 +42,8 @@ final class BatchCommand extends Command
         $this->addOption('out', 'o', InputOption::VALUE_REQUIRED, 'Where to write manifests', 'sediment-manifests');
         $this->addOption('resume', null, InputOption::VALUE_NONE, 'Skip plugins that already have a manifest in the output directory');
         $this->addOption('report', null, InputOption::VALUE_REQUIRED, 'Write a JSON summary of the run, including every failure');
+        $this->addOption('timeout', null, InputOption::VALUE_REQUIRED, 'Wall-clock seconds one plugin may take before it is recorded as failed', '300');
+        $this->addOption('memory-limit', null, InputOption::VALUE_REQUIRED, 'PHP memory limit for one plugin scan (e.g. 512M)', '512M');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -43,6 +51,8 @@ final class BatchCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $directory = rtrim((string) $input->getArgument('directory'), "/\\");
         $out = rtrim((string) $input->getOption('out'), "/\\");
+        $timeout = max(1, (int) $input->getOption('timeout'));
+        $memoryLimit = (string) $input->getOption('memory-limit');
 
         if (!is_dir($directory)) {
             $io->error("Directory not found: {$directory}");
@@ -66,8 +76,6 @@ final class BatchCommand extends Command
         $io->title('Sediment batch');
         $io->progressStart(count($plugins));
 
-        $scanner = new Scanner();
-        $grader = new Grader();
         $grades = [];
         $failed = [];
         $resolutionTotals = ['resolved' => 0, 'total' => 0];
@@ -88,19 +96,16 @@ final class BatchCommand extends Command
                 continue;
             }
 
-            try {
-                $scan = $scanner->scan($path);
-                $grade = $grader->grade($scan['findings'], $scan['cleanup']);
-                $manifest = Manifest::build($scan, $grade, $path, gmdate('Y-m-d\TH:i:s\Z'));
-
+            $manifest = $this->scanInChild($path, $timeout, $memoryLimit, $failed, $slug);
+            if ($manifest !== null) {
+                // Re-encoded rather than written as the child sent it, so the
+                // document on disk cannot pick up platform line endings on the
+                // way through a pipe.
                 file_put_contents($out . '/' . $slug . '.json', Manifest::toJson($manifest));
 
-                $grades[$grade->letter] = ($grades[$grade->letter] ?? 0) + 1;
+                $grades[$manifest['grade']] = ($grades[$manifest['grade']] ?? 0) + 1;
                 $resolutionTotals['resolved'] += $manifest['coverage']['verified'] + $manifest['coverage']['resolved'];
                 $resolutionTotals['total'] += $manifest['coverage']['write_calls_found'];
-            } catch (\Throwable $e) {
-                // One unscannable plugin must not end a run of thousands.
-                $failed[$slug] = $e->getMessage();
             }
 
             $io->progressAdvance();
@@ -115,7 +120,7 @@ final class BatchCommand extends Command
             $io->writeln(sprintf(' Resumed: skipped <info>%d</info> plugin(s) already scanned.', $skipped));
         }
 
-        $io->writeln(sprintf(' Scanned <info>%d</info> plugin(s) into <comment>%s/</comment>.', $scanned, $out));
+        $io->writeln(sprintf(' Scanned <info>%d</info> plugin(s) into <comment>%s/</comment>.', $scanned, OutputFormatter::escape($out)));
         $io->newLine();
 
         if ($grades !== []) {
@@ -154,7 +159,7 @@ final class BatchCommand extends Command
                 'failed' => $failed,
             ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
-            $io->writeln(sprintf(' Report written to <comment>%s</comment>.', $report));
+            $io->writeln(sprintf(' Report written to <comment>%s</comment>.', OutputFormatter::escape($report)));
         }
 
         if ($failed !== []) {
@@ -163,5 +168,53 @@ final class BatchCommand extends Command
         }
 
         return Command::SUCCESS;
+    }
+
+    /**
+     * Scan one plugin in a child process, or record why it could not be.
+     *
+     * @param array<string, array{reason: string, detail: string}> $failed
+     * @return array<string, mixed>|null the decoded manifest, or null on failure
+     */
+    private function scanInChild(string $path, int $timeout, string $memoryLimit, array &$failed, string $slug): ?array
+    {
+        // Inside a PHAR the entry point is the archive itself; from source it is
+        // the repository's own binary. Either way the child runs the exact code
+        // the parent is running.
+        $binary = \Phar::running(false) !== '' ? \Phar::running(false) : dirname(__DIR__, 2) . '/bin/sediment';
+
+        $process = new Process([\PHP_BINARY, '-d', 'memory_limit=' . $memoryLimit, $binary, 'scan', $path, '--json']);
+        $process->setTimeout((float) $timeout);
+
+        try {
+            $process->run();
+        } catch (ProcessTimedOutException) {
+            $failed[$slug] = ['reason' => 'timeout', 'detail' => sprintf('exceeded the %ds wall-clock timeout', $timeout)];
+
+            return null;
+        } catch (\Throwable $e) {
+            $failed[$slug] = ['reason' => 'error', 'detail' => $e->getMessage()];
+
+            return null;
+        }
+
+        if (!$process->isSuccessful()) {
+            $detail = trim($process->getErrorOutput()) !== '' ? trim($process->getErrorOutput()) : trim($process->getOutput());
+            $failed[$slug] = [
+                'reason' => 'error',
+                'detail' => sprintf('exit code %d: %s', (int) $process->getExitCode(), mb_substr($detail, 0, 500)),
+            ];
+
+            return null;
+        }
+
+        $manifest = json_decode($process->getOutput(), true);
+        if (!is_array($manifest) || !isset($manifest['grade'], $manifest['coverage'])) {
+            $failed[$slug] = ['reason' => 'error', 'detail' => 'the scan produced no readable manifest'];
+
+            return null;
+        }
+
+        return $manifest;
     }
 }
