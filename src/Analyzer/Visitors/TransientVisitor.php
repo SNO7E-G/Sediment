@@ -41,7 +41,7 @@ final class TransientVisitor extends AbstractDetectionVisitor
 
         $args = $node->getArgs();
         $keyValue = $this->argValue($args, self::FUNCTIONS[$function], 'transient');
-        $resolution = $keyValue !== null ? $this->resolveKey($keyValue) : Resolution::dynamic();
+        $resolution = $keyValue !== null ? $this->resolveFindingKey($keyValue, $node) : Resolution::dynamic();
 
         $this->findings[] = new Finding(
             type: 'transient',

@@ -6,7 +6,6 @@ namespace Sediment\Analyzer\Visitors;
 
 use PhpParser\Node;
 use PhpParser\Node\Arg;
-use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Name;
 use Sediment\Analyzer\Finding;
@@ -57,7 +56,7 @@ final class CronVisitor extends AbstractDetectionVisitor
     private function recordScheduleEvent(Node $node, string $fn, array $args): void
     {
         $hookValue = $this->argValue($args, 2, 'hook');
-        $resolution = $hookValue !== null ? $this->resolveKey($hookValue) : Resolution::dynamic();
+        $resolution = $hookValue !== null ? $this->resolveFindingKey($hookValue, $node) : Resolution::dynamic();
 
         $recurrence = null;
         $recurrenceValue = $this->argValue($args, 1, 'recurrence');
@@ -75,7 +74,7 @@ final class CronVisitor extends AbstractDetectionVisitor
             line: $node->getStartLine(),
             expression: $resolution->raw,
             recurrence: $recurrence,
-            hasArgs: $this->hasArgs($args, 3),
+            hasArgs: $this->passesArgs($args, 3, 'args'),
         );
     }
 
@@ -85,7 +84,7 @@ final class CronVisitor extends AbstractDetectionVisitor
     private function recordSingleEvent(Node $node, string $fn, array $args): void
     {
         $hookValue = $this->argValue($args, 1, 'hook');
-        $resolution = $hookValue !== null ? $this->resolveKey($hookValue) : Resolution::dynamic();
+        $resolution = $hookValue !== null ? $this->resolveFindingKey($hookValue, $node) : Resolution::dynamic();
 
         $this->findings[] = new Finding(
             type: 'cron',
@@ -96,27 +95,7 @@ final class CronVisitor extends AbstractDetectionVisitor
             line: $node->getStartLine(),
             expression: $resolution->raw,
             recurrence: self::RECURRENCE_SINGLE,
-            hasArgs: $this->hasArgs($args, 2),
+            hasArgs: $this->passesArgs($args, 2, 'args'),
         );
-    }
-
-    /**
-     * Whether the event was scheduled with arguments. This changes how it must be
-     * cleared: wp_clear_scheduled_hook($hook) only removes events registered with
-     * no arguments, so an event scheduled with them survives it.
-     *
-     * An empty array literal is treated as no arguments, matching WordPress.
-     *
-     * @param list<Arg> $args
-     */
-    private function hasArgs(array $args, int $index): bool
-    {
-        $value = $this->argValue($args, $index, 'args');
-
-        if ($value === null) {
-            return false;
-        }
-
-        return !($value instanceof Array_ && $value->items === []);
     }
 }

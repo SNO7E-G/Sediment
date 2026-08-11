@@ -8,6 +8,7 @@ use Sediment\Analyzer\Scanner;
 use Sediment\Generator\UninstallGenerator;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Formatter\OutputFormatter;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
@@ -39,7 +40,7 @@ final class UninstallCommand extends Command
         $stderr = $output instanceof ConsoleOutputInterface ? $output->getErrorOutput() : $output;
 
         if (!file_exists($path)) {
-            $stderr->writeln("<error>Path not found: {$path}</error>");
+            $stderr->writeln('<error>' . OutputFormatter::escape("Path not found: {$path}") . '</error>');
 
             return Command::FAILURE;
         }

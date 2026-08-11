@@ -38,6 +38,9 @@ final class CallSites
     /** @var array<string, array<int, true>> callee => index => a call passed something unreadable */
     private array $opaque = [];
 
+    /** @var array<string, true> callees referenced as callables, so calls exist that are not in the source */
+    private array $externallyCallable = [];
+
     /**
      * Register a function's parameter names so a write keyed on `$key` can be
      * matched to the argument position callers fill.
@@ -79,11 +82,24 @@ final class CallSites
     }
 
     /**
+     * Record that a function was referenced as a callable — passed to a hook,
+     * written as `[$this, 'method']`, or made into a first-class callable. Its
+     * visible call sites are then not the whole story: something else holds a
+     * handle to it and can call it with arguments the source never shows.
+     */
+    public function markExternallyCallable(string $callee): void
+    {
+        $this->externallyCallable[self::normalise($callee)] = true;
+    }
+
+    /**
      * The literals a named parameter receives across every call site.
      *
-     * `complete` is false when at least one call passed something unreadable, so
-     * the caller can keep reporting the unresolved write alongside the keys it
-     * did find instead of claiming full coverage.
+     * `complete` is false when at least one call passed something unreadable —
+     * or when the function was referenced as a callable, so calls exist that
+     * the source does not show. Either way the caller keeps reporting the
+     * unresolved write alongside the keys it did find instead of claiming full
+     * coverage.
      *
      * @return array{literals: list<string>, complete: bool}|null null when nothing is known
      */
@@ -105,13 +121,15 @@ final class CallSites
 
         return [
             'literals' => $literals,
-            'complete' => !isset($this->opaque[$id][$index]),
+            'complete' => !isset($this->opaque[$id][$index]) && !isset($this->externallyCallable[$id]),
         ];
     }
 
-    /** Function and method names are case-insensitive in PHP; keys follow suit. */
+    /** Function and method names are case-insensitive in PHP; keys follow suit.
+     *  A leading backslash is stripped so a '\Ns\func' callback string meets its
+     *  'Ns\func' declaration. */
     private static function normalise(string $callee): string
     {
-        return strtolower($callee);
+        return strtolower(ltrim($callee, '\\'));
     }
 }

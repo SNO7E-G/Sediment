@@ -27,9 +27,10 @@ use Sediment\Analyzer\WrapperExpander;
 final class WrapperResolutionTest extends TestCase
 {
     /**
+     * @param class-string<\Sediment\Analyzer\Visitors\AbstractDetectionVisitor> $visitorClass
      * @return list<Finding>
      */
-    private function scan(string $body): array
+    private function scan(string $body, string $visitorClass = OptionVisitor::class): array
     {
         $parser = (new ParserFactory())->createForNewestSupportedVersion();
         $ast = $parser->parse("<?php\n" . $body);
@@ -46,7 +47,7 @@ final class WrapperResolutionTest extends TestCase
         $collect->traverse($ast);
         $symbols->reconcileInheritedProperties();
 
-        $visitor = new OptionVisitor('inline.php', new ExpressionResolver($symbols), $callSites);
+        $visitor = new $visitorClass('inline.php', new ExpressionResolver($symbols), $callSites);
         $detect = new NodeTraverser();
         $detect->addVisitor($visitor);
         $detect->traverse($ast);
@@ -145,6 +146,58 @@ final class WrapperResolutionTest extends TestCase
         );
     }
 
+    public function test_a_wrapper_registered_as_a_hook_callback_keeps_its_unresolved_write(): void
+    {
+        // WordPress calls the hook itself, with arguments the source never
+        // shows. The literal caller is still expanded, but claiming the
+        // callers are the whole story would be false.
+        $findings = $this->scan(<<<'PHP'
+            class Settings {
+                public function __construct() {
+                    add_action('admin_init', [$this, 'put']);
+                }
+                public function put($name) {
+                    update_option($name, 1);
+                }
+                public function boot() {
+                    $this->put('acme_known');
+                }
+            }
+            PHP);
+
+        self::assertSame([null, 'acme_known'], $this->keys($findings));
+    }
+
+    public function test_a_function_hooked_by_name_keeps_its_unresolved_write(): void
+    {
+        $findings = $this->scan(<<<'PHP'
+            function acme_save($key) {
+                update_option($key, 1);
+            }
+            add_action('init', 'acme_save');
+            acme_save('acme_direct');
+            PHP);
+
+        self::assertSame([null, 'acme_direct'], $this->keys($findings));
+    }
+
+    public function test_a_first_class_callable_keeps_the_unresolved_write(): void
+    {
+        $findings = $this->scan(<<<'PHP'
+            class Settings {
+                private function put($name) {
+                    update_option($name, 1);
+                }
+                public function boot() {
+                    $this->put('acme_known');
+                    $callback = $this->put(...);
+                }
+            }
+            PHP);
+
+        self::assertSame([null, 'acme_known'], $this->keys($findings));
+    }
+
     public function test_a_prefix_the_class_knows_joins_the_name_the_caller_supplies(): void
     {
         // The shape Yoast actually writes: `self::$meta_prefix . $key`. The
@@ -198,6 +251,65 @@ final class WrapperResolutionTest extends TestCase
             PHP);
 
         self::assertSame([null], $this->keys($findings));
+    }
+
+    public function test_a_multi_line_wrapper_call_resolves_the_same_as_a_single_line_one(): void
+    {
+        // The expansion is stashed under the call's line — the line the finding
+        // carries. Keying it by the argument's own line lost the expansion the
+        // moment a call was formatted with each argument on its own line, which
+        // is exactly how the large, well-formatted plugins write.
+        $findings = $this->scan(<<<'PHP'
+            class Options_Helper {
+                public function set($key, $value) {
+                    update_option(
+                        $key,
+                        $value
+                    );
+                }
+            }
+            class Plugin {
+                public function boot() {
+                    Options_Helper::set('acme_version', '1.0');
+                }
+            }
+            PHP);
+
+        self::assertSame(['acme_version'], $this->keys($findings));
+        self::assertSame(Finding::CONFIDENCE_RESOLVED, $findings[0]->confidence);
+    }
+
+    public function test_a_cron_wrappers_recurrence_never_becomes_its_hook(): void
+    {
+        // Both parameters of the wrapper are unresolvable at the write; only
+        // the hook argument may expand into keys. When the recurrence's callers
+        // could overwrite that expansion, 'hourly' was reported as the name of
+        // a scheduled hook the plugin never registered.
+        $findings = $this->scan(<<<'PHP'
+            function acme_schedule($when, $hook) {
+                wp_schedule_event(time(), $when, $hook);
+            }
+            acme_schedule('hourly', 'acme_tick');
+            PHP, \Sediment\Analyzer\Visitors\CronVisitor::class);
+
+        self::assertSame(['acme_tick'], $this->keys($findings));
+    }
+
+    public function test_a_dbdelta_wrappers_sql_never_becomes_a_table_name(): void
+    {
+        // Table names come only from parsing resolved SQL. Expanding a SQL
+        // wrapper parameter through its callers would report the entire CREATE
+        // statement, verbatim, as a table the plugin owns.
+        $findings = $this->scan(<<<'PHP'
+            function acme_delta($sql) {
+                dbDelta($sql);
+            }
+            acme_delta('CREATE TABLE {prefix}acme_logs (id INT)');
+            PHP, \Sediment\Analyzer\Visitors\TableVisitor::class);
+
+        foreach ($this->keys($findings) as $key) {
+            self::assertThat($key, self::logicalOr(self::isNull(), self::logicalNot(self::stringContains('CREATE'))));
+        }
     }
 
     public function test_wrapping_does_not_reach_across_two_hops(): void

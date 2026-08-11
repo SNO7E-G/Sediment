@@ -64,7 +64,7 @@ final class ScanCommand extends Command
         $findings = $result['findings'];
 
         $io->title('Sediment');
-        $io->text(sprintf('Scanned <info>%d</info> PHP file(s) under <comment>%s</comment>.', count($result['files']), $path));
+        $io->text(sprintf('Scanned <info>%d</info> PHP file(s) under <comment>%s</comment>.', count($result['files']), OutputFormatter::escape($path)));
         $io->newLine();
 
         if ($findings === []) {
@@ -143,7 +143,9 @@ final class ScanCommand extends Command
                 $row[] = $this->autoloadBadge($f->autoload);
             }
             $row[] = $this->cleanedBadge($f->cleaned);
-            $row[] = $f->file . ':' . $f->line;
+            // The path comes from inside the scanned plugin; a file named with
+            // '<...>' must render as text, not crash the formatter.
+            $row[] = OutputFormatter::escape($f->file . ':' . $f->line);
             $rows[] = $row;
         }
 

@@ -140,6 +140,26 @@ final class UninstallGeneratorTest extends TestCase
         self::assertStringNotContainsString('wp_clear_scheduled_hook', $code);
     }
 
+    public function test_a_reported_name_with_a_newline_cannot_escape_its_comment(): void
+    {
+        // The content report is the one place a scanned name lands in the file
+        // outside a var_export'd literal. A newline in a registered post type
+        // or directory name must not end the comment and become live code.
+        $hostile = $this->finding(
+            'directory',
+            "evil\nfile_put_contents('shell.php', 'x');\n//",
+            Finding::CONFIDENCE_RESOLVED,
+            false,
+            'wp_mkdir_p',
+        );
+
+        $code = (new UninstallGenerator())->generate([$hostile], 'Example');
+
+        $this->assertValidPhp($code);
+        self::assertStringNotContainsString("\nfile_put_contents", $code);
+        self::assertStringContainsString('//   - directory "evil file_put_contents', $code);
+    }
+
     public function test_empty_input_produces_a_valid_guarded_file(): void
     {
         $code = (new UninstallGenerator())->generate([], 'Empty');

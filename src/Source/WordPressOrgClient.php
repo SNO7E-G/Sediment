@@ -51,17 +51,24 @@ final class WordPressOrgClient
     {
         $this->guardSlug($slug);
         $version ??= $this->latestVersion($slug);
+        $this->guardVersion($version);
 
         $target = $this->cacheDirectory . '/' . $slug . '-' . $version;
         $checksumFile = $target . '.sha256';
 
         if (is_dir($target) && is_file($checksumFile)) {
-            return [
-                'path' => $target,
-                'version' => $version,
-                'sha256' => trim((string) file_get_contents($checksumFile)),
-                'cached' => true,
-            ];
+            // An unreadable or empty checksum record means the cached copy's
+            // provenance is unknown; treat it as a miss and fetch again rather
+            // than report an empty hash as if it were one.
+            $sha256 = file_get_contents($checksumFile);
+            if ($sha256 !== false && trim($sha256) !== '') {
+                return [
+                    'path' => $target,
+                    'version' => $version,
+                    'sha256' => trim($sha256),
+                    'cached' => true,
+                ];
+            }
         }
 
         $archive = $this->http->get(sprintf(self::DOWNLOAD_URL, $slug, $version));
@@ -123,6 +130,17 @@ final class WordPressOrgClient
     {
         if (preg_match('/^[a-z0-9][a-z0-9\-]*$/i', $slug) !== 1) {
             throw new RuntimeException("\"{$slug}\" is not a valid plugin slug.");
+        }
+    }
+
+    /**
+     * Versions come from the command line or wordpress.org's API and end up in
+     * a URL and a filesystem path, so they get the same treatment as slugs.
+     */
+    private function guardVersion(string $version): void
+    {
+        if (preg_match('/^[a-z0-9][a-z0-9.\-]*$/i', $version) !== 1) {
+            throw new RuntimeException("\"{$version}\" is not a valid plugin version.");
         }
     }
 

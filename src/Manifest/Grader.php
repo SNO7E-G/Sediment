@@ -175,7 +175,14 @@ final class Grader
             // removes only one of them, so "any cleaned" would report a plugin as
             // spotless while an event keeps firing.
             $cleaned = $existing->cleaned === true && $finding->cleaned === true;
-            $keep = $finding->autoload === 'yes' ? $finding : $existing;
+            // Keep the worst autoload claim: 'yes' over 'unknown' over 'no', so
+            // the grade never depends on which duplicate happened to sort first.
+            $keep = match (true) {
+                $finding->autoload === 'yes' => $finding,
+                $existing->autoload === 'yes' => $existing,
+                $finding->autoload === 'unknown' => $finding,
+                default => $existing,
+            };
             $byKey[$id] = $keep->withCleaned($cleaned);
         }
 

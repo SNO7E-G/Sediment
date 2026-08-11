@@ -7,6 +7,7 @@ namespace Sediment\Command;
 use Sediment\Source\WordPressOrgClient;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Formatter\OutputFormatter;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -60,7 +61,7 @@ final class FetchCommand extends Command
         }
 
         $io->success(sprintf('%s %s %s', $slug, $result['version'], $result['cached'] ? '(already cached)' : 'downloaded'));
-        $io->writeln('  path:   ' . $result['path']);
+        $io->writeln('  path:   ' . OutputFormatter::escape($result['path']));
         $io->writeln('  sha256: ' . $result['sha256']);
 
         return Command::SUCCESS;

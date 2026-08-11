@@ -48,7 +48,7 @@ final class RewriteVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $resolution = $this->resolveKey($value);
+        $resolution = $this->resolveFindingKey($value, $node);
 
         $this->findings[] = new Finding(
             type: 'rewrite_rule',

@@ -71,7 +71,7 @@ final class OptionVisitor extends AbstractDetectionVisitor
 
         $args = $node->getArgs();
         $keyValue = $this->argValue($args, $isNetwork ? 1 : 0, 'option');
-        $resolution = $keyValue !== null ? $this->resolveKey($keyValue) : Resolution::dynamic();
+        $resolution = $keyValue !== null ? $this->resolveFindingKey($keyValue, $node) : Resolution::dynamic();
 
         if ($isNetwork) {
             $this->findings[] = new Finding(

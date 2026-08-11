@@ -198,7 +198,10 @@ final class UninstallGenerator
             $lines[] = '// This plugin also leaves the following behind. They are intentionally NOT';
             $lines[] = '// removed here, because doing so could destroy data you want to keep:';
             foreach ($content as $name => $type) {
-                $lines[] = sprintf('//   - %s "%s"', str_replace('_', ' ', $type), $name);
+                // The name comes from the scanned plugin's own source. A newline
+                // inside it would end this comment early and turn whatever
+                // follows into live code in a file people run — flatten it.
+                $lines[] = sprintf('//   - %s "%s"', str_replace('_', ' ', $type), str_replace(["\r", "\n"], ' ', $name));
             }
         }
 

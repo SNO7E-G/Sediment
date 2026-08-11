@@ -81,7 +81,7 @@ final class MetaVisitor extends AbstractDetectionVisitor
     private function recordMeta(Node $node, string $fn, string $type, array $args, int $keyIndex, string $keyParam): void
     {
         $keyValue = $this->argValue($args, $keyIndex, $keyParam);
-        $resolution = $keyValue !== null ? $this->resolveKey($keyValue) : Resolution::dynamic();
+        $resolution = $keyValue !== null ? $this->resolveFindingKey($keyValue, $node) : Resolution::dynamic();
 
         $this->findings[] = new Finding(
             type: $type,

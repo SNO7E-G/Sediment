@@ -173,16 +173,32 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
     /** Resolve an expression to a key using the current class and local scope. */
     protected function resolveKey(Expr $expr): Resolution
     {
+        return $this->resolver->resolve($expr, $this->currentClass(), $this->currentLocals());
+    }
+
+    /**
+     * Resolve the *key argument* of a detected call. When the key is a
+     * wrapper's parameter, the keys its callers pass are worked out now —
+     * while the syntax tree and the enclosing function are both in hand — and
+     * stashed under the call's start line for the scan to pick up after the
+     * traversal.
+     *
+     * Stashed by the call, not the argument, because the call's line is what
+     * the finding will carry: a multi-line call puts the two on different
+     * lines, and the expansion would be lost for exactly the well-formatted
+     * plugins wrapper resolution exists for. And only the key argument may
+     * stash at all — a second unresolved argument of the same call (a cron
+     * recurrence, a meta object type) writing to the same slot would have its
+     * callers' values reported as the artifact's names.
+     */
+    protected function resolveFindingKey(Expr $expr, Node $call): Resolution
+    {
         $resolution = $this->resolver->resolve($expr, $this->currentClass(), $this->currentLocals());
 
-        // When the key cannot be read here, it may still be readable at the call
-        // sites of the function this sits in. Worked out now, while the syntax
-        // tree and the enclosing function are both in hand, and stashed by line
-        // for the scan to pick up once the traversal is over.
         if (!$resolution->isResolved()) {
             $expansion = $this->expandThroughCallers($expr);
             if ($expansion !== null) {
-                $this->expansionsByLine[$expr->getStartLine()] = $expansion;
+                $this->expansionsByLine[$call->getStartLine()] = $expansion;
             }
         }
 
@@ -339,6 +355,24 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
         } elseif ($this->localScopes[$index][$name] !== $value) {
             $this->localScopes[$index][$name] = null; // conflicting re-binding
         }
+    }
+
+    /**
+     * Was a non-empty arguments array passed at this position? An empty array
+     * literal counts as no arguments, matching WordPress — and how an event is
+     * scheduled decides which call can actually clear it.
+     *
+     * @param list<Arg> $args
+     */
+    protected function passesArgs(array $args, int $index, string $parameter): bool
+    {
+        $value = $this->argValue($args, $index, $parameter);
+
+        if ($value === null) {
+            return false;
+        }
+
+        return !($value instanceof Array_ && $value->items === []);
     }
 
     /**

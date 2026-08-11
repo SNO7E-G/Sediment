@@ -54,6 +54,15 @@ final class DiffCommand extends Command
             return Command::FAILURE;
         }
 
+        // Any JSON object decodes to an array; without this check a file that
+        // is not a manifest at all "diffs" as if every artifact were new and
+        // reports a regression that never happened.
+        if (!isset($before['grade'], $before['creates'])) {
+            $io->error("Not a Sediment manifest (no grade/creates): {$baselinePath}");
+
+            return Command::FAILURE;
+        }
+
         if (!file_exists($path)) {
             $io->error("Path not found: {$path}");
 
@@ -65,7 +74,11 @@ final class DiffCommand extends Command
         $diff = ManifestDiff::between($before, $after);
 
         $io->title('Sediment diff');
-        $io->writeln(sprintf(' Grade: %s → %s', $diff['grade_before'], $diff['grade_after']));
+        $io->writeln(sprintf(
+            ' Grade: %s → %s',
+            OutputFormatter::escape($diff['grade_before']),
+            OutputFormatter::escape($diff['grade_after']),
+        ));
         $io->newLine();
 
         $this->listGroup($io, 'New artifacts', $diff['added'], 'yellow');

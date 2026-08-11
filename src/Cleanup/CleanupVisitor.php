@@ -191,18 +191,6 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         }
     }
 
-    /** Was a non-empty arguments array passed at this position? */
-    private function passesArgs(FuncCall $node, int $index, string $parameter): bool
-    {
-        $value = $this->argValue($node->getArgs(), $index, $parameter);
-
-        if ($value === null) {
-            return false;
-        }
-
-        return !($value instanceof Array_ && $value->items === []);
-    }
-
     /** Remember `$keep = get_option('x');` so a later `if ($keep)` can be read. */
     private function trackOptionRead(Assign $node): void
     {
@@ -375,12 +363,17 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         }
 
         // wp_clear_scheduled_hook($hook, $args) clears only the events registered
-        // with those exact arguments, so it cannot stand for a blanket clear.
-        if ($function === 'wp_clear_scheduled_hook' && $this->passesArgs($node, 1, 'args')) {
+        // with those exact arguments, so it cannot stand for a blanket clear —
+        // and Action Scheduler's as_unschedule_all_actions($hook, $args) narrows
+        // itself the same way the moment arguments are passed.
+        if ($function === 'wp_clear_scheduled_hook' && $this->passesArgs($node->getArgs(), 1, 'args')) {
+            return;
+        }
+        if ($function === 'as_unschedule_all_actions' && $this->passesArgs($node->getArgs(), 1, 'args')) {
             return;
         }
 
-        $resolution = $this->resolveKey($value);
+        $resolution = $this->resolveFindingKey($value, $node);
 
         if (!$resolution->isResolved()) {
             // A plugin that writes through a wrapper usually deletes through one

@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Sediment\Analyzer;
 
 use PhpParser\Node;
+use PhpParser\Node\ArrayItem;
 use PhpParser\Node\Const_;
+use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\AssignOp;
+use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;
@@ -85,6 +88,9 @@ final class SymbolCollector extends NodeVisitorAbstract
         if ($node instanceof FuncCall) {
             $this->collectDefine($node);
             $this->collectCallArguments($node);
+            $this->collectStringCallback($node);
+        } elseif ($node instanceof Array_) {
+            $this->collectArrayCallable($node);
         } elseif ($node instanceof ConstStmt) {
             $this->collectTopLevelConst($node);
         } elseif ($node instanceof ClassConst) {
@@ -164,7 +170,18 @@ final class SymbolCollector extends NodeVisitorAbstract
      */
     private function collectCallArguments(FuncCall|StaticCall|MethodCall $node): void
     {
-        if ($this->callSites === null || $node->isFirstClassCallable()) {
+        if ($this->callSites === null) {
+            return;
+        }
+
+        if ($node->isFirstClassCallable()) {
+            // `$this->put(...)` hands out a handle to the function; whoever
+            // holds it can call it with arguments this pass will never see.
+            $callee = $this->callTarget($node);
+            if ($callee !== null) {
+                $this->callSites->markExternallyCallable($callee);
+            }
+
             return;
         }
 
@@ -306,6 +323,75 @@ final class SymbolCollector extends NodeVisitorAbstract
         $class = $this->currentClass();
 
         return $class === null ? null : $class . '::' . $node->name->toString();
+    }
+
+    /**
+     * WordPress itself calls hook callbacks, so a function handed to a hook by
+     * name has call sites this pass cannot see — its recorded callers must not
+     * count as complete. Only the callback argument of the registration
+     * functions is read: treating every string in a plugin as a possible
+     * callable would poison wrappers that merely share a name with one.
+     */
+    private const HOOK_REGISTRARS = [
+        'add_action', 'add_filter', 'add_shortcode',
+        'register_activation_hook', 'register_deactivation_hook', 'register_uninstall_hook',
+    ];
+
+    private function collectStringCallback(FuncCall $node): void
+    {
+        if (
+            $this->callSites === null
+            || $node->isFirstClassCallable()
+            || !$node->name instanceof Name
+            || !in_array(strtolower($node->name->toString()), self::HOOK_REGISTRARS, true)
+        ) {
+            return;
+        }
+
+        $callback = $node->getArgs()[1] ?? null;
+        if ($callback !== null && $callback->name === null && $callback->value instanceof String_) {
+            $this->callSites->markExternallyCallable($callback->value->value);
+        }
+    }
+
+    /**
+     * `[$this, 'method']`, `[Foo::class, 'method']`, `['Foo', 'method']` — the
+     * array-callable shape, marked wherever it appears because hooks are far
+     * from the only place plugins pass one. A two-string data array that only
+     * looks like a callable costs nothing worse than an honest "incomplete".
+     */
+    private function collectArrayCallable(Array_ $node): void
+    {
+        if ($this->callSites === null || count($node->items) !== 2) {
+            return;
+        }
+
+        [$target, $method] = $node->items;
+        if (!$target instanceof ArrayItem || !$method instanceof ArrayItem || !$method->value instanceof String_) {
+            return;
+        }
+
+        $value = $target->value;
+        $class = null;
+        if ($value instanceof Variable && $value->name === 'this') {
+            $class = $this->currentClass();
+        } elseif (
+            $value instanceof ClassConstFetch
+            && $value->class instanceof Name
+            && $value->name instanceof Identifier
+            && strtolower($value->name->toString()) === 'class'
+        ) {
+            $reference = strtolower($value->class->toString());
+            $class = in_array($reference, ['self', 'static', 'parent'], true)
+                ? $this->currentClass()
+                : $value->class->toString();
+        } elseif ($value instanceof String_) {
+            $class = $value->value;
+        }
+
+        if ($class !== null) {
+            $this->callSites->markExternallyCallable($class . '::' . $method->value->value);
+        }
     }
 
     private function collectDefine(FuncCall $node): void

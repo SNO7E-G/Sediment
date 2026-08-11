@@ -92,6 +92,60 @@ final class CronArgsAndWpdbTest extends TestCase
         self::assertTrue($cron[0]->cleaned, 'wp_unschedule_hook removes every event for the hook');
     }
 
+    public function test_an_argless_unschedule_does_not_clean_an_action_scheduled_with_arguments(): void
+    {
+        // Action Scheduler matches pending actions by hook AND arguments, the
+        // same way wp_clear_scheduled_hook does — crediting an args-blind
+        // as_unschedule_action() would report a job as cleaned while it keeps
+        // firing after uninstall.
+        $findings = $this->scanInline(
+            "<?php\n/* Plugin Name: AS Args */\n"
+            . "as_schedule_recurring_action(time(), 3600, 'asa_with_args', ['id' => 5]);\n"
+            . "as_schedule_single_action(time(), 'asa_plain');\n",
+            "<?php\nas_unschedule_action('asa_with_args');\nas_unschedule_action('asa_plain');\n",
+        );
+
+        self::assertTrue($findings['action:asa_plain']->cleaned);
+        self::assertFalse($findings['action:asa_with_args']->cleaned);
+    }
+
+    public function test_as_unschedule_all_actions_clears_an_action_scheduled_with_arguments(): void
+    {
+        $findings = $this->scanInline(
+            "<?php\n/* Plugin Name: AS Args */\n"
+            . "as_schedule_recurring_action(time(), 3600, 'asa_with_args', ['id' => 5]);\n",
+            "<?php\nas_unschedule_all_actions('asa_with_args');\n",
+        );
+
+        self::assertTrue($findings['action:asa_with_args']->cleaned, 'the blanket clear removes every pending action for the hook');
+    }
+
+    /** @return array<string, Finding> keyed by "type:key" */
+    private function scanInline(string $pluginPhp, string $uninstallPhp): array
+    {
+        $dir = sys_get_temp_dir() . '/sediment-as-args-' . getmypid() . '-' . bin2hex(random_bytes(3));
+        @mkdir($dir, 0777, true);
+        file_put_contents($dir . '/plugin.php', $pluginPhp);
+        file_put_contents($dir . '/uninstall.php', $uninstallPhp);
+
+        try {
+            $result = (new Scanner())->scan($dir);
+
+            $byKey = [];
+            foreach ($result['findings'] as $finding) {
+                if ($finding->key !== null) {
+                    $byKey[$finding->type . ':' . $finding->key] = $finding;
+                }
+            }
+
+            return $byKey;
+        } finally {
+            @unlink($dir . '/plugin.php');
+            @unlink($dir . '/uninstall.php');
+            @rmdir($dir);
+        }
+    }
+
     public function test_the_wpdb_handle_is_recognised_as_a_property(): void
     {
         $findings = $this->scan('cron-args-plugin');

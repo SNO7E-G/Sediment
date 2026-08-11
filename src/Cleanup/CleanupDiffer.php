@@ -64,21 +64,28 @@ final class CleanupDiffer
     /**
      * Whether the removal calls that name this key actually clear it.
      *
-     * The one case where naming the key is not enough is a cron event scheduled
-     * with arguments: `wp_clear_scheduled_hook($hook)` only removes events
-     * registered with no arguments, so an event scheduled with them survives and
-     * keeps firing. Clearing that needs `wp_unschedule_hook()`, which removes
-     * every event for the hook regardless of arguments.
+     * The one case where naming the key is not enough is an event scheduled
+     * with arguments. `wp_clear_scheduled_hook($hook)` only removes cron events
+     * registered with no arguments, and Action Scheduler's
+     * `as_unschedule_action($hook)` matches pending actions by their arguments
+     * the same way — so an event scheduled with them survives and keeps firing.
+     * Clearing those needs the blanket calls, `wp_unschedule_hook()` and
+     * `as_unschedule_all_actions()`, which remove every event for the hook
+     * regardless of arguments.
      *
      * @param list<string> $via the removal functions naming this key
      */
     private static function clears(Finding $finding, array $via): bool
     {
-        if ($finding->type !== 'cron' || !$finding->hasArgs) {
+        if (!$finding->hasArgs) {
             return true;
         }
 
-        return in_array('wp_unschedule_hook', $via, true);
+        return match ($finding->type) {
+            'cron'   => in_array('wp_unschedule_hook', $via, true),
+            'action' => in_array('as_unschedule_all_actions', $via, true),
+            default  => true,
+        };
     }
 
     /**

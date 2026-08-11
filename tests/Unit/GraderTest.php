@@ -37,6 +37,21 @@ final class GraderTest extends TestCase
         return ['has_uninstall_php' => $has, 'has_uninstall_hook' => false];
     }
 
+    public function test_duplicate_writes_keep_the_worst_autoload_claim_regardless_of_order(): void
+    {
+        // 'unknown' is graded as autoloaded — the safe direction. When the same
+        // key is written once with autoload 'no' and once with 'unknown', the
+        // grade must not depend on which write happened to be seen first.
+        foreach ([['no', 'unknown'], ['unknown', 'no']] as [$first, $second]) {
+            $grade = (new Grader())->grade([
+                $this->finding('option', false, autoload: $first),
+                $this->finding('option', false, autoload: $second),
+            ], $this->path());
+
+            self::assertSame('D', $grade->letter, "order {$first},{$second} must still count as autoloaded");
+        }
+    }
+
     public function test_everything_cleaned_is_A(): void
     {
         $grade = (new Grader())->grade([$this->finding('option', true, autoload: 'yes')], $this->path());

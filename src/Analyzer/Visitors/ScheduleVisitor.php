@@ -45,39 +45,39 @@ final class ScheduleVisitor extends AbstractDetectionVisitor
         $args = $node->getArgs();
 
         if ($fn === 'as_schedule_recurring_action') {
-            $this->record($node, $fn, $args, 2, 'hook', $this->resolvedArg($args, 1, 'interval_in_seconds'));
+            $this->record($node, $fn, $args, 2, 'hook', $this->resolvedArg($args, 1, 'interval_in_seconds'), $this->passesArgs($args, 3, 'args'));
 
             return;
         }
 
         if ($fn === 'as_schedule_single_action') {
-            $this->record($node, $fn, $args, 1, 'hook', self::RECURRENCE_SINGLE);
+            $this->record($node, $fn, $args, 1, 'hook', self::RECURRENCE_SINGLE, $this->passesArgs($args, 2, 'args'));
 
             return;
         }
 
         if ($fn === 'as_schedule_cron_action') {
-            $this->record($node, $fn, $args, 2, 'hook', $this->resolvedArg($args, 1, 'schedule'));
+            $this->record($node, $fn, $args, 2, 'hook', $this->resolvedArg($args, 1, 'schedule'), $this->passesArgs($args, 3, 'args'));
 
             return;
         }
 
         if ($fn === 'as_enqueue_async_action') {
-            $this->record($node, $fn, $args, 0, 'hook', self::RECURRENCE_ASYNC);
+            $this->record($node, $fn, $args, 0, 'hook', self::RECURRENCE_ASYNC, $this->passesArgs($args, 1, 'args'));
         }
     }
 
     /**
      * @param list<Arg> $args
      */
-    private function record(Node $node, string $fn, array $args, int $hookIndex, string $hookParam, ?string $recurrence): void
+    private function record(Node $node, string $fn, array $args, int $hookIndex, string $hookParam, ?string $recurrence, bool $hasArgs): void
     {
         $hookValue = $this->argValue($args, $hookIndex, $hookParam);
         if ($hookValue === null) {
             return;
         }
 
-        $resolution = $this->resolveKey($hookValue);
+        $resolution = $this->resolveFindingKey($hookValue, $node);
 
         $this->findings[] = new Finding(
             type: 'action',
@@ -88,6 +88,9 @@ final class ScheduleVisitor extends AbstractDetectionVisitor
             line: $node->getStartLine(),
             expression: $resolution->raw,
             recurrence: $recurrence,
+            // Like a cron event: scheduled with arguments, it survives an
+            // args-blind as_unschedule_action() and needs the blanket clear.
+            hasArgs: $hasArgs,
         );
     }
 
