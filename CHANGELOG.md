@@ -8,6 +8,31 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [0.8.1] — 2026-08-16
+
+The pilot. The roadmap gated 0.9 on an unannounced run over the top 500
+wordpress.org plugins whose job was to break the pipeline and the schema while
+breaking was cheap. It ran: **500 of 500 scanned unattended in 83 minutes with
+zero failures, hangs, or timeouts, and all 500 manifests valid against the
+frozen 2.0 schema.** No schema change is demanded. `docs/pilot.md` records the
+run and the first ecosystem-scale numbers — among them, that only 18 of the
+top 500 plugins remove everything they create.
+
+The real world pushed back exactly twice, both in `fetch`, both fixed here.
+
+### Fixed
+
+- **`fetch` now survives a plugin that keeps no per-version archive.** About a
+  tenth of the top 500 have only the unversioned zip of their current release
+  on wordpress.org, so the pinned download 404'd. It falls back to that zip —
+  strictly when the pinned version *is* the current one, because anything else
+  would silently deliver different code than was asked for.
+- **`fetch` now retries a rename a virus scanner is sitting on.** On Windows,
+  freshly-extracted files are routinely still held open by the scanner, which
+  failed the move into the cache for 54 of 500 plugins — spuriously, as a
+  moment's retry proves. It retries briefly before concluding the move truly
+  cannot happen.
+
 ## [0.8.0] — 2026-08-11
 
 Contract. The manifest has been the input to everything downstream since 0.2;
