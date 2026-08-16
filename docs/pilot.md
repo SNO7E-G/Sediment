@@ -15,6 +15,13 @@ cached), scanned with `sediment batch --resume --report --timeout 600` — each
 plugin in its own child process under the wall-clock timeout and the default
 512M memory cap.
 
+The set was the top 500 by popularity as pinned that day. The pilot was
+deliberately unannounced scaffolding and its manifests were never published;
+the canonical, fully-provenanced record of what Sediment has scanned is the
+[Index](index.md): its pinned list is committed at
+`scripts/index-plugins.json`, and every published manifest carries its
+archive's sha256 in the dataset's `provenance.json`.
+
 | | |
 |---|---|
 | Plugins scanned | **500 of 500** |
