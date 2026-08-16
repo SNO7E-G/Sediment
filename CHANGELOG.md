@@ -8,6 +8,32 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [0.9.0] — unreleased
+
+Public. The Index exists: a full run over the top 5,000 wordpress.org
+plugins, and the tools that make the dataset reproducible by anyone.
+
+### Added
+
+- **`sediment index <manifests-dir>`** builds the Index artifacts from a
+  directory of manifests: `reverse-lookup.json` (artifact `type:key` → the
+  plugins that create it — the file that turns a stray database row into the
+  plugin that made it), `stats.json` (aggregates), and `qa.json`. The QA gate
+  enforces the one promise the dataset must never break — no WordPress core
+  artifact attributed to a plugin as removable — plus schema-major conformance,
+  and the command exits non-zero rather than let a violating dataset be built.
+- **`batch --jobs N`** scans that many plugins concurrently, each still in its
+  own child under its own timeout and memory cap. The tallies are
+  order-independent, so the report is identical whatever the interleaving —
+  parallelism only buys wall-clock, which a five-thousand-plugin run needs.
+
+### Fixed
+
+- The golden corpus's core-artifact check derived finding types by trimming a
+  trailing "s" from group names, which turned `capabilities` and `taxonomies`
+  into types nothing matches — making the check vacuous for those two groups.
+  It now uses the manifest's own type map, published as `Manifest::TYPE_KEYS`.
+
 ## [0.8.1] — 2026-08-16
 
 The pilot. The roadmap gated 0.9 on an unannounced run over the top 500
