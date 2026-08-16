@@ -19,6 +19,7 @@ final class WordPressOrgClient
 {
     private const INFO_URL = 'https://api.wordpress.org/plugins/info/1.2/?action=plugin_information&request[slug]=%s';
     private const DOWNLOAD_URL = 'https://downloads.wordpress.org/plugin/%s.%s.zip';
+    private const LATEST_URL = 'https://downloads.wordpress.org/plugin/%s.zip';
 
     private readonly Http $http;
 
@@ -71,13 +72,33 @@ final class WordPressOrgClient
             }
         }
 
-        $archive = $this->http->get(sprintf(self::DOWNLOAD_URL, $slug, $version));
+        $archive = $this->download($slug, $version);
         $sha256 = hash('sha256', $archive);
 
         $this->extract($archive, $slug, $target);
         file_put_contents($checksumFile, $sha256);
 
         return ['path' => $target, 'version' => $version, 'sha256' => $sha256, 'cached' => false];
+    }
+
+    /**
+     * Not every plugin keeps per-version archives on wordpress.org — for some,
+     * only the unversioned zip of the current release exists (a tenth of the
+     * pilot's top-500 fetches hit this). That zip may stand in only when the
+     * version asked for IS the current one; anything else would silently
+     * deliver different code than was pinned.
+     */
+    private function download(string $slug, string $version): string
+    {
+        try {
+            return $this->http->get(sprintf(self::DOWNLOAD_URL, $slug, $version));
+        } catch (RuntimeException $e) {
+            if ($version !== $this->latestVersion($slug)) {
+                throw $e;
+            }
+
+            return $this->http->get(sprintf(self::LATEST_URL, $slug));
+        }
     }
 
     /**
@@ -115,7 +136,17 @@ final class WordPressOrgClient
             self::remove($target);
         }
 
-        if (!@rename($unwrapped, $target)) {
+        // On Windows a virus scanner routinely still holds freshly-extracted
+        // files open, which fails the first rename for a reason that clears
+        // itself within a second — 54 of the pilot's 500 fetches died this
+        // way. Retry briefly before concluding the move truly cannot happen.
+        $moved = @rename($unwrapped, $target);
+        for ($attempt = 1; !$moved && $attempt <= 5; $attempt++) {
+            usleep(200000 * $attempt);
+            $moved = @rename($unwrapped, $target);
+        }
+
+        if (!$moved) {
             self::remove($temporary);
             throw new RuntimeException("Could not move the extracted plugin into {$target}.");
         }

@@ -125,6 +125,35 @@ final class WordPressOrgClientTest extends TestCase
         self::assertSame('4.5.6', $client->fetch('demo-plugin')['version']);
     }
 
+    public function test_a_missing_versioned_zip_falls_back_to_the_current_release_zip(): void
+    {
+        // A tenth of the pilot's top-500 plugins keep no per-version archive on
+        // wordpress.org; only the unversioned zip of the current release
+        // exists. It may stand in exactly when the pinned version IS current.
+        $zip = $this->pluginZip('demo-plugin', "<?php\n");
+        $http = $this->http([
+            'plugin_information' => json_encode(['version' => '1.9.5']),
+            'demo-plugin.zip' => $zip,
+        ]);
+
+        $result = (new WordPressOrgClient($this->cache, $http))->fetch('demo-plugin', '1.9.5');
+
+        self::assertSame('1.9.5', $result['version']);
+        self::assertFileExists($result['path'] . '/demo-plugin.php');
+    }
+
+    public function test_the_fallback_never_substitutes_a_different_version_than_was_pinned(): void
+    {
+        // The unversioned zip is whatever is current. Serving it for an older
+        // pin would silently deliver different code than was asked for.
+        $client = new WordPressOrgClient($this->cache, $this->http([
+            'plugin_information' => json_encode(['version' => '2.0.0']),
+        ]));
+
+        $this->expectException(RuntimeException::class);
+        $client->fetch('demo-plugin', '1.9.5');
+    }
+
     public function test_a_hostile_slug_is_refused_before_it_reaches_a_url_or_a_path(): void
     {
         $client = new WordPressOrgClient($this->cache, $this->http([]));
