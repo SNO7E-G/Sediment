@@ -1,0 +1,170 @@
+name: Index run
+
+# The full top-5,000 Index run (0.9), on runners instead of somebody's desktop:
+# ten shards fetch and scan in parallel, then an assemble job merges them, runs
+# the QA gate (`sediment index` refuses a dataset that attributes core data,
+# strays off the frozen schema, or contains unscanned plugins), and publishes
+# the dataset to the `index-data` branch.
+#
+# Trigger by pushing the `index-run` branch, or dispatch manually. The pinned
+# plugin list lives in scripts/index-plugins.json, so a rerun scans exactly the
+# same five thousand.
+
+on:
+  push:
+    branches: [ index-run ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  shard:
+    name: Shard ${{ matrix.shard }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: zip
+          coverage: none
+          tools: composer:v2
+
+      - name: Install runtime dependencies
+        run: composer update --no-dev --prefer-dist --no-interaction --no-progress
+
+      - name: Fetch and scan this shard
+        env:
+          SHARD: ${{ matrix.shard }}
+          SHARDS: '10'
+          JOBS: '4'
+        run: php scripts/index-shard.php
+
+      - name: Upload manifests
+        uses: actions/upload-artifact@v4
+        with:
+          name: manifests-shard-${{ matrix.shard }}
+          path: build/index/manifests
+          if-no-files-found: error
+
+      - name: Upload shard records
+        uses: actions/upload-artifact@v4
+        with:
+          name: meta-shard-${{ matrix.shard }}
+          path: |
+            build/index/provenance-shard-*.json
+            build/index/fetch-failures-shard-*.json
+          if-no-files-found: error
+
+  assemble:
+    name: Assemble, QA, publish
+    needs: shard
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer:v2
+
+      - name: Install runtime dependencies
+        run: composer update --no-dev --prefer-dist --no-interaction --no-progress
+
+      - name: Collect every shard's manifests
+        uses: actions/download-artifact@v4
+        with:
+          pattern: manifests-shard-*
+          path: build/index/manifests
+          merge-multiple: true
+
+      - name: Collect every shard's records
+        uses: actions/download-artifact@v4
+        with:
+          pattern: meta-shard-*
+          path: build/index/meta
+          merge-multiple: true
+
+      - name: Verify coverage and merge provenance
+        run: php scripts/index-assemble.php
+
+      - name: Build the Index artifacts through the QA gate
+        run: php bin/sediment index build/index/manifests --out build/index-artifacts
+
+      - name: Upload the dataset as a run artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sediment-index
+          path: |
+            build/index-artifacts
+            build/index/manifests
+            build/index/provenance.json
+            build/index/fetch-failures.json
+
+      # The dataset branch is a snapshot, force-pushed whole each run; history
+      # lives in the releases that reference it. CC0, per the roadmap: the open
+      # data must never be walled off.
+      - name: Publish the index-data branch
+        run: |
+          set -e
+          out=/tmp/index-data
+          mkdir -p "$out/manifests"
+          cp build/index/manifests/*.json "$out/manifests/"
+          cp build/index-artifacts/reverse-lookup.json "$out/"
+          cp build/index-artifacts/stats.json "$out/"
+          cp build/index-artifacts/qa.json "$out/"
+          cp build/index/provenance.json "$out/"
+          cp build/index/fetch-failures.json "$out/"
+
+          cat > "$out/README.md" <<'EOF'
+          # The Sediment Index
+
+          What the most popular WordPress plugins leave behind in your database,
+          plugin by plugin, with source lines behind every claim.
+
+          - `manifests/<slug>.json` — one manifest per plugin; the schema is
+            frozen and published in the analyzer repository
+            (`schema/manifest.schema.json`).
+          - `reverse-lookup.json` — artifact `type:key` to the plugins that
+            create it: the file that turns a stray database row into the plugin
+            that made it.
+          - `stats.json` — aggregates for the whole dataset.
+          - `qa.json` — the QA report the dataset had to pass to be published,
+            including the assertion that no WordPress core artifact is ever
+            attributed to a plugin.
+          - `provenance.json` — the pinned version and archive sha256 of every
+            plugin scanned; `fetch-failures.json` lists any the run could not
+            obtain.
+
+          Produced by [Sediment](https://github.com/SNO7E-G/Sediment). Static
+          analysis: every number is a floor, and each manifest's `coverage`
+          says how much of the plugin's source stood behind it.
+
+          ## License
+
+          This dataset is dedicated to the public domain under
+          [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). The
+          plugins it describes are their authors' GPL work, fetched from
+          wordpress.org; only facts about them are recorded here.
+          EOF
+
+          cd "$out"
+          git init -b index-data
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Index dataset: $(date -u +%Y-%m-%d) run"
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" index-data
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
