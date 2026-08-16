@@ -28,5 +28,5 @@ promise of this tool.
 
 ## Supported versions
 
-Sediment is pre-release; fixes land on `main`. Once tagged releases exist, this
-section will name the supported line.
+Sediment is in alpha. Fixes land on `main` and ship in the next release; only
+the latest release is supported. There are no maintenance branches before 1.0.

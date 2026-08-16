@@ -154,6 +154,37 @@ final class WordPressOrgClientTest extends TestCase
         $client->fetch('demo-plugin', '1.9.5');
     }
 
+    public function test_an_archive_entry_that_escapes_its_directory_is_refused_before_extraction(): void
+    {
+        // Classic zip-slip: an entry named "../x" writes outside the extraction
+        // directory on PHP builds that do not sanitise. Refused up front, from
+        // the entry table alone.
+        $file = sys_get_temp_dir() . '/sediment-slip-' . bin2hex(random_bytes(4)) . '.zip';
+        $zip = new ZipArchive();
+        $zip->open($file, ZipArchive::CREATE);
+        $zip->addFromString('demo-plugin/demo-plugin.php', "<?php\n");
+        $zip->addFromString('../escaped.php', "<?php\n");
+        $zip->close();
+        $bytes = (string) file_get_contents($file);
+        @unlink($file);
+
+        $client = new WordPressOrgClient($this->cache, $this->http(['demo-plugin.1.0.zip' => $bytes]));
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('escapes its directory');
+        $client->fetch('demo-plugin', '1.0');
+    }
+
+    public function test_an_archive_claiming_more_than_the_unpacked_ceiling_is_refused(): void
+    {
+        $zip = $this->pluginZip('demo-plugin', "<?php\n" . str_repeat('// padding', 40));
+        $client = new WordPressOrgClient($this->cache, $this->http(['demo-plugin.1.0.zip' => $zip]), maxUnpackedBytes: 64);
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('ceiling');
+        $client->fetch('demo-plugin', '1.0');
+    }
+
     public function test_a_hostile_slug_is_refused_before_it_reaches_a_url_or_a_path(): void
     {
         $client = new WordPressOrgClient($this->cache, $this->http([]));

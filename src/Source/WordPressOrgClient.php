@@ -21,11 +21,19 @@ final class WordPressOrgClient
     private const DOWNLOAD_URL = 'https://downloads.wordpress.org/plugin/%s.%s.zip';
     private const LATEST_URL = 'https://downloads.wordpress.org/plugin/%s.zip';
 
+    /**
+     * The largest legitimate plugins unpack to well under 200 MB; an archive
+     * claiming gigabytes is a bomb, not a plugin, and extracting it fills the
+     * disk mid-batch. Adjustable because the ceiling is a judgement, not a law.
+     */
+    private const DEFAULT_MAX_UNPACKED_BYTES = 1024 * 1024 * 1024;
+
     private readonly Http $http;
 
     public function __construct(
         private readonly string $cacheDirectory,
         ?Http $http = null,
+        private readonly int $maxUnpackedBytes = self::DEFAULT_MAX_UNPACKED_BYTES,
     ) {
         $this->http = $http ?? new CurlHttp();
     }
@@ -124,6 +132,38 @@ final class WordPressOrgClient
         if ($zip->open($archiveFile) !== true) {
             @unlink($archiveFile);
             throw new RuntimeException("Could not open the archive downloaded for \"{$slug}\".");
+        }
+
+        // Refuse before extracting, not after: an entry named "../x" writes
+        // outside the extraction directory on PHP builds that do not sanitise
+        // (zip-slip), and an archive claiming gigabytes unpacked is a bomb.
+        // The guard depends on nothing but the entry table.
+        $unpacked = 0;
+        for ($i = 0; $i < $zip->numFiles; $i++) {
+            $stat = $zip->statIndex($i);
+            if ($stat === false) {
+                continue;
+            }
+
+            $name = str_replace('\\', '/', (string) $stat['name']);
+            if (str_starts_with($name, '/') || preg_match('#(^|/)\.\.(/|$)#', $name) === 1 || preg_match('/^[a-z]:/i', $name) === 1) {
+                $zip->close();
+                @unlink($archiveFile);
+                throw new RuntimeException("The archive for \"{$slug}\" contains an entry that escapes its directory and was refused.");
+            }
+
+            $unpacked += (int) $stat['size'];
+        }
+
+        if ($unpacked > $this->maxUnpackedBytes) {
+            $zip->close();
+            @unlink($archiveFile);
+            throw new RuntimeException(sprintf(
+                'The archive for "%s" claims %d MB unpacked, over the %d MB ceiling, and was refused.',
+                $slug,
+                intdiv($unpacked, 1024 * 1024),
+                intdiv($this->maxUnpackedBytes, 1024 * 1024),
+            ));
         }
 
         $zip->extractTo($temporary);

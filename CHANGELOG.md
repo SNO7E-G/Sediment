@@ -34,6 +34,14 @@ plugins, and the tools that make the dataset reproducible by anyone.
   into types nothing matches — making the check vacuous for those two groups.
   It now uses the manifest's own type map, published as `Manifest::TYPE_KEYS`.
 
+### Security
+
+- **`fetch` refuses hostile archives before extracting them.** An entry whose
+  path escapes the extraction directory (`../x` — zip-slip) rejects the whole
+  archive, as does one claiming more than 1 GB unpacked — a bomb, not a
+  plugin, and extracting it fills the disk mid-batch. Both checks read only
+  the entry table, so nothing is written before the verdict.
+
 ## [0.8.1] — 2026-08-16
 
 The pilot. The roadmap gated 0.9 on an unannounced run over the top 500
