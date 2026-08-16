@@ -1,7 +1,7 @@
 # Manifest schema
 
 `sediment scan <path> --json` emits the manifest: the machine-readable result of
-a scan. It is the contract other tools build on — CI checks, the forthcoming
+a scan. It is the contract other tools build on — CI checks, the published
 Index, and the WordPress plugin all read the manifest rather than reaching into
 the analyzer.
 

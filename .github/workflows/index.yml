@@ -18,6 +18,13 @@ on:
 permissions:
   contents: write
 
+# One Index run at a time: a second push to index-run supersedes the first
+# rather than racing it — two runs force-pushing the same data branch and
+# hammering wordpress.org from twenty runners at once helps nobody.
+concurrency:
+  group: index-run
+  cancel-in-progress: true
+
 jobs:
   shard:
     name: Shard ${{ matrix.shard }}
@@ -62,6 +69,7 @@ jobs:
           path: |
             build/index/provenance-shard-*.json
             build/index/fetch-failures-shard-*.json
+            build/index/report-shard-*.json
           if-no-files-found: error
 
   assemble:

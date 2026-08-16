@@ -4,8 +4,8 @@ Where Sediment is going, and what each release has to prove before the next one
 starts. Every release ships publicly on its own, so a pause between any two
 still leaves something finished.
 
-Current: **v0.8.1**. The analyzer is feature-complete; what remains before 1.0
-is evidence and commitment, not features.
+Current: **v0.9.0** — the release candidate. The Index has shipped; what
+remains before 1.0 is thirty days of the schema holding, not features.
 
 ## What is already proven
 
@@ -101,7 +101,27 @@ The manifest becomes an API. Deliberately boring.
 
 **Done when:** someone could build a consumer from the schema and the docs alone.
 
-## 0.9 — Public
+## 0.9 — shipped
+
+The Index is published on the
+[`index-data`](https://github.com/SNO7E-G/Sediment/tree/index-data) branch,
+CC0: 4,995 manifests, the reverse lookup, aggregate stats, provenance with
+per-archive checksums, and the QA report — with **"zero WordPress core
+artifacts" asserted across every published manifest**, enforced by the
+`sediment index` build gate rather than trusted. Ten CI runners produce the
+whole dataset from the pinned list in under fourteen minutes, so it is
+reproducible by anyone, not an artifact of one machine. The write-up is
+`docs/index.md`; the headline is that only 210 of 4,995 plugins remove
+everything they create.
+
+Two departures from the plan as written, recorded rather than hidden: the
+run is re-fetched per shard on CI instead of "cached and resumable" on one
+machine — reproducibility replaced resumability once the run cost fourteen
+minutes — and the QA report covers anomalies and build-time assertions, with
+runtime sampling standing on the live-WordPress CI suite that has proven the
+generated uninstall.php against a real database since 0.5.
+
+## 0.9 (original plan) — Public
 
 The Index ships. This is the release candidate.
 

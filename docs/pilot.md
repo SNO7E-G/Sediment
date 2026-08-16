@@ -72,7 +72,9 @@ Two readings worth naming plainly:
   but not one of them removes *everything* when the setting allows it — so
   conditional-and-complete, the B definition, is empty in the wild. The grade
   stays: it describes a behaviour plugins ought to reach for, and the rubric
-  should not be resized to fit the data it measures.
+  should not be resized to fit the data it measures. *(The full Index later
+  proved the grade right to exist: at ten times this scale, eleven plugins
+  earn it — see [index.md](index.md).)*
 
 ## What the pilot demands before 0.9
 

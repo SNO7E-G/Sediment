@@ -137,14 +137,14 @@ Sediment follows a write one hop back through a plugin's own settings layer, so 
 Sediment is built in stages, each useful on its own:
 
 1. **Analyzer** (this repository) — detect what a plugin writes, diff it against the plugin's cleanup routine, grade the result, and generate the `uninstall.php` it should have shipped with.
-2. **The Index** — a public, openly licensed dataset mapping thousands of plugins to the data they create, so a leftover row can be traced back to the plugin that made it.
+2. **The Index** — *shipped.* A public, CC0 dataset mapping the 5,000 most popular plugins to the data they create, so a leftover row can be traced back to the plugin that made it: one manifest per plugin plus a reverse lookup, on the [`index-data`](https://github.com/SNO7E-G/Sediment/tree/index-data) branch, rebuilt on CI from a pinned list anyone can rerun. The findings — among them that only 210 of 4,995 plugins remove everything they create — are in [`docs/index.md`](docs/index.md).
 3. **Inspector** — a read-only WordPress plugin that scans installed plugins on disk and shows what each will leave behind *before* you click Delete.
 
 The full plan, with what each release has to prove before the next begins, is in [ROADMAP.md](ROADMAP.md).
 
 ## Status
 
-**Alpha.** Detection across every artifact type above, static resolution, the cleanup diff (including conditional cleanup), grading, the manifest, the CI check, and the `uninstall.php` generator all work today, backed by a broad test suite. A pilot run over the top 500 wordpress.org plugins completed unattended with zero failures and zero schema violations — and found that only 18 of the 500 remove everything they create; the full results are in [`docs/pilot.md`](docs/pilot.md). Releases are cut when a meaningful body of work is ready rather than per change, so each one carries real features — see the [changelog](CHANGELOG.md) and the [releases](https://github.com/SNO7E-G/Sediment/releases). The manifest schema is frozen at `2.0` and covered by the rules in [`docs/stability.md`](docs/stability.md); the rest of the tool may still change before 1.0.
+**Release candidate.** Detection across every artifact type above, static resolution, the cleanup diff (including conditional cleanup), grading, the manifest, the CI check, and the `uninstall.php` generator all work today, backed by a broad test suite. The Index has shipped: 4,995 of the top 5,000 wordpress.org plugins scanned with zero QA violations, published as open data — see [`docs/index.md`](docs/index.md) for what it found, and [`docs/pilot.md`](docs/pilot.md) for the 500-plugin pilot that earned the pipeline its trust. Per the roadmap, 1.0 follows thirty days after 0.9 with no schema-breaking defect. Releases are cut when a meaningful body of work is ready rather than per change, so each one carries real features — see the [changelog](CHANGELOG.md) and the [releases](https://github.com/SNO7E-G/Sediment/releases). The manifest schema is frozen at `2.0` and covered by the rules in [`docs/stability.md`](docs/stability.md); the rest of the tool may still change before 1.0.
 
 ## Development
 
@@ -158,4 +158,4 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for how a change should look — especi
 
 ## License
 
-Released under [GPL-2.0-or-later](LICENSE). The forthcoming Index dataset will be released under CC0, so the open data can never be walled off.
+Released under [GPL-2.0-or-later](LICENSE). The [Index dataset](https://github.com/SNO7E-G/Sediment/tree/index-data) is dedicated to the public domain under CC0, so the open data can never be walled off.

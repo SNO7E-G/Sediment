@@ -8,39 +8,111 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
-## [0.9.0] — unreleased
+## [0.9.0] — 2026-08-16
 
-Public. The Index exists: a full run over the top 5,000 wordpress.org
-plugins, and the tools that make the dataset reproducible by anyone.
+Public. This is the release the project has been building toward since 0.1:
+the **Index** exists — one manifest for every one of the most popular plugins
+on wordpress.org, a reverse lookup that traces a leftover database row back to
+the plugin that wrote it, and the tooling that lets anyone rebuild the whole
+dataset from a pinned list. The dataset lives on the
+[`index-data`](https://github.com/SNO7E-G/Sediment/tree/index-data) branch,
+dedicated to the public domain under CC0; the analysis of what it shows is in
+`docs/index.md`.
 
 ### Added
 
-- **`sediment index <manifests-dir>`** builds the Index artifacts from a
-  directory of manifests: `reverse-lookup.json` (artifact `type:key` → the
-  plugins that create it — the file that turns a stray database row into the
-  plugin that made it), `stats.json` (aggregates), and `qa.json`. The QA gate
-  enforces the one promise the dataset must never break — no WordPress core
-  artifact attributed to a plugin as removable — plus schema-major conformance,
-  and the command exits non-zero rather than let a violating dataset be built.
-- **`batch --jobs N`** scans that many plugins concurrently, each still in its
-  own child under its own timeout and memory cap. The tallies are
-  order-independent, so the report is identical whatever the interleaving —
-  parallelism only buys wall-clock, which a five-thousand-plugin run needs.
+- **`sediment index <manifests-dir> --out <dir>`** builds the Index artifacts
+  from any directory of manifests, in one pass and constant memory:
+  - `reverse-lookup.json` — every artifact `type:key` mapped to the sorted
+    list of plugins whose source creates it. This is the file the project
+    exists to produce: it turns a stray `smk_last_sync_ts` row into "that
+    belongs to a plugin you removed years ago", with `sources` lines in the
+    per-plugin manifest to prove it.
+  - `stats.json` — dataset-wide aggregates: grade distribution, pooled
+    resolution over every write call, artifact totals split cleaned/left,
+    left-behind counts per artifact type, and how many plugins ship any
+    uninstall path at all.
+  - `qa.json` — the report the dataset must pass to be published.
+
+  The QA gate treats **every** category as a build-stopper and exits non-zero
+  rather than let a violating dataset be written: a WordPress core artifact
+  attributed to a plugin as removable (the misattribution this project exists
+  to prevent, re-checked here rather than trusted), a manifest off the frozen
+  `2.x` schema major, one truncated past recognition, or one whose scan read
+  zero files — a pipeline mistake wearing an A grade, since a WordPress plugin
+  without PHP does not exist.
+
+- **`batch --jobs N`** scans up to N plugins concurrently. Each plugin keeps
+  its own child process, wall-clock `--timeout`, and `--memory-limit`; the
+  pool only changes how many run at once. Tallies and manifests are
+  independent of completion order, so a `-j8` run and a `-j1` run produce
+  byte-identical reports — parallelism buys wall-clock and nothing else,
+  which is exactly what a five-thousand-plugin run needs. One subtlety is
+  load-bearing and covered by a test: the pool asks `isRunning()` *before*
+  `checkTimeout()`, because Symfony caches process status — asked the other
+  way round, a child finishing right at the timeout boundary reads as timed
+  out and its perfectly good manifest would be thrown away.
+
+- **The Index run is a workflow, not a ritual.** Pushing the `index-run`
+  branch (or dispatching by hand) runs the whole thing on CI: ten shard jobs
+  fetch and scan the pinned list in parallel — round-robin sharding spreads
+  the heavyweights evenly — staging every plugin under a directory named
+  exactly by its wordpress.org slug, the pipeline rule the 500-plugin pilot
+  recorded. An assemble job then merges the shards and stands three gates
+  between the run and publication: coverage below 99.5% of the pinned list
+  refuses to build, `sediment index` applies its QA gate, and only then is
+  the dataset force-pushed to `index-data` as a single CC0 snapshot with its
+  provenance attached.
+
+- **The dataset's provenance is part of the dataset.** The exact list scanned
+  is committed at `scripts/index-plugins.json` (4,999 distinct slugs, each
+  pinned to the version current on the pin date), and `provenance.json` on
+  the data branch records the sha256 of every archive fetched, so any entry
+  can be re-derived and checked byte for byte. `fetch-failures.json` names
+  anything the run could not obtain, because a dataset that hides its holes
+  overstates itself.
 
 ### Fixed
 
 - The golden corpus's core-artifact check derived finding types by trimming a
   trailing "s" from group names, which turned `capabilities` and `taxonomies`
   into types nothing matches — making the check vacuous for those two groups.
-  It now uses the manifest's own type map, published as `Manifest::TYPE_KEYS`.
+  It now uses the manifest's own type map, published as `Manifest::TYPE_KEYS`
+  so every consumer of a manifest reads groups back with the real mapping
+  instead of re-deriving it.
 
 ### Security
 
-- **`fetch` refuses hostile archives before extracting them.** An entry whose
-  path escapes the extraction directory (`../x` — zip-slip) rejects the whole
-  archive, as does one claiming more than 1 GB unpacked — a bomb, not a
-  plugin, and extracting it fills the disk mid-batch. Both checks read only
-  the entry table, so nothing is written before the verdict.
+- **`fetch` refuses hostile archives before a single byte is extracted.**
+  Both checks read only the zip's entry table, so nothing touches the disk
+  before the verdict:
+  - an entry whose path escapes the extraction directory (`../x`,
+    an absolute path, a drive-letter prefix — the zip-slip family) rejects
+    the whole archive rather than trusting PHP's extraction to sanitise it;
+  - an archive claiming more than 1 GB unpacked is refused as a bomb — the
+    largest legitimate plugins unpack to well under a fifth of that, and
+    extracting a bomb fills the disk mid-batch. The ceiling is a constructor
+    knob, because it is a judgement rather than a law.
+
+### Measured
+
+Ten CI runners scanned the pinned 4,999 plugins in **13 minutes 42 seconds**,
+end to end, publishing **4,995 manifests with zero QA violations** — the
+"zero WordPress core artifacts" assertion the roadmap demanded now holds
+across every published manifest, enforced at build time. One plugin's archive
+had left wordpress.org between pin and fetch; three were lost to scan
+failures whose reports this first run did not preserve (the workflow keeps
+them now).
+
+What the dataset says, in one paragraph: 74,583 attributed artifacts, of
+which **5.3% are removed on uninstall**; 4,165 autoloaded options, 2,685 cron
+events, and 538 custom tables among the 70,647 left behind; **only 210 of
+4,995 plugins remove everything they create**, while nearly 44% ship no
+uninstall routine at all. Pooled resolution is 77.1% over 157,502 write
+calls — between the corpus's 78% and the pilot's 75.2%, three measurements
+telling one story. And the pilot's claim that grade B is empty in the wild
+did not survive scale: eleven plugins remove everything conditionally. The
+full account is in `docs/index.md`.
 
 ## [0.8.1] — 2026-08-16
 
