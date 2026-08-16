@@ -108,10 +108,15 @@ final class GoldenManifestTest extends TestCase
 
             $manifest = json_decode((string) file_get_contents($file), true);
 
+            $groupToType = array_flip(Manifest::TYPE_KEYS);
+
             foreach ($manifest['creates'] as $group => $items) {
                 foreach ($items as $item) {
+                    // The real mapping, not a naive de-pluralisation — which
+                    // turned "capabilities" into a type nothing matches and
+                    // made this check vacuous for two groups.
                     $finding = new \Sediment\Analyzer\Finding(
-                        type: rtrim($group, 's') === 'cron' ? 'cron' : rtrim($group, 's'),
+                        type: $groupToType[$group],
                         function: 'x',
                         key: $item['key'],
                         confidence: $item['confidence'],

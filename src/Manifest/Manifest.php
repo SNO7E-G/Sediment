@@ -27,8 +27,10 @@ final class Manifest
      */
     public const SCHEMA_VERSION = '2.0';
 
-    /** Finding type => manifest group (§9). */
-    private const TYPE_KEYS = [
+    /** Finding type => manifest group (§9). Public because consumers of a
+     *  manifest (the Index builder, tests) need the same mapping to read
+     *  groups back into finding types without re-deriving it. */
+    public const TYPE_KEYS = [
         'option' => 'options',
         'table' => 'tables',
         'cron' => 'cron',
