@@ -144,7 +144,7 @@ The full plan, with what each release has to prove before the next begins, is in
 
 ## Status
 
-**Alpha.** Detection across every artifact type above, static resolution, the cleanup diff (including conditional cleanup), grading, the manifest, the CI check, and the `uninstall.php` generator all work today, backed by a broad test suite. Releases are cut when a meaningful body of work is ready rather than per change, so each one carries real features — see the [changelog](CHANGELOG.md) and the [releases](https://github.com/SNO7E-G/Sediment/releases). The manifest schema is frozen at `2.0` and covered by the rules in [`docs/stability.md`](docs/stability.md); the rest of the tool may still change before 1.0.
+**Alpha.** Detection across every artifact type above, static resolution, the cleanup diff (including conditional cleanup), grading, the manifest, the CI check, and the `uninstall.php` generator all work today, backed by a broad test suite. A pilot run over the top 500 wordpress.org plugins completed unattended with zero failures and zero schema violations — and found that only 18 of the 500 remove everything they create; the full results are in [`docs/pilot.md`](docs/pilot.md). Releases are cut when a meaningful body of work is ready rather than per change, so each one carries real features — see the [changelog](CHANGELOG.md) and the [releases](https://github.com/SNO7E-G/Sediment/releases). The manifest schema is frozen at `2.0` and covered by the rules in [`docs/stability.md`](docs/stability.md); the rest of the tool may still change before 1.0.
 
 ## Development
 

@@ -4,7 +4,7 @@ Where Sediment is going, and what each release has to prove before the next one
 starts. Every release ships publicly on its own, so a pause between any two
 still leaves something finished.
 
-Current: **v0.8.0**. The analyzer is feature-complete; what remains before 1.0
+Current: **v0.8.1**. The analyzer is feature-complete; what remains before 1.0
 is evidence and commitment, not features.
 
 ## What is already proven
@@ -77,9 +77,15 @@ stating what is covered, what is not, and how deprecation works.
 
 It also finished what 0.7 left open: `batch` now scans each plugin in its own
 child process under a wall-clock timeout and a memory cap, so one pathological
-plugin costs one report line instead of the run. The 500-plugin pilot itself
-has still not run — it needs a machine and an afternoon, not more code — and
-remains the gate before 0.9.
+plugin costs one report line instead of the run.
+
+**The 500-plugin pilot ran with 0.8.1** — 500 of 500 top-popularity plugins
+scanned unattended in 83 minutes with zero failures, hangs, or timeouts, and
+all 500 manifests valid against the frozen schema. It demanded no schema
+change, two `fetch` fixes (shipped in 0.8.1), and one pipeline rule for the
+Index (scan from slug-named directories). `docs/pilot.md` records the run and
+the first ecosystem-scale numbers: only 18 of 500 plugins remove everything
+they create. The gate before 0.9 is met.
 
 ## 0.8 (original plan) — Contract
 
