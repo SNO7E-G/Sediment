@@ -51,6 +51,9 @@ final class BatchCommandTest extends TestCase
         $tester->execute([
             'directory' => $this->plugins,
             '--out' => $this->out,
+            // Two children at once: the pool is the same code path as -j1, so
+            // this exercises concurrency without a separate slow test.
+            '--jobs' => '2',
         ]);
 
         self::assertSame(Command::SUCCESS, $tester->getStatusCode());
@@ -101,6 +104,59 @@ final class BatchCommandTest extends TestCase
         $summary = json_decode((string) file_get_contents($report), true);
         self::assertSame('error', $summary['failed']['hog']['reason']);
         self::assertSame(1, $summary['scanned']);
+    }
+
+    public function test_a_scan_that_outlives_the_timeout_is_recorded_as_such(): void
+    {
+        // A parse big enough to take seconds everywhere, against a one-second
+        // budget: deterministic timeout on fast CI and slow desktops alike.
+        $this->plugins = sys_get_temp_dir() . '/sediment-slow-' . getmypid();
+        $this->out = sys_get_temp_dir() . '/sediment-slow-out-' . getmypid();
+        @mkdir($this->plugins . '/slow', 0777, true);
+        file_put_contents(
+            $this->plugins . '/slow/slow.php',
+            "<?php\n\$a = 'x'" . str_repeat(" . 'x'", 400000) . ";\n",
+        );
+
+        $report = $this->out . '/report.json';
+
+        $tester = new CommandTester(new BatchCommand());
+        $tester->execute([
+            'directory' => $this->plugins,
+            '--out' => $this->out,
+            '--report' => $report,
+            '--timeout' => '1',
+        ]);
+
+        self::assertSame(Command::SUCCESS, $tester->getStatusCode());
+        self::assertFileDoesNotExist($this->out . '/slow.json');
+
+        $summary = json_decode((string) file_get_contents($report), true);
+        self::assertSame('timeout', $summary['failed']['slow']['reason']);
+    }
+
+    public function test_resume_skips_a_plugin_whose_manifest_already_exists(): void
+    {
+        $this->plugins = sys_get_temp_dir() . '/sediment-resume-' . getmypid();
+        $this->out = sys_get_temp_dir() . '/sediment-resume-out-' . getmypid();
+        @mkdir($this->plugins . '/already-done', 0777, true);
+        @mkdir($this->out, 0777, true);
+        file_put_contents($this->plugins . '/already-done/plugin.php', "<?php\nupdate_option('x', 1);\n");
+
+        // A sentinel, not a real manifest: resume must not even look inside,
+        // let alone overwrite it.
+        file_put_contents($this->out . '/already-done.json', 'sentinel');
+
+        $tester = new CommandTester(new BatchCommand());
+        $tester->execute([
+            'directory' => $this->plugins,
+            '--out' => $this->out,
+            '--resume' => true,
+        ]);
+
+        self::assertSame(Command::SUCCESS, $tester->getStatusCode());
+        self::assertSame('sentinel', file_get_contents($this->out . '/already-done.json'));
+        self::assertStringContainsString('skipped 1 plugin(s)', $tester->getDisplay());
     }
 
     public function test_a_missing_directory_fails(): void

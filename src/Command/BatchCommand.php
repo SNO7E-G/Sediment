@@ -44,6 +44,7 @@ final class BatchCommand extends Command
         $this->addOption('report', null, InputOption::VALUE_REQUIRED, 'Write a JSON summary of the run, including every failure');
         $this->addOption('timeout', null, InputOption::VALUE_REQUIRED, 'Wall-clock seconds one plugin may take before it is recorded as failed', '300');
         $this->addOption('memory-limit', null, InputOption::VALUE_REQUIRED, 'PHP memory limit for one plugin scan (e.g. 512M)', '512M');
+        $this->addOption('jobs', 'j', InputOption::VALUE_REQUIRED, 'How many plugins to scan concurrently', '1');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -83,32 +84,79 @@ final class BatchCommand extends Command
         $resume = (bool) $input->getOption('resume');
         $skipped = 0;
 
-        foreach ($plugins as $path) {
-            $slug = basename($path);
+        // A bounded pool of child scans. Each plugin is one independent child
+        // and the tallies do not depend on completion order, so the report is
+        // identical whatever the interleaving — parallelism only buys time.
+        $jobs = max(1, (int) $input->getOption('jobs'));
+        $queue = $plugins;
+        /** @var array<string, Process> $running */
+        $running = [];
 
-            // A run over thousands of plugins will be interrupted — a timeout, a
-            // full disk, a machine going away. Resuming from the manifests
-            // already written turns that from "start again" into "carry on".
-            if ($resume && is_file($out . '/' . $slug . '.json')) {
-                $skipped++;
+        while ($queue !== [] || $running !== []) {
+            while (count($running) < $jobs && $queue !== []) {
+                $path = (string) array_shift($queue);
+                $slug = basename($path);
+
+                // A run over thousands of plugins will be interrupted — a
+                // timeout, a full disk, a machine going away. Resuming from the
+                // manifests already written turns that from "start again" into
+                // "carry on".
+                if ($resume && is_file($out . '/' . $slug . '.json')) {
+                    $skipped++;
+                    $io->progressAdvance();
+
+                    continue;
+                }
+
+                $process = $this->startChild($path, $timeout, $memoryLimit, $failed, $slug);
+                if ($process === null) {
+                    $io->progressAdvance();
+
+                    continue;
+                }
+
+                $running[$slug] = $process;
+            }
+
+            foreach ($running as $slug => $process) {
+                // isRunning() first: it refreshes the process status, where
+                // checkTimeout() trusts the cached one. The other way round, a
+                // child finishing right at the timeout boundary reads as timed
+                // out and its perfectly good manifest is thrown away.
+                if ($process->isRunning()) {
+                    try {
+                        // With start() instead of run(), the wall clock is only
+                        // enforced when someone asks — this poll is that someone.
+                        $process->checkTimeout();
+                    } catch (ProcessTimedOutException) {
+                        $failed[$slug] = ['reason' => 'timeout', 'detail' => sprintf('exceeded the %ds wall-clock timeout', $timeout)];
+                        unset($running[$slug]);
+                        $io->progressAdvance();
+                    }
+
+                    continue;
+                }
+
+                unset($running[$slug]);
+
+                $manifest = $this->harvest($process, $failed, $slug);
+                if ($manifest !== null) {
+                    // Re-encoded rather than written as the child sent it, so
+                    // the document on disk cannot pick up platform line endings
+                    // on the way through a pipe.
+                    file_put_contents($out . '/' . $slug . '.json', Manifest::toJson($manifest));
+
+                    $grades[$manifest['grade']] = ($grades[$manifest['grade']] ?? 0) + 1;
+                    $resolutionTotals['resolved'] += $manifest['coverage']['verified'] + $manifest['coverage']['resolved'];
+                    $resolutionTotals['total'] += $manifest['coverage']['write_calls_found'];
+                }
+
                 $io->progressAdvance();
-
-                continue;
             }
 
-            $manifest = $this->scanInChild($path, $timeout, $memoryLimit, $failed, $slug);
-            if ($manifest !== null) {
-                // Re-encoded rather than written as the child sent it, so the
-                // document on disk cannot pick up platform line endings on the
-                // way through a pipe.
-                file_put_contents($out . '/' . $slug . '.json', Manifest::toJson($manifest));
-
-                $grades[$manifest['grade']] = ($grades[$manifest['grade']] ?? 0) + 1;
-                $resolutionTotals['resolved'] += $manifest['coverage']['verified'] + $manifest['coverage']['resolved'];
-                $resolutionTotals['total'] += $manifest['coverage']['write_calls_found'];
+            if ($running !== []) {
+                usleep(50000);
             }
-
-            $io->progressAdvance();
         }
 
         $io->progressFinish();
@@ -171,12 +219,12 @@ final class BatchCommand extends Command
     }
 
     /**
-     * Scan one plugin in a child process, or record why it could not be.
+     * Start one plugin's scan in a child process, or record why it could not
+     * start.
      *
      * @param array<string, array{reason: string, detail: string}> $failed
-     * @return array<string, mixed>|null the decoded manifest, or null on failure
      */
-    private function scanInChild(string $path, int $timeout, string $memoryLimit, array &$failed, string $slug): ?array
+    private function startChild(string $path, int $timeout, string $memoryLimit, array &$failed, string $slug): ?Process
     {
         // Inside a PHAR the entry point is the archive itself; from source it is
         // the repository's own binary. Either way the child runs the exact code
@@ -187,17 +235,24 @@ final class BatchCommand extends Command
         $process->setTimeout((float) $timeout);
 
         try {
-            $process->run();
-        } catch (ProcessTimedOutException) {
-            $failed[$slug] = ['reason' => 'timeout', 'detail' => sprintf('exceeded the %ds wall-clock timeout', $timeout)];
-
-            return null;
+            $process->start();
         } catch (\Throwable $e) {
             $failed[$slug] = ['reason' => 'error', 'detail' => $e->getMessage()];
 
             return null;
         }
 
+        return $process;
+    }
+
+    /**
+     * Read a finished child's result, or record why there is none.
+     *
+     * @param array<string, array{reason: string, detail: string}> $failed
+     * @return array<string, mixed>|null the decoded manifest, or null on failure
+     */
+    private function harvest(Process $process, array &$failed, string $slug): ?array
+    {
         if (!$process->isSuccessful()) {
             $detail = trim($process->getErrorOutput()) !== '' ? trim($process->getErrorOutput()) : trim($process->getOutput());
             $failed[$slug] = [
