@@ -1,0 +1,123 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "drag-and-drop-multiple-file-upload-for-woocommerce",
+        "name": "Drag and Drop Multiple File Upload for WooCommerce",
+        "version": "1.1.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:59Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 6,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 6,
+        "resolution_rate": 0.222
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wp_dnd_wc_daily_cron",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "drag-and-drop-file-uploads-wc.php",
+                        "line": 45
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "dnd_wc_s_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-dnd-upload-wc.php",
+                        "line": 283
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "dnd_wc_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/functions/functions-dnd-upload-wc.php",
+                        "line": 27
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$wp_dnd_wc_folder",
+            "file": "inc/class-dnd-upload-wc.php",
+            "line": 94
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "inc/class-dnd-upload-wc.php",
+            "line": 251
+        },
+        {
+            "function": "update_option",
+            "expression": "$prefix_opt",
+            "file": "inc/class-dnd-upload-wc.php",
+            "line": 367
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$base_dir",
+            "file": "inc/class-dnd-upload-wc.php",
+            "line": 523
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$directory",
+            "file": "inc/functions/functions-dnd-upload-custom.php",
+            "line": 35
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field",
+            "file": "inc/functions/functions-dnd-upload-wc.php",
+            "line": 94
+        }
+    ]
+}

@@ -1,0 +1,243 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "easy-media-gallery",
+        "name": "Easy Media Gallery",
+        "version": "1.3.170",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:16Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 23,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 18,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.857
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "Activated_Emg_Plugin",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "easy-media-gallery.php",
+                        "line": 623
+                    }
+                ]
+            },
+            {
+                "key": "easy_media_opt",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/emg-settings.php",
+                        "line": 59
+                    },
+                    {
+                        "file": "includes/functions/functions.php",
+                        "line": 928
+                    },
+                    {
+                        "file": "includes/functions/functions.php",
+                        "line": 1242
+                    },
+                    {
+                        "file": "includes/options.php",
+                        "line": 372
+                    },
+                    {
+                        "file": "includes/options.php",
+                        "line": 474
+                    },
+                    {
+                        "file": "includes/pages/emg-welcome.php",
+                        "line": 1421
+                    }
+                ]
+            },
+            {
+                "key": "emg_affiliate_info",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions/functions.php",
+                        "line": 1641
+                    }
+                ]
+            },
+            {
+                "key": "emg_block_notify",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions/functions.php",
+                        "line": 1773
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "emg_auto_update",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "easy-media-gallery.php",
+                        "line": 643
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "easymediagallery_featured_feed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/pages/emg-featured.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "emg_whats_new",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions/functions.php",
+                        "line": 1486
+                    }
+                ]
+            },
+            {
+                "key": "emglite_addons_feed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/pages/emg-addons.php",
+                        "line": 32
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "easmedia_metabox_img",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions/functions.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "easmedia_metabox_media_audio",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions/functions.php",
+                        "line": 198
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "emg_ignore_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/emg-notice.php",
+                        "line": 32
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "easymediagallery",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "easy-media-gallery.php",
+                        "line": 228
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "emediagallery",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/taxonomy.php",
+                        "line": 36
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/metaboxes.php",
+            "line": 1046
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/pages/emg-freeplugins.php",
+            "line": 32
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/pages/emg-freethemes.php",
+            "line": 95
+        }
+    ]
+}

@@ -1,0 +1,309 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "weglot",
+        "name": "Weglot Translate",
+        "version": "6.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:55Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 43,
+    "coverage": {
+        "files_scanned": 166,
+        "files_skipped": 0,
+        "write_calls_found": 34,
+        "verified": 13,
+        "resolved": 3,
+        "pattern": 2,
+        "dynamic": 16,
+        "resolution_rate": 0.471
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "weglot_api_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/services/class-version-service-weglot.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "weglot_old_permalink_structure",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/actions/admin/class-permalink-weglot.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "weglot_settings_backup",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/actions/admin/class-options-weglot.php",
+                        "line": 466
+                    }
+                ]
+            },
+            {
+                "key": "weglot_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/actions/admin/class-options-weglot.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "src/actions/class-migration-weglot.php",
+                        "line": 42
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "weglot_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "weglot.php",
+                        "line": 310
+                    }
+                ]
+            },
+            {
+                "key": "weglot_cache_cdn",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/actions/admin/class-options-weglot.php",
+                        "line": 305
+                    },
+                    {
+                        "file": "src/services/class-option-service-weglot.php",
+                        "line": 181
+                    },
+                    {
+                        "file": "src/services/class-option-service-weglot.php",
+                        "line": 187
+                    },
+                    {
+                        "file": "src/services/class-option-service-weglot.php",
+                        "line": 289
+                    }
+                ]
+            },
+            {
+                "key": "weglot_idem_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/actions/rest/class-cache-purge-rest-weglot.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "weglot_php_version_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 183
+                    }
+                ]
+            },
+            {
+                "key": "weglot_sig_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/actions/rest/class-cache-purge-rest-weglot.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "weglot_slugs_cache",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/services/class-option-service-weglot.php",
+                        "line": 374
+                    }
+                ]
+            },
+            {
+                "key": "weglot_workspace_slug_fetch_throttle",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/actions/admin/class-pages-weglot.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "templates/admin/v2/section/context.php",
+                        "line": 18
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "permalink_structure",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "src/actions/admin/class-permalink-weglot.php",
+                    "line": 25
+                },
+                {
+                    "file": "src/actions/admin/class-permalink-weglot.php",
+                    "line": 38
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "sprintf('%s-%s', WEGLOT_SLUG, 'api_key_private')",
+            "file": "src/actions/admin/class-ajax-projects-settings.php",
+            "line": 93
+        },
+        {
+            "function": "update_option",
+            "expression": "sprintf('%s-%s', WEGLOT_SLUG, 'api_domain')",
+            "file": "src/actions/admin/class-ajax-projects-settings.php",
+            "line": 96
+        },
+        {
+            "function": "update_option",
+            "expression": "sprintf('%s-%s', WEGLOT_SLUG, 'api_base_url')",
+            "file": "src/actions/admin/class-ajax-projects-settings.php",
+            "line": 100
+        },
+        {
+            "function": "update_option",
+            "expression": "sprintf('%s-%s', WEGLOT_SLUG, 'api_key_private')",
+            "file": "src/actions/admin/class-options-weglot.php",
+            "line": 116
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->version_services::API_VERSION_OPTION_NAME",
+            "file": "src/actions/admin/class-options-weglot.php",
+            "line": 196
+        },
+        {
+            "function": "update_option",
+            "expression": "sprintf('%s-%s', WEGLOT_SLUG, 'api_key_private')",
+            "file": "src/actions/admin/class-options-weglot.php",
+            "line": 219
+        },
+        {
+            "function": "update_option",
+            "expression": "sprintf('%s-%s', WEGLOT_SLUG, 'api_key_private')",
+            "file": "src/actions/admin/class-options-weglot.php",
+            "line": 304
+        },
+        {
+            "function": "update_option",
+            "expression": "sprintf('%s-%s', WEGLOT_SLUG, 'api_key_private')",
+            "file": "src/actions/admin/class-options-weglot.php",
+            "line": 307
+        },
+        {
+            "function": "update_option",
+            "expression": "sprintf('%s-%s', WEGLOT_SLUG, 'api_key')",
+            "file": "src/actions/admin/class-options-weglot.php",
+            "line": 308
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "src/actions/admin/class-webhook-action-weglot.php",
+            "line": 43
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "src/actions/front/class-translate-page-weglot.php",
+            "line": 684
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "src/helpers/class-helper-api.php",
+            "line": 310
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "src/services/class-option-service-weglot.php",
+            "line": 1091
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "src/services/class-user-api-service-weglot.php",
+            "line": 134
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "src/services/class-webhook-service-weglot.php",
+            "line": 157
+        },
+        {
+            "function": "update_option",
+            "expression": "sprintf('%s-%s', WEGLOT_SLUG, 'webhook_id')",
+            "file": "src/services/class-webhook-service-weglot.php",
+            "line": 206
+        }
+    ]
+}

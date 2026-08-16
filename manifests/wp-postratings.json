@@ -1,0 +1,149 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-postratings",
+        "name": "WP-PostRatings",
+        "version": "2.0.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:29Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 41,
+    "coverage": {
+        "files_scanned": 25,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 7,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp_postratings_options",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-postratings-options.php",
+                        "line": 464
+                    },
+                    {
+                        "file": "includes/class-wp-postratings-options.php",
+                        "line": 469
+                    }
+                ]
+            },
+            {
+                "key": "wp_postratings_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-postratings-options.php",
+                        "line": 715
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "settings_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-postratings-admin.php",
+                        "line": 254
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "ratings_average",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-postratings-rating.php",
+                        "line": 636
+                    },
+                    {
+                        "file": "includes/class-wp-postratings.php",
+                        "line": 447
+                    }
+                ]
+            },
+            {
+                "key": "ratings_score",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-postratings-rating.php",
+                        "line": 635
+                    },
+                    {
+                        "file": "includes/class-wp-postratings.php",
+                        "line": 446
+                    }
+                ]
+            },
+            {
+                "key": "ratings_users",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-postratings-rating.php",
+                        "line": 634
+                    },
+                    {
+                        "file": "includes/class-wp-postratings.php",
+                        "line": 445
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wp-postratings-install.php",
+            "line": 188
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\WP_PostRatings_Settings::capability()",
+            "file": "includes/class-wp-postratings-install.php",
+            "line": 225
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "change-wc-price-title",
+        "name": "Change Price Title for WooCommerce",
+        "version": "2.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:55Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 3,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.778
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "change_woocommerce_price_title_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "change-wc-price-title.php",
+                        "line": 259
+                    },
+                    {
+                        "file": "change-wc-price-title.php",
+                        "line": 361
+                    }
+                ]
+            },
+            {
+                "key": "cwpt_show_migration_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "change-wc-price-title.php",
+                        "line": 255
+                    },
+                    {
+                        "file": "change-wc-price-title.php",
+                        "line": 314
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_cwpt_apply_on_all_wc_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "change-wc-price-title.php",
+                        "line": 453
+                    }
+                ]
+            },
+            {
+                "key": "_cwpt_hide_price",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "change-wc-price-title.php",
+                        "line": 448
+                    }
+                ]
+            },
+            {
+                "key": "_cwpt_price_title",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "change-wc-price-title.php",
+                        "line": 442
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$checkbox",
+            "file": "change-wc-price-title.php",
+            "line": 381
+        },
+        {
+            "function": "update_option",
+            "expression": "$checkbox",
+            "file": "change-wc-price-title.php",
+            "line": 383
+        }
+    ]
+}

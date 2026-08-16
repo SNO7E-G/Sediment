@@ -1,0 +1,124 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp101",
+        "name": "WP101 Video Tutorial Plugin",
+        "version": "5.4.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:34Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 13,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.714
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp101-available-series",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/addons.php",
+                        "line": 53
+                    }
+                ]
+            },
+            {
+                "key": "wp101-bulk-migration-lock",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/migrate.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "wp101_api_key",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/migrate.php",
+                        "line": 56
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wp101-bulk-migration",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/migrate.php",
+                        "line": 31
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wp101-dismissed-notifications",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/addons.php",
+                        "line": 178
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key_name",
+            "file": "includes/class-api.php",
+            "line": 176
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-api.php",
+            "line": 511
+        }
+    ]
+}

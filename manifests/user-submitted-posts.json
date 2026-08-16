@@ -1,0 +1,196 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "user-submitted-posts",
+        "name": "User Submitted Posts",
+        "version": "20260810",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:21Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 20,
+    "coverage": {
+        "files_scanned": 25,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 12,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "user-submitted-posts-dismiss-notice",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "library/plugin-settings.php",
+                        "line": 1319
+                    }
+                ]
+            },
+            {
+                "key": "usp_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "library/plugin-settings.php",
+                        "line": 162
+                    },
+                    {
+                        "file": "library/plugin-settings.php",
+                        "line": 978
+                    },
+                    {
+                        "file": "user-submitted-posts.php",
+                        "line": 1962
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "is_submission",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "user-submitted-posts.php",
+                        "line": 1449
+                    }
+                ]
+            },
+            {
+                "key": "user_submit_email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "user-submitted-posts.php",
+                        "line": 1461
+                    }
+                ]
+            },
+            {
+                "key": "user_submit_image",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "user-submitted-posts.php",
+                        "line": 1289
+                    }
+                ]
+            },
+            {
+                "key": "user_submit_ip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "user-submitted-posts.php",
+                        "line": 1464
+                    }
+                ]
+            },
+            {
+                "key": "user_submit_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "user-submitted-posts.php",
+                        "line": 1460
+                    }
+                ]
+            },
+            {
+                "key": "user_submit_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "user-submitted-posts.php",
+                        "line": 1462
+                    }
+                ]
+            },
+            {
+                "key": "usp-post-id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "user-submitted-posts.php",
+                        "line": 1450
+                    }
+                ]
+            },
+            {
+                "key": "usp-post-time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "user-submitted-posts.php",
+                        "line": 1468
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir['path']",
+            "file": "user-submitted-posts.php",
+            "line": 1225
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$custom_name",
+            "file": "user-submitted-posts.php",
+            "line": 1457
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$custom_name_2",
+            "file": "user-submitted-posts.php",
+            "line": 1458
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$checkbox_name",
+            "file": "user-submitted-posts.php",
+            "line": 1459
+        }
+    ]
+}

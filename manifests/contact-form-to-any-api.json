@@ -1,0 +1,200 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "contact-form-to-any-api",
+        "name": "Contact Form to Any API",
+        "version": "3.0.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:47Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 28,
+    "coverage": {
+        "files_scanned": 16,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 7,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 8,
+        "resolution_rate": 0.529
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cf7_to_any_api_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-to-any-api-admin.php",
+                        "line": 553
+                    }
+                ]
+            },
+            {
+                "key": "cf7_to_api_auto_delete_days",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-to-any-api-admin.php",
+                        "line": 1085
+                    }
+                ]
+            },
+            {
+                "key": "cf7_to_api_failure_email_recipients",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-to-any-api-admin.php",
+                        "line": 1093
+                    }
+                ]
+            },
+            {
+                "key": "cf7_to_api_failure_email_throttle",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-to-any-api-admin.php",
+                        "line": 1099
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "cf7anyapi_daily_log_cleanup",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-to-any-api-admin.php",
+                        "line": 1393
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "cf7_api_failure_email_throttle",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-to-any-api-admin.php",
+                        "line": 1246
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_cf7api_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-to-any-api-admin.php",
+                        "line": 1171
+                    },
+                    {
+                        "file": "admin/class-cf7-to-any-api-admin.php",
+                        "line": 1174
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "cf7_to_any_api",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-to-any-api-admin.php",
+                        "line": 201
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$options_key",
+            "file": "admin/class-cf7-to-any-api-admin.php",
+            "line": 357
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql1",
+            "file": "admin/class-cf7-to-any-api-admin.php",
+            "line": 583
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql2",
+            "file": "admin/class-cf7-to-any-api-admin.php",
+            "line": 584
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cf7_uploads_dir",
+            "file": "admin/class-cf7-to-any-api-admin.php",
+            "line": 632
+        },
+        {
+            "function": "update_option",
+            "expression": "$field",
+            "file": "admin/class-cf7-to-any-api-admin.php",
+            "line": 1078
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-cf7-to-any-api-activator.php",
+            "line": 75
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql1",
+            "file": "includes/class-cf7-to-any-api-activator.php",
+            "line": 98
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql2",
+            "file": "includes/class-cf7-to-any-api-activator.php",
+            "line": 99
+        }
+    ]
+}

@@ -1,0 +1,149 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-ultimate-post-grid",
+        "name": "WP Ultimate Post Grid",
+        "version": "4.1.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:34Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 35,
+    "coverage": {
+        "files_scanned": 78,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 7,
+        "resolved": 1,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpupg_activated",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpupg-activator.php",
+                        "line": 30
+                    }
+                ]
+            },
+            {
+                "key": "wpupg_flush",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpupg-activator.php",
+                        "line": 31
+                    }
+                ]
+            },
+            {
+                "key": "wpupg_migrated_to_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/public/class-wpupg-migrations.php",
+                        "line": 46
+                    }
+                ]
+            },
+            {
+                "key": "wpupg_template_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/public/class-wpupg-template-manager.php",
+                        "line": 227
+                    }
+                ]
+            },
+            {
+                "key": "wpupg_templates",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/public/class-wpupg-template-manager.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "includes/public/class-wpupg-template-manager.php",
+                        "line": 246
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wpupg_dismissed_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wpupg-notices.php",
+                        "line": 142
+                    },
+                    {
+                        "file": "includes/public/api/class-wpupg-api-notices.php",
+                        "line": 60
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wpupg_grid",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/public/class-wpupg-post-type.php",
+                        "line": 54
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$field",
+            "file": "includes/public/class-wpupg-meta-box.php",
+            "line": 129
+        }
+    ]
+}

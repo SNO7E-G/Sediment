@@ -1,0 +1,239 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ameliabooking",
+        "name": "Amelia",
+        "version": "2.4.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:03Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 53,
+    "coverage": {
+        "files_scanned": 1022,
+        "files_skipped": 0,
+        "write_calls_found": 24,
+        "verified": 11,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.583
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "amelia_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Infrastructure/WP/SettingsService/SettingsStorage.php",
+                        "line": 953
+                    },
+                    {
+                        "file": "src/Infrastructure/WP/SettingsService/SettingsStorage.php",
+                        "line": 968
+                    },
+                    {
+                        "file": "src/Infrastructure/WP/SettingsService/SettingsStorage.php",
+                        "line": 990
+                    }
+                ]
+            },
+            {
+                "key": "amelia_show_wpdt_promo",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "ameliabooking.php",
+                        "line": 655
+                    },
+                    {
+                        "file": "src/Infrastructure/WP/SettingsService/SettingsStorage.php",
+                        "line": 986
+                    }
+                ]
+            },
+            {
+                "key": "amelia_stash",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Domain/Services/Settings/SettingsService.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "amelia_wpa_events_rewrite_flushed_v1",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Infrastructure/WP/CustomPostTypes/Events/WpaEventsBootstrap.php",
+                        "line": 48
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "amelia_square_access_token_refresh",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ameliabooking.php",
+                        "line": 309
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "amelia_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ameliabooking.php",
+                        "line": 566
+                    }
+                ]
+            },
+            {
+                "key": "amelia_square_access_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Application/Commands/Square/FetchAccessTokenSquareCommandHandler.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "src/Infrastructure/Services/Payment/SquareMiddlewareService.php",
+                        "line": 61
+                    },
+                    {
+                        "file": "src/Infrastructure/Services/Payment/SquareService.php",
+                        "line": 459
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_amelia_event_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Infrastructure/WP/CustomPostTypes/Events/WpaEventsSync.php",
+                        "line": 226
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wpa-events",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Infrastructure/WP/CustomPostTypes/Events/WpaEventsPostType.php",
+                        "line": 52
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$uploadPath",
+            "file": "src/Application/Commands/Settings/UpdateSettingsCommandHandler.php",
+            "line": 85
+        },
+        {
+            "function": "mkdir",
+            "expression": "$outputPath",
+            "file": "src/Application/Services/Notification/NotificationHelperService.php",
+            "line": 91
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$extractDirectory",
+            "file": "src/Infrastructure/Services/DataTransfer/DataTransferService.php",
+            "line": 153
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getJobOptionName($job['id'])",
+            "file": "src/Infrastructure/Services/DataTransfer/DataTransferService.php",
+            "line": 941
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$workingDirectory",
+            "file": "src/Infrastructure/Services/DataTransfer/DataTransferService.php",
+            "line": 955
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "src/Infrastructure/Services/PayPal/PayPalClient.php",
+            "line": 185
+        },
+        {
+            "function": "add_option",
+            "expression": "$key",
+            "file": "src/Infrastructure/WP/CustomPostTypes/CptEntityCreateLock.php",
+            "line": 84
+        },
+        {
+            "function": "add_cap",
+            "expression": "$role",
+            "file": "src/Infrastructure/WP/InstallActions/ActivationRolesHook.php",
+            "line": 31
+        },
+        {
+            "function": "dbDelta",
+            "expression": "static::buildTable()",
+            "file": "src/Infrastructure/WP/InstallActions/DB/AbstractDatabaseTable.php",
+            "line": 60
+        },
+        {
+            "function": "add_role",
+            "expression": "$role['name']",
+            "file": "src/Infrastructure/WP/UserRoles/UserRoles.php",
+            "line": 20
+        }
+    ]
+}

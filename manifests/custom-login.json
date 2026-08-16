@@ -1,0 +1,152 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "custom-login",
+        "name": "Custom Login",
+        "version": "5.1.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:36Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 32,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 0,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.286
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "custom_login_version",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/WpAdmin/SettingsUpgrades.php",
+                        "line": 121
+                    },
+                    {
+                        "file": "src/WpAdmin/SettingsUpgrades.php",
+                        "line": 129
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "custom_login_daily_scheduled_events",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Api/Cron.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "custom_login_weekly_scheduled_events",
+                "recurrence": "weekly",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Api/Cron.php",
+                        "line": 84
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "functions.php",
+            "line": 49
+        },
+        {
+            "function": "update_option",
+            "expression": "$section_id",
+            "file": "src/CustomLogin.php",
+            "line": 74
+        },
+        {
+            "function": "update_option",
+            "expression": "$setting_key",
+            "file": "src/Extensions/StylePack.php",
+            "line": 81
+        },
+        {
+            "function": "update_option",
+            "expression": "$setting_key",
+            "file": "src/Settings/ImportExport.php",
+            "line": 103
+        },
+        {
+            "function": "update_option",
+            "expression": "self::OPTION_TRACKING_LAST_SEND",
+            "file": "src/WpAdmin/Tracking.php",
+            "line": 119
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "self::HOOK_SEND_CHECKIN",
+            "file": "src/WpAdmin/Tracking.php",
+            "line": 131
+        },
+        {
+            "function": "update_option",
+            "expression": "$section_id",
+            "file": "src/WpAdmin/Tracking.php",
+            "line": 163
+        },
+        {
+            "function": "update_option",
+            "expression": "self::OPTION_HIDE_TRACKING_NOTICE",
+            "file": "src/WpAdmin/Tracking.php",
+            "line": 164
+        },
+        {
+            "function": "update_option",
+            "expression": "$section_id",
+            "file": "src/WpAdmin/Tracking.php",
+            "line": 182
+        },
+        {
+            "function": "update_option",
+            "expression": "self::OPTION_HIDE_TRACKING_NOTICE",
+            "file": "src/WpAdmin/Tracking.php",
+            "line": 183
+        }
+    ]
+}

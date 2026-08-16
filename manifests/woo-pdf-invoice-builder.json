@@ -1,0 +1,255 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-pdf-invoice-builder",
+        "name": "WooCommerce PDF Invoice Builder",
+        "version": "2.0.15",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:35Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 44,
+    "coverage": {
+        "files_scanned": 160,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 10,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 18,
+        "resolution_rate": 0.357
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "PDFInvoiceErrorMessage",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-pdf-invoice-ajax.php",
+                        "line": 683
+                    },
+                    {
+                        "file": "woocommerce-pdf-invoice-ajax.php",
+                        "line": 699
+                    }
+                ]
+            },
+            {
+                "key": "REDNAO_PDF_INVOICE_EDITED",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ImportExport/TemplateImporter.php",
+                        "line": 127
+                    },
+                    {
+                        "file": "woocommerce-pdf-invoice-ajax.php",
+                        "line": 1035
+                    }
+                ]
+            },
+            {
+                "key": "WC_PDF_INVOICE_LATEST_DB_VERSION",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-pdf-invoice.php",
+                        "line": 553
+                    }
+                ]
+            },
+            {
+                "key": "pdfinvoice_newsletter",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-pdf-invoice-ajax.php",
+                        "line": 600
+                    }
+                ]
+            },
+            {
+                "key": "woopdfinvoicecount",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "PDFGenerator.php",
+                        "line": 671
+                    }
+                ]
+            },
+            {
+                "key": "wopdfinv_onboarding_completed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-pdf-invoice-ajax.php",
+                        "line": 637
+                    }
+                ]
+            },
+            {
+                "key": "wopdfinv_stage",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-pdf-invoice-ajax.php",
+                        "line": 617
+                    },
+                    {
+                        "file": "woocommerce-pdf-invoice-ajax.php",
+                        "line": 629
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "PDFGenerator.php",
+            "line": 491
+        },
+        {
+            "function": "mkdir",
+            "expression": "$tempFolderName",
+            "file": "PDFGenerator.php",
+            "line": 502
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionKey",
+            "file": "PDFGenerator.php",
+            "line": 647
+        },
+        {
+            "function": "update_option",
+            "expression": "$result->invoice_id . '_rednao_pdf_invoice_number'",
+            "file": "compatibility/RemoveGlobalInvoiceNumbers.php",
+            "line": 24
+        },
+        {
+            "function": "mkdir",
+            "expression": "$tempFolderToReturn",
+            "file": "utilities/FileManager.php",
+            "line": 85
+        },
+        {
+            "function": "mkdir",
+            "expression": "$publicTempFolder",
+            "file": "utilities/FileManager.php",
+            "line": 99
+        },
+        {
+            "function": "mkdir",
+            "expression": "$tempFolderToReturn",
+            "file": "utilities/FileManager.php",
+            "line": 122
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "utilities/FileManager.php",
+            "line": 133
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "utilities/HPOSHelper.php",
+            "line": 63
+        },
+        {
+            "function": "update_option",
+            "expression": "$invoiceId . '_rednao_pdf_invoice_number'",
+            "file": "utilities/InvoiceInitialDataGenerator.php",
+            "line": 57
+        },
+        {
+            "function": "mkdir",
+            "expression": "$basePath",
+            "file": "utilities/TextProcessor/Font/Cache.php",
+            "line": 48
+        },
+        {
+            "function": "update_option",
+            "expression": "$invoiceId . '_rednao_pdf_invoice_number'",
+            "file": "woocommerce-pdf-invoice-ajax.php",
+            "line": 77
+        },
+        {
+            "function": "mkdir",
+            "expression": "$tempFolderToReturn",
+            "file": "woocommerce-pdf-invoice-ajax.php",
+            "line": 377
+        },
+        {
+            "function": "mkdir",
+            "expression": "$tmp_path",
+            "file": "woocommerce-pdf-invoice.php",
+            "line": 382
+        },
+        {
+            "function": "mkdir",
+            "expression": "$folderPath",
+            "file": "woocommerce-pdf-invoice.php",
+            "line": 461
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "woocommerce-pdf-invoice.php",
+            "line": 526
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "woocommerce-pdf-invoice.php",
+            "line": 539
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "woocommerce-pdf-invoice.php",
+            "line": 548
+        }
+    ]
+}

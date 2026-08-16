@@ -1,0 +1,175 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mangboard",
+        "name": "MangBoard WP",
+        "version": "2.3.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:53Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 64,
+    "coverage": {
+        "files_scanned": 151,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 8,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.571
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mb_admin_check_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions/func.admin.php",
+                        "line": 145
+                    },
+                    {
+                        "file": "includes/functions/func.admin.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "mb_admin_locale",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/dashboard.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "mb_install_product",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugins/store/store_page.php",
+                        "line": 291
+                    }
+                ]
+            },
+            {
+                "key": "mb_locale",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/dashboard.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "mb_security_mode",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/mb-settings.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "mb_skin_model",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "templates/mtpl.admin.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "mb_user_synchronize_index",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/functions/func.user.php",
+                        "line": 588
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$uploadPath . $datePath",
+            "file": "includes/functions/func.api.php",
+            "line": 617
+        },
+        {
+            "function": "mkdir",
+            "expression": "$log_path",
+            "file": "includes/functions/func.util.php",
+            "line": 406
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\MBW_UPLOAD_PATH",
+            "file": "includes/install/basic-install.php",
+            "line": 9
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/mb-actions.php",
+            "line": 583
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "plugins/htmlpurifier/HTMLPurifier.standalone.php",
+            "line": 15795
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "plugins/htmlpurifier/HTMLPurifier.standalone.php",
+            "line": 15816
+        }
+    ]
+}

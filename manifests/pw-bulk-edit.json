@@ -1,0 +1,215 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "pw-bulk-edit",
+        "name": "PW WooCommerce Bulk Edit",
+        "version": "2.141",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:51Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 30,
+    "coverage": {
+        "files_scanned": 25,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 18,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.818
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "hide_pimwick_menu",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "pw-bulk-edit.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "pwbe_database_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "pw-bulk-edit.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "pwbe_selected_view",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "pw-bulk-edit.php",
+                        "line": 178
+                    },
+                    {
+                        "file": "pw-bulk-edit.php",
+                        "line": 201
+                    },
+                    {
+                        "file": "pw-bulk-edit.php",
+                        "line": 217
+                    }
+                ]
+            },
+            {
+                "key": "pwbe_views",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "pw-bulk-edit.php",
+                        "line": 200
+                    },
+                    {
+                        "file": "pw-bulk-edit.php",
+                        "line": 216
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/save-products.php",
+                        "line": 257
+                    },
+                    {
+                        "file": "includes/save-products.php",
+                        "line": 259
+                    },
+                    {
+                        "file": "includes/save-products.php",
+                        "line": 263
+                    },
+                    {
+                        "file": "includes/save-products.php",
+                        "line": 267
+                    }
+                ]
+            },
+            {
+                "key": "_regular_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/save-products.php",
+                        "line": 243
+                    }
+                ]
+            },
+            {
+                "key": "_sale_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/save-products.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "_sale_price_dates_from",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/save-products.php",
+                        "line": 247
+                    },
+                    {
+                        "file": "includes/save-products.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "includes/save-products.php",
+                        "line": 268
+                    }
+                ]
+            },
+            {
+                "key": "_sale_price_dates_to",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/save-products.php",
+                        "line": 248
+                    },
+                    {
+                        "file": "includes/save-products.php",
+                        "line": 269
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$field['field']",
+            "file": "includes/save-products.php",
+            "line": 88
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['post_id']",
+            "file": "includes/save-products.php",
+            "line": 94
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "pw-bulk-edit.php",
+            "line": 166
+        },
+        {
+            "function": "mkdir",
+            "expression": "$output_dir",
+            "file": "pw-bulk-edit.php",
+            "line": 266
+        }
+    ]
+}

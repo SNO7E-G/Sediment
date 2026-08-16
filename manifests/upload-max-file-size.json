@@ -1,0 +1,103 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "upload-max-file-size",
+        "name": "Increase Maximum Upload File Size",
+        "version": "2.0.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:54Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 7,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 1,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "imagifyp_id",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Imagify_Partner.php",
+                        "line": 763
+                    },
+                    {
+                        "file": "Imagify_Partner.php",
+                        "line": 765
+                    }
+                ]
+            },
+            {
+                "key": "max_file_size",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upload-max-file-size.php",
+                        "line": 135
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "imagifyp_error",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Imagify_Partner.php",
+                        "line": 683
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$this->transient",
+            "file": "Notices.php",
+            "line": 93
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->transient",
+            "file": "Notices.php",
+            "line": 153
+        }
+    ]
+}

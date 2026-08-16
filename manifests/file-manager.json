@@ -1,0 +1,117 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "file-manager",
+        "name": "Bit File Manager",
+        "version": "6.9.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:38Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 64,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 0,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.1
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bitapps_fm_old_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/app/Http/Controllers/TelemetryPopupController.php",
+                        "line": 33
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "self::withPrefix($option)",
+            "file": "backend/app/Config.php",
+            "line": 148
+        },
+        {
+            "function": "update_option",
+            "expression": "self::withPrefix($option)",
+            "file": "backend/app/Config.php",
+            "line": 162
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$trashDir",
+            "file": "backend/app/Http/Controllers/FileManagerController.php",
+            "line": 136
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$rootPath",
+            "file": "backend/app/Providers/PermissionsProvider.php",
+            "line": 242
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "backend/app/Providers/PhpSyntaxChecker.php",
+            "line": 84
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$baseDir",
+            "file": "backend/functions/global.php",
+            "line": 26
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$baseDir . \\DIRECTORY_SEPARATOR . '.tmb'",
+            "file": "backend/functions/global.php",
+            "line": 27
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$baseDir . \\DIRECTORY_SEPARATOR . '.tmp'",
+            "file": "backend/functions/global.php",
+            "line": 28
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$trashDir",
+            "file": "backend/functions/global.php",
+            "line": 29
+        }
+    ]
+}

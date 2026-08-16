@@ -1,0 +1,748 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-legacy-rest-api",
+        "name": "WooCommerce Legacy REST API",
+        "version": "1.0.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:51Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 43,
+        "files_skipped": 0,
+        "write_calls_found": 110,
+        "verified": 104,
+        "resolved": 0,
+        "pattern": 4,
+        "dynamic": 2,
+        "resolution_rate": 0.945
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woocommerce_api_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-legacy-rest-api-plugin.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "includes/class-wc-legacy-rest-api-plugin.php",
+                        "line": 124
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "woocommerce_flush_rewrite_rules",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-products.php",
+                        "line": 2578
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-products.php",
+                        "line": 2665
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-products.php",
+                        "line": 2728
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_customer_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-orders.php",
+                        "line": 538
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+                        "line": 576
+                    }
+                ]
+            },
+            {
+                "key": "_is_vat_exempt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+                        "line": 461
+                    }
+                ]
+            },
+            {
+                "key": "_order_currency",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-orders.php",
+                        "line": 451
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-orders.php",
+                        "line": 603
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+                        "line": 491
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+                        "line": 640
+                    }
+                ]
+            },
+            {
+                "key": "_payment_method",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-orders.php",
+                        "line": 435
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-orders.php",
+                        "line": 583
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+                        "line": 475
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+                        "line": 620
+                    }
+                ]
+            },
+            {
+                "key": "_payment_method_title",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-orders.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-orders.php",
+                        "line": 588
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+                        "line": 476
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+                        "line": 625
+                    }
+                ]
+            },
+            {
+                "key": "_refund_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-orders.php",
+                        "line": 1702
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+                        "line": 1747
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-products.php",
+                        "line": 2174
+                    }
+                ]
+            },
+            {
+                "key": "coupon_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 281
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 371
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 279
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 369
+                    }
+                ]
+            },
+            {
+                "key": "customer_email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 297
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 432
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 295
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 430
+                    }
+                ]
+            },
+            {
+                "key": "date_expires",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 290
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 404
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 288
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 402
+                    }
+                ]
+            },
+            {
+                "key": "discount_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 280
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 367
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 278
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 365
+                    }
+                ]
+            },
+            {
+                "key": "exclude_product_categories",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 293
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 416
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 291
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 414
+                    }
+                ]
+            },
+            {
+                "key": "exclude_product_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 284
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 383
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 282
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 381
+                    }
+                ]
+            },
+            {
+                "key": "exclude_sale_items",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 294
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 420
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 292
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 418
+                    }
+                ]
+            },
+            {
+                "key": "expiry_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 289
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 403
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 287
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 401
+                    }
+                ]
+            },
+            {
+                "key": "free_shipping",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 291
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 408
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 289
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 406
+                    }
+                ]
+            },
+            {
+                "key": "individual_use",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 282
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 375
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 280
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 373
+                    }
+                ]
+            },
+            {
+                "key": "limit_usage_to_x_items",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 287
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 395
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 285
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 393
+                    }
+                ]
+            },
+            {
+                "key": "maximum_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 296
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 428
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 294
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 426
+                    }
+                ]
+            },
+            {
+                "key": "minimum_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 295
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 424
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 293
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 422
+                    }
+                ]
+            },
+            {
+                "key": "product_categories",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 292
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 412
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 290
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 410
+                    }
+                ]
+            },
+            {
+                "key": "product_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 283
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 379
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 281
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 377
+                    }
+                ]
+            },
+            {
+                "key": "usage_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 288
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 399
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 286
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 397
+                    }
+                ]
+            },
+            {
+                "key": "usage_limit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 285
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 387
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 283
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 385
+                    }
+                ]
+            },
+            {
+                "key": "usage_limit_per_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 286
+                    },
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-coupons.php",
+                        "line": 391
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 284
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-coupons.php",
+                        "line": 389
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "billing_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-orders.php",
+                        "line": 751
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+                        "line": 795
+                    }
+                ]
+            },
+            {
+                "key": "shipping_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-orders.php",
+                        "line": 754
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+                        "line": 798
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "display_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-products.php",
+                        "line": 753
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-products.php",
+                        "line": 826
+                    }
+                ]
+            },
+            {
+                "key": "thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-products.php",
+                        "line": 757
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-products.php",
+                        "line": 830
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [
+            {
+                "key": "is_customer_note",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/api/v2/class-wc-api-orders.php",
+                        "line": 1393
+                    },
+                    {
+                        "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+                        "line": 1438
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "^wc-api/v([1-3]{1})(.*)?",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/class-wc-legacy-api.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "^wc-api/v([1-3]{1})/?$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/class-wc-legacy-api.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "wc-api",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-api.php",
+                        "line": 112
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/legacy/api/v2/class-wc-api-orders.php",
+            "line": 789
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/legacy/api/v3/class-wc-api-orders.php",
+            "line": 833
+        }
+    ]
+}

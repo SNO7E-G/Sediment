@@ -1,0 +1,151 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "gls-shipping-for-woocommerce",
+        "name": "GLS Shipping for WooCommerce",
+        "version": "1.5.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:16Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 44,
+    "coverage": {
+        "files_scanned": 30,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 3,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gls_label_migration_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-gls-shipping-label-migration.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "includes/admin/class-gls-shipping-label-migration.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "includes/admin/class-gls-shipping-label-migration.php",
+                        "line": 208
+                    },
+                    {
+                        "file": "includes/admin/class-gls-shipping-label-migration.php",
+                        "line": 226
+                    }
+                ]
+            },
+            {
+                "key": "gls_label_orphan_cleanup_done",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-gls-shipping-label-migration.php",
+                        "line": 306
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_gls_shipping_method_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/class-gls-shipping-sender-address-helper.php",
+                        "line": 111
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_gls_free_shipping",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-gls-shipping-product-restrictions.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "_gls_restrict_parcel_shipping",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-gls-shipping-product-restrictions.php",
+                        "line": 61
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "gls_migrate_labels_batch",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-gls-shipping-label-migration.php",
+                        "line": 100
+                    },
+                    {
+                        "file": "includes/admin/class-gls-shipping-label-migration.php",
+                        "line": 221
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\GLS_LABELS_DIR",
+            "file": "gls-shipping-for-woocommerce.php",
+            "line": 146
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/admin/class-gls-shipping-pickup-history.php",
+            "line": 50
+        }
+    ]
+}

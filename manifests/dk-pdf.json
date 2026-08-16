@@ -1,0 +1,175 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "dk-pdf",
+        "name": "DK PDF",
+        "version": "2.3.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:38Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 582,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 12,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.765
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dkpdf_core_fonts_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/Admin/FontDownloader.php",
+                        "line": 40
+                    },
+                    {
+                        "file": "modules/Admin/FontDownloader.php",
+                        "line": 44
+                    },
+                    {
+                        "file": "modules/Admin/FontDownloader.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "dkpdf_custom_fonts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/Admin/FontManager.php",
+                        "line": 216
+                    },
+                    {
+                        "file": "modules/Admin/FontManager.php",
+                        "line": 237
+                    },
+                    {
+                        "file": "modules/Admin/FontManager.php",
+                        "line": 253
+                    },
+                    {
+                        "file": "modules/Admin/FontManager.php",
+                        "line": 623
+                    },
+                    {
+                        "file": "modules/Admin/FontManager.php",
+                        "line": 707
+                    },
+                    {
+                        "file": "modules/Admin/FontManager.php",
+                        "line": 730
+                    }
+                ]
+            },
+            {
+                "key": "dkpdf_custom_fonts_backup_v1",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/Admin/FontManager.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "dkpdf_installed_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/Admin/AdminModule.php",
+                        "line": 371
+                    }
+                ]
+            },
+            {
+                "key": "dkpdf_selected_template",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/Admin/AdminModule.php",
+                        "line": 364
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "dkpdf_font_download_progress",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/Admin/FontDownloader.php",
+                        "line": 226
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$basePath",
+            "file": "lib/packages/Mpdf/Cache.php",
+            "line": 49
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$fonts_dir",
+            "file": "modules/Admin/FontDownloader.php",
+            "line": 111
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$fonts_dir",
+            "file": "modules/Admin/FontManager.php",
+            "line": 583
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$f",
+            "file": "modules/Admin/MetaBoxes.php",
+            "line": 62
+        }
+    ]
+}

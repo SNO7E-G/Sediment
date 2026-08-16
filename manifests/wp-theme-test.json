@@ -1,0 +1,85 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-theme-test",
+        "name": "WP Theme Test",
+        "version": "1.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:38Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 3,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wptt-errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.admin.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "wptt-updates",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.admin.php",
+                        "line": 89
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "\\WPTT_PLUGIN_NAME",
+            "file": "classes/class.admin.php",
+            "line": 86
+        },
+        {
+            "function": "update_option",
+            "expression": "\\WPTT_PLUGIN_NAME",
+            "file": "classes/class.core.php",
+            "line": 124
+        }
+    ]
+}

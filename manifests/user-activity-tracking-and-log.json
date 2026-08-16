@@ -1,0 +1,412 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "user-activity-tracking-and-log",
+        "name": "User Activity Tracking and Log",
+        "version": "4.3.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:33Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 40,
+        "files_skipped": 0,
+        "write_calls_found": 43,
+        "verified": 24,
+        "resolved": 8,
+        "pattern": 3,
+        "dynamic": 8,
+        "resolution_rate": 0.744
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "moove_importer_has_database",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-activity-database-model.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "controllers/class-moove-uat-cron.php",
+                        "line": 155
+                    },
+                    {
+                        "file": "controllers/class-moove-uat-cron.php",
+                        "line": 200
+                    }
+                ]
+            },
+            {
+                "key": "moove_importer_has_extras",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-activity-database-model.php",
+                        "line": 100
+                    }
+                ]
+            },
+            {
+                "key": "moove_post_act",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "moove-activity.php",
+                        "line": 46
+                    },
+                    {
+                        "file": "views/moove/admin/settings/activity-settings.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "uat_cache_version",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-uat-cache.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "uat_db_indexes_v1",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-activity-database-model.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "uat_db_support_request_url",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-activity-database-model.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "uat_db_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "moove-activity.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "uat_delete_abandoned_logs",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-activity-database-model.php",
+                        "line": 181
+                    }
+                ]
+            },
+            {
+                "key": "uat_keep_data_on_uninstall",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/moove/admin/settings/activity-settings.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "uat_last_checked",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-uat-updater.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "controllers/class-moove-uat-updater.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "uat_update_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-uat-updater.php",
+                        "line": 119
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}moove_activity_log",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-activity-database-model.php",
+                        "line": 57
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "uat_daily_maintenance",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-uat-cron.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "moove-activity.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "uat_import_legacy_logs",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-activity-controller.php",
+                        "line": 952
+                    },
+                    {
+                        "file": "controllers/class-moove-uat-cron.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "moove-activity.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "uat_resolve_geo_async",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-activity-controller.php",
+                        "line": 1127
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "plugin_info_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-activity-controller.php",
+                        "line": 926
+                    }
+                ]
+            },
+            {
+                "key": "uat_tok_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-uat-security.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-uat-updater.php",
+                        "line": 135
+                    },
+                    {
+                        "file": "controllers/class-moove-uat-updater.php",
+                        "line": 141
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "ma_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-moove-activity-content.php",
+                        "line": 182
+                    },
+                    {
+                        "file": "class-moove-activity-content.php",
+                        "line": 187
+                    },
+                    {
+                        "file": "controllers/class-moove-activity-controller.php",
+                        "line": 1060
+                    },
+                    {
+                        "file": "controllers/class-moove-activity-controller.php",
+                        "line": 1154
+                    }
+                ]
+            },
+            {
+                "key": "ma_disabled",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-moove-activity-content.php",
+                        "line": 145
+                    },
+                    {
+                        "file": "class-moove-activity-content.php",
+                        "line": 183
+                    },
+                    {
+                        "file": "class-moove-activity-content.php",
+                        "line": 188
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "uat_dismiss_stamp",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-uat-review.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "uat_dismiss_stamp*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-uat-review.php",
+                        "line": 78
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "class-moove-activity-content.php",
+            "line": 85
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "class-moove-activity-content.php",
+            "line": 470
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "class-moove-activity-shortcodes.php",
+            "line": 137
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "controllers/class-moove-uat-security.php",
+            "line": 108
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "moove-activity.php",
+            "line": 98
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "moove-functions.php",
+            "line": 78
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "views/moove/admin/settings/licence.php",
+            "line": 44
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "views/moove/admin/settings/licence.php",
+            "line": 67
+        }
+    ]
+}

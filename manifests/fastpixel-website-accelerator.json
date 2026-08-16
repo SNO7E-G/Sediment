@@ -1,0 +1,237 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "fastpixel-website-accelerator",
+        "name": "FastPixel Website Accelerator",
+        "version": "1.9.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 118,
+        "files_skipped": 0,
+        "write_calls_found": 26,
+        "verified": 4,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 18,
+        "resolution_rate": 0.308
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "fastpixel_cache_cleanup",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/cache-cleanup.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "fastpixel_performance_test",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/performance-score.php",
+                        "line": 497
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "fastpixel_ac_rest_sync",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/functions.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "fastpixel_auto_cache_requested",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/backend/controllers/tabs/cache-status.php",
+                        "line": 237
+                    },
+                    {
+                        "file": "inc/backend/controllers/tabs/cache-status.php",
+                        "line": 289
+                    }
+                ]
+            },
+            {
+                "key": "fastpixel_redirect_to_onboarding",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/plugin.php",
+                        "line": 109
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "fastpixel_dismissed_diag_notice_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/backend/controllers/notices.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "inc/backend/controllers/notices.php",
+                        "line": 126
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$this->stats_dir",
+            "file": "inc/classes/stats.php",
+            "line": 35
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->config_dir",
+            "file": "inc/config-model.php",
+            "line": 76
+        },
+        {
+            "function": "mkdir",
+            "expression": "FASTPIXEL_CACHE_DIR",
+            "file": "inc/functions.php",
+            "line": 49
+        },
+        {
+            "function": "mkdir",
+            "expression": "$this->cache_dir",
+            "file": "inc/functions.php",
+            "line": 53
+        },
+        {
+            "function": "mkdir",
+            "expression": "$urls_path",
+            "file": "inc/functions.php",
+            "line": 805
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "inc/functions.php",
+            "line": 1480
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "inc/functions.php",
+            "line": 1486
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cache_dir . FASTPIXEL_TEXTDOMAIN",
+            "file": "inc/plugin.php",
+            "line": 61
+        },
+        {
+            "function": "add_option",
+            "expression": "$transient_timeout",
+            "file": "object-cache.php",
+            "line": 2754
+        },
+        {
+            "function": "add_option",
+            "expression": "$transient_option",
+            "file": "object-cache.php",
+            "line": 2756
+        },
+        {
+            "function": "add_option",
+            "expression": "$transient_timeout",
+            "file": "object-cache.php",
+            "line": 2764
+        },
+        {
+            "function": "add_option",
+            "expression": "$transient_option",
+            "file": "object-cache.php",
+            "line": 2765
+        },
+        {
+            "function": "update_option",
+            "expression": "$transient_timeout",
+            "file": "object-cache.php",
+            "line": 2768
+        },
+        {
+            "function": "update_option",
+            "expression": "$transient_option",
+            "file": "object-cache.php",
+            "line": 2772
+        },
+        {
+            "function": "add_site_option",
+            "expression": "$transient_timeout",
+            "file": "object-cache.php",
+            "line": 2782
+        },
+        {
+            "function": "add_site_option",
+            "expression": "$option",
+            "file": "object-cache.php",
+            "line": 2784
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$transient_timeout",
+            "file": "object-cache.php",
+            "line": 2787
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option",
+            "file": "object-cache.php",
+            "line": 2789
+        }
+    ]
+}

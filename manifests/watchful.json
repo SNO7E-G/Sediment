@@ -1,0 +1,257 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "watchful",
+        "name": "Watchful",
+        "version": "2.0.16",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:17Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 109,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 12,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 16,
+        "resolution_rate": 0.429
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "watchfulDoActivationRedirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/Init.php",
+                        "line": 64
+                    }
+                ]
+            },
+            {
+                "key": "watchfulSettings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/Init.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "lib/Init.php",
+                        "line": 108
+                    },
+                    {
+                        "file": "lib/Init.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "watchful_last_login_error_counter",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/Helpers/Sso/Authenticator.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "lib/Helpers/Sso/Authenticator.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "watchful_last_login_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/Helpers/Sso/Authenticator.php",
+                        "line": 70
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "signatures",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/Audit/Tests/RobotsTxt.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/Helpers/PluginManager.php",
+                        "line": 539
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/Audit/Tests/HasThemesToUpdate.php",
+                        "line": 31
+                    },
+                    {
+                        "file": "lib/Helpers/ThemeUpdater.php",
+                        "line": 313
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "watchful_sso_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/Helpers/Sso/UserManager.php",
+                        "line": 69
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "lib/Audit/Files/Tools.php",
+            "line": 200
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$backup_dir",
+            "file": "lib/Backup/Utils.php",
+            "line": 84
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$main_dir",
+            "file": "lib/Backup/Utils.php",
+            "line": 101
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$main_dir",
+            "file": "lib/Backup/Utils.php",
+            "line": 109
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$backup_dir",
+            "file": "lib/Backup/Utils.php",
+            "line": 119
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "lib/Backup/Utils.php",
+            "line": 140
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$extract_path",
+            "file": "lib/Helpers/Files.php",
+            "line": 67
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->log_dir",
+            "file": "lib/Helpers/Logger.php",
+            "line": 152
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "lib/Helpers/PhpFilesystem.php",
+            "line": 72
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$restore_process_dir",
+            "file": "lib/Restore/DirectoryHelper.php",
+            "line": 68
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$main_dir",
+            "file": "lib/Restore/DirectoryHelper.php",
+            "line": 85
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$main_dir",
+            "file": "lib/Restore/DirectoryHelper.php",
+            "line": 93
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$restore_dir",
+            "file": "lib/Restore/DirectoryHelper.php",
+            "line": 103
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$database_dir",
+            "file": "lib/Restore/DirectoryHelper.php",
+            "line": 117
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$destination_dir",
+            "file": "lib/Restore/Step/BaseRestoreFilesStep.php",
+            "line": 137
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$destination_path",
+            "file": "lib/Restore/Step/BaseRestoreFilesStep.php",
+            "line": 147
+        }
+    ]
+}

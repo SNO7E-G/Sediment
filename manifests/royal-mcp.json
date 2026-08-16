@@ -1,0 +1,651 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "royal-mcp",
+        "name": "Royal MCP – Secure AI Connector for Claude, ChatGPT & Gemini",
+        "version": "1.4.41",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:57Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 67,
+        "files_skipped": 0,
+        "write_calls_found": 75,
+        "verified": 34,
+        "resolved": 17,
+        "pattern": 2,
+        "dynamic": 22,
+        "resolution_rate": 0.68
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "royal_mcp_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "royal-mcp.php",
+                        "line": 318
+                    },
+                    {
+                        "file": "royal-mcp.php",
+                        "line": 369
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Settings_Page.php",
+                        "line": 573
+                    },
+                    {
+                        "file": "includes/OAuth/Token_Store.php",
+                        "line": 427
+                    },
+                    {
+                        "file": "royal-mcp.php",
+                        "line": 299
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_undo_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/MCP/Undo_Store.php",
+                        "line": 49
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "IF",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/MCP/Session_Store.php",
+                        "line": 44
+                    },
+                    {
+                        "file": "includes/OAuth/Token_Store.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "includes/OAuth/Token_Store.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "includes/OAuth/Token_Store.php",
+                        "line": 136
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "royal_mcp_token_cleanup",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "royal-mcp.php",
+                        "line": 314
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "rmcp_preview_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/MCP/Support/Preview_Link.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_register_301_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Well_Known_Notice.php",
+                        "line": 568
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_well_known_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Well_Known_Notice.php",
+                        "line": 272
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_aioseo_noindex",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/MCP/Server.php",
+                        "line": 6171
+                    },
+                    {
+                        "file": "includes/MCP/Server.php",
+                        "line": 6902
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Integrations/Elementor.php",
+                        "line": 276
+                    },
+                    {
+                        "file": "includes/Integrations/Elementor.php",
+                        "line": 376
+                    },
+                    {
+                        "file": "includes/Integrations/Elementor.php",
+                        "line": 535
+                    },
+                    {
+                        "file": "includes/Integrations/Elementor.php",
+                        "line": 873
+                    },
+                    {
+                        "file": "includes/Integrations/Elementor.php",
+                        "line": 945
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_edit_mode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Integrations/Elementor.php",
+                        "line": 296
+                    },
+                    {
+                        "file": "includes/Integrations/Elementor.php",
+                        "line": 874
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_template_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Integrations/Elementor.php",
+                        "line": 875
+                    }
+                ]
+            },
+            {
+                "key": "_et_pb_builder_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Integrations/Divi.php",
+                        "line": 301
+                    }
+                ]
+            },
+            {
+                "key": "_et_pb_page_layout",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Integrations/Divi.php",
+                        "line": 298
+                    }
+                ]
+            },
+            {
+                "key": "_et_pb_use_builder",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Integrations/Divi.php",
+                        "line": 296
+                    }
+                ]
+            },
+            {
+                "key": "_seobolt_noindex",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/MCP/Server.php",
+                        "line": 6173
+                    },
+                    {
+                        "file": "includes/MCP/Server.php",
+                        "line": 6904
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/MCP/Server.php",
+                        "line": 2415
+                    },
+                    {
+                        "file": "includes/MCP/Server.php",
+                        "line": 4456
+                    },
+                    {
+                        "file": "includes/MCP/Server.php",
+                        "line": 7500
+                    }
+                ]
+            },
+            {
+                "key": "_yoast_wpseo_meta-robots-noindex",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/MCP/Server.php",
+                        "line": 6162
+                    },
+                    {
+                        "file": "includes/MCP/Server.php",
+                        "line": 6893
+                    }
+                ]
+            },
+            {
+                "key": "rank_math_robots",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/MCP/Server.php",
+                        "line": 6169
+                    },
+                    {
+                        "file": "includes/MCP/Server.php",
+                        "line": 6900
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "royal_mcp_bitninja_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Well_Known_Notice.php",
+                        "line": 639
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_elementor_coexistence_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Integrations/Elementor_Coexistence.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_founders_dismissed_version",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Settings_Page.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_imunify360_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Well_Known_Notice.php",
+                        "line": 630
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_oauth_page_shadow_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Well_Known_Notice.php",
+                        "line": 621
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_plain_permalinks_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Well_Known_Notice.php",
+                        "line": 648
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_recheck_just_ran",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Well_Known_Notice.php",
+                        "line": 683
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_register_301_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Well_Known_Notice.php",
+                        "line": 612
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_review_dismissed_version",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Settings_Page.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_sucuri_cloudproxy_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Well_Known_Notice.php",
+                        "line": 657
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_well_known_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Well_Known_Notice.php",
+                        "line": 585
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_well_known_html_body_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Well_Known_Notice.php",
+                        "line": 603
+                    }
+                ]
+            },
+            {
+                "key": "royal_mcp_well_known_stale_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Well_Known_Notice.php",
+                        "line": 594
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "\\.well-known/oauth-authorization-server/?$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "royal-mcp.php",
+                        "line": 457
+                    }
+                ]
+            },
+            {
+                "key": "\\.well-known/oauth-protected-resource(/.*)?$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "royal-mcp.php",
+                        "line": 456
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "permalink_structure",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/MCP/Server.php",
+                    "line": 6326
+                },
+                {
+                    "file": "includes/MCP/Server.php",
+                    "line": 7007
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$map['title']",
+            "file": "includes/Integrations/Composers.php",
+            "line": 363
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$map['description']",
+            "file": "includes/Integrations/Composers.php",
+            "line": 367
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$map['focus_keyword']",
+            "file": "includes/Integrations/Composers.php",
+            "line": 371
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/Integrations/Elementor.php",
+            "line": 290
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/MCP/Server.php",
+            "line": 315
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/MCP/Server.php",
+            "line": 320
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/MCP/Server.php",
+            "line": 325
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$tmeta_key",
+            "file": "includes/MCP/Server.php",
+            "line": 2833
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/MCP/Server.php",
+            "line": 3266
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$add_key",
+            "file": "includes/MCP/Server.php",
+            "line": 3343
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "includes/MCP/Server.php",
+            "line": 3769
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$undo_meta_key",
+            "file": "includes/MCP/Server.php",
+            "line": 4356
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$undo_tmeta_key",
+            "file": "includes/MCP/Server.php",
+            "line": 4392
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "(string) $mk",
+            "file": "includes/MCP/Server.php",
+            "line": 5200
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "(string) $mk",
+            "file": "includes/MCP/Server.php",
+            "line": 5294
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$mk",
+            "file": "includes/MCP/Server.php",
+            "line": 6179
+        },
+        {
+            "function": "update_option",
+            "expression": "$undo_opt_name",
+            "file": "includes/MCP/Server.php",
+            "line": 6221
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/MCP/Server.php",
+            "line": 6887
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/OAuth/Server.php",
+            "line": 148
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$dismiss_meta",
+            "file": "includes/chrome/class-royal-mcp-chrome.php",
+            "line": 364
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "royal-mcp.php",
+            "line": 425
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . '/?$'",
+            "file": "royal-mcp.php",
+            "line": 461
+        }
+    ]
+}

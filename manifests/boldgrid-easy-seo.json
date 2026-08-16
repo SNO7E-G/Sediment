@@ -1,0 +1,123 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "boldgrid-easy-seo",
+        "name": "BoldGrid Easy SEO",
+        "version": "1.6.17",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:05Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 60,
+    "coverage": {
+        "files_scanned": 77,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.556
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "bgseo_description",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-boldgrid-seo-admin.php",
+                        "line": 355
+                    },
+                    {
+                        "file": "includes/class-boldgrid-seo-meta.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "bgseo_robots_follow",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-boldgrid-seo-meta.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "bgseo_robots_index",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-boldgrid-seo-meta.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "bgseo_title",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-boldgrid-seo-meta.php",
+                        "line": 30
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "\"{$this->prefix}_version\"",
+            "file": "includes/class-boldgrid-seo-upgrade.php",
+            "line": 147
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->name",
+            "file": "includes/lib/butterbean/inc/class-setting.php",
+            "line": 203
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->name",
+            "file": "includes/lib/butterbean/inc/settings/class-setting-array.php",
+            "line": 74
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->name",
+            "file": "includes/lib/butterbean/inc/settings/class-setting-multiple.php",
+            "line": 139
+        }
+    ]
+}

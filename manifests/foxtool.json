@@ -1,0 +1,230 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "foxtool",
+        "name": "Foxtool All-in-One: Contact chat button, Custom login, Media optimize images",
+        "version": "2.5.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 51,
+    "coverage": {
+        "files_scanned": 62,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 11,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 12,
+        "resolution_rate": 0.478
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "foxtool_font_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/font.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "inc/font.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "foxtool_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/foxtool.php",
+                        "line": 242
+                    },
+                    {
+                        "file": "inc/media.php",
+                        "line": 863
+                    }
+                ]
+            },
+            {
+                "key": "image_default_size",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/post.php",
+                        "line": 157
+                    },
+                    {
+                        "file": "inc/post.php",
+                        "line": 159
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "foxtool_index_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/gindex.php",
+                        "line": 251
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/post.php",
+                        "line": 406
+                    }
+                ]
+            },
+            {
+                "key": "toc_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/toc.php",
+                        "line": 221
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "foxtoolpic",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/user.php",
+                        "line": 94
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "^ads\\.txt$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/ads.php",
+                        "line": 91
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$custom_dir",
+            "file": "inc/font.php",
+            "line": 60
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "inc/post.php",
+            "line": 276
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$new_term_slug . '/?$'",
+            "file": "inc/post.php",
+            "line": 315
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$new_term_slug . '/page/([0-9]{1,})/?$'",
+            "file": "inc/post.php",
+            "line": 316
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$new_term_slug . '/(?:feed/)?(feed|rdf|rss|rss2|atom)/?$'",
+            "file": "inc/post.php",
+            "line": 317
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$baseterm . '?$'",
+            "file": "inc/post.php",
+            "line": 365
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$baseterm . 'page/([0-9]{1,})/?$'",
+            "file": "inc/post.php",
+            "line": 366
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$baseterm . '(?:feed/)?(feed|rdf|rss|rss2|atom)/?$'",
+            "file": "inc/post.php",
+            "line": 367
+        },
+        {
+            "function": "mkdir",
+            "expression": "$json_dir",
+            "file": "inc/search.php",
+            "line": 120
+        },
+        {
+            "function": "mkdir",
+            "expression": "$json_dir",
+            "file": "inc/search.php",
+            "line": 255
+        },
+        {
+            "function": "add_option",
+            "expression": "$option_name",
+            "file": "main/export.php",
+            "line": 65
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "main/export.php",
+            "line": 67
+        }
+    ]
+}

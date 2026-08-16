@@ -1,0 +1,391 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-events-manager",
+        "name": "WP Events Manager",
+        "version": "2.2.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 116,
+        "files_skipped": 0,
+        "write_calls_found": 40,
+        "verified": 25,
+        "resolved": 3,
+        "pattern": 6,
+        "dynamic": 6,
+        "resolution_rate": 0.7
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "thimpress-event-version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Upgrades/upgrade-2.1.7.2.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "thimpress_events_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpems-install.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "inc/class-wpems-install.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "inc/class-wpems-install.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "inc/class-wpems-install.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "inc/wpems-core-functions.php",
+                        "line": 671
+                    }
+                ]
+            },
+            {
+                "key": "thimpress_events_paypal_email",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpems-install.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "thimpress_events_paypal_enable",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpems-install.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "thimpress_events_paypal_sanbox_email",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpems-install.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "thimpress_events_show_remove_event_auth_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpems-ajax.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "inc/class-wpems-ajax.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "tp_event_meta_box_error_messages",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Admin/Metaboxes.php",
+                        "line": 125
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "tp_event_schedule_status",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Admin/Metaboxes/Event.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "inc/Admin/Metaboxes/Event.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "wpems_cancel_payment_booking",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/wpems-core-functions.php",
+                        "line": 1448
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "ea_booking_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpems-booking.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "ea_booking_note",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Admin/Metaboxes/Booking.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "tp_event_date_end",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Upgrades/upgrade-2.0.8.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "tp_event_date_start",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Upgrades/upgrade-2.0.8.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "tp_event_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Upgrades/upgrade-2.0.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "tp_event_qty",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Upgrades/upgrade-2.0.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "tp_event_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Admin/Metaboxes/Event.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "inc/Upgrades/upgrade-2.1.7.2.php",
+                        "line": 48
+                    },
+                    {
+                        "file": "inc/Upgrades/upgrade-2.1.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "inc/wpems-core-functions.php",
+                        "line": 793
+                    },
+                    {
+                        "file": "inc/wpems-core-functions.php",
+                        "line": 1802
+                    },
+                    {
+                        "file": "inc/wpems-core-functions.php",
+                        "line": 1804
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "ea_user_approved",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Admin/Users.php",
+                        "line": 239
+                    },
+                    {
+                        "file": "inc/Admin/Users.php",
+                        "line": 267
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "event_auth_book",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpems-post-types.php",
+                        "line": 150
+                    }
+                ]
+            },
+            {
+                "key": "tp_event",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpems-post-types.php",
+                        "line": 102
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "tp_event_category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpems-post-types.php",
+                        "line": 182
+                    }
+                ]
+            },
+            {
+                "key": "tp_event_tag",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpems-post-types.php",
+                        "line": 213
+                    }
+                ]
+            },
+            {
+                "key": "tp_event_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpems-post-types.php",
+                        "line": 243
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "inc/Admin/Metaboxes/Event.php",
+            "line": 34
+        },
+        {
+            "function": "update_option",
+            "expression": "$field['id']",
+            "file": "inc/Admin/SettingsManager.php",
+            "line": 552
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "inc/Admin/SettingsManager.php",
+            "line": 571
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "inc/Models/PostModel.php",
+            "line": 419
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "inc/Models/UserModel.php",
+            "line": 190
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "inc/Settings.php",
+            "line": 201
+        }
+    ]
+}

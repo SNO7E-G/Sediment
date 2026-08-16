@@ -1,0 +1,105 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "disqus-comment-system",
+        "name": "Disqus for WordPress",
+        "version": "3.1.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:58Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 82,
+    "coverage": {
+        "files_scanned": 17,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "disqus_last_sync_message",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "rest-api/class-disqus-rest-api.php",
+                        "line": 835
+                    }
+                ]
+            },
+            {
+                "key": "disqus_sync_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-disqus-admin.php",
+                        "line": 325
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "dsq_thread_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "rest-api/class-disqus-rest-api.php",
+                        "line": 762
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "disqus_ads_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-disqus-admin.php",
+                        "line": 389
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "rest-api/class-disqus-rest-api.php",
+            "line": 491
+        }
+    ]
+}

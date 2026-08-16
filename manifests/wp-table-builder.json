@@ -1,0 +1,170 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-table-builder",
+        "name": "WP Table Builder",
+        "version": "2.2.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:31Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 25,
+    "coverage": {
+        "files_scanned": 48,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 6,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.769
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wptb_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Admin/Api/SettingsApi.php",
+                        "line": 99
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wptb_pro_versions_info",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Core/VersionControl.php",
+                        "line": 299
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wptb_content_",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Admin/Api/TablePost.php",
+                        "line": 98
+                    },
+                    {
+                        "file": "inc/Admin/Api/TablePost.php",
+                        "line": 114
+                    },
+                    {
+                        "file": "inc/Admin/Api/TablePost.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "_wptb_content_preview_",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Admin/Api/TablePost.php",
+                        "line": 116
+                    }
+                ]
+            },
+            {
+                "key": "_wptb_prebuilt_",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Admin/Api/TablePost.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "_wptb_preview_id_",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Admin/Api/TablePost.php",
+                        "line": 117
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wptb-tables",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Core/Cpt.php",
+                        "line": 33
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "table_tags",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Core/Cpt.php",
+                        "line": 57
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$temp_dir",
+            "file": "inc/Admin/Api/Export.php",
+            "line": 92
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "inc/Core/VersionControl.php",
+            "line": 237
+        },
+        {
+            "function": "mkdir",
+            "expression": "$cache_path",
+            "file": "inc/Utils/RenderUtils.php",
+            "line": 117
+        }
+    ]
+}

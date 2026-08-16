@@ -1,0 +1,166 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "social-lite",
+        "name": "Social",
+        "version": "1.8.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 39,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 4,
+        "resolved": 1,
+        "pattern": 1,
+        "dynamic": 9,
+        "resolution_rate": 0.333
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "social_lite_geo_data_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/base/analytics/BioLinkAnalytics.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "social_lite_ip_addresses",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/base/analytics/BioLinkAnalytics.php",
+                        "line": 244
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "cms-landingpage-analytics",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/base/data/BioLinkData.php",
+                        "line": 306
+                    }
+                ]
+            },
+            {
+                "key": "cms-landingpage-data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/base/data/BioLinkData.php",
+                        "line": 258
+                    },
+                    {
+                        "file": "inc/base/data/BioLinkData.php",
+                        "line": 283
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "cms-landingpages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/base/CPT.php",
+                        "line": 19
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "self::OPTION_NAME_TOKEN",
+            "file": "inc/Activator.php",
+            "line": 62
+        },
+        {
+            "function": "add_site_option",
+            "expression": "self::OPTION_NAME_NEEDS_DEFAULT_DATA",
+            "file": "inc/Activator.php",
+            "line": 74
+        },
+        {
+            "function": "add_option",
+            "expression": "self::OPTION_NAME_INSTALLATION_DATE",
+            "file": "inc/Activator.php",
+            "line": 76
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transientName",
+            "file": "inc/base/analytics/BioLinkAnalytics.php",
+            "line": 93
+        },
+        {
+            "function": "add_option",
+            "expression": "self::OPTION_NAME_TOKEN",
+            "file": "inc/base/forms/BioLinkForms.php",
+            "line": 130
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "inc/base/templates/BioLinkTemplates.php",
+            "line": 43
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "inc/base/templates/BioLinkTemplates.php",
+            "line": 48
+        },
+        {
+            "function": "update_option",
+            "expression": "self::TEMPLATES_OPTION_NAME",
+            "file": "inc/base/templates/BioLinkTemplates.php",
+            "line": 51
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "inc/base/templates/BioLinkTemplates.php",
+            "line": 52
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "google-maps-widget",
+        "name": "Maps Widget for Google Maps",
+        "version": "4.27",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:59Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 6,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 2,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": true,
+        "condition_option": "gmw_options",
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gmw_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "google-maps-widget.php",
+                        "line": 191
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "gmw_pointers",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "google-maps-widget.php",
+                        "line": 696
+                    },
+                    {
+                        "file": "google-maps-widget.php",
+                        "line": 713
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$address_hash",
+            "file": "google-maps-widget.php",
+            "line": 378
+        }
+    ]
+}

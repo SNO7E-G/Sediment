@@ -1,0 +1,245 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "secure-copy-content-protection",
+        "name": "Secure Copy Content Protection",
+        "version": "5.2.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 60,
+    "coverage": {
+        "files_scanned": 31,
+        "files_skipped": 0,
+        "write_calls_found": 25,
+        "verified": 18,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.72
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "sccp_upgrade_plugin",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ays_new_sccp_banner_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-secure-copy-content-protection-admin.php",
+                        "line": 1245
+                    },
+                    {
+                        "file": "admin/class-secure-copy-content-protection-admin.php",
+                        "line": 1258
+                    }
+                ]
+            },
+            {
+                "key": "ays_sccp_agree_terms",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-secure-copy-content-protection-activator.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "ays_sccp_and_fox_lms_plugin_flag",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/partials/secure-copy-content-protection-admin-display.php",
+                        "line": 232
+                    },
+                    {
+                        "file": "admin/partials/secure-copy-content-protection-admin-display.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "ays_sccp_maker_first_time_activation_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-secure-copy-content-protection-activator.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "ays_sccp_sale_btn",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-secure-copy-content-protection-admin.php",
+                        "line": 1223
+                    },
+                    {
+                        "file": "includes/class-secure-copy-content-protection-data.php",
+                        "line": 258
+                    },
+                    {
+                        "file": "includes/class-secure-copy-content-protection-data.php",
+                        "line": 281
+                    }
+                ]
+            },
+            {
+                "key": "ays_sccp_sale_btn_for_two_months",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-secure-copy-content-protection-data.php",
+                        "line": 263
+                    },
+                    {
+                        "file": "includes/class-secure-copy-content-protection-data.php",
+                        "line": 282
+                    }
+                ]
+            },
+            {
+                "key": "ays_sccp_sale_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-secure-copy-content-protection-admin.php",
+                        "line": 1224
+                    },
+                    {
+                        "file": "includes/class-secure-copy-content-protection-data.php",
+                        "line": 259
+                    },
+                    {
+                        "file": "includes/class-secure-copy-content-protection-data.php",
+                        "line": 264
+                    }
+                ]
+            },
+            {
+                "key": "ays_sccp_show_agree_terms",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-secure-copy-content-protection-activator.php",
+                        "line": 172
+                    }
+                ]
+            },
+            {
+                "key": "sccp_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-secure-copy-content-protection-activator.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "sccp_upgrade_plugin",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-secure-copy-content-protection-admin.php",
+                        "line": 925
+                    },
+                    {
+                        "file": "admin/class-secure-copy-content-protection-admin.php",
+                        "line": 927
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$private_dir",
+            "file": "admin/class-secure-copy-content-protection-admin.php",
+            "line": 587
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "admin/class-secure-copy-content-protection-admin.php",
+            "line": 627
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-secure-copy-content-protection-activator.php",
+            "line": 57
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-secure-copy-content-protection-activator.php",
+            "line": 74
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-secure-copy-content-protection-activator.php",
+            "line": 90
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-secure-copy-content-protection-activator.php",
+            "line": 109
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-secure-copy-content-protection-activator.php",
+            "line": 134
+        }
+    ]
+}

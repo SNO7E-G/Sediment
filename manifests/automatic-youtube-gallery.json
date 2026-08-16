@@ -1,0 +1,264 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "automatic-youtube-gallery",
+        "name": "Automatic YouTube Gallery",
+        "version": "2.9.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:43Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 29,
+        "files_skipped": 0,
+        "write_calls_found": 24,
+        "verified": 18,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ayg_channel_ids",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/youtube-api.php",
+                        "line": 367
+                    }
+                ]
+            },
+            {
+                "key": "ayg_gallery_page_ids",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions.php",
+                        "line": 208
+                    }
+                ]
+            },
+            {
+                "key": "ayg_gallery_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "ayg_general_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 342
+                    }
+                ]
+            },
+            {
+                "key": "ayg_last_transient_cleanup",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/cron.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "ayg_livestream_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "ayg_player_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "admin/admin.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "ayg_playlist_ids",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/youtube-api.php",
+                        "line": 432
+                    }
+                ]
+            },
+            {
+                "key": "ayg_privacy_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "ayg_strings_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "ayg_transient_keys",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions.php",
+                        "line": 735
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 747
+                    },
+                    {
+                        "file": "includes/youtube-api.php",
+                        "line": 964
+                    },
+                    {
+                        "file": "public/cron.php",
+                        "line": 104
+                    }
+                ]
+            },
+            {
+                "key": "ayg_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "includes/activator.php",
+                        "line": 43
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "ayg_cron_schedule",
+                "recurrence": "ayg_every_five_minutes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/cron.php",
+                        "line": 53
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$section['id']",
+            "file": "admin/settings.php",
+            "line": 354
+        },
+        {
+            "function": "add_option",
+            "expression": "$option_name",
+            "file": "includes/activator.php",
+            "line": 35
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/functions.php",
+            "line": 385
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/functions.php",
+            "line": 424
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/functions.php",
+            "line": 454
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/youtube-api.php",
+            "line": 953
+        }
+    ]
+}

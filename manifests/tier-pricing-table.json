@@ -1,0 +1,786 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "tier-pricing-table",
+        "name": "WooCommerce Tiered Price Table",
+        "version": "7.1.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:20Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 491,
+        "files_skipped": 0,
+        "write_calls_found": 89,
+        "verified": 47,
+        "resolved": 12,
+        "pattern": 8,
+        "dynamic": 22,
+        "resolution_rate": 0.663
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_tpt_role_tax_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/TaxSettings/API/TaxSettingsEndpoints.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "src/Addons/TaxSettings/Settings/Settings.php",
+                        "line": 37
+                    }
+                ]
+            },
+            {
+                "key": "active_sitewide_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 358
+                    }
+                ]
+            },
+            {
+                "key": "fs_active_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 282
+                    },
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 416
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 208
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 318
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 363
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 528
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 572
+                    }
+                ]
+            },
+            {
+                "key": "fs_debug_mode",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/config.php",
+                        "line": 311
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 508
+                    }
+                ]
+            },
+            {
+                "key": "fs_storage_logger",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-fs-logger.php",
+                        "line": 361
+                    }
+                ]
+            },
+            {
+                "key": "tier-pricing-table_ignore",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/Plugins/WPAllImport.php",
+                        "line": 875
+                    }
+                ]
+            },
+            {
+                "key": "tier_pricing_table_quote_forms",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/RequestAQuote/API/FormsEndpoint.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "tier_pricing_table_quote_global_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/RequestAQuote/API/SettingsEndpoint.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "tiered_pricing_seen_tips",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Tips/Tip.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "tiered_pricing_table/features/tier-labels/labels",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/TierLabels/TierLabelsManager.php",
+                        "line": 25
+                    }
+                ]
+            },
+            {
+                "key": "tpt_custom_table_columns",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/CustomColumns/CustomColumnsManager.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "tpt_plugin_activation_timestamp",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/TierPricingTablePlugin.php",
+                        "line": 286
+                    }
+                ]
+            },
+            {
+                "key": "tpt_seen_notifications",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Notifications/Notifications.php",
+                        "line": 88
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}fs_logger",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-fs-logger.php",
+                        "line": 339
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "fs_debug_turn_off_logging_hook",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 296
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_fs_api_connection_retry_counter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 21138
+                    }
+                ]
+            },
+            {
+                "key": "fs_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 7608
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 20788
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 20794
+                    }
+                ]
+            },
+            {
+                "key": "fs_snooze_period",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 2748
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 2750
+                    }
+                ]
+            },
+            {
+                "key": "tiered_pricing_table_activated",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Notifications/Notifications/ActivationNotification.php",
+                        "line": 18
+                    }
+                ]
+            },
+            {
+                "key": "tpt_product_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Core/Cache.php",
+                        "line": 115
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 99
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/RequestAQuote/Integration/PricingRulesIntegration.php",
+                        "line": 182
+                    },
+                    {
+                        "file": "src/Addons/RequestAQuote/Integration/PricingRulesIntegration.php",
+                        "line": 190
+                    },
+                    {
+                        "file": "src/Addons/RequestAQuote/Integration/PricingRulesIntegration.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "src/Addons/TaxSettings/RoleBasedRulesIntegration/RoleBasedRulesIntegration.php",
+                        "line": 81
+                    },
+                    {
+                        "file": "src/Addons/TaxSettings/RoleBasedRulesIntegration/RoleBasedRulesIntegration.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "_disable_tiered_pricing",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/Coupons/CouponsAddon.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "_fixed_price_rules",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/ProductPage/Product.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "src/Services/API/ProductFields/FixedTieredPricing.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "_skip_category_tier_rules",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/CategoryTiers/CategoryTierAddon.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "_tier_pricing_table_quote_auto_open_quantity",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/RequestAQuote/Integration/PricingRulesIntegration.php",
+                        "line": 156
+                    },
+                    {
+                        "file": "src/Addons/RequestAQuote/Integration/PricingRulesIntegration.php",
+                        "line": 327
+                    }
+                ]
+            },
+            {
+                "key": "_tier_pricing_table_quote_form_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/RequestAQuote/Integration/PricingRulesIntegration.php",
+                        "line": 147
+                    },
+                    {
+                        "file": "src/Addons/RequestAQuote/Integration/PricingRulesIntegration.php",
+                        "line": 322
+                    }
+                ]
+            },
+            {
+                "key": "_tier_pricing_table_quote_integrated_label_text",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/RequestAQuote/Integration/PricingRulesIntegration.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "src/Addons/RequestAQuote/Integration/PricingRulesIntegration.php",
+                        "line": 333
+                    }
+                ]
+            },
+            {
+                "key": "_tiered_price_minimum_qty",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PriceManager.php",
+                        "line": 205
+                    }
+                ]
+            },
+            {
+                "key": "_tiered_price_mix_and_match_minimum",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/ProductPage/AdvanceOptionsForVariableProduct.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "_tiered_price_rules_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PriceManager.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "_tiered_pricing_base_unit_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/ProductPage/TieredPricingTab.php",
+                        "line": 260
+                    }
+                ]
+            },
+            {
+                "key": "_tiered_pricing_default_variation_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/ProductPage/AdvanceOptionsForVariableProduct.php",
+                        "line": 153
+                    }
+                ]
+            },
+            {
+                "key": "_tiered_pricing_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/ProductPage/TieredPricingTab.php",
+                        "line": 241
+                    }
+                ]
+            },
+            {
+                "key": "_tiered_pricing_variable_product_same_prices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/ProductPage/AdvanceOptionsForVariableProduct.php",
+                        "line": 145
+                    }
+                ]
+            },
+            {
+                "key": "_tpt_settings_priority_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/GlobalTieredPricing/PricingRule/RuleSettings.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "_tpt_settings_quantity_limits_priority_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/GlobalTieredPricing/PricingRule/RuleSettings.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "_tpt_settings_regular_pricing_priority_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/GlobalTieredPricing/PricingRule/RuleSettings.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "_tpt_settings_tiered_pricing_allow_mix_and_match",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/GlobalTieredPricing/PricingRule/RuleSettings.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "_tpt_settings_tiered_pricing_priority_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/GlobalTieredPricing/PricingRule/RuleSettings.php",
+                        "line": 95
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "tpt-global-rule",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/GlobalTieredPricing/CPT/GlobalTieredPricingCPT.php",
+                        "line": 335
+                    }
+                ]
+            },
+            {
+                "key": "tpt-quote-request",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Addons/RequestAQuote/CPT/QuoteRequestCPT.php",
+                        "line": 68
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "freemius/includes/class-fs-plugin-updater.php",
+                    "line": 1286
+                },
+                {
+                    "file": "freemius/includes/fs-essential-functions.php",
+                    "line": 335
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "uninstall_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "freemius/includes/class-freemius.php",
+                    "line": 1896
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 6354
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 6361
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 24874
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "freemius/includes/class-fs-lock.php",
+            "line": 57
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "freemius/includes/class-fs-lock.php",
+            "line": 77
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "freemius/includes/class-fs-plugin-updater.php",
+            "line": 819
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "freemius/includes/class-fs-plugin-updater.php",
+            "line": 851
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-debug-manager.php",
+            "line": 265
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-option-manager.php",
+            "line": 410
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-option-manager.php",
+            "line": 414
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "src/Addons/AdvancedQuantityOptions/DataProvider.php",
+            "line": 36
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->getMetaKey($role)",
+            "file": "src/Addons/CustomColumns/Columns/CustomDataColumn.php",
+            "line": 297
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "src/Addons/GlobalTieredPricing/GlobalPricingRule.php",
+            "line": 559
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "src/Addons/RequestAQuote/Models/QuoteRequest.php",
+            "line": 145
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "src/Addons/RequestAQuote/Models/QuoteRequest.php",
+            "line": 151
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "src/Addons/RoleBasedPricing/RoleBasedPricingRule.php",
+            "line": 200
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->getMetaKey($role)",
+            "file": "src/Addons/TierLabels/Admin/TierLabelsAdmin.php",
+            "line": 144
+        },
+        {
+            "function": "add_role",
+            "expression": "$roleKey",
+            "file": "src/Addons/Tools/API/ToolsEndpoints.php",
+            "line": 348
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "src/Addons/Tools/API/ToolsEndpoints.php",
+            "line": 372
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "src/Addons/UserBasedPricing/UserBasedPricingRule.php",
+            "line": 199
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->key",
+            "file": "src/Core/AdminNotifier.php",
+            "line": 59
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$fieldSlug",
+            "file": "src/Integrations/Plugins/WPAllImport.php",
+            "line": 79
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "eu-vat-for-woocommerce",
+        "name": "EU/UK VAT Validation Manager for WooCommerce",
+        "version": "4.7.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:20Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 34,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.167
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "alg_wc_eu_vat_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpfactory-wc-eu-vat.php",
+                        "line": 262
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$this->get_block_field_id()",
+            "file": "includes/blocks/class-wpfactory-wc-eu-vat-checkout-block.php",
+            "line": 129
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\\wpfactory_wc_eu_vat_get_field_id()",
+            "file": "includes/blocks/class-wpfactory-wc-eu-vat-checkout-block.php",
+            "line": 389
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$field_id",
+            "file": "includes/class-wpfactory-wc-eu-vat-display.php",
+            "line": 204
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$field_id_cd",
+            "file": "includes/class-wpfactory-wc-eu-vat-display.php",
+            "line": 209
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$field_id",
+            "file": "includes/class-wpfactory-wc-eu-vat-sign-up-form.php",
+            "line": 124
+        }
+    ]
+}

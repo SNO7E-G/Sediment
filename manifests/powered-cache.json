@@ -1,0 +1,278 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "powered-cache",
+        "name": "Powered Cache",
+        "version": "3.7.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:59Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 169,
+        "files_skipped": 0,
+        "write_calls_found": 38,
+        "verified": 0,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 38,
+        "resolution_rate": 0.0
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/admin/dashboard.php",
+            "line": 221
+        },
+        {
+            "function": "update_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/admin/dashboard.php",
+            "line": 223
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "\\PoweredCache\\Constants\\PURGE_CACHE_PLUGIN_NOTICE_TRANSIENT",
+            "file": "includes/admin/notices.php",
+            "line": 342
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\PoweredCache\\Constants\\PURGE_CACHE_PLUGIN_NOTICE_TRANSIENT",
+            "file": "includes/admin/notices.php",
+            "line": 347
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "\\PoweredCache\\Constants\\DB_CLEANUP_COUNT_CACHE_KEY",
+            "file": "includes/classes/Async/DatabaseOptimizer.php",
+            "line": 108
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\PoweredCache\\Constants\\DB_CLEANUP_COUNT_CACHE_KEY",
+            "file": "includes/classes/Async/DatabaseOptimizer.php",
+            "line": 110
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\PoweredCache\\Utils\\get_cache_dir()",
+            "file": "includes/classes/Config.php",
+            "line": 433
+        },
+        {
+            "function": "mkdir",
+            "expression": "$config_dir",
+            "file": "includes/classes/Config.php",
+            "line": 505
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "\\PoweredCache\\Constants\\PURGE_CACHE_CRON_NAME",
+            "file": "includes/classes/Cron.php",
+            "line": 118
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "\\PoweredCache\\Constants\\PURGE_CACHE_CRON_NAME",
+            "file": "includes/classes/Cron.php",
+            "line": 121
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "\\PoweredCache\\Constants\\PURGE_FO_CRON_NAME",
+            "file": "includes/classes/Cron.php",
+            "line": 140
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/classes/DevMode.php",
+            "line": 107
+        },
+        {
+            "function": "update_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/classes/DevMode.php",
+            "line": 109
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\PoweredCache\\Constants\\DB_VERSION_OPTION_NAME",
+            "file": "includes/classes/Install.php",
+            "line": 104
+        },
+        {
+            "function": "update_option",
+            "expression": "\\PoweredCache\\Constants\\DB_VERSION_OPTION_NAME",
+            "file": "includes/classes/Install.php",
+            "line": 120
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/classes/Install.php",
+            "line": 148
+        },
+        {
+            "function": "update_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/classes/Install.php",
+            "line": 150
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/classes/Install.php",
+            "line": 188
+        },
+        {
+            "function": "update_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/classes/Install.php",
+            "line": 190
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/classes/Install.php",
+            "line": 218
+        },
+        {
+            "function": "update_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/classes/Install.php",
+            "line": 220
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/classes/Install.php",
+            "line": 262
+        },
+        {
+            "function": "update_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/classes/Install.php",
+            "line": 264
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$lock_name",
+            "file": "includes/classes/Install.php",
+            "line": 303
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock_name",
+            "file": "includes/classes/Install.php",
+            "line": 306
+        },
+        {
+            "function": "update_option",
+            "expression": "\\PoweredCache\\Constants\\SETTING_OPTION",
+            "file": "includes/classes/Install.php",
+            "line": 410
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/classes/MetaBox.php",
+            "line": 442
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "\\PoweredCache\\Constants\\DEFERRED_PRELOAD_QUEUE_CRON_NAME",
+            "file": "includes/classes/Preloader.php",
+            "line": 253
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\untrailingslashit(\\PoweredCache\\Utils\\get_cache_dir())",
+            "file": "includes/dropins/page-cache.php",
+            "line": 287
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\PoweredCache\\Utils\\get_page_cache_dir()",
+            "file": "includes/dropins/page-cache.php",
+            "line": 296
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "includes/dropins/page-cache.php",
+            "line": 327
+        },
+        {
+            "function": "mkdir",
+            "expression": "POWERED_CACHE_FO_CACHE_DIR",
+            "file": "includes/file-optimizer.php",
+            "line": 85
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "includes/package/deliciousbrains/wp-background-processing/classes/wp-background-process.php",
+            "line": 171
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "includes/package/deliciousbrains/wp-background-processing/classes/wp-background-process.php",
+            "line": 190
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_status_key()",
+            "file": "includes/package/deliciousbrains/wp-background-processing/classes/wp-background-process.php",
+            "line": 228
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_status_key()",
+            "file": "includes/package/deliciousbrains/wp-background-processing/classes/wp-background-process.php",
+            "line": 254
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "includes/package/deliciousbrains/wp-background-processing/classes/wp-background-process.php",
+            "line": 463
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "includes/package/deliciousbrains/wp-background-processing/classes/wp-background-process.php",
+            "line": 817
+        }
+    ]
+}

@@ -1,0 +1,256 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "feed-them-social",
+        "name": "Feed Them Social - Social Media Feeds, Video, and Photo Galleries",
+        "version": "4.4.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:40Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 28,
+    "coverage": {
+        "files_scanned": 46,
+        "files_skipped": 0,
+        "write_calls_found": 26,
+        "verified": 11,
+        "resolved": 1,
+        "pattern": 2,
+        "dynamic": 12,
+        "resolution_rate": 0.462
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "fts_settings",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "fts_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ActivatePlugin.php",
+                        "line": 326
+                    },
+                    {
+                        "file": "admin/settings/SettingsFunctions.php",
+                        "line": 104
+                    },
+                    {
+                        "file": "admin/settings/SettingsFunctions.php",
+                        "line": 142
+                    },
+                    {
+                        "file": "admin/settings/SettingsFunctions.php",
+                        "line": 167
+                    },
+                    {
+                        "file": "admin/settings/SettingsPage.php",
+                        "line": 170
+                    }
+                ]
+            },
+            {
+                "key": "fts_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ActivatePlugin.php",
+                        "line": 138
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "fts_clear_cache_event",
+                "recurrence": "fts_cache_clear",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cron_jobs/CronJobs.php",
+                        "line": 171
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "fts_activated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ActivatePlugin.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "fts_p_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/FeedCache.php",
+                        "line": 190
+                    }
+                ]
+            },
+            {
+                "key": "fts_t_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/FeedCache.php",
+                        "line": 187
+                    }
+                ]
+            },
+            {
+                "key": "fts_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ActivatePlugin.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "updater/UpdaterCheckClass.php",
+                        "line": 250
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "fts_feed_options_array",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cpt/FeedOptionsImportExport.php",
+                        "line": 258
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "fts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cpt/FeedsCPT.php",
+                        "line": 355
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$review_option",
+            "file": "ActivatePlugin.php",
+            "line": 384
+        },
+        {
+            "function": "set_transient",
+            "expression": "$review_transient",
+            "file": "ActivatePlugin.php",
+            "line": 388
+        },
+        {
+            "function": "update_option",
+            "expression": "$review_option",
+            "file": "ActivatePlugin.php",
+            "line": 389
+        },
+        {
+            "function": "set_transient",
+            "expression": "$review_transient",
+            "file": "ActivatePlugin.php",
+            "line": 410
+        },
+        {
+            "function": "update_option",
+            "expression": "$review_option",
+            "file": "ActivatePlugin.php",
+            "line": 411
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$event_hook",
+            "file": "admin/cron_jobs/CronJobs.php",
+            "line": 196
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$array_option_name",
+            "file": "options/OptionsFunctions.php",
+            "line": 351
+        },
+        {
+            "function": "update_option",
+            "expression": "$array_option_name",
+            "file": "options/OptionsFunctions.php",
+            "line": 361
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "updater/UpdaterCheckClass.php",
+            "line": 240
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$cache_key",
+            "file": "updater/UpdaterCheckClass.php",
+            "line": 338
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "updater/UpdaterCheckClass.php",
+            "line": 566
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->updaterOptionsInfo['setting_option_name']",
+            "file": "updater/UpdaterCheckInit.php",
+            "line": 152
+        }
+    ]
+}

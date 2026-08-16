@@ -1,0 +1,256 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "exmage-wp-image-links",
+        "name": "EXMAGE - WordPress Image Links",
+        "version": "1.1.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:53Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 8,
+        "files_skipped": 0,
+        "write_calls_found": 26,
+        "verified": 10,
+        "resolved": 0,
+        "pattern": 10,
+        "dynamic": 6,
+        "resolution_rate": 0.385
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "villatheme_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/support.php",
+                        "line": 332
+                    },
+                    {
+                        "file": "includes/support.php",
+                        "line": 339
+                    },
+                    {
+                        "file": "includes/support.php",
+                        "line": 359
+                    }
+                ]
+            },
+            {
+                "key": "villatheme_hide_admin_toolbar",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/support.php",
+                        "line": 433
+                    }
+                ]
+            },
+            {
+                "key": "villatheme_hide_notices_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/support.php",
+                        "line": 449
+                    },
+                    {
+                        "file": "includes/support.php",
+                        "line": 455
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "villatheme_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/support.php",
+                        "line": 335
+                    },
+                    {
+                        "file": "includes/support.php",
+                        "line": 338
+                    },
+                    {
+                        "file": "includes/support.php",
+                        "line": 360
+                    }
+                ]
+            },
+            {
+                "key": "villatheme_ads",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/support.php",
+                        "line": 749
+                    }
+                ]
+            },
+            {
+                "key": "villatheme_call",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/support.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "villatheme_called",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/support.php",
+                        "line": 535
+                    }
+                ]
+            },
+            {
+                "key": "villatheme_hide_notices_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/support.php",
+                        "line": 451
+                    },
+                    {
+                        "file": "includes/support.php",
+                        "line": 457
+                    }
+                ]
+            },
+            {
+                "key": "villatheme_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/support.php",
+                        "line": 531
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_exmage_external_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "exmage-wp-image-links.php",
+                        "line": 167
+                    },
+                    {
+                        "file": "exmage-wp-image-links.php",
+                        "line": 894
+                    }
+                ]
+            },
+            {
+                "key": "_exmage_imported",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "exmage-wp-image-links.php",
+                        "line": 698
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attached_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "exmage-wp-image-links.php",
+                        "line": 623
+                    },
+                    {
+                        "file": "exmage-wp-image-links.php",
+                        "line": 697
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$this->action . '_complete'",
+            "file": "includes/exmage-background-process.php",
+            "line": 28
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->action . '_kill_process'",
+            "file": "includes/exmage-background-process.php",
+            "line": 66
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "includes/wp-background-process.php",
+            "line": 106
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "includes/wp-background-process.php",
+            "line": 122
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "includes/wp-background-process.php",
+            "line": 240
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "includes/wp-background-process.php",
+            "line": 463
+        }
+    ]
+}

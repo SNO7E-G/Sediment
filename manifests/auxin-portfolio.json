@@ -1,0 +1,137 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "auxin-portfolio",
+        "name": "Phlox Portfolio",
+        "version": "2.3.12",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:43Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 53,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 4,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.778
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "elementor_cpt_support",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/elements/elementor/class-auxpfo-elementor-elements.php",
+                        "line": 204
+                    },
+                    {
+                        "file": "includes/elements/elementor/class-auxpfo-elementor-elements.php",
+                        "line": 207
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "auxin_auxin-portfolio_version",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/admin-hooks.php",
+                        "line": 14
+                    }
+                ]
+            },
+            {
+                "key": "auxpfo_plugin_requirements_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "auxin-portfolio.php",
+                        "line": 93
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [
+            {
+                "key": "portfolio-cat",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/class-auxpfo-post-type-portfolio.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "portfolio-tag",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/class-auxpfo-post-type-portfolio.php",
+                        "line": 168
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/classes/class-auxin-plugin-requirements.php",
+                    "line": 188
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "register_post_type",
+            "expression": "$this->post_type",
+            "file": "includes/classes/class-auxpfo-post-type-portfolio.php",
+            "line": 91
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$tax_tag_name",
+            "file": "includes/classes/class-auxpfo-post-type-portfolio.php",
+            "line": 217
+        }
+    ]
+}

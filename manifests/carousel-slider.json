@@ -1,0 +1,270 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "carousel-slider",
+        "name": "Carousel Slider",
+        "version": "2.2.17",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 12,
+    "coverage": {
+        "files_scanned": 110,
+        "files_skipped": 0,
+        "write_calls_found": 32,
+        "verified": 19,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 13,
+        "resolution_rate": 0.594
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "carousel_slider_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Upgrader.php",
+                        "line": 124
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_carousel_slider_link_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/ImageCarousel/Module.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "_carousel_slider_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/MetaBox.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "includes/Helper.php",
+                        "line": 491
+                    }
+                ]
+            },
+            {
+                "key": "_content_slider",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/HeroCarousel/Ajax.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "modules/HeroCarousel/Ajax.php",
+                        "line": 123
+                    },
+                    {
+                        "file": "modules/HeroCarousel/Controller.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "modules/HeroCarousel/Controller.php",
+                        "line": 165
+                    },
+                    {
+                        "file": "modules/HeroCarousel/Module.php",
+                        "line": 76
+                    },
+                    {
+                        "file": "modules/HeroCarousel/Template.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "_content_slider_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/HeroCarousel/Controller.php",
+                        "line": 81
+                    },
+                    {
+                        "file": "modules/HeroCarousel/Controller.php",
+                        "line": 168
+                    },
+                    {
+                        "file": "modules/HeroCarousel/Module.php",
+                        "line": 102
+                    },
+                    {
+                        "file": "modules/HeroCarousel/Template.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "_images_urls",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/ImageCarousel/Admin.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "_slide_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Helper.php",
+                        "line": 489
+                    }
+                ]
+            },
+            {
+                "key": "_video_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/VideoCarousel/Module.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "modules/VideoCarousel/Module.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "_video_urls",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/VideoCarousel/Module.php",
+                        "line": 83
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "includes/Abstracts/SliderSetting.php",
+            "line": 446
+        },
+        {
+            "function": "register_post_type",
+            "expression": "CAROUSEL_SLIDER_POST_TYPE",
+            "file": "includes/Plugin.php",
+            "line": 219
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$setting['id']",
+            "file": "includes/REST/ApiController.php",
+            "line": 231
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name()",
+            "file": "includes/Supports/SettingApi/SettingApi.php",
+            "line": 212
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "modules/HeroCarousel/Template.php",
+            "line": 138
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "modules/ImageCarousel/Admin.php",
+            "line": 54
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "modules/ImageCarousel/Template.php",
+            "line": 66
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "modules/ImageCarousel/TemplateUrl.php",
+            "line": 74
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "modules/PostCarousel/Admin.php",
+            "line": 57
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "modules/PostCarousel/Template.php",
+            "line": 83
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "modules/ProductCarousel/Admin.php",
+            "line": 58
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "modules/ProductCarousel/Template.php",
+            "line": 93
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "modules/VideoCarousel/Template.php",
+            "line": 45
+        }
+    ]
+}

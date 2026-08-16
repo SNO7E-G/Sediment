@@ -1,0 +1,198 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "leadin",
+        "name": "HubSpot All-In-One Marketing - Forms, Popups, Live Chat",
+        "version": "11.3.70",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 46,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 2,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 15,
+        "resolution_rate": 0.25
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "leadin_update_proxy_mappings",
+                "recurrence": "proxy_maps_cache_ttl",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/class-proxy-mappings.php",
+                        "line": 135
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "leadin_access_token",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/modules/api/class-access-token-api-controller.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "leadin_onboarding",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/admin/class-links.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "leadin_redirect_after_activation",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/admin/class-leadinadmin.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "proxy_mappings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/class-proxy-mappings.php",
+                        "line": 93
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_user_meta",
+            "expression": "$key",
+            "file": "public/admin/class-connection.php",
+            "line": 69
+        },
+        {
+            "function": "update_option",
+            "expression": "self::INSTALL_OPTION",
+            "file": "public/admin/class-contentembedinstaller.php",
+            "line": 116
+        },
+        {
+            "function": "update_option",
+            "expression": "self::PORTAL_ID",
+            "file": "public/data/class-portal-options.php",
+            "line": 36
+        },
+        {
+            "function": "update_option",
+            "expression": "self::PORTAL_DOMAIN",
+            "file": "public/data/class-portal-options.php",
+            "line": 59
+        },
+        {
+            "function": "update_option",
+            "expression": "self::ACCOUNT_NAME",
+            "file": "public/data/class-portal-options.php",
+            "line": 82
+        },
+        {
+            "function": "update_option",
+            "expression": "self::HUBLET",
+            "file": "public/data/class-portal-options.php",
+            "line": 105
+        },
+        {
+            "function": "update_option",
+            "expression": "self::DISABLE_INTERNAL_TRACKING",
+            "file": "public/data/class-portal-options.php",
+            "line": 128
+        },
+        {
+            "function": "update_option",
+            "expression": "self::ACTIVATION_TIME",
+            "file": "public/data/class-portal-options.php",
+            "line": 149
+        },
+        {
+            "function": "update_option",
+            "expression": "self::REFRESH_TOKEN",
+            "file": "public/data/class-portal-options.php",
+            "line": 172
+        },
+        {
+            "function": "update_option",
+            "expression": "self::BUSINESS_UNIT_ID",
+            "file": "public/data/class-portal-options.php",
+            "line": 204
+        },
+        {
+            "function": "update_option",
+            "expression": "self::LAST_AUTHORIZE_TIME",
+            "file": "public/data/class-portal-options.php",
+            "line": 218
+        },
+        {
+            "function": "update_option",
+            "expression": "self::LAST_DEAUTHORIZE_TIME",
+            "file": "public/data/class-portal-options.php",
+            "line": 224
+        },
+        {
+            "function": "update_option",
+            "expression": "self::LAST_DISCONNECT_TIME",
+            "file": "public/data/class-portal-options.php",
+            "line": 231
+        },
+        {
+            "function": "update_option",
+            "expression": "self::PROXY_MAPPING_ENABLED",
+            "file": "public/data/class-portal-options.php",
+            "line": 276
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "public/data/class-user.php",
+            "line": 39
+        }
+    ]
+}

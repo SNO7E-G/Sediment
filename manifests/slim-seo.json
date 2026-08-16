@@ -1,0 +1,273 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "slim-seo",
+        "name": "Slim SEO",
+        "version": "4.9.11",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:46Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 40,
+    "coverage": {
+        "files_scanned": 151,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 20,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.964
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "slim_seo",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/NoCategoryBase.php",
+                        "line": 28
+                    },
+                    {
+                        "file": "src/NoCategoryBase.php",
+                        "line": 42
+                    },
+                    {
+                        "file": "src/Notification.php",
+                        "line": 27
+                    },
+                    {
+                        "file": "src/RobotsTxt/Settings.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "src/Settings/Settings.php",
+                        "line": 104
+                    },
+                    {
+                        "file": "src/Upgrade.php",
+                        "line": 33
+                    },
+                    {
+                        "file": "src/Upgrade.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "slim_seo_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Upgrade.php",
+                        "line": 16
+                    }
+                ]
+            },
+            {
+                "key": "ss_redirection_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Redirection/Database/Log404.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "ss_redirection_deleted_urls",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Redirection/DeletedURLNotification.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "ss_redirects",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Redirection/Database/Redirects.php",
+                        "line": 40
+                    },
+                    {
+                        "file": "src/Redirection/Database/Redirects.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "src/Redirection/Database/Redirects.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "src/Redirection/Database/Redirects.php",
+                        "line": 88
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "delete_404_logs",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Redirection/Loader.php",
+                        "line": 77
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_ss_old_permalink",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Redirection/Helper.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/ImagesAlt.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "slim_seo",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/MetaTags/BulkAI.php",
+                        "line": 380
+                    },
+                    {
+                        "file": "src/Migration/Sources/Source.php",
+                        "line": 22
+                    },
+                    {
+                        "file": "src/RestApi.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [
+            {
+                "key": "slim_seo",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/MetaTags/BulkAI.php",
+                        "line": 486
+                    },
+                    {
+                        "file": "src/Migration/Sources/Source.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "src/RestApi.php",
+                        "line": 48
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "sitemap-(post-type-[^/]+?)\\.xml$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Sitemaps/Manager.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "sitemap-(taxonomy-[^/]+?)\\.xml$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Sitemaps/Manager.php",
+                        "line": 30
+                    }
+                ]
+            },
+            {
+                "key": "sitemap-(user[^/]*?)\\.xml$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Sitemaps/Manager.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "sitemap\\.xml$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Sitemaps/Manager.php",
+                        "line": 39
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql_query",
+            "file": "src/Redirection/Database/Log404.php",
+            "line": 46
+        }
+    ]
+}

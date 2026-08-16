@@ -1,0 +1,1954 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "featured-image-from-url",
+        "name": "Featured Image from URL (FIFU)",
+        "version": "6.0.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:41Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 238,
+        "files_skipped": 0,
+        "write_calls_found": 323,
+        "verified": 80,
+        "resolved": 205,
+        "pattern": 2,
+        "dynamic": 36,
+        "resolution_rate": 0.882
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "fifu_author",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compat/class-fifu-options-utils.php",
+                        "line": 29
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-options-utils.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "fifu_auto_category",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 721
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 724
+                    }
+                ]
+            },
+            {
+                "key": "fifu_buy",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 734
+                    }
+                ]
+            },
+            {
+                "key": "fifu_cdn_content",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 534
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 537
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_cloud_delete_auto",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_cloud_delete_auto_code",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/integrations/cloud/class-fifu-cloud-license-service.php",
+                        "line": 341
+                    }
+                ]
+            },
+            {
+                "key": "fifu_cloud_hotlink",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_cloud_upload_auto",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_cloud_upload_auto_code",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/integrations/cloud/class-fifu-cloud-license-service.php",
+                        "line": 287
+                    }
+                ]
+            },
+            {
+                "key": "fifu_data_clean",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 499
+                    },
+                    {
+                        "file": "includes/api/class-fifu-rest-migration-controller.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_db2_backfill_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 443
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-tick-rest-controller.php",
+                        "line": 285
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-tick-rest-controller.php",
+                        "line": 412
+                    }
+                ]
+            },
+            {
+                "key": "fifu_db2_orphan_gc_alt_cursor",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/db2/runtime/class-fifu-db2-orphan-gc-service.php",
+                        "line": 247
+                    },
+                    {
+                        "file": "admin/db2/runtime/class-fifu-db2-orphan-gc-service.php",
+                        "line": 259
+                    }
+                ]
+            },
+            {
+                "key": "fifu_db2_orphan_gc_url_cursor",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/db2/runtime/class-fifu-db2-orphan-gc-service.php",
+                        "line": 215
+                    },
+                    {
+                        "file": "admin/db2/runtime/class-fifu-db2-orphan-gc-service.php",
+                        "line": 227
+                    }
+                ]
+            },
+            {
+                "key": "fifu_debug",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_default_attach_id",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 271
+                    },
+                    {
+                        "file": "admin/menu/class-fifu-admin-menu.php",
+                        "line": 197
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-default-image-service.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "fifu_default_cpt",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 298
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_default_url",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 288
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_defined_size_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 624
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-image-size-service.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "fifu_enable_default_url",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 259
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 280
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_fake",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 482
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 486
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-media-maintenance-service.php",
+                        "line": 25
+                    }
+                ]
+            },
+            {
+                "key": "fifu_fake_stop",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 480
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 485
+                    },
+                    {
+                        "file": "includes/api/class-fifu-rest-migration-controller.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "includes/api/class-fifu-rest-migration-controller.php",
+                        "line": 59
+                    }
+                ]
+            },
+            {
+                "key": "fifu_first_activation",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "featured-image-from-url.php",
+                        "line": 349
+                    }
+                ]
+            },
+            {
+                "key": "fifu_get_first",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 120
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 123
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_hide",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 237
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 240
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_hide_format",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_hide_type",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 247
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_html_cpt",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_installed_time",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/review/class-fifu-review-notice.php",
+                        "line": 98
+                    },
+                    {
+                        "file": "featured-image-from-url.php",
+                        "line": 356
+                    }
+                ]
+            },
+            {
+                "key": "fifu_migration_error_count",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 433
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 457
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-tick-rest-controller.php",
+                        "line": 275
+                    }
+                ]
+            },
+            {
+                "key": "fifu_migration_last_error",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 432
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 454
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-tick-rest-controller.php",
+                        "line": 274
+                    }
+                ]
+            },
+            {
+                "key": "fifu_migration_last_run",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 442
+                    }
+                ]
+            },
+            {
+                "key": "fifu_migration_last_tick_attempt",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 247
+                    }
+                ]
+            },
+            {
+                "key": "fifu_migration_multisite_current_blog_id",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "fifu_migration_multisite_last_sweep_ts",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "fifu_migration_multisite_next_offset",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 102
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "fifu_migration_multisite_offset",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 41
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 59
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 70
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "fifu_migration_paused_until",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 434
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 459
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-tick-rest-controller.php",
+                        "line": 257
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-tick-rest-controller.php",
+                        "line": 276
+                    },
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-tick-rest-controller.php",
+                        "line": 284
+                    }
+                ]
+            },
+            {
+                "key": "fifu_migration_token",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 618
+                    }
+                ]
+            },
+            {
+                "key": "fifu_ovw_first",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_pcontent_add",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 208
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 211
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_pcontent_remove",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 220
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 223
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_pcontent_types",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 230
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_photon",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 552
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 555
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_proxy_auth",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/integrations/cloud/class-fifu-cloud-license-service.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "fifu_reset",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/menu/class-fifu-admin-menu.php",
+                        "line": 208
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_review_done",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/review/class-fifu-review-notice.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "fifu_review_snooze_until",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/review/class-fifu-review-notice.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "fifu_run_delete_all",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-fifu-rest-migration-controller.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_run_delete_all_time",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 354
+                    }
+                ]
+            },
+            {
+                "key": "fifu_schema_migration_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "featured-image-from-url.php",
+                        "line": 554
+                    },
+                    {
+                        "file": "featured-image-from-url.php",
+                        "line": 576
+                    }
+                ]
+            },
+            {
+                "key": "fifu_skip",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_square_desktop",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 576
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_square_mobile",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 581
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_su_email",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compat/class-fifu-license-crypto.php",
+                        "line": 25
+                    }
+                ]
+            },
+            {
+                "key": "fifu_su_privkey",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compat/class-fifu-license-crypto.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "fifu_wc_lbox",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 697
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 700
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "fifu_wc_zoom",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 709
+                    },
+                    {
+                        "file": "admin/cli/class-fifu-cli-command.php",
+                        "line": 712
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "includes/compat/class-fifu-settings-manager.php",
+                        "line": 493
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "fifu_db2_orphan_gc_cron",
+                "recurrence": "fifu_every_fifteen_minutes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/db2/runtime/class-fifu-db2-orphan-gc-service.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "fifu_migration_cron",
+                "recurrence": "fifu_every_minute",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 112
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "fifu_db2_orphan_gc_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/db2/runtime/class-fifu-db2-orphan-gc-service.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "fifu_migration_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/migration/runtime/class-fifu-migration-auto-runner.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "fifu_redirect_to_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "featured-image-from-url.php",
+                        "line": 333
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/db2/runtime/class-fifu-db2-speed-up-service.php",
+                        "line": 326
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-default-image-service.php",
+                        "line": 177
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-post-attachment-sync-service.php",
+                        "line": 178
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-post-attachment-sync-service.php",
+                        "line": 188
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-post-attachment-sync-service.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attached_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compat/class-fifu-attachment-legacy-fixer.php",
+                        "line": 25
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-attachment-update-service.php",
+                        "line": 189
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-post-attachment-sync-service.php",
+                        "line": 30
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/meta/class-fifu-attachment-update-service.php",
+                        "line": 163
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-post-attachment-sync-service.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "fifu_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/integrations/plugins/elementor/class-fifu-elementor-integration.php",
+                        "line": 395
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [
+            {
+                "key": "product_attribute_image",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/meta/class-fifu-post-attachment-sync-service.php",
+                        "line": 438
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-post-attachment-sync-service.php",
+                        "line": 451
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-post-attachment-sync-service.php",
+                        "line": 461
+                    }
+                ]
+            },
+            {
+                "key": "thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/db2/runtime/class-fifu-db2-speed-up-service.php",
+                        "line": 320
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-post-attachment-sync-service.php",
+                        "line": 404
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-post-attachment-sync-service.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-post-attachment-sync-service.php",
+                        "line": 449
+                    },
+                    {
+                        "file": "includes/meta/class-fifu-post-attachment-sync-service.php",
+                        "line": 459
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_term_meta",
+            "expression": "$meta_key",
+            "file": "admin/db2/repository/class-fifu-db2-speed-up-repository.php",
+            "line": 1705
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "admin/db2/repository/class-fifu-db2-speed-up-repository.php",
+            "line": 1707
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "admin/db2/repository/class-fifu-db2-speed-up-repository.php",
+            "line": 1834
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "admin/db2/repository/class-fifu-db2-speed-up-repository.php",
+            "line": 2058
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "admin/migration/core/class-fifu-migration-state.php",
+            "line": 60
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "admin/migration/core/class-fifu-migration-state.php",
+            "line": 73
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$network_option",
+            "file": "admin/migration/runtime/class-fifu-migration-multisite-runner.php",
+            "line": 164
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\Fifu_Migration_Auto_Runner::get_network_option_name()",
+            "file": "admin/migration/runtime/class-fifu-migration-tick-rest-controller.php",
+            "line": 427
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "admin/migration/runtime/class-fifu-migration-tick-rest-controller.php",
+            "line": 630
+        },
+        {
+            "function": "update_option",
+            "expression": "\\fifu_db2_key_seed_version_option_name()",
+            "file": "featured-image-from-url.php",
+            "line": 615
+        },
+        {
+            "function": "update_option",
+            "expression": "\\fifu_db2_key_seed_version_option_name()",
+            "file": "featured-image-from-url.php",
+            "line": 628
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\fifu_db2_key_seed_network_version_option_name()",
+            "file": "featured-image-from-url.php",
+            "line": 663
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\fifu_schema_migration_network_version_option_name()",
+            "file": "featured-image-from-url.php",
+            "line": 701
+        },
+        {
+            "function": "update_option",
+            "expression": "\\fifu_schema_migration_runtime_upgrade_attempted_version_option_name()",
+            "file": "featured-image-from-url.php",
+            "line": 755
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\fifu_db2_key_seed_network_version_option_name()",
+            "file": "featured-image-from-url.php",
+            "line": 824
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\fifu_schema_migration_network_runtime_upgrade_attempted_version_option_name()",
+            "file": "featured-image-from-url.php",
+            "line": 829
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\fifu_db2_key_seed_network_version_option_name()",
+            "file": "featured-image-from-url.php",
+            "line": 1099
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\fifu_schema_migration_network_version_option_name()",
+            "file": "featured-image-from-url.php",
+            "line": 1106
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "includes/compat/class-fifu-file-logger.php",
+            "line": 114
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/compat/class-fifu-settings-manager.php",
+            "line": 239
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/compat/class-fifu-settings-manager.php",
+            "line": 241
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/compat/class-fifu-settings-manager.php",
+            "line": 243
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/compat/class-fifu-settings-manager.php",
+            "line": 245
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/compat/class-fifu-settings-manager.php",
+            "line": 247
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/compat/class-fifu-settings-manager.php",
+            "line": 249
+        },
+        {
+            "function": "add_option",
+            "expression": "$key",
+            "file": "includes/compat/class-fifu-transient-manager.php",
+            "line": 179
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/compat/class-fifu-transient-manager.php",
+            "line": 182
+        },
+        {
+            "function": "add_option",
+            "expression": "$key",
+            "file": "includes/compat/class-fifu-transient-manager.php",
+            "line": 198
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/compat/class-fifu-transient-manager.php",
+            "line": 201
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook",
+            "file": "includes/integrations/cloud/class-fifu-cloud-cron-service.php",
+            "line": 144
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field",
+            "file": "includes/meta/class-fifu-post-meta-updater.php",
+            "line": 115
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field",
+            "file": "includes/meta/class-fifu-post-meta-updater.php",
+            "line": 163
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/meta/class-fifu-sent-bridge.php",
+            "line": 61
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$meta_key",
+            "file": "includes/meta/class-fifu-sent-bridge.php",
+            "line": 93
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$field",
+            "file": "includes/meta/class-fifu-term-meta-updater.php",
+            "line": 68
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/url/cdn/class-fifu-image-size-usage-tracker.php",
+            "line": 121
+        }
+    ]
+}

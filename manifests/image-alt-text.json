@@ -1,0 +1,150 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "image-alt-text",
+        "name": "Image Alt Text",
+        "version": "4.1.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:20Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 64,
+    "coverage": {
+        "files_scanned": 19,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 12,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "iat_install_date",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "image-alt-text.php",
+                        "line": 30
+                    },
+                    {
+                        "file": "includes/admin/class-iat-review-notice.php",
+                        "line": 30
+                    },
+                    {
+                        "file": "includes/admin/class-iat-review-notice.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "iat_review_dismissed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-iat-review-notice.php",
+                        "line": 135
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "iat_refresh_reviews_cache",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-iat-reviews.php",
+                        "line": 394
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "iat_review_remind_later",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-iat-review-notice.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "iat_wordpress_reviews",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-iat-reviews.php",
+                        "line": 406
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-iat-bulk-action.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "includes/admin/class-iat-bulk-action.php",
+                        "line": 271
+                    },
+                    {
+                        "file": "includes/admin/class-iat-row-action.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "includes/admin/class-iat-row-action.php",
+                        "line": 119
+                    },
+                    {
+                        "file": "includes/admin/class-iat-row-action.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "includes/admin/class-iat-row-action.php",
+                        "line": 186
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

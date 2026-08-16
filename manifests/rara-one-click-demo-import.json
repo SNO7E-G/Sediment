@@ -1,0 +1,122 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "rara-one-click-demo-import",
+        "name": "RARA One Click Demo Import",
+        "version": "1.3.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 16,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 6,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "RRDI_importer_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-rrdi-main.php",
+                        "line": 756
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_menu_item_object_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/extras/class-wxr-importer.php",
+                        "line": 999
+                    },
+                    {
+                        "file": "includes/extras/class-wxr-importer.php",
+                        "line": 1925
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/extras/class-wxr-importer.php",
+                        "line": 2036
+                    }
+                ]
+            },
+            {
+                "key": "_wxr_import_menu_item",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/extras/class-wxr-importer.php",
+                        "line": 963
+                    },
+                    {
+                        "file": "includes/extras/class-wxr-importer.php",
+                        "line": 972
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$upload_dir",
+            "file": "includes/class-rrdi-init.php",
+            "line": 34
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/extras/class-wxr-importer.php",
+            "line": 1156
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "\\wp_slash($meta_item['key'])",
+            "file": "includes/extras/class-wxr-importer.php",
+            "line": 1350
+        }
+    ]
+}

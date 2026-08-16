@@ -1,0 +1,215 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "revolut-gateway-for-woocommerce",
+        "name": "Revolut Gateway for WooCommerce",
+        "version": "4.22.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:17Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 66,
+        "files_skipped": 0,
+        "write_calls_found": 26,
+        "verified": 5,
+        "resolved": 1,
+        "pattern": 10,
+        "dynamic": 10,
+        "resolution_rate": 0.231
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "WC_GATEWAY_REVOLUT_VERSION",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "gateway-revolut.php",
+                        "line": 262
+                    }
+                ]
+            },
+            {
+                "key": "revolut_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/class-wc-revolut-settings-api.php",
+                        "line": 652
+                    },
+                    {
+                        "file": "includes/settings/class-wc-revolut-settings-api.php",
+                        "line": 665
+                    },
+                    {
+                        "file": "includes/traits/wc-revolut-helper-trait.php",
+                        "line": 2133
+                    },
+                    {
+                        "file": "includes/traits/wc-revolut-helper-trait.php",
+                        "line": 2138
+                    },
+                    {
+                        "file": "src/Presentation/PostInstallSetupResource.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "src/Presentation/PostInstallSetupResource.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "revolut_pay_synchronous_webhook_domain_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/class-wc-revolut-settings-api.php",
+                        "line": 666
+                    },
+                    {
+                        "file": "includes/settings/class-wc-revolut-settings-api.php",
+                        "line": 667
+                    },
+                    {
+                        "file": "src/Presentation/PostInstallSetupResource.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "src/Presentation/PostInstallSetupResource.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_revolut_payment_request_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-revolut-apple-pay-onboarding.php",
+                        "line": 276
+                    },
+                    {
+                        "file": "includes/class-wc-revolut-apple-pay-onboarding.php",
+                        "line": 305
+                    },
+                    {
+                        "file": "includes/class-wc-revolut-apple-pay-onboarding.php",
+                        "line": 318
+                    },
+                    {
+                        "file": "includes/class-wc-revolut-payment-ajax-controller.php",
+                        "line": 198
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "revolut_update_manager_meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/RevolutUpdatePluginAction.php",
+                        "line": 119
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$orders_table_sql",
+            "file": "gateway-revolut.php",
+            "line": 257
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$temp_session_table_sql",
+            "file": "gateway-revolut.php",
+            "line": 258
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$customers_table_sql",
+            "file": "gateway-revolut.php",
+            "line": 259
+        },
+        {
+            "function": "mkdir",
+            "expression": "$this->onboarding_file_dir",
+            "file": "includes/class-wc-revolut-apple-pay-onboarding.php",
+            "line": 354
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/gateways/class-wc-gateway-revolut-pay-by-bank.php",
+            "line": 208
+        },
+        {
+            "function": "update_option",
+            "expression": "$mode . '_revolut_webhook_domain'",
+            "file": "includes/settings/class-wc-revolut-settings-api.php",
+            "line": 623
+        },
+        {
+            "function": "update_option",
+            "expression": "$mode . '_revolut_webhook_domain_signing_secret'",
+            "file": "includes/settings/class-wc-revolut-settings-api.php",
+            "line": 624
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->config_provider->getConfig()->getMode()}_revolut_merchant_public_key\"",
+            "file": "includes/traits/wc-revolut-helper-trait.php",
+            "line": 1892
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "src/Infrastructure/FileSystemAdapter.php",
+            "line": 31
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Infrastructure/OptionRepository.php",
+            "line": 124
+        }
+    ]
+}

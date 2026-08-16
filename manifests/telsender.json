@@ -1,0 +1,111 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "telsender",
+        "name": "TelSender - Wp to telegram  СF 7, Ninja forms, Events, Wpforms, Wooccommerce",
+        "version": "1.14.15",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 18,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 5,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "telsender_wc_ids",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "clasess/TelsenderCore.php",
+                        "line": 338
+                    },
+                    {
+                        "file": "clasess/TelsenderCore.php",
+                        "line": 373
+                    }
+                ]
+            },
+            {
+                "key": "ts__globalSetind",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "clasess/TelsenderCore.php",
+                        "line": 436
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "telsIsm",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "clasess/TelsenderCore.php",
+                        "line": 284
+                    },
+                    {
+                        "file": "clasess/TelsenderCore.php",
+                        "line": 286
+                    },
+                    {
+                        "file": "clasess/TelsenderCore.php",
+                        "line": 360
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "self::$logNameOption",
+            "file": "clasess/log.php",
+            "line": 51
+        },
+        {
+            "function": "mkdir",
+            "expression": "$upload_dir",
+            "file": "clasess/log.php",
+            "line": 65
+        }
+    ]
+}

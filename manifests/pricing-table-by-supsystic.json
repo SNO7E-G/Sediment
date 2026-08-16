@@ -1,0 +1,169 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "pricing-table-by-supsystic",
+        "name": "Pricing Table by Supsystic",
+        "version": "1.11.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:09Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 42,
+    "coverage": {
+        "files_scanned": 256,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 0,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pts_full_installed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/modInstaller.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "pts_opts_data",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/options/models/options.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "pts_plug_was_used",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 170
+                    }
+                ]
+            },
+            {
+                "key": "pts_plugin_activation_errors",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/frame.php",
+                        "line": 456
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}pts_db_installed",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}pts_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 165
+                    },
+                    {
+                        "file": "classes/installer.php",
+                        "line": 198
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "classes/Twig/Cache/Filesystem.php",
+            "line": 59
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/installer.php",
+            "line": 30
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbPts::prepareQuery(\"CREATE TABLE IF NOT EXISTS `@__modules_type` (\\r\\n\\t\\t\\t  `id` smallint(3) NOT NULL AUTO_INCREMENT,\\r\\n\\t\\t\\t  `label` varchar(32) NOT NULL,\\r\\n\\t\\t\\t  PRIMARY KEY (`id`)\\r\\n\\t\\t\\t) AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 120
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbPts::prepareQuery(\"CREATE TABLE IF NOT EXISTS `@__tables` (\\r\\n\\t\\t\\t\\t`id` INT(11) NOT NULL AUTO_INCREMENT,\\r\\n\\t\\t\\t\\t`unique_id` varchar(8) NOT NULL,\\r\\n\\t\\t\\t\\t`label` varchar(128) NOT NULL,\\r\\n\\t\\t\\t\\t`original_id` INT(11) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t\\t`params` MEDIUMTEXT NOT NULL,\\r\\n\\t\\t\\t\\t`html` MEDIUMTEXT NOT NULL,\\r\\n\\t\\t\\t\\t`css` TEXT NOT NULL,\\r\\n\\t\\t\\t\\t`img` varchar(64) DEFAULT NULL,\\r\\n\\t\\t\\t\\t`sort_order` MEDIUMINT(5) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t\\t`is_base` TINYINT(1) NOT NULL DEFAULT '1',\\r\\n\\t\\t\\t\\t`is_pro`  TINYINT(1) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t\\t`date_created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\\r\\n\\t\\t\\t\\tPRIMARY KEY (`id`)\\r\\n\\t\\t\\t) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 139
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\PTS_MODULES_DIR . $code",
+            "file": "classes/modInstaller.php",
+            "line": 71
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "classes/utils.php",
+            "line": 29
+        },
+        {
+            "function": "mkdir",
+            "expression": "$destination",
+            "file": "classes/utils.php",
+            "line": 54
+        }
+    ]
+}

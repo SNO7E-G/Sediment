@@ -1,0 +1,147 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "text-typing",
+        "name": "Text Typing - Block",
+        "version": "2.1.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 47,
+    "coverage": {
+        "files_scanned": 6,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 7,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.846
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "ttb_delete_data_on_uninstall",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "fs_lite_accounts",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius-lite/inc/FreemiusAdmin.php",
+                        "line": 110
+                    },
+                    {
+                        "file": "freemius-lite/inc/FreemiusAdmin.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "freemius-lite/inc/FreemiusAdmin.php",
+                        "line": 246
+                    },
+                    {
+                        "file": "freemius-lite/inc/FreemiusAdmin.php",
+                        "line": 285
+                    },
+                    {
+                        "file": "freemius-lite/inc/FreemiusAdmin.php",
+                        "line": 360
+                    },
+                    {
+                        "file": "freemius-lite/inc/FreemiusAdmin.php",
+                        "line": 509
+                    }
+                ]
+            },
+            {
+                "key": "fs_lite_unique_id",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius-lite/inc/FreemiusAdmin.php",
+                        "line": 485
+                    },
+                    {
+                        "file": "freemius-lite/inc/FreemiusAdmin.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "ttbDisabledBlocks",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "ttb_delete_data_on_uninstall",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 177
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "text-typing",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 139
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "\"{$this->prefix}-redirect\"",
+            "file": "freemius-lite/inc/FreemiusAdmin.php",
+            "line": 358
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->prefix}-redirect\"",
+            "file": "freemius-lite/inc/FreemiusAdmin.php",
+            "line": 399
+        }
+    ]
+}

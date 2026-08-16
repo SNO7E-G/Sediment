@@ -1,0 +1,395 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-document-revisions",
+        "name": "WP Document Revisions",
+        "version": "5.4.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:55Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 32,
+        "files_skipped": 0,
+        "write_calls_found": 38,
+        "verified": 21,
+        "resolved": 14,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.921
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "document_link_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/trait-wp-document-revisions-admin-settings.php",
+                        "line": 606
+                    }
+                ]
+            },
+            {
+                "key": "document_slug",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/trait-wp-document-revisions-admin-settings.php",
+                        "line": 578
+                    }
+                ]
+            },
+            {
+                "key": "document_upload_directory",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/trait-wp-document-revisions-admin-settings.php",
+                        "line": 547
+                    }
+                ]
+            },
+            {
+                "key": "wpdr_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions.php",
+                        "line": 259
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpdr_extract_text_async",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-text-extractor-scheduler.php",
+                        "line": 123
+                    }
+                ]
+            },
+            {
+                "key": "wpdr_generate_ai_summary",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-ai-summary.php",
+                        "line": 214
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "settings_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/trait-wp-document-revisions-admin-settings.php",
+                        "line": 543
+                    },
+                    {
+                        "file": "includes/trait-wp-document-revisions-admin-settings.php",
+                        "line": 574
+                    },
+                    {
+                        "file": "includes/trait-wp-document-revisions-admin-settings.php",
+                        "line": 602
+                    }
+                ]
+            },
+            {
+                "key": "wpdr_activation_issue",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions.php",
+                        "line": 262
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_document_attachment_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-validate-structure.php",
+                        "line": 306
+                    },
+                    {
+                        "file": "includes/class-wp-document-revisions-validate-structure.php",
+                        "line": 337
+                    },
+                    {
+                        "file": "includes/trait-wp-document-revisions-admin-editor.php",
+                        "line": 367
+                    },
+                    {
+                        "file": "includes/trait-wp-document-revisions-admin-editor.php",
+                        "line": 516
+                    },
+                    {
+                        "file": "includes/trait-wp-document-revisions-file-handler.php",
+                        "line": 640
+                    },
+                    {
+                        "file": "includes/trait-wp-document-revisions-file-handler.php",
+                        "line": 648
+                    },
+                    {
+                        "file": "includes/trait-wp-document-revisions-file-handler.php",
+                        "line": 736
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attached_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-validate-structure.php",
+                        "line": 373
+                    },
+                    {
+                        "file": "includes/class-wp-document-revisions-validate-structure.php",
+                        "line": 503
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_metadata",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/trait-wp-document-revisions-file-handler.php",
+                        "line": 1046
+                    },
+                    {
+                        "file": "includes/trait-wp-document-revisions-file-handler.php",
+                        "line": 1107
+                    }
+                ]
+            },
+            {
+                "key": "_wpdr_ai_summary_generated_at",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-ai-summary.php",
+                        "line": 501
+                    }
+                ]
+            },
+            {
+                "key": "_wpdr_ai_summary_input_hash",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-ai-summary.php",
+                        "line": 500
+                    }
+                ]
+            },
+            {
+                "key": "_wpdr_ai_summary_kind",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-ai-summary.php",
+                        "line": 499
+                    }
+                ]
+            },
+            {
+                "key": "_wpdr_ai_summary_reviewed_at",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-ai-summary.php",
+                        "line": 526
+                    }
+                ]
+            },
+            {
+                "key": "_wpdr_ai_summary_reviewed_by",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-ai-summary.php",
+                        "line": 525
+                    }
+                ]
+            },
+            {
+                "key": "_wpdr_ai_summary_text",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-ai-summary.php",
+                        "line": 498
+                    }
+                ]
+            },
+            {
+                "key": "_wpdr_extracted_text",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-text-extractor-cache.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "_wpdr_extracted_text_extractor",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-text-extractor-cache.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "_wpdr_extracted_text_hash",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-text-extractor-cache.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "_wpdr_extraction_failed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-text-extractor-cache.php",
+                        "line": 238
+                    }
+                ]
+            },
+            {
+                "key": "_wpdr_no_ai_prefill",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-text-extraction-opt-out.php",
+                        "line": 311
+                    }
+                ]
+            },
+            {
+                "key": "_wpdr_no_text_extraction",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions-text-extraction-opt-out.php",
+                        "line": 293
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "document",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions.php",
+                        "line": 797
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "workflow_state",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-document-revisions.php",
+                        "line": 867
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$file_dir",
+            "file": "includes/class-wp-document-revisions-validate-structure.php",
+            "line": 427
+        },
+        {
+            "function": "add_cap",
+            "expression": "$role",
+            "file": "includes/class-wp-document-revisions.php",
+            "line": 1072
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "self::REVIEW_DISMISSED_META",
+            "file": "includes/trait-wp-document-revisions-admin-list.php",
+            "line": 199
+        }
+    ]
+}

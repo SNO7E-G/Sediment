@@ -1,0 +1,248 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "indexnow",
+        "name": "IndexNow",
+        "version": "1.0.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:46Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 64,
+    "coverage": {
+        "files_scanned": 13,
+        "files_skipped": 0,
+        "write_calls_found": 30,
+        "verified": 7,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 22,
+        "resolution_rate": 0.267
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "indexnow-admin_api_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/utils/class-indexnow-url-submission-admin-utils.php",
+                        "line": 119
+                    },
+                    {
+                        "file": "includes/class-indexnow-url-submission-activator.php",
+                        "line": 27
+                    }
+                ]
+            },
+            {
+                "key": "indexnow-is_valid_api_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/utils/class-indexnow-url-submission-admin-utils.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "admin/utils/class-indexnow-url-submission-admin-utils.php",
+                        "line": 120
+                    },
+                    {
+                        "file": "includes/class-indexnow-url-submission-activator.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "indexnow-retry_cron_last_run",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-indexnow-url-submission-admin.php",
+                        "line": 480
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "indexnow_process_retry_queue",
+                "recurrence": "every_minute",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-indexnow-url-submission-admin.php",
+                        "line": 400
+                    },
+                    {
+                        "file": "includes/class-indexnow-url-submission-activator.php",
+                        "line": 31
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'failed_count'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 251
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'passed_count'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 258
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'failed_count'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 267
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'failed_count'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 391
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'passed_count'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 408
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'admin_api_key'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 480
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'is_valid_api_key'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 481
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'auto_submission_enabled'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 482
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'admin_api_key'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 497
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'is_valid_api_key'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 499
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'auto_submission_enabled'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 500
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'auto_submission_enabled'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 515
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'auto_submission_enabled'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 533
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'excluded_paths'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 571
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'failed_count'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 628
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'passed_count'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 629
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'admin_bwt_site_auth_key'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 655
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'admin_bwt_site_auth_timestamp'",
+            "file": "admin/utils/class-indexnow-url-submission-admin-routes.php",
+            "line": 664
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "admin/utils/class-indexnow-url-submission-admin-utils.php",
+            "line": 357
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-indexnow-url-submission-activator.php",
+            "line": 60
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-indexnow-url-submission-activator.php",
+            "line": 81
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-indexnow-url-submission-activator.php",
+            "line": 109
+        }
+    ]
+}

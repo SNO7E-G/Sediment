@@ -1,0 +1,168 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "rabbit-loader",
+        "name": "RabbitLoader",
+        "version": "3.0.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 18,
+    "coverage": {
+        "files_scanned": 37,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 8,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.615
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gd_system_last_cache_flush",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/core/integrations.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "rabbit_loader_user_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/core/core.php",
+                        "line": 406
+                    }
+                ]
+            },
+            {
+                "key": "rabbit_loader_wp_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/core/core.php",
+                        "line": 449
+                    }
+                ]
+            },
+            {
+                "key": "rabbitloader_cdn_prefix",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin.php",
+                        "line": 354
+                    },
+                    {
+                        "file": "inc/tab_settings.php",
+                        "line": 59
+                    }
+                ]
+            },
+            {
+                "key": "rabbitloader_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "rabbit-loader.php",
+                        "line": 82
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "rabbitloader_knowlegebase_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/tab_help.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "rabbitloader_trans_overview_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/tab_init.php",
+                        "line": 237
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$rootDir",
+            "file": "inc/RabbitLoader/SDK/Cache.php",
+            "line": 43
+        },
+        {
+            "function": "mkdir",
+            "expression": "$rootDir . self::TTL_LONG",
+            "file": "inc/RabbitLoader/SDK/Cache.php",
+            "line": 49
+        },
+        {
+            "function": "mkdir",
+            "expression": "$rootDir . self::TTL_SHORT",
+            "file": "inc/RabbitLoader/SDK/Cache.php",
+            "line": 55
+        },
+        {
+            "function": "mkdir",
+            "expression": "$cache_dir",
+            "file": "inc/core/core.php",
+            "line": 266
+        },
+        {
+            "function": "mkdir",
+            "expression": "$cache_dir",
+            "file": "inc/core/util.php",
+            "line": 32
+        }
+    ]
+}

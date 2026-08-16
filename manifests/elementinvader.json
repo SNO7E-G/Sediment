@@ -1,0 +1,186 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "elementinvader",
+        "name": "Element Invader - Template Kits for Elementor",
+        "version": "1.2.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 43,
+    "coverage": {
+        "files_scanned": 33,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 10,
+        "resolved": 0,
+        "pattern": 3,
+        "dynamic": 1,
+        "resolution_rate": 0.714
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "elementinvader_api_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/controllers/Elementinvader.php",
+                        "line": 456
+                    }
+                ]
+            },
+            {
+                "key": "elementinvader_reviews_installed_on",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-elementinvader-review-request.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "eli_export_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/controllers/Elementinvader.php",
+                        "line": 557
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_elementor_edit_mode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/helpers/Basic.php",
+                        "line": 449
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_elementinvader_reviews_already_did",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-elementinvader-review-request.php",
+                        "line": 232
+                    }
+                ]
+            },
+            {
+                "key": "_elementinvader_reviews_dismissed_triggers",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-elementinvader-review-request.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "_elementinvader_reviews_last_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-elementinvader-review-request.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "includes/class-elementinvader-review-request.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [
+            {
+                "key": "{content_dir}/uploads/elementinvader/",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/controllers/Elementinvader.php",
+                        "line": 580
+                    },
+                    {
+                        "file": "application/helpers/Basic.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "{content_dir}/uploads/elementinvader/export_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/controllers/Elementinvader.php",
+                        "line": 583
+                    },
+                    {
+                        "file": "application/controllers/Elementinvader.php",
+                        "line": 681
+                    }
+                ]
+            }
+        ],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "application/helpers/Basic.php",
+                    "line": 652
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "\\Elementor\\Core\\Kits\\Manager::OPTION_ACTIVE",
+            "file": "application/helpers/Basic.php",
+            "line": 524
+        }
+    ]
+}

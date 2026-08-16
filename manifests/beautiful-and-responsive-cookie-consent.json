@@ -1,0 +1,99 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "beautiful-and-responsive-cookie-consent",
+        "name": "Beautiful and responsive cookie consent",
+        "version": "4.9.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:44Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 19,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 2,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.6
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "nsc_bar_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/class-nsc_bar_db_upgrader.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "nsc_bar_first_activation",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/class-nsc_bar_plugin_configs.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "nsc_bar_intern_notice_review_later",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/class-nsc_bar_rest_api.php",
+                        "line": 21
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$userMetaKey",
+            "file": "class/class-nsc_bar_admin_error.php",
+            "line": 82
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name_with_prefix",
+            "file": "class/class-nsc_bar_plugin_configs.php",
+            "line": 47
+        }
+    ]
+}

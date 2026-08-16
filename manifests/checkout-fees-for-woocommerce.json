@@ -1,0 +1,307 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "checkout-fees-for-woocommerce",
+        "name": "Payment Gateway Based Fees and Discounts for WooCommerce",
+        "version": "3.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:56Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 30,
+        "files_skipped": 0,
+        "write_calls_found": 34,
+        "verified": 4,
+        "resolved": 26,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.882
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "alg_woocommerce_checkout_fees_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-payment-gateway-fees.php",
+                        "line": 403
+                    }
+                ]
+            },
+            {
+                "key": "alg_wpcodefactory_helper_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-payment-gateway-fees.php",
+                        "line": 414
+                    }
+                ]
+            },
+            {
+                "key": "pgbf_pro_gateway_settings",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-migration.php",
+                        "line": 209
+                    },
+                    {
+                        "file": "includes/admin/class-migration.php",
+                        "line": 357
+                    },
+                    {
+                        "file": "includes/api/class-api-gateways.php",
+                        "line": 218
+                    },
+                    {
+                        "file": "includes/api/class-api-gateways.php",
+                        "line": 270
+                    },
+                    {
+                        "file": "includes/api/class-api-gateways.php",
+                        "line": 305
+                    }
+                ]
+            },
+            {
+                "key": "pgbf_pro_migration_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-migration.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "includes/admin/class-migration.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "pgbf_pro_product_meta_migration_progress",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 123
+                    },
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 373
+                    }
+                ]
+            },
+            {
+                "key": "pgbf_pro_product_meta_migration_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 122
+                    },
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 127
+                    },
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 397
+                    },
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 405
+                    }
+                ]
+            },
+            {
+                "key": "pgbf_pro_product_meta_migration_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 121
+                    },
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 406
+                    }
+                ]
+            },
+            {
+                "key": "pgbf_pro_product_migration_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 549
+                    }
+                ]
+            },
+            {
+                "key": "pgbf_pro_settings",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-migration.php",
+                        "line": 92
+                    },
+                    {
+                        "file": "includes/admin/class-migration.php",
+                        "line": 354
+                    },
+                    {
+                        "file": "includes/api/class-api-settings.php",
+                        "line": 162
+                    },
+                    {
+                        "file": "includes/api/class-api-settings.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "ts_tracker_last_send",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tyche/components/plugin-tracking/class-plugin-tracking.php",
+                        "line": 178
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_pgbf_pro_product_fees",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 234
+                    },
+                    {
+                        "file": "includes/api/class-api-product-fees.php",
+                        "line": 182
+                    }
+                ]
+            },
+            {
+                "key": "_pgbf_pro_product_fees_migrated",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 235
+                    },
+                    {
+                        "file": "includes/api/class-api-product-fees.php",
+                        "line": 185
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "pgbf_pro_migrate_product_batch",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 428
+                    }
+                ]
+            },
+            {
+                "key": "pgbf_pro_migrate_single_product",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-product-meta-migration.php",
+                        "line": 204
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$value['id']",
+            "file": "includes/class-payment-gateway-fees.php",
+            "line": 398
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->plugin_short_name . '_ts_tracker_send_event'",
+            "file": "includes/tyche/components/plugin-tracking/class-plugin-tracking.php",
+            "line": 132
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_short_name . '_allow_tracking'",
+            "file": "includes/tyche/components/plugin-tracking/class-plugin-tracking.php",
+            "line": 152
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_short_name . '_allow_tracking'",
+            "file": "includes/tyche/components/plugin-tracking/class-plugin-tracking.php",
+            "line": 233
+        }
+    ]
+}

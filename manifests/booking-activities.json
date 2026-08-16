@@ -1,0 +1,689 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "booking-activities",
+        "name": "Booking Activities",
+        "version": "1.18.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 50,
+        "files_skipped": 0,
+        "write_calls_found": 73,
+        "verified": 70,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 2,
+        "resolution_rate": 0.959
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bookacti-5stars-rating-notice-dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-settings.php",
+                        "line": 626
+                    }
+                ]
+            },
+            {
+                "key": "bookacti-install-date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "booking-activities.php",
+                        "line": 354
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_1_18_notifications_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "model/model-notifications.php",
+                        "line": 767
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_async_notifications",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-notifications.php",
+                        "line": 82
+                    },
+                    {
+                        "file": "functions/functions-notifications.php",
+                        "line": 1357
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_cron_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "booking-activities.php",
+                        "line": 358
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_db_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "booking-activities.php",
+                        "line": 431
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_latest_emails_sent",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-notifications.php",
+                        "line": 134
+                    },
+                    {
+                        "file": "functions/functions-notifications.php",
+                        "line": 1791
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_secret_iv",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/functions-global.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_secret_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/functions-global.php",
+                        "line": 192
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "booking-activities.php",
+                        "line": 362
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "bookacti_clean_expired_exports",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-bookings.php",
+                        "line": 1334
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_clean_latest_notifications",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-notifications.php",
+                        "line": 19
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_cron_send_async_notifications",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/functions-notifications.php",
+                        "line": 1361
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_delete_expired_bookings",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-bookings.php",
+                        "line": 17
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_hourly_event",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-bookings.php",
+                        "line": 14
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_send_async_new_user_notification",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/functions-notifications.php",
+                        "line": 1686
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "bookacti_cart_item_not_restored_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-frontend.php",
+                        "line": 1395
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_installing",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "booking-activities.php",
+                        "line": 344
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_notif_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/functions-notifications.php",
+                        "line": 1372
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_wc_incompatible_collations",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "model/model-woocommerce.php",
+                        "line": 294
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "bookacti_bookings_calendar_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-bookings.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_bookings_export_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-bookings.php",
+                        "line": 1472
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_default_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-templates.php",
+                        "line": 29
+                    },
+                    {
+                        "file": "view/view-templates.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_expiration_cart",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-frontend.php",
+                        "line": 110
+                    },
+                    {
+                        "file": "functions/functions-woocommerce.php",
+                        "line": 632
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_ical_sequence",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-bookings.php",
+                        "line": 1636
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_secret_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-bookings.php",
+                        "line": 1380
+                    },
+                    {
+                        "file": "functions/functions-notifications.php",
+                        "line": 1270
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_status_filter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-bookings.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "view/view-bookings.php",
+                        "line": 182
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "bookacti_create_activities",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 634
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1156
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_create_forms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 639
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1161
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_create_templates",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 631
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1153
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_delete_activities",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 636
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1158
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_delete_bookings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 638
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1160
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_delete_forms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 641
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1163
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_delete_templates",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 633
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1155
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_edit_activities",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 635
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1157
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_edit_bookings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 637
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1159
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_edit_forms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 640
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1162
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_edit_notifications",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 642
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1164
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_edit_templates",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 632
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1154
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_manage_booking_activities",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 624
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1146
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_manage_booking_activities_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 629
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1151
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_manage_bookings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 625
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1147
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_manage_forms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 627
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1149
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_manage_notifications",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 628
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1150
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_manage_templates",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 626
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1148
+                    }
+                ]
+            },
+            {
+                "key": "bookacti_read_templates",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controller/controller-woocommerce-backend.php",
+                        "line": 630
+                    },
+                    {
+                        "file": "functions/functions-settings.php",
+                        "line": 1152
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "functions/functions-forms.php",
+            "line": 1480
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$table_templates_query . $table_activities_query . $table_templates_activities_query . $table_events_query . $table_event_groups_query . $table_groups_events_query . $table_group_categories_query . $table_forms_query . $table_form_fields_query . $table_bookings_query . $table_booking_groups_query . $table_meta_query . $table_exports_query . $table_permissions_query . $table_notifications_query . $table_notification_channels_query",
+            "file": "model/model-install.php",
+            "line": 228
+        }
+    ]
+}

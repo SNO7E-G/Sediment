@@ -1,0 +1,336 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-webhooks",
+        "name": "WP Webhooks",
+        "version": "3.4.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:08Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 429,
+        "files_skipped": 0,
+        "write_calls_found": 37,
+        "verified": 11,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 25,
+        "resolution_rate": 0.297
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpwh_daily_maintenance",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wp-webhooks-pro.php",
+                        "line": 177
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wpwhcf7_preserved_files",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/includes/integrations/contactform7/helpers/form_helpers.php",
+                        "line": 65
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_edd_bundled_products",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "_edd_bundled_products_conditions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "_edd_default_price_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "_edd_download_limit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "_edd_hide_purchase_link",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "_variable_pricing",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+                        "line": 53
+                    }
+                ]
+            },
+            {
+                "key": "edd_download_files",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "edd_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "edd_variable_prices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "wpwhpro_create_post_temp_status_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/includes/integrations/wordpress/triggers/post_create.php",
+                        "line": 238
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "\\WPWHPRO()->settings->get_extensions_transient_key()",
+            "file": "core/includes/classes/class-wp-webhooks-pro-api.php",
+            "line": 51
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\\sanitize_text_field($_GET['notification'])",
+            "file": "core/includes/classes/class-wp-webhooks-pro-helpers.php",
+            "line": 243
+        },
+        {
+            "function": "update_option",
+            "expression": "$settings_name",
+            "file": "core/includes/classes/class-wp-webhooks-pro-settings.php",
+            "line": 1156
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "core/includes/classes/class-wp-webhooks-pro-sql.php",
+            "line": 37
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->webhook_options_key",
+            "file": "core/includes/classes/class-wp-webhooks-pro-webhook.php",
+            "line": 218
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->webhook_options_key",
+            "file": "core/includes/classes/class-wp-webhooks-pro-webhook.php",
+            "line": 224
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->webhook_options_key",
+            "file": "core/includes/classes/class-wp-webhooks-pro-webhook.php",
+            "line": 249
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->webhook_options_key",
+            "file": "core/includes/classes/class-wp-webhooks-pro-webhook.php",
+            "line": 254
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$wp_upload_dir['basedir'] . '/' . $folder_name",
+            "file": "core/includes/integrations/contactform7/helpers/form_helpers.php",
+            "line": 85
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path . '/' . $sub_dir",
+            "file": "core/includes/integrations/contactform7/helpers/form_helpers.php",
+            "line": 96
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$skey",
+            "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+            "line": 88
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$skey",
+            "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+            "line": 91
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+            "line": 119
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "core/includes/integrations/edd/helpers/edd_helpers.php",
+            "line": 122
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "$add_single_meta_data['meta_key']",
+            "file": "core/includes/integrations/wordpress/actions/manage_term_meta.php",
+            "line": 352
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$update_single_meta_data['meta_key']",
+            "file": "core/includes/integrations/wordpress/actions/manage_term_meta.php",
+            "line": 376
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$skey",
+            "file": "core/includes/integrations/wordpress/helpers/comment_helpers.php",
+            "line": 37
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$skey",
+            "file": "core/includes/integrations/wordpress/helpers/comment_helpers.php",
+            "line": 40
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$meta_key",
+            "file": "core/includes/integrations/wordpress/helpers/comment_helpers.php",
+            "line": 68
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$meta_key",
+            "file": "core/includes/integrations/wordpress/helpers/comment_helpers.php",
+            "line": 71
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "core/includes/integrations/wordpress/helpers/file_helpers.php",
+            "line": 155
+        },
+        {
+            "function": "mkdir",
+            "expression": "$target",
+            "file": "core/includes/integrations/wordpress/helpers/file_helpers.php",
+            "line": 257
+        },
+        {
+            "function": "mkdir",
+            "expression": "\"{$target}/{$f}\"",
+            "file": "core/includes/integrations/wordpress/helpers/file_helpers.php",
+            "line": 296
+        },
+        {
+            "function": "mkdir",
+            "expression": "$target",
+            "file": "core/includes/integrations/wordpress/helpers/file_helpers.php",
+            "line": 362
+        },
+        {
+            "function": "mkdir",
+            "expression": "\"{$target}/{$f}\"",
+            "file": "core/includes/integrations/wordpress/helpers/file_helpers.php",
+            "line": 386
+        }
+    ]
+}

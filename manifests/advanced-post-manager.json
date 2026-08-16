@@ -1,0 +1,122 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "advanced-post-manager",
+        "name": "Advanced Post Manager",
+        "version": "4.5.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:37Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 9,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 0,
+        "resolved": 2,
+        "pattern": 1,
+        "dynamic": 6,
+        "resolution_rate": 0.222
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_post_type",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/tribe-filters.class.php",
+                        "line": 821
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "last_used_filters_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/tribe-filters.class.php",
+                        "line": 704
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "tribe_filters",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/tribe-filters.class.php",
+                        "line": 639
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$this->user_meta",
+            "file": "lib/tribe-columns.class.php",
+            "line": 407
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$name",
+            "file": "lib/tribe-meta-box.php",
+            "line": 954
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "lib/tribe-meta-box.php",
+            "line": 957
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$name",
+            "file": "lib/tribe-meta-box.php",
+            "line": 1014
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['meta']",
+            "file": "lib/tribe-meta-box.php",
+            "line": 1040
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$field['meta']",
+            "file": "lib/tribe-meta-box.php",
+            "line": 1069
+        }
+    ]
+}

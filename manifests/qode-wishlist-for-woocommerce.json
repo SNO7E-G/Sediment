@@ -1,0 +1,216 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "qode-wishlist-for-woocommerce",
+        "name": "QODE Wishlist for WooCommerce",
+        "version": "1.2.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 45,
+    "coverage": {
+        "files_scanned": 231,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 6,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.545
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_qode_wishlist_for_woocommerce_page_template",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/wishlist/class-qode-wishlist-for-woocommerce-wishlist-template.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "_qode_wishlist_for_woocommerce_page_template_count",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/wishlist/class-qode-wishlist-for-woocommerce-wishlist-template.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "qode_wishlist_for_woocommerce_framework_permalinks",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/post-types/class-qode-wishlist-for-woocommerce-framework-custom-post-types.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "qode_wishlist_for_woocommerce_framework_permalinks_updated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/post-types/class-qode-wishlist-for-woocommerce-framework-custom-post-types.php",
+                        "line": 65
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "qode_wishlist_for_woocommerce_trigger_guests_wishlist_check",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-qode-wishlist-for-woocommerce.php",
+                        "line": 159
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "qode_wishlist_for_woocommerce_guests_items",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/wishlist/helper.php",
+                        "line": 949
+                    },
+                    {
+                        "file": "inc/wishlist/helper.php",
+                        "line": 983
+                    },
+                    {
+                        "file": "inc/wishlist/helper.php",
+                        "line": 1077
+                    },
+                    {
+                        "file": "inc/wishlist/helper.php",
+                        "line": 1123
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "qode_wishlist_for_woocommerce_user_wishlist_items",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/wishlist/helper.php",
+                        "line": 939
+                    },
+                    {
+                        "file": "inc/wishlist/helper.php",
+                        "line": 973
+                    },
+                    {
+                        "file": "inc/wishlist/helper.php",
+                        "line": 1063
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "inc/admin/inc/admin-pages/options-custom-pages/qode-products/helper.php",
+            "line": 43
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->get_options_name()",
+            "file": "inc/admin/inc/common/modules/admin/core/class-qode-wishlist-for-woocommerce-framework-options-admin.php",
+            "line": 103
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_options_name()",
+            "file": "inc/admin/inc/common/modules/admin/core/class-qode-wishlist-for-woocommerce-framework-options-admin.php",
+            "line": 157
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "inc/admin/inc/common/modules/attachment/core/class-qode-wishlist-for-woocommerce-framework-page-attachment.php",
+            "line": 80
+        },
+        {
+            "function": "update_option",
+            "expression": "$qode_wishlist_for_woocommerce_option_name",
+            "file": "inc/admin/inc/common/modules/attribute/core/class-qode-wishlist-for-woocommerce-framework-options-attribute.php",
+            "line": 63
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "inc/admin/inc/common/modules/meta-boxes/core/class-qode-wishlist-for-woocommerce-framework-options-meta.php",
+            "line": 130
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "$key",
+            "file": "inc/admin/inc/common/modules/taxonomy/core/class-qode-wishlist-for-woocommerce-framework-options-taxonomy.php",
+            "line": 76
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$key",
+            "file": "inc/admin/inc/common/modules/taxonomy/core/class-qode-wishlist-for-woocommerce-framework-options-taxonomy.php",
+            "line": 95
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$this->get_base()",
+            "file": "inc/admin/inc/post-types/class-qode-wishlist-for-woocommerce-framework-custom-post-type-taxonomy.php",
+            "line": 103
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$this->get_base()",
+            "file": "inc/admin/inc/post-types/class-qode-wishlist-for-woocommerce-framework-custom-post-type.php",
+            "line": 213
+        }
+    ]
+}

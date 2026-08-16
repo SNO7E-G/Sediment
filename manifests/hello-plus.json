@@ -1,0 +1,167 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "hello-plus",
+        "name": "Hello Plus",
+        "version": "1.7.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:42Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 119,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 6,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_helloplus_choose_blank_canvas",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/admin/classes/ajax/blank-canvas-option.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "elementor_onboarded",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/admin/classes/ajax/setup-wizard.php",
+                        "line": 32
+                    },
+                    {
+                        "file": "modules/admin/classes/ajax/setup-wizard.php",
+                        "line": 37
+                    }
+                ]
+            },
+            {
+                "key": "elementor_pro_theme_builder_conditions",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/template-parts/classes/runners/import-floating-elements.php",
+                        "line": 58
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "elementor_core_campaign",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/admin/classes/ajax/setup-wizard.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "helloplus_redirect_to_setup_wizard",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/admin/components/admin-menu-controller.php",
+                        "line": 38
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_elementor_conditions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/template-parts/classes/runners/import-floating-elements.php",
+                        "line": 97
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "page_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/utils.php",
+                    "line": 40
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "show_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/utils.php",
+                    "line": 41
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "modules/admin/classes/rest/onboarding-settings.php",
+            "line": 72
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Elementor\\Modules\\FloatingButtons\\Module::FLOATING_ELEMENTS_TYPE_META_KEY",
+            "file": "modules/template-parts/classes/runners/import-floating-elements.php",
+            "line": 73
+        },
+        {
+            "function": "set_transient",
+            "expression": "$templates_data_cache_key",
+            "file": "modules/template-parts/classes/sources/source-remote-ehp.php",
+            "line": 50
+        }
+    ]
+}

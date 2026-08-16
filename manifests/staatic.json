@@ -1,0 +1,219 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "staatic",
+        "name": "Staatic - Static Site Generator",
+        "version": "1.12.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:29Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 20,
+    "coverage": {
+        "files_scanned": 328,
+        "files_skipped": 0,
+        "write_calls_found": 27,
+        "verified": 14,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.63
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "staatic_active_preview_publication_id",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Module/RegisterOptions.php",
+                        "line": 14
+                    }
+                ]
+            },
+            {
+                "key": "staatic_active_publication_id",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Module/RegisterOptions.php",
+                        "line": 13
+                    }
+                ]
+            },
+            {
+                "key": "staatic_current_publication_id",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Cli/PublishCommand.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "src/Cli/PublishesFromCli.php",
+                        "line": 127
+                    },
+                    {
+                        "file": "src/Cli/RedeployCommand.php",
+                        "line": 102
+                    },
+                    {
+                        "file": "src/Module/Admin/Page/PublishPage.php",
+                        "line": 80
+                    },
+                    {
+                        "file": "src/Module/RegisterOptions.php",
+                        "line": 11
+                    },
+                    {
+                        "file": "src/Publication/BackgroundPublisher.php",
+                        "line": 131
+                    },
+                    {
+                        "file": "src/Publication/BackgroundPublisher.php",
+                        "line": 308
+                    },
+                    {
+                        "file": "src/Publication/BackgroundPublisher.php",
+                        "line": 329
+                    },
+                    {
+                        "file": "src/Publication/PublicationManager.php",
+                        "line": 136
+                    },
+                    {
+                        "file": "src/Publication/Task/FinishTask.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "staatic_latest_publication_id",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Module/RegisterOptions.php",
+                        "line": 12
+                    },
+                    {
+                        "file": "src/Publication/PublicationManager.php",
+                        "line": 137
+                    }
+                ]
+            },
+            {
+                "key": "staatic_test_request_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Request/TestRequest.php",
+                        "line": 41
+                    },
+                    {
+                        "file": "src/Request/TestRequest.php",
+                        "line": 45
+                    },
+                    {
+                        "file": "src/Request/TestRequest.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transientKey",
+            "file": "src/Cache/TransientCache.php",
+            "line": 58
+        },
+        {
+            "function": "mkdir",
+            "expression": "$resourceDirectory",
+            "file": "src/Factory/ResourceRepositoryFactory.php",
+            "line": 28
+        },
+        {
+            "function": "update_option",
+            "expression": "$newName",
+            "file": "src/Migrations/AbstractMigration.php",
+            "line": 37
+        },
+        {
+            "function": "add_cap",
+            "expression": "$capability",
+            "file": "src/Migrations/AbstractMigration.php",
+            "line": 51
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionName()",
+            "file": "src/Migrations/MigrationCoordinator.php",
+            "line": 219
+        },
+        {
+            "function": "mkdir",
+            "expression": "$targetDirectory",
+            "file": "src/Module/Deployer/FilesystemDeployer/FilesystemDeployerModule.php",
+            "line": 236
+        },
+        {
+            "function": "mkdir",
+            "expression": "$stagingDirectory",
+            "file": "src/Module/Deployer/FilesystemDeployer/FilesystemDeployerModule.php",
+            "line": 253
+        },
+        {
+            "function": "update_option",
+            "expression": "$activePublicationOption",
+            "file": "src/Publication/Task/FinishTask.php",
+            "line": 50
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "src/Publication/Task/SetupTask.php",
+            "line": 71
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook",
+            "file": "src/Service/Polyfill.php",
+            "line": 77
+        }
+    ]
+}

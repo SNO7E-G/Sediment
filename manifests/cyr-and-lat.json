@@ -1,0 +1,123 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cyr-and-lat",
+        "name": "Cyr to Lat reloaded",
+        "version": "1.3.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:57Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 7,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 4,
+        "dynamic": 2,
+        "resolution_rate": 0.143
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wbcr_asgaros_forums_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugins/asgaros.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_asgaros_topics_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugins/asgaros.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_bp_groups_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugins/buddypress.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_wp_term_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cyr-and-lat.php",
+                        "line": 144
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "wbcr_wp_old_slug",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cyr-and-lat.php",
+                        "line": 132
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . '_activated_on'",
+            "file": "includes/admin-notices.php",
+            "line": 379
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . '_dismissed_' . $key . '_on'",
+            "file": "includes/admin-notices.php",
+            "line": 403
+        }
+    ]
+}

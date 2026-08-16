@@ -1,0 +1,197 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "sinatra-core",
+        "name": "Sinatra Core",
+        "version": "1.0.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:04Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 17,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 8,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 8,
+        "resolution_rate": 0.471
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "sinatra_wpforms_imported_ids",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/demo-library/class-sinatra-demo-importer.php",
+                        "line": 618
+                    }
+                ]
+            },
+            {
+                "key": "widget_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/demo-library/importers/class-widgets-import-export.php",
+                        "line": 252
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "sinatra_check_plugin_update",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-sinatra-core-admin.php",
+                        "line": 275
+                    },
+                    {
+                        "file": "includes/admin/class-sinatra-core-admin.php",
+                        "line": 282
+                    }
+                ]
+            },
+            {
+                "key": "sinatra_core_demo_templates",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/demo-library/class-sinatra-demo-library.php",
+                        "line": 205
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_menu_item_menu_item_parent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/demo-library/importers/class-wordpress-importer.php",
+                        "line": 1087
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/demo-library/importers/class-wordpress-importer.php",
+                        "line": 1117
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [
+            {
+                "key": "thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/demo-library/importers/class-options-import-export.php",
+                        "line": 384
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/admin/demo-library/importers/class-widgets-import-export.php",
+                    "line": 271
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\dirname($to)",
+            "file": "includes/admin/demo-library/class-sinatra-demo-importer.php",
+            "line": 680
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->demo_upload_path",
+            "file": "includes/admin/demo-library/class-sinatra-demo-importer.php",
+            "line": 949
+        },
+        {
+            "function": "update_option",
+            "expression": "$id",
+            "file": "includes/admin/demo-library/importers/class-customizer-import-export.php",
+            "line": 83
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/admin/demo-library/importers/class-options-import-export.php",
+            "line": 114
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/admin/demo-library/importers/class-options-import-export.php",
+            "line": 327
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "$key",
+            "file": "includes/admin/demo-library/importers/class-wordpress-importer.php",
+            "line": 578
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "$meta['key']",
+            "file": "includes/admin/demo-library/importers/class-wordpress-importer.php",
+            "line": 799
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/admin/demo-library/importers/class-wordpress-importer.php",
+            "line": 831
+        }
+    ]
+}

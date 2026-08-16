@@ -1,0 +1,559 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "designsetgo",
+        "name": "DesignSetGo",
+        "version": "2.6.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:26Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 302,
+        "files_skipped": 0,
+        "write_calls_found": 55,
+        "verified": 16,
+        "resolved": 27,
+        "pattern": 0,
+        "dynamic": 12,
+        "resolution_rate": 0.782
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "designsetgo_db_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-plugin.php",
+                        "line": 806
+                    }
+                ]
+            },
+            {
+                "key": "designsetgo_global_styles",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-global-styles.php",
+                        "line": 524
+                    }
+                ]
+            },
+            {
+                "key": "designsetgo_llms_full_txt_physical",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/llms-txt/class-controller.php",
+                        "line": 528
+                    },
+                    {
+                        "file": "includes/llms-txt/class-rest-controller.php",
+                        "line": 306
+                    }
+                ]
+            },
+            {
+                "key": "designsetgo_llms_htaccess_backfilled",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/llms-txt/class-controller.php",
+                        "line": 414
+                    },
+                    {
+                        "file": "includes/llms-txt/class-controller.php",
+                        "line": 424
+                    }
+                ]
+            },
+            {
+                "key": "designsetgo_llms_txt_physical",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/llms-txt/class-controller.php",
+                        "line": 482
+                    },
+                    {
+                        "file": "includes/llms-txt/class-rest-controller.php",
+                        "line": 294
+                    }
+                ]
+            },
+            {
+                "key": "designsetgo_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-settings.php",
+                        "line": 615
+                    }
+                ]
+            },
+            {
+                "key": "dsgo_last_draft_created",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-draft-mode-preview.php",
+                        "line": 270
+                    }
+                ]
+            },
+            {
+                "key": "dsgo_query_filter_index_schema",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/query/class-query-filter-index.php",
+                        "line": 512
+                    }
+                ]
+            },
+            {
+                "key": "dsgo_query_filter_index_status",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/query/class-query-filter-index-rebuilder.php",
+                        "line": 394
+                    },
+                    {
+                        "file": "includes/blocks/query/class-query-filter-index-rebuilder.php",
+                        "line": 426
+                    }
+                ]
+            },
+            {
+                "key": "dsgo_query_filter_rebuild_lock",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/query/class-query-filter-index-rebuilder.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "includes/blocks/query/class-query-filter-index-rebuilder.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "dsgo_query_filters",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/query/class-query-filter-registry.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "includes/blocks/query/class-query-filter-registry.php",
+                        "line": 126
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "designsetgo_cleanup_old_submissions",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "designsetgo.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "designsetgo_query_filter_backfill",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/query/class-query-filter-index-hooks.php",
+                        "line": 75
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "designsetgo_llms_full_txt_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/llms-txt/class-controller.php",
+                        "line": 256
+                    }
+                ]
+            },
+            {
+                "key": "designsetgo_llms_txt_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/llms-txt/class-controller.php",
+                        "line": 242
+                    }
+                ]
+            },
+            {
+                "key": "designsetgo_llms_txt_flush_rules",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/llms-txt/class-controller.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "dsgo_draft_map",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-draft-mode-preview.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "dsgo_form_submissions_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-settings.php",
+                        "line": 674
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_designsetgo_llms_filename",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/llms-txt/class-file-manager.php",
+                        "line": 415
+                    }
+                ]
+            },
+            {
+                "key": "_dsg_email_sent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/forms/class-form-handler.php",
+                        "line": 1007
+                    }
+                ]
+            },
+            {
+                "key": "_dsg_email_sent_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/forms/class-form-handler.php",
+                        "line": 1009
+                    }
+                ]
+            },
+            {
+                "key": "_dsg_email_to",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/forms/class-form-handler.php",
+                        "line": 1008
+                    }
+                ]
+            },
+            {
+                "key": "_dsg_form_fields",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/forms/class-form-handler.php",
+                        "line": 682
+                    }
+                ]
+            },
+            {
+                "key": "_dsg_form_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/forms/class-form-handler.php",
+                        "line": 681
+                    }
+                ]
+            },
+            {
+                "key": "_dsg_submission_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/forms/class-form-handler.php",
+                        "line": 686
+                    }
+                ]
+            },
+            {
+                "key": "_dsg_submission_ip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/forms/class-form-handler.php",
+                        "line": 683
+                    }
+                ]
+            },
+            {
+                "key": "_dsg_submission_referer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/forms/class-form-handler.php",
+                        "line": 685
+                    }
+                ]
+            },
+            {
+                "key": "_dsg_submission_user_agent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/forms/class-form-handler.php",
+                        "line": 684
+                    }
+                ]
+            },
+            {
+                "key": "_dsgo_draft_created",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-draft-mode.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "_dsgo_draft_of",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-draft-mode.php",
+                        "line": 196
+                    }
+                ]
+            },
+            {
+                "key": "_dsgo_has_draft",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-draft-mode.php",
+                        "line": 198
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "designsetgo_llms_conflict_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/llms-txt/class-conflict-detector.php",
+                        "line": 112
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "dsgo_form_submission",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/forms/class-form-submissions.php",
+                        "line": 81
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "^llms-full\\.txt/?$",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/llms-txt/class-controller.php",
+                        "line": 143
+                    },
+                    {
+                        "file": "includes/llms-txt/class-controller.php",
+                        "line": 363
+                    }
+                ]
+            },
+            {
+                "key": "^llms\\.txt/?$",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/llms-txt/class-controller.php",
+                        "line": 142
+                    },
+                    {
+                        "file": "includes/llms-txt/class-controller.php",
+                        "line": 362
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/admin/class-draft-mode.php",
+            "line": 401
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/admin/class-draft-mode.php",
+            "line": 491
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/blocks/forms/class-form-handler.php",
+            "line": 1147
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/blocks/forms/class-form-handler.php",
+            "line": 1257
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/blocks/forms/class-form-handler.php",
+            "line": 1308
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/blocks/forms/class-form-security.php",
+            "line": 118
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/blocks/forms/class-form-security.php",
+            "line": 120
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/blocks/query/class-query-filter-index.php",
+            "line": 496
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "includes/llms-txt/class-file-manager.php",
+            "line": 280
+        },
+        {
+            "function": "set_transient",
+            "expression": "$rate_key",
+            "file": "includes/llms-txt/class-rest-controller.php",
+            "line": 373
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/llms-txt/class-rest-controller.php",
+            "line": 439
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/patterns/class-loader.php",
+            "line": 361
+        }
+    ]
+}

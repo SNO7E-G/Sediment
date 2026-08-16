@@ -1,0 +1,229 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "integracao-rd-station",
+        "name": "RD Station",
+        "version": "5.7.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:41Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 26,
+    "coverage": {
+        "files_scanned": 45,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 11,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 7,
+        "resolution_rate": 0.55
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "rdsm_access_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/entities/rdsm_user_credentials.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "rdsm_general_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/entities/rdsm_tracking_code.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "includes/entities/rdsm_tracking_code.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "rdsm_refresh_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/entities/rdsm_user_credentials.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "rdsm_refresh_token_file_hash",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/rdsm_security_helper.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "includes/helpers/rdsm_security_helper.php",
+                        "line": 112
+                    }
+                ]
+            },
+            {
+                "key": "rdsm_tracking_code",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/entities/rdsm_tracking_code.php",
+                        "line": 27
+                    }
+                ]
+            },
+            {
+                "key": "rdsm_woocommerce_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/events/rdsm_admin_initialized.php",
+                        "line": 29
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "cf7_mapped_fields_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "metaboxes/RD_Metabox.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "form_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "metaboxes/RD_Metabox.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "form_identifier",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "metaboxes/RD_Metabox.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "gf_mapped_fields_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "metaboxes/RD_Metabox.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "use_post_title",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "metaboxes/RD_Metabox.php",
+                        "line": 63
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$default_path",
+            "file": "config.php",
+            "line": 31
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir_path",
+            "file": "includes/helpers/rdsm_log_file_helper.php",
+            "line": 64
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "includes/helpers/rdsm_log_file_helper.php",
+            "line": 264
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$directory",
+            "file": "includes/helpers/rdsm_security_helper.php",
+            "line": 126
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$default_path",
+            "file": "includes/rdsm_bootstrap.php",
+            "line": 119
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "metaboxes/add_custom_scripts.php",
+            "line": 121
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$this->slug . '_integrations'",
+            "file": "rd_custom_post_type.php",
+            "line": 59
+        }
+    ]
+}

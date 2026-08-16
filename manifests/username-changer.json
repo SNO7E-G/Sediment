@@ -1,0 +1,165 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "username-changer",
+        "name": "Username Changer",
+        "version": "3.2.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:54Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 2,
+        "resolved": 13,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.938
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "uc_optin",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-optin.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "includes/class-optin.php",
+                        "line": 225
+                    }
+                ]
+            },
+            {
+                "key": "uc_pro_license_expires",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-license.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "includes/admin/class-license.php",
+                        "line": 135
+                    },
+                    {
+                        "file": "includes/admin/class-license.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "uc_pro_license_key",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-license.php",
+                        "line": 97
+                    },
+                    {
+                        "file": "includes/admin/class-license.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "uc_pro_license_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-license.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "includes/admin/class-license.php",
+                        "line": 98
+                    },
+                    {
+                        "file": "includes/admin/class-license.php",
+                        "line": 134
+                    },
+                    {
+                        "file": "includes/admin/class-license.php",
+                        "line": 145
+                    },
+                    {
+                        "file": "includes/admin/class-license.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "includes/admin/class-license.php",
+                        "line": 197
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "uc_license_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-license.php",
+                        "line": 202
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "nickname",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 96
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/admin/class-audit-log.php",
+            "line": 60
+        }
+    ]
+}

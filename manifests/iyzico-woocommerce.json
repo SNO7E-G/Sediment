@@ -1,0 +1,252 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "iyzico-woocommerce",
+        "name": "iyzico WooCommerce",
+        "version": "3.5.28",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:17Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 37,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 18,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.818
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "iyziTLS",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Common/Helpers/TlsVerifier.php",
+                        "line": 41
+                    },
+                    {
+                        "file": "includes/Common/Helpers/TlsVerifier.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "iyzicoWebhookUrlKey",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Common/Helpers/WebhookHelper.php",
+                        "line": 29
+                    },
+                    {
+                        "file": "includes/Core/Plugin.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "iyzico_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Core/Plugin.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "iyzico_google_products_last_sent",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Common/Helpers/GoogleProductsXml.php",
+                        "line": 550
+                    }
+                ]
+            },
+            {
+                "key": "iyzico_google_products_next_send_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Common/Helpers/GoogleProductsXml.php",
+                        "line": 554
+                    }
+                ]
+            },
+            {
+                "key": "iyzico_google_products_retry_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Common/Helpers/GoogleProductsXml.php",
+                        "line": 545
+                    },
+                    {
+                        "file": "includes/Common/Helpers/GoogleProductsXml.php",
+                        "line": 559
+                    }
+                ]
+            },
+            {
+                "key": "iyzico_google_products_xml_last_update",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Common/Helpers/GoogleProductsXml.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "iyzico_google_products_xml_url",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Common/Helpers/GoogleProductsXml.php",
+                        "line": 471
+                    }
+                ]
+            },
+            {
+                "key": "iyzico_overlay_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Checkout/CheckoutForm.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_iyzico_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Common/Hooks/AdminHooks.php",
+                        "line": 111
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "iyzico_generate_google_products_xml",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Common/Helpers/GoogleProductsXml.php",
+                        "line": 582
+                    },
+                    {
+                        "file": "includes/Common/Helpers/PluginUpdateHandler.php",
+                        "line": 81
+                    },
+                    {
+                        "file": "includes/Core/Plugin.php",
+                        "line": 25
+                    }
+                ]
+            },
+            {
+                "key": "iyzico_generate_google_products_xml_activation",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Core/Plugin.php",
+                        "line": 34
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "iyzico_onboarding_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Core/Plugin.php",
+                        "line": 38
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->logDir",
+            "file": "includes/Common/Abstracts/AbstractLogger.php",
+            "line": 34
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$xml_dir",
+            "file": "includes/Common/Helpers/GoogleProductsXml.php",
+            "line": 460
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/Database/DatabaseManager.php",
+            "line": 39
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/Database/DatabaseManager.php",
+            "line": 49
+        }
+    ]
+}

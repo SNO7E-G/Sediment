@@ -1,0 +1,73 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "rvg-optimize-database",
+        "name": "Optimize Database after Deleting Revisions",
+        "version": "5.3.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:28Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 8,
+        "files_skipped": 0,
+        "write_calls_found": 3,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "odb_scheduler",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/odb-scheduler.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "classes/odb-scheduler.php",
+                        "line": 87
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "classes/odb-multisite.php",
+            "line": 64
+        }
+    ]
+}

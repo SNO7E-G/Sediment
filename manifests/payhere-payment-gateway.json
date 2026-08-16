@@ -1,0 +1,97 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "payhere-payment-gateway",
+        "name": "PayHere Payment Gateway",
+        "version": "2.4.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:25Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 30,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "payhere_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "payhere-payment-gateway.php",
+                        "line": 88
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "payhere_customer_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "gateway/class-payhereorderutilities.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "payhere_customer_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "gateway/class-payhereorderutilities.php",
+                        "line": 66
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "saved-cards",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/class-payhere-public.php",
+                        "line": 87
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

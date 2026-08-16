@@ -1,0 +1,610 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "smashballoon-wpchat-livechat-customer-support",
+        "name": "WPChat - Livechat Customer Support Suite",
+        "version": "1.4.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:23Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 104,
+        "files_skipped": 0,
+        "write_calls_found": 59,
+        "verified": 18,
+        "resolved": 29,
+        "pattern": 1,
+        "dynamic": 11,
+        "resolution_rate": 0.797
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpchat_analytics_cron_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/Analytics/AnalyticsCron.php",
+                        "line": 290
+                    },
+                    {
+                        "file": "src/Common/Services/Analytics/AnalyticsCron.php",
+                        "line": 297
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_analytics_cron_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/Analytics/AnalyticsCron.php",
+                        "line": 721
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_analytics_job_queue",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/Analytics/AnalyticsCron.php",
+                        "line": 481
+                    },
+                    {
+                        "file": "src/Common/Services/Analytics/AnalyticsCron.php",
+                        "line": 544
+                    },
+                    {
+                        "file": "src/Common/Services/Analytics/AnalyticsCron.php",
+                        "line": 1053
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_analytics_last_processed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/Analytics/AnalyticsAggregationService.php",
+                        "line": 495
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/PluginUpgradeService.php",
+                        "line": 305
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_entitlement_grace_start",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/EntitlementProvider.php",
+                        "line": 467
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_entitlement_hash",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/EntitlementProvider.php",
+                        "line": 408
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_entitlement_last_valid",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/EntitlementProvider.php",
+                        "line": 305
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_entitlement_token",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/EntitlementProvider.php",
+                        "line": 407
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_first_install_time",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/DebugService.php",
+                        "line": 220
+                    },
+                    {
+                        "file": "src/Common/Services/DebugService.php",
+                        "line": 223
+                    },
+                    {
+                        "file": "src/Common/Services/PluginActivationService.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_global_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Repositories/OptionsRepository.php",
+                        "line": 53
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_keys_last_refresh",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/KeyStore.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_license_expired_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/LicenseCronService.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_license_expiring_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/LicenseCronService.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_license_failure_count",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/LicenseCronService.php",
+                        "line": 228
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_license_invalid_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/LicenseCronService.php",
+                        "line": 187
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_license_last_check",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/LicenseCronService.php",
+                        "line": 373
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_license_last_failure",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/LicenseCronService.php",
+                        "line": 229
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_license_notification_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/LicenseCronService.php",
+                        "line": 273
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_needs_pro_migrations",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/PluginUpgradeService.php",
+                        "line": 296
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_notifications",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/DebugService.php",
+                        "line": 217
+                    },
+                    {
+                        "file": "src/Common/Services/NotificationService.php",
+                        "line": 565
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_plugin_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/PluginActivationService.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_private_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Repositories/PrivateOptionsRepository.php",
+                        "line": 58
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpchat_analytics_cleanup_old_data",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/Analytics/AnalyticsCron.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_analytics_process_aggregates",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/Analytics/AnalyticsCron.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_analytics_quick_aggregation",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/Analytics/AnalyticsCron.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_daily_license_check",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/LicenseCronService.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_embedding_usage_stats_cron",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/VectorEmbeddingService.php",
+                        "line": 894
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_grace_period_check",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/EntitlementCronService.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_refresh_entitlement",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/EntitlementCronService.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_refresh_remote_notifications",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/NotificationService.php",
+                        "line": 125
+                    },
+                    {
+                        "file": "src/Common/Services/NotificationService.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_vector_generation_cron",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/VectorEmbeddingService.php",
+                        "line": 832
+                    },
+                    {
+                        "file": "src/Common/Services/VectorEmbeddingService.php",
+                        "line": 864
+                    },
+                    {
+                        "file": "src/Common/Services/VectorEmbeddingService.php",
+                        "line": 880
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wpchat_available_platforms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/Database/AgentRoutingService.php",
+                        "line": 158
+                    },
+                    {
+                        "file": "src/Common/Services/Database/AgentRoutingService.php",
+                        "line": 176
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_deactivated_notice_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/PluginActivationService.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_license_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/LicenseService.php",
+                        "line": 379
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_public_keys_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/KeyStore.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "wpchat_remote_notifications_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/NotificationService.php",
+                        "line": 281
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "wpchat_admin",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Services/PluginActivationService.php",
+                        "line": 81
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Common/Database/Migrations/AgentsTableMigration.php",
+            "line": 49
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Common/Database/Migrations/AnalyticsAgentDailySummaryTableMigration.php",
+            "line": 59
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Common/Database/Migrations/AnalyticsDailySummaryTableMigration.php",
+            "line": 63
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Common/Database/Migrations/AnalyticsFaqDailySummaryTableMigration.php",
+            "line": 64
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Common/Database/Migrations/AnalyticsHourlySummaryTableMigration.php",
+            "line": 62
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Common/Database/Migrations/AnalyticsTableMigration.php",
+            "line": 58
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Common/Database/Migrations/FaqsTableMigration.php",
+            "line": 61
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Common/Database/Migrations/MigrationsTableMigration.php",
+            "line": 45
+        },
+        {
+            "function": "set_transient",
+            "expression": "$sessionKey",
+            "file": "src/Common/RestAPI/AnalyticsEndpoint.php",
+            "line": 646
+        },
+        {
+            "function": "set_transient",
+            "expression": "$sessionKey",
+            "file": "src/Common/RestAPI/AnalyticsEndpoint.php",
+            "line": 684
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "src/Common/Services/PluginUpgradeService.php",
+            "line": 284
+        }
+    ]
+}

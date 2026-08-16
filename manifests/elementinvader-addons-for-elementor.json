@@ -1,0 +1,113 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "elementinvader-addons-for-elementor",
+        "name": "ElementInvader Addons for Elementor",
+        "version": "1.4.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:34Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 56,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 3,
+        "dynamic": 3,
+        "resolution_rate": 0.25
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "eli_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/intall.php",
+                        "line": 27
+                    },
+                    {
+                        "file": "include/intall.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "eli_form_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "widgets/contact-form.php",
+                        "line": 1848
+                    },
+                    {
+                        "file": "widgets/newsletter.php",
+                        "line": 1688
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "eli_form_token_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/plugin_helpers.php",
+                        "line": 380
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_user_meta",
+            "expression": "$key_diss",
+            "file": "elementinvader-addons-for-elementor.php",
+            "line": 240
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$eli_sql",
+            "file": "include/intall.php",
+            "line": 23
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$eli_sql_v110",
+            "file": "include/intall.php",
+            "line": 49
+        }
+    ]
+}

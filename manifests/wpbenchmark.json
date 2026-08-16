@@ -1,0 +1,198 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpbenchmark",
+        "name": "Hosting Benchmark tool",
+        "version": "1.8.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:28Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 40,
+    "coverage": {
+        "files_scanned": 2,
+        "files_skipped": 0,
+        "write_calls_found": 18,
+        "verified": 6,
+        "resolved": 9,
+        "pattern": 2,
+        "dynamic": 1,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "benchmark_option_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.wpbenchmarkio.php",
+                        "line": 997
+                    }
+                ]
+            },
+            {
+                "key": "wp-benchmark-io-history",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 1294
+                    },
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 1400
+                    },
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 1507
+                    }
+                ]
+            },
+            {
+                "key": "wp-benchmark-io-last-run",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 1580
+                    }
+                ]
+            },
+            {
+                "key": "wp-benchmark-io-running",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 1438
+                    },
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 1465
+                    },
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 1490
+                    }
+                ]
+            },
+            {
+                "key": "wp-benchmark-io-schstats",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 1119
+                    },
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 1576
+                    }
+                ]
+            },
+            {
+                "key": "wp-benchmark-io-settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 148
+                    },
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "wpbenchmark-enable-pingback",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 199
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpbenchmark_schedulled_event",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 197
+                    },
+                    {
+                        "file": "wp-benchmark-io.php",
+                        "line": 1586
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "benchmark_transient_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.wpbenchmarkio.php",
+                        "line": 958
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$tmp_folder",
+            "file": "class.wpbenchmarkio.php",
+            "line": 1816
+        }
+    ]
+}

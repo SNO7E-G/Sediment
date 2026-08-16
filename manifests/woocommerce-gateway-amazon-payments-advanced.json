@@ -1,0 +1,238 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-gateway-amazon-payments-advanced",
+        "name": "Amazon Pay for WooCommerce",
+        "version": "2.6.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:50Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 12,
+    "coverage": {
+        "files_scanned": 42,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 11,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "amazon_api_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-amazon-payments-advanced-merchant-onboarding-handler.php",
+                        "line": 354
+                    }
+                ]
+            },
+            {
+                "key": "amazon_pay_simulation_stack",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-amazon-payments-advanced-api.php",
+                        "line": 936
+                    }
+                ]
+            },
+            {
+                "key": "amazon_payments_advanced_enabled_anniversary_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wc-amazon-payments-advanced-admin.php",
+                        "line": 348
+                    }
+                ]
+            },
+            {
+                "key": "amazon_payments_advanced_hidden_until_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wc-amazon-payments-advanced-admin.php",
+                        "line": 349
+                    },
+                    {
+                        "file": "includes/admin/class-wc-amazon-payments-advanced-admin.php",
+                        "line": 424
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_amazon_payments_advanced_private_key",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-amazon-payments-advanced-merchant-onboarding-handler.php",
+                        "line": 134
+                    },
+                    {
+                        "file": "includes/class-wc-gateway-amazon-payments-advanced-abstract.php",
+                        "line": 936
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_amazon_payments_advanced_saved_payload",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-amazon-payments-advanced-merchant-onboarding-handler.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_amazon_payments_advanced_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-amazon-payments-advanced-merchant-onboarding-handler.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_amazon_payments_advanced_temp_private_keys",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-amazon-payments-advanced-merchant-onboarding-handler.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_amazon_payments_new_install",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-amazon-payments-advanced-install.php",
+                        "line": 32
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "wc_amazon_async_polling",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-amazon-payments-advanced-ipn-handler.php",
+                        "line": 558
+                    }
+                ]
+            },
+            {
+                "key": "wcga_process_pending_syncro_payments",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/legacy/class-wc-amazon-payments-advanced-api-legacy.php",
+                        "line": 805
+                    },
+                    {
+                        "file": "includes/legacy/class-wc-gateway-amazon-payments-advanced-legacy.php",
+                        "line": 461
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "amazon-payments-advanced.php",
+                    "line": 19
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$notice['dismiss_action']",
+            "file": "includes/admin/class-wc-amazon-payments-advanced-admin.php",
+            "line": 439
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "includes/class-wc-gateway-amazon-payments-advanced-abstract.php",
+            "line": 925
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "includes/class-wc-gateway-amazon-payments-advanced.php",
+            "line": 426
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "includes/class-wc-gateway-amazon-payments-advanced.php",
+            "line": 429
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/class-wc-gateway-amazon-payments-advanced.php",
+            "line": 2512
+        }
+    ]
+}

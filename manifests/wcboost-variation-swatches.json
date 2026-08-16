@@ -1,0 +1,132 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wcboost-variation-swatches",
+        "name": "WCBoost - Variation Swatches",
+        "version": "1.1.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:39Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 71,
+    "coverage": {
+        "files_scanned": 13,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 4,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wcboost_variation_swatches_ignore_restore",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/backup.php",
+                        "line": 191
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wcboost_variation_swatches_attributes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/backup.php",
+                        "line": 218
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wc_attachment_source",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/backup.php",
+                        "line": 538
+                    }
+                ]
+            },
+            {
+                "key": "wcboost_variation_swatches",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/product-data.php",
+                        "line": 375
+                    },
+                    {
+                        "file": "includes/admin/product-data.php",
+                        "line": 397
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [
+            {
+                "key": "color",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/backup.php",
+                        "line": 439
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name($name)",
+            "file": "includes/admin/settings.php",
+            "line": 158
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$meta_key",
+            "file": "includes/admin/term-meta.php",
+            "line": 381
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$key",
+            "file": "includes/admin/term-meta.php",
+            "line": 421
+        }
+    ]
+}

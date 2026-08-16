@@ -1,0 +1,631 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "famethemes-demo-importer",
+        "name": "FameTheme Demo Importer",
+        "version": "1.3.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:37Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 31,
+        "files_skipped": 0,
+        "write_calls_found": 69,
+        "verified": 38,
+        "resolved": 9,
+        "pattern": 4,
+        "dynamic": 18,
+        "resolution_rate": 0.681
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ft_demo_importer_imported_templates",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Jobs/class-job-store.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "ft_demo_importer_job_latest",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Jobs/class-job-store.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "ft_demo_importer_settings_applied",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Steps/class-options-importer.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "ft_demo_importer_studio_key",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Settings/class-options-store.php",
+                        "line": 159
+                    }
+                ]
+            },
+            {
+                "key": "ft_demo_importer_studio_url",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Settings/class-options-store.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "widget_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 621
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_cart_page_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 395
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_checkout_page_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 399
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_myaccount_page_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 403
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shop_page_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 391
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "ft_demo_importer_run_job",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Jobs/class-importer-runner.php",
+                        "line": 63
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_demo_contents_file_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/class-progress.php",
+                        "line": 414
+                    }
+                ]
+            },
+            {
+                "key": "_wxr_imported_comments",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 984
+                    }
+                ]
+            },
+            {
+                "key": "_wxr_imported_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 429
+                    }
+                ]
+            },
+            {
+                "key": "_wxr_imported_terms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 213
+                    }
+                ]
+            },
+            {
+                "key": "_wxr_imported_users",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "_wxr_orphaned_comments",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 985
+                    }
+                ]
+            },
+            {
+                "key": "_wxr_orphaned_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 430
+                    }
+                ]
+            },
+            {
+                "key": "_wxr_orphaned_terms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 214
+                    }
+                ]
+            },
+            {
+                "key": "ft_demo_importer_job_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Jobs/class-job-store.php",
+                        "line": 70
+                    },
+                    {
+                        "file": "inc/generic/Jobs/class-job-store.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "ft_demo_importer_test_result",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Settings/class-settings-page.php",
+                        "line": 168
+                    },
+                    {
+                        "file": "inc/generic/Settings/class-settings-page.php",
+                        "line": 177
+                    },
+                    {
+                        "file": "inc/generic/Settings/class-settings-page.php",
+                        "line": 188
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/class-tgm-plugin-activation.php",
+                        "line": 970
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_ft_source_ref",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Steps/class-content-importer.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "inc/generic/Steps/class-content-importer.php",
+                        "line": 282
+                    },
+                    {
+                        "file": "inc/generic/Steps/class-options-importer.php",
+                        "line": 618
+                    },
+                    {
+                        "file": "inc/generic/Steps/class-options-importer.php",
+                        "line": 848
+                    }
+                ]
+            },
+            {
+                "key": "_menu_item_object_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 829
+                    },
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 1151
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attached_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Steps/class-content-importer.php",
+                        "line": 215
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Steps/class-content-importer.php",
+                        "line": 220
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_is_custom_header",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 684
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_metadata",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Steps/class-content-importer.php",
+                        "line": 217
+                    }
+                ]
+            },
+            {
+                "key": "_wp_font_face_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/generic/Steps/class-options-importer.php",
+                        "line": 625
+                    }
+                ]
+            },
+            {
+                "key": "_wxr_import_menu_item",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 806
+                    },
+                    {
+                        "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                        "line": 814
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "tgmpa_dismissed_notice_famethemes-demo-importer",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/legacy/class-tgm-plugin-activation.php",
+                        "line": 1352
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "page_for_posts",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/generic/Steps/class-options-importer.php",
+                    "line": 308
+                },
+                {
+                    "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                    "line": 412
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "page_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/generic/Steps/class-options-importer.php",
+                    "line": 300
+                },
+                {
+                    "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                    "line": 407
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "recently_activated",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/legacy/class-tgm-plugin-activation.php",
+                    "line": 2061
+                },
+                {
+                    "file": "inc/legacy/class-tgm-plugin-activation.php",
+                    "line": 3056
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "show_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/generic/Steps/class-options-importer.php",
+                    "line": 295
+                },
+                {
+                    "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                    "line": 408
+                },
+                {
+                    "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                    "line": 413
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/generic/Steps/class-options-importer.php",
+                    "line": 429
+                },
+                {
+                    "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                    "line": 581
+                },
+                {
+                    "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+                    "line": 624
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "inc/generic/REST/class-studio-proxy-controller.php",
+            "line": 142
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$tmp_dir",
+            "file": "inc/generic/Steps/class-asset-fetcher.php",
+            "line": 69
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "inc/generic/Steps/class-content-importer.php",
+            "line": 280
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "inc/generic/Steps/class-options-importer.php",
+            "line": 403
+        },
+        {
+            "function": "update_option",
+            "expression": "(string) $option_name",
+            "file": "inc/generic/Steps/class-options-importer.php",
+            "line": 454
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "inc/generic/Steps/class-uploads-extractor.php",
+            "line": 106
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "dirname($target_path)",
+            "file": "inc/generic/Studio/class-remote-client.php",
+            "line": 52
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "inc/legacy/class-dashboard.php",
+            "line": 564
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "inc/legacy/class-dashboard.php",
+            "line": 595
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "inc/legacy/class-progress.php",
+            "line": 146
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key . '-json'",
+            "file": "inc/legacy/class-progress.php",
+            "line": 161
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "inc/legacy/class-progress.php",
+            "line": 206
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "inc/legacy/class-progress.php",
+            "line": 269
+        },
+        {
+            "function": "update_option",
+            "expression": "$theme_mod_name",
+            "file": "inc/legacy/class-progress.php",
+            "line": 289
+        },
+        {
+            "function": "update_option",
+            "expression": "$theme_mod_name",
+            "file": "inc/legacy/class-progress.php",
+            "line": 344
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta['key']",
+            "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+            "line": 909
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "$meta_item['key']",
+            "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+            "line": 980
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "$meta['key']",
+            "file": "inc/legacy/merlin-wp/includes/class-merlin-importer.php",
+            "line": 1003
+        }
+    ]
+}

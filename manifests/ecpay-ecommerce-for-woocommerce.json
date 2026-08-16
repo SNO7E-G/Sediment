@@ -1,0 +1,134 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ecpay-ecommerce-for-woocommerce",
+        "name": "ECPay Ecommerce for WooCommerce",
+        "version": "1.1.2606090",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:44Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 74,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 2,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ecpay_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/database/ecpay-db-process.php",
+                        "line": 151
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_Wooecpay_Gateway_Dca_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ecpay-ecommerce-for-woocommerce.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_ecpay_dca",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/payment/ecpay-gateway-dca.php",
+                        "line": 317
+                    }
+                ]
+            },
+            {
+                "key": "wooecpay_enabled_logistic_outside",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ecpay-ecommerce-for-woocommerce.php",
+                        "line": 115
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wooecpay_payment_installment_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/helpers/payment/ecpay-payment-helper.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "wooecpay_receipt_page_executed_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/payment/ecpay-gateway-base.php",
+                        "line": 110
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql . $charset_collate . \";\"",
+            "file": "includes/services/database/ecpay-db-process.php",
+            "line": 144
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "WOOECPAY_PLUGIN_LOG_DIR",
+            "file": "includes/services/helpers/logger/ecpay-logger.php",
+            "line": 23
+        }
+    ]
+}

@@ -1,0 +1,248 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "auto-listings",
+        "name": "Auto Listings",
+        "version": "2.7.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 115,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 16,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.9
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "auto_listings_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Upgrade/Manager.php",
+                        "line": 21
+                    }
+                ]
+            },
+            {
+                "key": "auto_listings_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Installer.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "src/Installer.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "src/Installer.php",
+                        "line": 113
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "al_vehicle_filter_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SearchForm/functions.php",
+                        "line": 171
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_al_enquiry_listing_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Enquiry/ContactForm.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "_al_enquiry_listing_seller",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Enquiry/ContactForm.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "_al_enquiry_listing_title",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Enquiry/ContactForm.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "_al_listing_enquiries",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Enquiry/ContactForm.php",
+                        "line": 111
+                    },
+                    {
+                        "file": "src/Enquiry/ContactForm.php",
+                        "line": 276
+                    }
+                ]
+            },
+            {
+                "key": "_al_listing_image_gallery",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/functions.php",
+                        "line": 320
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/functions.php",
+                        "line": 344
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [
+            {
+                "key": "auto_listings_seller",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Roles.php",
+                        "line": 12
+                    }
+                ]
+            }
+        ],
+        "capabilities": [
+            {
+                "key": "administrator",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Roles.php",
+                        "line": 22
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "auto-listing",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Listing/PostType.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "auto-listings-search",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SearchForm/PostType.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "listing-enquiry",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Enquiry/PostType.php",
+                        "line": 66
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "body-type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Listing/PostType.php",
+                        "line": 97
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "src/Installer.php",
+            "line": 169
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "src/Upgrade/Ver2.php",
+            "line": 23
+        }
+    ]
+}

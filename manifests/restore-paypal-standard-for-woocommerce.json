@@ -1,0 +1,593 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "restore-paypal-standard-for-woocommerce",
+        "name": "Accept PayPal & Stripe with Subscriptions for WooCommerce",
+        "version": "4.0.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:20Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 518,
+        "files_skipped": 0,
+        "write_calls_found": 66,
+        "verified": 32,
+        "resolved": 20,
+        "pattern": 2,
+        "dynamic": 12,
+        "resolution_rate": 0.788
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "rpsfw_migration_completed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migration.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_migration_notice_count",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migration.php",
+                        "line": 537
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_migration_notice_dismissed_permanently",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migration.php",
+                        "line": 346
+                    },
+                    {
+                        "file": "includes/admin/migration.php",
+                        "line": 363
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_native_ppcp_plan_cache",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/gateways/class-rpsfw-subscriptions-paypal-commerce.php",
+                        "line": 339
+                    },
+                    {
+                        "file": "includes/subscriptions/gateways/class-rpsfw-subscriptions-paypal-commerce.php",
+                        "line": 383
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_ppcp_plan_cache",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/paypal-commerce/class-paypal-commerce-subscriptions.php",
+                        "line": 549
+                    },
+                    {
+                        "file": "includes/paypal-commerce/class-paypal-commerce-subscriptions.php",
+                        "line": 601
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_stripe_price_cache",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/stripe/class-stripe-api.php",
+                        "line": 1426
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_subscriptions_endpoints_flushed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscriptions-my-account.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_subscriptions_exist",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscription.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_subscriptions_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscriptions-admin.php",
+                        "line": 796
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_support_credentials",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rpsfw-support-widget.php",
+                        "line": 414
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_paypal_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migration.php",
+                        "line": 229
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_restore_paypal_standard_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migration.php",
+                        "line": 233
+                    },
+                    {
+                        "file": "includes/admin/migration.php",
+                        "line": 247
+                    },
+                    {
+                        "file": "includes/admin/migration.php",
+                        "line": 456
+                    },
+                    {
+                        "file": "includes/paypal-standard/paypal-standard-settings.php",
+                        "line": 163
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_rpsfw_stripe_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/stripe/stripe-ajax-handlers.php",
+                        "line": 160
+                    },
+                    {
+                        "file": "includes/stripe/stripe-ajax-handlers.php",
+                        "line": 204
+                    },
+                    {
+                        "file": "includes/stripe/stripe-ajax-handlers.php",
+                        "line": 235
+                    },
+                    {
+                        "file": "includes/stripe/stripe-connect.php",
+                        "line": 262
+                    },
+                    {
+                        "file": "includes/stripe/stripe-connect.php",
+                        "line": 292
+                    },
+                    {
+                        "file": "includes/stripe/stripe-connect.php",
+                        "line": 369
+                    },
+                    {
+                        "file": "includes/stripe/stripe-connect.php",
+                        "line": 372
+                    },
+                    {
+                        "file": "includes/stripe/stripe-connect.php",
+                        "line": 525
+                    },
+                    {
+                        "file": "includes/stripe/stripe-connect.php",
+                        "line": 585
+                    },
+                    {
+                        "file": "includes/stripe/stripe-settings.php",
+                        "line": 855
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "paypal_commerce_order_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/paypal-commerce/ajax-handlers.php",
+                        "line": 646
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_activation_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions.php",
+                        "line": 267
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions.php",
+                        "line": 273
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_migration_success",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migration.php",
+                        "line": 253
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_settings_reset_success",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migration.php",
+                        "line": 471
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_show_migration_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migration.php",
+                        "line": 511
+                    }
+                ]
+            },
+            {
+                "key": "rpsfw_sub_admin_notice_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscriptions-admin.php",
+                        "line": 703
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_rpsfw_end_date",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscription.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "_rpsfw_gateway_sub_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscription.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "_rpsfw_last_transaction_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscription.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "_rpsfw_next_payment",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscription.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "_rpsfw_payment_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscription.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "_rpsfw_recurring_amount",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscription.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "_rpsfw_recurring_shipping",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscriptions-manager.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "_rpsfw_renewal_order_ids",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscription.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "_rpsfw_stripe_cancel_at",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/gateways/class-rpsfw-subscriptions-stripe.php",
+                        "line": 1009
+                    }
+                ]
+            },
+            {
+                "key": "_rpsfw_stripe_charge_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/stripe/class-stripe-order-refund-panel.php",
+                        "line": 332
+                    },
+                    {
+                        "file": "includes/subscriptions/gateways/class-rpsfw-subscriptions-stripe.php",
+                        "line": 663
+                    }
+                ]
+            },
+            {
+                "key": "_rpsfw_stripe_charge_currency",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/stripe/class-stripe-order-refund-panel.php",
+                        "line": 333
+                    },
+                    {
+                        "file": "includes/subscriptions/gateways/class-rpsfw-subscriptions-stripe.php",
+                        "line": 664
+                    }
+                ]
+            },
+            {
+                "key": "_rpsfw_stripe_charge_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/stripe/class-stripe-order-refund-panel.php",
+                        "line": 330
+                    },
+                    {
+                        "file": "includes/subscriptions/gateways/class-rpsfw-subscriptions-stripe.php",
+                        "line": 656
+                    },
+                    {
+                        "file": "includes/subscriptions/gateways/class-rpsfw-subscriptions-stripe.php",
+                        "line": 881
+                    }
+                ]
+            },
+            {
+                "key": "_rpsfw_stripe_payment_intent_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/gateways/class-rpsfw-subscriptions-stripe.php",
+                        "line": 659
+                    },
+                    {
+                        "file": "includes/subscriptions/gateways/class-rpsfw-subscriptions-stripe.php",
+                        "line": 889
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "rpsfw_subscription",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-rpsfw-subscriptions-post-type.php",
+                        "line": 66
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$throttle",
+            "file": "includes/admin/class-rpsfw-support-widget.php",
+            "line": 295
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/paypal-commerce/ajax-handlers.php",
+            "line": 516
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/paypal-commerce/ajax-handlers.php",
+            "line": 534
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/paypal-commerce/ajax-handlers.php",
+            "line": 578
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/paypal-commerce/ajax-handlers.php",
+            "line": 591
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "includes/paypal-commerce/class-gateway-paypal-commerce.php",
+            "line": 1634
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/paypal-commerce/class-paypal-commerce-api.php",
+            "line": 71
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "includes/stripe/class-stripe-api.php",
+            "line": 1221
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "0 === \\strpos($source, 'ch_') ? '_rpsfw_stripe_charge_id' : '_rpsfw_stripe_payment_intent_id'",
+            "file": "includes/stripe/class-stripe-order-refund-panel.php",
+            "line": 315
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/stripe/stripe-connect.php",
+            "line": 99
+        },
+        {
+            "function": "update_option",
+            "expression": "$lastgood_key",
+            "file": "includes/stripe/stripe-connect.php",
+            "line": 100
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/subscriptions/class-rpsfw-subscription.php",
+            "line": 157
+        }
+    ]
+}

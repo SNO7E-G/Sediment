@@ -1,0 +1,92 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "dynamic-visibility-for-elementor",
+        "name": "Dynamic Visibility for Elementor",
+        "version": "6.0.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:44Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 43,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dce_visibility_max",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/extensions/dynamic-visibility/triggers/context.php",
+                        "line": 364
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "dce_visibility_max_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/extensions/dynamic-visibility/triggers/context.php",
+                        "line": 378
+                    }
+                ]
+            },
+            {
+                "key": "dve_dismissed_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin-pages/notices.php",
+                        "line": 59
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "class/helper.php",
+            "line": 122
+        }
+    ]
+}

@@ -1,0 +1,197 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "machete",
+        "name": "Machete",
+        "version": "5.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 42,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 11,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.733
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "machete_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/maintenance/class-machete-maintenance-module.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "machete_activation_welcome",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "machete.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "machete_cleanup_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/cleanup/class-machete-cleanup-module.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "machete_cookies_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/cookies/class-machete-cookies-module.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "machete_enabled_modules",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/class-machete.php",
+                        "line": 165
+                    },
+                    {
+                        "file": "inc/class-machete.php",
+                        "line": 199
+                    },
+                    {
+                        "file": "machete.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "machete_maintenance_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/maintenance/class-machete-maintenance-module.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "machete_powertools_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/powertools/class-machete-powertools-module.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "machete_social_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/social/class-machete-social-module.php",
+                        "line": 441
+                    }
+                ]
+            },
+            {
+                "key": "machete_utils_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/utils/class-machete-utils-module.php",
+                        "line": 309
+                    }
+                ]
+            },
+            {
+                "key": "machete_woocommerce_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/woocommerce/class-machete-woocommerce-module.php",
+                        "line": 104
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "$post_meta",
+            "file": "inc/clone/admin-functions.php",
+            "line": 74
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\MACHETE_DATA_PATH",
+            "file": "inc/cookies/class-machete-cookies-module.php",
+            "line": 101
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\MACHETE_DATA_PATH",
+            "file": "inc/utils/class-machete-utils-module.php",
+            "line": 105
+        }
+    ]
+}

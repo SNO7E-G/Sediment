@@ -1,0 +1,254 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "product-input-fields-for-woocommerce",
+        "name": "Product Input Fields for WooCommerce",
+        "version": "2.0.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:08Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 16,
+    "coverage": {
+        "files_scanned": 23,
+        "files_skipped": 0,
+        "write_calls_found": 26,
+        "verified": 20,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.808
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "alg_wc_pif_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pif-update.php",
+                        "line": 25
+                    },
+                    {
+                        "file": "includes/class-product-input-fields.php",
+                        "line": 224
+                    }
+                ]
+            },
+            {
+                "key": "pif_field_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/api/class-pif-admin-api-settings.php",
+                        "line": 185
+                    },
+                    {
+                        "file": "includes/api/class-pif-admin-api-settings.php",
+                        "line": 211
+                    },
+                    {
+                        "file": "includes/api/class-pif-admin-api-settings.php",
+                        "line": 233
+                    },
+                    {
+                        "file": "includes/class-pif-update.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "pif_general_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/api/class-pif-admin-api-settings.php",
+                        "line": 122
+                    },
+                    {
+                        "file": "includes/class-pif-update.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "includes/class-product-input-fields.php",
+                        "line": 223
+                    }
+                ]
+            },
+            {
+                "key": "pif_lite_migration_scheduled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pif-update.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "pif_migration_complete",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pif-update.php",
+                        "line": 182
+                    },
+                    {
+                        "file": "includes/class-pif-update.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "pif_migration_running",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pif-update.php",
+                        "line": 159
+                    }
+                ]
+            },
+            {
+                "key": "ts_tracker_last_send",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tyche/components/plugin-tracking/class-tyche-plugin-tracking.php",
+                        "line": 178
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "pif_run_migration_batch",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pif-update.php",
+                        "line": 143
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_pif_migrated_2_0",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pif-update.php",
+                        "line": 268
+                    }
+                ]
+            },
+            {
+                "key": "pif_field_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-pif-product-api.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "includes/api/class-pif-product-api.php",
+                        "line": 193
+                    },
+                    {
+                        "file": "includes/api/class-pif-product-api.php",
+                        "line": 221
+                    },
+                    {
+                        "file": "includes/class-pif-update.php",
+                        "line": 262
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "pif_run_migration_batch",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pif-update.php",
+                        "line": 134
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$upload_dir",
+            "file": "includes/class-pif-cart.php",
+            "line": 337
+        },
+        {
+            "function": "mkdir",
+            "expression": "$upload_dir",
+            "file": "includes/class-pif-order.php",
+            "line": 121
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->plugin_short_name . '_ts_tracker_send_event'",
+            "file": "includes/tyche/components/plugin-tracking/class-tyche-plugin-tracking.php",
+            "line": 132
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_short_name . '_allow_tracking'",
+            "file": "includes/tyche/components/plugin-tracking/class-tyche-plugin-tracking.php",
+            "line": 152
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_short_name . '_allow_tracking'",
+            "file": "includes/tyche/components/plugin-tracking/class-tyche-plugin-tracking.php",
+            "line": 233
+        }
+    ]
+}

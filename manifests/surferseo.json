@@ -1,0 +1,556 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "surferseo",
+        "name": "Surfer – WordPress Plugin",
+        "version": "1.7.0.639",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:19Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 51,
+        "files_skipped": 0,
+        "write_calls_found": 56,
+        "verified": 51,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 3,
+        "resolution_rate": 0.911
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "surfer_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-surfer-settings.php",
+                        "line": 92
+                    },
+                    {
+                        "file": "includes/admin/class-surfer-settings.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "surfer_available_locations",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-surfer.php",
+                        "line": 1385
+                    }
+                ]
+            },
+            {
+                "key": "surfer_connection_details",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-surfer.php",
+                        "line": 422
+                    }
+                ]
+            },
+            {
+                "key": "surfer_connection_token",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-surfer.php",
+                        "line": 395
+                    }
+                ]
+            },
+            {
+                "key": "surfer_image_download_queue",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-surfer-image-processor.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "includes/surfer/content-parsers/class-content-parser.php",
+                        "line": 151
+                    }
+                ]
+            },
+            {
+                "key": "surfer_last_gsc_data_update",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/gsc/class-surfer-gsc-drop-monitor.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "surfer_notification_dismissals",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-surfer-tracking.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "surfer_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-surfer-installer.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "wpsurfer_api_access_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/forms/class-surfer-form-config-ci.php",
+                        "line": 664
+                    },
+                    {
+                        "file": "includes/surfer/class-surfer.php",
+                        "line": 414
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "surfer_gather_available_locations",
+                "recurrence": "monthly",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-surfer.php",
+                        "line": 273
+                    }
+                ]
+            },
+            {
+                "key": "surfer_gather_drop_monitor_data",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/surfer/gsc/class-surfer-gsc-drop-monitor.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "surfer_gather_position_monitor_data_bunch",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/gsc/class-surfer-gsc-drop-monitor.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "surfer_process_image_queue",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-surfer-image-processor.php",
+                        "line": 55
+                    },
+                    {
+                        "file": "includes/surfer/content-parsers/class-content-parser.php",
+                        "line": 154
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_surfer_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-surfer-installer.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "surfer_gsc_data_collection_posts_done",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/gsc/class-surfer-gsc-drop-monitor.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "surfer_gsc_data_collection_posts_max",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/gsc/class-surfer-gsc-drop-monitor.php",
+                        "line": 271
+                    }
+                ]
+            },
+            {
+                "key": "surfer_gsc_weekly_report_email_sent",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/surfer/gsc/class-surfer-gsc-drop-monitor.php",
+                        "line": 301
+                    }
+                ]
+            },
+            {
+                "key": "surfer_gsc_weekly_report_ready",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/gsc/class-surfer-gsc-drop-monitor.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "surfer_installing",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-surfer-installer.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "surfer_tracking_first_enabled",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/forms/class-surfer-form-config-ci.php",
+                        "line": 658
+                    }
+                ]
+            },
+            {
+                "key": "surfer_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-surfer-installer.php",
+                        "line": 149
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_elementor_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/content-parsers/class-elementor-parser.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_edit_mode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/content-parsers/class-elementor-parser.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_template_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/content-parsers/class-elementor-parser.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/content-parsers/class-elementor-parser.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "_surfer_json_schema",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-json-schema.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-surfer-image-processor.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "includes/surfer/content-parsers/class-content-parser.php",
+                        "line": 252
+                    }
+                ]
+            },
+            {
+                "key": "_wp_page_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/content-parsers/class-elementor-parser.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "surfer_draft_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-content-exporter.php",
+                        "line": 201
+                    },
+                    {
+                        "file": "includes/surfer/class-content-importer.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "surfer_file_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-surfer-image-processor.php",
+                        "line": 130
+                    },
+                    {
+                        "file": "includes/surfer/content-parsers/class-content-parser.php",
+                        "line": 232
+                    }
+                ]
+            },
+            {
+                "key": "surfer_file_original_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-surfer-image-processor.php",
+                        "line": 131
+                    },
+                    {
+                        "file": "includes/surfer/content-parsers/class-content-parser.php",
+                        "line": 233
+                    }
+                ]
+            },
+            {
+                "key": "surfer_keywords",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-content-exporter.php",
+                        "line": 199
+                    },
+                    {
+                        "file": "includes/surfer/class-content-importer.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "surfer_last_post_update",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-content-exporter.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "includes/surfer/class-content-exporter.php",
+                        "line": 197
+                    },
+                    {
+                        "file": "includes/surfer/class-content-importer.php",
+                        "line": 123
+                    }
+                ]
+            },
+            {
+                "key": "surfer_last_post_update_direction",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-content-exporter.php",
+                        "line": 167
+                    },
+                    {
+                        "file": "includes/surfer/class-content-exporter.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "includes/surfer/class-content-importer.php",
+                        "line": 124
+                    }
+                ]
+            },
+            {
+                "key": "surfer_location",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-content-exporter.php",
+                        "line": 200
+                    },
+                    {
+                        "file": "includes/surfer/class-content-importer.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "surfer_permalink_hash",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-content-exporter.php",
+                        "line": 202
+                    },
+                    {
+                        "file": "includes/surfer/class-content-importer.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "surfer_scrape_ready",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/surfer/class-content-exporter.php",
+                        "line": 237
+                    },
+                    {
+                        "file": "includes/surfer/class-content-importer.php",
+                        "line": 122
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$identifier",
+            "file": "includes/surfer/class-content-importer.php",
+            "line": 163
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->log_dir",
+            "file": "includes/surfer/class-surfer-logger.php",
+            "line": 45
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_to_execute",
+            "file": "includes/upgrade/class-database-upgrade.php",
+            "line": 37
+        }
+    ]
+}

@@ -1,0 +1,388 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "baidu-submit-link",
+        "name": "多合一搜索自动推送管理插件",
+        "version": "4.2.11",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:37Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 17,
+        "files_skipped": 0,
+        "write_calls_found": 44,
+        "verified": 36,
+        "resolved": 1,
+        "pattern": 2,
+        "dynamic": 5,
+        "resolution_rate": 0.841
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bsl_bing_updateCrawlStats",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/bing.class.php",
+                        "line": 254
+                    }
+                ]
+            },
+            {
+                "key": "bsl_google_jwt_token",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/google.class.php",
+                        "line": 261
+                    }
+                ]
+            },
+            {
+                "key": "bsl_option",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/conf.class.php",
+                        "line": 242
+                    }
+                ]
+            },
+            {
+                "key": "bsl_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin.class.php",
+                        "line": 253
+                    }
+                ]
+            },
+            {
+                "key": "bsl_yandex_error",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/yandex.class.php",
+                        "line": 98
+                    },
+                    {
+                        "file": "classes/yandex.class.php",
+                        "line": 146
+                    },
+                    {
+                        "file": "classes/yandex.class.php",
+                        "line": 188
+                    }
+                ]
+            },
+            {
+                "key": "bsl_yandex_token",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/yandex.class.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "wb_bsl_check_all",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin.class.php",
+                        "line": 1123
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "wb_bsl_cnf_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin.class.php",
+                        "line": 1260
+                    },
+                    {
+                        "file": "classes/conf.class.php",
+                        "line": 430
+                    }
+                ]
+            },
+            {
+                "key": "wb_bsl_db_ver",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/conf.class.php",
+                        "line": 307
+                    },
+                    {
+                        "file": "classes/conf.class.php",
+                        "line": 340
+                    },
+                    {
+                        "file": "classes/conf.class.php",
+                        "line": 365
+                    }
+                ]
+            },
+            {
+                "key": "wb_bsl_promote",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin.class.php",
+                        "line": 486
+                    }
+                ]
+            },
+            {
+                "key": "wb_bsl_ver",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin.class.php",
+                        "line": 1259
+                    }
+                ]
+            },
+            {
+                "key": "wb_idx_data_updated",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 549
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 589
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 619
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "baidu_push_url_cron_action_v3",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "baidu_push_url_cron_action_v4",
+                "recurrence": "five_minute",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 21
+                    }
+                ]
+            },
+            {
+                "key": "bsl_check_all_404_url",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin.class.php",
+                        "line": 1000
+                    }
+                ]
+            },
+            {
+                "key": "bsl_single_push_url",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/bsl.class.php",
+                        "line": 66
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "url_in_baidu",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin.class.php",
+                        "line": 1150
+                    },
+                    {
+                        "file": "classes/admin.class.php",
+                        "line": 1169
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 182
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 186
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 386
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 388
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 473
+                    }
+                ]
+            },
+            {
+                "key": "url_in_baidu_ymd",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 183
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 187
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 196
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 287
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 390
+                    },
+                    {
+                        "file": "classes/cron.class.php",
+                        "line": 475
+                    }
+                ]
+            },
+            {
+                "key": "wb_bsl_daily_push",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin.class.php",
+                        "line": 234
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$opt_key",
+            "file": "classes/admin.class.php",
+            "line": 330
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt_key",
+            "file": "classes/admin.class.php",
+            "line": 400
+        },
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "classes/admin.class.php",
+            "line": 749
+        },
+        {
+            "function": "update_option",
+            "expression": "$w_key . 'ver'",
+            "file": "classes/admin.class.php",
+            "line": 1090
+        },
+        {
+            "function": "update_option",
+            "expression": "$w_key . 'cnf_' . $u_uid",
+            "file": "classes/admin.class.php",
+            "line": 1091
+        }
+    ]
+}

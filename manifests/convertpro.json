@@ -1,0 +1,213 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "convertpro",
+        "name": "EasyTest - Simplify A/B Testing (Former ConvertPro)",
+        "version": "1.0.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:24Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 20,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 9,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 11,
+        "resolution_rate": 0.429
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "convertpro_cap_usage",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/function.php",
+                        "line": 215
+                    },
+                    {
+                        "file": "includes/function.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "convertpro_engine_fix_max_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "convert-pro.php",
+                        "line": 329
+                    }
+                ]
+            },
+            {
+                "key": "convertpro_free_limits",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "convert-pro.php",
+                        "line": 245
+                    }
+                ]
+            },
+            {
+                "key": "convertpro_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "convert-pro.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "convertpro_looping_tests",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "convert-pro.php",
+                        "line": 332
+                    },
+                    {
+                        "file": "convert-pro.php",
+                        "line": 397
+                    }
+                ]
+            },
+            {
+                "key": "convertpro_test_run_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Classes/Store.php",
+                        "line": 399
+                    }
+                ]
+            },
+            {
+                "key": "convertpro_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "convert-pro.php",
+                        "line": 200
+                    },
+                    {
+                        "file": "convert-pro.php",
+                        "line": 334
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$this->client->slug . '_installed_at'",
+            "file": "Finestics/Insights.php",
+            "line": 203
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_last_send'",
+            "file": "Finestics/Insights.php",
+            "line": 233
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "Finestics/Insights.php",
+            "line": 389
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_allow_tracking'",
+            "file": "Finestics/Insights.php",
+            "line": 501
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_notice'",
+            "file": "Finestics/Insights.php",
+            "line": 502
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_allow_tracking'",
+            "file": "Finestics/Insights.php",
+            "line": 516
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_notice'",
+            "file": "Finestics/Insights.php",
+            "line": 517
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "Finestics/Insights.php",
+            "line": 691
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/DataBase/Database.php",
+            "line": 42
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/DataBase/Database.php",
+            "line": 59
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/DataBase/Database.php",
+            "line": 78
+        }
+    ]
+}

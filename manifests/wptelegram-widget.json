@@ -1,0 +1,176 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wptelegram-widget",
+        "name": "WP Telegram Widget",
+        "version": "2.2.16",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:05:20Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 62,
+    "coverage": {
+        "files_scanned": 39,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 11,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.917
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wptelegram_widget_ver",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/Upgrade.php",
+                        "line": 109
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wptelegram_widget_cron_pull_updates",
+                "recurrence": "wptelegram_five_minutely",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Activator.php",
+                        "line": 33
+                    },
+                    {
+                        "file": "includes/Upgrade.php",
+                        "line": 161
+                    }
+                ]
+            },
+            {
+                "key": "wptelegram_widget_pull_updates",
+                "recurrence": "wptelegram_five_minutely",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Upgrade.php",
+                        "line": 138
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "%action%",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "shared/Shared.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "%core%",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "shared/Shared.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "%message_id%",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "shared/Shared.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "%module%",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "shared/Shared.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "%username%",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "shared/Shared.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "^wptelegram/widget/view/@([a-zA-Z]\\w{3,30}[^\\W_])/([0-9]+)/?",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "shared/Shared.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "^wptelegram/widget/view/@([a-zA-Z]\\w{3,30}[^\\W_])/?",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "shared/Shared.php",
+                        "line": 87
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "includes/Utils.php",
+            "line": 212
+        }
+    ]
+}

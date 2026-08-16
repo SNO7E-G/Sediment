@@ -1,0 +1,153 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "date-time-picker-field",
+        "name": "Availability Datepicker - Input WP",
+        "version": "3.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:12Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 28,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 4,
+        "resolved": 8,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.923
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "avdp_activation_time",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-avdp-activator.php",
+                        "line": 20
+                    }
+                ]
+            },
+            {
+                "key": "avdp_installed_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-avdp-upgrader.php",
+                        "line": 42
+                    },
+                    {
+                        "file": "includes/class-avdp-upgrader.php",
+                        "line": 84
+                    },
+                    {
+                        "file": "includes/class-avdp-upgrader.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "avdp_migration_completed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/migration/class-avdp-migration.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "avdp_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-avdp-activator.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "includes/class-avdp-settings.php",
+                        "line": 155
+                    },
+                    {
+                        "file": "includes/class-avdp-settings.php",
+                        "line": 254
+                    },
+                    {
+                        "file": "includes/class-avdp-settings.php",
+                        "line": 273
+                    },
+                    {
+                        "file": "includes/migration/class-avdp-migration.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "avdp_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-avdp-activator.php",
+                        "line": 23
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "avdp_post_upgrade_notice",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-avdp-upgrader.php",
+                        "line": 82
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/availability/class-avdp-availability-calendar-config.php",
+            "line": 154
+        }
+    ]
+}

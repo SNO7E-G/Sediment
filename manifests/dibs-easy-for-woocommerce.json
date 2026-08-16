@@ -1,0 +1,102 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "dibs-easy-for-woocommerce",
+        "name": "Nexi Checkout",
+        "version": "2.14.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:42Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 123,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 0,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dibs_easy_debuglog",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-nets-easy-logger.php",
+                        "line": 58
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "dibs_payment_id_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/nets-easy-functions.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "nexi_checkout_settings_page_config",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-nets-easy-gateway.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "src/PaymentMethods/BaseGateway.php",
+                        "line": 501
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "dibs_payment_created_callback",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-nets-easy-api-callbacks.php",
+                        "line": 71
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

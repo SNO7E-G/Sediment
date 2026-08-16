@@ -1,0 +1,203 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "broken-link-checker-seo",
+        "name": "Broken Link Checker by AIOSEO",
+        "version": "1.3.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:07Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 61,
+    "coverage": {
+        "files_scanned": 94,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 7,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 11,
+        "resolution_rate": 0.476
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "aioseo_blc_migrations_log",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Main/Migrations/MigrationLog.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "app/Main/Migrations/MigrationLog.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "aioseo_blc_sensitive_options",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Options/SensitiveOptions.php",
+                        "line": 208
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "aioseo_blc_cache_table_exists",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Core/Cache.php",
+                        "line": 76
+                    },
+                    {
+                        "file": "app/Core/Cache.php",
+                        "line": 422
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "_aioseo_blc_not_connected",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Admin/Notices/NotConnected.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "_aioseo_blc_notification_plugin_review_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/Notifications.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "app/Api/Notifications.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "_aioseo_blc_plugin_review_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Admin/Notices/Review.php",
+                        "line": 235
+                    },
+                    {
+                        "file": "app/Admin/Notices/Review.php",
+                        "line": 242
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transientName",
+            "file": "app/Core/Cache.php",
+            "line": 572
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "app/Main/Migrations/Definitions/MigrateSensitiveOptions.php",
+            "line": 66
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$schema",
+            "file": "app/Main/PreUpdates.php",
+            "line": 132
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$schemas",
+            "file": "app/Main/Updates.php",
+            "line": 109
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionsName . '_localized'",
+            "file": "app/Traits/Options.php",
+            "line": 302
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionsName",
+            "file": "app/Traits/Options.php",
+            "line": 722
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "app/Utils/Access.php",
+            "line": 79
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$actionName",
+            "file": "app/Utils/ActionScheduler.php",
+            "line": 195
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$actionName",
+            "file": "app/Utils/ActionScheduler.php",
+            "line": 315
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$actionName",
+            "file": "app/Utils/ActionScheduler.php",
+            "line": 338
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->settingsName",
+            "file": "app/Utils/VueSettings.php",
+            "line": 172
+        }
+    ]
+}

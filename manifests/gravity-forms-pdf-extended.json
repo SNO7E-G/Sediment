@@ -1,0 +1,220 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "gravity-forms-pdf-extended",
+        "name": "Gravity PDF",
+        "version": "6.12.6.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:46Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 965,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 8,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 12,
+        "resolution_rate": 0.364
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gfpdf_current_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controller/Controller_Install.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "gfpdf_is_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Model/Model_Install.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "gfpdf_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Helper/Helper_Abstract_Options.php",
+                        "line": 195
+                    },
+                    {
+                        "file": "src/Helper/Helper_Abstract_Options.php",
+                        "line": 747
+                    },
+                    {
+                        "file": "src/Helper/Helper_Abstract_Options.php",
+                        "line": 787
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "gfpdf_*",
+                "recurrence": "single",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Helper/Helper_Abstract_Addon.php",
+                        "line": 627
+                    },
+                    {
+                        "file": "src/Helper/Helper_Abstract_Addon.php",
+                        "line": 664
+                    }
+                ]
+            },
+            {
+                "key": "gfpdf_cleanup_tmp_dir",
+                "recurrence": "twicedaily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controller/Controller_PDF.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "gfpdf_settings_user_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Helper/Helper_Abstract_Options.php",
+                        "line": 1190
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "rewrite_rules",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "src/Controller/Controller_Activation.php",
+                    "line": 67
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$log_path",
+            "file": "src/Helper/Helper_Logger.php",
+            "line": 169
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$destination",
+            "file": "src/Helper/Helper_Misc.php",
+            "line": 429
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$destination . $files->getSubPathName()",
+            "file": "src/Helper/Helper_Misc.php",
+            "line": 448
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->path",
+            "file": "src/Helper/Helper_PDF.php",
+            "line": 343
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_name",
+            "file": "src/Helper/Helper_Templates.php",
+            "line": 145
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_name",
+            "file": "src/Helper/Helper_Templates.php",
+            "line": 429
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "src/Model/Model_Install.php",
+            "line": 283
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$query[0]",
+            "file": "src/Model/Model_Install.php",
+            "line": 343
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$query[1]",
+            "file": "src/Model/Model_Install.php",
+            "line": 344
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "src/deprecated.php",
+            "line": 137
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor_prefixed/monolog/src/Monolog/Handler/StreamHandler.php",
+            "line": 192
+        },
+        {
+            "function": "mkdir",
+            "expression": "$basePath",
+            "file": "vendor_prefixed/mpdf/mpdf/src/Cache.php",
+            "line": 38
+        }
+    ]
+}

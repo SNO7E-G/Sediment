@@ -1,0 +1,136 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "zipmoney-payments-woocommerce",
+        "name": "Zip - WooCommerce",
+        "version": "2.3.32",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:17Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 23,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 3,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.455
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "zip-admin-notice",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-zipmoney-payment-gateway-util.php",
+                        "line": 244
+                    },
+                    {
+                        "file": "includes/class-wc-zipmoney-payment-gateway.php",
+                        "line": 277
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "%action_type%",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-zipmoney-payment-gateway-util.php",
+                        "line": 205
+                    }
+                ]
+            },
+            {
+                "key": "%data%",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-zipmoney-payment-gateway-util.php",
+                        "line": 206
+                    }
+                ]
+            },
+            {
+                "key": "%route%",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-zipmoney-payment-gateway-util.php",
+                        "line": 204
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$checkout->getId()",
+            "file": "includes/api/class-wc-zipmoney-payment-gateway-api-checkout.php",
+            "line": 57
+        },
+        {
+            "function": "update_option",
+            "expression": "$checkout->getId()",
+            "file": "includes/api/class-wc-zipmoney-payment-gateway-api-checkout.php",
+            "line": 59
+        },
+        {
+            "function": "update_option",
+            "expression": "$update_key",
+            "file": "includes/class-wc-zipmoney-payment-gateway-config.php",
+            "line": 448
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/compatibility/abstract-wc-data-compatibility.php",
+            "line": 144
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/compatibility/abstract-wc-data-compatibility.php",
+            "line": 171
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "zipmoney-payment-gateway.php",
+            "line": 61
+        }
+    ]
+}

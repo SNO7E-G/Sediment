@@ -1,0 +1,234 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-eu-vat-compliance",
+        "name": "EU/UK VAT Compliance for WooCommerce (Free)",
+        "version": "1.36.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 11,
+    "coverage": {
+        "files_scanned": 41,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 10,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.571
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wc_uk_vat_hmrc_csrf",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "number-lookups/hmrc.php",
+                        "line": 123
+                    },
+                    {
+                        "file": "number-lookups/hmrc.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "wceuvat_background_tests",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "control-centre.php",
+                        "line": 183
+                    }
+                ]
+            },
+            {
+                "key": "wceuvat_uk_vat_compliance_hmrc_token",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "number-lookups/hmrc.php",
+                        "line": 145
+                    },
+                    {
+                        "file": "number-lookups/hmrc.php",
+                        "line": 452
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_eu_vat_compliance_forbid_vatable_checkout",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 698
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_eu_vat_compliance_reporting_override",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_eu_vat_store_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 590
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_vat_compliance_geo_locate",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 1625
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_vat_compliance_last_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 1628
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wceuvat_background_tests",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "control-centre.php",
+                        "line": 196
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wc_euro_vat_rates_by_iso",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "rates.php",
+                        "line": 409
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$setting['id']",
+            "file": "control-centre.php",
+            "line": 259
+        },
+        {
+            "function": "add_option",
+            "expression": "$this::OPTION_NAME",
+            "file": "number-lookups/vatsense.php",
+            "line": 39
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "nusoap/class.wsdl.php",
+            "line": 293
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name_stub . \"_last_updated\"",
+            "file": "rate-providers/base-generic.php",
+            "line": 99
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name_stub . \"_last_data\"",
+            "file": "rate-providers/base-generic.php",
+            "line": 100
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$last_data_option_name",
+            "file": "rate-providers/base-xml.php",
+            "line": 84
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$last_updated_option_name",
+            "file": "rate-providers/base-xml.php",
+            "line": 85
+        },
+        {
+            "function": "set_transient",
+            "expression": "$month_transient_key",
+            "file": "reports.php",
+            "line": 114
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "reports.php",
+            "line": 142
+        }
+    ]
+}

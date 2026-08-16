@@ -1,0 +1,325 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wck-custom-fields-and-custom-post-types-creator",
+        "name": "WCK - Custom Fields and Custom Post Types Creator",
+        "version": "2.3.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 29,
+    "coverage": {
+        "files_scanned": 32,
+        "files_skipped": 0,
+        "write_calls_found": 42,
+        "verified": 12,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 30,
+        "resolution_rate": 0.286
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wck_meta_boxes_ids",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wck-cfc.php",
+                        "line": 1209
+                    },
+                    {
+                        "file": "wck-cfc.php",
+                        "line": 1236
+                    }
+                ]
+            },
+            {
+                "key": "wck_update_to_unserialized",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wck-cfc.php",
+                        "line": 1067
+                    },
+                    {
+                        "file": "wck.php",
+                        "line": 162
+                    },
+                    {
+                        "file": "wck.php",
+                        "line": 165
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "wck_cfc_page_template_arg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wck-cfc.php",
+                        "line": 580
+                    },
+                    {
+                        "file": "wck-cfc.php",
+                        "line": 613
+                    }
+                ]
+            },
+            {
+                "key": "wck_cfc_post_id_arg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wck-cfc.php",
+                        "line": 575
+                    },
+                    {
+                        "file": "wck-cfc.php",
+                        "line": 607
+                    }
+                ]
+            },
+            {
+                "key": "wck_cfc_post_type_arg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wck-cfc.php",
+                        "line": 570
+                    },
+                    {
+                        "file": "wck-cfc.php",
+                        "line": 602
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wck-meta-box",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wck-cfc.php",
+                        "line": 55
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_user_meta",
+            "expression": "$this->notificationId . '_dismiss_notification'",
+            "file": "inc/class_notices.php",
+            "line": 59
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$notification_id . '_dismiss_notification'",
+            "file": "inc/class_notices.php",
+            "line": 191
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$values['field-slug'] . $suffix",
+            "file": "wck-cfc.php",
+            "line": 651
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_name",
+            "file": "wck-cfc.php",
+            "line": 658
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key . $suffix",
+            "file": "wck-cfc.php",
+            "line": 1167
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$cpt['post-type']",
+            "file": "wck-cptc.php",
+            "line": 235
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$ct['taxonomy']",
+            "file": "wck-ctc.php",
+            "line": 194
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$this->pluginPrefix . '_dismiss_notification'",
+            "file": "wck-sas.php",
+            "line": 279
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_name",
+            "file": "wordpress-creation-kit-api/assets/map/map.php",
+            "line": 88
+        },
+        {
+            "function": "update_option",
+            "expression": "$meta_name",
+            "file": "wordpress-creation-kit-api/assets/map/map.php",
+            "line": 90
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 939
+        },
+        {
+            "function": "update_option",
+            "expression": "$meta",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 941
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name . $meta_suffix",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 955
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta . '_' . $name . '_' . $meta_suffix",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 967
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1035
+        },
+        {
+            "function": "update_option",
+            "expression": "$meta",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1037
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name . $meta_suffix",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1051
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta . '_' . $name . '_' . $meta_suffix",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1063
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1169
+        },
+        {
+            "function": "update_option",
+            "expression": "$meta",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1171
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name . $meta_suffix",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1200
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta . '_' . $name . '_' . $meta_suffix",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1230
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1291
+        },
+        {
+            "function": "update_option",
+            "expression": "$meta",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1293
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name . $meta_suffix",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1305
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta . '_' . $name . '_' . $meta_suffix",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1323
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_name",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1415
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1429
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_name . '_' . $field_slug . '_1'",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1446
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$wck_key",
+            "file": "wordpress-creation-kit-api/wordpress-creation-kit.php",
+            "line": 1609
+        }
+    ]
+}

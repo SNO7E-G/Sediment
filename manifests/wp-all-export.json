@@ -1,0 +1,287 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-all-export",
+        "name": "WP All Export",
+        "version": "1.5.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:24Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 38,
+    "coverage": {
+        "files_scanned": 230,
+        "files_skipped": 0,
+        "write_calls_found": 31,
+        "verified": 8,
+        "resolved": 2,
+        "pattern": 5,
+        "dynamic": 16,
+        "resolution_rate": 0.323
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp_all_export_free_addons_not_included",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-all-export.php",
+                        "line": 801
+                    }
+                ]
+            },
+            {
+                "key": "wp_all_export_free_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-all-export.php",
+                        "line": 880
+                    }
+                ]
+            },
+            {
+                "key": "wp_all_export_queue_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "actions/wp_ajax_wpallexport.php",
+                        "line": 398
+                    },
+                    {
+                        "file": "src/App/Service/ScheduledExport.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "src/App/Service/ScheduledExport.php",
+                        "line": 111
+                    },
+                    {
+                        "file": "src/Scheduling/Export.php",
+                        "line": 31
+                    },
+                    {
+                        "file": "src/Scheduling/Export.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "wpae_modal_review_dismissed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Reviews/ReviewLogic.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "wpae_modal_review_dismissed_modals",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Reviews/ReviewLogic.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "wpae_modal_review_dismissed_time",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Reviews/ReviewLogic.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "wpae_modal_review_dismissed_times",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Reviews/ReviewLogic.php",
+                        "line": 115
+                    }
+                ]
+            },
+            {
+                "key": "wpai_wpae_scheduling_license_site_limit",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/App/Service/License/LicenseActivator.php",
+                        "line": 44
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "IF",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-all-export.php",
+                        "line": 817
+                    },
+                    {
+                        "file": "wp-all-export.php",
+                        "line": 825
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "addon-api/classes/updater.php",
+                        "line": 190
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "actions/wp_ajax_dismiss_export_warnings.php",
+            "line": 22
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "actions/wp_ajax_dismiss_warnings.php",
+            "line": 22
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$plugin_queries",
+            "file": "actions/wpmu_new_blog.php",
+            "line": 19
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "addon-api/classes/updater.php",
+            "line": 116
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "addon-api/classes/updater.php",
+            "line": 174
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "addon-api/classes/updater.php",
+            "line": 272
+        },
+        {
+            "function": "mkdir",
+            "expression": "$tmp_dir",
+            "file": "controllers/admin/manage.php",
+            "line": 405
+        },
+        {
+            "function": "mkdir",
+            "expression": "$bundle_dir",
+            "file": "controllers/admin/manage.php",
+            "line": 407
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "helpers/wp_all_export_secure_file.php",
+            "line": 17
+        },
+        {
+            "function": "mkdir",
+            "expression": "$bundle_dir",
+            "file": "models/export/record.php",
+            "line": 457
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "wp-all-export.php",
+            "line": 217
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "wp-all-export.php",
+            "line": 405
+        },
+        {
+            "function": "update_option",
+            "expression": "\\get_class($this) . '_Options'",
+            "file": "wp-all-export.php",
+            "line": 727
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "wp-all-export.php",
+            "line": 744
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$plugin_queries",
+            "file": "wp-all-export.php",
+            "line": 763
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$plugin_queries",
+            "file": "wp-all-export.php",
+            "line": 771
+        }
+    ]
+}

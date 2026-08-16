@@ -1,0 +1,172 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cookieadmin",
+        "name": "CookieAdmin - Cookie Consent Banner",
+        "version": "1.2.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:09Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 15,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 13,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.867
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cookieadmin_consent_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/consent.php",
+                        "line": 490
+                    },
+                    {
+                        "file": "includes/admin/settings.php",
+                        "line": 360
+                    }
+                ]
+            },
+            {
+                "key": "cookieadmin_law",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/consent.php",
+                        "line": 408
+                    }
+                ]
+            },
+            {
+                "key": "cookieadmin_scan",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/scan.php",
+                        "line": 238
+                    },
+                    {
+                        "file": "includes/admin/scan.php",
+                        "line": 281
+                    },
+                    {
+                        "file": "includes/admin/scan.php",
+                        "line": 419
+                    }
+                ]
+            },
+            {
+                "key": "cookieadmin_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "cookieadmin.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "includes/admin/settings.php",
+                        "line": 329
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "cookieadmin_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "cookieadmin.php",
+                        "line": 92
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "softaculous_plugin_update_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin.php",
+                        "line": 424
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "cookieadmin_run_auto_scan_batch",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/scan.php",
+                        "line": 255
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$notice",
+            "file": "includes/admin.php",
+            "line": 361
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/database.php",
+            "line": 48
+        }
+    ]
+}

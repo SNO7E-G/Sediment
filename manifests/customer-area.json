@@ -1,0 +1,649 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "customer-area",
+        "name": "WP Customer Area",
+        "version": "8.3.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 288,
+        "files_skipped": 0,
+        "write_calls_found": 70,
+        "verified": 15,
+        "resolved": 25,
+        "pattern": 4,
+        "dynamic": 26,
+        "resolution_rate": 0.571
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cuar/core/status/ignored-warnings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-classes/MessageCenter/message-center.class.php",
+                        "line": 203
+                    }
+                ]
+            },
+            {
+                "key": "cuar/core/status/warning-messages",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-classes/MessageCenter/message-center.class.php",
+                        "line": 55
+                    },
+                    {
+                        "file": "src/php/core-classes/MessageCenter/message-center.class.php",
+                        "line": 182
+                    }
+                ]
+            },
+            {
+                "key": "cuar_deferred_actions",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-classes/Activation/plugin-activation-manager.class.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "src/php/core-classes/Activation/plugin-activation-manager.class.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "cuar_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-classes/settings.class.php",
+                        "line": 1933
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "cuar/cron/events?schedule=daily",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-classes/Cron/cron.class.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "cuar/cron/events?schedule=hourly",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-classes/Cron/cron.class.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "cuar/cron/events?schedule=weekly",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-classes/Cron/cron.class.php",
+                        "line": 74
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-classes/settings.class.php",
+                        "line": 1031
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "cuar/private-content/files/download_count?user=*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/private-file/private-file-addon.class.php",
+                        "line": 359
+                    },
+                    {
+                        "file": "src/php/core-addons/private-file/private-file-addon.class.php",
+                        "line": 365
+                    }
+                ]
+            },
+            {
+                "key": "cuar_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-classes/Log/log-event.class.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "cuar_address",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/payments/payment.class.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "cuar_amount",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/payments/payment.class.php",
+                        "line": 347
+                    }
+                ]
+            },
+            {
+                "key": "cuar_currency",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/payments/payment.class.php",
+                        "line": 320
+                    }
+                ]
+            },
+            {
+                "key": "cuar_gateway",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/payments/payment.class.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "cuar_gateway_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/payments/payment.class.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "cuar_notes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/payments/payment.class.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "cuar_object_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/payments/payment.class.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "cuar_object_type",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/payments/payment.class.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "cuar_owner_displayname",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/post-owner/post-owner-addon.class.php",
+                        "line": 887
+                    }
+                ]
+            },
+            {
+                "key": "cuar_owner_queryable",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/post-owner/post-owner-addon.class.php",
+                        "line": 886
+                    }
+                ]
+            },
+            {
+                "key": "cuar_owner_sortable_displayname",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/post-owner/post-owner-addon.class.php",
+                        "line": 888
+                    }
+                ]
+            },
+            {
+                "key": "cuar_private_file_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/private-file/private-file-addon.class.php",
+                        "line": 450
+                    },
+                    {
+                        "file": "src/php/core-addons/private-file/private-file-addon.class.php",
+                        "line": 476
+                    }
+                ]
+            },
+            {
+                "key": "cuar_private_page_view_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/private-page/private-page-addon.class.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "cuar_user_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/payments/payment.class.php",
+                        "line": 196
+                    }
+                ]
+            },
+            {
+                "key": "cuar_user_ip",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/payments/payment.class.php",
+                        "line": 223
+                    }
+                ]
+            },
+            {
+                "key": "cuar_valid_from",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/admin-area/admin-area-addon.class.php",
+                        "line": 547
+                    },
+                    {
+                        "file": "src/php/core-addons/admin-area/admin-area-addon.class.php",
+                        "line": 551
+                    }
+                ]
+            },
+            {
+                "key": "cuar_valid_until",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/admin-area/admin-area-addon.class.php",
+                        "line": 556
+                    },
+                    {
+                        "file": "src/php/core-addons/admin-area/admin-area-addon.class.php",
+                        "line": 560
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "__cuar_session",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-classes/plugin.class.php",
+                        "line": 428
+                    },
+                    {
+                        "file": "src/php/core-classes/plugin.class.php",
+                        "line": 435
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "view-customer-area-menu",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/admin-area/admin-area-addon.class.php",
+                        "line": 438
+                    },
+                    {
+                        "file": "src/php/core-addons/admin-area/admin-area-addon.class.php",
+                        "line": 442
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "cuar_log_event",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-classes/Log/log-event.class.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "cuar_payment",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/payments/payment.class.php",
+                        "line": 413
+                    }
+                ]
+            },
+            {
+                "key": "cuar_private_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/private-file/private-file-addon.class.php",
+                        "line": 1300
+                    }
+                ]
+            },
+            {
+                "key": "cuar_private_page",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/private-page/private-page-addon.class.php",
+                        "line": 204
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "cuar_log_event_type",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-classes/Log/log-event-type.class.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "cuar_private_file_category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/private-file/private-file-addon.class.php",
+                        "line": 1339
+                    }
+                ]
+            },
+            {
+                "key": "cuar_private_page_category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/core-addons/private-page/private-page-addon.class.php",
+                        "line": 245
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->wc_am_instance_key",
+            "file": "libs/php/wc-api-manager-php-library/wc-am-client.php",
+            "line": 375
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->wc_am_deactivate_checkbox_key",
+            "file": "libs/php/wc-api-manager-php-library/wc-am-client.php",
+            "line": 378
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->wc_am_activated_key",
+            "file": "libs/php/wc-api-manager-php-library/wc-am-client.php",
+            "line": 379
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->wc_am_activated_key",
+            "file": "libs/php/wc-api-manager-php-library/wc-am-client.php",
+            "line": 588
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->wc_am_deactivate_checkbox_key",
+            "file": "libs/php/wc-api-manager-php-library/wc-am-client.php",
+            "line": 589
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->wc_am_product_id",
+            "file": "libs/php/wc-api-manager-php-library/wc-am-client.php",
+            "line": 698
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->wc_am_activated_key",
+            "file": "libs/php/wc-api-manager-php-library/wc-am-client.php",
+            "line": 735
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->wc_am_deactivate_checkbox_key",
+            "file": "libs/php/wc-api-manager-php-library/wc-am-client.php",
+            "line": 736
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->wc_am_activated_key",
+            "file": "libs/php/wc-api-manager-php-library/wc-am-client.php",
+            "line": 741
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->wc_am_activated_key",
+            "file": "libs/php/wc-api-manager-php-library/wc-am-client.php",
+            "line": 746
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->wc_am_activated_key",
+            "file": "libs/php/wc-api-manager-php-library/wc-am-client.php",
+            "line": 775
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->wc_am_activated_key",
+            "file": "libs/php/wc-api-manager-php-library/wc-am-client.php",
+            "line": 784
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "src/php/core-addons/addresses/addresses-addon.class.php",
+            "line": 379
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "src/php/core-addons/admin-area/admin-area-addon.class.php",
+            "line": 117
+        },
+        {
+            "function": "add_cap",
+            "expression": "$key",
+            "file": "src/php/core-addons/capabilities/capabilities-addon.class.php",
+            "line": 109
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "src/php/core-addons/capabilities/capabilities-addon.class.php",
+            "line": 185
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "src/php/core-addons/post-owner/post-owner-addon.class.php",
+            "line": 173
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "src/php/core-addons/post-owner/post-owner-addon.class.php",
+            "line": 319
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "src/php/core-addons/post-owner/post-owner-addon.class.php",
+            "line": 353
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "src/php/core-addons/post-owner/post-owner-addon.class.php",
+            "line": 517
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "src/php/core-addons/private-file/private-file-addon.class.php",
+            "line": 114
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "src/php/core-classes/Log/file-logger.class.php",
+            "line": 58
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "src/php/core-classes/addon-edit-content-page.class.php",
+            "line": 1139
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_id",
+            "file": "src/php/core-classes/object-meta/storage/post-meta-storage.class.php",
+            "line": 35
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$field_id",
+            "file": "src/php/core-classes/object-meta/storage/user-meta-storage.class.php",
+            "line": 35
+        },
+        {
+            "function": "add_role",
+            "expression": "$id",
+            "file": "src/php/helpers/wordpress-helper.class.php",
+            "line": 25
+        }
+    ]
+}

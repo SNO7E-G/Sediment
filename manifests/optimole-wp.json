@@ -1,0 +1,615 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "optimole-wp",
+        "name": "Image optimization service by Optimole",
+        "version": "4.2.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 96,
+        "files_skipped": 0,
+        "write_calls_found": 68,
+        "verified": 14,
+        "resolved": 22,
+        "pattern": 1,
+        "dynamic": 31,
+        "resolution_rate": 0.529
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "optimole_wp_logger_flag",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/api.php",
+                        "line": 159
+                    }
+                ]
+            },
+            {
+                "key": "optml-version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/main.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "optml_current_domain",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin.php",
+                        "line": 394
+                    }
+                ]
+            },
+            {
+                "key": "optml_defaults_updated",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin.php",
+                        "line": 410
+                    },
+                    {
+                        "file": "inc/admin.php",
+                        "line": 420
+                    }
+                ]
+            },
+            {
+                "key": "optml_dismissed_conflicts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/conflicts/conflict_manager.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "optml_dismissed_plugin_conflicts",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/conflicts/conflicting_plugins.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "optml_enabled_cloud_sites",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin.php",
+                        "line": 459
+                    },
+                    {
+                        "file": "inc/admin.php",
+                        "line": 467
+                    }
+                ]
+            },
+            {
+                "key": "optml_enabled_limit_dimensions",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin.php",
+                        "line": 440
+                    }
+                ]
+            },
+            {
+                "key": "optml_has_offloading_enabled_on_upgrade",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin.php",
+                        "line": 2560
+                    }
+                ]
+            },
+            {
+                "key": "optml_notice_hide_upg",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin.php",
+                        "line": 1060
+                    }
+                ]
+            },
+            {
+                "key": "optml_notice_optin",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin.php",
+                        "line": 1056
+                    },
+                    {
+                        "file": "inc/admin.php",
+                        "line": 1325
+                    }
+                ]
+            },
+            {
+                "key": "optml_process_meta",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/media_offload.php",
+                        "line": 1812
+                    },
+                    {
+                        "file": "inc/media_offload.php",
+                        "line": 1828
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "optml_daily_sync",
+                "recurrence": "twicedaily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin.php",
+                        "line": 100
+                    }
+                ]
+            },
+            {
+                "key": "optml_pull_image_data",
+                "recurrence": "hourly",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "optml_start_processing_images",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/media_offload.php",
+                        "line": 1951
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_optml_cache_tokens_individual",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/settings.php",
+                        "line": 841
+                    }
+                ]
+            },
+            {
+                "key": "om_att*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/attachment_cache.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "optimole_sample_image",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/rest.php",
+                        "line": 541
+                    }
+                ]
+            },
+            {
+                "key": "optml_cache_lock",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/settings.php",
+                        "line": 832
+                    }
+                ]
+            },
+            {
+                "key": "optml_cache_lock_assets",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/settings.php",
+                        "line": 837
+                    }
+                ]
+            },
+            {
+                "key": "optml_fresh_install",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/main.php",
+                        "line": 242
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_optimole_retryable_errors",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/media_offload.php",
+                        "line": 1265
+                    }
+                ]
+            },
+            {
+                "key": "_optml_pending_rename",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/media_rename/attachment_edit.php",
+                        "line": 301
+                    }
+                ]
+            },
+            {
+                "key": "om-dam-edit",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/dam.php",
+                        "line": 159
+                    }
+                ]
+            },
+            {
+                "key": "om-dam-imported",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/dam.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "om_image_offloaded",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/media_offload.php",
+                        "line": 797
+                    },
+                    {
+                        "file": "inc/media_offload.php",
+                        "line": 1491
+                    },
+                    {
+                        "file": "inc/media_offload.php",
+                        "line": 1525
+                    }
+                ]
+            },
+            {
+                "key": "optimole_offload_post",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/media_offload.php",
+                        "line": 731
+                    },
+                    {
+                        "file": "inc/media_offload.php",
+                        "line": 1539
+                    }
+                ]
+            },
+            {
+                "key": "optimole_rollback_post",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/media_offload.php",
+                        "line": 735
+                    }
+                ]
+            },
+            {
+                "key": "optml_image_data_collected",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin.php",
+                        "line": 322
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "optml_start_processing_images",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/media_offload.php",
+                        "line": 1949
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->upload_dir",
+            "file": "inc/logger.php",
+            "line": 61
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offloaded']",
+            "file": "inc/media_offload.php",
+            "line": 796
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['rollback_error']",
+            "file": "inc/media_offload.php",
+            "line": 877
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['rollback_error']",
+            "file": "inc/media_offload.php",
+            "line": 891
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['rollback_error']",
+            "file": "inc/media_offload.php",
+            "line": 898
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['rollback_error']",
+            "file": "inc/media_offload.php",
+            "line": 914
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['rollback_error']",
+            "file": "inc/media_offload.php",
+            "line": 944
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['rollback_error']",
+            "file": "inc/media_offload.php",
+            "line": 954
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['rollback_error']",
+            "file": "inc/media_offload.php",
+            "line": 964
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['rollback_error']",
+            "file": "inc/media_offload.php",
+            "line": 973
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['rollback_error']",
+            "file": "inc/media_offload.php",
+            "line": 978
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['rollback_error']",
+            "file": "inc/media_offload.php",
+            "line": 989
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offload_error']",
+            "file": "inc/media_offload.php",
+            "line": 1258
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offload_error']",
+            "file": "inc/media_offload.php",
+            "line": 1294
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offload_error']",
+            "file": "inc/media_offload.php",
+            "line": 1303
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offload_error']",
+            "file": "inc/media_offload.php",
+            "line": 1312
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offload_error']",
+            "file": "inc/media_offload.php",
+            "line": 1346
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offload_error']",
+            "file": "inc/media_offload.php",
+            "line": 1356
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offload_error']",
+            "file": "inc/media_offload.php",
+            "line": 1367
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offload_error']",
+            "file": "inc/media_offload.php",
+            "line": 1407
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offload_error']",
+            "file": "inc/media_offload.php",
+            "line": 1418
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offload_error']",
+            "file": "inc/media_offload.php",
+            "line": 1429
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offload_error']",
+            "file": "inc/media_offload.php",
+            "line": 1481
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offloaded']",
+            "file": "inc/media_offload.php",
+            "line": 1490
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['offloaded']",
+            "file": "inc/media_offload.php",
+            "line": 1524
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "inc/media_offload.php",
+            "line": 1795
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "inc/rest.php",
+            "line": 918
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->namespace",
+            "file": "inc/settings.php",
+            "line": 446
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->namespace",
+            "file": "inc/settings.php",
+            "line": 483
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->namespace",
+            "file": "inc/settings.php",
+            "line": 769
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_key($key)",
+            "file": "inc/v2/PageProfiler/Storage/Transients.php",
+            "line": 58
+        }
+    ]
+}

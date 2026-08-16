@@ -1,0 +1,693 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "g-business-reviews-rating",
+        "name": "Reviews and Rating - Google Reviews",
+        "version": "5.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:43Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 6,
+        "files_skipped": 0,
+        "write_calls_found": 106,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 105,
+        "resolution_rate": 0.009
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "google_business_reviews_rating_run",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cron.php",
+                        "line": 26
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "__CLASS__ . '_maybe_unserialize_test'",
+            "file": "index.php",
+            "line": 294
+        },
+        {
+            "function": "set_transient",
+            "expression": "__CLASS__ . '_welcome'",
+            "file": "index.php",
+            "line": 306
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_initial_version'",
+            "file": "index.php",
+            "line": 314
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_place_id'",
+            "file": "index.php",
+            "line": 315
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_api_key'",
+            "file": "index.php",
+            "line": 316
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_language'",
+            "file": "index.php",
+            "line": 317
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_demo'",
+            "file": "index.php",
+            "line": 318
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_update'",
+            "file": "index.php",
+            "line": 319
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_review_limit'",
+            "file": "index.php",
+            "line": 320
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_review_sort'",
+            "file": "index.php",
+            "line": 321
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_review_sort_admin'",
+            "file": "index.php",
+            "line": 322
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_rating_min'",
+            "file": "index.php",
+            "line": 323
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_rating_max'",
+            "file": "index.php",
+            "line": 324
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_review_text_min'",
+            "file": "index.php",
+            "line": 325
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_review_text_max'",
+            "file": "index.php",
+            "line": 326
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_review_text_excerpt_length'",
+            "file": "index.php",
+            "line": 327
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews_theme'",
+            "file": "index.php",
+            "line": 328
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_view'",
+            "file": "index.php",
+            "line": 329
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_color_scheme'",
+            "file": "index.php",
+            "line": 330
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_javascript'",
+            "file": "index.php",
+            "line": 331
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_stylesheet'",
+            "file": "index.php",
+            "line": 332
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_icon'",
+            "file": "index.php",
+            "line": 333
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_logo'",
+            "file": "index.php",
+            "line": 334
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_telephone'",
+            "file": "index.php",
+            "line": 335
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_business_type'",
+            "file": "index.php",
+            "line": 336
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_price_range'",
+            "file": "index.php",
+            "line": 337
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_places'",
+            "file": "index.php",
+            "line": 338
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_structured_data'",
+            "file": "index.php",
+            "line": 339
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_retrieval'",
+            "file": "index.php",
+            "line": 340
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_retrieval_fields'",
+            "file": "index.php",
+            "line": 341
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_retrieval_sort'",
+            "file": "index.php",
+            "line": 342
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_retrieval_translate'",
+            "file": "index.php",
+            "line": 343
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_result'",
+            "file": "index.php",
+            "line": 344
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_result_valid'",
+            "file": "index.php",
+            "line": 345
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews'",
+            "file": "index.php",
+            "line": 346
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_section'",
+            "file": "index.php",
+            "line": 347
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_editor'",
+            "file": "index.php",
+            "line": 348
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_local_images'",
+            "file": "index.php",
+            "line": 349
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_custom_styles'",
+            "file": "index.php",
+            "line": 350
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_meta_box_limit'",
+            "file": "index.php",
+            "line": 351
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_log'",
+            "file": "index.php",
+            "line": 352
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_notifications'",
+            "file": "index.php",
+            "line": 353
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_related_plugins'",
+            "file": "index.php",
+            "line": 354
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_additional_array_sanitization'",
+            "file": "index.php",
+            "line": 361
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_result'",
+            "file": "index.php",
+            "line": 390
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_result_valid'",
+            "file": "index.php",
+            "line": 391
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_local_images'",
+            "file": "index.php",
+            "line": 532
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_retrieval_sort'",
+            "file": "index.php",
+            "line": 537
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_retrieval_fields'",
+            "file": "index.php",
+            "line": 542
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_retrieval_translate'",
+            "file": "index.php",
+            "line": 547
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_editor'",
+            "file": "index.php",
+            "line": 554
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_editor'",
+            "file": "index.php",
+            "line": 1035
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews'",
+            "file": "index.php",
+            "line": 1116
+        },
+        {
+            "function": "set_transient",
+            "expression": "__CLASS__ . '_avatars_downloaded'",
+            "file": "index.php",
+            "line": 1120
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_section'",
+            "file": "index.php",
+            "line": 1269
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_section'",
+            "file": "index.php",
+            "line": 1801
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_review_sort_admin'",
+            "file": "index.php",
+            "line": 1864
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_api_key'",
+            "file": "index.php",
+            "line": 1897
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_place_id'",
+            "file": "index.php",
+            "line": 1898
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_language'",
+            "file": "index.php",
+            "line": 1899
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_retrieval_translate'",
+            "file": "index.php",
+            "line": 1900
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_update'",
+            "file": "index.php",
+            "line": 1901
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_section'",
+            "file": "index.php",
+            "line": 1902
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_demo'",
+            "file": "index.php",
+            "line": 1931
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_section'",
+            "file": "index.php",
+            "line": 1932
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews'",
+            "file": "index.php",
+            "line": 2116
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews'",
+            "file": "index.php",
+            "line": 2125
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_additional_array_sanitization'",
+            "file": "index.php",
+            "line": 2126
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews'",
+            "file": "index.php",
+            "line": 2166
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_section'",
+            "file": "index.php",
+            "line": 2195
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews'",
+            "file": "index.php",
+            "line": 2260
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews'",
+            "file": "index.php",
+            "line": 2300
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews'",
+            "file": "index.php",
+            "line": 2535
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_stylesheet'",
+            "file": "index.php",
+            "line": 2562
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_javascript'",
+            "file": "index.php",
+            "line": 2563
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_custom_styles'",
+            "file": "index.php",
+            "line": 2573
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_section'",
+            "file": "index.php",
+            "line": 2707
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews'",
+            "file": "index.php",
+            "line": 2768
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_editor'",
+            "file": "index.php",
+            "line": 2795
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_section'",
+            "file": "index.php",
+            "line": 2884
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews'",
+            "file": "index.php",
+            "line": 2929
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_section'",
+            "file": "index.php",
+            "line": 2930
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_result'",
+            "file": "index.php",
+            "line": 3533
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_retrieval_fields'",
+            "file": "index.php",
+            "line": 3733
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_retrieval'",
+            "file": "index.php",
+            "line": 3907
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_result'",
+            "file": "index.php",
+            "line": 3908
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_result_valid'",
+            "file": "index.php",
+            "line": 3920
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_places'",
+            "file": "index.php",
+            "line": 4028
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews'",
+            "file": "index.php",
+            "line": 4416
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_icon'",
+            "file": "index.php",
+            "line": 4428
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_icon'",
+            "file": "index.php",
+            "line": 4439
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_logo'",
+            "file": "index.php",
+            "line": 4462
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_logo'",
+            "file": "index.php",
+            "line": 4473
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_directory_plugin",
+            "file": "index.php",
+            "line": 4537
+        },
+        {
+            "function": "set_transient",
+            "expression": "__CLASS__ . '_reviews_shuffled'",
+            "file": "index.php",
+            "line": 5025
+        },
+        {
+            "function": "set_transient",
+            "expression": "__CLASS__ . '_reviews_shuffled'",
+            "file": "index.php",
+            "line": 5167
+        },
+        {
+            "function": "set_transient",
+            "expression": "__CLASS__ . '_force'",
+            "file": "index.php",
+            "line": 5281
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_result'",
+            "file": "index.php",
+            "line": 5326
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_structured_data'",
+            "file": "index.php",
+            "line": 5327
+        },
+        {
+            "function": "set_transient",
+            "expression": "__CLASS__ . '_force'",
+            "file": "index.php",
+            "line": 5339
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_result'",
+            "file": "index.php",
+            "line": 5372
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_reviews'",
+            "file": "index.php",
+            "line": 7255
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_places'",
+            "file": "index.php",
+            "line": 7260
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_log'",
+            "file": "index.php",
+            "line": 7296
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_log'",
+            "file": "index.php",
+            "line": 7322
+        }
+    ]
+}

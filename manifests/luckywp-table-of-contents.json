@@ -1,0 +1,80 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "luckywp-table-of-contents",
+        "name": "LuckyWP Table of Contents",
+        "version": "2.1.14",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:25Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 87,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.25
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_lwptoc_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/PostSettings.php",
+                        "line": 335
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "\\luckywp\\tableOfContents\\core\\Core::$plugin->prefix . $option",
+            "file": "core/wp/Options.php",
+            "line": 18
+        },
+        {
+            "function": "add_option",
+            "expression": "$option",
+            "file": "core/wp/Settings.php",
+            "line": 272
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . $groupId",
+            "file": "core/wp/Settings.php",
+            "line": 362
+        }
+    ]
+}

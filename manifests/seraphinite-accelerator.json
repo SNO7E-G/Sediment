@@ -1,0 +1,212 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "seraphinite-accelerator",
+        "name": "Seraphinite Accelerator (Base, cache only)",
+        "version": "2.29.20",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:43Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 26,
+    "coverage": {
+        "files_scanned": 91,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 4,
+        "resolved": 5,
+        "pattern": 4,
+        "dynamic": 4,
+        "resolution_rate": 0.529
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gd_system_last_cache_flush",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cache_ext.php",
+                        "line": 421
+                    }
+                ]
+            },
+            {
+                "key": "seraph_accel_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Cmn/Plugin.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "Cmn/Plugin.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "seraph_accel_Data",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Cmn/Plugin.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "seraph_accel_Sett",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Cmn/Plugin.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "seraph_accel_State",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Cmn/Plugin.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "seraph_accel_status",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "main.php",
+                        "line": 1968
+                    }
+                ]
+            },
+            {
+                "key": "seraph_secretKey",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Cmn/Gen.php",
+                        "line": 352
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_seraph_accel_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Cmn/Plugin.php",
+                        "line": 269
+                    },
+                    {
+                        "file": "Cmn/Plugin.php",
+                        "line": 291
+                    }
+                ]
+            },
+            {
+                "key": "_seraph_accel_Data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Cmn/Plugin.php",
+                        "line": 291
+                    }
+                ]
+            },
+            {
+                "key": "_seraph_accel_Sett",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Cmn/Plugin.php",
+                        "line": 291
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Cmn/Gen.php",
+                        "line": 6109
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "Cmn/Db.php",
+            "line": 75
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "Cmn/Gen.php",
+            "line": 763
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "common.php",
+            "line": 6207
+        },
+        {
+            "function": "update_option",
+            "expression": "$option . '_tmMax'",
+            "file": "common.php",
+            "line": 6208
+        }
+    ]
+}

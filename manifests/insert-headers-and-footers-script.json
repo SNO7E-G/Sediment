@@ -1,0 +1,161 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "insert-headers-and-footers-script",
+        "name": "Insert Headers and Footers Code - HT Script",
+        "version": "1.1.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 70,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 6,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.4
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ihafs_diagnostic_data_agreed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-diagnostic-data.php",
+                        "line": 221
+                    },
+                    {
+                        "file": "admin/class-diagnostic-data.php",
+                        "line": 568
+                    }
+                ]
+            },
+            {
+                "key": "ihafs_diagnostic_data_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-diagnostic-data.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "admin/class-diagnostic-data.php",
+                        "line": 569
+                    }
+                ]
+            },
+            {
+                "key": "ihafs_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "init.php",
+                        "line": 85
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "ihafs_script",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/custom-posts.php",
+                        "line": 70
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$notice_id",
+            "file": "admin/class-rating-notice.php",
+            "line": 94
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$notice_id",
+            "file": "admin/class-rating-notice.php",
+            "line": 97
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice_id",
+            "file": "admin/class-rating-notice.php",
+            "line": 99
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice['id']",
+            "file": "admin/class-rating-notice.php",
+            "line": 404
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$notice['id']",
+            "file": "admin/class-rating-notice.php",
+            "line": 405
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->key",
+            "file": "admin/cmb2/includes/CMB2_Options.php",
+            "line": 197
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->option_key",
+            "file": "admin/cmb2/includes/CMB2_Options_Hookup.php",
+            "line": 339
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "admin/cmb2/includes/types/CMB2_Type_Taxonomy_Base.php",
+            "line": 80
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_var",
+            "file": "admin/recommended-plugins/class.recommended-plugins.php",
+            "line": 332
+        }
+    ]
+}

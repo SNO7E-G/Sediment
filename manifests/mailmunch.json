@@ -1,0 +1,203 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mailmunch",
+        "name": "MailMunch - Grow Your Email List",
+        "version": "3.2.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:32Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 25,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 2,
+        "resolved": 9,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.524
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mailmunch_activation_date",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-mailmunch-admin.php",
+                        "line": 243
+                    }
+                ]
+            },
+            {
+                "key": "mailmunch_activation_redirect",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-mailmunch-admin.php",
+                        "line": 229
+                    },
+                    {
+                        "file": "includes/class-mailmunch-activator.php",
+                        "line": 33
+                    },
+                    {
+                        "file": "includes/class-mailmunch-deactivator.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "mailmunch_dismiss_review_notice",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-mailmunch-admin.php",
+                        "line": 299
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_mailmunch_landing_page_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailmunch-post-type.php",
+                        "line": 140
+                    },
+                    {
+                        "file": "includes/class-mailmunch-post-type.php",
+                        "line": 142
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_mailmunch_marketing_consent",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/woocommerce/class-mailmunch-woocommerce.php",
+                        "line": 296
+                    },
+                    {
+                        "file": "includes/woocommerce/class-mailmunch-woocommerce.php",
+                        "line": 309
+                    },
+                    {
+                        "file": "includes/woocommerce/class-mailmunch-woocommerce.php",
+                        "line": 532
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "mailmunch_page",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailmunch-post-type.php",
+                        "line": 50
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . $settingName",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 32
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . 'user_token'",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 40
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . 'site_id'",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 286
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . 'list_id'",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 294
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$post->post_name . '$'",
+            "file": "includes/class-mailmunch-rewrite.php",
+            "line": 113
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'woo_sync_token'",
+            "file": "includes/woocommerce/class-mailmunch-woocommerce.php",
+            "line": 220
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/woocommerce/class-mailmunch-woocommerce.php",
+            "line": 467
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->prefix . 'deleted_customer_' . $user_id",
+            "file": "includes/woocommerce/class-mailmunch-woocommerce.php",
+            "line": 564
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->prefix . 'deleted_order_' . $id",
+            "file": "includes/woocommerce/class-mailmunch-woocommerce.php",
+            "line": 614
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'woo_webhook_ids'",
+            "file": "includes/woocommerce/class-mailmunch-woocommerce.php",
+            "line": 872
+        }
+    ]
+}

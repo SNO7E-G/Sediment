@@ -1,0 +1,142 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-asaas",
+        "name": "Asaas Gateway for WooCommerce",
+        "version": "2.7.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:48Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 207,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 3,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "asaas_anticipation_payment",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/anticipation/meta/class-anticipation-meta.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "asaas_status_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/webhook/meta/class-webhook-meta-status.php",
+                        "line": 117
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "remove_expired_pix_asaas",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/cron/class-expired-pix-cron.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "remove_expired_ticket",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/cron/class-expired-ticket-cron.php",
+                        "line": 66
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wocommerce-asaas-customer",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/meta-data/class-customer.php",
+                        "line": 145
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "asaas-webhook/?$",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/webhook/class-endpoint.php",
+                        "line": 119
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$other_gateway->get_option_key()",
+            "file": "includes/gateway/class-gateway.php",
+            "line": 290
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$this->post_type->slug()",
+            "file": "includes/split/hook/class-split-wallet-post-type-hook.php",
+            "line": 20
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/split/repository/class-split-legacy-repository.php",
+            "line": 32
+        }
+    ]
+}

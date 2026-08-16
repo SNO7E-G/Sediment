@@ -1,0 +1,312 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "surveyx-builder",
+        "name": "SurveyX Builder",
+        "version": "1.7.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:32Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 31,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 11,
+        "resolved": 9,
+        "pattern": 1,
+        "dynamic": 7,
+        "resolution_rate": 0.714
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "surveyx_db_installed",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "surveyx-builder.php",
+                        "line": 253
+                    }
+                ]
+            },
+            {
+                "key": "surveyx_installed_at",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/review-notice.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "surveyx_migrations_done",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 199
+                    },
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 302
+                    },
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 646
+                    }
+                ]
+            },
+            {
+                "key": "surveyx_review_notice",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/review-notice.php",
+                        "line": 228
+                    },
+                    {
+                        "file": "includes/review-notice.php",
+                        "line": 238
+                    }
+                ]
+            },
+            {
+                "key": "surveyx_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/database.php",
+                        "line": 992
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}surveyx_answers",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}surveyx_questions",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}surveyx_respondents",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}surveyx_responses",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 169
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}surveyx_revisions",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 153
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}surveyx_sessions",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}surveyx_summary",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}surveyx_surveys",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 20
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}surveyx_themes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 141
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "surveyx_process_sessions_hourly",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/cron-jobs.php",
+                        "line": 12
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "surveyx_db_upgrade_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-migration.php",
+                        "line": 307
+                    }
+                ]
+            },
+            {
+                "key": "surveyx_import_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/import-handler.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "surveyx_review_responses_ok",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/review-notice.php",
+                        "line": 88
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "admin/analytics-handler.php",
+            "line": 22
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache['key']",
+            "file": "admin/api-endpoints.php",
+            "line": 743
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "admin/import-handler.php",
+            "line": 244
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "client/handlers/validation.php",
+            "line": 196
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/database.php",
+            "line": 648
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/database.php",
+            "line": 872
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/database.php",
+            "line": 894
+        }
+    ]
+}

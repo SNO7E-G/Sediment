@@ -1,0 +1,126 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "email-log",
+        "name": "Email Log",
+        "version": "2.63",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 28,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 0,
+        "resolved": 5,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "email-log-db",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "include/Core/DB/TableManager.php",
+                        "line": 353
+                    },
+                    {
+                        "file": "include/Core/DB/TableManager.php",
+                        "line": 483
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "el_trigger_notify_email_when_log_threshold_met",
+                "recurrence": "hourly",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Core/UI/Setting/CoreSetting.php",
+                        "line": 403
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "manage_email_logs",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Core/AdminCapabilityGiver.php",
+                        "line": 57
+                    },
+                    {
+                        "file": "include/Core/Request/LogListAction.php",
+                        "line": 171
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "include/Core/DB/TableManager.php",
+            "line": 351
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "include/Core/DB/TableManager.php",
+            "line": 481
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->section->option_name",
+            "file": "include/Core/UI/Setting/CoreSetting.php",
+            "line": 506
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "include/install.php",
+            "line": 109
+        },
+        {
+            "function": "add_option",
+            "expression": "\\EmailLog::DB_OPTION_NAME",
+            "file": "include/install.php",
+            "line": 111
+        }
+    ]
+}

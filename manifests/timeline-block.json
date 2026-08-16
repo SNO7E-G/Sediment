@@ -1,0 +1,111 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "timeline-block",
+        "name": "Timeline Block",
+        "version": "1.9.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:12Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 13,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ctlb-initial-save-version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "timeline-block.php",
+                        "line": 104
+                    }
+                ]
+            },
+            {
+                "key": "ctlb-install-date",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "timeline-block.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "ctlb_is_new_user",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "timeline-block.php",
+                        "line": 115
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "ctlb_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "timeline-block.php",
+                        "line": 116
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->config->option('method')",
+            "file": "admin/cp-onboarding/framework/src/class-framework.php",
+            "line": 298
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->key()",
+            "file": "admin/cp-onboarding/framework/src/class-telemetry.php",
+            "line": 212
+        }
+    ]
+}

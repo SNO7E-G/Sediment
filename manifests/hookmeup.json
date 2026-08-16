@@ -1,0 +1,163 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "hookmeup",
+        "name": "HookMeUp for WooCommerce",
+        "version": "3.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:35Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 16,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 14,
+        "resolution_rate": 0.059
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "hookmeup_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "hookmeup.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "hookmeup.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "hookmeup_done_import",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "hookmeup.php",
+                        "line": 98
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_last_send'",
+            "file": "includes/appsero/src/Insights.php",
+            "line": 199
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "includes/appsero/src/Insights.php",
+            "line": 393
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_allow_tracking'",
+            "file": "includes/appsero/src/Insights.php",
+            "line": 494
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_notice'",
+            "file": "includes/appsero/src/Insights.php",
+            "line": 495
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_allow_tracking'",
+            "file": "includes/appsero/src/Insights.php",
+            "line": 513
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_notice'",
+            "file": "includes/appsero/src/Insights.php",
+            "line": 514
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "includes/appsero/src/Insights.php",
+            "line": 705
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_skipped'",
+            "file": "includes/appsero/src/Insights.php",
+            "line": 1054
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "includes/appsero/src/License.php",
+            "line": 362
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "includes/appsero/src/License.php",
+            "line": 646
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "includes/appsero/src/License.php",
+            "line": 670
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->schedule_hook",
+            "file": "includes/appsero/src/License.php",
+            "line": 750
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->schedule_hook",
+            "file": "includes/appsero/src/License.php",
+            "line": 752
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->cache_key",
+            "file": "includes/appsero/src/Updater.php",
+            "line": 146
+        }
+    ]
+}

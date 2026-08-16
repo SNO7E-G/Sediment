@@ -1,0 +1,105 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "better-image-sizes",
+        "name": "Better image sizes",
+        "version": "3.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:38Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 4,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bis_disable_big_image_size_threshold",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "resizer/index.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "bis_disabled_sizes",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "resizer/index.php",
+                        "line": 123
+                    }
+                ]
+            },
+            {
+                "key": "bis_disabled_upscaling",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "resizer/index.php",
+                        "line": 111
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "focal_point",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "focal-point/index.php",
+                        "line": 58
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->bis_dir",
+            "file": "resizer/index.php",
+            "line": 45
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "pdf-embed-block",
+        "name": "PDF Embed Block – share documents right inside your posts",
+        "version": "1.3.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:41Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 9,
+        "files_skipped": 0,
+        "write_calls_found": 3,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "peb_delete_data_on_uninstall",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "peb_delete_data_on_uninstall",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/RestAPI.php",
+                        "line": 31
+                    }
+                ]
+            },
+            {
+                "key": "peb_global_viewer_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/RestAPI.php",
+                        "line": 64
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "pdf_embed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Init.php",
+                        "line": 28
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

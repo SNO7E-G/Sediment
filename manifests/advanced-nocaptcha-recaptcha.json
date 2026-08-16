@@ -1,0 +1,219 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "advanced-nocaptcha-recaptcha",
+        "name": "CAPTCHA 4WP",
+        "version": "7.6.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:31Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 25,
+    "coverage": {
+        "files_scanned": 26,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 15,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.895
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": true,
+        "condition_option": "c4wp_admin_options",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "c4wp_70_upgrade_complete",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-c4wp-functions.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "includes/class-c4wp-functions.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "c4wp_admin_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-c4wp-functions.php",
+                        "line": 136
+                    },
+                    {
+                        "file": "includes/class-c4wp-functions.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "c4wp_network_notice_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-c4wp-settings.php",
+                        "line": 1677
+                    },
+                    {
+                        "file": "admin/class-c4wp-settings.php",
+                        "line": 1679
+                    }
+                ]
+            },
+            {
+                "key": "c4wp_owner_notice_dismissed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin-notices/class-plugin-updated-notice.php",
+                        "line": 539
+                    }
+                ]
+            },
+            {
+                "key": "c4wp_redirect_after_activation",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/include-functions.php",
+                        "line": 17
+                    }
+                ]
+            },
+            {
+                "key": "c4wp_update_notice_needed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin-notices/class-plugin-updated-notice.php",
+                        "line": 280
+                    }
+                ]
+            },
+            {
+                "key": "c4wp_update_redirection_needed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-c4wp-functions.php",
+                        "line": 59
+                    }
+                ]
+            },
+            {
+                "key": "c4wp_v3_failover_available",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-c4wp-settings.php",
+                        "line": 1685
+                    },
+                    {
+                        "file": "admin/class-c4wp-settings.php",
+                        "line": 1687
+                    },
+                    {
+                        "file": "includes/class-c4wp-functions.php",
+                        "line": 160
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "c4wp_admin_options_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-c4wp-settings.php",
+                        "line": 1577
+                    },
+                    {
+                        "file": "admin/class-c4wp-settings.php",
+                        "line": 1579
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "nocaptcha_plugin_notice_ignore",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-c4wp-settings.php",
+                        "line": 1674
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "disallowed_keys",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/class-c4wp-settings.php",
+                    "line": 1572
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$section",
+            "file": "includes/class-c4wp-functions.php",
+            "line": 297
+        },
+        {
+            "function": "update_option",
+            "expression": "$section",
+            "file": "includes/class-c4wp-functions.php",
+            "line": 299
+        }
+    ]
+}

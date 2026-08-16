@@ -1,0 +1,521 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "paymob-for-woocommerce",
+        "name": "Paymob for WooCommerce",
+        "version": "4.1.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 123,
+        "files_skipped": 0,
+        "write_calls_found": 68,
+        "verified": 55,
+        "resolved": 2,
+        "pattern": 7,
+        "dynamic": 4,
+        "resolution_rate": 0.838
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "paymob_activation_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/class_wc_paymob_set_redirect_flag_on_activation.php",
+                        "line": 9
+                    }
+                ]
+            },
+            {
+                "key": "paymob_error_logs",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/paymob-error-logs/class-paymob-error-logs.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "paymob_gateway_order",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-append-gateway-to-paymob-order.php",
+                        "line": 13
+                    },
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-remove-gateway-from-paymob-order.php",
+                        "line": 19
+                    },
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-save-paymob-gateway-order.php",
+                        "line": 21
+                    },
+                    {
+                        "file": "includes/helper/paymob-auto-generate.php",
+                        "line": 253
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-save-gateway_settings.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-toggle-gateway.php",
+                        "line": 32
+                    },
+                    {
+                        "file": "includes/helper/paymob-auto-generate.php",
+                        "line": 204
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-manual-setup.php",
+                        "line": 245
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-manual-setup.php",
+                        "line": 303
+                    },
+                    {
+                        "file": "includes/helper/toggle_gateways/class-paymob-handle-toggle-gateway.php",
+                        "line": 14
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_paymob-main_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-gateway-paymob-main.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "includes/helper/paymob-auto-generate.php",
+                        "line": 409
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-change-mode-save.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-manual-setup.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-manual-setup.php",
+                        "line": 134
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-partner-info.php",
+                        "line": 186
+                    },
+                    {
+                        "file": "src/class_wc_paymob_handleUpdate.php",
+                        "line": 43
+                    },
+                    {
+                        "file": "src/class_wc_paymob_handleUpdate.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_paymob-pixel_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-gateway-paymob-main.php",
+                        "line": 173
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-manual-setup.php",
+                        "line": 250
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-manual-setup.php",
+                        "line": 274
+                    },
+                    {
+                        "file": "includes/helper/paymob_pixel/class-paymob-save-pixel-settings.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_paymob-subscription_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-save-gateway_settings.php",
+                        "line": 277
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_paymob_country",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-manual-setup.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-partner-info.php",
+                        "line": 125
+                    },
+                    {
+                        "file": "src/class_wc_paymob_handleUpdate.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_paymob_gateway_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-reset-gateways.php",
+                        "line": 56
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-manual-setup.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-partner-info.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "src/class_wc_paymob_gatewayData.php",
+                        "line": 25
+                    },
+                    {
+                        "file": "src/class_wc_paymob_handleUpdate.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_paymob_gateway_data_failure",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/class_wc_paymob_gatewayData.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_paymob_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-reset-gateways.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-change-mode-save.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-manual-setup.php",
+                        "line": 124
+                    },
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-partner-info.php",
+                        "line": 172
+                    },
+                    {
+                        "file": "src/class_wc_paymob_handleUpdate.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_paymob_widget_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-save-gateway_settings.php",
+                        "line": 187
+                    },
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-widget-section.php",
+                        "line": 526
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "paymob_auth_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-paymob-payment.php",
+                        "line": 476
+                    }
+                ]
+            },
+            {
+                "key": "paymob_aw_flash_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-save-gateway_settings.php",
+                        "line": 171
+                    },
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-save-gateway_settings.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "paymob_aw_flash_success",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/add_gateway/class-paymob-save-gateway_settings.php",
+                        "line": 196
+                    }
+                ]
+            },
+            {
+                "key": "paymob_flash_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-paymob-payment.php",
+                        "line": 547
+                    },
+                    {
+                        "file": "src/class_wc_paymob_Install.php",
+                        "line": 12
+                    },
+                    {
+                        "file": "src/class_wc_paymob_redirect_after_activation.php",
+                        "line": 25
+                    }
+                ]
+            },
+            {
+                "key": "paymob_partner_connect_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helper/paymob_main/class-paymob-partner-info.php",
+                        "line": 20
+                    }
+                ]
+            },
+            {
+                "key": "paymob_tables_verified",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/class_wc_paymob_paymobTable.php",
+                        "line": 18
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "PaymobMerchantOrderID",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/paymob-for-woocommerce.php",
+                        "line": 190
+                    },
+                    {
+                        "file": "src/paymob-for-woocommerce.php",
+                        "line": 333
+                    },
+                    {
+                        "file": "src/paymob-for-woocommerce.php",
+                        "line": 504
+                    },
+                    {
+                        "file": "src/paymob-for-woocommerce.php",
+                        "line": 866
+                    },
+                    {
+                        "file": "src/paymob-for-woocommerce.php",
+                        "line": 957
+                    }
+                ]
+            },
+            {
+                "key": "PaymobTransactionId",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/paymob-for-woocommerce.php",
+                        "line": 191
+                    },
+                    {
+                        "file": "src/paymob-for-woocommerce.php",
+                        "line": 334
+                    },
+                    {
+                        "file": "src/paymob-for-woocommerce.php",
+                        "line": 505
+                    },
+                    {
+                        "file": "src/paymob-for-woocommerce.php",
+                        "line": 958
+                    }
+                ]
+            },
+            {
+                "key": "_paymob_plan_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helper/paymob-order.php",
+                        "line": 463
+                    }
+                ]
+            },
+            {
+                "key": "_paymob_saved_period",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "init-paymob.php",
+                        "line": 241
+                    }
+                ]
+            },
+            {
+                "key": "_paymob_saved_period_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "init-paymob.php",
+                        "line": 242
+                    }
+                ]
+            },
+            {
+                "key": "_paymob_start_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helper/paymob-order.php",
+                        "line": 464
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "saved-cards",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helper/save_cards/class-paymob-add-saved-cards-endpoints.php",
+                        "line": 9
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$parent_dir",
+            "file": "includes/helper/paymob.php",
+            "line": 305
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/class_wc_paymob_paymobTable.php",
+            "line": 44
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/class_wc_paymob_paymobTable.php",
+            "line": 55
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/class_wc_paymob_paymobTable.php",
+            "line": 90
+        }
+    ]
+}

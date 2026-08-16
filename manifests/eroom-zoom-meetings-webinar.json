@@ -1,0 +1,771 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "eroom-zoom-meetings-webinar",
+        "name": "eRoom - Zoom Meetings & Webinars",
+        "version": "1.7.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 128,
+        "files_skipped": 0,
+        "write_calls_found": 77,
+        "verified": 66,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.883
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "downloaded_font_files",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "nuxy/settings/font-loader.php",
+                        "line": 404
+                    }
+                ]
+            },
+            {
+                "key": "eroom_db_updates",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomUpdates.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "eroom_dismissed_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/notice/NoticeBase.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "eroom_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoom.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "eroom_notice_initiated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/notice/NoticeHandler.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "eroom_optin",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-optin.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "includes/class-optin.php",
+                        "line": 226
+                    }
+                ]
+            },
+            {
+                "key": "eroom_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomUpdates.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "stm_eroom_meeting_created",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomAdminNotices.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_meeting_ids",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 967
+                    }
+                ]
+            },
+            {
+                "key": "stm_zoom_feedback_added",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomAdminNotices.php",
+                        "line": 116
+                    }
+                ]
+            },
+            {
+                "key": "stm_zoom_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/migration/migration.php",
+                        "line": 34
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "eroom_campaign_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/notice/CampaignNoticeHandler.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "eroom_optin_just_activated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-optin.php",
+                        "line": 59
+                    }
+                ]
+            },
+            {
+                "key": "stm_eroom-zoom-meetings-webinar_notice_setting",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomUpdatesCallbacks.php",
+                        "line": 9
+                    }
+                ]
+            },
+            {
+                "key": "stm_eroom-zoom-meetings-webinar_single_notice_setting",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomAdminNotices.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "stm_eroom_api_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoom.php",
+                        "line": 665
+                    }
+                ]
+            },
+            {
+                "key": "stm_eroom_global_oauth_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-app/Interfaces/Request.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "zoom-app/Interfaces/S2SOAuth.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "stm_zoom_missing_invitation_scope",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoom.php",
+                        "line": 779
+                    }
+                ]
+            },
+            {
+                "key": "stm_zoom_users",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoom.php",
+                        "line": 671
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "stm_agenda",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1246
+                    }
+                ]
+            },
+            {
+                "key": "stm_alternative_hosts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1252
+                    }
+                ]
+            },
+            {
+                "key": "stm_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 239
+                    },
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 725
+                    },
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 728
+                    },
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1247
+                    }
+                ]
+            },
+            {
+                "key": "stm_duration",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1250
+                    }
+                ]
+            },
+            {
+                "key": "stm_end_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 249
+                    }
+                ]
+            },
+            {
+                "key": "stm_enforce_login",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1259
+                    }
+                ]
+            },
+            {
+                "key": "stm_host",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1251
+                    }
+                ]
+            },
+            {
+                "key": "stm_host_join_start",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1256
+                    }
+                ]
+            },
+            {
+                "key": "stm_join_before_host",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1255
+                    }
+                ]
+            },
+            {
+                "key": "stm_mute_participants",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1258
+                    }
+                ]
+            },
+            {
+                "key": "stm_password",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 774
+                    },
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1253
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_daily_repeat_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1332
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_enabled",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1326
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_end_date_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1356
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_end_time_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1355
+                    },
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1358
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_end_times",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1359
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_monthly_day",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1344
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_monthly_occurs",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1343
+                    },
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1346
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_monthly_repeat_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1341
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_monthly_week",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1347
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_monthly_week_day",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1348
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1329
+                    },
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1362
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_weekly_days",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1338
+                    }
+                ]
+            },
+            {
+                "key": "stm_recurring_weekly_repeat_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1335
+                    }
+                ]
+            },
+            {
+                "key": "stm_select_gm_zoom",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1244
+                    }
+                ]
+            },
+            {
+                "key": "stm_start_after_participants",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1257
+                    }
+                ]
+            },
+            {
+                "key": "stm_start_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "stm_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1248
+                    }
+                ]
+            },
+            {
+                "key": "stm_timezone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1249
+                    }
+                ]
+            },
+            {
+                "key": "stm_waiting_room",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1254
+                    }
+                ]
+            },
+            {
+                "key": "stm_zoom_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 790
+                    },
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 971
+                    },
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 979
+                    },
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1151
+                    },
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1166
+                    },
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 1245
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "stm_zoom_host_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin_templates/assign_host.php",
+                        "line": 7
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "upload_files",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/PostTypeCapabilities.php",
+                        "line": 184
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "stm-zoom",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 301
+                    }
+                ]
+            },
+            {
+                "key": "stm-zoom-webinar",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zoom-conference/StmZoomPostTypes.php",
+                        "line": 328
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir",
+            "file": "nuxy/helpers/file_upload.php",
+            "line": 151
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_name . '_start'",
+            "file": "nuxy/metaboxes/metabox.php",
+            "line": 191
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_name . '_end'",
+            "file": "nuxy/metaboxes/metabox.php",
+            "line": 192
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_name",
+            "file": "nuxy/metaboxes/metabox.php",
+            "line": 454
+        },
+        {
+            "function": "update_option",
+            "expression": "$id",
+            "file": "nuxy/settings/settings.php",
+            "line": 228
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "nuxy/settings/settings.php",
+            "line": 260
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$field_key",
+            "file": "nuxy/taxonomy_meta/metaboxes.php",
+            "line": 126
+        },
+        {
+            "function": "add_cap",
+            "expression": "$capability",
+            "file": "zoom-conference/PostTypeCapabilities.php",
+            "line": 180
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_validation_transient_key()",
+            "file": "zoom-conference/StmZoomPostTypes.php",
+            "line": 179
+        }
+    ]
+}

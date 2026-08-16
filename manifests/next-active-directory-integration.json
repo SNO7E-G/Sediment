@@ -1,0 +1,158 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "next-active-directory-integration",
+        "name": "Next Active Directory Integration",
+        "version": "3.2.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:38Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 555,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 0,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 16,
+        "resolution_rate": 0.059
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "next_ad_int_plugin_has_been_enabled",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/plug-in/Init.php",
+                        "line": 46
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_user_meta",
+            "expression": "$metaKey",
+            "file": "src/plug-in/User/Meta/Persistence/Repository.php",
+            "line": 50
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$metaKey",
+            "file": "src/plug-in/User/Meta/Persistence/Repository.php",
+            "line": 64
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "src/plug-in/User/Persistence/Repository.php",
+            "line": 132
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$metaKey",
+            "file": "src/plug-in/User/Profile/Ui/TriggerActiveDirectorySynchronization.php",
+            "line": 145
+        },
+        {
+            "function": "add_option",
+            "expression": "$optionName",
+            "file": "src/shared/WordPress/Multisite/Configuration/Persistence/BlogConfigurationRepository.php",
+            "line": 332
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "src/shared/WordPress/Multisite/Configuration/Persistence/BlogConfigurationRepository.php",
+            "line": 361
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$name",
+            "file": "src/shared/WordPress/Multisite/Configuration/Persistence/DefaultProfileRepository.php",
+            "line": 37
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$optionName",
+            "file": "src/shared/WordPress/Multisite/Configuration/Persistence/ProfileConfigurationRepository.php",
+            "line": 189
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$optionName",
+            "file": "src/shared/WordPress/Multisite/Configuration/Persistence/ProfileConfigurationRepository.php",
+            "line": 270
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$optionName",
+            "file": "src/shared/WordPress/Multisite/Configuration/Persistence/ProfileRepository.php",
+            "line": 221
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$prefix",
+            "file": "src/shared/WordPress/Multisite/Configuration/Persistence/ProfileRepository.php",
+            "line": 247
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$description",
+            "file": "src/shared/WordPress/Multisite/Configuration/Persistence/ProfileRepository.php",
+            "line": 250
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$name",
+            "file": "src/shared/WordPress/Multisite/Configuration/Persistence/ProfileRepository.php",
+            "line": 293
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$description",
+            "file": "src/shared/WordPress/Multisite/Configuration/Persistence/ProfileRepository.php",
+            "line": 308
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor-repackaged/monolog/monolog/src/Monolog/Handler/StreamHandler.php",
+            "line": 254
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor-repackaged/twig/twig/src/Cache/FilesystemCache.php",
+            "line": 53
+        }
+    ]
+}

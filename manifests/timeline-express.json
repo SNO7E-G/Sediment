@@ -1,0 +1,209 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "timeline-express",
+        "name": "Timeline Express",
+        "version": "1.8.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:12Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 45,
+    "coverage": {
+        "files_scanned": 97,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 10,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 6,
+        "resolution_rate": 0.588
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "post_type_rules_flushed_te-announcements",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/admin/cpt/cpt.announcements.php",
+                        "line": 124
+                    }
+                ]
+            },
+            {
+                "key": "timeline-express_rating_nobug",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/classes/class-timeline-express-2-week-notice.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "timeline_express_cache_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/classes/class-timeline-express-admin.php",
+                        "line": 828
+                    }
+                ]
+            },
+            {
+                "key": "timeline_express_do_activation_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/classes/class-timeline-express.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "timeline_express_install_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/classes/class-timeline-express-2-week-notice.php",
+                        "line": 25
+                    }
+                ]
+            },
+            {
+                "key": "timeline_express_installed_add_ons",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/helpers.php",
+                        "line": 896
+                    },
+                    {
+                        "file": "lib/helpers.php",
+                        "line": 917
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "te_font_awesome_transient",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/helpers.php",
+                        "line": 231
+                    }
+                ]
+            },
+            {
+                "key": "timeline-express-query-*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/classes/class-timeline-express-initialize.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "timeline_express_ad_transient",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/admin/metaboxes/metaboxes.announcements.php",
+                        "line": 255
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "te_announcements",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/admin/cpt/cpt.announcements.php",
+                        "line": 109
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->key",
+            "file": "lib/admin/CMB2/includes/CMB2_Options.php",
+            "line": 184
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->option_key",
+            "file": "lib/admin/CMB2/includes/CMB2_Options_Hookup.php",
+            "line": 306
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "lib/admin/CMB2/includes/types/CMB2_Type_Taxonomy_Base.php",
+            "line": 73
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_prefix . '_tracking'",
+            "file": "lib/classes/usage-tracking/class-wp-plugin-usage-tracker.php",
+            "line": 207
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_prefix . '_nobug'",
+            "file": "lib/classes/usage-tracking/class-wp-plugin-usage-tracker.php",
+            "line": 336
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->plugin_prefix . '_usage_tracking'",
+            "file": "lib/classes/usage-tracking/class-wp-plugin-usage-tracker.php",
+            "line": 355
+        }
+    ]
+}

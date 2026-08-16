@@ -1,0 +1,230 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "news-magazine-x-core",
+        "name": "News Magazine X Core",
+        "version": "1.0.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:50Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 42,
+    "coverage": {
+        "files_scanned": 25,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 17,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 2,
+        "resolution_rate": 0.85
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "widget_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/import/importers/class-newsx-core-widgets-importer.php",
+                        "line": 276
+                    }
+                ]
+            },
+            {
+                "key": "widget_newsx_featured_tabs",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/import/importers/class-newsx-core-widgets-importer.php",
+                        "line": 104
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_menu_item_object_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/import/importers/wxr-importer.php",
+                        "line": 1017
+                    },
+                    {
+                        "file": "admin/import/importers/wxr-importer.php",
+                        "line": 1965
+                    }
+                ]
+            },
+            {
+                "key": "_newsx_demo_import_item",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/import/importers/wxr-importer.php",
+                        "line": 943
+                    },
+                    {
+                        "file": "admin/import/importers/wxr-importer.php",
+                        "line": 1075
+                    },
+                    {
+                        "file": "admin/import/importers/wxr-importer.php",
+                        "line": 1755
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/import/importers/wxr-importer.php",
+                        "line": 2076
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_is_custom_header",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/import/importers/class-newsx-core-customizer-importer.php",
+                        "line": 150
+                    }
+                ]
+            },
+            {
+                "key": "_wxr_import_menu_item",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/import/importers/wxr-importer.php",
+                        "line": 981
+                    },
+                    {
+                        "file": "admin/import/importers/wxr-importer.php",
+                        "line": 990
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "blogdescription",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/import/class-newsx-core-import.php",
+                    "line": 175
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "blogname",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/import/class-newsx-core-import.php",
+                    "line": 171
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "page_for_posts",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/import/class-newsx-core-import.php",
+                    "line": 196
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "page_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/import/class-newsx-core-import.php",
+                    "line": 192
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "show_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/import/class-newsx-core-import.php",
+                    "line": 191
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/import/importers/class-newsx-core-widgets-importer.php",
+                    "line": 54
+                },
+                {
+                    "file": "admin/import/importers/class-newsx-core-widgets-importer.php",
+                    "line": 289
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "admin/import/importers/wxr-importer.php",
+            "line": 1177
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "\\wp_slash($meta_item['key'])",
+            "file": "admin/import/importers/wxr-importer.php",
+            "line": 1379
+        }
+    ]
+}

@@ -1,0 +1,486 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "podcast-importer-secondline",
+        "name": "Podcast Importer SecondLine",
+        "version": "1.5.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:55Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 121,
+        "files_skipped": 0,
+        "write_calls_found": 46,
+        "verified": 21,
+        "resolved": 16,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.804
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "action_scheduler_hybrid_store_demarkation",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/data-stores/ActionScheduler_HybridStore.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_migration_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/ActionScheduler_DataController.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "as_has_wp_comment_logs",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "lib/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "podcast_importer_secondline_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Settings.php",
+                        "line": 49
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "action_scheduler_run_queue",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/ActionScheduler_QueueRunner.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "podcast_importer_secondline_cron",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "podcast-importer-secondline.php",
+                        "line": 48
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "action_scheduler_admin_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/ActionScheduler_ListTable.php",
+                        "line": 586
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_last_pastdue_actions_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/ActionScheduler_AdminView.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "as-post-store-dependencies-met",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore.php",
+                        "line": 1065
+                    }
+                ]
+            },
+            {
+                "key": "as_comment_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/data-stores/ActionScheduler_wpCommentLogger.php",
+                        "line": 234
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_action_manager_schedule",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "_audiourl",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helper/Importer/FeedItem.php",
+                        "line": 218
+                    }
+                ]
+            },
+            {
+                "key": "_secondline_image_import_failed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/ActionScheduler.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "_secondline_image_retry_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/ActionScheduler.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "app/ActionScheduler.php",
+                        "line": 108
+                    },
+                    {
+                        "file": "app/ActionScheduler.php",
+                        "line": 127
+                    },
+                    {
+                        "file": "app/ActionScheduler.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "audio_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helper/Importer/FeedItem.php",
+                        "line": 208
+                    }
+                ]
+            },
+            {
+                "key": "duration",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helper/Importer/FeedItem.php",
+                        "line": 209
+                    }
+                ]
+            },
+            {
+                "key": "enclosure",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helper/Importer/FeedItem.php",
+                        "line": 214
+                    }
+                ]
+            },
+            {
+                "key": "filesize",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helper/Importer/FeedItem.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "secondline_attachment_md5",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/ActionScheduler.php",
+                        "line": 131
+                    },
+                    {
+                        "file": "app/ActionScheduler.php",
+                        "line": 158
+                    }
+                ]
+            },
+            {
+                "key": "secondline_imported_guid",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helper/Importer/FeedItem.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "secondline_themes_episode_number",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helper/Importer/FeedItem.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "secondline_themes_external_embed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helper/Importer/FeedItem.php",
+                        "line": 204
+                    },
+                    {
+                        "file": "app/Helper/Importer/FeedItem.php",
+                        "line": 222
+                    }
+                ]
+            },
+            {
+                "key": "secondline_themes_parent_show_post",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helper/Importer/FeedItem.php",
+                        "line": 232
+                    }
+                ]
+            },
+            {
+                "key": "secondline_themes_season_number",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helper/Importer/FeedItem.php",
+                        "line": 200
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "scheduled-action",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore_PostTypeRegistrar.php",
+                        "line": 13
+                    }
+                ]
+            },
+            {
+                "key": "secondline_import",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/PostTypes.php",
+                        "line": 23
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "action-group",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore_TaxonomyRegistrar.php",
+                        "line": 14
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "action_scheduler/cleanup_wp_comment_logs",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler/migration_hook",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/migration/Scheduler.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_run_recurring_actions_schedule_hook",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/action-scheduler/classes/ActionScheduler_RecurringActionScheduler.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "podcast_importer_secondline_scheduler_image_sync",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helper/Importer/FeedItem.php",
+                        "line": 270
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$hook",
+            "file": "app/Helper/Scheduler.php",
+            "line": 11
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$k",
+            "file": "app/RestAPI/Response.php",
+            "line": 40
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$k",
+            "file": "app/RestAPI/Response.php",
+            "line": 61
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "lib/action-scheduler/classes/WP_CLI/Action/Generate_Command.php",
+            "line": 77
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "lib/action-scheduler/classes/abstracts/ActionScheduler_Abstract_Schema.php",
+            "line": 129
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$definition",
+            "file": "lib/action-scheduler/classes/abstracts/ActionScheduler_Abstract_Schema.php",
+            "line": 143
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "lib/action-scheduler/deprecated/functions.php",
+            "line": 24
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$hook",
+            "file": "lib/action-scheduler/deprecated/functions.php",
+            "line": 42
+        },
+        {
+            "function": "as_schedule_cron_action",
+            "expression": "$hook",
+            "file": "lib/action-scheduler/deprecated/functions.php",
+            "line": 70
+        }
+    ]
+}

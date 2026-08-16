@@ -1,0 +1,158 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "better-click-to-tweet",
+        "name": "Better Click To Share (Formerly Better Click To Tweet)",
+        "version": "6.0.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:53:59Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 24,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 3,
+        "resolution_rate": 0.583
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bctt-twitter-handle",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "bctt-welcome.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "bctt_connector_usage_agreed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "better-click-to-tweet.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "_bctt_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "better-click-to-tweet.php",
+                        "line": 411
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/updater/BCTT_SL_Plugin_Updater.php",
+                        "line": 205
+                    },
+                    {
+                        "file": "includes/updater/bctt-updater.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "yoast_i18n_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "i18n-module.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "i18n-module.php",
+                        "line": 217
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "bctt_has_dismissed_nag",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin-nags.php",
+                        "line": 116
+                    }
+                ]
+            },
+            {
+                "key": "bctt_has_dismissed_utm_nag",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin-nags.php",
+                        "line": 236
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "includes/updater/BCTT_SL_Plugin_Updater.php",
+            "line": 578
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->item_shortname}_license\"",
+            "file": "includes/updater/bctt-updater.php",
+            "line": 239
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->item_shortname}_license_active\"",
+            "file": "includes/updater/bctt-updater.php",
+            "line": 240
+        }
+    ]
+}

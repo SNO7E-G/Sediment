@@ -1,0 +1,116 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-custom-gateway",
+        "name": "Custom Payment Gateways for WooCommerce",
+        "version": "1.6.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:47Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 25,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.1
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "woocg-desciption",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controller/Admin.php",
+                        "line": 348
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "register_post_type",
+            "expression": "\\RichardMuvirimi\\WooCustomGateway\\Helpers\\Functions::gateway_slug()",
+            "file": "src/Controller/Admin.php",
+            "line": 279
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\RichardMuvirimi\\WooCustomGateway\\Helpers\\Functions::get_plugin_slug('-rate')",
+            "file": "src/Controller/Ajax.php",
+            "line": 47
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\RichardMuvirimi\\WooCustomGateway\\Helpers\\Functions::get_plugin_slug('-rate')",
+            "file": "src/Controller/Ajax.php",
+            "line": 73
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\RichardMuvirimi\\WooCustomGateway\\Helpers\\Functions::get_plugin_slug('-rate')",
+            "file": "src/Controller/Ajax.php",
+            "line": 97
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\RichardMuvirimi\\WooCustomGateway\\Helpers\\Functions::get_plugin_slug('-analytics')",
+            "file": "src/Controller/Ajax.php",
+            "line": 123
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\RichardMuvirimi\\WooCustomGateway\\Helpers\\Functions::get_plugin_slug('-analytics')",
+            "file": "src/Controller/Ajax.php",
+            "line": 149
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\RichardMuvirimi\\WooCustomGateway\\Helpers\\Functions::get_plugin_slug('-analytics')",
+            "file": "src/Controller/Ajax.php",
+            "line": 173
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\RichardMuvirimi\\WooCustomGateway\\Helpers\\Functions::get_plugin_slug('-rate')",
+            "file": "src/Controller/Plugin.php",
+            "line": 67
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\RichardMuvirimi\\WooCustomGateway\\Helpers\\Functions::get_plugin_slug(\"analytics-keys\")",
+            "file": "src/Helpers/Logger.php",
+            "line": 133
+        }
+    ]
+}

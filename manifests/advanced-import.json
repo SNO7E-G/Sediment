@@ -1,0 +1,288 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "advanced-import",
+        "name": "Advanced Import",
+        "version": "2.0.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:53:55Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 42,
+    "coverage": {
+        "files_scanned": 21,
+        "files_skipped": 0,
+        "write_calls_found": 27,
+        "verified": 10,
+        "resolved": 9,
+        "pattern": 0,
+        "dynamic": 8,
+        "resolution_rate": 0.704
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "advanced_import_reset_notice",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/functions-advanced-import.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "advanced_import_settings_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-advanced-import-tracking.php",
+                        "line": 223
+                    },
+                    {
+                        "file": "includes/functions-advanced-import.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "advanced_import_daily_scheduled_events",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-advanced-import-cron.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "advanced_import_weekly_scheduled_events",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-advanced-import-cron.php",
+                        "line": 73
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "adi_elementor_data_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-elementor-import.php",
+                        "line": 116
+                    }
+                ]
+            },
+            {
+                "key": "content.json",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-advanced-import-admin.php",
+                        "line": 1210
+                    },
+                    {
+                        "file": "admin/class-advanced-import-admin.php",
+                        "line": 1223
+                    }
+                ]
+            },
+            {
+                "key": "delayed_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-advanced-import-admin.php",
+                        "line": 1502
+                    }
+                ]
+            },
+            {
+                "key": "imported_post_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-advanced-import-admin.php",
+                        "line": 1654
+                    }
+                ]
+            },
+            {
+                "key": "imported_term_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-advanced-import-admin.php",
+                        "line": 1623
+                    }
+                ]
+            },
+            {
+                "key": "options.json",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-advanced-import-admin.php",
+                        "line": 1210
+                    },
+                    {
+                        "file": "admin/class-advanced-import-admin.php",
+                        "line": 1223
+                    }
+                ]
+            },
+            {
+                "key": "post_orphans",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-advanced-import-admin.php",
+                        "line": 1679
+                    }
+                ]
+            },
+            {
+                "key": "widgets.json",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-advanced-import-admin.php",
+                        "line": 1210
+                    },
+                    {
+                        "file": "admin/class-advanced-import-admin.php",
+                        "line": 1223
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_elementor_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-elementor-import.php",
+                        "line": 217
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "rewrite_rules",
+            "confidence": "resolved",
+            "sources": [
+                {
+                    "file": "includes/functions-advanced-import.php",
+                    "line": 39
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "resolved",
+            "sources": [
+                {
+                    "file": "includes/functions-advanced-import.php",
+                    "line": 39
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "admin/class-advanced-import-admin.php",
+            "line": 1857
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "admin/class-advanced-import-admin.php",
+            "line": 1938
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "admin/class-advanced-import-admin.php",
+            "line": 2093
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$meta_key",
+            "file": "admin/class-advanced-import-admin.php",
+            "line": 2143
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->agents_opt_key",
+            "file": "admin/class-advanced-import-tracking.php",
+            "line": 116
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/functions-advanced-import.php",
+            "line": 39
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$log_dir",
+            "file": "includes/functions-advanced-import.php",
+            "line": 62
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/functions-advanced-import.php",
+            "line": 560
+        }
+    ]
+}

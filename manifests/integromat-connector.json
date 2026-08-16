@@ -1,0 +1,253 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "integromat-connector",
+        "name": "Make Connector",
+        "version": "1.6.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 23,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 13,
+        "resolved": 2,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.789
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "iwc-logging-enabled",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 212
+                    }
+                ]
+            },
+            {
+                "key": "iwc_allowed_file_extensions",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "iwc_api_key",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/class-api-token.php",
+                        "line": 32
+                    },
+                    {
+                        "file": "class/class-api-token.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "iwc_api_permissions_enabled",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 215
+                    }
+                ]
+            },
+            {
+                "key": "iwc_log_encryption_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/class-logger.php",
+                        "line": 46
+                    }
+                ]
+            },
+            {
+                "key": "iwc_log_security_events",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 237
+                    }
+                ]
+            },
+            {
+                "key": "iwc_max_payload_size",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "iwc_payload_limit_enabled",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 233
+                    }
+                ]
+            },
+            {
+                "key": "iwc_permission_*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 227
+                    }
+                ]
+            },
+            {
+                "key": "iwc_plugin_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 247
+                    }
+                ]
+            },
+            {
+                "key": "iwc_rate_limit_enabled",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 231
+                    }
+                ]
+            },
+            {
+                "key": "iwc_rate_limit_requests",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 232
+                    }
+                ]
+            },
+            {
+                "key": "iwc_sanitize_post_content",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 238
+                    }
+                ]
+            },
+            {
+                "key": "iwc_strict_file_validation",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 235
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/class-rest-request.php",
+                        "line": 278
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "class/class-api-permissions.php",
+            "line": 51
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$log_dir",
+            "file": "class/class-logger.php",
+            "line": 26
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "class/class-rate-limiter.php",
+            "line": 79
+        }
+    ]
+}

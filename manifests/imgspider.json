@@ -1,0 +1,223 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "imgspider",
+        "name": "IMGspider",
+        "version": "2.3.12",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 16,
+    "coverage": {
+        "files_scanned": 11,
+        "files_skipped": 0,
+        "write_calls_found": 18,
+        "verified": 13,
+        "resolved": 1,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.778
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wb_imgspider_cnf_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/ajax.class.php",
+                        "line": 473
+                    }
+                ]
+            },
+            {
+                "key": "wb_imgspider_option",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/conf.class.php",
+                        "line": 367
+                    }
+                ]
+            },
+            {
+                "key": "wb_imgspider_ver",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/ajax.class.php",
+                        "line": 472
+                    }
+                ]
+            },
+            {
+                "key": "wb_imgspy_history",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/ajax.class.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "classes/ajax.class.php",
+                        "line": 107
+                    },
+                    {
+                        "file": "classes/ajax.class.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "wb_imgspy_history_post_id",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/ajax.class.php",
+                        "line": 214
+                    }
+                ]
+            },
+            {
+                "key": "wb_imgspy_scan",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/ajax.class.php",
+                        "line": 215
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wb_imgspy_auto_save_image",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/imgspy.admin.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "wb_imgspy_watermark_image",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/image.class.php",
+                        "line": 414
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/post.class.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "_wb_watermark",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/image.class.php",
+                        "line": 354
+                    }
+                ]
+            },
+            {
+                "key": "imgspy_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/imgspy.admin.php",
+                        "line": 245
+                    }
+                ]
+            },
+            {
+                "key": "wb_imgspy_auto_save_image",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/imgspy.admin.php",
+                        "line": 152
+                    },
+                    {
+                        "file": "classes/imgspy.admin.php",
+                        "line": 242
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$w_key . 'ver'",
+            "file": "classes/ajax.class.php",
+            "line": 495
+        },
+        {
+            "function": "update_option",
+            "expression": "$w_key . 'cnf_' . $u_uid",
+            "file": "classes/ajax.class.php",
+            "line": 496
+        },
+        {
+            "function": "mkdir",
+            "expression": "$backup_dir",
+            "file": "classes/image.class.php",
+            "line": 287
+        }
+    ]
+}

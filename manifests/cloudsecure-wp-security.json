@@ -1,0 +1,198 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cloudsecure-wp-security",
+        "name": "CloudSecure WP Security",
+        "version": "1.4.12",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:29Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 57,
+        "files_skipped": 0,
+        "write_calls_found": 18,
+        "verified": 3,
+        "resolved": 4,
+        "pattern": 1,
+        "dynamic": 10,
+        "resolution_rate": 0.389
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cloudsecurewp_config",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/config.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "cloudsecurewp_enable_email_server_error_notification",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/admin/server-error-notification.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "cloudsecurewp_notice_148_xmlrpc",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/two-factor-authentication.php",
+                        "line": 2605
+                    }
+                ]
+            },
+            {
+                "key": "cloudsecurewp_two_factor_authentication_roles",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/admin/two-factor-authentication.php",
+                        "line": 48
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "cloudsecurewp_2fa_setup_secret_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/two-factor-authentication.php",
+                        "line": 2808
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wp_cloudsecurewp_two_factor_authentication_email_send",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "modules/two-factor-authentication.php",
+                        "line": 1764
+                    },
+                    {
+                        "file": "modules/two-factor-authentication.php",
+                        "line": 1776
+                    }
+                ]
+            },
+            {
+                "key": "wp_cloudsecurewp_two_factor_authentication_last_success",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "modules/two-factor-authentication.php",
+                        "line": 692
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "modules/cli/commands/class-cloudsecure-wp-cli-enable.php",
+            "line": 595
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "modules/disable-login.php",
+            "line": 164
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "modules/login-log.php",
+            "line": 272
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "modules/server-error-notification.php",
+            "line": 223
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "modules/two-factor-authentication.php",
+            "line": 515
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "modules/two-factor-authentication.php",
+            "line": 2239
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "modules/two-factor-authentication.php",
+            "line": 2265
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "modules/two-factor-authentication.php",
+            "line": 2423
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "self::KEY_CRON",
+            "file": "modules/update-notice.php",
+            "line": 393
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "really-simple-captcha/really-simple-captcha.php",
+            "line": 337
+        }
+    ]
+}

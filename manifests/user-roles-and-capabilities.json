@@ -1,0 +1,154 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "user-roles-and-capabilities",
+        "name": "User Roles and Capabilities",
+        "version": "1.2.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:28Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 31,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 6,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 8,
+        "resolution_rate": 0.429
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "solvease_wp_rc_caps",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-solvease-wp-roles-capabilities-activator.php",
+                        "line": 7
+                    },
+                    {
+                        "file": "includes/class-solvease-wp-roles-capabilities_cap_functionality.php",
+                        "line": 700
+                    }
+                ]
+            },
+            {
+                "key": "solvease_wprc_plugin_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-solvease-wp-roles-admin.php",
+                        "line": 139
+                    },
+                    {
+                        "file": "includes/class-solvease-wp-roles-admin.php",
+                        "line": 141
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "default_role",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/class-solvease-wp-roles-capabilities_cap_functionality.php",
+                    "line": 470
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "wp_user_roles",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/class-solvease-wp-roles-capabilities_cap_functionality.php",
+                    "line": 544
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/class-solvease-wp-roles-admin.php",
+            "line": 146
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/class-solvease-wp-roles-capabilities-activator.php",
+            "line": 18
+        },
+        {
+            "function": "add_role",
+            "expression": "$role_id",
+            "file": "includes/class-solvease-wp-roles-capabilities_cap_functionality.php",
+            "line": 625
+        },
+        {
+            "function": "add_role",
+            "expression": "$role_id",
+            "file": "includes/class-solvease-wp-roles-capabilities_cap_functionality.php",
+            "line": 790
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap_name",
+            "file": "includes/class-solvease-wp-roles-capabilities_cap_functionality.php",
+            "line": 823
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap_name",
+            "file": "includes/class-solvease-wp-roles-capabilities_cap_functionality.php",
+            "line": 828
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/class-solvease-wp-roles-capabilities_cap_functionality.php",
+            "line": 885
+        },
+        {
+            "function": "add_cap",
+            "expression": "$capability",
+            "file": "includes/class-solvease-wp-roles-capabilities_cap_functionality.php",
+            "line": 1003
+        }
+    ]
+}

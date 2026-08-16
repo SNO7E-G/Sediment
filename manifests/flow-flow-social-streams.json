@@ -1,0 +1,248 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "flow-flow-social-streams",
+        "name": "Flow-Flow Social Streams",
+        "version": "5.0.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:41Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 1,
+    "coverage": {
+        "files_scanned": 206,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 11,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 12,
+        "resolution_rate": 0.478
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ff_publish_history",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/FFPublishingAdmin.php",
+                        "line": 594
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "flow_flow_check_facebook_token",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/FlowFlowActivator.php",
+                        "line": 212
+                    }
+                ]
+            },
+            {
+                "key": "flow_flow_check_linkedin_token",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/FlowFlowActivator.php",
+                        "line": 226
+                    }
+                ]
+            },
+            {
+                "key": "flow_flow_check_tiktok_token",
+                "recurrence": "six_hours",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/FlowFlowActivator.php",
+                        "line": 222
+                    }
+                ]
+            },
+            {
+                "key": "flow_flow_email_notification",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/FlowFlowActivator.php",
+                        "line": 208
+                    }
+                ]
+            },
+            {
+                "key": "flow_flow_load_cache",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/FlowFlowActivator.php",
+                        "line": 199
+                    }
+                ]
+            },
+            {
+                "key": "flow_flow_load_cache_4disabled",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/FlowFlowActivator.php",
+                        "line": 204
+                    }
+                ]
+            },
+            {
+                "key": "flow_flow_trim_debug_log",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/FlowFlowActivator.php",
+                        "line": 234
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "ff_engagement_total_stats",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/FFEngagementTracker.php",
+                        "line": 230
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "ff_engagement_last_seen",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/FFEngagementTracker.php",
+                        "line": 491
+                    },
+                    {
+                        "file": "includes/FFEngagementTracker.php",
+                        "line": 512
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/FFEngagementTracker.php",
+            "line": 74
+        },
+        {
+            "function": "set_transient",
+            "expression": "$rate_limit_key",
+            "file": "includes/db/FFDBManager.php",
+            "line": 1130
+        },
+        {
+            "function": "set_transient",
+            "expression": "$rate_limit_key",
+            "file": "includes/db/FFDBManager.php",
+            "line": 1132
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock_key",
+            "file": "libs/flowflow/core/src/cache/LACacheManager.php",
+            "line": 69
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "libs/flowflow/core/src/cache/LAFacebookCacheManager.php",
+            "line": 195
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "libs/flowflow/core/src/cache/LATransientCache.php",
+            "line": 100
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "libs/flowflow/core/src/db/LADBManager.php",
+            "line": 916
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "libs/flowflow/core/src/db/LADBManager.php",
+            "line": 927
+        },
+        {
+            "function": "update_option",
+            "expression": "$general_uninstall_option_name",
+            "file": "libs/flowflow/core/src/db/LADBManager.php",
+            "line": 1011
+        },
+        {
+            "function": "add_option",
+            "expression": "$general_uninstall_option_name",
+            "file": "libs/flowflow/core/src/db/LADBManager.php",
+            "line": 1013
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "libs/flowflow/social/src/flow/social/FFTwitter.php",
+            "line": 85
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "libs/flowflow/social/src/flow/social/FFTwitter.php",
+            "line": 133
+        }
+    ]
+}

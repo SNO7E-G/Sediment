@@ -1,0 +1,303 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "newsletter-optin-box",
+        "name": "Noptin",
+        "version": "4.3.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 158,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 12,
+        "resolved": 4,
+        "pattern": 1,
+        "dynamic": 11,
+        "resolution_rate": 0.571
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_noptin_has_welcomed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-noptin-admin.php",
+                        "line": 188
+                    }
+                ]
+            },
+            {
+                "key": "noptin_black_friday_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-noptin-admin.php",
+                        "line": 176
+                    }
+                ]
+            },
+            {
+                "key": "noptin_connections",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libraries/noptin-com/class-noptin-com-updater.php",
+                        "line": 457
+                    }
+                ]
+            },
+            {
+                "key": "noptin_helper_data",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libraries/noptin-com/class-noptin-com.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "noptin_integrations",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/Main.php",
+                        "line": 373
+                    }
+                ]
+            },
+            {
+                "key": "noptin_logged_messages",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions.php",
+                        "line": 723
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 750
+                    }
+                ]
+            },
+            {
+                "key": "noptin_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-noptin-admin.php",
+                        "line": 238
+                    }
+                ]
+            },
+            {
+                "key": "noptin_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "noptin_review_nag",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-noptin-admin.php",
+                        "line": 169
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "noptin_daily_maintenance",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-noptin-admin.php",
+                        "line": 146
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_noptin_helper_updates_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libraries/noptin-com/class-noptin-com-updater.php",
+                        "line": 195
+                    },
+                    {
+                        "file": "includes/libraries/noptin-com/class-noptin-com-updater.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "_noptin_update_check",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libraries/noptin-com/class-noptin-com-updater.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "noptin_wpml_post_language_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/WPML/Main.php",
+                        "line": 101
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "noptin_sent_notification_campaign",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/emails/automated-email-types/class-post_notifications.php",
+                        "line": 248
+                    }
+                ]
+            },
+            {
+                "key": "noptin_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/Contact_Form_7/Main.php",
+                        "line": 186
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/functions.php",
+            "line": 474
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/functions.php",
+            "line": 524
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/libraries/noptin-com/class-noptin-com-updater.php",
+            "line": 324
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/libraries/noptin-com/class-noptin-com.php",
+            "line": 174
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook",
+            "file": "src/Core/Bulk_Task_Runner.php",
+            "line": 67
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->cron_hook . '_process_lock'",
+            "file": "src/Core/Bulk_Task_Runner.php",
+            "line": 204
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_health_check_hook",
+            "file": "src/Core/Bulk_Task_Runner.php",
+            "line": 405
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->get_campaign_meta_key('offset')",
+            "file": "src/Objects/People_List.php",
+            "line": 136
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->get_campaign_meta_key()",
+            "file": "src/Objects/People_List.php",
+            "line": 137
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->get_campaign_meta_key()",
+            "file": "src/Objects/People_List.php",
+            "line": 226
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$hook",
+            "file": "src/Objects/Post_Type.php",
+            "line": 328
+        }
+    ]
+}

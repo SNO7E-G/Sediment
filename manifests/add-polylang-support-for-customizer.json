@@ -1,0 +1,89 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "add-polylang-support-for-customizer",
+        "name": "Add Polylang support for Customizer",
+        "version": "1.4.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:53:57Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 8,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "apsfc_force_lang",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-settings.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "includes/class-settings.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "includes/class-settings.php",
+                        "line": 115
+                    }
+                ]
+            },
+            {
+                "key": "polylang",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-apsfc.php",
+                        "line": 44
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/class-apsfc.php",
+            "line": 158
+        }
+    ]
+}

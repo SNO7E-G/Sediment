@@ -1,0 +1,558 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "xml-sitemap-feed",
+        "name": "XML Sitemap & Google News",
+        "version": "5.7.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 125,
+        "files_skipped": 0,
+        "write_calls_found": 59,
+        "verified": 45,
+        "resolved": 4,
+        "pattern": 8,
+        "dynamic": 2,
+        "resolution_rate": 0.831
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "xmlsf_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-sitemap-settings.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 36
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_author_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 185
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_bwt_connect",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-bwt-connect-settings.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "inc/admin/class-bwt-connect.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_custom_sitemaps",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_disabled_providers",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_gsc_connect",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-gsc-connect-settings.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "inc/admin/class-gsc-connect.php",
+                        "line": 203
+                    },
+                    {
+                        "file": "inc/class-gsc-api-handler.php",
+                        "line": 146
+                    },
+                    {
+                        "file": "inc/class-gsc-oauth-handler.php",
+                        "line": 279
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_news_tags",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-sitemap-news-settings.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_post_type_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_post_types",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_robots",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_server",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_taxonomies",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_taxonomy_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 140
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 181
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 18
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "xmlsf_gsc_keep_alive",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/class-xmlsitemapfeed.php",
+                        "line": 182
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "gsc_connect_origin",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-gsc-connect-settings.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "settings_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-gsc-connect.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "sitemap_notifier_bing_submission",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-sitemap-settings.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "sitemap_notifier_google_access_token",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/class-gsc-oauth-handler.php",
+                        "line": 266
+                    }
+                ]
+            },
+            {
+                "key": "sitemap_notifier_google_submission",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-sitemap-settings.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "sitemap_notifier_submission_news",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-sitemap-news-settings.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_comments_meta_primed",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-sitemap-settings.php",
+                        "line": 306
+                    },
+                    {
+                        "file": "inc/admin/class-sitemap.php",
+                        "line": 169
+                    },
+                    {
+                        "file": "inc/class-sitemap.php",
+                        "line": 741
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 192
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_images_meta_primed",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-sitemap-settings.php",
+                        "line": 303
+                    },
+                    {
+                        "file": "inc/admin/class-sitemap.php",
+                        "line": 163
+                    },
+                    {
+                        "file": "inc/class-sitemap.php",
+                        "line": 715
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 191
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_server_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-sitemap.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_sitemaps_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-main.php",
+                        "line": 94
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_xmlsf_comment_date_gmt",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/class-sitemap.php",
+                        "line": 632
+                    },
+                    {
+                        "file": "inc/class-sitemap.php",
+                        "line": 663
+                    },
+                    {
+                        "file": "inc/class-sitemap.php",
+                        "line": 844
+                    }
+                ]
+            },
+            {
+                "key": "_xmlsf_exclude",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-sitemap.php",
+                        "line": 259
+                    },
+                    {
+                        "file": "inc/admin/class-sitemap.php",
+                        "line": 422
+                    }
+                ]
+            },
+            {
+                "key": "_xmlsf_image_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-sitemap.php",
+                        "line": 763
+                    }
+                ]
+            },
+            {
+                "key": "_xmlsf_news_exclude",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-sitemap-news.php",
+                        "line": 121
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "user_modified",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/class-sitemap.php",
+                        "line": 330
+                    },
+                    {
+                        "file": "inc/class-sitemap.php",
+                        "line": 570
+                    }
+                ]
+            },
+            {
+                "key": "xmlsf_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-main.php",
+                        "line": 260
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "term_modified",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/class-sitemap.php",
+                        "line": 427
+                    },
+                    {
+                        "file": "inc/class-sitemap.php",
+                        "line": 546
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [
+            {
+                "key": "gn-genre",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 96
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "^*",
+                "confidence": "pattern",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/class-sitemap-core.php",
+                        "line": 136
+                    },
+                    {
+                        "file": "inc/class-sitemap-news.php",
+                        "line": 92
+                    },
+                    {
+                        "file": "inc/class-sitemap-plugin.php",
+                        "line": 111
+                    },
+                    {
+                        "file": "inc/class-sitemap-plugin.php",
+                        "line": 112
+                    }
+                ]
+            },
+            {
+                "key": "wp-sitemap\\.xml",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/class-sitemap-plugin.php",
+                        "line": 113
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy",
+            "file": "upgrade.php",
+            "line": 81
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$option_group",
+            "file": "views/admin/section-bwt-oauth-stage-2.php",
+            "line": 35
+        }
+    ]
+}

@@ -1,0 +1,123 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "rearrange-woocommerce-products",
+        "name": "Rearrange Products for WooCommerce",
+        "version": "6.0.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:32Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 18,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 4,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "rwpp_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Database.php",
+                        "line": 357
+                    },
+                    {
+                        "file": "includes/Helpers.php",
+                        "line": 217
+                    },
+                    {
+                        "file": "rearrange-woocommerce-products.php",
+                        "line": 129
+                    },
+                    {
+                        "file": "rearrange-woocommerce-products.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "rwpp_migration_mode",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Helpers.php",
+                        "line": 236
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "rwpp_sortorder_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Plugin.php",
+                        "line": 1155
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/Database.php",
+            "line": 64
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/Database.php",
+            "line": 738
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/Plugin.php",
+            "line": 1117
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/Plugin.php",
+            "line": 1272
+        }
+    ]
+}

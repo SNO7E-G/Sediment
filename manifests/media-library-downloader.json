@@ -1,0 +1,115 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "media-library-downloader",
+        "name": "Media Library Downloader",
+        "version": "1.4.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:49Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 4,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 2,
+        "resolution_rate": 0.429
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mld_download_logs",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-main.php",
+                        "line": 483
+                    },
+                    {
+                        "file": "includes/class-main.php",
+                        "line": 552
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "mld_cleanup_temp_files",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-main.php",
+                        "line": 510
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "mld_pending_download_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-main.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "mld_zip_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-main.php",
+                        "line": 374
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\MLD_TEMP_PATH",
+            "file": "includes/class-main.php",
+            "line": 322
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\MLD_TEMP_PATH",
+            "file": "media-library-downloader.php",
+            "line": 75
+        }
+    ]
+}

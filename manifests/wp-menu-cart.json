@@ -1,0 +1,143 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-menu-cart",
+        "name": "WP Menu Cart",
+        "version": "3.1.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:57Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 12,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 5,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpmenucart_shop_check",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-menu-cart.php",
+                        "line": 495
+                    }
+                ]
+            },
+            {
+                "key": "wpo_wpmenucart_free_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-menu-cart.php",
+                        "line": 349
+                    }
+                ]
+            },
+            {
+                "key": "wpo_wpmenucart_main_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpmenucart-settings.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "includes/class-wpmenucart-settings.php",
+                        "line": 719
+                    },
+                    {
+                        "file": "wp-menu-cart.php",
+                        "line": 183
+                    }
+                ]
+            },
+            {
+                "key": "wpo_wpmenucart_nav_menu_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpmenucart-nav-menu.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "wpo_wpmenucart_options_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-menu-cart.php",
+                        "line": 186
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_menu_item_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpmenucart-nav-menu.php",
+                        "line": 224
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$log_key",
+            "file": "includes/class-wpmenucart-nav-menu.php",
+            "line": 461
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "wp-menu-cart.php",
+            "line": 709
+        }
+    ]
+}

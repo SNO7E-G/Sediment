@@ -1,0 +1,1551 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "idx-broker-platinum",
+        "name": "IMPress for IDX Broker",
+        "version": "3.2.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:08Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 104,
+        "files_skipped": 0,
+        "write_calls_found": 185,
+        "verified": 147,
+        "resolved": 9,
+        "pattern": 2,
+        "dynamic": 27,
+        "resolution_rate": 0.843
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "idx-notice-dismissed-*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/notice/notice-handler.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "idx_add_uid_to_idx_pages",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 223
+                    }
+                ]
+            },
+            {
+                "key": "idx_added_uid_to_idx_pages",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/backward-compatibility/add-uid-to-idx-pages.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "idx/backward-compatibility/add-uid-to-idx-pages.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "idx_api_limit_exceeded",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/idx-api.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "idx_broker_apikey",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/settings-general.php",
+                        "line": 205
+                    }
+                ]
+            },
+            {
+                "key": "idx_broker_autocomplete_values_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/widgets/omnibar/get-locations.php",
+                        "line": 254
+                    }
+                ]
+            },
+            {
+                "key": "idx_broker_dev_partner_key",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/settings-general.php",
+                        "line": 115
+                    },
+                    {
+                        "file": "idx/initiate-plugin.php",
+                        "line": 382
+                    }
+                ]
+            },
+            {
+                "key": "idx_broker_dynamic_wrapper_page_id",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/wrappers.php",
+                        "line": 216
+                    }
+                ]
+            },
+            {
+                "key": "idx_broker_dynamic_wrapper_page_name",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/wrappers.php",
+                        "line": 215
+                    }
+                ]
+            },
+            {
+                "key": "idx_broker_omnibar_address_mls",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/omnibar-settings.php",
+                        "line": 336
+                    }
+                ]
+            },
+            {
+                "key": "idx_broker_social_pro_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/social-pro-settings.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "idx/social-pro.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "idx_broker_widget_data_restriction",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/idx-api.php",
+                        "line": 1528
+                    }
+                ]
+            },
+            {
+                "key": "idx_cron_schedule",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/settings-general.php",
+                        "line": 251
+                    },
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 19
+                    }
+                ]
+            },
+            {
+                "key": "idx_default_property_types",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/omnibar-settings.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "idx_migrated_old_table",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/backward-compatibility/migrate-old-table.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "idx/initiate-plugin.php",
+                        "line": 172
+                    }
+                ]
+            },
+            {
+                "key": "idx_omnibar_city_lists",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/widgets/omnibar/get-locations.php",
+                        "line": 379
+                    }
+                ]
+            },
+            {
+                "key": "idx_omnibar_county_lists",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/widgets/omnibar/get-locations.php",
+                        "line": 380
+                    }
+                ]
+            },
+            {
+                "key": "idx_omnibar_current_city_list",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/omnibar-settings.php",
+                        "line": 163
+                    },
+                    {
+                        "file": "idx/widgets/omnibar/get-locations.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "idx_omnibar_current_county_list",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/omnibar-settings.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "idx/widgets/omnibar/get-locations.php",
+                        "line": 183
+                    }
+                ]
+            },
+            {
+                "key": "idx_omnibar_current_zipcode_list",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/omnibar-settings.php",
+                        "line": 169
+                    },
+                    {
+                        "file": "idx/widgets/omnibar/get-locations.php",
+                        "line": 187
+                    }
+                ]
+            },
+            {
+                "key": "idx_omnibar_custom_fields",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/omnibar-settings.php",
+                        "line": 206
+                    }
+                ]
+            },
+            {
+                "key": "idx_omnibar_placeholder",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/omnibar-settings.php",
+                        "line": 172
+                    }
+                ]
+            },
+            {
+                "key": "idx_omnibar_sort",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/omnibar-settings.php",
+                        "line": 209
+                    }
+                ]
+            },
+            {
+                "key": "idx_omnibar_zipcode_lists",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/widgets/omnibar/get-locations.php",
+                        "line": 381
+                    }
+                ]
+            },
+            {
+                "key": "idx_plugin_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/initiate-plugin.php",
+                        "line": 207
+                    }
+                ]
+            },
+            {
+                "key": "idx_recaptcha_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/settings-general.php",
+                        "line": 119
+                    },
+                    {
+                        "file": "idx/initiate-plugin.php",
+                        "line": 340
+                    },
+                    {
+                        "file": "idx/initiate-plugin.php",
+                        "line": 343
+                    }
+                ]
+            },
+            {
+                "key": "idx_results_url",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx-broker-platinum.php",
+                        "line": 136
+                    },
+                    {
+                        "file": "idx/widgets/omnibar/get-locations.php",
+                        "line": 377
+                    }
+                ]
+            },
+            {
+                "key": "impress_agents_taxonomies",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/agents/includes/class-taxonomies.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "add-ons/agents/includes/class-taxonomies.php",
+                        "line": 159
+                    },
+                    {
+                        "file": "add-ons/agents/includes/class-taxonomies.php",
+                        "line": 188
+                    },
+                    {
+                        "file": "add-ons/agents/includes/class-taxonomies.php",
+                        "line": 241
+                    }
+                ]
+            },
+            {
+                "key": "impress_data_optout",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/settings-general.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "idx/initiate-plugin.php",
+                        "line": 362
+                    }
+                ]
+            },
+            {
+                "key": "impress_data_sent",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/initiate-plugin.php",
+                        "line": 676
+                    }
+                ]
+            },
+            {
+                "key": "impress_listings_import_fail_list",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "add-ons/utilities/background-processing/impress-listings-background-process.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "plugin_impress_agents_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/agents/includes/class-agents.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "idx/admin/apis/agents-settings.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "plugin_wp_listings_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listings.php",
+                        "line": 136
+                    },
+                    {
+                        "file": "idx/admin/apis/listings-advanced-settings.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "idx/admin/apis/listings-idx-settings.php",
+                        "line": 160
+                    },
+                    {
+                        "file": "idx/admin/apis/listings-settings.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "wp_listings_advanced_field_display_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 656
+                    },
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 668
+                    },
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 677
+                    },
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 716
+                    },
+                    {
+                        "file": "add-ons/listings/includes/class-listings.php",
+                        "line": 172
+                    }
+                ]
+            },
+            {
+                "key": "wp_listings_google_my_business_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 124
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 162
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 197
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 328
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 370
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 501
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 534
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 701
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 849
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 907
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 1105
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 1130
+                    }
+                ]
+            },
+            {
+                "key": "wp_listings_idx_featured_listing_wp_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 168
+                    },
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 309
+                    },
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 599
+                    },
+                    {
+                        "file": "add-ons/utilities/background-processing/impress-listings-background-process.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "wp_listings_import_progress",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "wp_listings_taxonomies",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-taxonomies.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "add-ons/listings/includes/class-taxonomies.php",
+                        "line": 152
+                    },
+                    {
+                        "file": "add-ons/listings/includes/class-taxonomies.php",
+                        "line": 181
+                    },
+                    {
+                        "file": "add-ons/listings/includes/class-taxonomies.php",
+                        "line": 233
+                    },
+                    {
+                        "file": "add-ons/listings/includes/class-taxonomies.php",
+                        "line": 685
+                    },
+                    {
+                        "file": "add-ons/listings/includes/views/reorder-tax.php",
+                        "line": 37
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "idx_add_uid_to_idx_pages",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 217
+                    }
+                ]
+            },
+            {
+                "key": "idx_broker_create_social_pro_article",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/social-pro.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "idx_create_idx_pages",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/idx-api.php",
+                        "line": 622
+                    },
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "idx_delete_idx_pages",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/idx-api.php",
+                        "line": 623
+                    },
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "idx_migrate_old_table",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/initiate-plugin.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "idx_omnibar_get_locations",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/settings-general.php",
+                        "line": 225
+                    },
+                    {
+                        "file": "idx/initiate-plugin.php",
+                        "line": 224
+                    }
+                ]
+            },
+            {
+                "key": "idx_update_location_data",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/admin/apis/omnibar-settings.php",
+                        "line": 372
+                    }
+                ]
+            },
+            {
+                "key": "impress_agents_idx_update",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/agents/includes/class-agent-import.php",
+                        "line": 258
+                    }
+                ]
+            },
+            {
+                "key": "wp_listings_gmb_auto_post",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 923
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 945
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 948
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 951
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 955
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 1031
+                    },
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 1038
+                    }
+                ]
+            },
+            {
+                "key": "wp_listings_idx_auto_import",
+                "recurrence": "twicedaily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 634
+                    }
+                ]
+            },
+            {
+                "key": "wp_listings_idx_update",
+                "recurrence": "twicedaily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 621
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "idx_leads",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/leads/class-contact-form-7.php",
+                        "line": 334
+                    },
+                    {
+                        "file": "idx/leads/class-gravity-forms.php",
+                        "line": 249
+                    },
+                    {
+                        "file": "idx/leads/class-ninja-forms.php",
+                        "line": 308
+                    }
+                ]
+            },
+            {
+                "key": "wp_listings_google_my_business_account_cache",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 602
+                    }
+                ]
+            },
+            {
+                "key": "wp_listings_google_my_business_auth_cache",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 502
+                    }
+                ]
+            },
+            {
+                "key": "wp_listings_google_my_business_location_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 668
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_advanced_fields",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 417
+                    }
+                ]
+            },
+            {
+                "key": "_employee_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/agents/includes/class-agent-import.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "_listing_acres",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 392
+                    }
+                ]
+            },
+            {
+                "key": "_listing_address",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 394
+                    }
+                ]
+            },
+            {
+                "key": "_listing_automap",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/views/listing-details-metabox.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "_listing_bathrooms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 404
+                    }
+                ]
+            },
+            {
+                "key": "_listing_bedrooms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 403
+                    }
+                ]
+            },
+            {
+                "key": "_listing_city",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 395
+                    }
+                ]
+            },
+            {
+                "key": "_listing_county",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 396
+                    }
+                ]
+            },
+            {
+                "key": "_listing_courtesy",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 439
+                    }
+                ]
+            },
+            {
+                "key": "_listing_courtesy_widget",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 442
+                    }
+                ]
+            },
+            {
+                "key": "_listing_details_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/utilities/background-processing/impress-listings-background-process.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "_listing_disclaimer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 426
+                    }
+                ]
+            },
+            {
+                "key": "_listing_disclaimer_widget",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 431
+                    }
+                ]
+            },
+            {
+                "key": "_listing_gallery",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 348
+                    }
+                ]
+            },
+            {
+                "key": "_listing_half_bath",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 405
+                    }
+                ]
+            },
+            {
+                "key": "_listing_latitude",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 406
+                    }
+                ]
+            },
+            {
+                "key": "_listing_longitude",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 407
+                    }
+                ]
+            },
+            {
+                "key": "_listing_lot_sqft",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 391
+                    }
+                ]
+            },
+            {
+                "key": "_listing_mls",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 400
+                    }
+                ]
+            },
+            {
+                "key": "_listing_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 393
+                    }
+                ]
+            },
+            {
+                "key": "_listing_sqft",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 401
+                    }
+                ]
+            },
+            {
+                "key": "_listing_state",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 397
+                    }
+                ]
+            },
+            {
+                "key": "_listing_subdivision",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 399
+                    }
+                ]
+            },
+            {
+                "key": "_listing_year_built",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 402
+                    }
+                ]
+            },
+            {
+                "key": "_listing_zip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-import.php",
+                        "line": 398
+                    }
+                ]
+            },
+            {
+                "key": "_wp_post_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listing-template.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "add-ons/utilities/background-processing/impress-listings-background-process.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "has_syndicated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/social-pro.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "idx-wrapper-page",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 801
+                    },
+                    {
+                        "file": "idx/wrappers.php",
+                        "line": 219
+                    },
+                    {
+                        "file": "idx/wrappers.php",
+                        "line": 377
+                    }
+                ]
+            },
+            {
+                "key": "idx_uid",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/backward-compatibility/add-uid-to-idx-pages.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 288
+                    }
+                ]
+            },
+            {
+                "key": "last_published",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 844
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "idx_user_first_login",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 628
+                    }
+                ]
+            },
+            {
+                "key": "metaboxhidden_nav-menus",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 625
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "impa_term_image",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/agents/includes/class-taxonomies.php",
+                        "line": 369
+                    },
+                    {
+                        "file": "add-ons/agents/includes/class-taxonomies.php",
+                        "line": 405
+                    }
+                ]
+            },
+            {
+                "key": "wpl_term_image",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-taxonomies.php",
+                        "line": 478
+                    },
+                    {
+                        "file": "add-ons/listings/includes/class-taxonomies.php",
+                        "line": 518
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "employee",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/agents/includes/class-agents.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "idx-wrapper",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/wrappers.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "idx_page",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "idx/idx-pages.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "impress_gmb_post",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/integrations/wpl-google-my-business.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "listing",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "add-ons/listings/includes/class-listings.php",
+                        "line": 225
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$coreMetaTranslations[$metakey]",
+            "file": "add-ons/agents/includes/class-agent-import.php",
+            "line": 170
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir['path']",
+            "file": "add-ons/agents/includes/class-agent-import.php",
+            "line": 199
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "add-ons/agents/includes/class-agents.php",
+            "line": 183
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$new_key",
+            "file": "add-ons/agents/includes/class-migrate-old-posts.php",
+            "line": 49
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$id",
+            "file": "add-ons/agents/includes/class-taxonomies.php",
+            "line": 354
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$nag",
+            "file": "add-ons/listings/includes/class-admin-notice.php",
+            "line": 142
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir['path']",
+            "file": "add-ons/listings/includes/class-listing-import.php",
+            "line": 489
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "add-ons/listings/includes/class-listing-template.php",
+            "line": 229
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "add-ons/listings/includes/class-listing-template.php",
+            "line": 231
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "add-ons/listings/includes/class-listings.php",
+            "line": 287
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$id",
+            "file": "add-ons/listings/includes/class-taxonomies.php",
+            "line": 414
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$listing_meta_key",
+            "file": "add-ons/listings/includes/wp-api.php",
+            "line": 89
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "add-ons/utilities/background-processing/wp-background-processing/classes/wp-background-process.php",
+            "line": 103
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "add-ons/utilities/background-processing/wp-background-processing/classes/wp-background-process.php",
+            "line": 119
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "add-ons/utilities/background-processing/wp-background-processing/classes/wp-background-process.php",
+            "line": 237
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "add-ons/utilities/background-processing/wp-background-processing/classes/wp-background-process.php",
+            "line": 459
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "idx/admin/apis/enable-addons.php",
+            "line": 65
+        },
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "idx/idx-api.php",
+            "line": 242
+        },
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "idx/idx-api.php",
+            "line": 264
+        },
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "idx/idx-api.php",
+            "line": 428
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "idx/idx-api.php",
+            "line": 566
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "idx/idx-pages.php",
+            "line": 195
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "idx/leads/class-contact-form-7.php",
+            "line": 73
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "idx/leads/class-gravity-forms.php",
+            "line": 68
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "idx/widgets/omnibar/get-locations.php",
+            "line": 252
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$idx_dir_path",
+            "file": "idx/widgets/omnibar/get-locations.php",
+            "line": 371
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "idx/wrappers.php",
+            "line": 137
+        }
+    ]
+}

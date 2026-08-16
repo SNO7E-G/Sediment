@@ -1,0 +1,229 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "simple-301-redirects",
+        "name": "Simple 301 Redirects",
+        "version": "2.1.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:42Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 41,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 10,
+        "resolved": 1,
+        "pattern": 4,
+        "dynamic": 5,
+        "resolution_rate": 0.55
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "301_redirects",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Ajax.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "includes/Admin/Ajax.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "includes/Admin/Ajax.php",
+                        "line": 119
+                    },
+                    {
+                        "file": "includes/Admin/Tools.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "301_redirects_wildcard",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Ajax.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "simple301redirects_hide_btl_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Ajax.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "simple301redirects_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Installer.php",
+                        "line": 14
+                    }
+                ]
+            },
+            {
+                "key": "wpins_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/WPDev/PluginUsageTracker.php",
+                        "line": 467
+                    },
+                    {
+                        "file": "includes/Admin/WPDev/PluginUsageTracker.php",
+                        "line": 468
+                    }
+                ]
+            },
+            {
+                "key": "wpins_allow_tracking",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/WPDev/PluginUsageTracker.php",
+                        "line": 271
+                    }
+                ]
+            },
+            {
+                "key": "wpins_block_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/WPDev/PluginUsageTracker.php",
+                        "line": 696
+                    }
+                ]
+            },
+            {
+                "key": "wpins_deactivation_details_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/WPDev/PluginUsageTracker.php",
+                        "line": 710
+                    }
+                ]
+            },
+            {
+                "key": "wpins_deactivation_reason_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/WPDev/PluginUsageTracker.php",
+                        "line": 706
+                    }
+                ]
+            },
+            {
+                "key": "wpins_last_track_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/WPDev/PluginUsageTracker.php",
+                        "line": 309
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "simple_301_redirects_import_info",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Tools.php",
+                        "line": 56
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->event_hook",
+            "file": "includes/Admin/WPDev/PluginUsageTracker.php",
+            "line": 89
+        },
+        {
+            "function": "update_option",
+            "expression": "$site_id_key",
+            "file": "includes/Admin/WPDev/PluginUsageTracker.php",
+            "line": 466
+        },
+        {
+            "function": "update_option",
+            "expression": "$site_id_data_key",
+            "file": "includes/Admin/WPDev/PluginUsageTracker.php",
+            "line": 499
+        },
+        {
+            "function": "update_option",
+            "expression": "$site_id_data_failed_key",
+            "file": "includes/Admin/WPDev/PluginUsageTracker.php",
+            "line": 513
+        },
+        {
+            "function": "update_option",
+            "expression": "$site_id_data_key",
+            "file": "includes/Admin/WPDev/PluginUsageTracker.php",
+            "line": 516
+        }
+    ]
+}

@@ -1,0 +1,184 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "airwallex-online-payments-gateway",
+        "name": "Airwallex Online Payments Gateway",
+        "version": "1.34.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:40Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 64,
+    "coverage": {
+        "files_scanned": 76,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 10,
+        "resolved": 0,
+        "pattern": 3,
+        "dynamic": 4,
+        "resolution_rate": 0.588
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "airwallex_*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Gateways/Settings/APISettings.php",
+                        "line": 315
+                    },
+                    {
+                        "file": "includes/Gateways/Settings/APISettings.php",
+                        "line": 317
+                    }
+                ]
+            },
+            {
+                "key": "airwallex_connection_clicked_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Controllers/AirwallexController.php",
+                        "line": 476
+                    }
+                ]
+            },
+            {
+                "key": "airwallex_connection_type",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Controllers/AirwallexController.php",
+                        "line": 438
+                    },
+                    {
+                        "file": "includes/Controllers/ConnectionFlowController.php",
+                        "line": 113
+                    },
+                    {
+                        "file": "includes/Controllers/ConnectionFlowController.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "airwallex_connection_type_demo",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Controllers/AirwallexController.php",
+                        "line": 440
+                    },
+                    {
+                        "file": "includes/Controllers/ConnectionFlowController.php",
+                        "line": 111
+                    },
+                    {
+                        "file": "includes/Controllers/ConnectionFlowController.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "airwallex_enable_sandbox",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/Controllers/AirwallexController.php",
+                        "line": 420
+                    },
+                    {
+                        "file": "includes/Controllers/ConnectionFlowController.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "airwallex_payment_page_template",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Gateways/Settings/APISettings.php",
+                        "line": 339
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "airwallex_check_pending_transactions",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Main.php",
+                        "line": 227
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$optionKey",
+            "file": "includes/Controllers/ConnectionFlowController.php",
+            "line": 142
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->prefix . $key",
+            "file": "includes/Services/CacheService.php",
+            "line": 45
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->logDir",
+            "file": "includes/Services/LogService.php",
+            "line": 38
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$metaKey",
+            "file": "includes/Services/OrderService.php",
+            "line": 311
+        }
+    ]
+}

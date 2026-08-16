@@ -1,0 +1,109 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "fullscreen-background",
+        "name": "Fullscreen Background",
+        "version": "2.0.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:26Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 21,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 1,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.375
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "enweby_fullscreen_background_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-fullscreen-background-admin.php",
+                        "line": 191
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "fullscreen-background-optin-screen",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-enwb-fb-admin-notices.php",
+                        "line": 178
+                    },
+                    {
+                        "file": "admin/class-enwb-fb-admin-notices.php",
+                        "line": 210
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_group . '_settings'",
+            "file": "admin/admin-framework/framework/class-wp-settings-framework.php",
+            "line": 1931
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice_id",
+            "file": "admin/lib/enwb-notices/class-enwb-fb-notices.php",
+            "line": 136
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$notice_id",
+            "file": "admin/lib/enwb-notices/class-enwb-fb-notices.php",
+            "line": 138
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice['id']",
+            "file": "admin/lib/enwb-notices/class-enwb-fb-notices.php",
+            "line": 361
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$notice['id']",
+            "file": "admin/lib/enwb-notices/class-enwb-fb-notices.php",
+            "line": 362
+        }
+    ]
+}

@@ -1,0 +1,124 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ns-remove-related-products-for-woocommerce",
+        "name": "NS Remove Related Products for WooCommerce",
+        "version": "3.0.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 11,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 0,
+        "resolution_rate": 0.714
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pe-plugin-id-response-*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugineye/plugineye-class.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "plugineye_init*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugineye/plugineye-class.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "rrpw_reviews_installed_on",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/class-plugin-theme-review-request.php",
+                        "line": 76
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "_rrpw_reviews_already_did",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/class-plugin-theme-review-request.php",
+                        "line": 238
+                    }
+                ]
+            },
+            {
+                "key": "_rrpw_reviews_dismissed_triggers",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/class-plugin-theme-review-request.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "_rrpw_reviews_last_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/class-plugin-theme-review-request.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "class/class-plugin-theme-review-request.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

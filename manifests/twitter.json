@@ -1,0 +1,93 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "twitter",
+        "name": "Twitter",
+        "version": "2.0.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:25Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 80,
+    "coverage": {
+        "files_scanned": 100,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 0,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "twitter_card",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Twitter/WordPress/Admin/Post/TwitterCard.php",
+                        "line": 84
+                    },
+                    {
+                        "file": "src/Twitter/WordPress/Admin/Post/TwitterCard.php",
+                        "line": 263
+                    }
+                ]
+            },
+            {
+                "key": "twitter_share",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Twitter/WordPress/Admin/Post/TweetIntent.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "src/Twitter/WordPress/Admin/Post/TweetIntent.php",
+                        "line": 299
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/Twitter/WordPress/Shortcodes/OEmbedTrait.php",
+            "line": 113
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/Twitter/WordPress/Shortcodes/OEmbedTrait.php",
+            "line": 122
+        }
+    ]
+}

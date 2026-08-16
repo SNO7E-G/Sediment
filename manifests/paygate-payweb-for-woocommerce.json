@@ -1,0 +1,112 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "paygate-payweb-for-woocommerce",
+        "name": "Payfast Gateway for WooCommerce",
+        "version": "1.7.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:07Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 7,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 2,
+        "resolved": 2,
+        "pattern": 2,
+        "dynamic": 0,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "paygate_query_cron_hook",
+                "recurrence": "paygate_every_ten_minutes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "gateway-paygate.php",
+                        "line": 120
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "PAYGATE_PAYWEB_IPN_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WC_Gateway_PayGate_Portal.php",
+                        "line": 295
+                    }
+                ]
+            },
+            {
+                "key": "PAYGATE_PAYWEB_RED_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WC_Gateway_PayGate_Portal.php",
+                        "line": 223
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "paygate_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WC_Gateway_PayGate.php",
+                        "line": 1124
+                    }
+                ]
+            },
+            {
+                "key": "wc-paygate-new-payment-method",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WC_Gateway_PayGate_Portal.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "classes/WC_Gateway_PayGate_Portal.php",
+                        "line": 90
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

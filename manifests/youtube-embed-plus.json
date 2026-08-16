@@ -1,0 +1,118 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "youtube-embed-plus",
+        "name": "Embed Plus for YouTube Gallery, Livestream and Lazy Loading with Facades",
+        "version": "14.2.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:32Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 3,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 2,
+        "resolved": 4,
+        "pattern": 1,
+        "dynamic": 0,
+        "resolution_rate": 0.857
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "youtubeprefs_alloptions",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "embed_autourls",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "youtube.php",
+                        "line": 2092
+                    }
+                ]
+            },
+            {
+                "key": "youtubeprefs_alloptions",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "youtube.php",
+                        "line": 2091
+                    },
+                    {
+                        "file": "youtube.php",
+                        "line": 5260
+                    },
+                    {
+                        "file": "youtube.php",
+                        "line": 5994
+                    }
+                ]
+            },
+            {
+                "key": "youtubeprefs_alloptions_backup_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "youtube.php",
+                        "line": 1829
+                    }
+                ]
+            },
+            {
+                "key": "youtubeprefs_alloptions_migrate",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "youtube.php",
+                        "line": 1837
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "embedplus_double_plugin_warning",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "youtube.php",
+                        "line": 1772
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

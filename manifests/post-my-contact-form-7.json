@@ -1,0 +1,280 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "post-my-contact-form-7",
+        "name": "Post My CF7 Form",
+        "version": "7.1.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:10Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 33,
+    "coverage": {
+        "files_scanned": 33,
+        "files_skipped": 0,
+        "write_calls_found": 31,
+        "verified": 17,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 12,
+        "resolution_rate": 0.548
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_c2p_active_tab",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-2-post-admin.php",
+                        "line": 403
+                    },
+                    {
+                        "file": "admin/class-cf7-2-post-admin.php",
+                        "line": 750
+                    }
+                ]
+            },
+            {
+                "key": "cf7_2_post_*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-cf7-2-post-activator.php",
+                        "line": 179
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "cf7_2_post_activated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-cf7-2-post-activator.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "cf7_2_post_activation_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-cf7-2-post-activator.php",
+                        "line": 150
+                    }
+                ]
+            },
+            {
+                "key": "cf7_2_post_flush_rewrite_rules",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-cf7-2-post-activator.php",
+                        "line": 192
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_cf7_2_post-map",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-2-post-admin.php",
+                        "line": 418
+                    },
+                    {
+                        "file": "includes/class-cf72post-mapping-factory.php",
+                        "line": 681
+                    },
+                    {
+                        "file": "includes/class-cf72post-mapping-factory.php",
+                        "line": 687
+                    }
+                ]
+            },
+            {
+                "key": "_cf7_2_post-taxonomy",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/mapper/class-c2p-post-mapper-admin.php",
+                        "line": 704
+                    }
+                ]
+            },
+            {
+                "key": "_cf7_2_post-type_source",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-2-post-admin.php",
+                        "line": 720
+                    }
+                ]
+            },
+            {
+                "key": "_cf7_2_post_flush_rewrite_rules",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-cf72post-mapping-factory.php",
+                        "line": 747
+                    },
+                    {
+                        "file": "includes/mapper/class-c2p-post-mapper-admin.php",
+                        "line": 564
+                    }
+                ]
+            },
+            {
+                "key": "_cf7_2_post_form_submitted",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-2-post-admin.php",
+                        "line": 386
+                    },
+                    {
+                        "file": "admin/class-cf7-2-post-admin.php",
+                        "line": 388
+                    },
+                    {
+                        "file": "admin/class-cf7-2-post-admin.php",
+                        "line": 608
+                    },
+                    {
+                        "file": "includes/class-cf72post-mapping-factory.php",
+                        "line": 782
+                    },
+                    {
+                        "file": "includes/mapper/class-c2p-post-mapper.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "cf7_2_post_map_taxonomy-*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/mapper/class-c2p-post-mapper-admin.php",
+                        "line": 824
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "register_post_type",
+            "expression": "$mapper->post_properties['type']",
+            "file": "includes/class-cf72post-mapping-factory.php",
+            "line": 418
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "includes/class-cf72post-mapping-factory.php",
+            "line": 944
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy['slug']",
+            "file": "includes/class-cf72post-mapping-factory.php",
+            "line": 1640
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/mapper/class-c2p-post-mapper-admin.php",
+            "line": 594
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/mapper/class-c2p-post-mapper-admin.php",
+            "line": 637
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$source_key",
+            "file": "includes/mapper/class-c2p-post-mapper-admin.php",
+            "line": 803
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$names_key",
+            "file": "includes/mapper/class-c2p-post-mapper-admin.php",
+            "line": 813
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name_key",
+            "file": "includes/mapper/class-c2p-post-mapper-admin.php",
+            "line": 814
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$post_field",
+            "file": "includes/mapper/class-c2p-post-mapper.php",
+            "line": 423
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$post_field",
+            "file": "includes/mapper/class-c2p-post-mapper.php",
+            "line": 456
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$post_field",
+            "file": "includes/mapper/class-c2p-post-mapper.php",
+            "line": 520
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\sanitize_key($_POST['_cf72post_nonce'])",
+            "file": "includes/mapper/class-c2p-post-mapper.php",
+            "line": 629
+        }
+    ]
+}

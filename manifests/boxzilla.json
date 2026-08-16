@@ -1,0 +1,252 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "boxzilla",
+        "name": "Boxzilla",
+        "version": "3.4.11",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:48Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 32,
+    "coverage": {
+        "files_scanned": 41,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 18,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.952
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "boxzilla_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/admin/class-admin.php",
+                        "line": 729
+                    }
+                ]
+            },
+            {
+                "key": "boxzilla_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/admin/class-admin.php",
+                        "line": 507
+                    },
+                    {
+                        "file": "src/admin/class-review-notice.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "boxzilla_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/admin/class-admin.php",
+                        "line": 142
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "boxzilla_check_license_status",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/licensing/class-poller.php",
+                        "line": 41
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "boxzilla_request_failed",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/licensing/class-update-manager.php",
+                        "line": 153
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "boxzilla_options",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/admin/class-admin.php",
+                        "line": 97
+                    },
+                    {
+                        "file": "src/admin/class-admin.php",
+                        "line": 495
+                    },
+                    {
+                        "file": "src/admin/class-installer.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "src/admin/migrations/3.1-cookie-option.php",
+                        "line": 22
+                    },
+                    {
+                        "file": "src/admin/migrations/3.1.11-screen-width-condition.php",
+                        "line": 27
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_boxzilla_review_notice_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/admin/class-review-notice.php",
+                        "line": 68
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "delete_box",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/default-actions.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "edit_box",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/default-actions.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "edit_boxes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/default-actions.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "edit_other_boxes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/default-actions.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "publish_boxes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/default-actions.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "read_box",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/default-actions.php",
+                        "line": 64
+                    }
+                ]
+            },
+            {
+                "key": "read_private_box",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/default-actions.php",
+                        "line": 65
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "boxzilla-box",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/default-actions.php",
+                        "line": 44
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "src/licensing/class-license.php",
+            "line": 119
+        }
+    ]
+}

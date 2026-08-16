@@ -1,0 +1,114 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "aurora-heatmap",
+        "name": "Aurora Heatmap",
+        "version": "1.7.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:03Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 6,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 4,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "Activated_Plugin",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "aurora-heatmap.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "aurora_heatmap_option",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "class-aurora-heatmap-options.php",
+                        "line": 96
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}ahm_events",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "class-aurora-heatmap-basic.php",
+                        "line": 309
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}ahm_pages",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "class-aurora-heatmap-basic.php",
+                        "line": 327
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "aurora_heatmap_cron_daily",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "class-aurora-heatmap-basic.php",
+                        "line": 405
+                    },
+                    {
+                        "file": "class-aurora-heatmap-basic.php",
+                        "line": 408
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

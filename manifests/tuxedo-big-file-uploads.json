@@ -1,0 +1,166 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "tuxedo-big-file-uploads",
+        "name": "Big File Uploads",
+        "version": "2.1.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 62,
+    "coverage": {
+        "files_scanned": 13,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 8,
+        "resolved": 0,
+        "pattern": 3,
+        "dynamic": 4,
+        "resolution_rate": 0.533
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "tuxbfu_file_scan",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-file-scan.php",
+                        "line": 46
+                    },
+                    {
+                        "file": "classes/class-file-scan.php",
+                        "line": 70
+                    },
+                    {
+                        "file": "classes/class-file-scan.php",
+                        "line": 260
+                    }
+                ]
+            },
+            {
+                "key": "tuxbfu_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "tuxedo_big_file_uploads.php",
+                        "line": 1261
+                    }
+                ]
+            },
+            {
+                "key": "tuxedo_big_file_uploads_install_time",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-review-notice.php",
+                        "line": 293
+                    },
+                    {
+                        "file": "tuxedo_big_file_uploads.php",
+                        "line": 169
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_is_custom_background",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "tuxedo_big_file_uploads.php",
+                        "line": 954
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_is_custom_header",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "tuxedo_big_file_uploads.php",
+                        "line": 958
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "bffu_notice_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-promo-notice.php",
+                        "line": 181
+                    },
+                    {
+                        "file": "classes/class-promo-notice.php",
+                        "line": 185
+                    },
+                    {
+                        "file": "classes/class-promo-notice.php",
+                        "line": 203
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$this->key('time')",
+            "file": "classes/class-review-notice.php",
+            "line": 309
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->key('time')",
+            "file": "classes/class-review-notice.php",
+            "line": 466
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->key('dismissed')",
+            "file": "classes/class-review-notice.php",
+            "line": 470
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$temp_dir",
+            "file": "tuxedo_big_file_uploads.php",
+            "line": 697
+        }
+    ]
+}

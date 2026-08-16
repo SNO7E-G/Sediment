@@ -1,0 +1,169 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ansar-import",
+        "name": "Ansar Import",
+        "version": "2.1.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:58Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 80,
+    "coverage": {
+        "files_scanned": 24,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 8,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 5,
+        "resolution_rate": 0.571
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "widget_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ansar-import.php",
+                        "line": 640
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_menu_item_menu_item_parent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-import.php",
+                        "line": 1122
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-import.php",
+                        "line": 1154
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "page_for_posts",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/class-ansar-import.php",
+                    "line": 786
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "page_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/class-ansar-import.php",
+                    "line": 772
+                },
+                {
+                    "file": "includes/class-ansar-import.php",
+                    "line": 778
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "show_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/class-ansar-import.php",
+                    "line": 773
+                },
+                {
+                    "file": "includes/class-ansar-import.php",
+                    "line": 779
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/class-ansar-import.php",
+                    "line": 659
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$upload_dir",
+            "file": "includes/class-ansar-import.php",
+            "line": 244
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-ansar-import.php",
+            "line": 728
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "\\wp_slash($key)",
+            "file": "includes/class-wp-import.php",
+            "line": 524
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "\\wp_slash($meta['key'])",
+            "file": "includes/class-wp-import.php",
+            "line": 753
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "\\wp_slash($key)",
+            "file": "includes/class-wp-import.php",
+            "line": 786
+        }
+    ]
+}

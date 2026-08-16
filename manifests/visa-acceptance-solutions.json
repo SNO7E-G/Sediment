@@ -1,0 +1,183 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "visa-acceptance-solutions",
+        "name": "Visa Acceptance Solutions",
+        "version": "2.2.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:05:04Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 4354,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 20,
+        "resolution_rate": 0.048
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "wc_payment_gateway_update_orders",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-visa-acceptance-payment-gateway-unified-checkout.php",
+                        "line": 292
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "\\VISA_ACCEPTANCE_WC_UC_ID . $key",
+            "file": "includes/api/class-visa-acceptance-request.php",
+            "line": 295
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->get_order_meta_prefix_includes_updated($payment_gateway_id) . $key",
+            "file": "includes/api/payments/class-visa-acceptance-reporting.php",
+            "line": 299
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "\\VISA_ACCEPTANCE_WC_UC_ID . $key",
+            "file": "includes/class-visa-acceptance-payment-gateway-subscriptions.php",
+            "line": 74
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/class-visa-acceptance-payment-gateway-unified-checkout.php",
+            "line": 197
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$prefix . $key",
+            "file": "includes/trait-visa-acceptance-payment-gateway-includes.php",
+            "line": 152
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "\\VISA_ACCEPTANCE_WC_UC_ID . \\VISA_ACCEPTANCE_PAYMENT_SOLUTION",
+            "file": "public/class-visa-acceptance-payment-gateway-unified-checkout-public.php",
+            "line": 710
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\VISA_ACCEPTANCE_WC_UC_ID . '_flex_cvv_token'",
+            "file": "public/class-visa-acceptance-payment-gateway-unified-checkout-public.php",
+            "line": 741
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\VISA_ACCEPTANCE_SAVED_CARD_NORMAL . $order_id",
+            "file": "public/class-visa-acceptance-payment-gateway-unified-checkout-public.php",
+            "line": 754
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor-prefixed/Monolog/Handler/StreamHandler.php",
+            "line": 222
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "vendor-prefixed/Symfony/Component/Config/Builder/ConfigBuilderGenerator.php",
+            "line": 74
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "vendor-prefixed/Symfony/Component/HttpFoundation/File/File.php",
+            "line": 104
+        },
+        {
+            "function": "mkdir",
+            "expression": "$baseDir",
+            "file": "vendor-prefixed/Symfony/Component/HttpFoundation/Session/Storage/Handler/NativeFileSessionHandler.php",
+            "line": 40
+        },
+        {
+            "function": "mkdir",
+            "expression": "$savePath",
+            "file": "vendor-prefixed/Symfony/Component/HttpFoundation/Session/Storage/MockFileSessionStorage.php",
+            "line": 34
+        },
+        {
+            "function": "mkdir",
+            "expression": "$this->root",
+            "file": "vendor-prefixed/Symfony/Component/HttpKernel/HttpCache/Store.php",
+            "line": 41
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\dirname($path)",
+            "file": "vendor-prefixed/Symfony/Component/HttpKernel/HttpCache/Store.php",
+            "line": 69
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\dirname($path)",
+            "file": "vendor-prefixed/Symfony/Component/HttpKernel/HttpCache/Store.php",
+            "line": 319
+        },
+        {
+            "function": "mkdir",
+            "expression": "$buildDir",
+            "file": "vendor-prefixed/Symfony/Component/HttpKernel/Kernel.php",
+            "line": 367
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor-prefixed/Symfony/Component/HttpKernel/Kernel.php",
+            "line": 495
+        },
+        {
+            "function": "mkdir",
+            "expression": "$this->folder",
+            "file": "vendor-prefixed/Symfony/Component/HttpKernel/Profiler/FileProfilerStorage.php",
+            "line": 37
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor-prefixed/Symfony/Component/HttpKernel/Profiler/FileProfilerStorage.php",
+            "line": 107
+        }
+    ]
+}

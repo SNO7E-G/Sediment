@@ -1,0 +1,293 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "iconvert-promoter",
+        "name": "iConvert Promoter",
+        "version": "1.1.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 230,
+        "files_skipped": 0,
+        "write_calls_found": 31,
+        "verified": 6,
+        "resolved": 7,
+        "pattern": 1,
+        "dynamic": 17,
+        "resolution_rate": 0.419
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_iconvertpr_dismissible_notices",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/Admin/NotificationsManager.php",
+                        "line": 358
+                    },
+                    {
+                        "file": "Core/Admin/NotificationsManager.php",
+                        "line": 375
+                    }
+                ]
+            },
+            {
+                "key": "iconvertpr_promo_storage_key",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/Frontend/Actions/Assets.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "iconvertpr_rate_limit_last_cleanup",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/Traits/HasRateLimit.php",
+                        "line": 108
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "iconvertpr_flash_messages",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/Admin/Actions/FlashMessages.php",
+                        "line": 105
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_has_promo_content",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/PostTypes/PromoPopups.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "_icpromo_popup_render_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/Frontend/PopupGenerate/PopupGenerator.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "_kubio_template_source",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/kubio/lib/src/Core/Importer.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "active",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/Admin/Actions/Ajax/PromoAjaxActions.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "Core/Admin/Actions/Ajax/PromoAjaxActions.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "kubio_template_autosave_type",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/kubio/lib/api/save-template-parts-filter.php",
+                        "line": 29
+                    },
+                    {
+                        "file": "lib/kubio/lib/api/save-template-parts-filter.php",
+                        "line": 38
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "read_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/kubio/lib/global-data.php",
+                        "line": 66
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "kubio_changeset",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/kubio/lib/preview/index.php",
+                        "line": 137
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sync_sql",
+            "file": "Core/Admin/Actions/Plugin/Setup/InstallSubscribersTable.php",
+            "line": 40
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "Core/Admin/Api/TemplatesApi.php",
+            "line": 93
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "\\CSPromo\\Core\\Admin\\NotificationsManager::class . '::onSchedule'",
+            "file": "Core/Admin/NotificationsManager.php",
+            "line": 20
+        },
+        {
+            "function": "set_transient",
+            "expression": "static::getTransientKey()",
+            "file": "Core/Admin/NotificationsManager.php",
+            "line": 143
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "Core/DB/InstallTable.php",
+            "line": 46
+        },
+        {
+            "function": "register_post_type",
+            "expression": "\\CSPromo\\Core\\PostTypes\\PromoPopups::getSlug()",
+            "file": "Core/PostTypes/PromoPopupsSetup.php",
+            "line": 81
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "Core/Traits/HasRateLimit.php",
+            "line": 89
+        },
+        {
+            "function": "update_option",
+            "expression": "\\KPromo\\Core\\Utils::getStringWithNamespacePrefix('_kubio_dismissable_notices')",
+            "file": "lib/kubio/lib/filters/dismissable-notice.php",
+            "line": 63
+        },
+        {
+            "function": "update_option",
+            "expression": "\\KPromo\\Core\\Utils::getStringWithNamespacePrefix('_kubio_dismissable_notices')",
+            "file": "lib/kubio/lib/filters/dismissable-notice.php",
+            "line": 81
+        },
+        {
+            "function": "register_post_type",
+            "expression": "kubio_global_data_post_type()",
+            "file": "lib/kubio/lib/global-data.php",
+            "line": 45
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getBackupKey(\\KPromo\\Core\\Backup::UNIQUE_KEY_IDENTIFIER)",
+            "file": "lib/kubio/lib/src/Core/Backup.php",
+            "line": 24
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getBackupKey($identifier)",
+            "file": "lib/kubio/lib/src/Core/Backup.php",
+            "line": 55
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "dirname($file_path)",
+            "file": "lib/kubio/lib/src/Core/Backup.php",
+            "line": 124
+        },
+        {
+            "function": "update_option",
+            "expression": "\\KPromo\\Core\\Utils::getStringWithNamespacePrefix('__kubio_instance_flags')",
+            "file": "lib/kubio/lib/src/Flags.php",
+            "line": 139
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->local_fonts_dir",
+            "file": "lib/kubio/lib/src/GoogleFontsLocalLoader.php",
+            "line": 52
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->queries_transient",
+            "file": "lib/kubio/lib/src/GoogleFontsLocalLoader.php",
+            "line": 221
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->queries_transient",
+            "file": "lib/kubio/lib/src/GoogleFontsLocalLoader.php",
+            "line": 243
+        }
+    ]
+}

@@ -1,0 +1,320 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "dologin",
+        "name": "DoLogin Security",
+        "version": "5.0.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:17Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 43,
+        "files_skipped": 0,
+        "write_calls_found": 35,
+        "verified": 4,
+        "resolved": 14,
+        "pattern": 2,
+        "dynamic": 15,
+        "resolution_rate": 0.514
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dologin.*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/conf.cls.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "src/conf.cls.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "dologin._pk",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/conf.cls.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "dologin._sk",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/conf.cls.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "dologin._ver",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/conf.cls.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "src/conf.cls.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "dologin.msg",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/gui.cls.php",
+                        "line": 471
+                    }
+                ]
+            },
+            {
+                "key": "dologin_test",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/sms.cls.php",
+                        "line": 139
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "dologin_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/util.cls.php",
+                        "line": 279
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "2fa",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/twofa.cls.php",
+                        "line": 102
+                    },
+                    {
+                        "file": "src/twofa.cls.php",
+                        "line": 310
+                    }
+                ]
+            },
+            {
+                "key": "dologin_kl_app_hash",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/klsso.cls.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "dologin_kl_app_tag",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/klsso.cls.php",
+                        "line": 830
+                    },
+                    {
+                        "file": "src/klsso.cls.php",
+                        "line": 853
+                    },
+                    {
+                        "file": "src/klsso.cls.php",
+                        "line": 882
+                    }
+                ]
+            },
+            {
+                "key": "dologin_kl_nickname",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/klsso.cls.php",
+                        "line": 851
+                    }
+                ]
+            },
+            {
+                "key": "dologin_kl_safe_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/klsso.cls.php",
+                        "line": 850
+                    }
+                ]
+            },
+            {
+                "key": "dologin_kl_site_key_fingerprint",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/klsso.cls.php",
+                        "line": 829
+                    },
+                    {
+                        "file": "src/klsso.cls.php",
+                        "line": 852
+                    },
+                    {
+                        "file": "src/klsso.cls.php",
+                        "line": 881
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$this->_generate_token_tag($response)",
+            "file": "src/captcha.cls.php",
+            "line": 104
+        },
+        {
+            "function": "mkdir",
+            "expression": "$folder",
+            "file": "src/f.cls.php",
+            "line": 109
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/ip.cls.php",
+            "line": 93
+        },
+        {
+            "function": "update_option",
+            "expression": "self::SITE_KEYS_OPTION",
+            "file": "src/klsso-keys.cls.php",
+            "line": 56
+        },
+        {
+            "function": "add_option",
+            "expression": "self::SITE_KEYS_OPTION",
+            "file": "src/klsso-keys.cls.php",
+            "line": 92
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::CLOCK_CACHE",
+            "file": "src/klsso-protocol.cls.php",
+            "line": 375
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::SERVER_KEYS_CACHE",
+            "file": "src/klsso-protocol.cls.php",
+            "line": 428
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "self::META_NICKNAME",
+            "file": "src/klsso-repair.cls.php",
+            "line": 54
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "self::META_SITE_KEY_FP",
+            "file": "src/klsso-repair.cls.php",
+            "line": 55
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "self::META_APP_TAG",
+            "file": "src/klsso-repair.cls.php",
+            "line": 56
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::TRANSIENT_PREFIX . $state_id",
+            "file": "src/klsso-state.cls.php",
+            "line": 38
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/klsso-state.cls.php",
+            "line": 132
+        },
+        {
+            "function": "add_option",
+            "expression": "$key",
+            "file": "src/klsso-state.cls.php",
+            "line": 155
+        },
+        {
+            "function": "set_transient",
+            "expression": "$throttle_key",
+            "file": "src/sms.cls.php",
+            "line": 204
+        },
+        {
+            "function": "add_option",
+            "expression": "$option_name",
+            "file": "src/twofa.cls.php",
+            "line": 268
+        }
+    ]
+}

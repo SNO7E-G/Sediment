@@ -1,0 +1,321 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ht-contactform",
+        "name": "HT Contact Form – Drag & Drop Form Builder for WordPress",
+        "version": "2.9.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:07Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 85,
+        "files_skipped": 0,
+        "write_calls_found": 35,
+        "verified": 14,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 17,
+        "resolution_rate": 0.514
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ht_contactform_diagnostic_data_agreed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/Includes/DiagnosticData.php",
+                        "line": 267
+                    },
+                    {
+                        "file": "admin/Includes/DiagnosticData.php",
+                        "line": 663
+                    }
+                ]
+            },
+            {
+                "key": "ht_contactform_diagnostic_data_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/Includes/DiagnosticData.php",
+                        "line": 268
+                    },
+                    {
+                        "file": "admin/Includes/DiagnosticData.php",
+                        "line": 664
+                    }
+                ]
+            },
+            {
+                "key": "ht_form_global_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/Admin.php",
+                        "line": 140
+                    },
+                    {
+                        "file": "admin/Includes/Api/Endpoints/Settings.php",
+                        "line": 184
+                    },
+                    {
+                        "file": "admin/Includes/Api/Endpoints/Settings.php",
+                        "line": 241
+                    }
+                ]
+            },
+            {
+                "key": "ht_form_integrations",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/Includes/Api/Endpoints/Integrations.php",
+                        "line": 262
+                    }
+                ]
+            },
+            {
+                "key": "ht_form_zohocrm_tokens",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Integrations/ZohoCRM.php",
+                        "line": 219
+                    },
+                    {
+                        "file": "include/Integrations/ZohoCRM.php",
+                        "line": 270
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "ht_contactform_remove_old_entries",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/CronJob.php",
+                        "line": 227
+                    }
+                ]
+            },
+            {
+                "key": "ht_form_drafts_cleanup",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/Includes/Models/Drafts.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "ht_form_temp_files_cleanup",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Services/FileManager.php",
+                        "line": 199
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "ht_contactform-notice-id-diagnostic-data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/Includes/DiagnosticData.php",
+                        "line": 269
+                    }
+                ]
+            },
+            {
+                "key": "ht_form_zohocrm_modules",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Integrations/ZohoCRM.php",
+                        "line": 461
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "integrations",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/Includes/Models/Form.php",
+                        "line": 387
+                    },
+                    {
+                        "file": "admin/Includes/Models/Form.php",
+                        "line": 417
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "ht_form",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/Includes/PostTypes/FormPostType.php",
+                        "line": 20
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "self::$option_names[$key]",
+            "file": "admin/Includes/Api/Endpoints/Integrations/ConstantContact.php",
+            "line": 34
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "admin/Includes/Api/Endpoints/Integrations/GetResponse.php",
+            "line": 182
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "admin/Includes/Api/Endpoints/Integrations/GetResponse.php",
+            "line": 219
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "admin/Includes/Api/Endpoints/Integrations/GetResponse.php",
+            "line": 256
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dest_dir",
+            "file": "admin/Includes/Api/Endpoints/Submission.php",
+            "line": 949
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "admin/Includes/Models/Drafts.php",
+            "line": 82
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "admin/Includes/Models/Entries.php",
+            "line": 86
+        },
+        {
+            "function": "update_option",
+            "expression": "$notice_id",
+            "file": "admin/Includes/Notice.php",
+            "line": 92
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$notice_id",
+            "file": "admin/Includes/Notice.php",
+            "line": 95
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice_id",
+            "file": "admin/Includes/Notice.php",
+            "line": 97
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice['id']",
+            "file": "admin/Includes/Notice.php",
+            "line": 462
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$notice['id']",
+            "file": "admin/Includes/Notice.php",
+            "line": 463
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "admin/Includes/Services/Helper.php",
+            "line": 259
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "include/Integrations/ZohoCRM.php",
+            "line": 535
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "include/Services/FileManager.php",
+            "line": 126
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "include/UI/Fields.php",
+            "line": 1032
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_var",
+            "file": "include/recommended-plugins/class.recommended-plugins.php",
+            "line": 347
+        }
+    ]
+}

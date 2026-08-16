@@ -1,0 +1,320 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "check-email",
+        "name": "Check & Log Email - Easy Email Testing & Mail logging",
+        "version": "2.0.15",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:56Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 27,
+    "coverage": {
+        "files_scanned": 44,
+        "files_skipped": 0,
+        "write_calls_found": 34,
+        "verified": 13,
+        "resolved": 5,
+        "pattern": 10,
+        "dynamic": 6,
+        "resolution_rate": 0.529
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "check-email-email-encode-options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Check_Email_Encode_Tab.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "check-email-email-notify-options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Check_Email_Notify_Tab.php",
+                        "line": 462
+                    }
+                ]
+            },
+            {
+                "key": "check-email-log-*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Core/Auth.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "include/Core/Auth.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "include/Core/Auth.php",
+                        "line": 309
+                    },
+                    {
+                        "file": "include/Core/Auth.php",
+                        "line": 313
+                    },
+                    {
+                        "file": "include/Core/Auth.php",
+                        "line": 324
+                    },
+                    {
+                        "file": "include/Core/Auth.php",
+                        "line": 328
+                    },
+                    {
+                        "file": "include/Core/Auth.php",
+                        "line": 338
+                    },
+                    {
+                        "file": "include/Core/Auth.php",
+                        "line": 342
+                    }
+                ]
+            },
+            {
+                "key": "check-email-log-core",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "include/Core/UI/Page/Check_Email_Error_Tracker_list.php",
+                        "line": 22
+                    },
+                    {
+                        "file": "include/Core/UI/Page/Check_Email_Wizard_Page.php",
+                        "line": 232
+                    }
+                ]
+            },
+            {
+                "key": "check-email-log-global-smtp",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/helper-function.php",
+                        "line": 593
+                    }
+                ]
+            },
+            {
+                "key": "check-email-rate-time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Core/Check_Email_Review.php",
+                        "line": 56
+                    },
+                    {
+                        "file": "include/Core/Check_Email_Review.php",
+                        "line": 112
+                    }
+                ]
+            },
+            {
+                "key": "check-email-smtp-options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "include/Check_Email_SMTP_Tab.php",
+                        "line": 450
+                    }
+                ]
+            },
+            {
+                "key": "check_email-log-db",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Core/DB/Check_Email_Table_Manager.php",
+                        "line": 515
+                    }
+                ]
+            },
+            {
+                "key": "check_email_smtp_status",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "include/Check_Email_SMTP_Tab.php",
+                        "line": 154
+                    },
+                    {
+                        "file": "include/Check_Email_SMTP_Tab.php",
+                        "line": 157
+                    },
+                    {
+                        "file": "include/Check_Email_SMTP_Tab.php",
+                        "line": 161
+                    }
+                ]
+            },
+            {
+                "key": "check_email_spam_score_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/helper-function.php",
+                        "line": 792
+                    }
+                ]
+            },
+            {
+                "key": "checkmail_admin_fcm_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/helper-function.php",
+                        "line": 845
+                    }
+                ]
+            },
+            {
+                "key": "failed_email_count_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Check_Email_Notify_Tab.php",
+                        "line": 39
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "check_email_trigger_notify_email_when_log_threshold_met",
+                "recurrence": "hourly",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Core/UI/Page/Check_Email_Settings_Page.php",
+                        "line": 662
+                    },
+                    {
+                        "file": "include/Core/UI/Setting/Check_Email_Core_Setting.php",
+                        "line": 331
+                    }
+                ]
+            },
+            {
+                "key": "check_mail_cron_hook",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Core/DB/Check_Email_Table_Manager.php",
+                        "line": 824
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "manage_check_email",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/Core/Check_Email_Admin_Capability_Giver.php",
+                        "line": 34
+                    },
+                    {
+                        "file": "include/Core/Request/Check_Email_Log_List_Action.php",
+                        "line": 398
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "include/Core/DB/Check_Email_Table_Manager.php",
+            "line": 422
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "include/Core/DB/Check_Email_Table_Manager.php",
+            "line": 513
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->section->option_name",
+            "file": "include/Core/UI/Page/Check_Email_Settings_Page.php",
+            "line": 733
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->section->option_name",
+            "file": "include/Core/UI/Setting/Check_Email_Core_Setting.php",
+            "line": 402
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "include/install.php",
+            "line": 62
+        },
+        {
+            "function": "add_option",
+            "expression": "\\Check_Email_Log::DB_OPTION_NAME",
+            "file": "include/install.php",
+            "line": 64
+        }
+    ]
+}

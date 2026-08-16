@@ -1,0 +1,2788 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-travel-engine",
+        "name": "WP Travel Engine - Travel and Tour Booking Plugin",
+        "version": "6.8.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:12Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 902,
+        "files_skipped": 0,
+        "write_calls_found": 343,
+        "verified": 246,
+        "resolved": 28,
+        "pattern": 26,
+        "dynamic": 43,
+        "resolution_rate": 0.799
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_wp_session_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Utilities/SessionUtils.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "includes/classes/Utilities/WPSession.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "includes/lib/wp-session/class-wp-session-utils.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "includes/lib/wp-session/class-wp-session.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "_wp_session_expires_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Utilities/SessionUtils.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "includes/classes/Utilities/WPSession.php",
+                        "line": 84
+                    },
+                    {
+                        "file": "includes/classes/Utilities/WPSession.php",
+                        "line": 153
+                    },
+                    {
+                        "file": "includes/lib/wp-session/class-wp-session-utils.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "includes/lib/wp-session/class-wp-session.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "includes/lib/wp-session/class-wp-session.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "_wptravelengine_leftover_cached_cleared",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/wp-session/class-wp-session-utils.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "active_sitewide_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/freemius/includes/fs-essential-functions.php",
+                        "line": 354
+                    }
+                ]
+            },
+            {
+                "key": "difficulty_level_by_terms",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wte-ajax.php",
+                        "line": 441
+                    },
+                    {
+                        "file": "includes/classes/Core/Controllers/Ajax/SetDifficultyTerm.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "enable_legacy_trip",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tour-packages/packages.php",
+                        "line": 664
+                    }
+                ]
+            },
+            {
+                "key": "fs_active_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/freemius/includes/fs-essential-functions.php",
+                        "line": 278
+                    },
+                    {
+                        "file": "includes/lib/freemius/includes/fs-essential-functions.php",
+                        "line": 412
+                    },
+                    {
+                        "file": "includes/lib/freemius/start.php",
+                        "line": 206
+                    },
+                    {
+                        "file": "includes/lib/freemius/start.php",
+                        "line": 315
+                    },
+                    {
+                        "file": "includes/lib/freemius/start.php",
+                        "line": 361
+                    },
+                    {
+                        "file": "includes/lib/freemius/start.php",
+                        "line": 526
+                    },
+                    {
+                        "file": "includes/lib/freemius/start.php",
+                        "line": 569
+                    }
+                ]
+            },
+            {
+                "key": "fs_debug_mode",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/freemius/config.php",
+                        "line": 317
+                    },
+                    {
+                        "file": "includes/lib/freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 506
+                    }
+                ]
+            },
+            {
+                "key": "fs_storage_logger",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/freemius/includes/class-fs-logger.php",
+                        "line": 366
+                    }
+                ]
+            },
+            {
+                "key": "primary_pricing_category",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Settings/Options.php",
+                        "line": 49
+                    },
+                    {
+                        "file": "includes/tour-packages/packages.php",
+                        "line": 303
+                    },
+                    {
+                        "file": "upgrade/500.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_first_time_activation_flag",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 149
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-onboard.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_license",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/plugin-updates/extensions-update.php",
+                        "line": 91
+                    },
+                    {
+                        "file": "admin/plugin-updates/extensions-update.php",
+                        "line": 200
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_permalinks",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-permalinks.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_search_page_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-settings.php",
+                        "line": 617
+                    },
+                    {
+                        "file": "includes/classes/Core/Models/Settings/Options.php",
+                        "line": 49
+                    },
+                    {
+                        "file": "includes/classes/Modules/TripSearch.php",
+                        "line": 1316
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 127
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 256
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 315
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 329
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 342
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 424
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-settings.php",
+                        "line": 614
+                    },
+                    {
+                        "file": "includes/classes/Core/Models/Settings/Options.php",
+                        "line": 49
+                    },
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 205
+                    }
+                ]
+            },
+            {
+                "key": "wpte_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/helpers-analytics.php",
+                        "line": 4305
+                    }
+                ]
+            },
+            {
+                "key": "wpte_updated_actual_price_for_filter",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 1615
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_add_caps_by_roles",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 862
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_appearance",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Settings/Options.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_archive_display_mode",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Settings/Options.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_changelog_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/rest-api/class-rest-admin-controller.php",
+                        "line": 222
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_current_changelog",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/rest-api/class-rest-admin-controller.php",
+                        "line": 221
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_custom_strings",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-static-strings.php",
+                        "line": 22
+                    },
+                    {
+                        "file": "includes/class-static-strings.php",
+                        "line": 42
+                    },
+                    {
+                        "file": "includes/class-static-strings.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "includes/class-static-strings.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "includes/classes/Core/Models/Settings/StaticStrings.php",
+                        "line": 45
+                    },
+                    {
+                        "file": "includes/classes/Core/Models/Settings/StaticStrings.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_custom_trips",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Post/Trip.php",
+                        "line": 1592
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_difficulty_tax",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 1464
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_events_schema_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Abstracts/EventTable.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_local_notice_dismissed_at",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Controllers/Ajax/AdminNotice.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_logger_settings",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Logger/LoggerSettings.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_migrated_booking_ids",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Booking/MigrateBooking.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_notice_dismissed_at",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Controllers/Ajax/AdminNotice.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_payment_gateways",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Settings/Options.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_pricing_type",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Settings/Options.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_queue_flush_rewrite_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 477
+                    },
+                    {
+                        "file": "includes/classes/Core/Controllers/Ajax/OnboardingSave.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "includes/classes/Modules/Filters.php",
+                        "line": 169
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_show_trip_search_sidebar",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Settings/Options.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_since",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 213
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_trip_sort_by",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-settings.php",
+                        "line": 608
+                    },
+                    {
+                        "file": "includes/classes/Core/Models/Settings/Options.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_trip_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_trip_view_mode",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-settings.php",
+                        "line": 611
+                    },
+                    {
+                        "file": "includes/classes/Core/Models/Settings/Options.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_triptag_tax",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 1529
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 207
+                    },
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 422
+                    }
+                ]
+            },
+            {
+                "key": "wte_custom_filters",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Modules/Filters.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "wte_messages_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 2320
+                    }
+                ]
+            },
+            {
+                "key": "wte_messages_latest_post_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-messages-list.php",
+                        "line": 48
+                    },
+                    {
+                        "file": "admin/class-wp-travel-engine-messages-list.php",
+                        "line": 53
+                    }
+                ]
+            },
+            {
+                "key": "wte_migrated_to_multiple_pricing",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade/500.php",
+                        "line": 213
+                    }
+                ]
+            },
+            {
+                "key": "wte_search_params_updated_*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 409
+                    }
+                ]
+            },
+            {
+                "key": "wte_update_mail_template",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Settings/Options.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "wte_wetravel_settings",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Settings/Options.php",
+                        "line": 49
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}fs_logger",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/freemius/includes/class-fs-logger.php",
+                        "line": 342
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "fs_debug_turn_off_logging_hook",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 293
+                    }
+                ]
+            },
+            {
+                "key": "wp_session_garbage_collection",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/wp-session/wp-session.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_check_events",
+                "recurrence": "every_minute",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Filters/Events.php",
+                        "line": 108
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_fs_api_connection_retry_counter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/freemius/includes/class-freemius.php",
+                        "line": 21225
+                    }
+                ]
+            },
+            {
+                "key": "_payment_key_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Post/Booking.php",
+                        "line": 1086
+                    }
+                ]
+            },
+            {
+                "key": "cw_block_pattern_local_transient",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Modules/pattern-inserter/class-import-patterns.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "fs_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/freemius/includes/class-freemius.php",
+                        "line": 7657
+                    },
+                    {
+                        "file": "includes/lib/freemius/includes/class-freemius.php",
+                        "line": 20875
+                    },
+                    {
+                        "file": "includes/lib/freemius/includes/class-freemius.php",
+                        "line": 20881
+                    }
+                ]
+            },
+            {
+                "key": "fs_snooze_period",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/freemius/includes/class-freemius.php",
+                        "line": 2758
+                    },
+                    {
+                        "file": "includes/lib/freemius/includes/class-freemius.php",
+                        "line": 2760
+                    }
+                ]
+            },
+            {
+                "key": "payment_key_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Booking/BookingProcess.php",
+                        "line": 308
+                    },
+                    {
+                        "file": "includes/classes/Core/Booking/BookingProcess.php",
+                        "line": 321
+                    },
+                    {
+                        "file": "includes/classes/Core/Models/Post/Payment.php",
+                        "line": 246
+                    },
+                    {
+                        "file": "includes/classes/PaymentGateways/BaseGateway.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/plugin-updates/EDD_SL_Plugin_Updater.php",
+                        "line": 233
+                    },
+                    {
+                        "file": "admin/plugin-updates/extensions-update.php",
+                        "line": 418
+                    },
+                    {
+                        "file": "includes/lib/freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "includes/lib/freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "includes/lib/freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_onboard_addons_list",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Controllers/Ajax/DynamicRecommendation.php",
+                        "line": 36
+                    },
+                    {
+                        "file": "includes/onboard-process/views/onboard-process.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_store_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/functions.php",
+                        "line": 1999
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_last_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/AdminNotice.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_logger_settings_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Logger/LoggerSettings.php",
+                        "line": 119
+                    },
+                    {
+                        "file": "includes/classes/Logger/LoggerSettings.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_onboarding_demos",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Controllers/Ajax/FetchDemos.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_upcoming_tours_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Pages/Admin/UpcomingTours.php",
+                        "line": 812
+                    },
+                    {
+                        "file": "includes/classes/Pages/Admin/UpcomingTours.php",
+                        "line": 829
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_upgrading_events_table",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Abstracts/EventTable.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "wte_banner_coupon_ids",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Modules/CouponCode/Banner.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "wte_getting_started_page_shown_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wte-getting-started.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "wte_log_rate_limit",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Logger/ErrorHandlers/ShutdownErrorHandler.php",
+                        "line": 649
+                    }
+                ]
+            },
+            {
+                "key": "wte_onboarding_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 153
+                    }
+                ]
+            },
+            {
+                "key": "wte_paylexer_gateways_catalog",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Controllers/RestAPI/V2/Settings.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "wte_redirected_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wte-getting-started.php",
+                        "line": 59
+                    }
+                ]
+            },
+            {
+                "key": "wte_show_getting_started_page",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "wte_token_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 175
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "__manual_packages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Post/Trip.php",
+                        "line": 1621
+                    }
+                ]
+            },
+            {
+                "key": "_booking_inventory",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Booking/Inventory.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "_migrated_from",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Booking/MigrateBooking.php",
+                        "line": 315
+                    }
+                ]
+            },
+            {
+                "key": "_migrated_to",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Booking/MigrateBooking.php",
+                        "line": 316
+                    }
+                ]
+            },
+            {
+                "key": "_original_package_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/helpers-packages.php",
+                        "line": 291
+                    }
+                ]
+            },
+            {
+                "key": "_s_difficulty",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-tabs.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_s_duration",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 447
+                    }
+                ]
+            },
+            {
+                "key": "_s_has_sale",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 435
+                    }
+                ]
+            },
+            {
+                "key": "_s_max_pax",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 450
+                    }
+                ]
+            },
+            {
+                "key": "_s_min_pax",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 449
+                    }
+                ]
+            },
+            {
+                "key": "_s_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 434
+                    }
+                ]
+            },
+            {
+                "key": "_update_title",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 1414
+                    }
+                ]
+            },
+            {
+                "key": "_wp_page_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 184
+                    }
+                ]
+            },
+            {
+                "key": "additional_fields",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 1552
+                    }
+                ]
+            },
+            {
+                "key": "booking_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Booking/MigrateBooking.php",
+                        "line": 314
+                    }
+                ]
+            },
+            {
+                "key": "cart_totals",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Booking/MigrateBooking.php",
+                        "line": 412
+                    }
+                ]
+            },
+            {
+                "key": "due_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 241
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 290
+                    }
+                ]
+            },
+            {
+                "key": "enable_weekly_time_slots",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/helpers-packages.php",
+                        "line": 261
+                    }
+                ]
+            },
+            {
+                "key": "gateway_response",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 223
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 283
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 378
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 382
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 398
+                    }
+                ]
+            },
+            {
+                "key": "group-pricing",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade/500.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "package-categories",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/helpers-packages.php",
+                        "line": 278
+                    },
+                    {
+                        "file": "upgrade/500.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "package-dates",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/helpers-packages.php",
+                        "line": 253
+                    },
+                    {
+                        "file": "upgrade/500.php",
+                        "line": 172
+                    }
+                ]
+            },
+            {
+                "key": "packages_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wte-ajax.php",
+                        "line": 527
+                    },
+                    {
+                        "file": "includes/classes/Core/Controllers/RestAPI/V2/TripPackages.php",
+                        "line": 171
+                    },
+                    {
+                        "file": "includes/helpers/helpers-packages.php",
+                        "line": 313
+                    },
+                    {
+                        "file": "upgrade/500.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "paid_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 240
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 291
+                    }
+                ]
+            },
+            {
+                "key": "payable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 841
+                    },
+                    {
+                        "file": "includes/classes/Core/Booking/MigrateBooking.php",
+                        "line": 304
+                    }
+                ]
+            },
+            {
+                "key": "payment_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 230
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 292
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 405
+                    }
+                ]
+            },
+            {
+                "key": "payment_remarks",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 373
+                    }
+                ]
+            },
+            {
+                "key": "payment_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 284
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 364
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 367
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 372
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 402
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 753
+                    },
+                    {
+                        "file": "includes/classes/Core/Booking/MigrateBooking.php",
+                        "line": 249
+                    }
+                ]
+            },
+            {
+                "key": "payments",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 1323
+                    }
+                ]
+            },
+            {
+                "key": "primary_package",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wte-ajax.php",
+                        "line": 510
+                    },
+                    {
+                        "file": "includes/classes/Core/Models/Post/TripPackageIterator.php",
+                        "line": 50
+                    }
+                ]
+            },
+            {
+                "key": "primary_pricing_category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/helpers-packages.php",
+                        "line": 287
+                    }
+                ]
+            },
+            {
+                "key": "traveller_page_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/templates/traveller-information/template-traveler-info.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "trip_ID",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/helpers-packages.php",
+                        "line": 308
+                    },
+                    {
+                        "file": "upgrade/500.php",
+                        "line": 175
+                    }
+                ]
+            },
+            {
+                "key": "trip_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tour-packages/packages.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "upgrade/500.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "weekly_time_slots",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/helpers-packages.php",
+                        "line": 256
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_booked_trip_setting",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-confirmation.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_booking_language",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Helpers/Translators.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_booking_payment_gateway",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 833
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 869
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 890
+                    },
+                    {
+                        "file": "includes/classes/PaymentGateways/CheckPayment.php",
+                        "line": 115
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_booking_payment_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 870
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 891
+                    },
+                    {
+                        "file": "includes/classes/PaymentGateways/CheckPayment.php",
+                        "line": 116
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_booking_setting",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-confirmation.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-order-meta.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_booking_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 229
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 289
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 368
+                    },
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 832
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_bookings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-confirmation.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_coupon_code",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Modules/CouponCode.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_coupon_metas",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Modules/CouponCode.php",
+                        "line": 257
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_coupon_show_banner",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Modules/CouponCode.php",
+                        "line": 261
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_coupon_usage_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Modules/CouponCode.php",
+                        "line": 333
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_enquiry_formdata",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-enquiry-form-shortcodes.php",
+                        "line": 420
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-enquiry-forms.php",
+                        "line": 42
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-enquiry-forms.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-enquiry-forms.php",
+                        "line": 139
+                    },
+                    {
+                        "file": "includes/classes/Core/Models/Post/Enquiry.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "includes/dashboard/class-wp-travel-engine-enquiry-form-shortcodes.php",
+                        "line": 422
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_featured_trip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 2507
+                    },
+                    {
+                        "file": "includes/classes/Core/Controllers/Ajax/FeaturedTrip.php",
+                        "line": 31
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_setting",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 2996
+                    },
+                    {
+                        "file": "admin/class-wp-travel-engine-tabs.php",
+                        "line": 232
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-enquiry-form-shortcodes.php",
+                        "line": 403
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-enquiry-forms.php",
+                        "line": 41
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-enquiry-forms.php",
+                        "line": 84
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-enquiry-forms.php",
+                        "line": 138
+                    },
+                    {
+                        "file": "includes/classes/Core/Models/Post/Enquiry.php",
+                        "line": 135
+                    },
+                    {
+                        "file": "includes/dashboard/class-wp-travel-engine-enquiry-form-shortcodes.php",
+                        "line": 405
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_setting_trip_actual_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 433
+                    },
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 1608
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_setting_trip_duration",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 446
+                    },
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 3013
+                    },
+                    {
+                        "file": "admin/class-wp-travel-engine-tabs.php",
+                        "line": 246
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_setting_trip_prev_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 3009
+                    },
+                    {
+                        "file": "admin/class-wp-travel-engine-tabs.php",
+                        "line": 241
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_setting_trip_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 3005
+                    },
+                    {
+                        "file": "admin/class-wp-travel-engine-tabs.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_trip_max_age",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 3030
+                    },
+                    {
+                        "file": "admin/class-wp-travel-engine-tabs.php",
+                        "line": 263
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_trip_min_age",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 3026
+                    },
+                    {
+                        "file": "admin/class-wp-travel-engine-tabs.php",
+                        "line": 259
+                    }
+                ]
+            },
+            {
+                "key": "wpte_gallery_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 3017
+                    },
+                    {
+                        "file": "admin/class-wp-travel-engine-tabs.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "wpte_vid_gallery",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 3022
+                    },
+                    {
+                        "file": "admin/class-wp-travel-engine-tabs.php",
+                        "line": 255
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_additional_note",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-order-meta.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_billing_details",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-order-meta.php",
+                        "line": 97
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-order-meta.php",
+                        "line": 160
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_emergency_details",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-order-meta.php",
+                        "line": 151
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_travelers_details",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-order-meta.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "wte_fsd_booked_seats",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wte-ajax.php",
+                        "line": 528
+                    }
+                ]
+            },
+            {
+                "key": "wte_pg_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bookings/class-wte-process-booking-core.php",
+                        "line": 1444
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Post/Customer.php",
+                        "line": 293
+                    }
+                ]
+            },
+            {
+                "key": "wishlist",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/class-wp-travel-engine-public.php",
+                        "line": 205
+                    }
+                ]
+            },
+            {
+                "key": "wp-travel-engine-rating-notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 2111
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_customer_billing_details",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Core/Models/Post/Customer.php",
+                        "line": 301
+                    },
+                    {
+                        "file": "includes/dashboard/class-wp-travel-engine-form-handler.php",
+                        "line": 368
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_customer_booking_details",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 2431
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_user_bookings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 2429
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-confirmation.php",
+                        "line": 131
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-confirmation.php",
+                        "line": 174
+                    },
+                    {
+                        "file": "includes/classes/Core/Models/Post/Customer.php",
+                        "line": 385
+                    },
+                    {
+                        "file": "includes/dashboard/class-wp-travel-engine-form-handler.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "wptravelengine_wishlists",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wte-ajax.php",
+                        "line": 747
+                    },
+                    {
+                        "file": "includes/classes/Core/Controllers/Ajax/UserWishlist.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "wte_users_meta",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/dashboard/class-wp-travel-engine-form-handler.php",
+                        "line": 501
+                    },
+                    {
+                        "file": "includes/dashboard/class-wp-travel-engine-form-handler.php",
+                        "line": 510
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "age_group",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tour-packages/packages.php",
+                        "line": 307
+                    }
+                ]
+            },
+            {
+                "key": "category-image-id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-taxonomy-thumb.php",
+                        "line": 224
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-taxonomy-thumb.php",
+                        "line": 277
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-taxonomy-thumb.php",
+                        "line": 280
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-taxonomy-thumb.php",
+                        "line": 282
+                    }
+                ]
+            },
+            {
+                "key": "is_primary_pricing_catgory",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tour-packages/packages.php",
+                        "line": 317
+                    }
+                ]
+            },
+            {
+                "key": "pll_category_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tour-packages/packages.php",
+                        "line": 315
+                    }
+                ]
+            },
+            {
+                "key": "wte-shortdesc-textarea",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-taxonomy-thumb.php",
+                        "line": 171
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-taxonomy-thumb.php",
+                        "line": 209
+                    },
+                    {
+                        "file": "includes/class-wp-travel-engine-taxonomy-thumb.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "wte_trip_tax_featured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 2525
+                    },
+                    {
+                        "file": "includes/classes/Core/Controllers/Ajax/FeaturedTerm.php",
+                        "line": 29
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [
+            {
+                "key": "wp-travel-engine-customer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 90
+                    }
+                ]
+            }
+        ],
+        "capabilities": [
+            {
+                "key": "delete_trip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 856
+                    }
+                ]
+            },
+            {
+                "key": "edit_others_trips",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 858
+                    }
+                ]
+            },
+            {
+                "key": "edit_trip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 854
+                    }
+                ]
+            },
+            {
+                "key": "edit_trips",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 857
+                    }
+                ]
+            },
+            {
+                "key": "manage_trip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 853
+                    }
+                ]
+            },
+            {
+                "key": "publish_trips",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 859
+                    }
+                ]
+            },
+            {
+                "key": "read",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-travel-engine-activator.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "read_private_trips",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 860
+                    }
+                ]
+            },
+            {
+                "key": "read_trip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Plugin.php",
+                        "line": 855
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "enquiry",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 682
+                    }
+                ]
+            },
+            {
+                "key": "trip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 617
+                    }
+                ]
+            },
+            {
+                "key": "trip-packages",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tour-packages/packages.php",
+                        "line": 678
+                    }
+                ]
+            },
+            {
+                "key": "wte-coupon",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 526
+                    }
+                ]
+            },
+            {
+                "key": "wte-payments",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 536
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "activities",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 1261
+                    }
+                ]
+            },
+            {
+                "key": "destination",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 1223
+                    }
+                ]
+            },
+            {
+                "key": "difficulty",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 1337
+                    }
+                ]
+            },
+            {
+                "key": "trip-packages-categories",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tour-packages/packages.php",
+                        "line": 775
+                    }
+                ]
+            },
+            {
+                "key": "trip_tag",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 1499
+                    }
+                ]
+            },
+            {
+                "key": "trip_types",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-travel-engine-admin.php",
+                        "line": 1300
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/classes/Plugin.php",
+                    "line": 448
+                },
+                {
+                    "file": "includes/lib/freemius/includes/class-fs-plugin-updater.php",
+                    "line": 1307
+                },
+                {
+                    "file": "includes/lib/freemius/includes/fs-essential-functions.php",
+                    "line": 331
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "uninstall_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/lib/freemius/includes/class-freemius.php",
+                    "line": 1898
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "register_meta",
+            "expression": "$meta_key",
+            "file": "admin/class-wp-travel-engine-admin.php",
+            "line": 558
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$booking_post_type->get_post_type()",
+            "file": "admin/class-wp-travel-engine-admin.php",
+            "line": 693
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$customer_post_type->get_post_type()",
+            "file": "admin/class-wp-travel-engine-admin.php",
+            "line": 707
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "admin/class-wp-travel-engine-messages-list.php",
+            "line": 42
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "admin/class-wp-travel-engine-tabs.php",
+            "line": 81
+        },
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "admin/plugin-updates/EDD_SL_Plugin_Updater.php",
+            "line": 619
+        },
+        {
+            "function": "update_option",
+            "expression": "$addon_name . '_license_active'",
+            "file": "admin/plugin-updates/extensions-update.php",
+            "line": 194
+        },
+        {
+            "function": "register_meta",
+            "expression": "$meta_key",
+            "file": "includes/bookings/class-wte-process-booking-core.php",
+            "line": 1174
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/bookings/class-wte-process-booking-core.php",
+            "line": 1344
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-wp-travel-engine-order-meta.php",
+            "line": 78
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/classes/Abstracts/PostModel.php",
+            "line": 209
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/classes/Abstracts/PostModel.php",
+            "line": 326
+        },
+        {
+            "function": "register_meta",
+            "expression": "$meta",
+            "file": "includes/classes/Blocks/Blocks.php",
+            "line": 273
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/classes/Core/Booking/MigrateBooking.php",
+            "line": 538
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$wte_temp_dir",
+            "file": "includes/classes/Core/Controllers/Ajax/UploadProfilePicture.php",
+            "line": 61
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/classes/Core/Models/Settings/Options.php",
+            "line": 49
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$wte_temp_dir",
+            "file": "includes/classes/Helpers/Functions.php",
+            "line": 147
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/classes/Logger/ErrorHandlers/ShutdownErrorHandler.php",
+            "line": 686
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->log_dir",
+            "file": "includes/classes/Logger/Handlers/FileHandler.php",
+            "line": 257
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/classes/Logger/Utilities/LogUtils.php",
+            "line": 379
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/classes/Logger/Utilities/LogUtils.php",
+            "line": 515
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$filter['slug']",
+            "file": "includes/classes/Modules/Filters.php",
+            "line": 53
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/classes/Pages/Admin/UpcomingTours.php",
+            "line": 193
+        },
+        {
+            "function": "set_transient",
+            "expression": "$trips_cache_key",
+            "file": "includes/classes/Pages/Admin/UpcomingTours.php",
+            "line": 405
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/classes/Pages/Admin/UpcomingTours.php",
+            "line": 716
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$instance->get_post_type()",
+            "file": "includes/classes/Registers/PostTypeRegistry.php",
+            "line": 31
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$key",
+            "file": "includes/classes/Registers/PostTypeRegistry.php",
+            "line": 51
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$wte_image_dir",
+            "file": "includes/dashboard/class-wp-travel-engine-form-handler.php",
+            "line": 588
+        },
+        {
+            "function": "add_rewrite_endpoint",
+            "expression": "$var",
+            "file": "includes/dashboard/class-wp-travel-engine-query.php",
+            "line": 110
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/helpers/functions.php",
+            "line": 2625
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/helpers/helpers.php",
+            "line": 1567
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/helpers/helpers.php",
+            "line": 1606
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "includes/lib/freemius/includes/class-freemius.php",
+            "line": 6377
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "includes/lib/freemius/includes/class-freemius.php",
+            "line": 6384
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/lib/freemius/includes/class-freemius.php",
+            "line": 24985
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "includes/lib/freemius/includes/class-fs-lock.php",
+            "line": 57
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "includes/lib/freemius/includes/class-fs-lock.php",
+            "line": 77
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "includes/lib/freemius/includes/class-fs-plugin-updater.php",
+            "line": 837
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "includes/lib/freemius/includes/class-fs-plugin-updater.php",
+            "line": 869
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/lib/freemius/includes/managers/class-fs-debug-manager.php",
+            "line": 262
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "includes/lib/freemius/includes/managers/class-fs-option-manager.php",
+            "line": 410
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/lib/freemius/includes/managers/class-fs-option-manager.php",
+            "line": 414
+        },
+        {
+            "function": "register_meta",
+            "expression": "$meta_key",
+            "file": "includes/tour-packages/packages.php",
+            "line": 852
+        }
+    ]
+}

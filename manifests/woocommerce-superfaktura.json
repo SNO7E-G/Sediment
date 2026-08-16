@@ -1,0 +1,184 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-superfaktura",
+        "name": "SuperFaktúra WooCommerce",
+        "version": "1.53.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 28,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 8,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 4,
+        "resolution_rate": 0.615
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wc_sf_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-superfaktura.php",
+                        "line": 316
+                    }
+                ]
+            },
+            {
+                "key": "wc_sf_order_number_notice_hidden",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-sf-admin.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_sf_admin_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-superfaktura.php",
+                        "line": 803
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_sf_api_usage",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-sf-api.php",
+                        "line": 1281
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_sf_country_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-sf-settings.php",
+                        "line": 1703
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_sf_invoice_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-superfaktura.php",
+                        "line": 1989
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_sf_sync_secret_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-sf-settings.php",
+                        "line": 70
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "sf_fetch_related_invoice",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-superfaktura.php",
+                        "line": 595
+                    }
+                ]
+            },
+            {
+                "key": "sf_retry_generate_invoice",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-superfaktura.php",
+                        "line": 723
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-wc-sf-checkout-block.php",
+            "line": 746
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wc-superfaktura.php",
+            "line": 314
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-wc-superfaktura.php",
+            "line": 1491
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-wc-superfaktura.php",
+            "line": 1493
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "sf-taxonomy-thumbnail",
+        "name": "SF Taxonomy Thumbnail",
+        "version": "1.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:02Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "B",
+    "score": 90,
+    "coverage": {
+        "files_scanned": 12,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 5,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "db_version",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "sftth_terms_thumbnail",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/compat/filters.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "inc/compat/option.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "inc/migrate.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "sftth_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/migrate.php",
+                        "line": 156
+                    },
+                    {
+                        "file": "inc/migrate.php",
+                        "line": 164
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/migrate.php",
+                        "line": 34
+                    },
+                    {
+                        "file": "inc/migrate.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "inc/template-tags.php",
+                        "line": 165
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

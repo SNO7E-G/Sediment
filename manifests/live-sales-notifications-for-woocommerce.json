@@ -1,0 +1,117 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "live-sales-notifications-for-woocommerce",
+        "name": "PiWeb Live sales notification for WooCommerce",
+        "version": "2.3.69",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:46Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 41,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.375
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pi_sales_notification_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pisol-sales-notification-activator.php",
+                        "line": 5
+                    }
+                ]
+            },
+            {
+                "key": "pi_sn_selected_category",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pisol-sales-notification-activator.php",
+                        "line": 10
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "pi_sn_settings_cache",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/class-pisol-sales-notification-public.php",
+                        "line": 181
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->enable_tracking",
+            "file": "admin/class-analytics.php",
+            "line": 78
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->variable_name",
+            "file": "includes/pisol.class.promotion.php",
+            "line": 46
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->saved_value",
+            "file": "includes/review.php",
+            "line": 201
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->activation_date",
+            "file": "includes/review.php",
+            "line": 214
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "public/class-pisol-sales-notification-category.php",
+            "line": 62
+        }
+    ]
+}

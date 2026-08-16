@@ -1,0 +1,406 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpsso",
+        "name": "WPSSO Core",
+        "version": "22.5.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:17Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 32,
+    "coverage": {
+        "files_scanned": 228,
+        "files_skipped": 0,
+        "write_calls_found": 51,
+        "verified": 4,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 43,
+        "resolution_rate": 0.157
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpseo_taxonomy_meta",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/integ/data/wpseo-meta.php",
+                        "line": 98
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpsso_add_person_role",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/user.php",
+                        "line": 1822
+                    }
+                ]
+            },
+            {
+                "key": "wpsso_refresh_cache",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/util-cache.php",
+                        "line": 348
+                    }
+                ]
+            },
+            {
+                "key": "wpsso_remove_person_role",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/user.php",
+                        "line": 1959
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_wpsso_json_haspart",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/json/prop/haspart.php",
+                        "line": 200
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [
+            {
+                "key": "autodescription-term-settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/integ/data/seoframework-meta.php",
+                        "line": 86
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [
+            {
+                "key": "person",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/user.php",
+                        "line": 69
+                    }
+                ]
+            }
+        ],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "cron",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "lib/admin.php",
+                    "line": 1013
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "\\WPSSO_WP_CONFIG_CHECK_NAME",
+            "file": "lib/admin-head.php",
+            "line": 125
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/admin-head.php",
+            "line": 314
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\WPSSO_SITE_OPTIONS_NAME",
+            "file": "lib/admin.php",
+            "line": 889
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/admin.php",
+            "line": 2444
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/com/cache.php",
+            "line": 175
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/com/cache.php",
+            "line": 1054
+        },
+        {
+            "function": "mkdir",
+            "expression": "$this->base_dir",
+            "file": "lib/com/cache.php",
+            "line": 1078
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/com/cache.php",
+            "line": 1301
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/com/notice.php",
+            "line": 1741
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/com/util-wp.php",
+            "line": 2246
+        },
+        {
+            "function": "update_option",
+            "expression": "$options_name",
+            "file": "lib/com/util-wp.php",
+            "line": 2289
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$options_name",
+            "file": "lib/com/util-wp.php",
+            "line": 2289
+        },
+        {
+            "function": "update_option",
+            "expression": "$options_name",
+            "file": "lib/com/util-wp.php",
+            "line": 2330
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$options_name",
+            "file": "lib/com/util-wp.php",
+            "line": 2330
+        },
+        {
+            "function": "add_option",
+            "expression": "$opt_name",
+            "file": "lib/com/util-wp.php",
+            "line": 2764
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt_name",
+            "file": "lib/com/util-wp.php",
+            "line": 2790
+        },
+        {
+            "function": "add_option",
+            "expression": "$transient_timeout",
+            "file": "lib/com/util-wp.php",
+            "line": 2923
+        },
+        {
+            "function": "add_option",
+            "expression": "$transient_option",
+            "file": "lib/com/util-wp.php",
+            "line": 2926
+        },
+        {
+            "function": "add_option",
+            "expression": "$transient_timeout",
+            "file": "lib/com/util-wp.php",
+            "line": 2942
+        },
+        {
+            "function": "add_option",
+            "expression": "$transient_option",
+            "file": "lib/com/util-wp.php",
+            "line": 2944
+        },
+        {
+            "function": "update_option",
+            "expression": "$transient_timeout",
+            "file": "lib/com/util-wp.php",
+            "line": 2950
+        },
+        {
+            "function": "update_option",
+            "expression": "$transient_option",
+            "file": "lib/com/util-wp.php",
+            "line": 2956
+        },
+        {
+            "function": "update_metadata",
+            "expression": "$meta_key",
+            "file": "lib/comment.php",
+            "line": 478
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "lib/config.php",
+            "line": 5459
+        },
+        {
+            "function": "update_metadata",
+            "expression": "$notif_obj->get_dismissal_key()",
+            "file": "lib/integ/seo/wpseo.php",
+            "line": 561
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\Yoast_Notification_Center::TRANSIENT_KEY",
+            "file": "lib/integ/seo/wpseo.php",
+            "line": 584
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$options_name",
+            "file": "lib/options.php",
+            "line": 953
+        },
+        {
+            "function": "update_option",
+            "expression": "$options_name",
+            "file": "lib/options.php",
+            "line": 957
+        },
+        {
+            "function": "update_option",
+            "expression": "\\WPSSO_POST_CHECK_COUNT_NAME",
+            "file": "lib/post.php",
+            "line": 1619
+        },
+        {
+            "function": "update_metadata",
+            "expression": "$meta_key",
+            "file": "lib/post.php",
+            "line": 2895
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "\\WPSSO_PAGE_TAG_TAXONOMY",
+            "file": "lib/register.php",
+            "line": 372
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/schema.php",
+            "line": 1114
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/schema.php",
+            "line": 1268
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/schema.php",
+            "line": 1333
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/schema.php",
+            "line": 1656
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/style.php",
+            "line": 550
+        },
+        {
+            "function": "update_metadata",
+            "expression": "$meta_key",
+            "file": "lib/term.php",
+            "line": 988
+        },
+        {
+            "function": "update_metadata",
+            "expression": "$meta_key",
+            "file": "lib/user.php",
+            "line": 2128
+        },
+        {
+            "function": "set_transient",
+            "expression": "$task_cache_id",
+            "file": "lib/util-cache.php",
+            "line": 578
+        },
+        {
+            "function": "set_transient",
+            "expression": "$task_cache_id",
+            "file": "lib/util-cache.php",
+            "line": 637
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/util.php",
+            "line": 941
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/util.php",
+            "line": 1484
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/util.php",
+            "line": 1589
+        }
+    ]
+}

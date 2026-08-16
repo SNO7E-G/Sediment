@@ -1,0 +1,377 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "broken-link-checker",
+        "name": "Broken Link Checker",
+        "version": "2.4.13",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 196,
+        "files_skipped": 0,
+        "write_calls_found": 39,
+        "verified": 14,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 21,
+        "resolution_rate": 0.462
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "allowedthemes",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/external/hub-connector/inc/class-remote.php",
+                        "line": 473
+                    },
+                    {
+                        "file": "core/external/hub-connector/inc/class-remote.php",
+                        "line": 551
+                    }
+                ]
+            },
+            {
+                "key": "blc_activation_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "legacy/includes/activation.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "legacy/includes/activation.php",
+                        "line": 187
+                    }
+                ]
+            },
+            {
+                "key": "blc_configuration_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "legacy/config.php",
+                        "line": 255
+                    }
+                ]
+            },
+            {
+                "key": "wpmudev_apikey",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/external/hub-connector/inc/class-api.php",
+                        "line": 106
+                    }
+                ]
+            },
+            {
+                "key": "wpmudev_blc_last_db_upgrade",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "legacy/init.php",
+                        "line": 240
+                    }
+                ]
+            },
+            {
+                "key": "wpmudev_blc_reviewed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "app/users/recipients/class-model.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "wpmudev_hc_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/external/hub-connector/inc/class-options.php",
+                        "line": 97
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "blc_corn_clear_log_file",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "legacy/core/core.php",
+                        "line": 4619
+                    }
+                ]
+            },
+            {
+                "key": "blc_cron_check_links",
+                "recurrence": "10min",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "legacy/core/core.php",
+                        "line": 4597
+                    }
+                ]
+            },
+            {
+                "key": "blc_cron_database_maintenance",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "legacy/core/core.php",
+                        "line": 4614
+                    }
+                ]
+            },
+            {
+                "key": "blc_cron_email_notifications",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "legacy/core/core.php",
+                        "line": 4606
+                    }
+                ]
+            },
+            {
+                "key": "wpmudev_scheduled_jobs",
+                "recurrence": "twicedaily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/external/hub-connector/inc/class-actions.php",
+                        "line": 46
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "blc_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-activation.php",
+                        "line": 36
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "panels_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "legacy/integrations/siteorigin.php",
+                        "line": 136
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "description",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/broken-links-actions/processors/class-main.php",
+                        "line": 468
+                    }
+                ]
+            },
+            {
+                "key": "wpmudev_blc_reviewed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/users/recipients/class-model.php",
+                        "line": 81
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "sanitize_key($meta->meta_key)",
+            "file": "app/broken-links-actions/processors/class-main.php",
+            "line": 277
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "sanitize_key($meta_key)",
+            "file": "app/broken-links-actions/processors/class-main.php",
+            "line": 305
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$rewrite_args['regex']",
+            "file": "core/controllers/class-webhook.php",
+            "line": 116
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$key",
+            "file": "core/external/hub-connector/inc/class-options.php",
+            "line": 149
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "core/external/plugins-cross-sell-page/core/class-utilities.php",
+            "line": 172
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "core/models/class-option.php",
+            "line": 217
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "core/models/class-option.php",
+            "line": 221
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "core/models/class-option.php",
+            "line": 354
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "core/models/class-option.php",
+            "line": 358
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "core/models/class-option.php",
+            "line": 382
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "core/models/class-option.php",
+            "line": 386
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->get_hook_name()",
+            "file": "core/traits/trait-cron.php",
+            "line": 149
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_hook_name()",
+            "file": "core/traits/trait-cron.php",
+            "line": 153
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\dirname($file_path)",
+            "file": "core/utils/class-utilities.php",
+            "line": 1241
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\dirname($log_file)",
+            "file": "legacy/core/core.php",
+            "line": 829
+        },
+        {
+            "function": "mkdir",
+            "expression": "$log_directory",
+            "file": "legacy/core/core.php",
+            "line": 852
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "legacy/includes/config-manager.php",
+            "line": 194
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "legacy/includes/logger.php",
+            "line": 117
+        },
+        {
+            "function": "update_metadata",
+            "expression": "$field",
+            "file": "legacy/modules/containers/acf_field.php",
+            "line": 98
+        },
+        {
+            "function": "update_metadata",
+            "expression": "$field_name",
+            "file": "legacy/modules/containers/acf_field.php",
+            "line": 128
+        },
+        {
+            "function": "update_metadata",
+            "expression": "$field",
+            "file": "legacy/modules/containers/custom_field.php",
+            "line": 100
+        }
+    ]
+}

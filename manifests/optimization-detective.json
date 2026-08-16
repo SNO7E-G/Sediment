@@ -1,0 +1,118 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "optimization-detective",
+        "name": "Optimization Detective",
+        "version": "1.0.0-beta6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:39Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 25,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 2,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "od_rest_api_unavailable",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "site-health.php",
+                        "line": 51
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "od_trigger_page_cache_invalidation",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "storage/class-od-rest-url-metrics-store-endpoint.php",
+                        "line": 279
+                    }
+                ]
+            },
+            {
+                "key": "od_url_metrics_gc",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "storage/class-od-url-metrics-post-type.php",
+                        "line": 290
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "od_rest_api_health_check_response",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "site-health.php",
+                        "line": 206
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "od_url_metrics",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "storage/class-od-url-metrics-post-type.php",
+                        "line": 66
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "storage/class-od-storage-lock.php",
+            "line": 113
+        }
+    ]
+}

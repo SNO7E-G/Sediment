@@ -1,0 +1,272 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-shipstation-integration",
+        "name": "ShipStation for WooCommerce",
+        "version": "5.3.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:10Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 5,
+    "coverage": {
+        "files_scanned": 43,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 5,
+        "resolved": 14,
+        "pattern": 1,
+        "dynamic": 2,
+        "resolution_rate": 0.864
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wc_shipstation_checkout_rates_url",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/checkout/class-checkout-rates-options.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "wc_shipstation_hide_activate_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-shipstation-integration.php",
+                        "line": 1735
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shipstation_api_key_id",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-auth-controller.php",
+                        "line": 375
+                    },
+                    {
+                        "file": "includes/class-auth-controller.php",
+                        "line": 976
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shipstation_auth_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-shipstation-integration.php",
+                        "line": 226
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shipstation_connected_url",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpcom-connection.php",
+                        "line": 461
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shipstation_connlog_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-connection-log.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shipstation_disconnect_intent",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpcom-connection.php",
+                        "line": 719
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shipstation_generate_keys_lock",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-auth-controller.php",
+                        "line": 860
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shipstation_global_banner_dismissed_at",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-global-connection-banner.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shipstation_key_meta",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-auth-controller.php",
+                        "line": 482
+                    },
+                    {
+                        "file": "includes/class-auth-controller.php",
+                        "line": 550
+                    },
+                    {
+                        "file": "includes/class-auth-controller.php",
+                        "line": 601
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shipstation_last_success_ts",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/rest/class-api-controller.php",
+                        "line": 454
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shipstation_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/checkout/class-checkout-rates-options.php",
+                        "line": 175
+                    },
+                    {
+                        "file": "includes/class-wpcom-connection.php",
+                        "line": 949
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "jetpack_v2_heartbeat",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpcom-connection.php",
+                        "line": 700
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "shipstation_wpcom_action_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpcom-connection.php",
+                        "line": 860
+                    }
+                ]
+            },
+            {
+                "key": "wc_shipstation_diagnostics_details",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/rest/class-diagnostics-controller.php",
+                        "line": 127
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "woocommerce_shipstation_prune_orphan_keys",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-auth-controller.php",
+                        "line": 1021
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/checkout/class-checkout-rates-api-client.php",
+            "line": 202
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-connection-log.php",
+            "line": 156
+        }
+    ]
+}

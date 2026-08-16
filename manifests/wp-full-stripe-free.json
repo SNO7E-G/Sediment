@@ -1,0 +1,291 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-full-stripe-free",
+        "name": "WP Full Pay",
+        "version": "8.5.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:20Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 46,
+    "coverage": {
+        "files_scanned": 562,
+        "files_skipped": 0,
+        "write_calls_found": 36,
+        "verified": 8,
+        "resolved": 8,
+        "pattern": 0,
+        "dynamic": 20,
+        "resolution_rate": 0.444
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "fullstripe_onboarding_wizard",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wpfs-admin.php",
+                        "line": 3285
+                    },
+                    {
+                        "file": "includes/wpfs-admin.php",
+                        "line": 3307
+                    }
+                ]
+            },
+            {
+                "key": "fullstripe_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wpfs-options.php",
+                        "line": 111
+                    },
+                    {
+                        "file": "includes/wpfs-options.php",
+                        "line": 121
+                    },
+                    {
+                        "file": "includes/wpfs-options.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "includes/wpfs-patcher.php",
+                        "line": 705
+                    },
+                    {
+                        "file": "includes/wpfs-patcher.php",
+                        "line": 858
+                    },
+                    {
+                        "file": "includes/wpfs-patcher.php",
+                        "line": 1450
+                    },
+                    {
+                        "file": "includes/wpfs-patcher.php",
+                        "line": 1681
+                    },
+                    {
+                        "file": "includes/wpfs-patcher.php",
+                        "line": 1897
+                    }
+                ]
+            },
+            {
+                "key": "wpfp_user_v1",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wpfs-main.php",
+                        "line": 1136
+                    },
+                    {
+                        "file": "includes/wpfs-main.php",
+                        "line": 1138
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "fullstripe_check_customer_portal_sessions",
+                "recurrence": "hourly",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wpfs-customer-portal-service.php",
+                        "line": 233
+                    }
+                ]
+            },
+            {
+                "key": "fullstripe_process_checkout_submissions",
+                "recurrence": "15min",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wpfs-checkout-submission-service.php",
+                        "line": 94
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wpfs_transaction_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wpfs-admin-menu.php",
+                        "line": 605
+                    }
+                ]
+            },
+            {
+                "key": "wpfs_transaction_volume_notice_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wpfs-database.php",
+                        "line": 3955
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 70
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 136
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 209
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 261
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 329
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 341
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 404
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 440
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 461
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 478
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 505
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 525
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 585
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 645
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 705
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/wpfs-database.php",
+            "line": 726
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "includes/wpfs-database.php",
+            "line": 3191
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/wpfs-logger-service.php",
+            "line": 539
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/wpfs-payments.php",
+            "line": 3347
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/wpfs-transaction-data-service.php",
+            "line": 285
+        }
+    ]
+}

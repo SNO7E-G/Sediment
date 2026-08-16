@@ -1,0 +1,149 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "convertkit-for-woocommerce",
+        "name": "Kit (formerly ConvertKit) for WooCommerce",
+        "version": "2.1.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:21Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 42,
+    "coverage": {
+        "files_scanned": 45,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 6,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.818
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "woocommerce_ckwc_settings",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ckwc-admin-notices",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ckwc-admin-notices.php",
+                        "line": 119
+                    },
+                    {
+                        "file": "includes/class-ckwc-admin-notices.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "includes/class-ckwc-admin-notices.php",
+                        "line": 192
+                    }
+                ]
+            },
+            {
+                "key": "ckwc_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ckwc-setup.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_ckwc_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ckwc-setup.php",
+                        "line": 82
+                    },
+                    {
+                        "file": "uninstall.php",
+                        "line": 71
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "ckwc_refresh_token",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ckwc-integration.php",
+                        "line": 132
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "ckwc_subscription",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ckwc-admin-bulk-edit.php",
+                        "line": 124
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "ckwc_abandoned_cart",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$this->meta_key",
+            "file": "admin/class-ckwc-admin-post-type.php",
+            "line": 195
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "includes/class-ckwc-integration.php",
+            "line": 390
+        }
+    ]
+}

@@ -1,0 +1,247 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "godaddy-payments",
+        "name": "GoDaddy Payments",
+        "version": "1.7.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:05Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 82,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 15,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "godaddy_payments_has_invalid_country_code",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CreditCardGateway.php",
+                        "line": 220
+                    }
+                ]
+            },
+            {
+                "key": "godaddy_payments_poynt_api_token",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/API.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "wc_poynt_appId",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CreditCardGateway.php",
+                        "line": 370
+                    },
+                    {
+                        "file": "src/Lifecycle.php",
+                        "line": 280
+                    }
+                ]
+            },
+            {
+                "key": "wc_poynt_businessId",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CreditCardGateway.php",
+                        "line": 372
+                    },
+                    {
+                        "file": "src/Lifecycle.php",
+                        "line": 282
+                    }
+                ]
+            },
+            {
+                "key": "wc_poynt_migrated_from_legacy_plugin",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Lifecycle.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "wc_poynt_payinperson_terminal_activated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CreditCardGateway.php",
+                        "line": 377
+                    },
+                    {
+                        "file": "src/Lifecycle.php",
+                        "line": 286
+                    },
+                    {
+                        "file": "src/Sync/Jobs/ActiveSmartTerminalDetector.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "wc_poynt_serviceId",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CreditCardGateway.php",
+                        "line": 371
+                    },
+                    {
+                        "file": "src/Lifecycle.php",
+                        "line": 281
+                    }
+                ]
+            },
+            {
+                "key": "wc_poynt_storeId",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CreditCardGateway.php",
+                        "line": 376
+                    },
+                    {
+                        "file": "src/Lifecycle.php",
+                        "line": 285
+                    }
+                ]
+            },
+            {
+                "key": "wc_poynt_webhookSecret",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/API/GatewayAPI.php",
+                        "line": 612
+                    }
+                ]
+            },
+            {
+                "key": "wc_poynt_webhooksRegistered",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Sync/Jobs/ActiveSmartTerminalDetector.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_poynt_credit_card_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Lifecycle.php",
+                        "line": 140
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wc_poynt_wpnux_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Helpers/WPNUXHelper.php",
+                        "line": 50
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "wc_poynt_push_order_transaction",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Sync/Jobs/PoyntTransactionSynchronizer.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "src/Sync/PoyntOrderSynchronizer.php",
+                        "line": 153
+                    }
+                ]
+            },
+            {
+                "key": "wc_poynt_terminal_activation_status",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Sync/Jobs/ActiveSmartTerminalDetector.php",
+                        "line": 78
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

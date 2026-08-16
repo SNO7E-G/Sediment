@@ -1,0 +1,245 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-xendit-virtual-accounts",
+        "name": "Xendit Payment",
+        "version": "7.2.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:58Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 6,
+    "coverage": {
+        "files_scanned": 36,
+        "files_skipped": 0,
+        "write_calls_found": 25,
+        "verified": 14,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.84
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woocommerce_xendit_gateway_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/class-wc-xendit-invoice.php",
+                        "line": 327
+                    },
+                    {
+                        "file": "libs/class-wc-xendit-payment-session.php",
+                        "line": 261
+                    },
+                    {
+                        "file": "libs/helpers/class-wc-oauth-data.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "libs/helpers/class-wc-oauth-data.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_xendit_oauth_data",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/helpers/class-wc-oauth-data.php",
+                        "line": 42
+                    },
+                    {
+                        "file": "libs/helpers/class-wc-oauth-data.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_xendit_oauth_validation_key",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/helpers/class-wc-oauth-data.php",
+                        "line": 107
+                    },
+                    {
+                        "file": "libs/helpers/class-wc-oauth-data.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "xendit_onboarding_cc",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/class-wc-xendit-cc.php",
+                        "line": 301
+                    },
+                    {
+                        "file": "libs/class-wc-xendit-cc.php",
+                        "line": 316
+                    },
+                    {
+                        "file": "libs/class-wc-xendit-cc.php",
+                        "line": 319
+                    }
+                ]
+            },
+            {
+                "key": "xendit_onboarding_payment_channel",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/class-wc-xendit-invoice.php",
+                        "line": 251
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "xendit_site_data_exec",
+                "recurrence": "every_month",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/cronjob/wc-cron-xendit-site-data.php",
+                        "line": 66
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "cc_settings_xendit_pg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/class-wc-xendit-cc.php",
+                        "line": 1221
+                    }
+                ]
+            },
+            {
+                "key": "xendit_merchant_info",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/class-wc-xendit-invoice.php",
+                        "line": 304
+                    },
+                    {
+                        "file": "libs/class-wc-xendit-invoice.php",
+                        "line": 322
+                    },
+                    {
+                        "file": "libs/class-wc-xendit-payment-session.php",
+                        "line": 238
+                    },
+                    {
+                        "file": "libs/class-wc-xendit-payment-session.php",
+                        "line": 256
+                    }
+                ]
+            },
+            {
+                "key": "xendit_oauth_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-xendit-pg.php",
+                        "line": 486
+                    }
+                ]
+            },
+            {
+                "key": "xendit_should_not_migrate_subscription",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-xendit-pg.php",
+                        "line": 643
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_payment_method",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-xendit-pg.php",
+                        "line": 647
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "libs/class-wc-xendit-invoice.php",
+            "line": 801
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "libs/class-wc-xendit-invoice.php",
+            "line": 813
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "libs/class-wc-xendit-payment-session.php",
+            "line": 532
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "libs/class-wc-xendit-payment-session.php",
+            "line": 544
+        }
+    ]
+}

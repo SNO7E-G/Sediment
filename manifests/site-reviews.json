@@ -1,0 +1,979 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "site-reviews",
+        "name": "Site Reviews",
+        "version": "8.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 1340,
+        "files_skipped": 0,
+        "write_calls_found": 121,
+        "verified": 10,
+        "resolved": 32,
+        "pattern": 1,
+        "dynamic": 78,
+        "resolution_rate": 0.347
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "action_scheduler_hybrid_store_demarkation",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_HybridStore.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_migration_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/ActionScheduler_DataController.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "as_has_wp_comment_logs",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "glsr_console_level",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Commands/ChangeLogLevel.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_glsr_customer_review_reminder_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Migrations/Migrate_6_11_0.php",
+                        "line": 33
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "action_scheduler_run_queue",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/ActionScheduler_QueueRunner.php",
+                        "line": 92
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "action_scheduler_admin_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Overrides/ScheduledActionsTable.php",
+                        "line": 605
+                    },
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/ActionScheduler_ListTable.php",
+                        "line": 615
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_last_pastdue_actions_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/ActionScheduler_AdminView.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "as-post-store-dependencies-met",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore.php",
+                        "line": 1123
+                    }
+                ]
+            },
+            {
+                "key": "as_comment_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_wpCommentLogger.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "as_is_ensure_recurring_actions_scheduled",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/ActionScheduler_RecurringActionScheduler.php",
+                        "line": 53
+                    }
+                ]
+            },
+            {
+                "key": "glsr_geolocation_processing_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Commands/GeolocateReviews.php",
+                        "line": 188
+                    }
+                ]
+            },
+            {
+                "key": "glsr_geolocation_retry_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Commands/GeolocateReviews.php",
+                        "line": 255
+                    }
+                ]
+            },
+            {
+                "key": "glsr_ip_api_rate_limit",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Geolocation.php",
+                        "line": 122
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_action_manager_schedule",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "_glsr_average",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Database/CountManager.php",
+                        "line": 20
+                    }
+                ]
+            },
+            {
+                "key": "_glsr_ranking",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Database/CountManager.php",
+                        "line": 21
+                    }
+                ]
+            },
+            {
+                "key": "_glsr_reviews",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Database/CountManager.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "_trash_the_other_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Integrations/MultilingualPress/Controllers/RelationController.php",
+                        "line": 88
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_glsr_average",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Database/CountManager.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "_glsr_dismissed_notices",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Migrations/Migrate_4_5_0.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "plugin/Notices/AbstractNotice.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "_glsr_ranking",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Database/CountManager.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "_glsr_reviews",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Database/CountManager.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "edit_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Controllers/AdminController.php",
+                        "line": 354
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "_glsr_average",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Database/CountManager.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "_glsr_ranking",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Database/CountManager.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "_glsr_reviews",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Database/CountManager.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "term_priority",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Controllers/TaxonomyController.php",
+                        "line": 123
+                    },
+                    {
+                        "file": "plugin/Controllers/TaxonomyController.php",
+                        "line": 158
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [
+            {
+                "key": "imported",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Integrations/WooCommerce/Commands/ImportProductReviews.php",
+                        "line": 47
+                    },
+                    {
+                        "file": "plugin/Integrations/WooCommerce/Controllers/OrderReviewsController.php",
+                        "line": 83
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "scheduled-action",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore_PostTypeRegistrar.php",
+                        "line": 13
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "action-group",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore_TaxonomyRegistrar.php",
+                        "line": 14
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "action_scheduler/cleanup_wp_comment_logs",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler/migration_hook",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/migration/Scheduler.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_clear_deleted_action_logs_hook",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_DBLogger.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_continue_actions_cleanup_hook",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/ActionScheduler_QueueCleaner.php",
+                        "line": 254
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_run_actions_cleanup_hook",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/ActionScheduler_QueueCleaner.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_run_recurring_actions_schedule_hook",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendors/woocommerce/action-scheduler/classes/ActionScheduler_RecurringActionScheduler.php",
+                        "line": 43
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "plugin/Migrations/Migrate_5_25_0/MigrateSidebars.php",
+                    "line": 62
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$key",
+            "file": "plugin/Addons/Controller.php",
+            "line": 387
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "plugin/Addons/Controller.php",
+            "line": 401
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transientKey",
+            "file": "plugin/Api.php",
+            "line": 160
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->rememberedKey()",
+            "file": "plugin/Api.php",
+            "line": 178
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GeminiLabs\\SiteReviews\\Database\\OptionManager::databaseKey()",
+            "file": "plugin/Application.php",
+            "line": 128
+        },
+        {
+            "function": "update_option",
+            "expression": "glsr()->prefix . 'ip_proxy'",
+            "file": "plugin/Commands/ConfigureIpAddressProxy.php",
+            "line": 26
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->retryKey()",
+            "file": "plugin/Commands/GeolocateReview.php",
+            "line": 94
+        },
+        {
+            "function": "register_post_type",
+            "expression": "glsr()->post_type",
+            "file": "plugin/Commands/RegisterPostType.php",
+            "line": 25
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "glsr()->taxonomy",
+            "file": "plugin/Commands/RegisterTaxonomy.php",
+            "line": 18
+        },
+        {
+            "function": "update_option",
+            "expression": "glsr()->prefix . 'activated'",
+            "file": "plugin/Controllers/AdminController.php",
+            "line": 150
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$setting",
+            "file": "plugin/Controllers/ListTableController.php",
+            "line": 216
+        },
+        {
+            "function": "set_transient",
+            "expression": "glsr()->prefix . static::PRIORITY_META_KEY",
+            "file": "plugin/Controllers/TaxonomyController.php",
+            "line": 237
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$optionKey",
+            "file": "plugin/Controllers/UpdateController.php",
+            "line": 152
+        },
+        {
+            "function": "update_option",
+            "expression": "glsr()->prefix . 'db_version'",
+            "file": "plugin/Database.php",
+            "line": 318
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transientKey",
+            "file": "plugin/Database/Cache.php",
+            "line": 77
+        },
+        {
+            "function": "set_transient",
+            "expression": "glsr()->prefix . 'remote_post_test'",
+            "file": "plugin/Database/Cache.php",
+            "line": 88
+        },
+        {
+            "function": "set_transient",
+            "expression": "glsr()->prefix . 'system_info'",
+            "file": "plugin/Database/Cache.php",
+            "line": 100
+        },
+        {
+            "function": "set_transient",
+            "expression": "glsr()->prefix . 'import_lock'",
+            "file": "plugin/Database/ImportManager.php",
+            "line": 110
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "plugin/Database/ImportManager.php",
+            "line": 150
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "plugin/Database/OptionManager.php",
+            "line": 327
+        },
+        {
+            "function": "update_option",
+            "expression": "$addon->storageKey()",
+            "file": "plugin/Database/OptionManager.php",
+            "line": 355
+        },
+        {
+            "function": "update_option",
+            "expression": "static::databaseKey()",
+            "file": "plugin/Database/OptionManager.php",
+            "line": 403
+        },
+        {
+            "function": "update_metadata",
+            "expression": "$metaKey",
+            "file": "plugin/Database/PostMeta.php",
+            "line": 38
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "plugin/Database/ReviewManager.php",
+            "line": 186
+        },
+        {
+            "function": "update_option",
+            "expression": "glsr()->prefix . \"engine_{$table}\"",
+            "file": "plugin/Database/Tables.php",
+            "line": 66
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "plugin/Database/Tables.php",
+            "line": 158
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$this->structure()",
+            "file": "plugin/Database/Tables/AbstractTable.php",
+            "line": 54
+        },
+        {
+            "function": "set_transient",
+            "expression": "glsr()->prefix . 'gatekeeper'",
+            "file": "plugin/Gatekeeper.php",
+            "line": 54
+        },
+        {
+            "function": "add_option",
+            "expression": "glsr()->prefix . 'db_version'",
+            "file": "plugin/Install.php",
+            "line": 87
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->metaKey('rating')",
+            "file": "plugin/Integrations/GamiPress/Controller.php",
+            "line": 330
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->metaKey('rating_condition')",
+            "file": "plugin/Integrations/GamiPress/Controller.php",
+            "line": 331
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->metaKey($key)",
+            "file": "plugin/Integrations/GamiPress/Controller.php",
+            "line": 334
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\LPFW()->Plugin_Constants->COMMENT_ENTRY_ID_META",
+            "file": "plugin/Integrations/LPFW/Controller.php",
+            "line": 82
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$attachmentKey",
+            "file": "plugin/Integrations/MultilingualPress/ImageCopier.php",
+            "line": 112
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GeminiLabs\\SiteReviews\\Database\\OptionManager::databaseKey(3)",
+            "file": "plugin/Migrations/Migrate_3_0_0.php",
+            "line": 87
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GeminiLabs\\SiteReviews\\Database\\OptionManager::databaseKey(4)",
+            "file": "plugin/Migrations/Migrate_4_5_0.php",
+            "line": 88
+        },
+        {
+            "function": "add_cap",
+            "expression": "glsr(\\GeminiLabs\\SiteReviews\\Role::class)->capability($capability)",
+            "file": "plugin/Migrations/Migrate_5_25_0.php",
+            "line": 53
+        },
+        {
+            "function": "update_option",
+            "expression": "glsr()->prefix . 'db_version'",
+            "file": "plugin/Migrations/Migrate_5_25_0/MigrateDatabase.php",
+            "line": 37
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GeminiLabs\\SiteReviews\\Database\\OptionManager::databaseKey(5)",
+            "file": "plugin/Migrations/Migrate_5_25_0/MigrateSettings.php",
+            "line": 60
+        },
+        {
+            "function": "update_option",
+            "expression": "$theme",
+            "file": "plugin/Migrations/Migrate_5_25_0/MigrateSidebars.php",
+            "line": 77
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$metaKey",
+            "file": "plugin/Migrations/Migrate_5_25_0/MigrateSidebars.php",
+            "line": 112
+        },
+        {
+            "function": "update_option",
+            "expression": "$newWidget",
+            "file": "plugin/Migrations/Migrate_5_25_0/MigrateSidebars.php",
+            "line": 148
+        },
+        {
+            "function": "update_option",
+            "expression": "glsr()->prefix . 'db_version'",
+            "file": "plugin/Migrations/Migrate_6_0_0.php",
+            "line": 73
+        },
+        {
+            "function": "add_cap",
+            "expression": "glsr(\\GeminiLabs\\SiteReviews\\Role::class)->capability('assign_terms')",
+            "file": "plugin/Migrations/Migrate_6_0_0.php",
+            "line": 84
+        },
+        {
+            "function": "add_cap",
+            "expression": "glsr(\\GeminiLabs\\SiteReviews\\Role::class)->capability('delete_terms')",
+            "file": "plugin/Migrations/Migrate_6_0_0.php",
+            "line": 87
+        },
+        {
+            "function": "add_cap",
+            "expression": "glsr(\\GeminiLabs\\SiteReviews\\Role::class)->capability('edit_terms')",
+            "file": "plugin/Migrations/Migrate_6_0_0.php",
+            "line": 88
+        },
+        {
+            "function": "add_cap",
+            "expression": "glsr(\\GeminiLabs\\SiteReviews\\Role::class)->capability('manage_terms')",
+            "file": "plugin/Migrations/Migrate_6_0_0.php",
+            "line": 89
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GeminiLabs\\SiteReviews\\Database\\OptionManager::databaseKey(6)",
+            "file": "plugin/Migrations/Migrate_6_0_0.php",
+            "line": 109
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GeminiLabs\\SiteReviews\\Database\\OptionManager::databaseKey(6)",
+            "file": "plugin/Migrations/Migrate_6_10_2.php",
+            "line": 30
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GeminiLabs\\SiteReviews\\Database\\OptionManager::databaseKey(6)",
+            "file": "plugin/Migrations/Migrate_6_1_0.php",
+            "line": 48
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GeminiLabs\\SiteReviews\\Database\\OptionManager::databaseKey(6)",
+            "file": "plugin/Migrations/Migrate_6_2_0.php",
+            "line": 39
+        },
+        {
+            "function": "update_option",
+            "expression": "glsr()->prefix . 'db_version'",
+            "file": "plugin/Migrations/Migrate_7_0_0.php",
+            "line": 26
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GeminiLabs\\SiteReviews\\Database\\OptionManager::databaseKey()",
+            "file": "plugin/Migrations/Migrate_7_0_0.php",
+            "line": 50
+        },
+        {
+            "function": "update_option",
+            "expression": "glsr()->prefix . 'db_version'",
+            "file": "plugin/Migrations/Migrate_7_1_0.php",
+            "line": 43
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GeminiLabs\\SiteReviews\\Database\\OptionManager::databaseKey()",
+            "file": "plugin/Migrations/Migrate_7_2_0.php",
+            "line": 23
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GeminiLabs\\SiteReviews\\Database\\OptionManager::databaseKey()",
+            "file": "plugin/Migrations/Migrate_7_3_0.php",
+            "line": 26
+        },
+        {
+            "function": "update_option",
+            "expression": "glsr()->prefix . 'db_version'",
+            "file": "plugin/Migrations/Migrate_8_0_0.php",
+            "line": 46
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->transient()",
+            "file": "plugin/Modules/Assets/AbstractAsset.php",
+            "line": 73
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$basedir",
+            "file": "plugin/Modules/Assets/AbstractAsset.php",
+            "line": 130
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$baseDir . $pathDir",
+            "file": "plugin/Modules/Avatars/AbstractSvgAvatar.php",
+            "line": 25
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "dirname($file)",
+            "file": "plugin/Modules/Console.php",
+            "line": 274
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->migrationsKey",
+            "file": "plugin/Modules/Migrate.php",
+            "line": 149
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->migrationsLastRun",
+            "file": "plugin/Modules/Migrate.php",
+            "line": 150
+        },
+        {
+            "function": "set_transient",
+            "expression": "glsr()->prefix . 'notices'",
+            "file": "plugin/Modules/Notice.php",
+            "line": 121
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$this->hook($hook)",
+            "file": "plugin/Modules/Queue.php",
+            "line": 60
+        },
+        {
+            "function": "as_schedule_cron_action",
+            "expression": "$this->hook($hook)",
+            "file": "plugin/Modules/Queue.php",
+            "line": 105
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$this->hook($hook)",
+            "file": "plugin/Modules/Queue.php",
+            "line": 158
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$this->hook($hook)",
+            "file": "plugin/Modules/Queue.php",
+            "line": 169
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$action->get_hook()",
+            "file": "plugin/Overrides/ScheduledActionsTable.php",
+            "line": 592
+        },
+        {
+            "function": "add_cap",
+            "expression": "$this->capability($capability)",
+            "file": "plugin/Role.php",
+            "line": 22
+        },
+        {
+            "function": "set_transient",
+            "expression": "glsr()->prefix . 'rollback_version'",
+            "file": "plugin/Rollback.php",
+            "line": 22
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock",
+            "file": "plugin/Router.php",
+            "line": 173
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "vendors/woocommerce/action-scheduler/classes/WP_CLI/Action/Generate_Command.php",
+            "line": 77
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "vendors/woocommerce/action-scheduler/classes/abstracts/ActionScheduler_Abstract_Schema.php",
+            "line": 129
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$definition",
+            "file": "vendors/woocommerce/action-scheduler/classes/abstracts/ActionScheduler_Abstract_Schema.php",
+            "line": 143
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "vendors/woocommerce/action-scheduler/deprecated/functions.php",
+            "line": 24
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$hook",
+            "file": "vendors/woocommerce/action-scheduler/deprecated/functions.php",
+            "line": 42
+        },
+        {
+            "function": "as_schedule_cron_action",
+            "expression": "$hook",
+            "file": "vendors/woocommerce/action-scheduler/deprecated/functions.php",
+            "line": 70
+        }
+    ]
+}

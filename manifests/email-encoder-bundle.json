@@ -1,0 +1,93 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "email-encoder-bundle",
+        "name": "Email Encoder - Protect Email Addresses",
+        "version": "2.5.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 59,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 0,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.167
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "WP_Email_Encoder_Bundle_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/includes/classes/class-email-encoder-bundle-settings.php",
+                        "line": 151
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->get_version_key()",
+            "file": "core/includes/classes/class-email-encoder-bundle-settings.php",
+            "line": 215
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_version_key()",
+            "file": "core/includes/classes/class-email-encoder-bundle-settings.php",
+            "line": 223
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_image_secret_key()",
+            "file": "core/includes/classes/class-email-encoder-bundle-settings.php",
+            "line": 253
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getSettingsKey()",
+            "file": "src/Admin/Admin.php",
+            "line": 65
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->getNoticeTransientKey()",
+            "file": "src/Admin/Admin.php",
+            "line": 79
+        }
+    ]
+}

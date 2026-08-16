@@ -1,0 +1,122 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "custom-404-pro",
+        "name": "Custom 404 Pro",
+        "version": "3.15.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:48Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 59,
+    "coverage": {
+        "files_scanned": 15,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 5,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.889
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "custom_404_pro_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activateclass.php",
+                        "line": 24
+                    },
+                    {
+                        "file": "includes/class-pluginclass.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "custom_404_pro_settings",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-helpers.php",
+                        "line": 113
+                    },
+                    {
+                        "file": "includes/class-activateclass.php",
+                        "line": 92
+                    },
+                    {
+                        "file": "includes/class-activateclass.php",
+                        "line": 142
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "custom_404_pro_prune_logs",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activateclass.php",
+                        "line": 29
+                    },
+                    {
+                        "file": "includes/class-pluginclass.php",
+                        "line": 57
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "custom_404_pro_email_cooldown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-adminclass.php",
+                        "line": 289
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql_logs",
+            "file": "includes/class-activateclass.php",
+            "line": 79
+        }
+    ]
+}

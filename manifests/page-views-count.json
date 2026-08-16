@@ -1,0 +1,492 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "page-views-count",
+        "name": "Page Views Count",
+        "version": "2.9.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:09Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 59,
+    "coverage": {
+        "files_scanned": 25,
+        "files_skipped": 0,
+        "write_calls_found": 67,
+        "verified": 21,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 46,
+        "resolution_rate": 0.313
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "a3_page_view_count_clean_on_deletion",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "a3_pvc_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 6
+                    },
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 123
+                    },
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 140
+                    },
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "a3rev_auth_pvc",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "a3rev_pvc_plugin",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 25
+                    }
+                ]
+            },
+            {
+                "key": "pvc_current_rest_api_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/pvc_class.php",
+                        "line": 482
+                    }
+                ]
+            },
+            {
+                "key": "pvc_just_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "pvc_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 129
+                    },
+                    {
+                        "file": "admin/settings/general-settings.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "src/pvc_class.php",
+                        "line": 475
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "pvc_empty_daily_table_daily_event_hook",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 9
+                    },
+                    {
+                        "file": "admin/plugin-init.php",
+                        "line": 101
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin-interface.php",
+                        "line": 222
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_a3_pvc_activated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/metabox/class-pvc-editor-sidebar.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "src/metabox/class-pvc-metabox.php",
+                        "line": 156
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "uninstall_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/settings/general-settings.php",
+                    "line": 136
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$this->plugin_name . '-' . trim($form_key)",
+            "file": "admin/admin-interface.php",
+            "line": 195
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->google_api_key_option . '_status'",
+            "file": "admin/admin-interface.php",
+            "line": 253
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_api_key_option . '_enable'",
+            "file": "admin/admin-interface.php",
+            "line": 255
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_api_key_option",
+            "file": "admin/admin-interface.php",
+            "line": 256
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_map_api_key_option . '_enable'",
+            "file": "admin/admin-interface.php",
+            "line": 259
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_map_api_key_option",
+            "file": "admin/admin-interface.php",
+            "line": 260
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/admin-interface.php",
+            "line": 551
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 579
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->toggle_box_open_option",
+            "file": "admin/admin-interface.php",
+            "line": 634
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/admin-interface.php",
+            "line": 1007
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "admin/admin-interface.php",
+            "line": 1013
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "admin/admin-interface.php",
+            "line": 1020
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/admin-interface.php",
+            "line": 1054
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/admin-interface.php",
+            "line": 1085
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/admin-interface.php",
+            "line": 1087
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1147
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1149
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1158
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1160
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1170
+        },
+        {
+            "function": "add_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1173
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1203
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1205
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1214
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1216
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1226
+        },
+        {
+            "function": "add_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1229
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$this->plugin_name . '-' . trim($heading_box_id) . '-' . 'opened'",
+            "file": "admin/admin-interface.php",
+            "line": 1858
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/admin-interface.php",
+            "line": 3634
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 3661
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$this->plugin_name . '-' . trim($heading_box_id) . '-' . 'opened'",
+            "file": "admin/admin-interface.php",
+            "line": 3776
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->google_map_api_key_option . '_status'",
+            "file": "admin/admin-ui.php",
+            "line": 176
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_map_api_key_option . '_enable'",
+            "file": "admin/admin-ui.php",
+            "line": 194
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_map_api_key_option",
+            "file": "admin/admin-ui.php",
+            "line": 197
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_map_api_key_option . '_enable'",
+            "file": "admin/admin-ui.php",
+            "line": 209
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_map_api_key_option",
+            "file": "admin/admin-ui.php",
+            "line": 212
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_api_key_option . '_enable'",
+            "file": "admin/includes/fonts_face.php",
+            "line": 404
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_api_key_option",
+            "file": "admin/includes/fonts_face.php",
+            "line": 412
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_api_key_option . '_enable'",
+            "file": "admin/includes/fonts_face.php",
+            "line": 422
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_api_key_option",
+            "file": "admin/includes/fonts_face.php",
+            "line": 425
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_name . '_google_font_list'",
+            "file": "admin/includes/fonts_face.php",
+            "line": 522
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->google_api_key_option . '_status'",
+            "file": "admin/includes/fonts_face.php",
+            "line": 525
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_name . '_google_font_list'",
+            "file": "admin/includes/fonts_face.php",
+            "line": 576
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->google_api_key_option . '_status'",
+            "file": "admin/includes/fonts_face.php",
+            "line": 579
+        },
+        {
+            "function": "update_option",
+            "expression": "$css_file_name . '_style_version'",
+            "file": "admin/less/sass.php",
+            "line": 163
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/pvc_class.php",
+            "line": 458
+        }
+    ]
+}

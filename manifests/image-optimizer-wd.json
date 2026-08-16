@@ -1,0 +1,147 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "image-optimizer-wd",
+        "name": "10Web Image Optimizer",
+        "version": "6.0.67",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:02Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 11,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 6,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.6
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "iowd_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "TenWebIOClass.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "iowd_homepage_optimized",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Utils.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "iowd_onboarding_step",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "TenWebIOClass.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "iowd_speed_score",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Utils.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "tenwebio_was_connected",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Connect.php",
+                        "line": 85
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "image_optimizer_auth_error_logs",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Connect.php",
+                        "line": 100
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "TENWEBIO_PREFIX . \"_version\"",
+            "file": "TenWebIOClass.php",
+            "line": 100
+        },
+        {
+            "function": "update_site_option",
+            "expression": "TENWEBIO_PREFIX . '_saved_nonce'",
+            "file": "includes/Connect.php",
+            "line": 20
+        },
+        {
+            "function": "update_site_option",
+            "expression": "TENWEB_PREFIX . '_from_image_optimizer'",
+            "file": "includes/Connect.php",
+            "line": 82
+        },
+        {
+            "function": "update_site_option",
+            "expression": "TENWEBIO_PREFIX . '_is_available'",
+            "file": "includes/TenWebIORest.php",
+            "line": 158
+        }
+    ]
+}

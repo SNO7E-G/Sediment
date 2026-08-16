@@ -1,0 +1,131 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "slider-blocks",
+        "name": "GutSlider - All in One Slider Blocks for Gutenberg",
+        "version": "3.0.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:05Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 55,
+    "coverage": {
+        "files_scanned": 21,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 5,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.778
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gutslider_blocks",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 572
+                    },
+                    {
+                        "file": "includes/Api/BlocksApi.php",
+                        "line": 147
+                    },
+                    {
+                        "file": "includes/Api/BlocksApi.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "gutslider_blocks_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Api/BlocksApi.php",
+                        "line": 220
+                    }
+                ]
+            },
+            {
+                "key": "gutslider_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 614
+                    }
+                ]
+            },
+            {
+                "key": "gutsliderblocks_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Plugin.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "gutslider_patterns_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Blocks/Pattern.php",
+                        "line": 135
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "self::block_option_key($name)",
+            "file": "admin/admin.php",
+            "line": 531
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->upload_dir",
+            "file": "includes/Style/DynamicStyle.php",
+            "line": 250
+        }
+    ]
+}

@@ -1,0 +1,174 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "klarna-checkout-for-woocommerce",
+        "name": "Kustom Checkout for WooCommerce",
+        "version": "2.20.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 163,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 5,
+        "resolved": 1,
+        "pattern": 6,
+        "dynamic": 1,
+        "resolution_rate": 0.462
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "kco_credentials_error",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-kco-settings-saved.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "krokedil_debuglog_kco",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-kco-logger.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "krokedil_support_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dependencies/krokedil/support/src/SystemReport.php",
+                        "line": 208
+                    },
+                    {
+                        "file": "dependencies/krokedil/support/src/SystemReport.php",
+                        "line": 225
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_kco_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-kco-fields.php",
+                        "line": 384
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "klarna_hide_banner",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin/class-wc-klarna-banners.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "kss_data_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/kco-functions.php",
+                        "line": 939
+                    }
+                ]
+            },
+            {
+                "key": "kustom_checkout_settings_page_config",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-kco-gateway.php",
+                        "line": 814
+                    }
+                ]
+            },
+            {
+                "key": "kustom_customer_id_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/kco-functions.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "includes/kco-functions.php",
+                        "line": 44
+                    },
+                    {
+                        "file": "includes/kco-functions.php",
+                        "line": 54
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "dismissed_kco_version_number",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin/class-kco-admin-notices.php",
+                        "line": 191
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "classes/class-kco-confirmation.php",
+            "line": 238
+        }
+    ]
+}

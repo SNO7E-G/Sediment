@@ -1,0 +1,177 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "datafeedr-woocommerce-importer",
+        "name": "Datafeedr WooCommerce Importer",
+        "version": "1.3.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:41Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 14,
+    "coverage": {
+        "files_scanned": 11,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 8,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.857
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dfrps_configuration",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "datafeedr-woocommerce-importer.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "dfrpswc_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 28
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_dfrps_cpt_last_update_num_products_deleted",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "datafeedr-woocommerce-importer.php",
+                        "line": 1481
+                    },
+                    {
+                        "file": "datafeedr-woocommerce-importer.php",
+                        "line": 1487
+                    }
+                ]
+            },
+            {
+                "key": "_dfrps_cpt_terms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "datafeedr-woocommerce-importer.php",
+                        "line": 1896
+                    }
+                ]
+            },
+            {
+                "key": "_dfrps_postprocess_complete_product",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "datafeedr-woocommerce-importer.php",
+                        "line": 1415
+                    },
+                    {
+                        "file": "datafeedr-woocommerce-importer.php",
+                        "line": 1480
+                    },
+                    {
+                        "file": "datafeedr-woocommerce-importer.php",
+                        "line": 1511
+                    }
+                ]
+            },
+            {
+                "key": "_dfrps_preprocess_complete_product",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "datafeedr-woocommerce-importer.php",
+                        "line": 682
+                    }
+                ]
+            },
+            {
+                "key": "_dfrps_product_set_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "datafeedr-woocommerce-importer.php",
+                        "line": 924
+                    }
+                ]
+            },
+            {
+                "key": "_product_attributes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "datafeedr-woocommerce-importer.php",
+                        "line": 1396
+                    }
+                ]
+            },
+            {
+                "key": "total_sales",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "datafeedr-woocommerce-importer.php",
+                        "line": 925
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "datafeedr-woocommerce-importer.php",
+            "line": 921
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "datafeedr-woocommerce-importer.php",
+            "line": 1929
+        }
+    ]
+}

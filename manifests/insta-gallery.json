@@ -1,0 +1,161 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "insta-gallery",
+        "name": "Social Feed Gallery",
+        "version": "5.0.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 102,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 5,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "insta_gallery_settings",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "qligg_hashtag_tracker",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/services/class-hashtag-tracker.php",
+                        "line": 39
+                    },
+                    {
+                        "file": "lib/services/class-hashtag-tracker.php",
+                        "line": 91
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "qligg_cron_account",
+                "recurrence": "qligg_dynamic_token_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/models/class-accounts.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "lib/models/class-accounts.php",
+                        "line": 153
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "jetpack_is_single_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "jetpack_vendor/automattic/jetpack-status/src/class-status.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "quadlayers_news_feed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "jetpack_vendor/quadlayers/wp-dashboard-widget-news/src/Load.php",
+                        "line": 168
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "qligg_manage_feeds",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/controllers/class-backend.php",
+                        "line": 102
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "jetpack_vendor/automattic/jetpack-status/src/class-modules.php",
+            "line": 182
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_transient_key()",
+            "file": "jetpack_vendor/quadlayers/wp-notice-plugin-promote/src/Load.php",
+            "line": 117
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->get_user_notice_meta_hidden_key($notice_index)",
+            "file": "jetpack_vendor/quadlayers/wp-notice-plugin-promote/src/Load.php",
+            "line": 292
+        },
+        {
+            "function": "set_transient",
+            "expression": "$tk",
+            "file": "jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php",
+            "line": 116
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_option_key",
+            "file": "lib/services/class-cache.php",
+            "line": 181
+        },
+        {
+            "function": "update_option",
+            "expression": "$cache_option_key",
+            "file": "lib/services/class-cache.php",
+            "line": 183
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->log_dir",
+            "file": "lib/services/class-file-logger.php",
+            "line": 28
+        }
+    ]
+}

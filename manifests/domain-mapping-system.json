@@ -1,0 +1,94 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "domain-mapping-system",
+        "name": "Domain Mapping System",
+        "version": "2.2.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:14Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 87,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 0,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.4
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dms_fs_is_premium",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/utils/class-dms-helper.php",
+                        "line": 578
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "dms_fs_is_premium_check_event",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/cron/class-dms-fs-check-cron.php",
+                        "line": 46
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "WPMU_PLUGIN_DIR",
+            "file": "includes/class-dms-activator.php",
+            "line": 142
+        },
+        {
+            "function": "update_option",
+            "expression": "$data['key']",
+            "file": "includes/data-objects/class-dms-data-object.php",
+            "line": 293
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/migrations/class-dms-migration.php",
+            "line": 158
+        }
+    ]
+}

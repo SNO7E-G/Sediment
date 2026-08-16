@@ -1,0 +1,208 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "shopmagic-abandoned-carts",
+        "name": "ShopMagic Abandoned Carts",
+        "version": "2.2.40",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:21Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 35,
+    "coverage": {
+        "files_scanned": 150,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 16,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.826
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpdesk_helper_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 229
+                    },
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 240
+                    },
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 243
+                    },
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 315
+                    },
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 362
+                    },
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 365
+                    },
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 370
+                    },
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 375
+                    },
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/persistence/class-wpdesk-tracker-persistence-consent.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "wpdesk_requirements_plugins_data",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendor_prefixed/wp-basic-requirements/src/Basic_Requirement_Checker.php",
+                        "line": 375
+                    }
+                ]
+            },
+            {
+                "key": "wpdesk_tracker_agree",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/PSR/WPDesk/Tracker/OptInPage.php",
+                        "line": 80
+                    },
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 373
+                    }
+                ]
+            },
+            {
+                "key": "wpdesk_tracker_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 250
+                    },
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 277
+                    },
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 366
+                    }
+                ]
+            },
+            {
+                "key": "wpdesk_tracker_unique_hash",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/data_provider/class-wpdesk-tracker-data-provider-identification-gdpr.php",
+                        "line": 37
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpdesk_tracker_send_event",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+                        "line": 135
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wpdesk_requirements_plugins_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendor_prefixed/wp-basic-requirements/src/Basic_Requirement_Checker.php",
+                        "line": 373
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name_activation_date()",
+            "file": "vendor_prefixed/wp-builder/src/Plugin/ActivationTracker.php",
+            "line": 67
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "vendor_prefixed/wp-notice/src/WPDesk/Notice/AjaxHandler.php",
+            "line": 86
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "vendor_prefixed/wp-plugin-flow-common/src/PluginBootstrap.php",
+            "line": 108
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_last_send_option_name()",
+            "file": "vendor_prefixed/wp-wpdesk-tracker/src/class-wpdesk-tracker.php",
+            "line": 436
+        }
+    ]
+}

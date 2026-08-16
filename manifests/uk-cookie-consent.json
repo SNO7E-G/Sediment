@@ -1,0 +1,273 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "uk-cookie-consent",
+        "name": "Termly - GDPR/CCPA Cookie Consent Banner",
+        "version": "3.3.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:53Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 26,
+    "coverage": {
+        "files_scanned": 37,
+        "files_skipped": 0,
+        "write_calls_found": 31,
+        "verified": 22,
+        "resolved": 8,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.968
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "termly_api_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controllers/class-wp-cli.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "includes/models/class-termly-api-model.php",
+                        "line": 273
+                    }
+                ]
+            },
+            {
+                "key": "termly_banner",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controllers/class-account-api-controller.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "includes/models/class-termly-api-model.php",
+                        "line": 82
+                    },
+                    {
+                        "file": "includes/models/class-termly-api-model.php",
+                        "line": 408
+                    }
+                ]
+            },
+            {
+                "key": "termly_business_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/models/class-termly-api-model.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "termly_cookie_preference_button",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controllers/class-account-api-controller.php",
+                        "line": 76
+                    },
+                    {
+                        "file": "includes/models/class-termly-api-model.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "includes/models/class-termly-api-model.php",
+                        "line": 416
+                    }
+                ]
+            },
+            {
+                "key": "termly_custom_blocking_map",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controllers/class-banner-settings-controller.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "includes/controllers/class-banner-settings-controller.php",
+                        "line": 187
+                    }
+                ]
+            },
+            {
+                "key": "termly_display_auto_blocker",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controllers/class-banner-settings-controller.php",
+                        "line": 159
+                    },
+                    {
+                        "file": "includes/controllers/class-banner-settings-controller.php",
+                        "line": 175
+                    }
+                ]
+            },
+            {
+                "key": "termly_display_banner",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controllers/class-banner-settings-controller.php",
+                        "line": 241
+                    },
+                    {
+                        "file": "includes/controllers/class-wp-cli.php",
+                        "line": 92
+                    },
+                    {
+                        "file": "includes/controllers/class-wp-cli.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "includes/controllers/class-wp-cli.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "includes/controllers/class-wp-cli.php",
+                        "line": 181
+                    }
+                ]
+            },
+            {
+                "key": "termly_display_custom_map",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controllers/class-banner-settings-controller.php",
+                        "line": 160
+                    },
+                    {
+                        "file": "includes/controllers/class-banner-settings-controller.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "termly_website",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controllers/class-account-api-controller.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "includes/controllers/class-wp-cli.php",
+                        "line": 57
+                    },
+                    {
+                        "file": "includes/controllers/class-wp-cli.php",
+                        "line": 121
+                    },
+                    {
+                        "file": "includes/models/class-termly-api-model.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "includes/models/class-termly-api-model.php",
+                        "line": 140
+                    },
+                    {
+                        "file": "includes/models/class-termly-api-model.php",
+                        "line": 400
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "termly_account_update",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controllers/class-account-api-controller.php",
+                        "line": 37
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "termly-feature-set",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controllers/class-site-scan-controller.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "includes/controllers/class-site-scan-controller.php",
+                        "line": 263
+                    }
+                ]
+            },
+            {
+                "key": "termly-site-scan-results",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controllers/class-site-scan-results-list-table.php",
+                        "line": 226
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "uk-cookie-consent.php",
+            "line": 159
+        }
+    ]
+}

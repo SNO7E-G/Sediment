@@ -1,0 +1,661 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "shopbuilder",
+        "name": "ShopBuilder - WooCommerce Builder For Elementor",
+        "version": "3.4.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:12Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 474,
+        "files_skipped": 0,
+        "write_calls_found": 66,
+        "verified": 40,
+        "resolved": 5,
+        "pattern": 1,
+        "dynamic": 20,
+        "resolution_rate": 0.682
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dismiss_bf_woobundle_notice_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Notice/BlackFridayV2.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "gd_system_last_cache_flush",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helpers/Cache.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_admin_review_rated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Notice/Review.php",
+                        "line": 100
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_admin_review_remind_me",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Notice/Review.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_admin_review_spare_me",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Notice/Review.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_cron_schedule_free",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helpers/Fns.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_embedding_in_progress",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/AI/AiController.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_embedding_process_completed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/AI/AiController.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_embedding_progress",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/AI/AiController.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "app/AI/AiController.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_permalinks_flushed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helpers/Fns.php",
+                        "line": 3643
+                    }
+                ]
+            },
+            {
+                "key": "shopbuilder_permalinks_flushed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Builder/BuilderCpt.php",
+                        "line": 190
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "rtsb_abandoned_cart_recovery_action",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryCron.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_embedding_cron_run",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/AI/AiController.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "app/AI/AiController.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_send_abandoned_cart_emails",
+                "recurrence": "every_minute",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryCron.php",
+                        "line": 86
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "rtsb_cache_cleared_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/CacheController.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_installing",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helpers/Installation.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "shopbuilder_transient_cached_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helpers/Cache.php",
+                        "line": 324
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_auto_apply",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryFns.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Ajax/CreateTemplate.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Ajax/CreateTemplate.php",
+                        "line": 117
+                    }
+                ]
+            },
+            {
+                "key": "_has_embedding",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/AI/AiController.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "app/AI/AiController.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "_is_product_page_template_for",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Ajax/CreateTemplate.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "app/Helpers/Migration.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "_rtsb_import_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Ajax/CreateTemplate.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "_rtsb_tb_enabled_in_pool",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Ajax/CreateTemplate.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "app/Controllers/Admin/Ajax/DefaultTemplate.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "_rtsb_vg_disable_valiation_gallery",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/VariationGallery/GalleryAdmin.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "_wp_page_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Ajax/CreateTemplate.php",
+                        "line": 116
+                    }
+                ]
+            },
+            {
+                "key": "coupon_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryFns.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "coupon_created_abandonment_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryFns.php",
+                        "line": 189
+                    }
+                ]
+            },
+            {
+                "key": "coupon_created_by_ca_abandonment",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryFns.php",
+                        "line": 188
+                    }
+                ]
+            },
+            {
+                "key": "customer_email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryFns.php",
+                        "line": 175
+                    }
+                ]
+            },
+            {
+                "key": "date_expires",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryFns.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "discount_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryFns.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "free_shipping",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryFns.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "individual_use",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryFns.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "product_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryFns.php",
+                        "line": 185
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_selected_product_template",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Ajax/CreateTemplate.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "rtsb_vg_images",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/VariationGallery/GalleryAdmin.php",
+                        "line": 152
+                    }
+                ]
+            },
+            {
+                "key": "usage_limit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryFns.php",
+                        "line": 170
+                    }
+                ]
+            },
+            {
+                "key": "usage_limit_per_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/AbandonedCartRecovery/CartRecoveryFns.php",
+                        "line": 171
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "rtsb_wishlist",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Modules/WishList/WishlistFns.php",
+                        "line": 366
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "rtsb_builder",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Builder/BuilderCpt.php",
+                        "line": 176
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->options['option_name']",
+            "file": "app/Abstracts/Discount.php",
+            "line": 218
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cache_dir",
+            "file": "app/Controllers/Admin/Notice/CachePermission.php",
+            "line": 49
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key_product",
+            "file": "app/Helpers/BuilderFns.php",
+            "line": 126
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key_product",
+            "file": "app/Helpers/BuilderFns.php",
+            "line": 140
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key_product",
+            "file": "app/Helpers/BuilderFns.php",
+            "line": 157
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key_product",
+            "file": "app/Helpers/BuilderFns.php",
+            "line": 172
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key_product",
+            "file": "app/Helpers/BuilderFns.php",
+            "line": 177
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key_archive",
+            "file": "app/Helpers/BuilderFns.php",
+            "line": 192
+        },
+        {
+            "function": "update_option",
+            "expression": "$options",
+            "file": "app/Helpers/Fns.php",
+            "line": 773
+        },
+        {
+            "function": "update_option",
+            "expression": "$options",
+            "file": "app/Helpers/Fns.php",
+            "line": 820
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "app/Helpers/Fns.php",
+            "line": 3385
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "app/Helpers/Fns.php",
+            "line": 4060
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "app/Helpers/Fns.php",
+            "line": 4071
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "app/Helpers/Fns.php",
+            "line": 4078
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->upload_dir",
+            "file": "app/Models/AssetBundler.php",
+            "line": 87
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->db_key",
+            "file": "app/Models/DataModel.php",
+            "line": 113
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->db_key",
+            "file": "app/Models/DataModel.php",
+            "line": 127
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "app/Modules/VariationGallery/GalleryFns.php",
+            "line": 189
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "app/Modules/VariationGallery/GalleryFns.php",
+            "line": 259
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$field_id",
+            "file": "app/Modules/VariationSwatches/TermMeta.php",
+            "line": 211
+        }
+    ]
+}

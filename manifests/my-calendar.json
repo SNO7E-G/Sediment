@@ -1,0 +1,1380 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "my-calendar",
+        "name": "My Calendar - Accessible Event Manager",
+        "version": "3.7.17",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:58Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 76,
+        "files_skipped": 0,
+        "write_calls_found": 166,
+        "verified": 138,
+        "resolved": 0,
+        "pattern": 12,
+        "dynamic": 16,
+        "resolution_rate": 0.831
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": true,
+        "conditional": true,
+        "condition_option": "my_calendar_options",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ko_calendar_imported",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "my-calendar-import.php",
+                        "line": 160
+                    }
+                ]
+            },
+            {
+                "key": "mc_category_icon_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-categories.php",
+                        "line": 1599
+                    }
+                ]
+            },
+            {
+                "key": "mc_count_cache",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1761
+                    }
+                ]
+            },
+            {
+                "key": "mc_ctemplate_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-templating.php",
+                        "line": 567
+                    },
+                    {
+                        "file": "my-calendar-templating.php",
+                        "line": 581
+                    }
+                ]
+            },
+            {
+                "key": "mc_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1238
+                    },
+                    {
+                        "file": "my-calendar-upgrade-db.php",
+                        "line": 258
+                    }
+                ]
+            },
+            {
+                "key": "mc_display_main",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1319
+                    }
+                ]
+            },
+            {
+                "key": "mc_display_mini",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1322
+                    }
+                ]
+            },
+            {
+                "key": "mc_display_single",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1316
+                    }
+                ]
+            },
+            {
+                "key": "mc_drop_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1325
+                    }
+                ]
+            },
+            {
+                "key": "mc_event_access_migration_completed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "my-calendar-install.php",
+                        "line": 602
+                    }
+                ]
+            },
+            {
+                "key": "mc_import_tribe_completed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tribe.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "mc_location_access_migration_completed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "my-calendar-install.php",
+                        "line": 676
+                    }
+                ]
+            },
+            {
+                "key": "mc_multisite",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-install.php",
+                        "line": 461
+                    },
+                    {
+                        "file": "my-calendar-settings.php",
+                        "line": 656
+                    }
+                ]
+            },
+            {
+                "key": "mc_multisite_show",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-settings.php",
+                        "line": 658
+                    }
+                ]
+            },
+            {
+                "key": "mc_promotion_scheduled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 2579
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 2589
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 2619
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 2624
+                    }
+                ]
+            },
+            {
+                "key": "mc_site_activated",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "mc_template_desc_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-templating.php",
+                        "line": 566
+                    }
+                ]
+            },
+            {
+                "key": "mc_uninstalled",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "uninstall.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "mc_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1202
+                    }
+                ]
+            },
+            {
+                "key": "my_calendar_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1280
+                    },
+                    {
+                        "file": "my-calendar-install.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "my-calendar-settings.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "my-calendar-settings.php",
+                        "line": 81
+                    },
+                    {
+                        "file": "my-calendar-settings.php",
+                        "line": 580
+                    },
+                    {
+                        "file": "my-calendar-upgrade-db.php",
+                        "line": 171
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "mc_schedule_promotion_action",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 2618
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 2623
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "mc_allowed_origins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 2524
+                    }
+                ]
+            },
+            {
+                "key": "mc_cat_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-categories.php",
+                        "line": 823
+                    }
+                ]
+            },
+            {
+                "key": "mc_categories_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-categories.php",
+                        "line": 1303
+                    }
+                ]
+            },
+            {
+                "key": "mc_custom_icons",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/conditionals.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "mc_db_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-events.php",
+                        "line": 1376
+                    }
+                ]
+            },
+            {
+                "key": "mc_event_date_span_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-templates.php",
+                        "line": 1520
+                    }
+                ]
+            },
+            {
+                "key": "mc_file_copy",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-templating.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "mc_first_event_cache_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-events.php",
+                        "line": 692
+                    }
+                ]
+            },
+            {
+                "key": "mc_generated_category_styles",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 697
+                    }
+                ]
+            },
+            {
+                "key": "mc_get_date_bounds",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-events.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "mc_icon_list",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-categories.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "mc_last_event",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 2607
+                    }
+                ]
+            },
+            {
+                "key": "mc_location_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-locations.php",
+                        "line": 762
+                    }
+                ]
+            },
+            {
+                "key": "mc_location_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-locations.php",
+                        "line": 375
+                    }
+                ]
+            },
+            {
+                "key": "mc_private_categories",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-categories.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "mc_save_response",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 474
+                    }
+                ]
+            },
+            {
+                "key": "mc_styles_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-styles.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "my-calendar-styles.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "mc_svg_list",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-help.php",
+                        "line": 415
+                    }
+                ]
+            },
+            {
+                "key": "mc_ts_db",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-events.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "mc_ts_string",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-events.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "mc_upcoming_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/widgets/class-my-calendar-upcoming-widget.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "my-calendar-locations.php",
+                        "line": 1879
+                    },
+                    {
+                        "file": "my-calendar-shortcodes.php",
+                        "line": 143
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_event_same_day",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 221
+                    }
+                ]
+            },
+            {
+                "key": "_event_time_label",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 220
+                    }
+                ]
+            },
+            {
+                "key": "_mc_access_migrated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-install.php",
+                        "line": 621
+                    }
+                ]
+            },
+            {
+                "key": "_mc_calendar",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-shortcodes.php",
+                        "line": 870
+                    }
+                ]
+            },
+            {
+                "key": "_mc_custom_instances",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 2860
+                    }
+                ]
+            },
+            {
+                "key": "_mc_deleted_instances",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 2815
+                    }
+                ]
+            },
+            {
+                "key": "_mc_event_access",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 219
+                    },
+                    {
+                        "file": "my-calendar-install.php",
+                        "line": 612
+                    }
+                ]
+            },
+            {
+                "key": "_mc_event_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tribe.php",
+                        "line": 367
+                    },
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "_mc_event_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tribe.php",
+                        "line": 373
+                    },
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 233
+                    }
+                ]
+            },
+            {
+                "key": "_mc_event_desc",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 227
+                    }
+                ]
+            },
+            {
+                "key": "_mc_event_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 225
+                    }
+                ]
+            },
+            {
+                "key": "_mc_event_image",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 228
+                    }
+                ]
+            },
+            {
+                "key": "_mc_event_location",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 237
+                    }
+                ]
+            },
+            {
+                "key": "_mc_event_shortcode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "_mc_geolocate_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-locations.php",
+                        "line": 754
+                    }
+                ]
+            },
+            {
+                "key": "_mc_guid",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 175
+                    },
+                    {
+                        "file": "my-calendar-events.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "_mc_imported",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tribe.php",
+                        "line": 145
+                    },
+                    {
+                        "file": "includes/tribe.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "_mc_modified_instances",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-editor.php",
+                        "line": 2787
+                    }
+                ]
+            },
+            {
+                "key": "_mc_remote_image_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-output.php",
+                        "line": 834
+                    }
+                ]
+            },
+            {
+                "key": "_mc_tribe_location_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tribe.php",
+                        "line": 299
+                    }
+                ]
+            },
+            {
+                "key": "_mt_event_expired",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tribe.php",
+                        "line": 371
+                    }
+                ]
+            },
+            {
+                "key": "_mt_registration_options",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tribe.php",
+                        "line": 395
+                    }
+                ]
+            },
+            {
+                "key": "_mt_sell_tickets",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tribe.php",
+                        "line": 396
+                    }
+                ]
+            },
+            {
+                "key": "_occurrence_overlap",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-utilities.php",
+                        "line": 60
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_mc_default_direction",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-manager.php",
+                        "line": 528
+                    }
+                ]
+            },
+            {
+                "key": "_mc_default_sort",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-event-manager.php",
+                        "line": 535
+                    }
+                ]
+            },
+            {
+                "key": "mc_show_on_page",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/screen-options.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "mc_user_permissions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-categories.php",
+                        "line": 1044
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "mc_add_events",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1060
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1086
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1109
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1110
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1111
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1112
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1115
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1116
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1117
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1120
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1121
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1124
+                    }
+                ]
+            },
+            {
+                "key": "mc_approve_events",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1061
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1087
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1129
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1130
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1131
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1132
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1135
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1136
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1137
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1140
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1141
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1144
+                    }
+                ]
+            },
+            {
+                "key": "mc_edit_behaviors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1065
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1091
+                    }
+                ]
+            },
+            {
+                "key": "mc_edit_cats",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1063
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1089
+                    }
+                ]
+            },
+            {
+                "key": "mc_edit_locations",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1068
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1094
+                    }
+                ]
+            },
+            {
+                "key": "mc_edit_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1067
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1093
+                    }
+                ]
+            },
+            {
+                "key": "mc_edit_styles",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1064
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1090
+                    }
+                ]
+            },
+            {
+                "key": "mc_edit_templates",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1066
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1092
+                    }
+                ]
+            },
+            {
+                "key": "mc_manage_events",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1062
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1088
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1149
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1150
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1151
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1152
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1155
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1156
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1157
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1160
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1161
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1164
+                    }
+                ]
+            },
+            {
+                "key": "mc_view_help",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1069
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1095
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1103
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1104
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1105
+                    },
+                    {
+                        "file": "my-calendar-core.php",
+                        "line": 1106
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [
+            {
+                "key": "mc-event-access",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types.php",
+                        "line": 403
+                    }
+                ]
+            },
+            {
+                "key": "mc-event-category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types.php",
+                        "line": 382
+                    }
+                ]
+            },
+            {
+                "key": "mc-location-access",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types.php",
+                        "line": 427
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "mc_event_access_migration",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-install.php",
+                        "line": 626
+                    }
+                ]
+            },
+            {
+                "key": "mc_import_tribe",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tribe.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "mc_location_access_migration",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "my-calendar-install.php",
+                        "line": 696
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "register_post_type",
+            "expression": "$key",
+            "file": "includes/post-types.php",
+            "line": 284
+        },
+        {
+            "function": "set_transient",
+            "expression": "$image_key",
+            "file": "my-calendar-categories.php",
+            "line": 1453
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$globals['initial_db']",
+            "file": "my-calendar-install.php",
+            "line": 471
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$globals['initial_occur_db']",
+            "file": "my-calendar-install.php",
+            "line": 472
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$globals['initial_cat_db']",
+            "file": "my-calendar-install.php",
+            "line": 473
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$globals['initial_rel_db']",
+            "file": "my-calendar-install.php",
+            "line": 474
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$globals['initial_loc_db']",
+            "file": "my-calendar-install.php",
+            "line": 475
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$globals['initial_loc_rel_db']",
+            "file": "my-calendar-install.php",
+            "line": 476
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "my-calendar-locations.php",
+            "line": 154
+        },
+        {
+            "function": "add_cap",
+            "expression": "$k",
+            "file": "my-calendar-settings.php",
+            "line": 350
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$globals['initial_db']",
+            "file": "my-calendar-upgrade-db.php",
+            "line": 252
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$globals['initial_occur_db']",
+            "file": "my-calendar-upgrade-db.php",
+            "line": 253
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$globals['initial_cat_db']",
+            "file": "my-calendar-upgrade-db.php",
+            "line": 254
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$globals['initial_rel_db']",
+            "file": "my-calendar-upgrade-db.php",
+            "line": 255
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$globals['initial_loc_db']",
+            "file": "my-calendar-upgrade-db.php",
+            "line": 256
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$globals['initial_loc_rel_db']",
+            "file": "my-calendar-upgrade-db.php",
+            "line": 257
+        }
+    ]
+}

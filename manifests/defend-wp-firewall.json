@@ -1,0 +1,143 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "defend-wp-firewall",
+        "name": "DefendWP Firewall",
+        "version": "1.1.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:30Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 57,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 8,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.889
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "defend_wp_firewall_cron_hook",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-defend-wp-firewall-anonymous.php",
+                        "line": 30
+                    }
+                ]
+            },
+            {
+                "key": "defend_wp_firewall_daily_auto_update",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-defend-wp-firewall-update.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "defend_wp_firewall_index_write",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/index-write-functions.php",
+                        "line": 60
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "defend_wp_firewall_defendwp_pro_not_min_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-defend-wp-firewall-activation-controller.php",
+                        "line": 16
+                    }
+                ]
+            },
+            {
+                "key": "defend_wp_firewall_error_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-defend-wp-firewall-service.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "defend_wp_firewall_setting_redirect_on_activation",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/base-functions.php",
+                        "line": 219
+                    },
+                    {
+                        "file": "includes/class-defend-wp-firewall.php",
+                        "line": 204
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/class-defend-wp-firewall.php",
+                    "line": 220
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "\\WP_ROCKET_SLUG",
+            "file": "admin/class-purge-plugins-cache.php",
+            "line": 279
+        }
+    ]
+}

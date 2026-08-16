@@ -1,0 +1,105 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wowslider",
+        "name": "WOW Slider",
+        "version": "8.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:02Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 7,
+        "files_skipped": 1,
+        "write_calls_found": 7,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.286
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wowslider_installed",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "api.php",
+                        "line": 64
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wowslider_last_view",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "list-table.php",
+                        "line": 16
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$dir['path']",
+            "file": "api.php",
+            "line": 12
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir['path'] . 'import/'",
+            "file": "api.php",
+            "line": 13
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\sprintf($queries, $table)",
+            "file": "api.php",
+            "line": 62
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\wowslider_upload_dir()",
+            "file": "api.php",
+            "line": 111
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "api.php",
+            "line": 143
+        }
+    ]
+}

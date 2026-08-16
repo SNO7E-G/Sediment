@@ -1,0 +1,596 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "tweet-old-post",
+        "name": "Revive Social",
+        "version": "9.4.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:02Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 67,
+        "files_skipped": 0,
+        "write_calls_found": 65,
+        "verified": 41,
+        "resolved": 13,
+        "pattern": 1,
+        "dynamic": 10,
+        "resolution_rate": 0.831
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "rop_access_token",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cron-system/includes/class-rop-curl-methods.php",
+                        "line": 480
+                    }
+                ]
+            },
+            {
+                "key": "rop_dashboard_pointers_queued",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-pointers.php",
+                        "line": 382
+                    }
+                ]
+            },
+            {
+                "key": "rop_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 1515
+                    },
+                    {
+                        "file": "includes/admin/helpers/class-rop-bluesky-api.php",
+                        "line": 163
+                    },
+                    {
+                        "file": "includes/admin/services/class-rop-gmb-service.php",
+                        "line": 310
+                    }
+                ]
+            },
+            {
+                "key": "rop_data_migrated_tax",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 1513
+                    }
+                ]
+            },
+            {
+                "key": "rop_db_version",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/helpers/class-rop-db-upgrade.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "rop_facebook_domain_toast",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 987
+                    },
+                    {
+                        "file": "includes/admin/models/class-rop-services-model.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "includes/admin/models/class-rop-services-model.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "rop_facebook_via_rs_app",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 1112
+                    },
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 1114
+                    }
+                ]
+            },
+            {
+                "key": "rop_first_install_date",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-rop-activator.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "rop_first_install_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-rop-activator.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "rop_install_token",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-rop-activator.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "rop_is_new_user",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 424
+                    },
+                    {
+                        "file": "includes/admin/class-rop-global-settings.php",
+                        "line": 513
+                    }
+                ]
+            },
+            {
+                "key": "rop_is_sharing_cron_active",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/helpers/class-rop-cron-helper.php",
+                        "line": 284
+                    }
+                ]
+            },
+            {
+                "key": "rop_last_post_shared",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 1287
+                    }
+                ]
+            },
+            {
+                "key": "rop_linkedin_refresh_token_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/services/class-rop-linkedin-service.php",
+                        "line": 857
+                    },
+                    {
+                        "file": "includes/admin/services/class-rop-linkedin-service.php",
+                        "line": 962
+                    }
+                ]
+            },
+            {
+                "key": "rop_linkedin_via_rs_app",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 1222
+                    },
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 1224
+                    }
+                ]
+            },
+            {
+                "key": "rop_logs",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-logger.php",
+                        "line": 255
+                    }
+                ]
+            },
+            {
+                "key": "rop_menu_pointer_queued",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-pointers.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "rop_one_time_share_accounts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/models/class-rop-posts-selector-model.php",
+                        "line": 434
+                    }
+                ]
+            },
+            {
+                "key": "rop_remote_cron_terms_agree",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cron-system/includes/class-debug-page.php",
+                        "line": 77
+                    },
+                    {
+                        "file": "cron-system/includes/class-debug-page.php",
+                        "line": 111
+                    },
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 160
+                    }
+                ]
+            },
+            {
+                "key": "rop_toast",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 1038
+                    }
+                ]
+            },
+            {
+                "key": "rop_tumblr_via_rs_app",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 1274
+                    },
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 1276
+                    }
+                ]
+            },
+            {
+                "key": "rop_twitter_via_rs_app",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 1169
+                    },
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 1171
+                    }
+                ]
+            },
+            {
+                "key": "rop_use_remote_cron",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cron-system/includes/class-debug-page.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "cron-system/includes/class-debug-page.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "includes/admin/helpers/class-rop-cron-helper.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "tweet_old_post_logger_flag",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 639
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "rop_maybe_publish_now_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 957
+                    }
+                ]
+            },
+            {
+                "key": "rop_no_posts_log_displayed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/models/class-rop-queue-model.php",
+                        "line": 224
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "rop_publish_now",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 929
+                    },
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 1023
+                    },
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 1691
+                    },
+                    {
+                        "file": "includes/admin/models/class-rop-posts-selector-model.php",
+                        "line": 845
+                    }
+                ]
+            },
+            {
+                "key": "rop_publish_now_accounts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 942
+                    },
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 1024
+                    },
+                    {
+                        "file": "includes/admin/class-rop-rest-api.php",
+                        "line": 1692
+                    }
+                ]
+            },
+            {
+                "key": "rop_publish_now_history",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 1068
+                    }
+                ]
+            },
+            {
+                "key": "rop_publish_now_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 1025
+                    },
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 1073
+                    }
+                ]
+            },
+            {
+                "key": "rop_variation_index",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/helpers/class-rop-post-format-helper.php",
+                        "line": 216
+                    },
+                    {
+                        "file": "includes/admin/helpers/class-rop-post-format-helper.php",
+                        "line": 219
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "rop-cron-event-status-notice-dismissed",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 1576
+                    }
+                ]
+            },
+            {
+                "key": "rop-linkedin-api-notice-dismissed",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 1363
+                    }
+                ]
+            },
+            {
+                "key": "rop-wp-cron-notice-dismissed",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-rop-admin.php",
+                        "line": 1430
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->namespace",
+            "file": "includes/admin/abstract/class-rop-model-abstract.php",
+            "line": 95
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$tmp_images_folder",
+            "file": "includes/admin/abstract/class-rop-services-abstract.php",
+            "line": 647
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "includes/admin/helpers/class-rop-cron-helper.php",
+            "line": 466
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$hook",
+            "file": "includes/admin/helpers/class-rop-cron-helper.php",
+            "line": 469
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$hook",
+            "file": "includes/admin/helpers/class-rop-cron-helper.php",
+            "line": 486
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook",
+            "file": "includes/admin/helpers/class-rop-cron-helper.php",
+            "line": 490
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->namespace",
+            "file": "includes/admin/helpers/class-rop-log-handler.php",
+            "line": 110
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/admin/models/class-rop-queue-model.php",
+            "line": 96
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$notice_id",
+            "file": "includes/admin/notices/class-rop-admin-notices-helpers.php",
+            "line": 60
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/admin/services/class-rop-twitter-service.php",
+            "line": 743
+        }
+    ]
+}

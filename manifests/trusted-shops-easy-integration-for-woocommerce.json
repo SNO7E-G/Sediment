@@ -1,0 +1,93 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "trusted-shops-easy-integration-for-woocommerce",
+        "name": "Trusted Shops Easy Integration for WooCommerce",
+        "version": "2.0.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:36Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 19,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ts_easy_integration_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Package.php",
+                        "line": 1033
+                    }
+                ]
+            },
+            {
+                "key": "ts_easy_integration_has_encryption_error",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SecretsHelper.php",
+                        "line": 296
+                    }
+                ]
+            },
+            {
+                "key": "ts_easy_integration_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Install.php",
+                        "line": 14
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Package.php",
+            "line": 992
+        }
+    ]
+}

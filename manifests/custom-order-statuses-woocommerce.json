@@ -1,0 +1,520 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "custom-order-statuses-woocommerce",
+        "name": "Custom Order Status for WooCommerce",
+        "version": "3.0.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:04Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 21,
+        "files_skipped": 0,
+        "write_calls_found": 53,
+        "verified": 38,
+        "resolved": 11,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.925
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "alg_cos_po_notify_emails_start_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-hooks.php",
+                        "line": 270
+                    }
+                ]
+            },
+            {
+                "key": "alg_custom_order_status_no_empty_slug_field",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-cpt.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "alg_custom_order_statuses_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-hooks.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "alg_orders_custom_statuses_emails_address",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-hooks.php",
+                        "line": 164
+                    },
+                    {
+                        "file": "includes/core/class-hooks.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "alg_wpcodefactory_helper_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-custom-order-status.php",
+                        "line": 646
+                    }
+                ]
+            },
+            {
+                "key": "cos_pro_migration_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-migration.php",
+                        "line": 69
+                    },
+                    {
+                        "file": "includes/admin/class-migration.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "cos_pro_rules",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-migration.php",
+                        "line": 493
+                    },
+                    {
+                        "file": "includes/api/class-api-rules.php",
+                        "line": 148
+                    },
+                    {
+                        "file": "includes/api/class-api-rules.php",
+                        "line": 210
+                    },
+                    {
+                        "file": "includes/api/class-api-rules.php",
+                        "line": 238
+                    }
+                ]
+            },
+            {
+                "key": "cos_pro_settings",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-migration.php",
+                        "line": 104
+                    },
+                    {
+                        "file": "includes/admin/class-migration.php",
+                        "line": 518
+                    },
+                    {
+                        "file": "includes/api/class-api-license.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "includes/api/class-api-settings.php",
+                        "line": 148
+                    },
+                    {
+                        "file": "includes/api/class-api-settings.php",
+                        "line": 185
+                    },
+                    {
+                        "file": "includes/class-custom-order-status.php",
+                        "line": 345
+                    }
+                ]
+            },
+            {
+                "key": "is_statuses_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-cpt.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "is_statuses_migrated_to_slug",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-cpt.php",
+                        "line": 126
+                    }
+                ]
+            },
+            {
+                "key": "ts_tracker_last_send",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tyche/components/plugin-tracking/class-tyche-plugin-tracking.php",
+                        "line": 178
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "alg_cos_order_status_notify",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-hooks.php",
+                        "line": 312
+                    },
+                    {
+                        "file": "includes/core/class-hooks.php",
+                        "line": 315
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_alg_cos_po_email_send",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-custom-order-status.php",
+                        "line": 480
+                    }
+                ]
+            },
+            {
+                "key": "alg_cos_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-hooks.php",
+                        "line": 1359
+                    },
+                    {
+                        "file": "includes/core/class-hooks.php",
+                        "line": 1367
+                    }
+                ]
+            },
+            {
+                "key": "alg_orders_custom_statuses_bcc_emails_address",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 151
+                    }
+                ]
+            },
+            {
+                "key": "alg_orders_custom_statuses_emails_address",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 149
+                    }
+                ]
+            },
+            {
+                "key": "alg_orders_custom_statuses_emails_content",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "alg_orders_custom_statuses_emails_enabled",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "alg_orders_custom_statuses_emails_heading",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 155
+                    }
+                ]
+            },
+            {
+                "key": "alg_orders_custom_statuses_emails_subject",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 153
+                    }
+                ]
+            },
+            {
+                "key": "alg_orders_custom_statuses_sms_content",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 163
+                    }
+                ]
+            },
+            {
+                "key": "alg_orders_custom_statuses_sms_enabled",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 161
+                    }
+                ]
+            },
+            {
+                "key": "alg_orders_individual_custom_status_enable_paid",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "alg_orders_individual_custom_status_user_cancel",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "color",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-cpt.php",
+                        "line": 252
+                    }
+                ]
+            },
+            {
+                "key": "content",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-cpt.php",
+                        "line": 253
+                    }
+                ]
+            },
+            {
+                "key": "reduce_stock",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "slug",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-cpt.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "status_slug",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-cpt.php",
+                        "line": 122
+                    },
+                    {
+                        "file": "includes/admin/class-cpt.php",
+                        "line": 159
+                    },
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 130
+                    },
+                    {
+                        "file": "includes/api/class-api-statuses.php",
+                        "line": 222
+                    }
+                ]
+            },
+            {
+                "key": "text_color",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-cpt.php",
+                        "line": 254
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "custom_order_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-cpt.php",
+                        "line": 209
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "alg_cos_order_status_notify",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-hooks.php",
+                        "line": 303
+                    },
+                    {
+                        "file": "includes/core/class-hooks.php",
+                        "line": 307
+                    }
+                ]
+            },
+            {
+                "key": "custom_change_order_status",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-hooks.php",
+                        "line": 625
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/api/class-api-statuses.php",
+            "line": 124
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->plugin_short_name . '_ts_tracker_send_event'",
+            "file": "includes/tyche/components/plugin-tracking/class-tyche-plugin-tracking.php",
+            "line": 132
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_short_name . '_allow_tracking'",
+            "file": "includes/tyche/components/plugin-tracking/class-tyche-plugin-tracking.php",
+            "line": 152
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_short_name . '_allow_tracking'",
+            "file": "includes/tyche/components/plugin-tracking/class-tyche-plugin-tracking.php",
+            "line": 233
+        }
+    ]
+}

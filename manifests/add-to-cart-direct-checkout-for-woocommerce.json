@@ -1,0 +1,117 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "add-to-cart-direct-checkout-for-woocommerce",
+        "name": "Add to Cart Redirect for WooCommerce",
+        "version": "2.2.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:35Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 37,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.375
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pi_dcw_change_quantity_from_checkout_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-pi-dcw-checkout.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "pi_dcw_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pi-dcw-activator.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "pi_dcw_remove_product_from_checkout_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-pi-dcw-checkout.php",
+                        "line": 74
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->enable_tracking",
+            "file": "admin/class-analytics.php",
+            "line": 88
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->analytics_start_date",
+            "file": "admin/class-analytics.php",
+            "line": 266
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->variable_name",
+            "file": "includes/pisol.class.promotion.php",
+            "line": 46
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->saved_value",
+            "file": "includes/review.php",
+            "line": 206
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->activation_date",
+            "file": "includes/review.php",
+            "line": 214
+        }
+    ]
+}

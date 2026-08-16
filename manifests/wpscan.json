@@ -1,0 +1,396 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpscan",
+        "name": "WPScan",
+        "version": "1.16",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:41Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 104,
+        "files_skipped": 0,
+        "write_calls_found": 39,
+        "verified": 3,
+        "resolved": 21,
+        "pattern": 0,
+        "dynamic": 15,
+        "resolution_rate": 0.615
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "action_scheduler_hybrid_store_demarkation",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/action-scheduler/classes/data-stores/ActionScheduler_HybridStore.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_migration_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/action-scheduler/classes/ActionScheduler_DataController.php",
+                        "line": 64
+                    }
+                ]
+            },
+            {
+                "key": "as_has_wp_comment_logs",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "wpscan_api_token",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Plugin.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "wpscan_errors",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Plugin.php",
+                        "line": 505
+                    },
+                    {
+                        "file": "app/Plugin.php",
+                        "line": 553
+                    }
+                ]
+            },
+            {
+                "key": "wpscan_events_inline",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Checks/System.php",
+                        "line": 357
+                    },
+                    {
+                        "file": "app/Checks/System.php",
+                        "line": 359
+                    },
+                    {
+                        "file": "app/Checks/System.php",
+                        "line": 374
+                    }
+                ]
+            },
+            {
+                "key": "wpscan_fatal_errors",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Checks/System.php",
+                        "line": 126
+                    }
+                ]
+            },
+            {
+                "key": "wpscan_report",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Plugin.php",
+                        "line": 589
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "action_scheduler_run_queue",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/action-scheduler/classes/ActionScheduler_QueueRunner.php",
+                        "line": 63
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "action_scheduler_admin_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/action-scheduler/classes/ActionScheduler_ListTable.php",
+                        "line": 543
+                    }
+                ]
+            },
+            {
+                "key": "as-post-store-dependencies-met",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore.php",
+                        "line": 846
+                    }
+                ]
+            },
+            {
+                "key": "as_comment_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/action-scheduler/classes/data-stores/ActionScheduler_wpCommentLogger.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "wpscan_doing_cron",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Plugin.php",
+                        "line": 524
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_action_manager_schedule",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore.php",
+                        "line": 123
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "protect_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "app/Plugin.php",
+                        "line": 995
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "scheduled-action",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore_PostTypeRegistrar.php",
+                        "line": 9
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "action-group",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore_TaxonomyRegistrar.php",
+                        "line": 9
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "action_scheduler/cleanup_wp_comment_logs",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler/migration_hook",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/action-scheduler/classes/migration/Scheduler.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "wpscan_security_schedule",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Checks/System.php",
+                        "line": 286
+                    },
+                    {
+                        "file": "app/Checks/System.php",
+                        "line": 338
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->parent->OPT_ACCOUNT_STATUS",
+            "file": "app/Account.php",
+            "line": 58
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->parent->OPT_REPORT",
+            "file": "app/Checks/Check.php",
+            "line": 191
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->parent->OPT_REPORT",
+            "file": "app/Checks/Check.php",
+            "line": 232
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->parent->OPT_REPORT",
+            "file": "app/Checks/System.php",
+            "line": 132
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->classes['checks/system']->OPT_FATAL_ERRORS",
+            "file": "app/Plugin.php",
+            "line": 554
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->parent->OPT_ERRORS",
+            "file": "app/Settings.php",
+            "line": 444
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$this->parent->WPSCAN_SCHEDULE",
+            "file": "app/Settings.php",
+            "line": 484
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->parent->OPT_REPORT",
+            "file": "app/Settings.php",
+            "line": 517
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$this->parent->WPSCAN_RUN_ALL",
+            "file": "app/Summary.php",
+            "line": 161
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_key($lock_type)",
+            "file": "libraries/action-scheduler/classes/ActionScheduler_OptionLock.php",
+            "line": 27
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "libraries/action-scheduler/classes/abstracts/ActionScheduler_Abstract_Schema.php",
+            "line": 103
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$definition",
+            "file": "libraries/action-scheduler/classes/abstracts/ActionScheduler_Abstract_Schema.php",
+            "line": 117
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "libraries/action-scheduler/deprecated/functions.php",
+            "line": 23
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$hook",
+            "file": "libraries/action-scheduler/deprecated/functions.php",
+            "line": 41
+        },
+        {
+            "function": "as_schedule_cron_action",
+            "expression": "$hook",
+            "file": "libraries/action-scheduler/deprecated/functions.php",
+            "line": 69
+        }
+    ]
+}

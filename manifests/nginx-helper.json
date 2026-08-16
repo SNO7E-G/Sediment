@@ -1,0 +1,151 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "nginx-helper",
+        "name": "Nginx Helper",
+        "version": "2.3.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 62,
+    "coverage": {
+        "files_scanned": 21,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 10,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "nginx_helper_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-nginx-helper.php",
+                        "line": 337
+                    }
+                ]
+            },
+            {
+                "key": "rt_wp_nginx_helper_init_check",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-nginx-helper-activator.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "rt_wp_nginx_helper_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-nginx-helper-admin.php",
+                        "line": 319
+                    },
+                    {
+                        "file": "admin/class-nginx-helper-admin.php",
+                        "line": 685
+                    },
+                    {
+                        "file": "admin/class-nginx-helper-admin.php",
+                        "line": 721
+                    },
+                    {
+                        "file": "admin/class-nginx-helper-admin.php",
+                        "line": 846
+                    },
+                    {
+                        "file": "admin/partials/nginx-helper-general-options.php",
+                        "line": 98
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "rt_wp_nginx_helper_check_log_file_size_daily",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-nginx-helper-activator.php",
+                        "line": 45
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "Nginx Helper | Config",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-nginx-helper-activator.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "Nginx Helper | Purge cache",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-nginx-helper-activator.php",
+                        "line": 76
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$log_path",
+            "file": "admin/partials/nginx-helper-general-options.php",
+            "line": 852
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "includes/class-nginx-helper-activator.php",
+            "line": 36
+        }
+    ]
+}

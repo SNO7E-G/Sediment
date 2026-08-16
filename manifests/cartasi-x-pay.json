@@ -1,0 +1,587 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cartasi-x-pay",
+        "name": "Nexi XPay",
+        "version": "8.4.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:16Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 72,
+        "files_skipped": 0,
+        "write_calls_found": 53,
+        "verified": 19,
+        "resolved": 31,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.943
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "nexi_applepay_ca_root_certificate",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/WC_Gateway_Admin.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "nexi_applepay_merchant_identifier_certificate",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/WC_Gateway_Admin.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "nexi_applepay_merchant_identifier_certificate_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/WC_Gateway_Admin.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "nexi_unique",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-nexi-xpay.php",
+                        "line": 276
+                    }
+                ]
+            },
+            {
+                "key": "nexi_xpay_data_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/WC_Admin_Page.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "src/classes/Nexi/WC_Admin_Page.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "nexi_xpay_redirect_flush_rewrite_rule",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-nexi-xpay.php",
+                        "line": 326
+                    }
+                ]
+            },
+            {
+                "key": "nexi_xpay_xpay_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/WC_Nexi_Db.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_xpay_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/WC_Admin_Page.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "src/classes/Nexi/WC_Gateway_Admin.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "xpay_available_methods",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/WC_Gateway_XPay_API.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "xpay_logo_large",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/WC_Gateway_XPay_API.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "xpay_logo_small",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/WC_Gateway_XPay_API.php",
+                        "line": 137
+                    }
+                ]
+            },
+            {
+                "key": "xpay_npg_available_methods",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/WC_Gateway_NPG_API.php",
+                        "line": 92
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wp_nexi_polling",
+                "recurrence": "nexi_polling_schedule",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-nexi-xpay.php",
+                        "line": 263
+                    }
+                ]
+            },
+            {
+                "key": "wp_nexi_update_npg_payment_methods",
+                "recurrence": "nexi_polling_schedule_2h",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-nexi-xpay.php",
+                        "line": 268
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_npg_contractId",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_npg_installmentsNumber",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_npg_is_build",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "_npg_last_error",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_npg_orderId",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "_npg_payment_error",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_npg_recurringContractId",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "_npg_securityToken",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "_npg_sessionId",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "_npg_wc_order_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "_xpay_alias",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_xpay_codTrans",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_xpay_gpay_redirect_token",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_xpay_last_error",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_xpay_num_contratto",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_xpay_payment_error",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_xpay_post_notification_timestamp",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_xpay_scadenza_pan",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "googlepay_npg_response",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "gpay_html",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "installments",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "payment_redirect_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "xpay_divisa",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "xpay_transaction_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/classes/Nexi/OrderHelper.php",
+                        "line": 93
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "woocommerce-gateway-nexi-npg-cancel",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-nexi-xpay.php",
+                        "line": 318
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce-gateway-nexi-npg-googlepay-redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-nexi-xpay.php",
+                        "line": 319
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce-gateway-nexi-npg-redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-nexi-xpay.php",
+                        "line": 317
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce-gateway-nexi-xpay-cancel",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-nexi-xpay.php",
+                        "line": 316
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce-gateway-nexi-xpay-redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-nexi-xpay.php",
+                        "line": 315
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "src/classes/Nexi/OrderHelper.php",
+            "line": 93
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/classes/Nexi/WC_Gateway_NPG_Lock_Handler.php",
+            "line": 51
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "src/classes/Nexi/WC_Nexi_Helper.php",
+            "line": 265
+        }
+    ]
+}

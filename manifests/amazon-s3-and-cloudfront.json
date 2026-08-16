@@ -1,0 +1,373 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "amazon-s3-and-cloudfront",
+        "name": "WP Offload Media Lite",
+        "version": "3.3.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 90,
+        "files_skipped": 0,
+        "write_calls_found": 41,
+        "verified": 19,
+        "resolved": 7,
+        "pattern": 2,
+        "dynamic": 13,
+        "resolution_rate": 0.634
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "amazonS3_cache",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/as3cf-filter.php",
+                        "line": 692
+                    }
+                ]
+            },
+            {
+                "key": "as3cf_constant_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "traits/settings-trait.php",
+                        "line": 152
+                    }
+                ]
+            },
+            {
+                "key": "as3cf_update_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/upgrades/upgrade.php",
+                        "line": 717
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "as3cf_attachment_counts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/amazon-s3-and-cloudfront.php",
+                        "line": 4626
+                    }
+                ]
+            },
+            {
+                "key": "as3cf_db_init_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/amazon-s3-and-cloudfront.php",
+                        "line": 4663
+                    }
+                ]
+            },
+            {
+                "key": "as3cf_deactivated_notice_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/as3cf-compatibility-check.php",
+                        "line": 677
+                    }
+                ]
+            },
+            {
+                "key": "as3cf_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/as3cf-notices.php",
+                        "line": 170
+                    },
+                    {
+                        "file": "classes/as3cf-notices.php",
+                        "line": 624
+                    }
+                ]
+            },
+            {
+                "key": "as3cf_regions_cache",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/amazon-s3-and-cloudfront.php",
+                        "line": 2104
+                    }
+                ]
+            },
+            {
+                "key": "as3cf_upgrade_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/upgrades/upgrade.php",
+                        "line": 764
+                    },
+                    {
+                        "file": "classes/upgrades/upgrade.php",
+                        "line": 773
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_metadata",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/items/media-library-item.php",
+                        "line": 667
+                    },
+                    {
+                        "file": "classes/upgrades/upgrade-file-sizes.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "amazonS3_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/as3cf-filter.php",
+                        "line": 673
+                    }
+                ]
+            },
+            {
+                "key": "amazonS3_info",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/upgrades/upgrade-file-sizes.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "classes/upgrades/upgrade-items-table.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "classes/upgrades/upgrade-meta-wp-error.php",
+                        "line": 77
+                    },
+                    {
+                        "file": "classes/upgrades/upgrade-region-meta.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "classes/upgrades/upgrade-region-meta.php",
+                        "line": 106
+                    }
+                ]
+            },
+            {
+                "key": "as3cf_acf_cropped_to_remove",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/integrations/advanced-custom-fields.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "as3cf_filesize_total",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/items/media-library-item.php",
+                        "line": 660
+                    },
+                    {
+                        "file": "classes/items/media-library-item.php",
+                        "line": 691
+                    }
+                ]
+            },
+            {
+                "key": "edd_download_files",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/upgrades/upgrade-edd-replace-urls.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "wpos3_filesize_total",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/upgrades/upgrade-file-sizes.php",
+                        "line": 170
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "as3cf_dismissed_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/as3cf-notices.php",
+                        "line": 239
+                    },
+                    {
+                        "file": "classes/as3cf-notices.php",
+                        "line": 610
+                    }
+                ]
+            },
+            {
+                "key": "as3cf_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/as3cf-notices.php",
+                        "line": 168
+                    },
+                    {
+                        "file": "classes/as3cf-notices.php",
+                        "line": 610
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_site_transient",
+            "expression": "$key",
+            "file": "classes/amazon-s3-and-cloudfront.php",
+            "line": 1155
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook",
+            "file": "classes/amazon-s3-and-cloudfront.php",
+            "line": 1318
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->get_plugin_prefix() . '_can_write_checked_' . $hash",
+            "file": "classes/amazon-s3-and-cloudfront.php",
+            "line": 2182
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->get_plugin_prefix() . '_can_write_' . $hash",
+            "file": "classes/amazon-s3-and-cloudfront.php",
+            "line": 2218
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "classes/items/download-handler.php",
+            "line": 162
+        },
+        {
+            "function": "update_option",
+            "expression": "$as3cf->get_plugin_prefix() . '_schema_version'",
+            "file": "classes/items/item.php",
+            "line": 524
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/items/item.php",
+            "line": 571
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "classes/items/item.php",
+            "line": 2289
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "classes/settings/validation-manager.php",
+            "line": 94
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "classes/settings/validation-manager.php",
+            "line": 129
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_option_name()",
+            "file": "classes/upgrades/network-upgrade.php",
+            "line": 87
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option",
+            "file": "traits/settings-trait.php",
+            "line": 414
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "traits/settings-trait.php",
+            "line": 417
+        }
+    ]
+}

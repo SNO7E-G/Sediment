@@ -1,0 +1,639 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "sync-basalam",
+        "name": "sync basalam | ووسلام",
+        "version": "1.10.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:08Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 325,
+        "files_skipped": 0,
+        "write_calls_found": 75,
+        "verified": 24,
+        "resolved": 20,
+        "pattern": 3,
+        "dynamic": 28,
+        "resolution_rate": 0.587
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "sync_basalam_bulk_update_products_last_run",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Jobs/Types/BulkUpdateProductsJob.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_circuit_breaker",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/Api/CircuitBreaker.php",
+                        "line": 209
+                    },
+                    {
+                        "file": "includes/Services/Api/CircuitBreaker.php",
+                        "line": 219
+                    },
+                    {
+                        "file": "includes/Services/Api/CircuitBreaker.php",
+                        "line": 229
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_discount_tasks_last_run",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Jobs/DiscountTaskScheduler.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_duplicate_connection_report",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/Products/DuplicateConnectionReport.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_force_update",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/FetchVersionDetail.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_jobs_runner_last_run",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "JobsRunner.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_onboarding_completed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Pages/OnboardingPage.php",
+                        "line": 19
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_pointer_onboarding_completed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Onboarding/PointerTour.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_request_status_stats",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/Api/RequestStatusTracker.php",
+                        "line": 308
+                    },
+                    {
+                        "file": "includes/Services/Api/RequestStatusTracker.php",
+                        "line": 323
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_review_never_remind",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Actions/Controller/ReviewActions/NeverRemindReview.php",
+                        "line": 13
+                    },
+                    {
+                        "file": "includes/Actions/Controller/ReviewActions/SubmitReview.php",
+                        "line": 21
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Settings/SettingsManager.php",
+                        "line": 24
+                    },
+                    {
+                        "file": "includes/Admin/Settings/SettingsManager.php",
+                        "line": 35
+                    },
+                    {
+                        "file": "includes/Migrations/MigratorService.php",
+                        "line": 159
+                    },
+                    {
+                        "file": "includes/Migrations/MigratorService.php",
+                        "line": 392
+                    },
+                    {
+                        "file": "includes/Migrations/MigratorService.php",
+                        "line": 413
+                    },
+                    {
+                        "file": "includes/Migrations/Versions/Migration_1_7_8.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Migrations/MigrationManager.php",
+                        "line": 50
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "sync_basalam_category_preparation_map",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/Products/CategoryPreparationService.php",
+                        "line": 61
+                    },
+                    {
+                        "file": "includes/Services/Products/CategoryPreparationService.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_cpu_cores",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/SystemResourceMonitor.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_just_activated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "sync-basalam.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_oauth_state_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Settings/OAuthManager.php",
+                        "line": 30
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_remind_later_review",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Actions/Controller/ReviewActions/RemindLaterReview.php",
+                        "line": 13
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_settings_validation_error_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Settings/SettingsPageHandler.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_ticket_flash_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Utilities/TicketFlashNotice.php",
+                        "line": 21
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_basalam_order_tracking_code",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/Orders/TrackingCodeOrderService.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "_is_sync_basalam_order",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/Orders/OrderManager.php",
+                        "line": 541
+                    }
+                ]
+            },
+            {
+                "key": "_sync_basalam_is_gold_product_checkbox",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Product/elements/SingleProduct/GoldFields.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "_sync_basalam_is_mobile_product_checkbox",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Product/elements/SingleProduct/MobileFields.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "_sync_basalam_is_product_type_checkbox",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Product/elements/ProductList/BulkEdit.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "includes/Admin/Product/elements/ProductList/BulkEdit.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "includes/Admin/Product/elements/SingleProduct/TypeFields.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "_sync_basalam_is_wholesale",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Product/elements/ProductList/BulkEdit.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "includes/Admin/Product/elements/SingleProduct/WholesaleField.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "_sync_basalam_price_change_value",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Product/elements/ProductList/BulkEdit.php",
+                        "line": 141
+                    },
+                    {
+                        "file": "includes/Admin/Product/elements/SingleProduct/PriceChangeField.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "_sync_basalam_product_unit",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Product/elements/ProductList/BulkEdit.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "_sync_basalam_product_value",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Product/elements/ProductList/BulkEdit.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_discounted",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/Products/Discount/DiscountTaskProcessor.php",
+                        "line": 262
+                    },
+                    {
+                        "file": "includes/Services/Products/Discount/DiscountTaskProcessor.php",
+                        "line": 269
+                    }
+                ]
+            },
+            {
+                "key": "sync_basalam_variation_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/Products/CreateSingleProductService.php",
+                        "line": 155
+                    },
+                    {
+                        "file": "includes/Services/Products/UpdateSingleProductService.php",
+                        "line": 151
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "sync_basalam_seen_announcements",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Announcement/AnnouncementCenter.php",
+                        "line": 68
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "AsyncBackgroundProcess.php",
+            "line": 70
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cronHook",
+            "file": "AsyncBackgroundProcess.php",
+            "line": 82
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->identifier . '_immediate'",
+            "file": "AsyncBackgroundProcess.php",
+            "line": 121
+        },
+        {
+            "function": "update_option",
+            "expression": "$firstBatch->option_name",
+            "file": "AsyncBackgroundProcess.php",
+            "line": 244
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lockKey",
+            "file": "AsyncBackgroundProcess.php",
+            "line": 304
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_Payment",
+            "file": "includes/Activator.php",
+            "line": 127
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_options",
+            "file": "includes/Activator.php",
+            "line": 128
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_uploaded_media",
+            "file": "includes/Activator.php",
+            "line": 129
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_debug_logs",
+            "file": "includes/Activator.php",
+            "line": 130
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_discount_tasks",
+            "file": "includes/Activator.php",
+            "line": 131
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_category_mappings",
+            "file": "includes/Activator.php",
+            "line": 132
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_jobs_manager",
+            "file": "includes/Activator.php",
+            "line": 133
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\SyncBasalam\\Utilities\\ProductMetaKey::basalamProductSyncStatus()",
+            "file": "includes/Admin/Product/Operations/AbstractProductOperation.php",
+            "line": 79
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$fieldKey",
+            "file": "includes/Admin/Product/elements/SingleProduct/GoldFields.php",
+            "line": 96
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$fieldKey",
+            "file": "includes/Admin/Product/elements/SingleProduct/MobileFields.php",
+            "line": 108
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$fieldKey",
+            "file": "includes/Admin/Product/elements/SingleProduct/TypeFields.php",
+            "line": 86
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "includes/Admin/Product/elements/SingleProduct/VideoField.php",
+            "line": 89
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/Migrations/MigratorService.php",
+            "line": 436
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->taskName . '_last_run'",
+            "file": "includes/Queue/QueueManager.php",
+            "line": 50
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\SyncBasalam\\Utilities\\ProductMetaKey::basalamProductId()",
+            "file": "includes/Services/Products/ConnectSingleProductService.php",
+            "line": 24
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\SyncBasalam\\Utilities\\ProductMetaKey::basalamProductStatus()",
+            "file": "includes/Services/Products/ConnectSingleProductService.php",
+            "line": 25
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\SyncBasalam\\Utilities\\ProductMetaKey::basalamProductSyncStatus()",
+            "file": "includes/Services/Products/ConnectSingleProductService.php",
+            "line": 26
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\SyncBasalam\\Utilities\\ProductMetaKey::basalamProductId()",
+            "file": "includes/Services/Products/CreateSingleProductService.php",
+            "line": 161
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\SyncBasalam\\Utilities\\ProductMetaKey::basalamProductStatus()",
+            "file": "includes/Services/Products/CreateSingleProductService.php",
+            "line": 162
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\SyncBasalam\\Utilities\\ProductMetaKey::basalamProductSyncStatus()",
+            "file": "includes/Services/Products/CreateSingleProductService.php",
+            "line": 163
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\SyncBasalam\\Utilities\\ProductMetaKey::basalamProductSyncStatus()",
+            "file": "includes/Services/Products/UpdateSingleProductService.php",
+            "line": 162
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\SyncBasalam\\Utilities\\ProductMetaKey::basalamProductSyncStatus()",
+            "file": "includes/Services/Products/UpdateSingleProductService.php",
+            "line": 232
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\SyncBasalam\\Utilities\\ProductMetaKey::basalamProductStatus()",
+            "file": "includes/Services/Products/UpdateSingleProductService.php",
+            "line": 233
+        }
+    ]
+}

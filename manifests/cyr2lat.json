@@ -1,0 +1,133 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cyr2lat",
+        "name": "Cyr-To-Lat",
+        "version": "7.1.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:30Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 40,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.167
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_product_attributes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/Slugs/LocalAttributeService.php",
+                        "line": 245
+                    }
+                ]
+            },
+            {
+                "key": "_wp_old_slug",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/BackgroundProcesses/PostConversionProcess.php",
+                        "line": 89
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "libs/wp-background-processing/wp-background-process.php",
+            "line": 118
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "libs/wp-background-processing/wp-background-process.php",
+            "line": 135
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_status_key()",
+            "file": "libs/wp-background-processing/wp-background-process.php",
+            "line": 168
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_status_key()",
+            "file": "libs/wp-background-processing/wp-background-process.php",
+            "line": 194
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "libs/wp-background-processing/wp-background-process.php",
+            "line": 359
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "libs/wp-background-processing/wp-background-process.php",
+            "line": 608
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_completed'",
+            "file": "src/php/BackgroundProcesses/ConversionProcess.php",
+            "line": 65
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name()",
+            "file": "src/php/Settings/Abstracts/SettingsBase.php",
+            "line": 1154
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->option_name() . self::NETWORK_WIDE",
+            "file": "src/php/Settings/Abstracts/SettingsBase.php",
+            "line": 1207
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->option_name()",
+            "file": "src/php/Settings/Abstracts/SettingsBase.php",
+            "line": 1213
+        }
+    ]
+}

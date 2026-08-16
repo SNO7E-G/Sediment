@@ -1,0 +1,177 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "advanced-google-recaptcha",
+        "name": "Advanced Google reCAPTCHA",
+        "version": "5.40",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:31Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 17,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 1,
+        "resolved": 12,
+        "pattern": 2,
+        "dynamic": 2,
+        "resolution_rate": 0.765
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": true,
+        "condition_option": "wpcaptcha_options",
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpcaptcha_meta",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "libs/setup.php",
+                        "line": 413
+                    },
+                    {
+                        "file": "libs/setup.php",
+                        "line": 423
+                    }
+                ]
+            },
+            {
+                "key": "wpcaptcha_notices",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "libs/admin.php",
+                        "line": 131
+                    },
+                    {
+                        "file": "libs/admin.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "wpcaptcha_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "libs/ajax.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "libs/ajax.php",
+                        "line": 48
+                    },
+                    {
+                        "file": "libs/functions.php",
+                        "line": 810
+                    },
+                    {
+                        "file": "libs/functions.php",
+                        "line": 833
+                    },
+                    {
+                        "file": "libs/functions.php",
+                        "line": 1337
+                    },
+                    {
+                        "file": "libs/setup.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "wpcaptcha_pointers",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "libs/admin.php",
+                        "line": 288
+                    },
+                    {
+                        "file": "libs/admin.php",
+                        "line": 526
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "settings_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/utility.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "wpcaptcha_unlock_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/functions.php",
+                        "line": 749
+                    }
+                ]
+            },
+            {
+                "key": "wpcaptcha_unlock_count_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/functions.php",
+                        "line": 746
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$wpcaptcha_login_fails",
+            "file": "libs/setup.php",
+            "line": 467
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$wpcaptcha_accesslocks",
+            "file": "libs/setup.php",
+            "line": 479
+        }
+    ]
+}

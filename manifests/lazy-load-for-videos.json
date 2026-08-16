@@ -1,0 +1,87 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "lazy-load-for-videos",
+        "name": "Lazy Load for Videos",
+        "version": "2.18.11",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:26Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 19,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 1,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "lazyloadvideos_deferred_admin_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/class-register.php",
+                        "line": 39
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "lazyload_thumbnail_quality",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/php/class-meta.php",
+                        "line": 113
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "\\LL_VERSION_KEY",
+            "file": "src/php/class-register.php",
+            "line": 99
+        },
+        {
+            "function": "update_option",
+            "expression": "\\LL_VERSION_KEY",
+            "file": "src/php/class-register.php",
+            "line": 100
+        }
+    ]
+}

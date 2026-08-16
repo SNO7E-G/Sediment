@@ -1,0 +1,93 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "polylang-theme-strings",
+        "name": "Polylang Theme Strings",
+        "version": "4.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:29Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 8,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 0,
+        "resolved": 1,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.2
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mw_polylang_strings_plugins_data",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mw-polylang-theme-strings.php",
+                        "line": 435
+                    }
+                ]
+            },
+            {
+                "key": "mw_polylang_strings_theme_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mw-polylang-theme-strings.php",
+                        "line": 422
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "self::$prefix . $_REQUEST['_action'] . '_' . $k",
+            "file": "actions.php",
+            "line": 6
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$prefix . $_REQUEST['_action'] . '_' . $k",
+            "file": "actions.php",
+            "line": 7
+        },
+        {
+            "function": "update_option",
+            "expression": "$k",
+            "file": "mw-polylang-theme-strings.php",
+            "line": 157
+        }
+    ]
+}

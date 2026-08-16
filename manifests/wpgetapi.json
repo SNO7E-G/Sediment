@@ -1,0 +1,135 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpgetapi",
+        "name": "WPGetAPI",
+        "version": "2.25.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:17Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 80,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 0,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 10,
+        "resolution_rate": 0.0
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpgetapi_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions.php",
+                        "line": 132
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wpgetapi_chain_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "frontend/functions.php",
+                        "line": 152
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$api_id",
+            "file": "includes/class-wpgetapi-admin-options.php",
+            "line": 768
+        },
+        {
+            "function": "update_option",
+            "expression": "$api_id",
+            "file": "includes/class-wpgetapi-admin-options.php",
+            "line": 772
+        },
+        {
+            "function": "update_option",
+            "expression": "$subaction",
+            "file": "includes/class-wpgetapi-admin-options.php",
+            "line": 1283
+        },
+        {
+            "function": "update_option",
+            "expression": "$subaction",
+            "file": "includes/class-wpgetapi-admin-options.php",
+            "line": 1285
+        },
+        {
+            "function": "update_option",
+            "expression": "$subaction",
+            "file": "includes/class-wpgetapi-admin-options.php",
+            "line": 1288
+        },
+        {
+            "function": "update_option",
+            "expression": "$subaction",
+            "file": "includes/class-wpgetapi-admin-options.php",
+            "line": 1290
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_args['id'] . 'parameter_' . $key",
+            "file": "includes/class-wpgetapi-parameter-field.php",
+            "line": 125
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->key",
+            "file": "lib/cmb2/includes/CMB2_Options.php",
+            "line": 199
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->option_key",
+            "file": "lib/cmb2/includes/CMB2_Options_Hookup.php",
+            "line": 342
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "lib/cmb2/includes/types/CMB2_Type_Taxonomy_Base.php",
+            "line": 83
+        }
+    ]
+}

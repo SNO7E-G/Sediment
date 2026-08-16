@@ -1,0 +1,201 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "pirate-forms",
+        "name": "Contact Form & SMTP Plugin for WordPress by PirateForms",
+        "version": "2.6.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 11,
+    "coverage": {
+        "files_scanned": 28,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 7,
+        "resolved": 4,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.733
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pirate_forms_settings_array",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-pirateforms-util.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "theme_mods_zerif-lite",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-pirateforms-admin.php",
+                        "line": 1088
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_version_upgraded_from",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pirateforms-farewell.php",
+                        "line": 324
+                    },
+                    {
+                        "file": "includes/class-pirateforms-farewell.php",
+                        "line": 375
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "pirate_forms_gdpr_notice*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-pirateforms-admin.php",
+                        "line": 1220
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "Contact email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/class-pirateforms-public.php",
+                        "line": 820
+                    }
+                ]
+            },
+            {
+                "key": "pirate-formsattachments",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/class-pirateforms-public.php",
+                        "line": 826
+                    }
+                ]
+            },
+            {
+                "key": "pirate-formsconfirm-mail-status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/class-pirateforms-public.php",
+                        "line": 827
+                    }
+                ]
+            },
+            {
+                "key": "pirate-formsmail-status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/class-pirateforms-public.php",
+                        "line": 822
+                    }
+                ]
+            },
+            {
+                "key": "pirate-formsmail-status-reason",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/class-pirateforms-public.php",
+                        "line": 824
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "pirate_forms_farewell_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pirateforms-farewell.php",
+                        "line": 83
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "pf_contact",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pirateforms.php",
+                        "line": 299
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir_new",
+            "file": "public/class-pirateforms-public.php",
+            "line": 1246
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir_new",
+            "file": "public/class-pirateforms-public.php",
+            "line": 1350
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "public/class-pirateforms-public.php",
+            "line": 1366
+        }
+    ]
+}

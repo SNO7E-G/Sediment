@@ -1,0 +1,85 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "eu-cookie-law-compliance",
+        "name": "TP Cookies - EU Cookie Law Compliance",
+        "version": "1.0.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:34Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 16,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.4
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "tplis_cl_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/install.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "install.php",
+                        "line": 38
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$this->name",
+            "file": "includes/admin/settings/class-settings-api.php",
+            "line": 135
+        },
+        {
+            "function": "update_option",
+            "expression": "\\TPLIS_CL_SETTINGS_KEY",
+            "file": "includes/install.php",
+            "line": 70
+        },
+        {
+            "function": "update_option",
+            "expression": "\\DGWT_EQ_SETTINGS_KEY",
+            "file": "install.php",
+            "line": 73
+        }
+    ]
+}

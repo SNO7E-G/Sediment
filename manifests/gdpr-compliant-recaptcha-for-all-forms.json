@@ -1,0 +1,459 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "gdpr-compliant-recaptcha-for-all-forms",
+        "name": "Invisible Anti-Spam & CAPTCHA — reCAPTCHA Alternative for All Forms",
+        "version": "5.4.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 28,
+    "coverage": {
+        "files_scanned": 30,
+        "files_skipped": 0,
+        "write_calls_found": 60,
+        "verified": 1,
+        "resolved": 8,
+        "pattern": 0,
+        "dynamic": 51,
+        "resolution_rate": 0.15
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [
+            {
+                "key": "{prefix}recaptcha_gdpr_details_rgd",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "recaptcha-gdpr-compliant.php",
+                        "line": 313
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}recaptcha_gdpr_message_rgm",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "recaptcha-gdpr-compliant.php",
+                        "line": 264
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}recaptcha_gdpr_stamp_rgs",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "recaptcha-gdpr-compliant.php",
+                        "line": 383
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "delete_old_messages_event",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "recaptcha-gdpr-compliant.php",
+                        "line": 234
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "gdpr_pow_credential_cleanup_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-credential-cleanup.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "gdpr_pow_echo_values",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-echo-store.php",
+                        "line": 183
+                    }
+                ]
+            },
+            {
+                "key": "gdpr_pow_overbroad_pattern_block",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-overbroad-pattern-guard.php",
+                        "line": 527
+                    }
+                ]
+            },
+            {
+                "key": "gdpr_pow_scope_added",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-scope-sync.php",
+                        "line": 158
+                    }
+                ]
+            },
+            {
+                "key": "gdpr_pow_user_email_hashes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-echo-store.php",
+                        "line": 132
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$plan['setting']",
+            "file": "includes/class-abilities.php",
+            "line": 583
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_ABILITIES_LOG",
+            "file": "includes/class-agent-access.php",
+            "line": 438
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_EXPLICIT_ACTION",
+            "file": "includes/class-analysis.php",
+            "line": 154
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_PARAMETER_PATTERN",
+            "file": "includes/class-analysis.php",
+            "line": 157
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_PARAMETER_PATTERN",
+            "file": "includes/class-blocked-values-migration.php",
+            "line": 99
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_BLOCKED_VALUES_MIGRATED",
+            "file": "includes/class-blocked-values-migration.php",
+            "line": 107
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_BLOCKED_VALUES",
+            "file": "includes/class-blocked-values-migration.php",
+            "line": 226
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_CREDENTIAL_CLEANUP",
+            "file": "includes/class-credential-cleanup.php",
+            "line": 600
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_CREDENTIAL_SUGGESTIONS",
+            "file": "includes/class-credential-learning.php",
+            "line": 112
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_CREDENTIAL_FIELDS",
+            "file": "includes/class-credential-learning.php",
+            "line": 154
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_CREDENTIAL_SUGGESTIONS",
+            "file": "includes/class-credential-learning.php",
+            "line": 173
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_HIDE_ACTION",
+            "file": "includes/class-message-page.php",
+            "line": 601
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_EXPLICIT_ACTION",
+            "file": "includes/class-message-page.php",
+            "line": 603
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_HIDE_PATTERN",
+            "file": "includes/class-message-page.php",
+            "line": 657
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_PARAMETER_PATTERN",
+            "file": "includes/class-message-page.php",
+            "line": 659
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_BLOCKED_VALUES",
+            "file": "includes/class-message-page.php",
+            "line": 758
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_REST_ROUTES",
+            "file": "includes/class-message-page.php",
+            "line": 823
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/class-option.php",
+            "line": 795
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/class-scope-add.php",
+            "line": 402
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_ABILITIES_LOG",
+            "file": "includes/class-scope-add.php",
+            "line": 444
+        },
+        {
+            "function": "update_option",
+            "expression": "$ledger_key",
+            "file": "includes/class-scope-sync.php",
+            "line": 139
+        },
+        {
+            "function": "update_option",
+            "expression": "$ledger_key",
+            "file": "includes/class-scope-sync.php",
+            "line": 149
+        },
+        {
+            "function": "update_option",
+            "expression": "$scope_key",
+            "file": "includes/class-scope-sync.php",
+            "line": 152
+        },
+        {
+            "function": "update_option",
+            "expression": "$scope_key",
+            "file": "includes/class-scope-sync.php",
+            "line": 211
+        },
+        {
+            "function": "update_option",
+            "expression": "$ledger_key",
+            "file": "includes/class-scope-sync.php",
+            "line": 213
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_SCOPE_NOTICE_DISMISSED",
+            "file": "includes/class-scope-sync.php",
+            "line": 215
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_SCOPE_NOTICE_DISMISSED",
+            "file": "includes/class-scope-sync.php",
+            "line": 222
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_INSTALLED",
+            "file": "includes/class-settings-menu.php",
+            "line": 1247
+        },
+        {
+            "function": "update_option",
+            "expression": "$id",
+            "file": "includes/class-settings-menu.php",
+            "line": 1251
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_PROXY_CANDIDATE",
+            "file": "includes/class-settings-menu.php",
+            "line": 1808
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_TRUSTED_PROXIES",
+            "file": "includes/class-settings-menu.php",
+            "line": 1853
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/class-settings-menu.php",
+            "line": 2168
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/class-settings-menu.php",
+            "line": 2170
+        },
+        {
+            "function": "mkdir",
+            "expression": "$log_path",
+            "file": "includes/class-stamp.php",
+            "line": 1560
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/class-stamp.php",
+            "line": 2017
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_FP_MATCHED_TOTAL",
+            "file": "includes/class-stamp.php",
+            "line": 2653
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_FP_MISMATCHED_TOTAL",
+            "file": "includes/class-stamp.php",
+            "line": 2655
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_FP_LAST_MISMATCH_AT",
+            "file": "includes/class-stamp.php",
+            "line": 2656
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_STORE_FAILED_TOTAL",
+            "file": "includes/class-stamp.php",
+            "line": 2761
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_STORE_LAST_FAILED_AT",
+            "file": "includes/class-stamp.php",
+            "line": 2762
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_STORE_LAST_ERROR",
+            "file": "includes/class-stamp.php",
+            "line": 2763
+        },
+        {
+            "function": "add_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_TRUSTED_PROXIES",
+            "file": "recaptcha-gdpr-compliant.php",
+            "line": 580
+        },
+        {
+            "function": "add_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_TRUST_PRIVATE_PROXY",
+            "file": "recaptcha-gdpr-compliant.php",
+            "line": 583
+        },
+        {
+            "function": "add_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_MAX_USES",
+            "file": "recaptcha-gdpr-compliant.php",
+            "line": 584
+        },
+        {
+            "function": "add_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_UNDER_ATTACK_MODE",
+            "file": "recaptcha-gdpr-compliant.php",
+            "line": 585
+        },
+        {
+            "function": "add_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_UNDER_ATTACK_QUARANTINE",
+            "file": "recaptcha-gdpr-compliant.php",
+            "line": 586
+        },
+        {
+            "function": "add_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_CREDENTIAL_FIELDS",
+            "file": "recaptcha-gdpr-compliant.php",
+            "line": 587
+        },
+        {
+            "function": "add_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_ABILITIES_WRITE",
+            "file": "recaptcha-gdpr-compliant.php",
+            "line": 589
+        },
+        {
+            "function": "add_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_ABILITIES_UNSAFE",
+            "file": "recaptcha-gdpr-compliant.php",
+            "line": 590
+        },
+        {
+            "function": "add_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_ABILITIES_READ_SUBMISSIONS",
+            "file": "recaptcha-gdpr-compliant.php",
+            "line": 591
+        },
+        {
+            "function": "update_option",
+            "expression": "\\VENDOR\\RECAPTCHA_GDPR_COMPLIANT\\Option::POW_VERSION",
+            "file": "recaptcha-gdpr-compliant.php",
+            "line": 600
+        }
+    ]
+}

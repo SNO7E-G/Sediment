@@ -1,0 +1,196 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "tiny-compress-images",
+        "name": "TinyPNG - JPEG, PNG & WebP image compression",
+        "version": "3.7.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 50,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 0,
+        "resolved": 5,
+        "pattern": 1,
+        "dynamic": 15,
+        "resolution_rate": 0.238
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "tinypng_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/class-tiny-migrate.php",
+                        "line": 109
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "tiny_rpc_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/class-tiny-plugin.php",
+                        "line": 420
+                    }
+                ]
+            },
+            {
+                "key": "tinypng_migration_backoff",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/class-tiny-migrate.php",
+                        "line": 104
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_tiny_compress_images",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/class-tiny-image.php",
+                        "line": 389
+                    },
+                    {
+                        "file": "src/compatibility/wpml/class-tiny-wpml.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "src/compatibility/wpml/class-tiny-wpml.php",
+                        "line": 56
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$temp_dir",
+            "file": "src/class-tiny-diagnostics.php",
+            "line": 211
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$log_dir",
+            "file": "src/class-tiny-logger.php",
+            "line": 183
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_option_key()",
+            "file": "src/class-tiny-notices.php",
+            "line": 87
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->get_user_meta_key()",
+            "file": "src/class-tiny-notices.php",
+            "line": 110
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_prefixed_name('compression_timing')",
+            "file": "src/class-tiny-settings.php",
+            "line": 343
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_prefixed_name('compression_timing')",
+            "file": "src/class-tiny-settings.php",
+            "line": 346
+        },
+        {
+            "function": "update_option",
+            "expression": "$field",
+            "file": "src/class-tiny-settings.php",
+            "line": 782
+        },
+        {
+            "function": "update_option",
+            "expression": "$field",
+            "file": "src/class-tiny-settings.php",
+            "line": 787
+        },
+        {
+            "function": "update_option",
+            "expression": "$field",
+            "file": "src/class-tiny-settings.php",
+            "line": 792
+        },
+        {
+            "function": "update_option",
+            "expression": "$field",
+            "file": "src/class-tiny-settings.php",
+            "line": 797
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_prefixed_name('api_key_pending')",
+            "file": "src/class-tiny-settings.php",
+            "line": 898
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_prefixed_name('api_key')",
+            "file": "src/class-tiny-settings.php",
+            "line": 899
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_prefixed_name('status')",
+            "file": "src/class-tiny-settings.php",
+            "line": 900
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_prefixed_name('api_key_pending')",
+            "file": "src/class-tiny-settings.php",
+            "line": 945
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_prefixed_name('api_key')",
+            "file": "src/class-tiny-settings.php",
+            "line": 946
+        }
+    ]
+}

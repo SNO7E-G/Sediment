@@ -1,0 +1,550 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "sms-alert",
+        "name": "SMSAlert - WooCommerce",
+        "version": "3.9.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:51Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 147,
+        "files_skipped": 0,
+        "write_calls_found": 52,
+        "verified": 42,
+        "resolved": 2,
+        "pattern": 1,
+        "dynamic": 7,
+        "resolution_rate": 0.846
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cart_captured_abandoned_cart_count",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 831
+                    },
+                    {
+                        "file": "helper/class-abandonedcart.php",
+                        "line": 2601
+                    },
+                    {
+                        "file": "helper/class-abandonedcart.php",
+                        "line": 2619
+                    }
+                ]
+            },
+            {
+                "key": "dismiss_chatondesk_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/setting-options.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "edd_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/upgrade.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "onboarding-data-skipped",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/feedback.php",
+                        "line": 391
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_activation_date",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 742
+                    },
+                    {
+                        "file": "helper/upgrade.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_background_dBal_task",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 1095
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_background_task",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 1062
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 754
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_message",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "helper/upgrade.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "helper/upgrade.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_review_not_show_again",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/class-backend.php",
+                        "line": 53
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_sandbox_mode",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/setting-options.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_sms_c7_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "handler/forms/class-contactform7.php",
+                        "line": 812
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_sync",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 1005
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_upgrade_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "helper/upgrade.php",
+                        "line": 117
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "ab_cart_notification_sendsms_hook",
+                "recurrence": "sendsms_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 852
+                    }
+                ]
+            },
+            {
+                "key": "booking_reminder_sendsms_hook",
+                "recurrence": "sendremindersms_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 867
+                    }
+                ]
+            },
+            {
+                "key": "cod_to_prepaid_cart_notification_sendsms_hook",
+                "recurrence": "sendsms_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 860
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_balance_notify",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 745
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_followup_sms",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 749
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "cart_captured_abandoned_cart_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/class-abandonedcart.php",
+                        "line": 1193
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_billing_phone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/learnpress.php",
+                        "line": 422
+                    }
+                ]
+            },
+            {
+                "key": "_buyer_sms_notify",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 1110
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/class-sapopup.php",
+                        "line": 356
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_edit_mode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/class-sapopup.php",
+                        "line": 354
+                    }
+                ]
+            },
+            {
+                "key": "_sa_deliverycode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/delivery-drivers-woocommerce.php",
+                        "line": 354
+                    }
+                ]
+            },
+            {
+                "key": "_sa_deliverycode_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/delivery-drivers-woocommerce.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "helper/delivery-drivers-woocommerce.php",
+                        "line": 355
+                    }
+                ]
+            },
+            {
+                "key": "_smsalert_post_order_verification",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "handler/forms/woocommerce/wc-checkout.php",
+                        "line": 882
+                    }
+                ]
+            },
+            {
+                "key": "_wp_page_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/class-sapopup.php",
+                        "line": 353
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "billing_email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/signup-with-otp.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "billing_first_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/signup-with-otp.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "billing_phone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "SMSAlert-wc-order-sms.php",
+                        "line": 310
+                    },
+                    {
+                        "file": "handler/forms/class-wpjobs.php",
+                        "line": 120
+                    },
+                    {
+                        "file": "handler/forms/class-wplogin.php",
+                        "line": 529
+                    },
+                    {
+                        "file": "helper/signup-with-otp.php",
+                        "line": 182
+                    },
+                    {
+                        "file": "helper/signup-with-otp.php",
+                        "line": 307
+                    }
+                ]
+            },
+            {
+                "key": "smsalert_review_remind_later",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/class-backend.php",
+                        "line": 59
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "edit_sms_alert",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/class-sapopup.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "edit_sms_alerts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/class-sapopup.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "read_sms_alert",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/class-sapopup.php",
+                        "line": 100
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "sms-alert",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/class-sapopup.php",
+                        "line": 85
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql1",
+            "file": "SMSAlert-wc-order-sms.php",
+            "line": 821
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql2",
+            "file": "SMSAlert-wc-order-sms.php",
+            "line": 822
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "SMSAlert-wc-order-sms.php",
+            "line": 823
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "SMSAlert-wc-order-sms.php",
+            "line": 827
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "classes/setting-options.php",
+            "line": 505
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "helper/class-backinstock.php",
+            "line": 604
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "helper/return-warranty.php",
+            "line": 89
+        }
+    ]
+}

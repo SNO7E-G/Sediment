@@ -1,0 +1,290 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-bulk-editor",
+        "name": "BEAR - Bulk Editor and Products Manager Professional for WooCommerce",
+        "version": "1.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 13,
+    "coverage": {
+        "files_scanned": 56,
+        "files_skipped": 0,
+        "write_calls_found": 34,
+        "verified": 20,
+        "resolved": 5,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.735
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woobe_alert",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/alert.php",
+                        "line": 45
+                    },
+                    {
+                        "file": "classes/alert.php",
+                        "line": 46
+                    },
+                    {
+                        "file": "classes/alert.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "classes/alert.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "woobe_manage_rate_alert",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/rate_alert.php",
+                        "line": 22
+                    },
+                    {
+                        "file": "classes/rate_alert.php",
+                        "line": 120
+                    },
+                    {
+                        "file": "classes/rate_alert.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "woobe_meta_fields",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ext/meta/meta.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "woobe_shop_manager_visibility",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 987
+                    }
+                ]
+            },
+            {
+                "key": "woobe_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/alert.php",
+                        "line": 37
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "woobe_time_last_check",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ext/export/export.php",
+                        "line": 863
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/products.php",
+                        "line": 390
+                    },
+                    {
+                        "file": "classes/models/products.php",
+                        "line": 393
+                    },
+                    {
+                        "file": "classes/models/products.php",
+                        "line": 396
+                    },
+                    {
+                        "file": "classes/models/products.php",
+                        "line": 399
+                    }
+                ]
+            },
+            {
+                "key": "_product_attributes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/products.php",
+                        "line": 230
+                    },
+                    {
+                        "file": "classes/models/products.php",
+                        "line": 850
+                    },
+                    {
+                        "file": "ext/bulkoperations/bulkoperations.php",
+                        "line": 351
+                    },
+                    {
+                        "file": "ext/bulkoperations/bulkoperations.php",
+                        "line": 736
+                    },
+                    {
+                        "file": "ext/bulkoperations/bulkoperations.php",
+                        "line": 775
+                    }
+                ]
+            },
+            {
+                "key": "_sku",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/products.php",
+                        "line": 338
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "woobe_fprofile_saved",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ext/fprofiles/models/profiles.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "ext/fprofiles/models/profiles.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "ext/fprofiles/models/profiles.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "woobe_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 195
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$field_key",
+            "file": "classes/models/products.php",
+            "line": 255
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "classes/models/profiles.php",
+            "line": 192
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->options_key_global",
+            "file": "classes/models/settings.php",
+            "line": 117
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->options_key",
+            "file": "classes/models/settings.php",
+            "line": 121
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$slug}_dismiss_rate_alert\"",
+            "file": "index.php",
+            "line": 1727
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$slug}_later_rate_alert\"",
+            "file": "index.php",
+            "line": 1734
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$slug}_later_rate_alert\"",
+            "file": "index.php",
+            "line": 1753
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->transient_key",
+            "file": "lib/storage.php",
+            "line": 45
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->transient_key",
+            "file": "lib/storage.php",
+            "line": 105
+        }
+    ]
+}

@@ -1,0 +1,288 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "currency-switcher-woocommerce",
+        "name": "Currency Switcher for WooCommerce",
+        "version": "2.16.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:11Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 4,
+    "coverage": {
+        "files_scanned": 26,
+        "files_skipped": 0,
+        "write_calls_found": 25,
+        "verified": 11,
+        "resolved": 1,
+        "pattern": 8,
+        "dynamic": 5,
+        "resolution_rate": 0.48
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "alg_currency_switcher_currency_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/settings/class-alg-wc-currency-switcher-settings-currencies.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "alg_currency_switcher_currency_countries_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/settings/class-alg-wc-currency-switcher-settings-countries.php",
+                        "line": 45
+                    },
+                    {
+                        "file": "includes/admin/settings/class-alg-wc-currency-switcher-settings-countries.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "alg_currency_switcher_currency_shop_default",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/settings/class-alg-wc-currency-switcher-settings-currencies.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "alg_currency_switcher_exchange_rate_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/settings/class-alg-wc-currency-switcher-settings-exchange-rates.php",
+                        "line": 147
+                    },
+                    {
+                        "file": "includes/functions/alg-switcher-exchange-rates-functions.php",
+                        "line": 326
+                    }
+                ]
+            },
+            {
+                "key": "alg_currency_switcher_exchange_rate_cron_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-alg-exchange-rates-crons.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "alg_currency_switcher_placement",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/database-updates.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "alg_currency_switcher_total_number",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/settings/class-alg-wc-currency-switcher-settings-currencies.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "alg_currency_switcher_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "currency-switcher-woocommerce.php",
+                        "line": 203
+                    }
+                ]
+            },
+            {
+                "key": "alg_wc_currency_switcher_currency_locales_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/settings/class-alg-wc-currency-switcher-settings-languages.php",
+                        "line": 45
+                    },
+                    {
+                        "file": "includes/admin/settings/class-alg-wc-currency-switcher-settings-languages.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "alg_wc_currency_switcher_flags_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/database-updates.php",
+                        "line": 27
+                    }
+                ]
+            },
+            {
+                "key": "wpwham_currency_switcher_dbversion",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/database-updates.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "wpwham_currency_switcher_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/database-updates.php",
+                        "line": 23
+                    },
+                    {
+                        "file": "includes/database-updates.php",
+                        "line": 25
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "alg_update_exchange_rates_hook",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-alg-exchange-rates-crons.php",
+                        "line": 59
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_alg_currency_switcher_per_product_sale_price_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "currency-switcher-woocommerce.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "_alg_wc_currency_switcher_coupon_base_currency",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-alg-wc-currency-switcher-coupons.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "_order_currency",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-alg-wc-currency-switcher.php",
+                        "line": 298
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$value['id']",
+            "file": "currency-switcher-woocommerce.php",
+            "line": 199
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$the_meta_name",
+            "file": "includes/admin/class-alg-wc-currency-switcher-per-product.php",
+            "line": 102
+        },
+        {
+            "function": "add_option",
+            "expression": "$value['id']",
+            "file": "includes/admin/settings/class-wc-settings-currency-switcher.php",
+            "line": 82
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_id",
+            "file": "includes/functions/alg-switcher-functions.php",
+            "line": 128
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_id",
+            "file": "includes/functions/alg-switcher-functions.php",
+            "line": 130
+        }
+    ]
+}

@@ -1,0 +1,546 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "contact-form-7-mailchimp-extension",
+        "name": "Connect Contact Form 7 and Mailchimp",
+        "version": "0.9.81.09",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:32Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 115,
+        "files_skipped": 0,
+        "write_calls_found": 64,
+        "verified": 8,
+        "resolved": 20,
+        "pattern": 4,
+        "dynamic": 32,
+        "resolution_rate": 0.438
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "active_sitewide_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-cmatic-pro-syncer.php",
+                        "line": 656
+                    }
+                ]
+            },
+            {
+                "key": "cf7_mch_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/auth/class-cmatic-lite-auth-manager.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "includes/services/submission/class-cmatic-response-handler.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "chimpmatic_license_status",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-cmatic-rest-reset.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "cmatic",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/services/class-cmatic-options-repository.php",
+                        "line": 61
+                    },
+                    {
+                        "file": "includes/services/class-cmatic-options-repository.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "cmatic_auth_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/auth/class-cmatic-lite-auth-manager.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "cmatic_initialized",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-cmatic-activator.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "cmatic_install_id",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-cmatic-install-data.php",
+                        "line": 53
+                    },
+                    {
+                        "file": "includes/core/class-cmatic-install-data.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "includes/core/class-cmatic-install-data.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "includes/core/class-cmatic-install-data.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "includes/core/class-cmatic-install-data.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "cmatic_license_instance",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-cmatic-pro-syncer.php",
+                        "line": 176
+                    }
+                ]
+            },
+            {
+                "key": "cmatic_lite_pro_recovery_last",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-cmatic-pro-syncer.php",
+                        "line": 811
+                    }
+                ]
+            },
+            {
+                "key": "cmatic_lite_pro_recovery_lock",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-cmatic-pro-syncer.php",
+                        "line": 503
+                    },
+                    {
+                        "file": "includes/services/class-cmatic-pro-syncer.php",
+                        "line": 512
+                    }
+                ]
+            },
+            {
+                "key": "cmatic_lite_pro_recovery_quarantine",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-cmatic-pro-syncer.php",
+                        "line": 442
+                    }
+                ]
+            },
+            {
+                "key": "cmatic_lite_pro_recovery_state",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-cmatic-pro-syncer.php",
+                        "line": 859
+                    }
+                ]
+            },
+            {
+                "key": "signls_sdk_counter_schema_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/signls/src/CounterStore.php",
+                        "line": 100
+                    },
+                    {
+                        "file": "includes/signls/src/CounterStore.php",
+                        "line": 102
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "cmatic_daily_cron",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/services/class-cmatic-cron.php",
+                        "line": 31
+                    }
+                ]
+            },
+            {
+                "key": "cmatic_lite_pro_recovery_retry",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-cmatic-pro-syncer.php",
+                        "line": 757
+                    },
+                    {
+                        "file": "includes/services/class-cmatic-pro-syncer.php",
+                        "line": 878
+                    }
+                ]
+            },
+            {
+                "key": "cmatic_lite_pro_recovery_sync",
+                "recurrence": "twicedaily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-cmatic-pro-syncer.php",
+                        "line": 69
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "cmatic_api_connected",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ui/class-cmatic-notification-center.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "cmatic_oauth_secret_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-cmatic-rest-oauth.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-cmatic-pro-syncer.php",
+                        "line": 352
+                    },
+                    {
+                        "file": "includes/services/class-cmatic-pro-syncer.php",
+                        "line": 369
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_cmatic_mailerlite_degraded_features",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-cmatic-mailerlite-degradation-reporter.php",
+                        "line": 31
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "cmatic_banner_dismissals",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ui/class-cmatic-license-banner.php",
+                        "line": 313
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/services/class-cmatic-pro-syncer.php",
+                    "line": 647
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/admin/class-cmatic-admin-panel.php",
+            "line": 219
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/admin/class-cmatic-admin-panel.php",
+            "line": 425
+        },
+        {
+            "function": "add_option",
+            "expression": "$name",
+            "file": "includes/api/class-cmatic-lite-esp-rest-controller.php",
+            "line": 611
+        },
+        {
+            "function": "add_option",
+            "expression": "$name",
+            "file": "includes/api/class-cmatic-lite-esp-rest-controller.php",
+            "line": 620
+        },
+        {
+            "function": "set_transient",
+            "expression": "$base",
+            "file": "includes/api/class-cmatic-lite-esp-rest-controller.php",
+            "line": 634
+        },
+        {
+            "function": "set_transient",
+            "expression": "$target",
+            "file": "includes/api/class-cmatic-lite-esp-rest-controller.php",
+            "line": 635
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/api/class-cmatic-lite-esp-rest-controller.php",
+            "line": 734
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/api/class-cmatic-rest-form.php",
+            "line": 233
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/api/class-cmatic-rest-form.php",
+            "line": 308
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/api/class-cmatic-rest-form.php",
+            "line": 383
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/api/class-cmatic-rest-lists.php",
+            "line": 251
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/api/class-cmatic-rest-lists.php",
+            "line": 372
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/api/class-cmatic-rest-oauth.php",
+            "line": 354
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/auth/class-cmatic-lite-auth-manager.php",
+            "line": 51
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/auth/class-cmatic-lite-auth-manager.php",
+            "line": 120
+        },
+        {
+            "function": "set_transient",
+            "expression": "$rate_key",
+            "file": "includes/providers/abstract-class-cmatic-lite-esp-provider.php",
+            "line": 178
+        },
+        {
+            "function": "update_option",
+            "expression": "self::option_name($form_id, $provider)",
+            "file": "includes/providers/class-cmatic-lite-esp-credentials.php",
+            "line": 35
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/services/class-cmatic-api-key-importer.php",
+            "line": 63
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/services/class-cmatic-cron.php",
+            "line": 59
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$key",
+            "file": "includes/services/class-cmatic-pro-syncer.php",
+            "line": 531
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->routine_hook",
+            "file": "includes/signls/src/Scheduler.php",
+            "line": 48
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->refresh_hook",
+            "file": "includes/signls/src/Scheduler.php",
+            "line": 62
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->routine_hook",
+            "file": "includes/signls/src/Scheduler.php",
+            "line": 89
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->refresh_hook",
+            "file": "includes/signls/src/Scheduler.php",
+            "line": 100
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->refresh_hook",
+            "file": "includes/signls/src/Scheduler.php",
+            "line": 123
+        },
+        {
+            "function": "add_option",
+            "expression": "$name",
+            "file": "includes/signls/src/SiteIdentity.php",
+            "line": 52
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "includes/signls/src/SiteIdentity.php",
+            "line": 54
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->option_name",
+            "file": "includes/signls/src/StateStore.php",
+            "line": 107
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "includes/signls/src/StateStore.php",
+            "line": 109
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->config['cache_key']",
+            "file": "includes/utils/class-cmatic-remote-fetcher.php",
+            "line": 60
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->config['retry_count_key']",
+            "file": "includes/utils/class-cmatic-remote-fetcher.php",
+            "line": 249
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->config['cron_hook']",
+            "file": "includes/utils/class-cmatic-remote-fetcher.php",
+            "line": 252
+        }
+    ]
+}

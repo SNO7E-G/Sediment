@@ -1,0 +1,109 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "taxonomy-images",
+        "name": "Taxonomy Images",
+        "version": "1.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:11Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 22,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.875
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "taxonomy_image_plugin",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "legacy/includes/functions.php",
+                        "line": 170
+                    },
+                    {
+                        "file": "legacy/includes/functions.php",
+                        "line": 837
+                    },
+                    {
+                        "file": "legacy/includes/term.php",
+                        "line": 263
+                    },
+                    {
+                        "file": "legacy/includes/term.php",
+                        "line": 280
+                    }
+                ]
+            },
+            {
+                "key": "taxonomy_image_plugin_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "legacy/includes/functions.php",
+                        "line": 842
+                    },
+                    {
+                        "file": "plugin/includes/upgrade-class.php",
+                        "line": 46
+                    }
+                ]
+            },
+            {
+                "key": "taxonomy_images_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/includes/upgrade-class.php",
+                        "line": 51
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_term_meta",
+            "expression": "$this->get_meta_key()",
+            "file": "plugin/includes/term-image-class.php",
+            "line": 160
+        }
+    ]
+}

@@ -1,0 +1,420 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "a3-lazy-load",
+        "name": "a3 Lazy Load",
+        "version": "2.7.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:50Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 23,
+        "files_skipped": 0,
+        "write_calls_found": 56,
+        "verified": 11,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 45,
+        "resolution_rate": 0.196
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "a3_lazy_load_clean_on_deletion",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "a3_lazy_load_global_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/updates/a3-lazy-load-update-1.1.0.php",
+                        "line": 19
+                    }
+                ]
+            },
+            {
+                "key": "a3_lazy_load_just_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/a3-lazy-load-admin.php",
+                        "line": 8
+                    }
+                ]
+            },
+            {
+                "key": "a3_lazy_load_style_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/a3-lazy-load-admin.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "a3_lazy_load_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/a3-lazy-load-admin.php",
+                        "line": 4
+                    },
+                    {
+                        "file": "admin/a3-lazy-load-admin.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "admin/a3-lazy-load-admin.php",
+                        "line": 81
+                    },
+                    {
+                        "file": "admin/a3-lazy-load-admin.php",
+                        "line": 85
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "a3_lazyload_addons_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/addons/class-a3-lazy-load-addons-page.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "classes/addons/class-a3-lazy-load-addons-page.php",
+                        "line": 124
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin-interface.php",
+                        "line": 222
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "uninstall_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/settings/template-settings/global-settings.php",
+                    "line": 128
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$this->plugin_name . '-' . trim($form_key)",
+            "file": "admin/admin-interface.php",
+            "line": 195
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->google_api_key_option . '_status'",
+            "file": "admin/admin-interface.php",
+            "line": 253
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_api_key_option . '_enable'",
+            "file": "admin/admin-interface.php",
+            "line": 255
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_api_key_option",
+            "file": "admin/admin-interface.php",
+            "line": 256
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_map_api_key_option . '_enable'",
+            "file": "admin/admin-interface.php",
+            "line": 259
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_map_api_key_option",
+            "file": "admin/admin-interface.php",
+            "line": 260
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/admin-interface.php",
+            "line": 551
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 579
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->toggle_box_open_option",
+            "file": "admin/admin-interface.php",
+            "line": 634
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/admin-interface.php",
+            "line": 1007
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "admin/admin-interface.php",
+            "line": 1013
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "admin/admin-interface.php",
+            "line": 1020
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/admin-interface.php",
+            "line": 1054
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/admin-interface.php",
+            "line": 1085
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/admin-interface.php",
+            "line": 1087
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1147
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1149
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1158
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1160
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1170
+        },
+        {
+            "function": "add_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1173
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1203
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1205
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1214
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1216
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1226
+        },
+        {
+            "function": "add_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 1229
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$this->plugin_name . '-' . trim($heading_box_id) . '-' . 'opened'",
+            "file": "admin/admin-interface.php",
+            "line": 1858
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/admin-interface.php",
+            "line": 3634
+        },
+        {
+            "function": "update_option",
+            "expression": "$id_attribute",
+            "file": "admin/admin-interface.php",
+            "line": 3661
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$this->plugin_name . '-' . trim($heading_box_id) . '-' . 'opened'",
+            "file": "admin/admin-interface.php",
+            "line": 3776
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->google_map_api_key_option . '_status'",
+            "file": "admin/admin-ui.php",
+            "line": 175
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_map_api_key_option . '_enable'",
+            "file": "admin/admin-ui.php",
+            "line": 193
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_map_api_key_option",
+            "file": "admin/admin-ui.php",
+            "line": 196
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_map_api_key_option . '_enable'",
+            "file": "admin/admin-ui.php",
+            "line": 208
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_map_api_key_option",
+            "file": "admin/admin-ui.php",
+            "line": 211
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_api_key_option . '_enable'",
+            "file": "admin/includes/fonts_face.php",
+            "line": 404
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_api_key_option",
+            "file": "admin/includes/fonts_face.php",
+            "line": 412
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_api_key_option . '_enable'",
+            "file": "admin/includes/fonts_face.php",
+            "line": 422
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->google_api_key_option",
+            "file": "admin/includes/fonts_face.php",
+            "line": 425
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_name . '_google_font_list'",
+            "file": "admin/includes/fonts_face.php",
+            "line": 522
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->google_api_key_option . '_status'",
+            "file": "admin/includes/fonts_face.php",
+            "line": 525
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_name . '_google_font_list'",
+            "file": "admin/includes/fonts_face.php",
+            "line": 576
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->google_api_key_option . '_status'",
+            "file": "admin/includes/fonts_face.php",
+            "line": 579
+        },
+        {
+            "function": "update_option",
+            "expression": "$css_file_name . '_style_version'",
+            "file": "admin/less/sass.php",
+            "line": 163
+        }
+    ]
+}

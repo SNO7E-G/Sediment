@@ -1,0 +1,136 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cf7-email-add-on",
+        "name": "Email Addon for Contact Form 7",
+        "version": "2.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 60,
+    "coverage": {
+        "files_scanned": 17,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.778
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cf7ea_activated_at",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "contact-form-7-email-add-on.php",
+                        "line": 61
+                    },
+                    {
+                        "file": "contact-form-7-email-add-on.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "cf7ea_review_notice_dismissed_until",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "include/class-cf7-email-addon.php",
+                        "line": 550
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_mail",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/class-cf7-email-addon.php",
+                        "line": 584
+                    }
+                ]
+            },
+            {
+                "key": "_mail_2",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/class-cf7-email-addon.php",
+                        "line": 588
+                    }
+                ]
+            },
+            {
+                "key": "cf7ea_admin_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/class-cf7-email-addon.php",
+                        "line": 262
+                    }
+                ]
+            },
+            {
+                "key": "cf7ea_thank_you_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/class-cf7-email-addon.php",
+                        "line": 267
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "include/class-cf7-email-addon.php",
+            "line": 301
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$mail_meta_key",
+            "file": "include/class-cf7-email-addon.php",
+            "line": 376
+        }
+    ]
+}

@@ -1,0 +1,695 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "anti-spam",
+        "name": "Titan Anti-spam & Security",
+        "version": "7.5.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:46Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 46,
+        "files_skipped": 0,
+        "write_calls_found": 78,
+        "verified": 54,
+        "resolved": 15,
+        "pattern": 2,
+        "dynamic": 7,
+        "resolution_rate": 0.885
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "titan_complete_uninstall",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "antispam_stats",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/antispam/classes/class-protector.php",
+                        "line": 191
+                    },
+                    {
+                        "file": "includes/antispam/functions.php",
+                        "line": 163
+                    }
+                ]
+            },
+            {
+                "key": "titan_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-rest-controller.php",
+                        "line": 1023
+                    },
+                    {
+                        "file": "admin/class-rest-controller.php",
+                        "line": 1084
+                    }
+                ]
+            },
+            {
+                "key": "titan_antispam_mode",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/antispam/classes/class-antispam.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "titan_audit_hidden_items",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-rest-controller.php",
+                        "line": 1789
+                    },
+                    {
+                        "file": "admin/class-rest-controller.php",
+                        "line": 1807
+                    }
+                ]
+            },
+            {
+                "key": "titan_audit_results",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-rest-controller.php",
+                        "line": 1865
+                    }
+                ]
+            },
+            {
+                "key": "titan_backup_status",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-rest-controller.php",
+                        "line": 2278
+                    }
+                ]
+            },
+            {
+                "key": "titan_backup_store",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-rest-controller.php",
+                        "line": 2242
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_allowed_retries",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bruteforce/do_activate.php",
+                        "line": 10
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_blacklist_ips",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 127
+                    },
+                    {
+                        "file": "includes/bruteforce/do_activate.php",
+                        "line": 14
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_blacklist_usernames",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 145
+                    },
+                    {
+                        "file": "includes/bruteforce/do_activate.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_gdpr",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bruteforce/do_activate.php",
+                        "line": 5
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_lockouts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-rest-controller.php",
+                        "line": 2160
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 155
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 218
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 962
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 1000
+                    },
+                    {
+                        "file": "includes/bruteforce/do_activate.php",
+                        "line": 11
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_lockouts_total",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 525
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 527
+                    },
+                    {
+                        "file": "includes/bruteforce/do_activate.php",
+                        "line": 7
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_logged",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-rest-controller.php",
+                        "line": 2168
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 164
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 215
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 578
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 580
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 965
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 1015
+                    },
+                    {
+                        "file": "includes/bruteforce/do_activate.php",
+                        "line": 6
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_minutes_lockout",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bruteforce/do_activate.php",
+                        "line": 8
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_retries",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 183
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 456
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 988
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_retries_valid",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 174
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 461
+                    },
+                    {
+                        "file": "includes/bruteforce/class-limit-login-attempts.php",
+                        "line": 989
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_set_default_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bruteforce/do_activate.php",
+                        "line": 4
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_valid_duration",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bruteforce/do_activate.php",
+                        "line": 9
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_whitelist_ips",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bruteforce/do_activate.php",
+                        "line": 12
+                    }
+                ]
+            },
+            {
+                "key": "titan_bruteforce_whitelist_usernames",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/bruteforce/do_activate.php",
+                        "line": 13
+                    }
+                ]
+            },
+            {
+                "key": "titan_cache_tip_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-rest-controller.php",
+                        "line": 1884
+                    }
+                ]
+            },
+            {
+                "key": "titan_spam_migrated_from_action_scheduler",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 174
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "titan_spam_batch_check_status",
+                "recurrence": "titan_thirty_minutes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "titan_spam_batch_enqueue_spam",
+                "recurrence": "titan_thirty_minutes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 151
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_bm_backup_time",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-rest-controller.php",
+                        "line": 2195
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_bm_remove_old_data",
+                "recurrence": "everyday",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-rest-controller.php",
+                        "line": 2208
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "titan_audit_results",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/audit/classes/class.audit.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "titan_vulnerability_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/vulnerabilities/classes/class.vulnerabilities.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "wantispam_stats_cache",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "wtitan_premium_version_incompatible",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "anti-spam.php",
+                        "line": 88
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "_titan_login_interstitial_state",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tweaks/password-requirements/login-interstitial/class-session.php",
+                        "line": 482
+                    }
+                ]
+            },
+            {
+                "key": "_titan_password_requirements",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tweaks/password-requirements/class-password-requirements.php",
+                        "line": 271
+                    },
+                    {
+                        "file": "includes/tweaks/password-requirements/class-password-requirements.php",
+                        "line": 402
+                    }
+                ]
+            },
+            {
+                "key": "titan_last_password_change",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tweaks/password-requirements/class-password-requirements.php",
+                        "line": 209
+                    }
+                ]
+            },
+            {
+                "key": "titan_password_change_required",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tweaks/password-requirements/class-password-requirements-base.php",
+                        "line": 191
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "_titan_spam_check_public_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 306
+                    }
+                ]
+            },
+            {
+                "key": "_titan_spam_check_sent_at",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 307
+                    }
+                ]
+            },
+            {
+                "key": "_titan_spam_check_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 211
+                    },
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 308
+                    },
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 312
+                    },
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 381
+                    },
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 416
+                    },
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 420
+                    },
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 465
+                    }
+                ]
+            },
+            {
+                "key": "_titan_spam_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 409
+                    }
+                ]
+            },
+            {
+                "key": "_titan_spam_filtered",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 407
+                    }
+                ]
+            },
+            {
+                "key": "_titan_spam_reason",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+                        "line": 408
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "WTITAN_PLUGIN_NAMESPACE . '_logger_flag'",
+            "file": "admin/class-rest-controller.php",
+            "line": 1074
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock_key",
+            "file": "includes/antispam/classes/class-advanced-spam-filter.php",
+            "line": 292
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$key",
+            "file": "includes/antispam/classes/class-protector.php",
+            "line": 234
+        },
+        {
+            "function": "update_option",
+            "expression": "$normalized_name",
+            "file": "includes/class-titan-security-plugin.php",
+            "line": 161
+        },
+        {
+            "function": "update_option",
+            "expression": "$normalized_name",
+            "file": "includes/class-titan-security-plugin.php",
+            "line": 164
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "includes/logger/class-logger-writter.php",
+            "line": 179
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$requirement['meta']",
+            "file": "includes/tweaks/password-requirements/class-password-requirements.php",
+            "line": 256
+        }
+    ]
+}

@@ -1,0 +1,147 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "atec-cache-apcu",
+        "name": "atec Cache APCu",
+        "version": "2.3.77",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 64,
+    "coverage": {
+        "files_scanned": 48,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 1,
+        "resolved": 4,
+        "pattern": 1,
+        "dynamic": 4,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "atec_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ATEC/INIT.php",
+                        "line": 439
+                    }
+                ]
+            },
+            {
+                "key": "atec_admin_bar",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ATEC/INIT.php",
+                        "line": 185
+                    }
+                ]
+            },
+            {
+                "key": "atec_admin_debug",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ATEC/INIT.php",
+                        "line": 611
+                    }
+                ]
+            },
+            {
+                "key": "atec_allow_integrity_check",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ATEC/DASHBOARD.php",
+                        "line": 270
+                    }
+                ]
+            },
+            {
+                "key": "atec_fix_it",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ATEC/FIXIT.php",
+                        "line": 25
+                    }
+                ]
+            },
+            {
+                "key": "wpbs_checkbox_test",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/atec-wpca-wpc-groups.php",
+                        "line": 17
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$name",
+            "file": "includes/ATEC/CRON.php",
+            "line": 25
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$name",
+            "file": "includes/ATEC/CRON.php",
+            "line": 50
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$name",
+            "file": "includes/ATEC/CRON.php",
+            "line": 55
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "includes/ATEC/FS.php",
+            "line": 182
+        }
+    ]
+}

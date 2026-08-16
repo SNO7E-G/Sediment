@@ -1,0 +1,719 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "press-permit-core",
+        "name": "PublishPress Permissions Free",
+        "version": "4.8.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:11Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 255,
+        "files_skipped": 0,
+        "write_calls_found": 71,
+        "verified": 60,
+        "resolved": 0,
+        "pattern": 5,
+        "dynamic": 6,
+        "resolution_rate": 0.845
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "presspermit_delete_settings_on_uninstall",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pp_last_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/TermSave.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "ppc_deleted_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/DB/Migration.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "ppc_exposed_attachment_eitems",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/DB/Migration.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "ppc_exposed_eitem_orphans",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/DB/Permissions.php",
+                        "line": 835
+                    }
+                ]
+            },
+            {
+                "key": "ppc_migration_buffer_active_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/ErrorNotice.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "ppce_added_role_caps_21beta",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/Updated.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "ppce_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/CollabHooks.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/CollabHooks.php",
+                        "line": 440
+                    }
+                ]
+            },
+            {
+                "key": "ppperm_added_role_caps_10beta",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 224
+                    }
+                ]
+            },
+            {
+                "key": "ppperm_version_history",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/PermissionsHooks.php",
+                        "line": 442
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions.php",
+                        "line": 808
+                    },
+                    {
+                        "file": "classes/PublishPress/Permissions.php",
+                        "line": 814
+                    },
+                    {
+                        "file": "classes/PublishPress/Permissions/DB/Migration.php",
+                        "line": 16
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_activation",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "activation.php",
+                        "line": 21
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_caps_bulk_assign_renamed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 145
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_caps_exceptions_renamed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_created_event_category",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/PermissionsHooks.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_deactivated_modules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/DB/Migration.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_dismissals",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/PermissionsHooksAdmin.php",
+                        "line": 533
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_enabled_post_types",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PostSave.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_enabled_taxonomies",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 125
+                    },
+                    {
+                        "file": "classes/PublishPress/Permissions/TermSave.php",
+                        "line": 16
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_feed_teaser",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-teaser/classes/Permissions/TeaserHooks.php",
+                        "line": 196
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_legacy_exception_handling",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_list_others_uneditable_posts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/Updated.php",
+                        "line": 17
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_need_group_index_drop",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 19
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_pattern_roles_include_generic_rolecaps",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_refresh_role_usage",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "activation.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_role_usage",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/PermissionsHooksAdmin.php",
+                        "line": 185
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_tease_public_posts_only",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-teaser/classes/Permissions/TeaserHooks.php",
+                        "line": 276
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_teaser_redirect_anon_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-teaser/classes/Permissions/TeaserHooks.php",
+                        "line": 230
+                    },
+                    {
+                        "file": "modules/presspermit-teaser/classes/Permissions/TeaserHooks.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_teaser_redirect_anon_post_type",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-teaser/classes/Permissions/TeaserHooks.php",
+                        "line": 209
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_teaser_redirect_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-teaser/classes/Permissions/TeaserHooks.php",
+                        "line": 234
+                    },
+                    {
+                        "file": "modules/presspermit-teaser/classes/Permissions/TeaserHooks.php",
+                        "line": 261
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_teaser_redirect_post_type",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-teaser/classes/Permissions/TeaserHooks.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/PermissionsHooks.php",
+                        "line": 377
+                    }
+                ]
+            },
+            {
+                "key": "presspermit_wp_role_sync",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 394
+                    }
+                ]
+            },
+            {
+                "key": "presspermitpro_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/PermissionsHooks.php",
+                        "line": 392
+                    }
+                ]
+            },
+            {
+                "key": "teaser_hide_menu_links_type",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-teaser/classes/Permissions/TeaserHooks.php",
+                        "line": 285
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_pp_is_autodraft",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/AdminFilters.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "_pp_last_parent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PostSave.php",
+                        "line": 112
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "pp_create_groups",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 44
+                    },
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 216
+                    }
+                ]
+            },
+            {
+                "key": "pp_delete_groups",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 45
+                    },
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 218
+                    }
+                ]
+            },
+            {
+                "key": "pp_edit_groups",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 217
+                    }
+                ]
+            },
+            {
+                "key": "pp_manage_members",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "pp_manage_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions.php",
+                        "line": 367
+                    }
+                ]
+            },
+            {
+                "key": "pp_moderate_any",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 221
+                    }
+                ]
+            },
+            {
+                "key": "pp_set_associate_permissions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/Updated.php",
+                        "line": 28
+                    },
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/Updated.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "pp_set_edit_permissions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/Updated.php",
+                        "line": 27
+                    },
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/Updated.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "pp_set_term_assign_permissions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/Updated.php",
+                        "line": 29
+                    },
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/Updated.php",
+                        "line": 37
+                    }
+                ]
+            },
+            {
+                "key": "pp_set_term_associate_permissions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/Updated.php",
+                        "line": 31
+                    },
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/Updated.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "pp_set_term_manage_permissions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/Updated.php",
+                        "line": 30
+                    },
+                    {
+                        "file": "modules/presspermit-collaboration/classes/Permissions/Collab/Updated.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "pp_set_view_permissions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+                        "line": 220
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+            "line": 210
+        },
+        {
+            "function": "update_option",
+            "expression": "$roles_option",
+            "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+            "line": 487
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$caps_meta_key",
+            "file": "classes/PublishPress/Permissions/PluginUpdated.php",
+            "line": 523
+        },
+        {
+            "function": "update_option",
+            "expression": "str_replace('-', '_', $module_name) . '_deactivate'",
+            "file": "classes/PublishPress/Permissions/UI/Handlers/Settings.php",
+            "line": 210
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "modules/presspermit-collaboration/classes/Permissions/Collab/NavMenus.php",
+            "line": 199
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "modules/presspermit-collaboration/classes/Permissions/Collab/UI/Dashboard/BulkEdit.php",
+            "line": 122
+        }
+    ]
+}

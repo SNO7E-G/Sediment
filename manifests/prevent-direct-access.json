@@ -1,0 +1,361 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "prevent-direct-access",
+        "name": "Prevent Direct Access",
+        "version": "2.8.9.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:43Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 56,
+        "files_skipped": 0,
+        "write_calls_found": 35,
+        "verified": 23,
+        "resolved": 1,
+        "pattern": 3,
+        "dynamic": 8,
+        "resolution_rate": 0.686
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": true,
+        "condition_option": "pda_is_licensed",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "FREE_PDA_SETTINGS",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings_page.php",
+                        "line": 16
+                    },
+                    {
+                        "file": "prevent-direct-access.php",
+                        "line": 978
+                    }
+                ]
+            },
+            {
+                "key": "FREE_PDA_SETTINGS_IP",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "prevent-direct-access.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "jal_db_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-init.php",
+                        "line": 46
+                    },
+                    {
+                        "file": "includes/db-init.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "includes/db-init.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "includes/db-init.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "pda_free_is_rewrite_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "prevent-direct-access.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "pda_free_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "prevent-direct-access.php",
+                        "line": 765
+                    }
+                ]
+            },
+            {
+                "key": "pda_jal_db_version_free",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db-init.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "pda_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/setting.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "pda_site_uid",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-pda-deactivation-feedback.php",
+                        "line": 239
+                    }
+                ]
+            },
+            {
+                "key": "updated_htaccess_success",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "prevent-direct-access.php",
+                        "line": 299
+                    }
+                ]
+            },
+            {
+                "key": "wpfolio_pda_anylc_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wpfolio-analytics/includes/class-anylc-admin.php",
+                        "line": 295
+                    },
+                    {
+                        "file": "wpfolio-analytics/wpfolio-analytics.php",
+                        "line": 237
+                    },
+                    {
+                        "file": "wpfolio-analytics/wpfolio-analytics.php",
+                        "line": 255
+                    }
+                ]
+            },
+            {
+                "key": "wpfolio_pda_anylc_site_uid",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wpfolio-analytics/includes/wpfolio-pda-anylc-function.php",
+                        "line": 69
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "pda_sidebar_content",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/views/view-prevent-direct-access-lite-subscribe-form.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "wpfolio_pda_anylc_optin_notice_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wpfolio-analytics/includes/class-anylc-admin.php",
+                        "line": 279
+                    }
+                ]
+            },
+            {
+                "key": "wpfolio_pda_state_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wpfolio-analytics/templates/analytic.php",
+                        "line": 15
+                    },
+                    {
+                        "file": "wpfolio-analytics/templates/optout-popup.php",
+                        "line": 15
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_pda_protection",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/handle.php",
+                        "line": 227
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attached_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/handle.php",
+                        "line": 196
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_backup_sizes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/handle.php",
+                        "line": 368
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_metadata",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/handle.php",
+                        "line": 211
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "pda_free_subscribe",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "prevent-direct-access.php",
+                        "line": 1087
+                    }
+                ]
+            },
+            {
+                "key": "pda_subscribed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "prevent-direct-access.php",
+                        "line": 778
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/db-init.php",
+            "line": 44
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/db-init.php",
+            "line": 58
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/db-init.php",
+            "line": 69
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/db-init.php",
+            "line": 80
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/db-init.php",
+            "line": 142
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$protected_full_path",
+            "file": "includes/handle.php",
+            "line": 150
+        },
+        {
+            "function": "add_rewrite_endpoint",
+            "expression": "$endpoint",
+            "file": "prevent-direct-access.php",
+            "line": 263
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "wpfolio-analytics/includes/wpfolio-pda-anylc-function.php",
+            "line": 218
+        }
+    ]
+}

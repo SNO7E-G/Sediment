@@ -1,0 +1,214 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-google-map-plugin",
+        "name": "WP Maps",
+        "version": "4.9.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:07Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 39,
+    "coverage": {
+        "files_scanned": 82,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 17,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.81
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "fc_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class.initiate-core.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "op_activated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-google-map-plugin.php",
+                        "line": 810
+                    },
+                    {
+                        "file": "wp-google-map-plugin.php",
+                        "line": 840
+                    }
+                ]
+            },
+            {
+                "key": "weplugins_notification",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class.notifications.php",
+                        "line": 126
+                    }
+                ]
+            },
+            {
+                "key": "wpgmp_current_csv",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/location/model.location.php",
+                        "line": 530
+                    }
+                ]
+            },
+            {
+                "key": "wpgmp_integrations_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/integration/model.integration.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "wpgmp_location_extrafields",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/location/model.location.php",
+                        "line": 747
+                    },
+                    {
+                        "file": "modules/location/model.location.php",
+                        "line": 856
+                    },
+                    {
+                        "file": "modules/settings/model.settings.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "wpgmp_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/location/model.location.php",
+                        "line": 274
+                    },
+                    {
+                        "file": "modules/location/model.location.php",
+                        "line": 348
+                    },
+                    {
+                        "file": "modules/settings/model.settings.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "wp-google-map-plugin.php",
+                        "line": 441
+                    },
+                    {
+                        "file": "wp-google-map-plugin.php",
+                        "line": 1285
+                    },
+                    {
+                        "file": "wp-google-map-plugin.php",
+                        "line": 1291
+                    },
+                    {
+                        "file": "wp-google-map-plugin.php",
+                        "line": 1379
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpmapspro_check_notification",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class.notifications.php",
+                        "line": 18
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "wpgmp_admin_overview",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-google-map-plugin.php",
+                        "line": 718
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$extension_key",
+            "file": "modules/integration/model.integration.php",
+            "line": 63
+        },
+        {
+            "function": "add_cap",
+            "expression": "$nav",
+            "file": "wp-google-map-plugin.php",
+            "line": 747
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "wp-google-map-plugin.php",
+            "line": 1312
+        }
+    ]
+}

@@ -1,0 +1,237 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "contact-form-entries",
+        "name": "Contact Form Entries",
+        "version": "1.5.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:09Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 23,
+    "coverage": {
+        "files_scanned": 14,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 9,
+        "resolved": 9,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.857
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "crm_perks_upload_folder",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "contact-form-entries.php",
+                        "line": 1698
+                    }
+                ]
+            },
+            {
+                "key": "print_note_vxcf_leads",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugin-pages.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "vx_crm_forms_ids",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "contact-form-entries.php",
+                        "line": 297
+                    }
+                ]
+            },
+            {
+                "key": "vxcf_all_forms",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "contact-form-entries.php",
+                        "line": 667
+                    }
+                ]
+            },
+            {
+                "key": "vxcf_form_dissmiss_notice",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp/crmperks-notices.php",
+                        "line": 30
+                    }
+                ]
+            },
+            {
+                "key": "vxcf_form_install_data",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp/crmperks-notices.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "wp/crmperks-notices.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "vxcf_form_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "contact-form-entries.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "vxcf_leads_meta",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "contact-form-entries.php",
+                        "line": 158
+                    },
+                    {
+                        "file": "includes/plugin-pages.php",
+                        "line": 1082
+                    }
+                ]
+            },
+            {
+                "key": "vxcf_leads_msg",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugin-pages.php",
+                        "line": 316
+                    }
+                ]
+            },
+            {
+                "key": "vxcf_leads_msgs",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugin-pages.php",
+                        "line": 711
+                    },
+                    {
+                        "file": "includes/plugin-pages.php",
+                        "line": 1320
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "administrator",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/install.php",
+                        "line": 28
+                    },
+                    {
+                        "file": "includes/install.php",
+                        "line": 31
+                    },
+                    {
+                        "file": "includes/install.php",
+                        "line": 32
+                    },
+                    {
+                        "file": "includes/install.php",
+                        "line": 33
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "recently_activated",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/install.php",
+                    "line": 68
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_path",
+            "file": "contact-form-entries.php",
+            "line": 1711
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/data.php",
+            "line": 83
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$file['base']",
+            "file": "includes/install.php",
+            "line": 108
+        }
+    ]
+}

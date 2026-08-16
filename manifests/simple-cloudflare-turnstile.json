@@ -1,0 +1,199 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "simple-cloudflare-turnstile",
+        "name": "Simple CAPTCHA with Cloudflare Turnstile",
+        "version": "1.42.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:43Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 44,
+        "files_skipped": 0,
+        "write_calls_found": 18,
+        "verified": 15,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "cfturnstile_uninstall_remove",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cfturnstile_analytics",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/analytics.php",
+                        "line": 181
+                    }
+                ]
+            },
+            {
+                "key": "cfturnstile_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simple-cloudflare-turnstile.php",
+                        "line": 27
+                    }
+                ]
+            },
+            {
+                "key": "cfturnstile_invalid_secret_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/admin-options.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "inc/turnstile.php",
+                        "line": 301
+                    }
+                ]
+            },
+            {
+                "key": "cfturnstile_log",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/analytics.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "cfturnstile_soft_tested",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/turnstile.php",
+                        "line": 302
+                    }
+                ]
+            },
+            {
+                "key": "cfturnstile_tested",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/admin-options.php",
+                        "line": 107
+                    },
+                    {
+                        "file": "inc/admin/admin-options.php",
+                        "line": 124
+                    },
+                    {
+                        "file": "inc/admin/admin-options.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "inc/admin/admin-options.php",
+                        "line": 150
+                    },
+                    {
+                        "file": "inc/admin/admin-options.php",
+                        "line": 199
+                    },
+                    {
+                        "file": "simple-cloudflare-turnstile.php",
+                        "line": 28
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "cfturnstile_admin_cf_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/admin-options.php",
+                        "line": 273
+                    }
+                ]
+            },
+            {
+                "key": "cfturnstile_cf_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/failsafe.php",
+                        "line": 21
+                    }
+                ]
+            },
+            {
+                "key": "cfturnstile_invalid_secret_throttle",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/turnstile.php",
+                        "line": 299
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "inc/admin/export-import.php",
+            "line": 129
+        },
+        {
+            "function": "set_transient",
+            "expression": "$deadline_key",
+            "file": "inc/integrations/ecommerce/woocommerce.php",
+            "line": 316
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "inc/verification.php",
+            "line": 37
+        }
+    ]
+}

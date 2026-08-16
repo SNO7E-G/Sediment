@@ -1,0 +1,496 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "atum-stock-manager-for-woocommerce",
+        "name": "ATUM Inventory Management for WooCommerce",
+        "version": "2.0.3.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:05Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 231,
+        "files_skipped": 0,
+        "write_calls_found": 54,
+        "verified": 15,
+        "resolved": 9,
+        "pattern": 4,
+        "dynamic": 26,
+        "resolution_rate": 0.444
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "atum_async_allowed_callbacks",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Components/AtumQueues.php",
+                        "line": 717
+                    }
+                ]
+            },
+            {
+                "key": "atum_last_sales_calc",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Components/AtumQueues.php",
+                        "line": 389
+                    }
+                ]
+            },
+            {
+                "key": "atum_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/Inc/Upgrade.php",
+                        "line": 65
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "atum-marketing-dash",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Cache/AtumCache.php",
+                        "line": 729
+                    }
+                ]
+            },
+            {
+                "key": "atum-marketing-popup",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/Cache/AtumCache.php",
+                        "line": 729
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Addons/Updater.php",
+                        "line": 272
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Inc/Helpers.php",
+                        "line": 2491
+                    },
+                    {
+                        "file": "classes/Integrations/Wpml.php",
+                        "line": 675
+                    },
+                    {
+                        "file": "classes/Models/AtumCPTModel.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "_atum_attachments",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/MetaBoxes/FileAttachment.php",
+                        "line": 104
+                    }
+                ]
+            },
+            {
+                "key": "_purchase_price_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Integrations/Wpml.php",
+                        "line": 783
+                    }
+                ]
+            },
+            {
+                "key": "_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Components/AtumOrders/AtumOrderPostType.php",
+                        "line": 1208
+                    },
+                    {
+                        "file": "classes/Components/AtumOrders/AtumOrderPostType.php",
+                        "line": 1211
+                    }
+                ]
+            },
+            {
+                "key": "_subscription_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Inc/Helpers.php",
+                        "line": 2412
+                    }
+                ]
+            },
+            {
+                "key": "_use_default_description",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Inc/Upgrade.php",
+                        "line": 1133
+                    }
+                ]
+            },
+            {
+                "key": "_use_default_terms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Inc/Upgrade.php",
+                        "line": 1134
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_atum_closed_auto_guides",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Components/AtumHelpGuide.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "atum-marketing-dash",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Inc/Ajax.php",
+                        "line": 2868
+                    }
+                ]
+            },
+            {
+                "key": "atum-marketing-popup",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Inc/Ajax.php",
+                        "line": 2844
+                    }
+                ]
+            },
+            {
+                "key": "atum_admin_footer_text_rated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Inc/Ajax.php",
+                        "line": 552
+                    }
+                ]
+            },
+            {
+                "key": "atum_dashboard_widgets_layout",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Dashboard/Dashboard.php",
+                        "line": 410
+                    }
+                ]
+            },
+            {
+                "key": "atum_dismissed_notices",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Components/AtumAdminNotices.php",
+                        "line": 257
+                    }
+                ]
+            },
+            {
+                "key": "manageatum-inventory_page_atum-stock-centralcolumnshidden",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Inc/Upgrade.php",
+                        "line": 331
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "barcode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Api/Controllers/V3/ProductLocationsController.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "classes/Components/AtumBarcodes.php",
+                        "line": 358
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [
+            {
+                "key": "note_params",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Inc/Helpers.php",
+                        "line": 3680
+                    }
+                ]
+            },
+            {
+                "key": "note_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Inc/Helpers.php",
+                        "line": 3677
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [
+            {
+                "key": "atum_location",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Inc/Main.php",
+                        "line": 208
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "self::ADDONS_KEY_OPTION",
+            "file": "classes/Addons/Addons.php",
+            "line": 819
+        },
+        {
+            "function": "update_option",
+            "expression": "self::ADDONS_KEY_OPTION",
+            "file": "classes/Addons/Addons.php",
+            "line": 932
+        },
+        {
+            "function": "update_option",
+            "expression": "self::ADDONS_KEY_OPTION",
+            "file": "classes/Addons/Addons.php",
+            "line": 970
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$hook_name",
+            "file": "classes/Api/Controllers/V3/FullExportController.php",
+            "line": 1088
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$hook_name",
+            "file": "classes/Api/Controllers/V3/FullExportController.php",
+            "line": 1109
+        },
+        {
+            "function": "mkdir",
+            "expression": "$upload_dir",
+            "file": "classes/Api/Controllers/V3/FullExportController.php",
+            "line": 1141
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$current_hook_name",
+            "file": "classes/Api/Controllers/V3/FullExportController.php",
+            "line": 1319
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$hook_name",
+            "file": "classes/Api/Controllers/V3/FullExportController.php",
+            "line": 1380
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Atum\\Settings\\Settings::OPTION_NAME",
+            "file": "classes/Api/Controllers/V3/SettingOptionsController.php",
+            "line": 487
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "classes/Cache/AtumCache.php",
+            "line": 729
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "classes/Components/AtumCapabilities.php",
+            "line": 131
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$post_type",
+            "file": "classes/Components/AtumOrders/AtumOrderPostType.php",
+            "line": 195
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "static::TAXONOMY",
+            "file": "classes/Components/AtumOrders/AtumOrderPostType.php",
+            "line": 249
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key_name",
+            "file": "classes/Components/AtumOrders/Models/AtumOrderModel.php",
+            "line": 1850
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->options_key",
+            "file": "classes/Components/AtumWidget.php",
+            "line": 176
+        },
+        {
+            "function": "mkdir",
+            "expression": "$temp_dir",
+            "file": "classes/DataExport/DataExport.php",
+            "line": 146
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$first_edit_key",
+            "file": "classes/Inc/Ajax.php",
+            "line": 602
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Atum\\Settings\\Settings::OPTION_NAME",
+            "file": "classes/Inc/Helpers.php",
+            "line": 1085
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\\Atum\\Inc\\Globals::ATUM_USER_META_KEY",
+            "file": "classes/Inc/Helpers.php",
+            "line": 2977
+        },
+        {
+            "function": "mkdir",
+            "expression": "$atum_dir",
+            "file": "classes/Inc/Helpers.php",
+            "line": 4168
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/Inc/Upgrade.php",
+            "line": 276
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/Inc/Upgrade.php",
+            "line": 374
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Atum\\Addons\\Addons::ADDONS_KEY_OPTION",
+            "file": "classes/Inc/Upgrade.php",
+            "line": 1254
+        },
+        {
+            "function": "mkdir",
+            "expression": "$temp_dir",
+            "file": "classes/PurchaseOrders/Exports/POExport.php",
+            "line": 285
+        },
+        {
+            "function": "update_option",
+            "expression": "self::OPTION_NAME",
+            "file": "classes/Settings/Settings.php",
+            "line": 784
+        },
+        {
+            "function": "register_post_type",
+            "expression": "self::POST_TYPE",
+            "file": "classes/Suppliers/Suppliers.php",
+            "line": 203
+        }
+    ]
+}

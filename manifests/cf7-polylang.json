@@ -1,0 +1,120 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cf7-polylang",
+        "name": "Contact Form 7 Polylang extension",
+        "version": "2.4.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 64,
+    "coverage": {
+        "files_scanned": 17,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.714
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_cf7pll-*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-polylang-admin.php",
+                        "line": 380
+                    }
+                ]
+            },
+            {
+                "key": "cf7-polylang-admin-notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-polylang-admin.php",
+                        "line": 92
+                    },
+                    {
+                        "file": "includes/class-cf7-polylang-activator.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "polylang",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-cf7-polylang-deactivator.php",
+                        "line": 38
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_locale",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-polylang-admin.php",
+                        "line": 554
+                    }
+                ]
+            },
+            {
+                "key": "_messages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-cf7-polylang-admin.php",
+                        "line": 558
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_site_transient",
+            "expression": "$option_name",
+            "file": "assets/persist-admin-notices/persist-admin-notices-dismissal.php",
+            "line": 92
+        }
+    ]
+}

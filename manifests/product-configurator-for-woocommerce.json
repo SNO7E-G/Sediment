@@ -1,0 +1,249 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "product-configurator-for-woocommerce",
+        "name": "Product Configurator for WooCommerce",
+        "version": "1.7.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 25,
+    "coverage": {
+        "files_scanned": 84,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 11,
+        "resolved": 4,
+        "pattern": 4,
+        "dynamic": 4,
+        "resolution_rate": 0.652
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mkl_pc__pll_registered_fields",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/languages.php",
+                        "line": 123
+                    }
+                ]
+            },
+            {
+                "key": "mkl_pc__settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/settings.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "inc/update.php",
+                        "line": 34
+                    },
+                    {
+                        "file": "inc/update.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "inc/update.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "inc/update.php",
+                        "line": 124
+                    }
+                ]
+            },
+            {
+                "key": "mkl_pc__wpml_registered_fields",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/languages.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "mkl_pc_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/update.php",
+                        "line": 36
+                    },
+                    {
+                        "file": "inc/update.php",
+                        "line": 50
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "mkl_get_configurable_products",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/ajax.php",
+                        "line": 532
+                    }
+                ]
+            },
+            {
+                "key": "mkl_pc_data_init_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/ajax.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "mkl_pc_data_init_version_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/ajax.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "mkl_pc_fat_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/security/class-frontend-action-token.php",
+                        "line": 59
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_mkl_pc__all_variations_are_configurable",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/product-variable.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "_mkl_pc__is_configurable",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/product-variable.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "inc/admin/product.php",
+                        "line": 326
+                    }
+                ]
+            },
+            {
+                "key": "_mkl_pc__variable_configuration_mode",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/product-variable.php",
+                        "line": 31
+                    }
+                ]
+            },
+            {
+                "key": "_mkl_product_configurator_content__backup",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/update.php",
+                        "line": 61
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "mkl_pc_hide_addon__*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/product.php",
+                        "line": 412
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->upload_dir_path",
+            "file": "inc/base/configuration.php",
+            "line": 65
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "inc/cache.php",
+            "line": 104
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "inc/languages.php",
+            "line": 433
+        },
+        {
+            "function": "set_transient",
+            "expression": "$tkey",
+            "file": "inc/security/class-rate-limiter.php",
+            "line": 111
+        }
+    ]
+}

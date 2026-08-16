@@ -1,0 +1,172 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "catch-themes-demo-import",
+        "name": "Catch Themes Demo Import",
+        "version": "3.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:10Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 21,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 9,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 2,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ctp_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/ctp-tabs-removal.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "widget_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/WidgetImporter.php",
+                        "line": 254
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_coming_soon",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/BlockImporter.php",
+                        "line": 591
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "ctdi_importer_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Helpers.php",
+                        "line": 740
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_is_custom_header",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/CustomizerImporter.php",
+                        "line": 183
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "page_for_posts",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/BlockImporter.php",
+                    "line": 509
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "page_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/BlockImporter.php",
+                    "line": 502
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "show_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/BlockImporter.php",
+                    "line": 501
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/WidgetImporter.php",
+                    "line": 260
+                },
+                {
+                    "file": "inc/demo-importer.php",
+                    "line": 124
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "inc/BlockImporter.php",
+            "line": 558
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$data['taxonomy']",
+            "file": "inc/WXRImporter.php",
+            "line": 104
+        }
+    ]
+}

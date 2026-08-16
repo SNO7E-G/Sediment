@@ -1,0 +1,108 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "hyper-cache",
+        "name": "Hyper Cache",
+        "version": "3.4.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:57Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 3,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.714
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "hyper-cache",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "options.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "plugin.php",
+                        "line": 95
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "hyper_cache_clean",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "options.php",
+                        "line": 152
+                    },
+                    {
+                        "file": "plugin.php",
+                        "line": 105
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [
+            {
+                "key": "{content_dir}/cache/hyper-cache",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 97
+                    }
+                ]
+            }
+        ],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$plugin->get_folder()",
+            "file": "options.php",
+            "line": 148
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$lc_dir",
+            "file": "plugin.php",
+            "line": 578
+        }
+    ]
+}

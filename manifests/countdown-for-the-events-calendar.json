@@ -1,0 +1,208 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "countdown-for-the-events-calendar",
+        "name": "Event Countdown for The Events Calendar",
+        "version": "1.5.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:03Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 2,
+    "coverage": {
+        "files_scanned": 12,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 14,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 4,
+        "resolution_rate": 0.737
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cpfm_opt_in_choice_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cpfm-feedback/cpfm-feedback-notice.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "tecc-cpfm-data-sharing",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/tecc-setting-panel.php",
+                        "line": 462
+                    },
+                    {
+                        "file": "includes/tecc-setting-panel.php",
+                        "line": 467
+                    },
+                    {
+                        "file": "includes/tecc-setting-panel.php",
+                        "line": 497
+                    }
+                ]
+            },
+            {
+                "key": "tecc-install-date",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "countdown-for-events-calendar.php",
+                        "line": 190
+                    },
+                    {
+                        "file": "countdown-for-events-calendar.php",
+                        "line": 330
+                    }
+                ]
+            },
+            {
+                "key": "tecc-installDate",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "countdown-for-events-calendar.php",
+                        "line": 312
+                    }
+                ]
+            },
+            {
+                "key": "tecc-ratingDiv",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/feedback-notice/tecc-feedback-notice.php",
+                        "line": 24
+                    },
+                    {
+                        "file": "countdown-for-events-calendar.php",
+                        "line": 313
+                    }
+                ]
+            },
+            {
+                "key": "tecc-type",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "countdown-for-events-calendar.php",
+                        "line": 311
+                    }
+                ]
+            },
+            {
+                "key": "tecc-v",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "countdown-for-events-calendar.php",
+                        "line": 310
+                    }
+                ]
+            },
+            {
+                "key": "tecc_initial_save_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "countdown-for-events-calendar.php",
+                        "line": 186
+                    },
+                    {
+                        "file": "countdown-for-events-calendar.php",
+                        "line": 326
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "tecc_extra_data_update",
+                "recurrence": "every_30_days",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cpfm-feedback/cron/class-cron.php",
+                        "line": 76
+                    },
+                    {
+                        "file": "countdown-for-events-calendar.php",
+                        "line": 320
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$trans_name",
+            "file": "admin/events-addon-page/events-addon-page.php",
+            "line": 874
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "admin/events-addon-page/events-addon-page.php",
+            "line": 875
+        },
+        {
+            "function": "set_transient",
+            "expression": "$trans_name",
+            "file": "admin/events-addon-page/events-addon-page.php",
+            "line": 903
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->main_menu_slug . '-' . $this->plugin_tag",
+            "file": "admin/events-addon-page/events-addon-page.php",
+            "line": 904
+        }
+    ]
+}

@@ -1,0 +1,515 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-shipping",
+        "name": "WooCommerce Shipping",
+        "version": "2.3.13",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:42Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 164,
+        "files_skipped": 0,
+        "write_calls_found": 50,
+        "verified": 28,
+        "resolved": 8,
+        "pattern": 5,
+        "dynamic": 9,
+        "resolution_rate": 0.72
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wcshipping_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-options.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_e2e_connect_server_scenario",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Testing/WCConnectE2EAPIClientMock.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_e2e_order_id",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Testing/E2ESeedData.php",
+                        "line": 41
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_e2e_product_id",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Testing/E2ESeedData.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_installation_completed_shown",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Migration/MigrationNotices.php",
+                        "line": 247
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_migration_completed_shown",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Migration/MigrationNotices.php",
+                        "line": 249
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_migration_state",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Migration/MigrationState.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_previous_woocommerce_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Loader.php",
+                        "line": 2312
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Loader.php",
+                        "line": 428
+                    }
+                ]
+            },
+            {
+                "key": "wcst_data_migration_processes_to_run",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Migration/MigrationState.php",
+                        "line": 154
+                    },
+                    {
+                        "file": "src/Migration/MigrationState.php",
+                        "line": 157
+                    },
+                    {
+                        "file": "src/Migration/MigrationState.php",
+                        "line": 209
+                    }
+                ]
+            },
+            {
+                "key": "wcst_data_migration_required",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Migration/MigrationState.php",
+                        "line": 161
+                    }
+                ]
+            },
+            {
+                "key": "wcst_plugin_deactivated_message_shown",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Loader.php",
+                        "line": 2144
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wcshipping_cleanup_temp_file",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/LabelPurchase/LabelPurchaseService.php",
+                        "line": 380
+                    },
+                    {
+                        "file": "src/Loader.php",
+                        "line": 2500
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_fetch_service_schemas",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Loader.php",
+                        "line": 1697
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_send_return_label_email_delayed",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/LabelPurchase/LabelPurchaseService.php",
+                        "line": 341
+                    },
+                    {
+                        "file": "src/Loader.php",
+                        "line": 2454
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "connect_server_is_alive_transient",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-api-client.php",
+                        "line": 462
+                    }
+                ]
+            },
+            {
+                "key": "wcc_notice_dismissed_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Loader.php",
+                        "line": 2090
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_av_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Checkout/CheckoutService.php",
+                        "line": 266
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_labels_report",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Analytics/LabelsService.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_scanform_history",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/ScanForm/ScanFormService.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_sift_config",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-api-client.php",
+                        "line": 262
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "wcshipping_customs_info",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/legacy-api-controllers/class-wc-rest-connect-shipping-rates-controller.php",
+                        "line": 59
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "wcc-promo-*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Promo/PromoService.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/LabelPurchase/LabelPurchaseService.php",
+                        "line": 1164
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_feature_banner_notices",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Banners/Banners.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_last_box_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/legacy-api-controllers/class-wc-rest-connect-shipping-label-controller.php",
+                        "line": 98
+                    },
+                    {
+                        "file": "src/LabelPurchase/LabelPurchaseService.php",
+                        "line": 1140
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_last_carrier_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/legacy-api-controllers/class-wc-rest-connect-shipping-label-controller.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "src/LabelPurchase/LabelPurchaseService.php",
+                        "line": 1148
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_last_service_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/legacy-api-controllers/class-wc-rest-connect-shipping-label-controller.php",
+                        "line": 102
+                    },
+                    {
+                        "file": "src/LabelPurchase/LabelPurchaseService.php",
+                        "line": 1144
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_nux_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-nux.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_services_error_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/ServiceData/ServicesErrorNotice.php",
+                        "line": 152
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "wcshipping_cleanup_temp_file",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/LabelPurchase/LabelPurchaseService.php",
+                        "line": 373
+                    },
+                    {
+                        "file": "src/Loader.php",
+                        "line": 2493
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_send_return_label_email_delayed",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/LabelPurchase/LabelPurchaseService.php",
+                        "line": 333
+                    },
+                    {
+                        "file": "src/Loader.php",
+                        "line": 2447
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "classes/class-wc-connect-options.php",
+            "line": 223
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$grouped_options[$group]",
+            "file": "classes/class-wc-connect-options.php",
+            "line": 290
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$grouped_options[$group]",
+            "file": "classes/class-wc-connect-options.php",
+            "line": 300
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$temp_dir",
+            "file": "src/LabelPurchase/LabelPurchaseService.php",
+            "line": 1349
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$order_key",
+            "file": "src/Loader.php",
+            "line": 2175
+        },
+        {
+            "function": "update_option",
+            "expression": "self::OPTIONS['wcshipping']",
+            "file": "src/Migration/LegacySettingsMigrator.php",
+            "line": 177
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$versioned_setting['wcshipping']",
+            "file": "src/Migration/LegacySettingsMigrator.php",
+            "line": 218
+        },
+        {
+            "function": "update_option",
+            "expression": "self::ORIGIN_ADDRESS['wcshipping']",
+            "file": "src/Migration/LegacySettingsMigrator.php",
+            "line": 238
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Testing/WCConnectE2EConnectionShim.php",
+            "line": 216
+        }
+    ]
+}

@@ -1,0 +1,246 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cyrlitera",
+        "name": "Cyrlitera – transliteration of links and file names",
+        "version": "1.3.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:41Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 136,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 6,
+        "dynamic": 12,
+        "resolution_rate": 0.217
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "factory_plugin_versions",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/core/includes/class-factory-migrations.php",
+                        "line": 422
+                    },
+                    {
+                        "file": "libs/factory/core/includes/class-factory-migrations.php",
+                        "line": 432
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_asgaros_forums_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-helpers.php",
+                        "line": 586
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_asgaros_topics_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-helpers.php",
+                        "line": 597
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_bp_groups_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-helpers.php",
+                        "line": 571
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_wp_term_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-helpers.php",
+                        "line": 557
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_wpforo_forums_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-helpers.php",
+                        "line": 612
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_wpforo_topics_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-helpers.php",
+                        "line": 624
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wbcr_factory_google_fonts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/forms/controls/google-font.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_factory_google_fonts_raw",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/forms/controls/google-font.php",
+                        "line": 141
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "wbcr_wp_old_slug",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-helpers.php",
+                        "line": 545
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$cache_dir_path",
+            "file": "libs/factory/bootstrap/includes/functions.php",
+            "line": 179
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_activated')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 215
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 216
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_activated')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 218
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 219
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_migration_error')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 389
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_migration_error')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 393
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 423
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 433
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->getPrefix() . $option_name",
+            "file": "libs/factory/core/includes/class-factory-options.php",
+            "line": 280
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . $option_name",
+            "file": "libs/factory/core/includes/class-factory-options.php",
+            "line": 307
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "\"{$this->plugin->getPluginName()}_license_autosync\"",
+            "file": "libs/factory/core/includes/premium/class-factory-provider-abstract.php",
+            "line": 202
+        }
+    ]
+}

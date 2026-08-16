@@ -1,0 +1,532 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "bit-integrations",
+        "name": "Bit Integrations",
+        "version": "2.10.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:51Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 653,
+        "files_skipped": 0,
+        "write_calls_found": 68,
+        "verified": 12,
+        "resolved": 5,
+        "pattern": 5,
+        "dynamic": 46,
+        "resolution_rate": 0.25
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bit_integrations_log_columns_migrating",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Log/LogHandler.php",
+                        "line": 347
+                    },
+                    {
+                        "file": "backend/Log/LogHandler.php",
+                        "line": 356
+                    }
+                ]
+            },
+            {
+                "key": "btcbi_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Core/Database/DB.php",
+                        "line": 103
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "bit_integrations_action_hook_flows",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Core/Util/StoreInCache.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "bit_integrations_active_trigger_entities",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Core/Util/StoreInCache.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "bit_integrations_fallback_trigger_entities",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Core/Util/StoreInCache.php",
+                        "line": 36
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Actions/PostCreation/PostCreationController.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "backend/Actions/PostCreation/PostCreationController.php",
+                        "line": 350
+                    },
+                    {
+                        "file": "backend/Actions/PostCreation/PostCreationController.php",
+                        "line": 450
+                    }
+                ]
+            },
+            {
+                "key": "_bbp_pre_spammed_replies",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Actions/BuddyBoss/RecordApiHelper.php",
+                        "line": 861
+                    }
+                ]
+            },
+            {
+                "key": "_bbp_pre_trashed_replies",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Actions/BuddyBoss/RecordApiHelper.php",
+                        "line": 851
+                    }
+                ]
+            },
+            {
+                "key": "_bbp_spam_meta_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Actions/BuddyBoss/RecordApiHelper.php",
+                        "line": 284
+                    },
+                    {
+                        "file": "backend/Actions/BuddyBoss/RecordApiHelper.php",
+                        "line": 854
+                    }
+                ]
+            },
+            {
+                "key": "_pods_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Actions/Pods/PodsController.php",
+                        "line": 136
+                    },
+                    {
+                        "file": "backend/Actions/Pods/PodsController.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Actions/WooCommerce/RecordApiHelper.php",
+                        "line": 337
+                    }
+                ]
+            },
+            {
+                "key": "_product_image_gallery",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Actions/WooCommerce/RecordApiHelper.php",
+                        "line": 615
+                    }
+                ]
+            },
+            {
+                "key": "ndpv_attach_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Actions/PropovoiceCRM/FilesApiHelper.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "ws_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Actions/PropovoiceCRM/FilesApiHelper.php",
+                        "line": 69
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_sfwd-course_progress",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Actions/LearnDash/RecordApiHelper.php",
+                        "line": 654
+                    }
+                ]
+            },
+            {
+                "key": "_sfwd-quizzes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/Actions/LearnDash/RecordApiHelper.php",
+                        "line": 218
+                    },
+                    {
+                        "file": "backend/Actions/LearnDash/RecordApiHelper.php",
+                        "line": 472
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$option_name",
+            "file": "backend/Actions/AcademyLms/AcademyLmsController.php",
+            "line": 127
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "backend/Actions/Pods/PodsController.php",
+            "line": 62
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "backend/Actions/Pods/PodsController.php",
+            "line": 65
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/Pods/PodsController.php",
+            "line": 135
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/Pods/PodsController.php",
+            "line": 142
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$fieldObject['name']",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 59
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$fieldObject['field_name']",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 109
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$fieldObject['field_name']",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 146
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 170
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 177
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 183
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 189
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 191
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 193
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 197
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 199
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 201
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 243
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$actionValue",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 260
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$data['name']",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 351
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$data['name']",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 364
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$fieldObject['name']",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 451
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$fieldObject['field_name']",
+            "file": "backend/Actions/PostCreation/PostCreationController.php",
+            "line": 468
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$metaKey",
+            "file": "backend/Actions/Registration/RegistrationController.php",
+            "line": 279
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$metaKey",
+            "file": "backend/Actions/Registration/RegistrationController.php",
+            "line": 281
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$metaKey",
+            "file": "backend/Actions/WooCommerce/RecordApiHelper.php",
+            "line": 75
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$metaKey",
+            "file": "backend/Actions/WooCommerce/RecordApiHelper.php",
+            "line": 380
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$uploadField->wcField",
+            "file": "backend/Actions/WooCommerce/RecordApiHelper.php",
+            "line": 617
+        },
+        {
+            "function": "add_option",
+            "expression": "self::withPrefix($option)",
+            "file": "backend/Config.php",
+            "line": 152
+        },
+        {
+            "function": "update_option",
+            "expression": "self::withPrefix($option)",
+            "file": "backend/Config.php",
+            "line": 176
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$table",
+            "file": "backend/Core/Database/DB.php",
+            "line": 89
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\BitApps\\Integrations\\Config::withPrefix('manage_integrations')",
+            "file": "backend/Core/Util/Activation.php",
+            "line": 35
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\BitApps\\Integrations\\Config::withPrefix('view_integrations')",
+            "file": "backend/Core/Util/Activation.php",
+            "line": 36
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\BitApps\\Integrations\\Config::withPrefix('create_integrations')",
+            "file": "backend/Core/Util/Activation.php",
+            "line": 37
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\BitApps\\Integrations\\Config::withPrefix('edit_integrations')",
+            "file": "backend/Core/Util/Activation.php",
+            "line": 38
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\BitApps\\Integrations\\Config::withPrefix('delete_integrations')",
+            "file": "backend/Core/Util/Activation.php",
+            "line": 39
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "backend/Core/Util/CustomFuncValidator.php",
+            "line": 282
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\BitApps\\Integrations\\Config::withPrefix('scrape_file_') . $scrapeKey",
+            "file": "backend/Core/Util/CustomFuncValidator.php",
+            "line": 365
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionKey",
+            "file": "backend/Core/Util/Helper.php",
+            "line": 418
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$regex",
+            "file": "backend/Core/Util/RewriteRuleProvider.php",
+            "line": 48
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock",
+            "file": "backend/Core/Util/RewriteRuleProvider.php",
+            "line": 65
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "\\BitApps\\Integrations\\Config::withPrefix('delete_log')",
+            "file": "backend/Plugin.php",
+            "line": 94
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir",
+            "file": "backend/Triggers/FallbackTrigger/TriggerFallback.php",
+            "line": 2764
+        },
+        {
+            "function": "update_option",
+            "expression": "\\BitApps\\Integrations\\Config::withPrefix(\"{$triggerName}_test\")",
+            "file": "backend/Triggers/TriggerController.php",
+            "line": 83
+        },
+        {
+            "function": "update_option",
+            "expression": "\\BitApps\\Integrations\\Config::withPrefix(\"{$triggerName}_test\")",
+            "file": "backend/Triggers/TriggerController.php",
+            "line": 106
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionKey",
+            "file": "backend/Triggers/Webhook/WebhookController.php",
+            "line": 107
+        }
+    ]
+}

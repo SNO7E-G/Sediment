@@ -1,0 +1,172 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-auto-updater",
+        "name": "WP Auto Updater",
+        "version": "1.7.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:12Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 47,
+    "coverage": {
+        "files_scanned": 4,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 8,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.909
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp_auto_updater_history_table_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wp-auto-updater-history.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "wp_auto_updater_notification_options",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wp-auto-updater-notification.php",
+                        "line": 443
+                    }
+                ]
+            },
+            {
+                "key": "wp_auto_updater_options",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wp-auto-updater.php",
+                        "line": 742
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wp_auto_updater/history_table/created",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wp-auto-updater-history.php",
+                        "line": 340
+                    }
+                ]
+            },
+            {
+                "key": "wp_auto_updater/history_table/updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wp-auto-updater-history.php",
+                        "line": 160
+                    }
+                ]
+            },
+            {
+                "key": "wp_auto_updater/upgraded_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wp-auto-updater.php",
+                        "line": 293
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "cron",
+            "key": "wp_update_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/class-wp-auto-updater.php",
+                    "line": 409
+                }
+            ]
+        },
+        {
+            "type": "cron",
+            "key": "wp_update_themes",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/class-wp-auto-updater.php",
+                    "line": 406
+                }
+            ]
+        },
+        {
+            "type": "cron",
+            "key": "wp_version_check",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/class-wp-auto-updater.php",
+                    "line": 403
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "auto_update_core_major",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/class-wp-auto-updater.php",
+                    "line": 223
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$schema",
+            "file": "inc/class-wp-auto-updater-history.php",
+            "line": 336
+        }
+    ]
+}

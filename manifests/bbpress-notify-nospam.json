@@ -1,0 +1,143 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "bbpress-notify-nospam",
+        "name": "bbPress Notify (No-Spam)",
+        "version": "3.0.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:21Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 33,
+    "coverage": {
+        "files_scanned": 29,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 6,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.875
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bbpnns_dismissed_admin_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controller/class-bbpress-notify-nospam-controller-admin-notices.php",
+                        "line": 271
+                    }
+                ]
+            },
+            {
+                "key": "bbpnns_v2_conversion_complete",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helper/class-bbpress-notify-nospam-helper-converter.php",
+                        "line": 123
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "bbpress_notify_bg_reply",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controller/class-bbpress-notify-nospam-controller-common-core.php",
+                        "line": 364
+                    }
+                ]
+            },
+            {
+                "key": "bbpress_notify_bg_topic",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controller/class-bbpress-notify-nospam-controller-common-core.php",
+                        "line": 402
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "usc_bbpnns_addons",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/dal/class-bbpress-notify-nospam-dal-addons-dao.php",
+                        "line": 126
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "bbpress_notify_bg_reply",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controller/class-bbpress-notify-nospam-controller-common-core.php",
+                        "line": 349
+                    }
+                ]
+            },
+            {
+                "key": "bbpress_notify_bg_topic",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/controller/class-bbpress-notify-nospam-controller-common-core.php",
+                        "line": 390
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->settings_name",
+            "file": "includes/dal/class-bbpress-notify-nospam-dal-settings-dao.php",
+            "line": 100
+        }
+    ]
+}

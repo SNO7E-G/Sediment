@@ -1,0 +1,236 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "companion-auto-update",
+        "name": "Companion Auto Update",
+        "version": "3.9.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 22,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 27,
+        "verified": 24,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.889
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cau_db_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "companion-auto-update.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "companion-auto-update.php",
+                        "line": 219
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "cau_custom_hooks_plugins",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/dashboard.php",
+                        "line": 108
+                    },
+                    {
+                        "file": "admin/dashboard.php",
+                        "line": 113
+                    },
+                    {
+                        "file": "companion-auto-update.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "cau_custom_hooks_themes",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/dashboard.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "admin/dashboard.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "companion-auto-update.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "cau_log_updater",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/dashboard.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "admin/dashboard.php",
+                        "line": 114
+                    },
+                    {
+                        "file": "companion-auto-update.php",
+                        "line": 46
+                    }
+                ]
+            },
+            {
+                "key": "cau_outdated_notifier",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/dashboard.php",
+                        "line": 177
+                    },
+                    {
+                        "file": "admin/dashboard.php",
+                        "line": 180
+                    },
+                    {
+                        "file": "companion-auto-update.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "cau_set_schedule_mail",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/dashboard.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "admin/dashboard.php",
+                        "line": 164
+                    },
+                    {
+                        "file": "cau_emails.php",
+                        "line": 500
+                    },
+                    {
+                        "file": "companion-auto-update.php",
+                        "line": 43
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "cron",
+            "key": "wp_update_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/dashboard.php",
+                    "line": 107
+                },
+                {
+                    "file": "admin/dashboard.php",
+                    "line": 112
+                }
+            ]
+        },
+        {
+            "type": "cron",
+            "key": "wp_update_themes",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/dashboard.php",
+                    "line": 127
+                },
+                {
+                    "file": "admin/dashboard.php",
+                    "line": 131
+                }
+            ]
+        },
+        {
+            "type": "cron",
+            "key": "wp_version_check",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/dashboard.php",
+                    "line": 145
+                },
+                {
+                    "file": "admin/dashboard.php",
+                    "line": 148
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cau_transient_name",
+            "file": "cau_functions.php",
+            "line": 663
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "companion-auto-update.php",
+            "line": 108
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql2",
+            "file": "companion-auto-update.php",
+            "line": 109
+        }
+    ]
+}

@@ -1,0 +1,147 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ajax-load-more",
+        "name": "Ajax Load More",
+        "version": "8.0.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:43Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 78,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 1,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 8,
+        "resolution_rate": 0.333
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "alm_settings",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "alm-install-date",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/classes/nag.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "alm_drop_pluginVersion",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/functions/plugin-updates.php",
+                        "line": 21
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}alm",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "core/functions/install.php",
+                        "line": 50
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "alm-hide-notice",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/classes/nag.php",
+                        "line": 41
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "admin/admin.php",
+            "line": 88
+        },
+        {
+            "function": "update_option",
+            "expression": "$item_key",
+            "file": "admin/classes/licensing.php",
+            "line": 207
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$option_prefix}_status\"",
+            "file": "admin/classes/licensing.php",
+            "line": 360
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$option_prefix}_data\"",
+            "file": "admin/classes/licensing.php",
+            "line": 361
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "admin/classes/licensing.php",
+            "line": 364
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "ajax-load-more.php",
+            "line": 297
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->failed_request_cache_key",
+            "file": "core/libs/EDD_SL_Plugin_Updater.php",
+            "line": 498
+        },
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "core/libs/EDD_SL_Plugin_Updater.php",
+            "line": 648
+        }
+    ]
+}

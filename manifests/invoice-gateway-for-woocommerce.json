@@ -1,0 +1,123 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "invoice-gateway-for-woocommerce",
+        "name": "Invoice Gateway For WooCommerce",
+        "version": "1.1.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:37Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 38,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 4,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "igfw_clean_up_plugin_options",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "igfw_activation_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "Models/WPAY_Pointer.php",
+                        "line": 320
+                    }
+                ]
+            },
+            {
+                "key": "igfw_clean_up_plugin_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "Models/Bootstrap.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "igfw_installed_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "Models/Bootstrap.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "wwp_installed_by",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Helpers/Plugin_Installer.php",
+                        "line": 144
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "_igfw_dismiss_pointer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Models/WPAY_Pointer.php",
+                        "line": 305
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "igfw_check_overdue_invoices",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "Models/Payments/IGFW_Payment_Terms.php",
+                        "line": 174
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

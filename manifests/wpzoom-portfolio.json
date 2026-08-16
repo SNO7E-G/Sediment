@@ -1,0 +1,183 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpzoom-portfolio",
+        "name": "WPZOOM Portfolio Lite",
+        "version": "1.4.31",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:43Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 13,
+    "coverage": {
+        "files_scanned": 14,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 9,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.692
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "default_portfolio",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wpzoom-portfolio-custom-posts.php",
+                        "line": 292
+                    }
+                ]
+            },
+            {
+                "key": "downloaded_font_files",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wpzoom-wptt-webfont-loader.php",
+                        "line": 366
+                    }
+                ]
+            },
+            {
+                "key": "wpzoom_portfolio_base",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wpzoom-portfolio-settings-page.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "wpzoom_portfolio_root",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wpzoom-portfolio-settings-page.php",
+                        "line": 98
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "delete_fonts_folder",
+                "recurrence": "monthly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wpzoom-wptt-webfont-loader.php",
+                        "line": 592
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wpz_reorder_view_mode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/featured-posts/class-wpzoom-portfolio-featured-posts.php",
+                        "line": 306
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "portfolio_item",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wpzoom-portfolio-custom-posts.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "portfolio_layout",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wpzoom-portfolio-custom-posts.php",
+                        "line": 296
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "portfolio",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wpzoom-portfolio-custom-posts.php",
+                        "line": 188
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "classes/class-wpzoom-portfolio-settings-page.php",
+            "line": 157
+        },
+        {
+            "function": "add_option",
+            "expression": "$option",
+            "file": "classes/class-wpzoom-portfolio-settings-page.php",
+            "line": 162
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->featured_metakey",
+            "file": "classes/featured-posts/class-wpzoom-portfolio-featured-posts.php",
+            "line": 330
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key($this->post_type)",
+            "file": "classes/featured-posts/class-wpzoom-portfolio-featured-posts.php",
+            "line": 489
+        }
+    ]
+}

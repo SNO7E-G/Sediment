@@ -1,0 +1,155 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "shortcoder",
+        "name": "Shortcoder",
+        "version": "6.5.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:03Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 41,
+    "coverage": {
+        "files_scanned": 11,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 8,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.818
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "sc_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/settings.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "shortcoder_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/updates.php",
+                        "line": 107
+                    },
+                    {
+                        "file": "includes/updates.php",
+                        "line": 153
+                    }
+                ]
+            },
+            {
+                "key": "shortcoder_last_changelog",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 193
+                    },
+                    {
+                        "file": "admin/admin.php",
+                        "line": 221
+                    }
+                ]
+            },
+            {
+                "key": "shortcoder_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/updates.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "sc_upgrade",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/updates.php",
+                        "line": 28
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "shortcoder",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 81
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "sc_tag",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 120
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "admin/edit.php",
+            "line": 159
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/updates.php",
+            "line": 187
+        }
+    ]
+}

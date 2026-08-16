@@ -1,0 +1,573 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "timetics",
+        "name": "Timetics - Appointment Booking Calendar & Scheduling System",
+        "version": "1.0.61",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:17Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 109,
+        "files_skipped": 0,
+        "write_calls_found": 58,
+        "verified": 29,
+        "resolved": 12,
+        "pattern": 0,
+        "dynamic": 17,
+        "resolution_rate": 0.707
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "timetics_default_flows_seeded",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "core/admin/notification-seeder.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "timetics_demo_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "timetics.php",
+                        "line": 324
+                    }
+                ]
+            },
+            {
+                "key": "timetics_onboard_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "core/admin/hooks.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "timetics.php",
+                        "line": 328
+                    }
+                ]
+            },
+            {
+                "key": "timetics_onboard_setup",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "core/admin/hooks.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "timetics_reminder_cron_migrated",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/bookings/hooks.php",
+                        "line": 264
+                    },
+                    {
+                        "file": "core/bookings/hooks.php",
+                        "line": 309
+                    }
+                ]
+            },
+            {
+                "key": "timetics_reminder_tz_migrated",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/bookings/hooks.php",
+                        "line": 370
+                    }
+                ]
+            },
+            {
+                "key": "timetics_rewrite_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "base/custom-endpoint.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "timetics_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/settings/settings.php",
+                        "line": 53
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "timetics_booking_clear_schedule",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "utils/global-helper.php",
+                        "line": 555
+                    }
+                ]
+            },
+            {
+                "key": "timetics_booking_remainder",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/bookings/hooks.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "tt_resume_flow_after_delay",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/admin/notification-flow-guard.php",
+                        "line": 216
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "timetics_meeting_products_synced",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/integrations/woocommerce/hooks.php",
+                        "line": 292
+                    },
+                    {
+                        "file": "core/integrations/woocommerce/hooks.php",
+                        "line": 320
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/integrations/woocommerce/hooks.php",
+                        "line": 505
+                    }
+                ]
+            },
+            {
+                "key": "_regular_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/integrations/woocommerce/hooks.php",
+                        "line": 504
+                    }
+                ]
+            },
+            {
+                "key": "_tt_booking_calendar_event",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/bookings/booking.php",
+                        "line": 881
+                    },
+                    {
+                        "file": "core/bookings/booking.php",
+                        "line": 918
+                    },
+                    {
+                        "file": "core/bookings/booking.php",
+                        "line": 949
+                    }
+                ]
+            },
+            {
+                "key": "_tt_booking_google_calendar_sync_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/bookings/booking.php",
+                        "line": 1170
+                    }
+                ]
+            },
+            {
+                "key": "_tt_booking_google_event_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/bookings/booking.php",
+                        "line": 1160
+                    }
+                ]
+            },
+            {
+                "key": "_tt_booking_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/integrations/woocommerce/status-mapper.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "_tt_booking_security_token",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/bookings/booking.php",
+                        "line": 1246
+                    }
+                ]
+            },
+            {
+                "key": "_tt_booking_slot_released",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/bookings/booking.php",
+                        "line": 734
+                    }
+                ]
+            },
+            {
+                "key": "_tt_stripe_payment_intent_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/bookings/api-booking.php",
+                        "line": 717
+                    },
+                    {
+                        "file": "core/bookings/booking.php",
+                        "line": 1267
+                    }
+                ]
+            },
+            {
+                "key": "_tt_wc_order_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/integrations/woocommerce/status-mapper.php",
+                        "line": 113
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "timetics_google_auth",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "utils/global-helper.php",
+                        "line": 151
+                    }
+                ]
+            },
+            {
+                "key": "timetics_google_auth_code",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "utils/global-helper.php",
+                        "line": 137
+                    }
+                ]
+            },
+            {
+                "key": "timetics_google_auth_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "utils/global-helper.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "timetics_google_refresh_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "utils/global-helper.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "timetics_outlook_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/staffs/api-staff.php",
+                        "line": 527
+                    }
+                ]
+            },
+            {
+                "key": "timetics_staff_onboard_skip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/staffs/hooks.php",
+                        "line": 223
+                    }
+                ]
+            },
+            {
+                "key": "timetics_woocommerce_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/admin/hooks.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "timetics_zoom_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/staffs/api-staff.php",
+                        "line": 522
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "administrator",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "base/role.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "base/role.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "delete_published_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "base/role.php",
+                        "line": 155
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "timetics-appointment",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/appointments/hooks.php",
+                        "line": 113
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "timetics-meeting-category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/appointments/hooks.php",
+                        "line": 150
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_rewrite_endpoint",
+            "expression": "$endpoint",
+            "file": "base/custom-endpoint.php",
+            "line": 35
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "base/post.php",
+            "line": 99
+        },
+        {
+            "function": "add_cap",
+            "expression": "",
+            "file": "base/role.php",
+            "line": 24
+        },
+        {
+            "function": "add_role",
+            "expression": "$role['name']",
+            "file": "base/role.php",
+            "line": 37
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$this->name",
+            "file": "base/taxonomy.php",
+            "line": 66
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::checkpoint_key($flow_id, $resume_time)",
+            "file": "core/admin/notification-flow-guard.php",
+            "line": 370
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "core/appointments/appointment.php",
+            "line": 699
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "core/appointments/appointment.php",
+            "line": 721
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "core/bookings/booking-entry.php",
+            "line": 391
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "core/bookings/booking.php",
+            "line": 593
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "core/customers/customer.php",
+            "line": 258
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$meta_key",
+            "file": "core/services/service.php",
+            "line": 271
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "core/staffs/staff.php",
+            "line": 406
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->text_domain . '__banner_last_check'",
+            "file": "utils/banner/banner.php",
+            "line": 219
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->text_domain . '__banner_data'",
+            "file": "utils/banner/banner.php",
+            "line": 220
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$notice_id",
+            "file": "utils/notice/notice.php",
+            "line": 379
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice_id",
+            "file": "utils/notice/notice.php",
+            "line": 381
+        }
+    ]
+}

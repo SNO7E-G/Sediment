@@ -1,0 +1,172 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "yoast-test-helper",
+        "name": "Yoast Test Helper",
+        "version": "1.19",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:46Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 32,
+    "coverage": {
+        "files_scanned": 40,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "book",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/post-types.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "movie",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/post-types.php",
+                        "line": 67
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "book-category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/taxonomies.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "book-genre",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/taxonomies.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "movie-category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/taxonomies.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "movie-genre",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/taxonomies.php",
+                        "line": 49
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "schema",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/schema.php",
+                        "line": 72
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$this->get_option_name()",
+            "file": "src/admin-notifications.php",
+            "line": 98
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/logger/database-log-storage.php",
+            "line": 85
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "src/option.php",
+            "line": 74
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name($plugin)",
+            "file": "src/wordpress-plugin-options.php",
+            "line": 65
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/wordpress-plugin-options.php",
+            "line": 126
+        },
+        {
+            "function": "update_option",
+            "expression": "$plugin->get_version_option_name()",
+            "file": "src/wordpress-plugin-version.php",
+            "line": 46
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/wordpress-plugin-version.php",
+            "line": 62
+        }
+    ]
+}

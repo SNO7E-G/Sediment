@@ -1,0 +1,267 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "chart-builder",
+        "name": "Chart Builder",
+        "version": "3.7.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 60,
+    "coverage": {
+        "files_scanned": 37,
+        "files_skipped": 0,
+        "write_calls_found": 25,
+        "verified": 9,
+        "resolved": 3,
+        "pattern": 6,
+        "dynamic": 7,
+        "resolution_rate": 0.48
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "ays_chart_builder_upgrade_plugin",
+        "condition_default": "false"
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ays_chart_20_bundle_banner_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-chart-builder-admin.php",
+                        "line": 3418
+                    },
+                    {
+                        "file": "admin/class-chart-builder-admin.php",
+                        "line": 3431
+                    }
+                ]
+            },
+            {
+                "key": "ays_chart_builder_upgrade_plugin",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-chart-builder-admin.php",
+                        "line": 743
+                    },
+                    {
+                        "file": "admin/class-chart-builder-admin.php",
+                        "line": 745
+                    }
+                ]
+            },
+            {
+                "key": "ays_chart_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-chart-builder-activator.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "ays_chart_flush_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-chart-builder-custom-post-type.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "ays_chart_quiz_maker_quiz_data_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-chart-builder-db-actions.php",
+                        "line": 648
+                    },
+                    {
+                        "file": "includes/class-chart-builder-db-actions.php",
+                        "line": 938
+                    }
+                ]
+            },
+            {
+                "key": "ays_chart_quiz_maker_results_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-chart-builder-db-actions.php",
+                        "line": 645
+                    },
+                    {
+                        "file": "includes/class-chart-builder-db-actions.php",
+                        "line": 935
+                    }
+                ]
+            },
+            {
+                "key": "ays_chart_sale_btn",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-chart-builder-admin.php",
+                        "line": 880
+                    },
+                    {
+                        "file": "admin/class-chart-builder-admin.php",
+                        "line": 1230
+                    }
+                ]
+            },
+            {
+                "key": "ays_chart_sale_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-chart-builder-admin.php",
+                        "line": 1231
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "ayschart_db_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-chart-builder-functions.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "ayschart_db_table_mapping",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-chart-builder-functions.php",
+                        "line": 301
+                    }
+                ]
+            },
+            {
+                "key": "ayschart_db_tables",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-chart-builder-functions.php",
+                        "line": 213
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "ays-*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-chart-builder-custom-post-type.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "ays-chart-builder/([^/]+)/?",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-chart-builder-custom-post-type.php",
+                        "line": 101
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name_for_data",
+            "file": "admin/class-chart-builder-admin.php",
+            "line": 4259
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name_for_quiz",
+            "file": "admin/class-chart-builder-admin.php",
+            "line": 4264
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-chart-builder-activator.php",
+            "line": 80
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-chart-builder-activator.php",
+            "line": 106
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-chart-builder-activator.php",
+            "line": 131
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name_for_data",
+            "file": "includes/class-chart-builder-db-actions.php",
+            "line": 471
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name_for_quiz",
+            "file": "includes/class-chart-builder-db-actions.php",
+            "line": 472
+        }
+    ]
+}

@@ -1,0 +1,154 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-graphql",
+        "name": "WPGraphQL",
+        "version": "2.19.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:16Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 41,
+    "coverage": {
+        "files_scanned": 239,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 8,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.727
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp_graphql_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/WPGraphQL.php",
+                        "line": 458
+                    },
+                    {
+                        "file": "src/WPGraphQL.php",
+                        "line": 465
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wpgraphql_incompatible_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Updates/Updates.php",
+                        "line": 175
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_edit_last",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Data/PostObjectMutation.php",
+                        "line": 163
+                    }
+                ]
+            },
+            {
+                "key": "_edit_lock",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Data/PostObjectMutation.php",
+                        "line": 456
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Data/MediaItemMutation.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "_wp_desired_post_slug",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Data/PostObjectMutation.php",
+                        "line": 169
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "wpgraphql_dismissed_admin_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/AdminNotices.php",
+                        "line": 424
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$id",
+            "file": "src/Admin/Settings/SettingsRegistry.php",
+            "line": 242
+        },
+        {
+            "function": "update_option",
+            "expression": "$updatable_settings_options[$key]['option']",
+            "file": "src/Mutation/UpdateSettings.php",
+            "line": 240
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "self::$route . '/?$'",
+            "file": "src/Router.php",
+            "line": 101
+        }
+    ]
+}

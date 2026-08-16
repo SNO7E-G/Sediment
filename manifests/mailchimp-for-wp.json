@@ -1,0 +1,389 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mailchimp-for-wp",
+        "name": "MC4WP: Mailchimp for WordPress",
+        "version": "4.14.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:48Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 133,
+        "files_skipped": 0,
+        "write_calls_found": 42,
+        "verified": 28,
+        "resolved": 3,
+        "pattern": 1,
+        "dynamic": 10,
+        "resolution_rate": 0.738
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mc4wp",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-admin.php",
+                        "line": 506
+                    },
+                    {
+                        "file": "includes/admin/class-review-notice.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "includes/admin/migrations/3.0.0-general-options.php",
+                        "line": 13
+                    },
+                    {
+                        "file": "includes/admin/migrations/4.12.6-update-tracking-pixel-url.php",
+                        "line": 17
+                    }
+                ]
+            },
+            {
+                "key": "mc4wp_flash_messages",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-admin-messages.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "mc4wp_form_stylesheets",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migrations/3.0.0-form-2-options.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "includes/forms/class-admin.php",
+                        "line": 326
+                    }
+                ]
+            },
+            {
+                "key": "mc4wp_groupings_map",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migrations/4.0.0-groupings-to-interests.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "mc4wp_integrations",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migrations/3.0.0-integration-options.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "includes/admin/migrations/3.1.6-woocommerce-position-prefix.php",
+                        "line": 11
+                    }
+                ]
+            },
+            {
+                "key": "mc4wp_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-admin.php",
+                        "line": 181
+                    },
+                    {
+                        "file": "includes/admin/class-admin.php",
+                        "line": 188
+                    },
+                    {
+                        "file": "includes/admin/class-admin.php",
+                        "line": 212
+                    }
+                ]
+            },
+            {
+                "key": "widget_mc4wp_form_widget",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migrations/3.0.0-widget-base-id.php",
+                        "line": 35
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "mc4wp_integration_subscribe",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/integrations/class-integration.php",
+                        "line": 442
+                    }
+                ]
+            },
+            {
+                "key": "mc4wp_refresh_mailchimp_lists",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migrations/4.1.2-flush-list-cache.php",
+                        "line": 12
+                    },
+                    {
+                        "file": "includes/admin/migrations/4.1.3-reschedule-event.php",
+                        "line": 8
+                    },
+                    {
+                        "file": "mailchimp-for-wp.php",
+                        "line": 109
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "mc4wp_api_key_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-admin.php",
+                        "line": 567
+                    }
+                ]
+            },
+            {
+                "key": "mc4wp_error_email_sent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-debug-log.php",
+                        "line": 155
+                    }
+                ]
+            },
+            {
+                "key": "mc4wp_mailchimp_lists",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp.php",
+                        "line": 395
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_mc4wp_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/migrations/3.0.0-form-1-post-type.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "includes/admin/migrations/3.0.0-form-2-options.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "includes/admin/migrations/3.0.0-form-3-messages.php",
+                        "line": 41
+                    },
+                    {
+                        "file": "includes/forms/class-admin.php",
+                        "line": 174
+                    },
+                    {
+                        "file": "includes/forms/class-admin.php",
+                        "line": 218
+                    }
+                ]
+            },
+            {
+                "key": "text_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/forms/class-admin.php",
+                        "line": 222
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_mc4wp_cron_notice_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-cron-notice.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "_mc4wp_review_notice_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-review-notice.php",
+                        "line": 48
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "mc4wp-form",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/forms/class-form-manager.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "mc4wp_integration_subscribe",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/integrations/class-integration.php",
+                        "line": 440
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/admin/migrations/3.0.0-widget-base-id.php",
+                    "line": 29
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$message_key",
+            "file": "includes/admin/migrations/3.0.0-form-1-post-type.php",
+            "line": 80
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/admin/migrations/3.0.0-form-3-messages.php",
+            "line": 36
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "includes/admin/migrations/3.0.0-styles-builder.php",
+            "line": 30
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "includes/admin/migrations/4.8.2-move-debug-log-to-subdirectory.php",
+            "line": 14
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/campaigns/class-archive.php",
+            "line": 202
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/class-mailchimp.php",
+            "line": 266
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/class-mailchimp.php",
+            "line": 321
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/class-mailchimp.php",
+            "line": 366
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "includes/class-queue.php",
+            "line": 190
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "includes/functions.php",
+            "line": 142
+        }
+    ]
+}

@@ -1,0 +1,170 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "blogger-importer-extended",
+        "name": "Blogger Importer Extended",
+        "version": "3.3.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 6,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 9,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 2,
+        "resolution_rate": 0.692
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bie_blogspot_domain_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 756
+                    }
+                ]
+            },
+            {
+                "key": "bie_hide_redirects_plugin_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "redirects.php",
+                        "line": 160
+                    }
+                ]
+            },
+            {
+                "key": "bie_hide_setup_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 197
+                    },
+                    {
+                        "file": "bootstrap.php",
+                        "line": 669
+                    }
+                ]
+            },
+            {
+                "key": "bie_license",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 653
+                    },
+                    {
+                        "file": "bootstrap.php",
+                        "line": 713
+                    }
+                ]
+            },
+            {
+                "key": "bie_page_token_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 947
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 937
+                    },
+                    {
+                        "file": "bootstrap.php",
+                        "line": 1018
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "default_ping_status",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "bootstrap.php",
+                    "line": 80
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "default_pingback_flag",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "bootstrap.php",
+                    "line": 79
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$mu_dir",
+            "file": "bootstrap.php",
+            "line": 93
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "bootstrap.php",
+            "line": 172
+        }
+    ]
+}

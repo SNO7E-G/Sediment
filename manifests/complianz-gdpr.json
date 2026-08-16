@@ -1,0 +1,2192 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "complianz-gdpr",
+        "name": "Complianz | GDPR/CCPA Cookie Consent",
+        "version": "7.5.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:33Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 250,
+        "files_skipped": 0,
+        "write_calls_found": 253,
+        "verified": 212,
+        "resolved": 11,
+        "pattern": 13,
+        "dynamic": 17,
+        "resolution_rate": 0.881
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "cmplz_options",
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cmplz-current-version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 1071
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "documents/admin-class-documents.php",
+                        "line": 745
+                    },
+                    {
+                        "file": "documents/admin-class-documents.php",
+                        "line": 777
+                    },
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 466
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_activation_time",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "class-review.php",
+                        "line": 40
+                    },
+                    {
+                        "file": "class-review.php",
+                        "line": 177
+                    },
+                    {
+                        "file": "complianz-gpdr.php",
+                        "line": 457
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 1039
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_active_integrations",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/integrations.php",
+                        "line": 681
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_ajax_fallback_active",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "settings/settings.php",
+                        "line": 426
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_cbdb_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookiebanner/class-cookiebanner.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_changed_cookies",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 100
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_consent_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 499
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_consent_error_consentdata_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 488
+                    },
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 506
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_consent_error_timestamp_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 486
+                    },
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 504
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_cookie-statement_custom_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_cookie_data_verified_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 1044
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_cookietable_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-cookie.php",
+                        "line": 751
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_curl_error",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 328
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_current_datarequest_export_offset",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "DNSMPD/class-admin-DNSMPD.php",
+                        "line": 286
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_current_datarequest_export_progress",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "DNSMPD/class-admin-DNSMPD.php",
+                        "line": 297
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_datarequest_export_args",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "DNSMPD/class-admin-DNSMPD.php",
+                        "line": 285
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_datarequest_file_name",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "DNSMPD/class-admin-DNSMPD.php",
+                        "line": 331
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_detected_console_errors",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookiebanner/class-banner-loader.php",
+                        "line": 225
+                    },
+                    {
+                        "file": "cookiebanner/class-banner-loader.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_detected_forms",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/forms.php",
+                        "line": 41
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_detected_social_media",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 332
+                    },
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 921
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_detected_stats",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 361
+                    },
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 923
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_detected_thirdparty_services",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 340
+                    },
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 922
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_disabled_placeholders",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/admin/integrations.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_dismissed_warnings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "progress/class-progress.php",
+                        "line": 113
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 760
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 1035
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 1586
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_dnsmpd_db_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "DNSMPD/class-admin-DNSMPD.php",
+                        "line": 503
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_documents_update_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "settings/wizard.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_double_stats",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 350
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_elementor_banner_dropped",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 807
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_elementor_hub_autogenerated",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/plugins/elementor-pro/elementor-pro.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_excluded_posts_array",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookiebanner/admin/cookiebanner.php",
+                        "line": 368
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_first_sync_started",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 1137
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_first_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 33
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 360
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_generate_new_cookiepolicy_snapshot",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookiebanner/class-cookiebanner.php",
+                        "line": 657
+                    },
+                    {
+                        "file": "proof-of-consent/class-proof-of-consent.php",
+                        "line": 312
+                    },
+                    {
+                        "file": "settings/wizard.php",
+                        "line": 150
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 1065
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_integrations_changed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/integrations.php",
+                        "line": 682
+                    },
+                    {
+                        "file": "integrations/integrations.php",
+                        "line": 887
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "settings/settings.php",
+                        "line": 1176
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_last_cookie_scan",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 304
+                    },
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 854
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_last_cookie_sync",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 789
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_newsletter_signup_error",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 545
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_newsletter_signup_error_email",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 544
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_newsletter_signup_error_timestamp",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 546
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_onboarding_dismissed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "onboarding/class-onboarding.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "settings/settings.php",
+                        "line": 828
+                    },
+                    {
+                        "file": "settings/settings.php",
+                        "line": 920
+                    },
+                    {
+                        "file": "settings/settings.php",
+                        "line": 964
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 1028
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 1047
+                    },
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 816
+                    },
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 829
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_post_scribe_required",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-cookie-blocker.php",
+                        "line": 797
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_preloaded_privacy_info",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "documents/admin-class-documents.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_privacy-statement_custom_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 152
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_publish_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 816
+                    },
+                    {
+                        "file": "cookiebanner/class-banner-loader.php",
+                        "line": 1502
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_purposes_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 1324
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_purposes_stored",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 1323
+                    },
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 1329
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_review_notice_shown",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-review.php",
+                        "line": 173
+                    },
+                    {
+                        "file": "class-review.php",
+                        "line": 188
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_run_activation",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "complianz-gpdr.php",
+                        "line": 458
+                    },
+                    {
+                        "file": "settings/settings.php",
+                        "line": 618
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_serviceTypes_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 1256
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_serviceTypes_stored",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 1255
+                    },
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 1261
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_sync_cookies_after_services_complete",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 296
+                    },
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 444
+                    },
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 1002
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_sync_cookies_complete",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 295
+                    },
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 282
+                    },
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 446
+                    },
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 1001
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_sync_services_complete",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 297
+                    },
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 605
+                    },
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 777
+                    },
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 1003
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_synced_cookiedatabase_once",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 298
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_transients",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cron/cron.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "functions.php",
+                        "line": 1365
+                    },
+                    {
+                        "file": "functions.php",
+                        "line": 1391
+                    },
+                    {
+                        "file": "functions.php",
+                        "line": 1416
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_update_legal_documents_mail_sent",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 819
+                    },
+                    {
+                        "file": "cookiebanner/class-banner-loader.php",
+                        "line": 1505
+                    },
+                    {
+                        "file": "documents/class-document.php",
+                        "line": 1110
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_upgraded_to_five",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 252
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wizard_completed_once",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "settings/wizard.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_auth_completed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 253
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_checks_last_mail_sent",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 1121
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_checks_last_mail_sent_error",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 1123
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_checks_scan_createdAt",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 766
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 809
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_checks_scan_id",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 808
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_checks_scan_polling",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 803
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_checks_webhook_secret",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 814
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_connection_updated",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 359
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_dismissed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-onboarding.php",
+                        "line": 30
+                    },
+                    {
+                        "file": "websitescan/class-wsc-onboarding.php",
+                        "line": 463
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_error_email_auth_failed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 244
+                    },
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 264
+                    },
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 268
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_error_email_mismatch",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 212
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_error_email_not_sent",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 124
+                    },
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_error_missing_token",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 217
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_error_token_api",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 371
+                    },
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 377
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_logs",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-logger.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_onboarding_status",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-onboarding.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "websitescan/class-wsc-onboarding.php",
+                        "line": 341
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_reset_complete",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 551
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_scan_createdAt",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 257
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_scan_first_run",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 663
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_scan_id",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 256
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_scan_iteration",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 371
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_scan_progress",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 367
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 376
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 383
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 392
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 400
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 603
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_scan_status",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 258
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 366
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 399
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 567
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 600
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_signup_date",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 173
+                    },
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_signup_status",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 171
+                    },
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 251
+                    },
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_status",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 172
+                    },
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 125
+                    },
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_user_deletion_error",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 636
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_user_deletion_error_message",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 637
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_user_deletion_error_timestamp",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 638
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_user_deletion_temp_credentials",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 494
+                    },
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 621
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_user_deletion_token_error",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 636
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_user_deletion_token_error_message",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 637
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_user_deletion_token_error_timestamp",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-settings.php",
+                        "line": 638
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_webhook_secret",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 260
+                    }
+                ]
+            },
+            {
+                "key": "complianz_active_policy_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookiebanner/class-banner-loader.php",
+                        "line": 563
+                    },
+                    {
+                        "file": "cookiebanner/class-banner-loader.php",
+                        "line": 568
+                    },
+                    {
+                        "file": "cookiebanner/class-banner-loader.php",
+                        "line": 570
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "complianz_options_custom-scripts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/admin/integrations.php",
+                        "line": 154
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 355
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 632
+                    }
+                ]
+            },
+            {
+                "key": "complianz_options_integrations",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/admin/integrations.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "complianz_options_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 501
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 913
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 927
+                    }
+                ]
+            },
+            {
+                "key": "complianz_options_wizard",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 49
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 169
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 237
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 356
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 485
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 500
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 554
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 751
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 810
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 825
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 882
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 920
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/plugins/wpforms.php",
+                        "line": 59
+                    }
+                ]
+            },
+            {
+                "key": "wpgmza_global_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/plugins/wp-google-maps.php",
+                        "line": 57
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "cmplz_every_day_hook",
+                "recurrence": "cmplz_daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cron/cron.php",
+                        "line": 18
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_every_five_minutes_hook",
+                "recurrence": "cmplz_five_minutes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cron/cron.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_every_month_hook",
+                "recurrence": "cmplz_monthly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cron/cron.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_every_week_hook",
+                "recurrence": "cmplz_weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cron/cron.php",
+                        "line": 14
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_schedule_create_wsc_site_id",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-auth.php",
+                        "line": 677
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_store_newsletter_onboarding_consent",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-onboarding.php",
+                        "line": 360
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_store_wsc_onboarding_consent",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-onboarding.php",
+                        "line": 360
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_checks_retrieve_results",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 804
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 872
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "cmplz_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-installer.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_admin_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "progress/class-progress.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_checked_for_js_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookiebanner/class-banner-loader.php",
+                        "line": 221
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_cookiedatabase_request_active",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 295
+                    },
+                    {
+                        "file": "cookie/class-sync.php",
+                        "line": 622
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_cookies",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookiebanner/class-banner-loader.php",
+                        "line": 1167
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_email_recently_sent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailer/class-mail.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_generate_css_active",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookiebanner/class-cookiebanner.php",
+                        "line": 1235
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_pages_list",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 680
+                    },
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 709
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_plusone_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "progress/class-progress.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_processed_pages_list",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 710
+                    },
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 808
+                    },
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 662
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_redirect_to_settings_page",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "complianz-gpdr.php",
+                        "line": 459
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 945
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_scan_high_post_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions.php",
+                        "line": 2986
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_scan_post_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions.php",
+                        "line": 2987
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_upgrade_dir",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade/upgrade-to-pro.php",
+                        "line": 536
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wizard_locked_by_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "settings/wizard.php",
+                        "line": 207
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_checks_last_detections",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 1096
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_checks_scan_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 751
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_last_checks",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 908
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_last_cookies",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 599
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_wsc_rest_accessible",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "websitescan/class-wsc-scanner.php",
+                        "line": 149
+                    }
+                ]
+            },
+            {
+                "key": "complianz_warnings*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 476
+                    }
+                ]
+            },
+            {
+                "key": "media_months",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "settings/media/wp_enqueue_media_override.php",
+                        "line": 350
+                    }
+                ]
+            },
+            {
+                "key": "rsp_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade/upgrade-to-pro.php",
+                        "line": 496
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_plugin_download_active",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-installer.php",
+                        "line": 94
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_cmplz_scanned_post",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookie/class-scan.php",
+                        "line": 675
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_document_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "documents/admin-class-documents.php",
+                        "line": 1041
+                    },
+                    {
+                        "file": "documents/class-document.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_hide_cookiebanner",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cookiebanner/admin/cookiebanner.php",
+                        "line": 355
+                    }
+                ]
+            },
+            {
+                "key": "cmplz_shortcode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "documents/admin-class-documents.php",
+                        "line": 1018
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "manage_privacy",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "complianz-gpdr.php",
+                        "line": 523
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "wp_page_for_privacy_policy",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "documents/admin-class-documents.php",
+                    "line": 800
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "DNSMPD/class-admin-DNSMPD.php",
+            "line": 502
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$prefix . '_tour_started'",
+            "file": "class-installer.php",
+            "line": 80
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$prefix . '_tour_shown_once'",
+            "file": "class-installer.php",
+            "line": 81
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "config/warnings.php",
+            "line": 100
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "config/warnings.php",
+            "line": 110
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "cookie/class-cookie.php",
+            "line": 726
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "cookie/class-cookie.php",
+            "line": 748
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "cookiebanner/class-cookiebanner.php",
+            "line": 81
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "cookiebanner/class-cookiebanner.php",
+            "line": 100
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "functions.php",
+            "line": 225
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GTM4WP_OPTIONS",
+            "file": "integrations/plugins/google-tagmanager-for-wordpress.php",
+            "line": 113
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key . '-eu'",
+            "file": "upgrade.php",
+            "line": 439
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->prefix . 'auto_installed_license'",
+            "file": "upgrade/upgrade-to-pro.php",
+            "line": 592
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "websitescan/class-wsc-auth.php",
+            "line": 143
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "websitescan/class-wsc-auth.php",
+            "line": 589
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "websitescan/class-wsc-auth.php",
+            "line": 599
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$hook",
+            "file": "websitescan/class-wsc-onboarding.php",
+            "line": 360
+        }
+    ]
+}

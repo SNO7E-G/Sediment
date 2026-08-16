@@ -1,0 +1,583 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "publishpress",
+        "name": "PublishPress Planner Free",
+        "version": "4.8.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:53Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 137,
+        "files_skipped": 0,
+        "write_calls_found": 64,
+        "verified": 12,
+        "resolved": 26,
+        "pattern": 4,
+        "dynamic": 22,
+        "resolution_rate": 0.594
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pp_planner_activated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "publishpress.php",
+                        "line": 1541
+                    }
+                ]
+            },
+            {
+                "key": "publishpress_*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/efmigration/efmigration.php",
+                        "line": 404
+                    },
+                    {
+                        "file": "publishpress.php",
+                        "line": 570
+                    },
+                    {
+                        "file": "publishpress.php",
+                        "line": 763
+                    }
+                ]
+            },
+            {
+                "key": "publishpress_dismiss_migration",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/efmigration/efmigration.php",
+                        "line": 342
+                    },
+                    {
+                        "file": "modules/efmigration/efmigration.php",
+                        "line": 603
+                    }
+                ]
+            },
+            {
+                "key": "publishpress_efmigration_migrated_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/efmigration/efmigration.php",
+                        "line": 407
+                    }
+                ]
+            },
+            {
+                "key": "publishpress_efmigration_migrated_usermeta",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/efmigration/efmigration.php",
+                        "line": 432
+                    }
+                ]
+            },
+            {
+                "key": "publishpress_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "publishpress.php",
+                        "line": 544
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "pp_send_scheduled_notification",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/notifications/notifications.php",
+                        "line": 1128
+                    }
+                ]
+            },
+            {
+                "key": "publishpress_notifications_send_notification",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/async-notifications/library/WPCronAdapter.php",
+                        "line": 124
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "show_one_post_type_warning",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/calendar/calendar.php",
+                        "line": 1444
+                    },
+                    {
+                        "file": "modules/calendar/calendar.php",
+                        "line": 1456
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_EventEndDate",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/theeventscalendar-integration/theeventscalendar-integration.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_EventEndDateUTC",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/theeventscalendar-integration/theeventscalendar-integration.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "_EventStartDate",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/theeventscalendar-integration/theeventscalendar-integration.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "_EventStartDateUTC",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/theeventscalendar-integration/theeventscalendar-integration.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "_psppno_contbody",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/Notifications/Workflow/Step/Content/Main.php",
+                        "line": 76
+                    },
+                    {
+                        "file": "lib/Notifications/Workflow/Step/Content/Main.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "_psppno_contsubject",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/Notifications/Workflow/Step/Content/Main.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "lib/Notifications/Workflow/Step/Content/Main.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "_psppno_poststatfrom",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/improved-notifications/improved-notifications.php",
+                        "line": 383
+                    },
+                    {
+                        "file": "modules/improved-notifications/improved-notifications.php",
+                        "line": 428
+                    },
+                    {
+                        "file": "modules/improved-notifications/improved-notifications.php",
+                        "line": 482
+                    },
+                    {
+                        "file": "modules/improved-notifications/improved-notifications.php",
+                        "line": 521
+                    }
+                ]
+            },
+            {
+                "key": "_psppno_poststatto",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/improved-notifications/improved-notifications.php",
+                        "line": 384
+                    },
+                    {
+                        "file": "modules/improved-notifications/improved-notifications.php",
+                        "line": 522
+                    }
+                ]
+            },
+            {
+                "key": "_psppno_togroup",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/improved-notifications/improved-notifications.php",
+                        "line": 781
+                    }
+                ]
+            },
+            {
+                "key": "_psppno_togrouplist",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/improved-notifications/improved-notifications.php",
+                        "line": 777
+                    }
+                ]
+            },
+            {
+                "key": "_psppno_touser",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/improved-notifications/improved-notifications.php",
+                        "line": 768
+                    }
+                ]
+            },
+            {
+                "key": "_psppno_touserlist",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/improved-notifications/improved-notifications.php",
+                        "line": 764
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "psppno_workflow_channel_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/improved-notifications/improved-notifications.php",
+                        "line": 1645
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "_pp_editorial_comment_files",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/editorial-comments/editorial-comments.php",
+                        "line": 835
+                    },
+                    {
+                        "file": "modules/editorial-comments/editorial-comments.php",
+                        "line": 974
+                    }
+                ]
+            },
+            {
+                "key": "_ppnotif_cron_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/notifications-log/notifications-log.php",
+                        "line": 319
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "dashboard-note",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/dashboard/widgets/dashboard-notepad.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "psppnotif_workflow",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "publishpress.php",
+                        "line": 1421
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "pp_editorial_meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/editorial-metadata/editorial-metadata.php",
+                        "line": 445
+                    }
+                ]
+            },
+            {
+                "key": "pp_notify_email",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/notifications/notifications.php",
+                        "line": 345
+                    }
+                ]
+            },
+            {
+                "key": "pp_notify_group",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/notifications/notifications.php",
+                        "line": 329
+                    }
+                ]
+            },
+            {
+                "key": "pp_notify_role",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/notifications/notifications.php",
+                        "line": 313
+                    }
+                ]
+            },
+            {
+                "key": "pp_notify_user",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/notifications/notifications.php",
+                        "line": 298
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "common/php/class-module.php",
+            "line": 466
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "lib/Legacy/Util.php",
+            "line": 125
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transientName",
+            "file": "lib/Notifications/Helper.php",
+            "line": 92
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transientName",
+            "file": "lib/Notifications/Helper.php",
+            "line": 124
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "lib/Notifications/Traits/Metadata.php",
+            "line": 44
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->getName()",
+            "file": "lib/Notifications/Workflow/Option/SkipUser.php",
+            "line": 46
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "static::META_KEY_SELECTED",
+            "file": "lib/Notifications/Workflow/Step/Event/Base.php",
+            "line": 83
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "static::META_KEY_SELECTED",
+            "file": "lib/Notifications/Workflow/Step/Event/Base.php",
+            "line": 92
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "static::META_KEY",
+            "file": "lib/Notifications/Workflow/Step/Receiver/Simple_Checkbox.php",
+            "line": 84
+        },
+        {
+            "function": "add_cap",
+            "expression": "$viewCapability",
+            "file": "modules/calendar/calendar.php",
+            "line": 455
+        },
+        {
+            "function": "add_cap",
+            "expression": "$viewCapability",
+            "file": "modules/calendar/calendar.php",
+            "line": 1827
+        },
+        {
+            "function": "add_cap",
+            "expression": "$view_content_board_cap",
+            "file": "modules/content-board/content-board.php",
+            "line": 252
+        },
+        {
+            "function": "add_cap",
+            "expression": "$viewCapability",
+            "file": "modules/content-board/content-board.php",
+            "line": 336
+        },
+        {
+            "function": "add_cap",
+            "expression": "$view_content_overview_cap",
+            "file": "modules/content-overview/content-overview.php",
+            "line": 251
+        },
+        {
+            "function": "add_cap",
+            "expression": "$viewCapability",
+            "file": "modules/content-overview/content-overview.php",
+            "line": 334
+        },
+        {
+            "function": "add_cap",
+            "expression": "$viewCap",
+            "file": "modules/editorial-metadata/editorial-metadata.php",
+            "line": 487
+        },
+        {
+            "function": "add_cap",
+            "expression": "$editCap",
+            "file": "modules/editorial-metadata/editorial-metadata.php",
+            "line": 488
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "modules/editorial-metadata/editorial-metadata.php",
+            "line": 682
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "modules/efmigration/efmigration.php",
+            "line": 428
+        },
+        {
+            "function": "add_cap",
+            "expression": "$capability",
+            "file": "modules/notifications/notifications.php",
+            "line": 258
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "publishpress.php",
+            "line": 1522
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "publishpress.php",
+            "line": 1536
+        }
+    ]
+}

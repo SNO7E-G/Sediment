@@ -1,0 +1,245 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-simple-firewall",
+        "name": "Shield Security",
+        "version": "22.1.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:14Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 2579,
+        "files_skipped": 0,
+        "write_calls_found": 30,
+        "verified": 3,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 26,
+        "resolution_rate": 0.133
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "session_tokens",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/Plugin/Lib/Sessions/SessionController.php",
+                        "line": 156
+                    },
+                    {
+                        "file": "src/Modules/UserManagement/Lib/Session/DeleteSession.php",
+                        "line": 21
+                    }
+                ]
+            },
+            {
+                "key": "shield_default_operator_mode",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/Plugin/Lib/OperatorModePreference.php",
+                        "line": 23
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "src/Modules/Plugin/Processor.php",
+                    "line": 109
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/ActionRouter/Actions/Render/PluginAdminPages/InvestigateCountCache.php",
+            "line": 35
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$hook",
+            "file": "src/Components/CompCons/InstantAlertsCon.php",
+            "line": 35
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$localesLookup",
+            "file": "src/Controller/I18n/TranslationDownloadController.php",
+            "line": 49
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$localesDownload",
+            "file": "src/Controller/I18n/TranslationDownloadController.php",
+            "line": 58
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$hook",
+            "file": "src/Controller/Updates/HandleUpgrade.php",
+            "line": 33
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$primerHook",
+            "file": "src/Modules/AuditTrail/Lib/AuditCon.php",
+            "line": 107
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "self::con()->prefix('spam_' . $spamCode)",
+            "file": "src/Modules/CommentsFilter/Scan/Scanner.php",
+            "line": 175
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->getCronHook()",
+            "file": "src/Modules/HackGuard/Lib/FileLocker/FileLockerController.php",
+            "line": 180
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$hook",
+            "file": "src/Modules/HackGuard/Lib/Snapshots/StoreAction/ScheduleBuildAll.php",
+            "line": 31
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->getHook()",
+            "file": "src/Modules/HackGuard/Scan/AssetChange/Cleanup.php",
+            "line": 35
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$hook",
+            "file": "src/Modules/HackGuard/Scan/Controller/Base.php",
+            "line": 245
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$con->prefix('post_scan')",
+            "file": "src/Modules/HackGuard/Scan/Queue/CompleteQueue.php",
+            "line": 34
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->hook()",
+            "file": "src/Modules/HackGuard/Scan/Queue/QueueWatchdog.php",
+            "line": 71
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->key()",
+            "file": "src/Modules/HackGuard/Scan/Results/AdminBarScanSummaryCache.php",
+            "line": 65
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->cronSignalsPushKey()",
+            "file": "src/Modules/IPs/Lib/CrowdSec/CrowdSecController.php",
+            "line": 88
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::buildTransientKey($group)",
+            "file": "src/Modules/IPs/Lib/IpRules/IpRulesCache.php",
+            "line": 88
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$con->prefix('adhoc_cron_license_check')",
+            "file": "src/Modules/License/Lib/LicenseHandler.php",
+            "line": 51
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$cronHook",
+            "file": "src/Modules/Plugin/Lib/ImportExport/ImportExportController.php",
+            "line": 105
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$cronHook",
+            "file": "src/Modules/Plugin/Lib/ImportExport/NotifyWhitelist.php",
+            "line": 43
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->p->key",
+            "file": "src/Rules/Responses/UserSetMeta.php",
+            "line": 13
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Tables/DataTables/LoadData/BaseBuildTableData.php",
+            "line": 77
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor_prefixed/monolog/monolog/src/Monolog/Handler/StreamHandler.php",
+            "line": 248
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "vendor_prefixed/symfony/config/Builder/ConfigBuilderGenerator.php",
+            "line": 84
+        },
+        {
+            "function": "mkdir",
+            "expression": "$pathname",
+            "file": "vendor_prefixed/thecodingmachine/safe/src/functions.php",
+            "line": 141
+        },
+        {
+            "function": "mkdir",
+            "expression": "$pathname",
+            "file": "vendor_prefixed/thecodingmachine/safe/src/functions.php",
+            "line": 142
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor_prefixed/twig/twig/src/Cache/FilesystemCache.php",
+            "line": 50
+        }
+    ]
+}

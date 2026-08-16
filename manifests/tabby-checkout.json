@@ -1,0 +1,194 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "tabby-checkout",
+        "name": "Tabby Checkout",
+        "version": "5.12.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:54Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 10,
+    "coverage": {
+        "files_scanned": 22,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 4,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "tabby_checkout_feed_cred",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-tabby-api-feed.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "tabby_checkout_feed_reg_attempt",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-tabby-api-feed.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "tabby_checkout_feed_token",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-tabby-api-feed.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "tabby_checkout_feed_unreg_attempt",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-tabby-api-feed.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "tabby_feed_sharing_update",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-tabby-feed-sharing.php",
+                        "line": 200
+                    }
+                ]
+            },
+            {
+                "key": "tabby_plugin_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-tabby.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_tabby_installments_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-tabby.php",
+                        "line": 58
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "tabby_feed_sharing_service",
+                "recurrence": "every_five_minutes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-tabby-feed-sharing.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_tabby_cancel_unpaid_orders",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-tabby-cron.php",
+                        "line": 59
+                    },
+                    {
+                        "file": "includes/class-wc-tabby.php",
+                        "line": 158
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$tr_name",
+            "file": "includes/class-wc-gateway-tabby-checkout-base.php",
+            "line": 368
+        },
+        {
+            "function": "set_transient",
+            "expression": "$tr_name",
+            "file": "includes/class-wc-tabby-ajax.php",
+            "line": 101
+        },
+        {
+            "function": "mkdir",
+            "expression": "__DIR__ . '/../log'",
+            "file": "includes/class-wc-tabby-api.php",
+            "line": 110
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/class-wc-tabby-feed-sharing.php",
+            "line": 237
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/class-wc-tabby-feed-sharing.php",
+            "line": 249
+        }
+    ]
+}

@@ -1,0 +1,157 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-terms-popup",
+        "name": "WP Terms Popup",
+        "version": "2.11.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 47,
+    "coverage": {
+        "files_scanned": 26,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 2,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.571
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wptp_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-terms-popup-admin.php",
+                        "line": 48
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "terms_disablepop",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-terms-popup-admin.php",
+                        "line": 473
+                    },
+                    {
+                        "file": "admin/class-wp-terms-popup-admin.php",
+                        "line": 476
+                    }
+                ]
+            },
+            {
+                "key": "terms_enablepop",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-terms-popup-admin.php",
+                        "line": 443
+                    },
+                    {
+                        "file": "admin/class-wp-terms-popup-admin.php",
+                        "line": 446
+                    }
+                ]
+            },
+            {
+                "key": "terms_selectedterms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-terms-popup-admin.php",
+                        "line": 457
+                    },
+                    {
+                        "file": "admin/class-wp-terms-popup-admin.php",
+                        "line": 459
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "termpopup",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-terms-popup-admin.php",
+                        "line": 128
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "admin/class-wp-terms-popup-admin.php",
+            "line": 385
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "admin/class-wp-terms-popup-admin.php",
+            "line": 387
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "admin/class-wp-terms-popup-admin.php",
+            "line": 390
+        },
+        {
+            "function": "update_option",
+            "expression": "$setting",
+            "file": "admin/class-wp-terms-popup-admin.php",
+            "line": 511
+        },
+        {
+            "function": "update_option",
+            "expression": "$setting",
+            "file": "admin/class-wp-terms-popup-admin.php",
+            "line": 513
+        },
+        {
+            "function": "update_option",
+            "expression": "$setting",
+            "file": "admin/class-wp-terms-popup-admin.php",
+            "line": 516
+        }
+    ]
+}

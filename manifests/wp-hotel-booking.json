@@ -1,0 +1,1205 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-hotel-booking",
+        "name": "WP Hotel Booking",
+        "version": "2.3.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:59Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 287,
+        "files_skipped": 0,
+        "write_calls_found": 152,
+        "verified": 66,
+        "resolved": 60,
+        "pattern": 7,
+        "dynamic": 19,
+        "resolution_rate": 0.829
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "hotel_booking_update_meta_field_rooms",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-install.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "includes/rest-api/v1/admin/class-wphb-admin-updates-controller.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "hotel_booking_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-install.php",
+                        "line": 124
+                    }
+                ]
+            },
+            {
+                "key": "tp_hotel_booking_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/setup/class-wphb-setup-wizard.php",
+                        "line": 168
+                    },
+                    {
+                        "file": "includes/admin/setup/class-wphb-setup-wizard.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "tp_hotel_booking_paypal",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/setup/class-wphb-setup-wizard.php",
+                        "line": 163
+                    }
+                ]
+            },
+            {
+                "key": "wphb_check_tables",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-install.php",
+                        "line": 271
+                    }
+                ]
+            },
+            {
+                "key": "wphb_notice_remove_hotel_booking",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-ajax.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "includes/class-wphb-ajax.php",
+                        "line": 254
+                    }
+                ]
+            },
+            {
+                "key": "wphb_setup_wizard_completed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/setup/class-wphb-setup-wizard.php",
+                        "line": 123
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "hotel_booking_change_cancel_booking_status",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/booking/wphb-booking-hooks.php",
+                        "line": 28
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "hb_message_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wphb-functions.php",
+                        "line": 2436
+                    }
+                ]
+            },
+            {
+                "key": "wphb_booking_received_endpoint",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-install.php",
+                        "line": 76
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "PayPal Transaction Fee",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/paypal/class-wphb-payment-gateway-paypal.php",
+                        "line": 324
+                    }
+                ]
+            },
+            {
+                "key": "_hb_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-gdpr.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "_hb_booking_payment_completed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/booking/class-wphb-booking.php",
+                        "line": 280
+                    },
+                    {
+                        "file": "includes/booking/class-wphb-booking.php",
+                        "line": 282
+                    }
+                ]
+            },
+            {
+                "key": "_hb_coupon_code",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-ajax.php",
+                        "line": 961
+                    }
+                ]
+            },
+            {
+                "key": "_hb_coupon_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-ajax.php",
+                        "line": 960
+                    }
+                ]
+            },
+            {
+                "key": "_hb_coupon_value",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-ajax.php",
+                        "line": 962
+                    }
+                ]
+            },
+            {
+                "key": "_hb_dates_available",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/booking/class-wphb-booking-room-available.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "_hb_dates_booked",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/booking/class-wphb-booking-room-available.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "includes/booking/class-wphb-booking-room-available.php",
+                        "line": 114
+                    },
+                    {
+                        "file": "includes/booking/class-wphb-booking-room-available.php",
+                        "line": 175
+                    },
+                    {
+                        "file": "includes/booking/class-wphb-booking.php",
+                        "line": 426
+                    }
+                ]
+            },
+            {
+                "key": "_hb_gallery",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/wphb-admin-functions.php",
+                        "line": 645
+                    }
+                ]
+            },
+            {
+                "key": "_hb_order_list_rooms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/booking/class-wphb-booking.php",
+                        "line": 431
+                    }
+                ]
+            },
+            {
+                "key": "_hb_paypal_webhook_events",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/paypal/class-wphb-payment-gateway-paypal.php",
+                        "line": 727
+                    }
+                ]
+            },
+            {
+                "key": "_hb_room_booking_only",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/wphb-admin-functions.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "_hb_room_capacity_adult",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/rest-api/v1/admin/class-wphb-admin-updates-controller.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "_hb_room_external_link",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/metaboxes/rooms/tabs/class-wphb-admin-metabox-room-external-link.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "_hb_usage_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/wphb-admin-functions.php",
+                        "line": 275
+                    }
+                ]
+            },
+            {
+                "key": "_transaction_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/booking/class-wphb-booking.php",
+                        "line": 314
+                    }
+                ]
+            },
+            {
+                "key": "_wphb_room_facilities",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/metaboxes/rooms/tabs/class-wphb-admin-metabox-room-facilities.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "_wphb_room_faq",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/metaboxes/rooms/tabs/class-wphb-admin-metabox-room-faq.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "arveger_rating",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-comments.php",
+                        "line": 660
+                    },
+                    {
+                        "file": "includes/class-wphb-comments.php",
+                        "line": 663
+                    }
+                ]
+            },
+            {
+                "key": "arveger_rating_last_modify",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-comments.php",
+                        "line": 661
+                    },
+                    {
+                        "file": "includes/class-wphb-comments.php",
+                        "line": 664
+                    }
+                ]
+            },
+            {
+                "key": "hb_average_rating",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/room/wphb-room-functions.php",
+                        "line": 275
+                    }
+                ]
+            },
+            {
+                "key": "hb_blocked_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/rest-api/v1/admin/class-wphb-admin-rooms-controller.php",
+                        "line": 121
+                    },
+                    {
+                        "file": "includes/wphb-functions.php",
+                        "line": 3025
+                    }
+                ]
+            },
+            {
+                "key": "hb_blocked_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/rest-api/v1/admin/class-wphb-admin-rooms-controller.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "includes/wphb-functions.php",
+                        "line": 3038
+                    }
+                ]
+            },
+            {
+                "key": "hb_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/room/wphb-room-functions.php",
+                        "line": 257
+                    }
+                ]
+            },
+            {
+                "key": "tp_hb_extra_room_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugins/wp-hotel-booking-extra/inc/class-wphb-extra-post-type.php",
+                        "line": 180
+                    },
+                    {
+                        "file": "includes/plugins/wp-hotel-booking-extra/inc/class-wphb-extra-post-type.php",
+                        "line": 182
+                    }
+                ]
+            },
+            {
+                "key": "tp_hb_extra_room_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugins/wp-hotel-booking-extra/inc/class-wphb-extra-post-type.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "includes/plugins/wp-hotel-booking-extra/inc/class-wphb-extra-post-type.php",
+                        "line": 168
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "billing_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-checkout.php",
+                        "line": 219
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "hb_max_number_of_adults",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/update/wphb-upgrade_1.1.5.1.php",
+                        "line": 292
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [
+            {
+                "key": "hb_room_review_images",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-comments.php",
+                        "line": 258
+                    },
+                    {
+                        "file": "includes/class-wphb-comments.php",
+                        "line": 427
+                    }
+                ]
+            },
+            {
+                "key": "hb_room_review_title",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-comments.php",
+                        "line": 184
+                    },
+                    {
+                        "file": "includes/class-wphb-comments.php",
+                        "line": 416
+                    }
+                ]
+            },
+            {
+                "key": "rating",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-comments.php",
+                        "line": 186
+                    },
+                    {
+                        "file": "includes/class-wphb-comments.php",
+                        "line": 649
+                    }
+                ]
+            }
+        ],
+        "roles": [
+            {
+                "key": "wphb_booking_editor",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "wphb_hotel_manager",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 36
+                    }
+                ]
+            }
+        ],
+        "capabilities": [
+            {
+                "key": "delete_hb_bookings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 126
+                    }
+                ]
+            },
+            {
+                "key": "delete_hb_rooms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 115
+                    }
+                ]
+            },
+            {
+                "key": "delete_others_hb_bookings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 102
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "delete_others_hb_rooms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 55
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 91
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "delete_private_hb_bookings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "delete_private_hb_rooms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 117
+                    }
+                ]
+            },
+            {
+                "key": "delete_published_hb_bookings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 100
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "delete_published_hb_rooms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 53
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 116
+                    }
+                ]
+            },
+            {
+                "key": "edit_hb_bookings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 104
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "edit_hb_rooms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 57
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "edit_others_hb_bookings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 107
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 130
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "edit_others_hb_rooms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 56
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 92
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 119
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 123
+                    }
+                ]
+            },
+            {
+                "key": "edit_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 49
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "edit_private_hb_bookings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 70
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "edit_private_hb_rooms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 59
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "edit_published_hb_bookings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 69
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "edit_published_hb_rooms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "manage_hb_booking",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "publish_hb_bookings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 98
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "publish_hb_rooms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "read",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 48
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "upload_files",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "includes/class-wphb-roles.php",
+                        "line": 109
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "hb_booking",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-post-types.php",
+                        "line": 736
+                    }
+                ]
+            },
+            {
+                "key": "hb_coupon",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/coupons/class-wphb-coupon-hooks.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "hb_extra_room",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugins/wp-hotel-booking-extra/inc/class-wphb-extra-post-type.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "hb_room",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-post-types.php",
+                        "line": 701
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "hb_room_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wphb-post-types.php",
+                        "line": 785
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$k",
+            "file": "includes/admin/metaboxes/class-wphb-admin-metabox-booking-details.php",
+            "line": 65
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->meta_key_prefix . $field['name']",
+            "file": "includes/admin/metaboxes/rooms/class-wphb-admin-metabox-rooms.php",
+            "line": 422
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->meta_key_prefix . $field['name']",
+            "file": "includes/admin/metaboxes/rooms/class-wphb-admin-metabox-rooms.php",
+            "line": 424
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/booking/class-wphb-booking.php",
+            "line": 201
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/booking/class-wphb-booking.php",
+            "line": 204
+        },
+        {
+            "function": "update_option",
+            "expression": "$page_type",
+            "file": "includes/class-wphb-ajax.php",
+            "line": 167
+        },
+        {
+            "function": "update_option",
+            "expression": "$option['id']",
+            "file": "includes/class-wphb-install.php",
+            "line": 151
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "$k",
+            "file": "includes/class-wphb-install.php",
+            "line": 260
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wphb-install.php",
+            "line": 296
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wphb-install.php",
+            "line": 314
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wphb-install.php",
+            "line": 332
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->meta_key_prefix . $field['name']",
+            "file": "includes/class-wphb-meta-box.php",
+            "line": 112
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->meta_key_prefix . $field['name']",
+            "file": "includes/class-wphb-meta-box.php",
+            "line": 114
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_prefix",
+            "file": "includes/class-wphb-sessions.php",
+            "line": 161
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->_option_prefix . $k",
+            "file": "includes/class-wphb-settings.php",
+            "line": 61
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "includes/class-wphb-settings.php",
+            "line": 118
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/gateways/paypal/class-wphb-payment-gateway-paypal.php",
+            "line": 823
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/wphb-core-functions.php",
+            "line": 208
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/wphb-core-functions.php",
+            "line": 245
+        }
+    ]
+}

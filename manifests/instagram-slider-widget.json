@@ -1,0 +1,323 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "instagram-slider-widget",
+        "name": "Social Slider Feed",
+        "version": "2.3.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:40Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 30,
+    "coverage": {
+        "files_scanned": 229,
+        "files_skipped": 0,
+        "write_calls_found": 34,
+        "verified": 16,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 18,
+        "resolution_rate": 0.471
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "factory_plugin_versions",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/core/includes/class-factory-migrations.php",
+                        "line": 405
+                    },
+                    {
+                        "file": "libs/factory/core/includes/class-factory-migrations.php",
+                        "line": 415
+                    }
+                ]
+            },
+            {
+                "key": "instagram_slider_widget_logger_flag",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "components/facebook/includes/class-facebook-profiles.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "components/instagram/includes/class-instagram-profiles.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "widget_jr_insta_slider",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/pages/widgets.php",
+                        "line": 159
+                    },
+                    {
+                        "file": "migrations/020000.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "widget_wyoutube_feed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/020000.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "wis_youtube_account",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/020000.php",
+                        "line": 53
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "jr_insta_cron",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "components/instagram/includes/class-instagram-pro.php",
+                        "line": 342
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "app_ids_cache",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "components/instagram/load.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "jr_insta_user_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "components/instagram/includes/class-instagram-feed.php",
+                        "line": 881
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_factory_google_fonts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/forms/controls/google-font.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_factory_google_fonts_raw",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/forms/controls/google-font.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "wis_instagram_widget_195",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/020000.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "wis_youtube_widget_195",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/020000.php",
+                        "line": 25
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/pages/widgets.php",
+                    "line": 158
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$opt_name",
+            "file": "components/facebook/includes/Api/facebook-api.php",
+            "line": 66
+        },
+        {
+            "function": "set_transient",
+            "expression": "$opt_name",
+            "file": "components/facebook/includes/Api/facebook-api.php",
+            "line": 67
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt_name",
+            "file": "components/instagram/includes/class-instagram-feed.php",
+            "line": 620
+        },
+        {
+            "function": "set_transient",
+            "expression": "$opt_name",
+            "file": "components/instagram/includes/class-instagram-feed.php",
+            "line": 624
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt_name",
+            "file": "components/youtube/includes/class-youtube-feed.php",
+            "line": 241
+        },
+        {
+            "function": "set_transient",
+            "expression": "$opt_name",
+            "file": "components/youtube/includes/class-youtube-feed.php",
+            "line": 244
+        },
+        {
+            "function": "mkdir",
+            "expression": "$cache_dir_path",
+            "file": "libs/factory/bootstrap/includes/functions.php",
+            "line": 179
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_activated')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 198
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 199
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_activated')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 201
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 202
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_migration_error')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 372
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_migration_error')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 376
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 406
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 416
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->getPrefix() . $option_name",
+            "file": "libs/factory/core/includes/class-factory-options.php",
+            "line": 280
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . $option_name",
+            "file": "libs/factory/core/includes/class-factory-options.php",
+            "line": 307
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "libs/factory/logger/includes/class-logger.php",
+            "line": 196
+        }
+    ]
+}

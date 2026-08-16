@@ -1,0 +1,105 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "loco-translate",
+        "name": "Loco Translate",
+        "version": "2.8.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:12Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 238,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "loco_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/data/Settings.php",
+                        "line": 139
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "loco_prefs",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/data/Preferences.php",
+                        "line": 81
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [
+            {
+                "key": "translator",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/data/Permissions.php",
+                        "line": 19
+                    }
+                ]
+            }
+        ],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "src/admin/config/SettingsController.php",
+            "line": 59
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "src/data/Option.php",
+            "line": 21
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/data/Transient.php",
+            "line": 28
+        }
+    ]
+}

@@ -1,0 +1,235 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mailpoet",
+        "name": "MailPoet",
+        "version": "5.35.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:54Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 3752,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 1,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 25,
+        "resolution_rate": 0.107
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_wp_page_template",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/WP/Functions.php",
+                        "line": 1063
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [
+            {
+                "key": "temp",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendor-prefixed/cerdic/css-tidy/class.csstidy.php",
+                        "line": 181
+                    }
+                ]
+            },
+            {
+                "key": "temp/",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendor-prefixed/gregwar/captcha/src/Gregwar/Captcha/CaptchaBuilder.php",
+                        "line": 197
+                    }
+                ]
+            }
+        ],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$hook",
+            "file": "lib/Automation/Engine/Control/ActionScheduler.php",
+            "line": 15
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "lib/Automation/Engine/Control/ActionScheduler.php",
+            "line": 20
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "lib/Automation/Engine/WordPress.php",
+            "line": 146
+        },
+        {
+            "function": "add_cap",
+            "expression": "$name",
+            "file": "lib/Config/Capabilities.php",
+            "line": 49
+        },
+        {
+            "function": "add_cap",
+            "expression": "$name",
+            "file": "lib/Config/Capabilities.php",
+            "line": 92
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$paths['temp_path']",
+            "file": "lib/Config/RequirementsChecker.php",
+            "line": 45
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$hook",
+            "file": "lib/Cron/ActionScheduler/ActionScheduler.php",
+            "line": 23
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "lib/Cron/ActionScheduler/ActionScheduler.php",
+            "line": 28
+        },
+        {
+            "function": "mkdir",
+            "expression": "$this->directory",
+            "file": "lib/Doctrine/MetadataCache.php",
+            "line": 29
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$this->{$modelMethod}()",
+            "file": "lib/Migrations/Db/Migration_20221028_105818.php",
+            "line": 87
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "lib/Newsletter/NewsletterSaveController.php",
+            "line": 266
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "$metaKey",
+            "file": "lib/WP/Functions.php",
+            "line": 80
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$regex",
+            "file": "lib/WP/Functions.php",
+            "line": 113
+        },
+        {
+            "function": "add_option",
+            "expression": "$option",
+            "file": "lib/WP/Functions.php",
+            "line": 183
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$postType",
+            "file": "lib/WP/Functions.php",
+            "line": 492
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "lib/WP/Functions.php",
+            "line": 529
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient",
+            "file": "lib/WP/Functions.php",
+            "line": 537
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "lib/WP/Functions.php",
+            "line": 577
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "lib/WP/Functions.php",
+            "line": 929
+        },
+        {
+            "function": "mkdir",
+            "expression": "$logDir",
+            "file": "mailpoet_initializer.php",
+            "line": 30
+        },
+        {
+            "function": "mkdir",
+            "expression": "$parentDirectory",
+            "file": "vendor-prefixed/doctrine/common/src/Proxy/ProxyGenerator.php",
+            "line": 174
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "vendor-prefixed/doctrine/orm/src/Cache/Region/FileLockRegion.php",
+            "line": 36
+        },
+        {
+            "function": "mkdir",
+            "expression": "$parentDirectory",
+            "file": "vendor-prefixed/doctrine/orm/src/Proxy/ProxyFactory.php",
+            "line": 326
+        },
+        {
+            "function": "mkdir",
+            "expression": "$this->webPath . '/' . $this->imageFolder",
+            "file": "vendor-prefixed/gregwar/captcha/src/Gregwar/Captcha/ImageFileHandler.php",
+            "line": 43
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor-prefixed/twig/twig/src/Cache/FilesystemCache.php",
+            "line": 29
+        }
+    ]
+}

@@ -1,0 +1,240 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "perfecty-push-notifications",
+        "name": "Perfecty Push Notifications",
+        "version": "1.6.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:44Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 51,
+        "files_skipped": 0,
+        "write_calls_found": 24,
+        "verified": 16,
+        "resolved": 5,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.875
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "perfecty_push",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-perfecty-push-activator.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "includes/class-perfecty-push-activator.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "includes/class-perfecty-push-global.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "includes/class-perfecty-push-global.php",
+                        "line": 57
+                    },
+                    {
+                        "file": "includes/class-perfecty-push-global.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "includes/class-perfecty-push-global.php",
+                        "line": 69
+                    },
+                    {
+                        "file": "includes/class-perfecty-push-global.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "perfecty_push_activated",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-perfecty-push-activator.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "perfecty_push_cron_failures",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-perfecty-push-lib-cron-check.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "lib/class-perfecty-push-lib-cron-check.php",
+                        "line": 59
+                    }
+                ]
+            },
+            {
+                "key": "perfecty_push_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-perfecty-push-lib-db.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "perfecty_push_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-perfecty-push-global.php",
+                        "line": 97
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "perfecty_push_broadcast_notification_event",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-perfecty-push-lib-push-server.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "lib/class-perfecty-push-lib-push-server.php",
+                        "line": 348
+                    }
+                ]
+            },
+            {
+                "key": "perfecty_push_cron_check",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-perfecty-push-lib-cron-check.php",
+                        "line": 69
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "perfecty_push_admin_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-perfecty-push-lib-utils.php",
+                        "line": 49
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_perfecty_push_notification_custom_body",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-perfecty-push-admin.php",
+                        "line": 576
+                    }
+                ]
+            },
+            {
+                "key": "_perfecty_push_notification_custom_title",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-perfecty-push-admin.php",
+                        "line": 573
+                    }
+                ]
+            },
+            {
+                "key": "_perfecty_push_send_on_publish",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-perfecty-push-admin.php",
+                        "line": 570
+                    },
+                    {
+                        "file": "admin/class-perfecty-push-admin.php",
+                        "line": 631
+                    },
+                    {
+                        "file": "admin/class-perfecty-push-admin.php",
+                        "line": 670
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "lib/class-perfecty-push-lib-db.php",
+            "line": 66
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "lib/class-perfecty-push-lib-db.php",
+            "line": 84
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "lib/class-perfecty-push-lib-db.php",
+            "line": 91
+        }
+    ]
+}

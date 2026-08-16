@@ -1,0 +1,148 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "smtp-amazon-ses",
+        "name": "SMTP for Amazon SES – YaySMTP",
+        "version": "1.9.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:25Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 41,
+    "coverage": {
+        "files_scanned": 244,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 0,
+        "resolved": 9,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.818
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "yay_smtp_amazonses_debug",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Helper/LogErrors.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "includes/Helper/LogErrors.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "yay_smtp_amazonses_email_log_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Helper/Utils.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "yay_smtp_amazonses_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Functions.php",
+                        "line": 77
+                    },
+                    {
+                        "file": "includes/Helper/Utils.php",
+                        "line": 153
+                    },
+                    {
+                        "file": "includes/Helper/Utils.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "yay_smtp_amazonses_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Plugin.php",
+                        "line": 26
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}yay_smtp_amazonses_email_logs",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Helper/Installer.php",
+                        "line": 56
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "yay_smtp_amazonses_delete_email_log_schedule_hook",
+                "recurrence": "yay_smtp_amazonses_specific_delete_time",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Schedule.php",
+                        "line": 26
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$folder",
+            "file": "includes/Helper/LogErrors.php",
+            "line": 17
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor_amazon/JmesPath/CompilerRuntime.php",
+            "line": 31
+        }
+    ]
+}

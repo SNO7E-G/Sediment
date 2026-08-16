@@ -1,0 +1,174 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "qi-blocks",
+        "name": "Qi Blocks",
+        "version": "1.5.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:34Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 26,
+    "coverage": {
+        "files_scanned": 195,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 8,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.857
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "qi_blocks_cropped_images",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/media/class-qi-blocks-media.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "inc/media/helper.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "qi_blocks_custom_templates_flag",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/page-templates/class-qi-blocks-page-templates.php",
+                        "line": 110
+                    },
+                    {
+                        "file": "inc/page-templates/class-qi-blocks-page-templates.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "qi_blocks_disabled_blocks",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/admin-pages/sub-pages/setup-wizard/class-qi-blocks-admin-page-setup-wizard.php",
+                        "line": 139
+                    },
+                    {
+                        "file": "inc/admin/admin-pages/sub-pages/widgets/class-qi-blocks-admin-page-widgets.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "qi_blocks_general_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/admin-pages/sub-pages/widgets/class-qi-blocks-admin-page-widgets.php",
+                        "line": 124
+                    }
+                ]
+            },
+            {
+                "key": "qi_blocks_global_styles",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/global-styles/class-qi-blocks-framework-global-styles.php",
+                        "line": 56
+                    },
+                    {
+                        "file": "inc/admin/global-styles/class-qi-blocks-framework-global-styles.php",
+                        "line": 155
+                    }
+                ]
+            },
+            {
+                "key": "qi_blocks_setup_wizard",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/admin-pages/sub-pages/setup-wizard/class-qi-blocks-admin-page-setup-wizard.php",
+                        "line": 148
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "qi_blocks_check_theme_gutenberg_style",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/global-styles/class-qi-blocks-framework-global-styles.php",
+                        "line": 705
+                    }
+                ]
+            },
+            {
+                "key": "qi_blocks_plugin_activated",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-qi-blocks.php",
+                        "line": 445
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$this->get_transient()",
+            "file": "inc/admin/admin-pages/class-qi-blocks-admin-general-page.php",
+            "line": 281
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$uploads_qi_dir",
+            "file": "inc/admin/global-styles/class-qi-blocks-framework-global-styles.php",
+            "line": 647
+        }
+    ]
+}

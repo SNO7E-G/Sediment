@@ -1,0 +1,220 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "athemeart-theme-helper",
+        "name": "aThemeArt Demo Import",
+        "version": "1.0.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:47Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 30,
+    "coverage": {
+        "files_scanned": 28,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 11,
+        "resolved": 1,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "athemeart-theme-helper-version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "athemeart-theme-helper.php",
+                        "line": 192
+                    }
+                ]
+            },
+            {
+                "key": "athemeart_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "athemeart-theme-helper.php",
+                        "line": 203
+                    }
+                ]
+            },
+            {
+                "key": "elementor_container_width",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/panel/demos.php",
+                        "line": 739
+                    }
+                ]
+            },
+            {
+                "key": "widget_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/panel/classes/importers/class-widget-importer.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shop_page_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "data/the9-store/init.php",
+                        "line": 54
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_menu_item_menu_item_parent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/panel/classes/importers/class-wordpress-importer.php",
+                        "line": 1126
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/panel/classes/importers/class-wordpress-importer.php",
+                        "line": 1156
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "athemeart_demo_import_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "athemeart-theme-helper.php",
+                        "line": 308
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "page_for_posts",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/panel/demos.php",
+                    "line": 753
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "page_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/panel/demos.php",
+                    "line": 749
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "posts_per_page",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/panel/demos.php",
+                    "line": 758
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "show_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/panel/demos.php",
+                    "line": 746
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/panel/classes/importers/class-widget-importer.php",
+                    "line": 168
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "add_term_meta",
+            "expression": "\\wp_slash($key)",
+            "file": "includes/panel/classes/importers/class-wordpress-importer.php",
+            "line": 621
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "\\wp_slash($meta['key'])",
+            "file": "includes/panel/classes/importers/class-wordpress-importer.php",
+            "line": 848
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "\\wp_slash($key)",
+            "file": "includes/panel/classes/importers/class-wordpress-importer.php",
+            "line": 881
+        }
+    ]
+}

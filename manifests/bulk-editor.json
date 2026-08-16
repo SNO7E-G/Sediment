@@ -1,0 +1,201 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "bulk-editor",
+        "name": "WOLF - WordPress Posts Bulk Editor and Manager Professional",
+        "version": "1.1.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:50Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 57,
+    "coverage": {
+        "files_scanned": 45,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 5,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 13,
+        "resolution_rate": 0.316
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpbe_show_text_editor",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 838
+                    }
+                ]
+            },
+            {
+                "key": "wpbe_site_editor_visibility",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 831
+                    }
+                ]
+            },
+            {
+                "key": "wpbe_site_editors_post_types",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 834
+                    }
+                ]
+            },
+            {
+                "key": "wpbe_site_separate_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 837
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wpbe_time_last_check",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ext/export/export.php",
+                        "line": 509
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wpbe_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 140
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$mk",
+            "file": "classes/models/posts.php",
+            "line": 259
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_key",
+            "file": "classes/models/posts.php",
+            "line": 279
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_key",
+            "file": "classes/models/posts.php",
+            "line": 304
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "classes/models/profiles.php",
+            "line": 76
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->options_key",
+            "file": "classes/models/settings.php",
+            "line": 114
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql1",
+            "file": "ext/history/history.php",
+            "line": 105
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql2",
+            "file": "ext/history/history.php",
+            "line": 136
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_current_key()",
+            "file": "ext/meta/meta.php",
+            "line": 105
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$slug}_dismiss_rate_alert\"",
+            "file": "index.php",
+            "line": 1450
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$slug}_later_rate_alert\"",
+            "file": "index.php",
+            "line": 1454
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$slug}_later_rate_alert\"",
+            "file": "index.php",
+            "line": 1470
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->transient_key",
+            "file": "lib/storage.php",
+            "line": 44
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->transient_key",
+            "file": "lib/storage.php",
+            "line": 104
+        }
+    ]
+}

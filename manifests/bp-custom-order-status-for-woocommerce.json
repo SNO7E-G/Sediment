@@ -1,0 +1,275 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "bp-custom-order-status-for-woocommerce",
+        "name": "Custom Order Status Manager for WooCommerce",
+        "version": "2.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:12Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 45,
+    "coverage": {
+        "files_scanned": 101,
+        "files_skipped": 0,
+        "write_calls_found": 27,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 5,
+        "dynamic": 15,
+        "resolution_rate": 0.259
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bp_custom_order_status_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "main.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "csf_demo_mode",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/codestar/views/welcome.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "dfwc_plugin_review",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Bootstrap.php",
+                        "line": 165
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "bpcosm_review_later",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Bootstrap.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "cosmbp_new_version_installed_show_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Bootstrap.php",
+                        "line": 54
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_csf_errors_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/codestar/classes/metabox-options.class.php",
+                        "line": 400
+                    },
+                    {
+                        "file": "include/codestar/classes/nav-menu-options.class.php",
+                        "line": 247
+                    }
+                ]
+            },
+            {
+                "key": "status_slug",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/functions.php",
+                        "line": 31
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_csf_errors_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/codestar/classes/profile-options.class.php",
+                        "line": 238
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "_csf_errors_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/codestar/classes/taxonomy-options.class.php",
+                        "line": 257
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [
+            {
+                "key": "_csf_errors_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/codestar/classes/comment-options.class.php",
+                        "line": 323
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "order_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Cpt.php",
+                        "line": 248
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$this->unique",
+            "file": "include/codestar/classes/admin-options.class.php",
+            "line": 343
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->unique",
+            "file": "include/codestar/classes/admin-options.class.php",
+            "line": 347
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->unique",
+            "file": "include/codestar/classes/admin-options.class.php",
+            "line": 349
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$key",
+            "file": "include/codestar/classes/comment-options.class.php",
+            "line": 316
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$this->unique",
+            "file": "include/codestar/classes/comment-options.class.php",
+            "line": 319
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->unique",
+            "file": "include/codestar/classes/customize-options.class.php",
+            "line": 113
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "include/codestar/classes/metabox-options.class.php",
+            "line": 393
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->unique",
+            "file": "include/codestar/classes/metabox-options.class.php",
+            "line": 396
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "include/codestar/classes/nav-menu-options.class.php",
+            "line": 240
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->unique",
+            "file": "include/codestar/classes/nav-menu-options.class.php",
+            "line": 243
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "include/codestar/classes/profile-options.class.php",
+            "line": 231
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->unique",
+            "file": "include/codestar/classes/profile-options.class.php",
+            "line": 234
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$key",
+            "file": "include/codestar/classes/taxonomy-options.class.php",
+            "line": 250
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$this->unique",
+            "file": "include/codestar/classes/taxonomy-options.class.php",
+            "line": 253
+        },
+        {
+            "function": "update_option",
+            "expression": "$unique",
+            "file": "include/codestar/functions/actions.php",
+            "line": 118
+        }
+    ]
+}

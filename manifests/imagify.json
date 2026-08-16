@@ -1,0 +1,825 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "imagify",
+        "name": "Imagify",
+        "version": "2.3.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 382,
+        "files_skipped": 0,
+        "write_calls_found": 94,
+        "verified": 55,
+        "resolved": 21,
+        "pattern": 3,
+        "dynamic": 15,
+        "resolution_rate": 0.809
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "action_scheduler_hybrid_store_demarkation",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/data-stores/ActionScheduler_HybridStore.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_migration_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/ActionScheduler_DataController.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "as_has_wp_comment_logs",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "imagify_analytics_notice_displayed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Tracking/Notices.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "imagify_old_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/upgrader.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "inc/admin/upgrader.php",
+                        "line": 157
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "action_scheduler_run_queue",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/ActionScheduler_QueueRunner.php",
+                        "line": 84
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "action_scheduler_admin_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/ActionScheduler_ListTable.php",
+                        "line": 586
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_last_pastdue_actions_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/ActionScheduler_AdminView.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "as-post-store-dependencies-met",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/data-stores/ActionScheduler_wpPostStore.php",
+                        "line": 1065
+                    }
+                ]
+            },
+            {
+                "key": "as_comment_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/data-stores/ActionScheduler_wpCommentLogger.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "do_imagify_rating_cron",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/Notices/Notices.php",
+                        "line": 213
+                    }
+                ]
+            },
+            {
+                "key": "imagify_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Bulk/Bulk.php",
+                        "line": 183
+                    },
+                    {
+                        "file": "classes/Bulk/Bulk.php",
+                        "line": 273
+                    }
+                ]
+            },
+            {
+                "key": "imagify_activation",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "imagify.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "imagify.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "imagify_analytics_optin_thanks",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Tracking/Notices.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "classes/Tracking/Notices.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "imagify_attachments_number_modal",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-imagify-views.php",
+                        "line": 707
+                    }
+                ]
+            },
+            {
+                "key": "imagify_bulk_optimization_complete",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Bulk/Bulk.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "imagify_bulk_optimization_infos",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Bulk/Bulk.php",
+                        "line": 799
+                    }
+                ]
+            },
+            {
+                "key": "imagify_bulk_optimization_result",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Bulk/Bulk.php",
+                        "line": 126
+                    }
+                ]
+            },
+            {
+                "key": "imagify_check_api_version",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-imagify-requirements.php",
+                        "line": 242
+                    }
+                ]
+            },
+            {
+                "key": "imagify_check_licence_1",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-imagify-requirements.php",
+                        "line": 283
+                    }
+                ]
+            },
+            {
+                "key": "imagify_custom-folders_optimize_running",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Bulk/Bulk.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "imagify_large_library",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/functions/admin-stats.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "imagify_max_image_size",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/functions/api.php",
+                        "line": 170
+                    }
+                ]
+            },
+            {
+                "key": "imagify_missing_next_gen_total",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Bulk/Bulk.php",
+                        "line": 505
+                    }
+                ]
+            },
+            {
+                "key": "imagify_rpc_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/functions/process.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "imagify_seen_rating_notice",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/upgrader.php",
+                        "line": 170
+                    }
+                ]
+            },
+            {
+                "key": "imagify_stat_without_next_gen",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/Stats/OptimizedMediaWithoutNextGen.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "imagify_temporary_notices",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Notices/Notices.php",
+                        "line": 714
+                    },
+                    {
+                        "file": "classes/Notices/Notices.php",
+                        "line": 768
+                    }
+                ]
+            },
+            {
+                "key": "imagify_themes_plugins_to_sync",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/admin/custom-folders.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "imagify_user",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/functions/admin.php",
+                        "line": 437
+                    },
+                    {
+                        "file": "inc/functions/admin.php",
+                        "line": 439
+                    }
+                ]
+            },
+            {
+                "key": "imagify_user_cache",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/functions/api.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "imagify_user_images_count",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-imagify-cron-rating.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "imagify_wp_optimize_running",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Bulk/Bulk.php",
+                        "line": 145
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-imagify-requirements-check.php",
+                        "line": 313
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_action_manager_schedule",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/data-stores/ActionScheduler_wpPostStore.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "_imagify_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Optimization/Data/WP.php",
+                        "line": 139
+                    },
+                    {
+                        "file": "classes/Optimization/Data/WP.php",
+                        "line": 217
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-as3cf-attachment.php",
+                        "line": 314
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-attachment.php",
+                        "line": 234
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-attachment.php",
+                        "line": 539
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-attachment.php",
+                        "line": 652
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-attachment.php",
+                        "line": 746
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-attachment.php",
+                        "line": 776
+                    }
+                ]
+            },
+            {
+                "key": "_imagify_optimization_level",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Optimization/Data/WP.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "inc/admin/upgrader.php",
+                        "line": 254
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-as3cf-attachment.php",
+                        "line": 234
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-attachment.php",
+                        "line": 460
+                    }
+                ]
+            },
+            {
+                "key": "_imagify_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Optimization/Data/WP.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "inc/admin/upgrader.php",
+                        "line": 212
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-as3cf-attachment.php",
+                        "line": 315
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-attachment.php",
+                        "line": 240
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-attachment.php",
+                        "line": 540
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attached_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Media/WP.php",
+                        "line": 242
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_metadata",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Media/WP.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "classes/Media/WP.php",
+                        "line": 246
+                    },
+                    {
+                        "file": "classes/Media/WP.php",
+                        "line": 403
+                    },
+                    {
+                        "file": "classes/Optimization/Process/WP.php",
+                        "line": 264
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-as3cf-attachment.php",
+                        "line": 675
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-attachment.php",
+                        "line": 358
+                    }
+                ]
+            },
+            {
+                "key": "wpos3_filesize_total",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-as3cf-attachment.php",
+                        "line": 319
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-as3cf-attachment.php",
+                        "line": 494
+                    },
+                    {
+                        "file": "inc/deprecated/classes/class-imagify-as3cf-attachment.php",
+                        "line": 629
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_imagify_ignore_ads",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-imagify-admin-ajax-post.php",
+                        "line": 1154
+                    }
+                ]
+            },
+            {
+                "key": "_imagify_ignore_notices",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/Notices/Notices.php",
+                        "line": 798
+                    },
+                    {
+                        "file": "classes/Notices/Notices.php",
+                        "line": 824
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "scheduled-action",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/data-stores/ActionScheduler_wpPostStore_PostTypeRegistrar.php",
+                        "line": 13
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "action-group",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/data-stores/ActionScheduler_wpPostStore_TaxonomyRegistrar.php",
+                        "line": 14
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "action_scheduler/cleanup_wp_comment_logs",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler/migration_hook",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/migration/Scheduler.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_run_recurring_actions_schedule_hook",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Dependencies/ActionScheduler/classes/ActionScheduler_RecurringActionScheduler.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "imagify_convert_next_gen",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Bulk/Bulk.php",
+                        "line": 491
+                    }
+                ]
+            },
+            {
+                "key": "imagify_optimize_media",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Bulk/Bulk.php",
+                        "line": 254
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "inc/Dependencies/ActionScheduler/classes/WP_CLI/Action/Generate_Command.php",
+            "line": 77
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "inc/Dependencies/ActionScheduler/classes/abstracts/ActionScheduler_Abstract_Schema.php",
+            "line": 129
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$definition",
+            "file": "inc/Dependencies/ActionScheduler/classes/abstracts/ActionScheduler_Abstract_Schema.php",
+            "line": 143
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "inc/Dependencies/ActionScheduler/deprecated/functions.php",
+            "line": 24
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$hook",
+            "file": "inc/Dependencies/ActionScheduler/deprecated/functions.php",
+            "line": 42
+        },
+        {
+            "function": "as_schedule_cron_action",
+            "expression": "$hook",
+            "file": "inc/Dependencies/ActionScheduler/deprecated/functions.php",
+            "line": 70
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_event_name()",
+            "file": "inc/classes/class-imagify-abstract-cron.php",
+            "line": 82
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "inc/classes/class-imagify-abstract-db.php",
+            "line": 623
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "inc/classes/class-imagify-abstract-db.php",
+            "line": 625
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_option_name()",
+            "file": "inc/classes/class-imagify-abstract-options.php",
+            "line": 340
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->get_option_name()",
+            "file": "inc/classes/class-imagify-abstract-options.php",
+            "line": 344
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name()",
+            "file": "inc/classes/class-imagify-abstract-options.php",
+            "line": 347
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_event_name()",
+            "file": "inc/classes/class-imagify-cron-rating.php",
+            "line": 62
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE {$table_name} ({$schema_query}) {$charset_collate};\"",
+            "file": "inc/classes/class-imagify-db.php",
+            "line": 681
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option",
+            "file": "inc/classes/class-imagify-settings.php",
+            "line": 409
+        }
+    ]
+}

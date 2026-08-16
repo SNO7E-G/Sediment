@@ -1,0 +1,1777 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpforms-lite",
+        "name": "WPForms Lite",
+        "version": "2.0.0.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:56Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 3807,
+        "files_skipped": 0,
+        "write_calls_found": 214,
+        "verified": 93,
+        "resolved": 74,
+        "pattern": 7,
+        "dynamic": 40,
+        "resolution_rate": 0.78
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "wpforms_settings",
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_wpforms_transient_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Helpers/Transient.php",
+                        "line": 112
+                    }
+                ]
+            },
+            {
+                "key": "_wpforms_transient_timeout_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Helpers/Transient.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_date",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Education/ActiveLayer/InstallTracker.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_source",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Education/ActiveLayer/InstallTracker.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "sugar_calendar_prevent_redirect",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Education/SugarCalendar/InstallTracker.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "sugar_calendar_source",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Education/SugarCalendar/InstallTracker.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "uncannyautomator_date",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Pages/UncannyAutomator.php",
+                        "line": 467
+                    }
+                ]
+            },
+            {
+                "key": "uncannyautomator_source",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Pages/UncannyAutomator.php",
+                        "line": 466
+                    },
+                    {
+                        "file": "src/Integrations/UncannyAutomator/UncannyAutomator.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "wp_mail_smtp",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Tools/Importers/PirateForms.php",
+                        "line": 617
+                    }
+                ]
+            },
+            {
+                "key": "wp_mail_smtp_activation_prevent_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Pages/SMTP.php",
+                        "line": 287
+                    }
+                ]
+            },
+            {
+                "key": "wp_mail_smtp_source",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Pages/SMTP.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "wpconsent_activated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SetupWizard/Service/CrossPluginOnboarding.php",
+                        "line": 222
+                    }
+                ]
+            },
+            {
+                "key": "wpconsent_date",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Education/WPConsent/InstallTracker.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "wpconsent_source",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Education/WPConsent/InstallTracker.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_activated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-review.php",
+                        "line": 189
+                    },
+                    {
+                        "file": "includes/class-install.php",
+                        "line": 190
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_admin_notices",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-review.php",
+                        "line": 107
+                    },
+                    {
+                        "file": "src/Admin/Notice.php",
+                        "line": 374
+                    },
+                    {
+                        "file": "src/Lite/Integrations/LiteConnect/Admin.php",
+                        "line": 77
+                    },
+                    {
+                        "file": "src/Migrations/Upgrade1672.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_analytics_aggregation_interval",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tasks/Actions/AnalyticsAggregationTask.php",
+                        "line": 181
+                    },
+                    {
+                        "file": "src/Tasks/Actions/AnalyticsAggregationTask.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_builder_opened_date",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/builder/class-builder.php",
+                        "line": 228
+                    },
+                    {
+                        "file": "src/Migrations/Upgrade168.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_challenge",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Challenge.php",
+                        "line": 363
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_connect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Lite/Admin/Connect.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "src/Lite/SetupWizard/RestApi.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_connect_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Lite/Admin/Connect.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_constant_contact_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/ConstantContact/V3/ConstantContact.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "src/Integrations/ConstantContact/V3/Migration/Migration.php",
+                        "line": 206
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_crypto_secret_key",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Helpers/Crypto.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_email_summaries_fetch_info_blocks_last_run",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Emails/Tasks/FetchInfoBlocksTask.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_email_summaries_info_blocks_sent",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Emails/InfoBlocks.php",
+                        "line": 220
+                    },
+                    {
+                        "file": "src/Emails/InfoBlocks.php",
+                        "line": 231
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_email_summaries_shown_notifications",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Emails/NotificationBlocks.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_favorite_templates",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Builder/Templates.php",
+                        "line": 462
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_forms_first_created",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-form.php",
+                        "line": 203
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_imported",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Tools/Importers/Base.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_install",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Lite/Admin/Connect.php",
+                        "line": 277
+                    },
+                    {
+                        "file": "src/Lite/SetupWizard/RestApi.php",
+                        "line": 215
+                    },
+                    {
+                        "file": "wpforms.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_license",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SetupWizard/RestApi.php",
+                        "line": 502
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_lite_connect_entries_count",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/LiteConnect/Integration.php",
+                        "line": 397
+                    },
+                    {
+                        "file": "src/Lite/Integrations/LiteConnect/Integration.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_lite_connect_generate_key_attempt_counter",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/LiteConnect/LiteConnect.php",
+                        "line": 214
+                    },
+                    {
+                        "file": "src/Lite/Admin/Education/LiteConnect.php",
+                        "line": 444
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_lite_settings_upgrade",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lite/wpforms-lite.php",
+                        "line": 818
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_notifications",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Notifications/Notifications.php",
+                        "line": 303
+                    },
+                    {
+                        "file": "src/Admin/Notifications/Notifications.php",
+                        "line": 439
+                    },
+                    {
+                        "file": "src/Admin/Notifications/Notifications.php",
+                        "line": 733
+                    },
+                    {
+                        "file": "src/Migrations/Upgrade1_9_1.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_paypal_commerce_connections",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/PayPalCommerce/Connection.php",
+                        "line": 283
+                    },
+                    {
+                        "file": "src/Integrations/PayPalCommerce/Traits/ConnectionTrait.php",
+                        "line": 23
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_paypal_commerce_lock_connect_*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/PayPalCommerce/Admin/Connect.php",
+                        "line": 242
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_pointers",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Education/Pointers/Pointer.php",
+                        "line": 257
+                    },
+                    {
+                        "file": "src/Admin/Education/Pointers/Pointer.php",
+                        "line": 282
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_process_domain_auto_registration_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tasks/Actions/DomainAutoRegistrationTask.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "src/Tasks/Actions/DomainAutoRegistrationTask.php",
+                        "line": 137
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_process_font_awesome_upgrade_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tasks/Actions/IconChoicesFontAwesomeUpgradeTask.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "src/Tasks/Actions/IconChoicesFontAwesomeUpgradeTask.php",
+                        "line": 124
+                    },
+                    {
+                        "file": "src/Tasks/Actions/IconChoicesFontAwesomeUpgradeTask.php",
+                        "line": 149
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_process_forms_locator_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tasks/Actions/FormsLocatorScanTask.php",
+                        "line": 257
+                    },
+                    {
+                        "file": "src/Tasks/Actions/FormsLocatorScanTask.php",
+                        "line": 361
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_process_migration_173_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tasks/Actions/Migration173Task.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "src/Tasks/Actions/Migration173Task.php",
+                        "line": 176
+                    },
+                    {
+                        "file": "src/Tasks/Actions/Migration173Task.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_process_migration_175_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tasks/Actions/Migration175Task.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "src/Tasks/Actions/Migration175Task.php",
+                        "line": 305
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_process_stripe_link_subscriptions_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tasks/Actions/StripeLinkSubscriptionsTask.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "src/Tasks/Actions/StripeLinkSubscriptionsTask.php",
+                        "line": 308
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_process_webhooks_auto_configuration_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tasks/Actions/WebhooksAutoConfigurationTask.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "src/Tasks/Actions/WebhooksAutoConfigurationTask.php",
+                        "line": 137
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_providers",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions/providers.php",
+                        "line": 76
+                    },
+                    {
+                        "file": "includes/providers/class-base.php",
+                        "line": 1259
+                    },
+                    {
+                        "file": "src/Integrations/ConstantContact/V3/Migration/Migration.php",
+                        "line": 291
+                    },
+                    {
+                        "file": "src/Providers/Provider/Settings/PageIntegrations.php",
+                        "line": 341
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_rotation_activated_plugins",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-menu.php",
+                        "line": 537
+                    },
+                    {
+                        "file": "src/Migrations/Upgrade1_9_8_6.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_send_usage_last_run",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/UsageTracking/SendUsageTask.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-settings.php",
+                        "line": 876
+                    },
+                    {
+                        "file": "includes/functions/forms.php",
+                        "line": 194
+                    },
+                    {
+                        "file": "src/Admin/Tools/Importers/ContactForm7.php",
+                        "line": 408
+                    },
+                    {
+                        "file": "src/Admin/Tools/Importers/NinjaForms.php",
+                        "line": 426
+                    },
+                    {
+                        "file": "src/Admin/Tools/Importers/PirateForms.php",
+                        "line": 494
+                    },
+                    {
+                        "file": "src/Admin/Tools/Importers/PirateForms.php",
+                        "line": 516
+                    },
+                    {
+                        "file": "src/Frontend/Frontend.php",
+                        "line": 202
+                    },
+                    {
+                        "file": "src/Integrations/AI/Helpers.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "src/Integrations/LiteConnect/API.php",
+                        "line": 521
+                    },
+                    {
+                        "file": "src/Integrations/PayPalCommerce/Admin/WebhookSettings.php",
+                        "line": 187
+                    },
+                    {
+                        "file": "src/Integrations/PayPalCommerce/Api/WebhooksManager.php",
+                        "line": 81
+                    },
+                    {
+                        "file": "src/Integrations/PayPalCommerce/Api/WebhooksManager.php",
+                        "line": 98
+                    },
+                    {
+                        "file": "src/Integrations/PayPalCommerce/Helpers.php",
+                        "line": 182
+                    },
+                    {
+                        "file": "src/Integrations/Square/Admin/WebhookSettings.php",
+                        "line": 340
+                    },
+                    {
+                        "file": "src/Integrations/Square/Api/WebhooksManager.php",
+                        "line": 204
+                    },
+                    {
+                        "file": "src/Integrations/Square/Helpers.php",
+                        "line": 204
+                    },
+                    {
+                        "file": "src/Integrations/Square/Helpers.php",
+                        "line": 240
+                    },
+                    {
+                        "file": "src/Integrations/Square/Helpers.php",
+                        "line": 394
+                    },
+                    {
+                        "file": "src/Integrations/Stripe/Admin/Connect.php",
+                        "line": 454
+                    },
+                    {
+                        "file": "src/Integrations/Stripe/Admin/Settings.php",
+                        "line": 261
+                    },
+                    {
+                        "file": "src/Integrations/Stripe/Admin/WebhookSettings.php",
+                        "line": 270
+                    },
+                    {
+                        "file": "src/Integrations/Stripe/Api/WebhooksManager.php",
+                        "line": 284
+                    },
+                    {
+                        "file": "src/Migrations/Upgrade177.php",
+                        "line": 42
+                    },
+                    {
+                        "file": "src/Migrations/Upgrade184.php",
+                        "line": 44
+                    },
+                    {
+                        "file": "src/Migrations/Upgrade1_9_2.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_setup_checklist",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SetupChecklist/State.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_setup_wizard_completed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SetupWizard/Service/StateManager.php",
+                        "line": 325
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_setup_wizard_initial_version",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SetupWizard/SetupWizard.php",
+                        "line": 345
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_setup_wizard_installed_addons",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SetupWizard/Service/StateManager.php",
+                        "line": 283
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_splash_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Splash/SplashTrait.php",
+                        "line": 55
+                    },
+                    {
+                        "file": "src/Admin/Splash/SplashTrait.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_square_connections",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/Square/Connection.php",
+                        "line": 192
+                    },
+                    {
+                        "file": "src/Integrations/Square/Connection.php",
+                        "line": 206
+                    },
+                    {
+                        "file": "src/Integrations/Square/Connection.php",
+                        "line": 223
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_stripe_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/Stripe/Admin/Connect.php",
+                        "line": 390
+                    },
+                    {
+                        "file": "src/Integrations/Stripe/Admin/Connect.php",
+                        "line": 472
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_stripe_domain_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/Stripe/Api/DomainManager.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_stripe_link_subscriptions_latest_processed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tasks/Actions/StripeLinkSubscriptionsTask.php",
+                        "line": 209
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_sugar_calendar_prevent_redirect",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Education/SugarCalendar/InstallTracker.php",
+                        "line": 152
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_templates_hash",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Traits/FormTemplates.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_version_lite",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install.php",
+                        "line": 181
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_version_previous",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Migrations/Base.php",
+                        "line": 273
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_woocommerce_notifications_dismissed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/WooCommerce/Notifications.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "wpvibe_date",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/AiMcp/AiMcp.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "wpvibe_source",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/AiMcp/AiMcp.php",
+                        "line": 139
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpforms_email_summaries_cron",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Emails/Summaries.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_weekly_entries_count_cron",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Lite/Emails/Summaries.php",
+                        "line": 174
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wpforms_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_dash_widget_lite_entries_by_form",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Lite/Admin/DashboardWidget.php",
+                        "line": 529
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_just_activated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_lite_just_activated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wpforms.php",
+                        "line": 104
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_setup_wizard_failed_installs",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SetupWizard/FailedInstallsNotice.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_setup_wizard_first_run",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SetupWizard/SetupWizard.php",
+                        "line": 349
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_setup_wizard_force_step",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SetupWizard/StripeConnect.php",
+                        "line": 126
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_setup_wizard_state",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SetupWizard/Service/StateManager.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_setup_wizard_token",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SetupWizard/Auth.php",
+                        "line": 77
+                    },
+                    {
+                        "file": "src/SetupWizard/Auth.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_smtp_source_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Pages/SMTP.php",
+                        "line": 112
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_stripe_low_amount_block",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/Stripe/Protections/LowAmountSurgeDetector.php",
+                        "line": 290
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_stripe_low_amount_counter",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/Stripe/Protections/LowAmountSurgeDetector.php",
+                        "line": 239
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_stripe_low_amount_notified",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/Stripe/Protections/LowAmountSurgeDetector.php",
+                        "line": 298
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wpforms_ai_revisions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/ajax-actions.php",
+                        "line": 207
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_entries_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lite/wpforms-lite.php",
+                        "line": 931
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_entries_count_previous_week",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Lite/Emails/Summaries.php",
+                        "line": 122
+                    },
+                    {
+                        "file": "src/Lite/Emails/Summaries.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_entries_count_previous_week_skip_trends",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Lite/Emails/Summaries.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_form_locations",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Forms/Locator.php",
+                        "line": 965
+                    },
+                    {
+                        "file": "src/Forms/Locator.php",
+                        "line": 989
+                    },
+                    {
+                        "file": "src/Forms/Locator.php",
+                        "line": 1075
+                    },
+                    {
+                        "file": "src/Forms/Locator.php",
+                        "line": 1129
+                    },
+                    {
+                        "file": "src/Forms/Locator.php",
+                        "line": 1379
+                    },
+                    {
+                        "file": "src/Tasks/Actions/FormsLocatorScanTask.php",
+                        "line": 313
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_iif_checkboxes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/fields/class-internal-information.php",
+                        "line": 664
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_lite_connect_form_entries_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Lite/Integrations/LiteConnect/Integration.php",
+                        "line": 106
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "metaboxhidden_dashboard",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Lite/Admin/DashboardWidget.php",
+                        "line": 559
+                    },
+                    {
+                        "file": "src/Lite/Admin/DashboardWidget.php",
+                        "line": 565
+                    }
+                ]
+            },
+            {
+                "key": "wpforms-payments-mode",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Payments/Views/Overview/Page.php",
+                        "line": 288
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_admin_form_embed_wizard",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/FormEmbedWizard.php",
+                        "line": 253
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_admin_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Notice.php",
+                        "line": 398
+                    },
+                    {
+                        "file": "src/Integrations/PayPalCommerce/PaymentMethods/ApplePay/DomainManager.php",
+                        "line": 163
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_ai_mcp_visited_wpvibe",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/AiMcp/AiMcp.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_builder_ai_form_chat_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/AI/Admin/Ajax/Forms.php",
+                        "line": 346
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_dash_widget_graph_style",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Payments/Views/Overview/Ajax.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Education/Core.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "src/Integrations/AI/Admin/Ajax/Forms.php",
+                        "line": 457
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_overview_table_columns",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Forms/Table/Facades/Columns.php",
+                        "line": 156
+                    },
+                    {
+                        "file": "src/Admin/Forms/Table/Facades/Columns.php",
+                        "line": 228
+                    },
+                    {
+                        "file": "src/Migrations/Upgrade2_0_0.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_revisions_disabled_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Revisions.php",
+                        "line": 252
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wpforms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-form.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "wpforms-template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Forms/UserTemplates.php",
+                        "line": 100
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "wpforms_form_tag",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-form.php",
+                        "line": 136
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "wpforms_process_migration_175",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tasks/Actions/Migration175Task.php",
+                        "line": 328
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "src/Admin/Dashboard/Widget.php",
+            "line": 83
+        },
+        {
+            "function": "update_option",
+            "expression": "static::get_plugin_name() . '_source'",
+            "file": "src/Admin/Pages/Page.php",
+            "line": 421
+        },
+        {
+            "function": "update_option",
+            "expression": "static::get_plugin_name() . '_date'",
+            "file": "src/Admin/Pages/Page.php",
+            "line": 422
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Analytics/Process.php",
+            "line": 329
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "src/Db/Analytics/Forms.php",
+            "line": 67
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "src/Db/Analytics/Snapshots.php",
+            "line": 74
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "src/Db/Payments/Meta.php",
+            "line": 104
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "src/Db/Payments/Payment.php",
+            "line": 362
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "src/Emails/InfoBlocks.php",
+            "line": 269
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->cache_dir",
+            "file": "src/Helpers/CacheBase.php",
+            "line": 337
+        },
+        {
+            "function": "update_option",
+            "expression": "$transient_option",
+            "file": "src/Helpers/Transient.php",
+            "line": 136
+        },
+        {
+            "function": "update_option",
+            "expression": "$transient_timeout",
+            "file": "src/Helpers/Transient.php",
+            "line": 142
+        },
+        {
+            "function": "update_option",
+            "expression": "$transient_option",
+            "file": "src/Helpers/Transient.php",
+            "line": 144
+        },
+        {
+            "function": "add_option",
+            "expression": "$transient_timeout",
+            "file": "src/Helpers/Transient.php",
+            "line": 150
+        },
+        {
+            "function": "add_option",
+            "expression": "$transient_option",
+            "file": "src/Helpers/Transient.php",
+            "line": 152
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dirname",
+            "file": "src/Integrations/Elementor/ThemesData.php",
+            "line": 153
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dirname",
+            "file": "src/Integrations/Gutenberg/ThemesData.php",
+            "line": 153
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_option_name()",
+            "file": "src/Integrations/LiteConnect/Integration.php",
+            "line": 160
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_option_name()",
+            "file": "src/Integrations/LiteConnect/Integration.php",
+            "line": 309
+        },
+        {
+            "function": "update_option",
+            "expression": "\\WPForms\\Integrations\\LiteConnect\\Integration::get_option_name()",
+            "file": "src/Integrations/LiteConnect/LiteConnect.php",
+            "line": 215
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "src/Integrations/PayPalCommerce/WebhooksHealthCheck.php",
+            "line": 292
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "src/Integrations/Square/WebhooksHealthCheck.php",
+            "line": 239
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "dirname($file)",
+            "file": "src/Integrations/Stripe/Protections/RateLimit.php",
+            "line": 334
+        },
+        {
+            "function": "set_transient",
+            "expression": "$entry_id",
+            "file": "src/Integrations/Stripe/Protections/RateLimit.php",
+            "line": 505
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "dirname($file)",
+            "file": "src/Integrations/Stripe/RateLimit.php",
+            "line": 252
+        },
+        {
+            "function": "set_transient",
+            "expression": "$entry_id",
+            "file": "src/Integrations/Stripe/RateLimit.php",
+            "line": 423
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "src/Integrations/Stripe/WebhooksHealthCheck.php",
+            "line": 327
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Logger/Repository.php",
+            "line": 105
+        },
+        {
+            "function": "update_option",
+            "expression": "static::MIGRATED_OPTION_NAME",
+            "file": "src/Migrations/Base.php",
+            "line": 228
+        },
+        {
+            "function": "update_option",
+            "expression": "static::MIGRATED_OPTION_NAME",
+            "file": "src/Migrations/Base.php",
+            "line": 455
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->status_option",
+            "file": "src/Migrations/Tasks/UpgradeBaseTask.php",
+            "line": 98
+        },
+        {
+            "function": "update_option",
+            "expression": "$instance::STATUS",
+            "file": "src/Migrations/UpgradeBase.php",
+            "line": 145
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->pending_transient()",
+            "file": "src/SetupWizard/AbstractStripeConnect.php",
+            "line": 130
+        },
+        {
+            "function": "update_option",
+            "expression": "$entry['flag']",
+            "file": "src/SetupWizard/Service/CrossPluginOnboarding.php",
+            "line": 166
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Tasks/Meta.php",
+            "line": 116
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$this->action",
+            "file": "src/Tasks/Task.php",
+            "line": 266
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$this->action",
+            "file": "src/Tasks/Task.php",
+            "line": 301
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$this->action",
+            "file": "src/Tasks/Task.php",
+            "line": 324
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "vendor_prefixed/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer.php",
+            "line": 211
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "vendor_prefixed/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer.php",
+            "line": 226
+        }
+    ]
+}

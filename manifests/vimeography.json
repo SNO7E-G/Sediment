@@ -1,0 +1,206 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "vimeography",
+        "name": "Vimeography",
+        "version": "2.4.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:53Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 22,
+    "coverage": {
+        "files_scanned": 47,
+        "files_skipped": 0,
+        "write_calls_found": 18,
+        "verified": 12,
+        "resolved": 2,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.778
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "vimeography_activation_keys",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/admin/controllers/theme/list.php",
+                        "line": 131
+                    },
+                    {
+                        "file": "lib/admin/controllers/theme/list.php",
+                        "line": 176
+                    },
+                    {
+                        "file": "lib/database.php",
+                        "line": 437
+                    },
+                    {
+                        "file": "lib/database.php",
+                        "line": 478
+                    },
+                    {
+                        "file": "lib/update.php",
+                        "line": 381
+                    },
+                    {
+                        "file": "lib/update.php",
+                        "line": 398
+                    }
+                ]
+            },
+            {
+                "key": "vimeography_corrupt_keys_found",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/database.php",
+                        "line": 442
+                    }
+                ]
+            },
+            {
+                "key": "vimeography_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/database.php",
+                        "line": 163
+                    }
+                ]
+            },
+            {
+                "key": "vimeography_default_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/database.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "vimeography_pro_access_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/admin/controllers/vimeography/pro.php",
+                        "line": 121
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}vimeography_gallery",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/database.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}vimeography_gallery_meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/database.php",
+                        "line": 142
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [
+            {
+                "key": "_vimeography_welcome_screen_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/admin/welcome.php",
+                        "line": 23
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/EDD_SL_Plugin_Updater.php",
+                        "line": 291
+                    }
+                ]
+            },
+            {
+                "key": "vimeography_gallery_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/logger.php",
+                        "line": 80
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "lib/EDD_SL_Plugin_Updater.php",
+            "line": 721
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "VIMEOGRAPHY_CACHE_PATH",
+            "file": "lib/cache.php",
+            "line": 29
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\VIMEOGRAPHY_CACHE_PATH",
+            "file": "lib/deprecated/cache.php",
+            "line": 27
+        }
+    ]
+}

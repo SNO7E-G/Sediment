@@ -1,0 +1,139 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "auto-alt-text",
+        "name": "Auto Alt Text",
+        "version": "2.8.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:03Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 182,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 3,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.538
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "aatxt_legacy_encryption_migration_done",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/App/Admin/PluginOptions.php",
+                        "line": 207
+                    },
+                    {
+                        "file": "src/App/Admin/PluginOptions.php",
+                        "line": 215
+                    }
+                ]
+            },
+            {
+                "key": "aatxt_preserve_existing_alt_text",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/App/CLI/AutoAltTextCommand.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "src/App/CLI/AutoAltTextCommand.php",
+                        "line": 208
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/App/Admin/BulkActions/GenerateAltTextBulkAction.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "src/App/CLI/AutoAltTextCommand.php",
+                        "line": 193
+                    },
+                    {
+                        "file": "src/App/Core/HooksRegistrar.php",
+                        "line": 120
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/App/AIProviders/Decorators/CachingDecorator.php",
+            "line": 151
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/App/Infrastructure/Cache/WordPressTransientCache.php",
+            "line": 20
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/App/Infrastructure/Database/ErrorLogSchema.php",
+            "line": 63
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "src/App/Infrastructure/Repositories/WordPressConfigRepository.php",
+            "line": 48
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "src/App/Utilities/Encryption.php",
+            "line": 160
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "vendor-prefixed/php-di/php-di/src/Compiler/Compiler.php",
+            "line": 361
+        }
+    ]
+}

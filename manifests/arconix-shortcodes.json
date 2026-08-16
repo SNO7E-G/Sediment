@@ -1,0 +1,121 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "arconix-shortcodes",
+        "name": "Arconix Shortcodes",
+        "version": "2.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:53:57Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 12,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.3
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "active_TS_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/component/welcome-page/ts-welcome.php",
+                        "line": 125
+                    },
+                    {
+                        "file": "includes/component/welcome-page/ts-welcome.php",
+                        "line": 137
+                    }
+                ]
+            },
+            {
+                "key": "shortcodes_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 316
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "self::$plugin_prefix . '_ts_tracker_last_send'",
+            "file": "includes/component/tracking-data/class-ts-tracker.php",
+            "line": 75
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "self::$plugin_prefix . '_ts_tracker_send_event'",
+            "file": "includes/component/tracking-data/ts-tracking.php",
+            "line": 271
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$plugin_prefix . '_allow_tracking'",
+            "file": "includes/component/tracking-data/ts-tracking.php",
+            "line": 308
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$plugin_prefix . '_allow_tracking'",
+            "file": "includes/component/tracking-data/ts-tracking.php",
+            "line": 323
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$plugin_prefix . '_allow_tracking'",
+            "file": "includes/component/tracking-data/ts-tracking.php",
+            "line": 327
+        },
+        {
+            "function": "add_option",
+            "expression": "self::$plugin_prefix . '_pro_welcome_page_shown'",
+            "file": "includes/component/welcome-page/ts-welcome.php",
+            "line": 243
+        },
+        {
+            "function": "add_option",
+            "expression": "self::$plugin_prefix . '_pro_welcome_page_shown_time'",
+            "file": "includes/component/welcome-page/ts-welcome.php",
+            "line": 244
+        }
+    ]
+}

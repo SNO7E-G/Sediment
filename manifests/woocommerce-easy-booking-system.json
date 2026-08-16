@@ -1,0 +1,262 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-easy-booking-system",
+        "name": "Easy Booking for WooCommerce",
+        "version": "3.5.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 1,
+    "coverage": {
+        "files_scanned": 67,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 16,
+        "resolved": 2,
+        "pattern": 3,
+        "dynamic": 1,
+        "resolution_rate": 0.818
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "easy_booking_db_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wceb-update-manager.php",
+                        "line": 251
+                    },
+                    {
+                        "file": "includes/admin/class-wceb-update-manager.php",
+                        "line": 256
+                    },
+                    {
+                        "file": "includes/admin/class-wceb-update-manager.php",
+                        "line": 276
+                    }
+                ]
+            },
+            {
+                "key": "easy_booking_display_notice_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wceb-admin-ajax.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "wceb_*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wceb-install.php",
+                        "line": 114
+                    },
+                    {
+                        "file": "woocommerce-easy-booking.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "wceb_order_bookings_rebuild_required",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wceb-update-manager.php",
+                        "line": 264
+                    }
+                ]
+            },
+            {
+                "key": "wceb_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "woocommerce-easy-booking.php",
+                        "line": 89
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wceb_update_booking_statuses_event",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/common/class-wceb-booking-statuses.php",
+                        "line": 22
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wceb_activated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-easy-booking.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "wceb_rebuild_order_bookings_state",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wceb-order-bookings-tool.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "includes/admin/class-wceb-order-bookings-tool.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "wceb_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wceb-update-manager.php",
+                        "line": 72
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_bookable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/functions/wceb-admin-product-functions.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "includes/settings/class-wceb-settings-general.php",
+                        "line": 342
+                    }
+                ]
+            },
+            {
+                "key": "_booking_duration",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/functions/wceb-admin-product-functions.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "_booking_max",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/functions/wceb-admin-product-functions.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "_booking_min",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/functions/wceb-admin-product-functions.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "_first_available_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/functions/wceb-admin-product-functions.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "_last_available_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/functions/wceb-admin-product-functions.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "_number_of_dates",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/functions/wceb-admin-product-functions.php",
+                        "line": 83
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/admin/class-wceb-install.php",
+            "line": 113
+        }
+    ]
+}

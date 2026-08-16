@@ -1,0 +1,158 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "aibuddy-openai-chatgpt",
+        "name": "AI Bud – AI Content Generator, AI Chatbot, ChatGPT, Gemini, GPT-4o",
+        "version": "1.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:59Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 68,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 9,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ai_buddy",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Notice.php",
+                        "line": 27
+                    },
+                    {
+                        "file": "src/Notice.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "ai_buddy_feedback_added",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ai-buddy-init.php",
+                        "line": 213
+                    }
+                ]
+            },
+            {
+                "key": "ai_buddy_openai_usage",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/UsageLogger.php",
+                        "line": 29
+                    },
+                    {
+                        "file": "src/UsageLogger.php",
+                        "line": 53
+                    },
+                    {
+                        "file": "src/UsageLogger.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "litespeed.conf.cache-rest",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Compatability.php",
+                        "line": 19
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "ai_buddy_notice_ask_me_later",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Notice.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "ai_buddy_openai_incidents",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/OpenAi/Rest.php",
+                        "line": 395
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Rest.php",
+                        "line": 841
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->slug",
+            "file": "src/Plugin.php",
+            "line": 68
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_templates_option_key()",
+            "file": "src/Rest.php",
+            "line": 1082
+        }
+    ]
+}

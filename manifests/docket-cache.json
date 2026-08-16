@@ -1,0 +1,210 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "docket-cache",
+        "name": "Docket Cache",
+        "version": "26.04.05",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 38,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 8,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 13,
+        "resolution_rate": 0.381
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "auto_update_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/src/Plugin.php",
+                        "line": 1129
+                    },
+                    {
+                        "file": "includes/src/Plugin.php",
+                        "line": 1132
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "docketcache_checkversion",
+                "recurrence": "docketcache_checkversion_schedule",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/src/Event.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "docketcache_gc",
+                "recurrence": "docketcache_gc_schedule",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/src/Event.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "docketcache_optimizedb",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/src/Event.php",
+                        "line": 124
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "doing_cron",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/src/CronAgent.php",
+                        "line": 325
+                    },
+                    {
+                        "file": "includes/src/CronAgent.php",
+                        "line": 421
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "dismissed_wp_pointers",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/src/LimitBulkedit.php",
+                        "line": 57
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "includes/src/Filesystem.php",
+            "line": 261
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "includes/src/Filesystem.php",
+            "line": 270
+        },
+        {
+            "function": "add_option",
+            "expression": "$transient_timeout",
+            "file": "includes/src/TransientDb.php",
+            "line": 32
+        },
+        {
+            "function": "add_option",
+            "expression": "$transient_option",
+            "file": "includes/src/TransientDb.php",
+            "line": 33
+        },
+        {
+            "function": "update_option",
+            "expression": "$transient_timeout",
+            "file": "includes/src/TransientDb.php",
+            "line": 35
+        },
+        {
+            "function": "update_option",
+            "expression": "$transient_option",
+            "file": "includes/src/TransientDb.php",
+            "line": 36
+        },
+        {
+            "function": "add_site_option",
+            "expression": "$transient_timeout",
+            "file": "includes/src/TransientDb.php",
+            "line": 43
+        },
+        {
+            "function": "add_site_option",
+            "expression": "$option",
+            "file": "includes/src/TransientDb.php",
+            "line": 44
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$transient_timeout",
+            "file": "includes/src/TransientDb.php",
+            "line": 46
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option",
+            "file": "includes/src/TransientDb.php",
+            "line": 47
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/src/Tweaks.php",
+            "line": 1165
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/src/Tweaks.php",
+            "line": 1172
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/src/Tweaks.php",
+            "line": 1179
+        }
+    ]
+}

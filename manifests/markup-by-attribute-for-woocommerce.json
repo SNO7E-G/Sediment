@@ -1,0 +1,185 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "markup-by-attribute-for-woocommerce",
+        "name": "Markup by Attribute for WooCommerce",
+        "version": "4.6.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:23Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 32,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 5,
+        "dynamic": 3,
+        "resolution_rate": 0.467
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mt2mba_db_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/utility/general.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "src/utility/upgrades/db_upgrade_2_0.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "src/utility/upgrades/db_upgrade_2_2.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "src/utility/upgrades/db_upgrade_4_6_0.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "mt2mba_dismissed_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/utility/notices.php",
+                        "line": 130
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "mt2mba_current_base_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/backend/handlers/pricesethandler.php",
+                        "line": 280
+                    }
+                ]
+            },
+            {
+                "key": "mt2mba_upgrade_cooldown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "markup-by-attribute-for-woocommerce.php",
+                        "line": 202
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "mt2mba_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/utility/upgrades/db_upgrade_2_0.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "mt2mba_base_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/backend/handlers/pricesethandler.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "mt2mba_base_regular_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/utility/upgrades/db_upgrade_2_0.php",
+                        "line": 67
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [
+            {
+                "key": "mt2mba_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/utility/upgrades/db_upgrade_2_0.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "mt2mba_markup",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/backend/term.php",
+                        "line": 260
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/backend/attribute.php",
+            "line": 153
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/backend/attribute.php",
+            "line": 210
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$row->meta_key",
+            "file": "src/utility/upgrades/db_upgrade_2_0.php",
+            "line": 60
+        }
+    ]
+}

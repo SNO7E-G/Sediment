@@ -1,0 +1,348 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "anycomment",
+        "name": "AnyComment",
+        "version": "0.3.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:02Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 137,
+        "files_skipped": 0,
+        "write_calls_found": 36,
+        "verified": 9,
+        "resolved": 5,
+        "pattern": 0,
+        "dynamic": 22,
+        "resolution_rate": 0.389
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "anycomment-generic",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Migrations/AnyCommentMigration_0_0_88.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "anycomment-social",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Migrations/AnyCommentMigration_0_0_45.php",
+                        "line": 44
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "anycomment_email_queue_send_cron",
+                "recurrence": "every_minute",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Cron/AnyCommentEmailQueueCron.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "anycomment_service_sync_cron",
+                "recurrence": "every_minute",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Cron/AnyCommentServiceSyncCron.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "anycomment_tools_cron",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Cron/AnyCommentToolsCron.php",
+                        "line": 24
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "anycomment_notice",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Base/Notice.php",
+                        "line": 51
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "anycomment_social_original_username",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Migrations/AnyCommentMigration_0_0_70.php",
+                        "line": 62
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "anycomment_attachment",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/AnyCommentCommentMeta.php",
+                        "line": 204
+                    }
+                ]
+            },
+            {
+                "key": "anycomment_updated_by",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/AnyCommentCommentMeta.php",
+                        "line": 272
+                    }
+                ]
+            },
+            {
+                "key": "hc_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Import/HyperComments.php",
+                        "line": 306
+                    }
+                ]
+            }
+        ],
+        "roles": [
+            {
+                "key": "social_subscriber",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/AnyCommentGenericSettings.php",
+                        "line": 348
+                    }
+                ]
+            }
+        ],
+        "capabilities": [
+            {
+                "key": "delete_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/AnyCommentGenericSettings.php",
+                        "line": 348
+                    }
+                ]
+            },
+            {
+                "key": "edit_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/AnyCommentGenericSettings.php",
+                        "line": 348
+                    }
+                ]
+            },
+            {
+                "key": "read",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/AnyCommentGenericSettings.php",
+                        "line": 348
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "includes/Admin/AnyCommentGenericSettings.php",
+            "line": 1544
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$meta_key",
+            "file": "includes/AnyCommentCommentMeta.php",
+            "line": 237
+        },
+        {
+            "function": "mkdir",
+            "expression": "ANYCOMMENT_CACHE_DIR",
+            "file": "includes/AnyCommentCore.php",
+            "line": 172
+        },
+        {
+            "function": "mkdir",
+            "expression": "$log_path",
+            "file": "includes/AnyCommentCore.php",
+            "line": 203
+        },
+        {
+            "function": "add_option",
+            "expression": "static::prepare_option($option)",
+            "file": "includes/AnyCommentOptions.php",
+            "line": 44
+        },
+        {
+            "function": "update_option",
+            "expression": "static::prepare_option($option)",
+            "file": "includes/AnyCommentOptions.php",
+            "line": 58
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "includes/AnyCommentUploadHandler.php",
+            "line": 206
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$key",
+            "file": "includes/Api/AnyCommentServiceSyncIn.php",
+            "line": 228
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/Api/AnyCommentServiceSyncIn.php",
+            "line": 313
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/Api/AnyCommentServiceSyncIn.php",
+            "line": 335
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "self::getSyncFailedOptionName()",
+            "file": "includes/Cron/AnyCommentServiceSyncCron.php",
+            "line": 279
+        },
+        {
+            "function": "update_option",
+            "expression": "self::getSyncCommentIdOptionName()",
+            "file": "includes/Cron/AnyCommentServiceSyncCron.php",
+            "line": 282
+        },
+        {
+            "function": "mkdir",
+            "expression": "$save_path",
+            "file": "includes/Debug/DebugReportExport.php",
+            "line": 74
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "static::get_meta_key($page)",
+            "file": "includes/Libraries/AnyCommentUserTour.php",
+            "line": 56
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta->meta_key",
+            "file": "includes/Migrations/AnyCommentMigration_0_0_56.php",
+            "line": 86
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/Options/AnyCommentOptionManager.php",
+            "line": 91
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/Options/AnyCommentOptionManager.php",
+            "line": 97
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/Options/AnyCommentOptionManager.php",
+            "line": 446
+        },
+        {
+            "function": "update_option",
+            "expression": "\\AnyComment\\AnyCommentServiceApi::getSyncAppIdOptionName()",
+            "file": "includes/Rest/AnyCommentRestServiceSync.php",
+            "line": 175
+        },
+        {
+            "function": "update_option",
+            "expression": "\\AnyComment\\AnyCommentServiceApi::getSyncApiKeyOptionName()",
+            "file": "includes/Rest/AnyCommentRestServiceSync.php",
+            "line": 176
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$key",
+            "file": "includes/Rest/AnyCommentSocialAuth.php",
+            "line": 862
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "includes/Rest/AnyCommentSocialAuth.php",
+            "line": 892
+        }
+    ]
+}

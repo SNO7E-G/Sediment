@@ -1,0 +1,979 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mp-restaurant-menu",
+        "name": "Restaurant Menu",
+        "version": "2.4.11",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:32Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 207,
+        "files_skipped": 0,
+        "write_calls_found": 100,
+        "verified": 60,
+        "resolved": 19,
+        "pattern": 8,
+        "dynamic": 13,
+        "resolution_rate": 0.79
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_wp_session_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/libs/wp_session/class-wp-session-utils.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "classes/libs/wp_session/class-wp-session.php",
+                        "line": 155
+                    },
+                    {
+                        "file": "classes/libs/wp_session/class-wp-session.php",
+                        "line": 159
+                    }
+                ]
+            },
+            {
+                "key": "_wp_session_expires_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/libs/wp_session/class-wp-session-utils.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "classes/libs/wp_session/class-wp-session.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "classes/libs/wp_session/class-wp-session.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "mprm_capabilities_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "restaurant-menu.php",
+                        "line": 182
+                    }
+                ]
+            },
+            {
+                "key": "mprm_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/upgrade/class-install.php",
+                        "line": 50
+                    }
+                ]
+            },
+            {
+                "key": "mprm_earnings_total",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-payments.php",
+                        "line": 611
+                    },
+                    {
+                        "file": "classes/models/shop/class-payments.php",
+                        "line": 651
+                    },
+                    {
+                        "file": "classes/models/shop/class-payments.php",
+                        "line": 674
+                    }
+                ]
+            },
+            {
+                "key": "mprm_install_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controllers/class-controller-settings.php",
+                        "line": 100
+                    },
+                    {
+                        "file": "classes/controllers/class-controller-settings.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "mprm_last_payment_number",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-payments.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "mprm_payment_totals_upgraded",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-payments.php",
+                        "line": 1841
+                    }
+                ]
+            },
+            {
+                "key": "mprm_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-media.php",
+                        "line": 272
+                    },
+                    {
+                        "file": "classes/models/settings/class-settings.php",
+                        "line": 41
+                    },
+                    {
+                        "file": "classes/models/settings/class-settings.php",
+                        "line": 162
+                    },
+                    {
+                        "file": "classes/models/settings/class-settings.php",
+                        "line": 1765
+                    }
+                ]
+            },
+            {
+                "key": "mprm_taxonomy_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/class-menu-category.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "mprm_use_php_sessions",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-session.php",
+                        "line": 272
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wp_session_garbage_collection",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/libs/wp_session/wp-session.php",
+                        "line": 158
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "mp_restaurant_add_ons_feed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/class-extensions.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "mprm_earnings_total",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-payments.php",
+                        "line": 649
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_menu_item_menu_item_parent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/class-import.php",
+                        "line": 735
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_completed_date",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_discount_uses",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-discount.php",
+                        "line": 326
+                    },
+                    {
+                        "file": "classes/models/shop/class-discount.php",
+                        "line": 358
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_menu_item_earnings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/class-menu-item.php",
+                        "line": 651
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_menu_item_sales",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/class-menu-item.php",
+                        "line": 651
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_customer_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_customer_note",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_gateway",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_mode",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_number",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_phone_number",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_purchase_key",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_shipping_address",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_tax",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_total",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_transaction_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_unlimited_menu_items",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_user_email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1689
+                    },
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_user_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_mprm_order_user_ip",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-order.php",
+                        "line": 1696
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/class-import.php",
+                        "line": 764
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_mprm_user_address",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-purchase.php",
+                        "line": 869
+                    }
+                ]
+            },
+            {
+                "key": "mprm_cart_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-cart.php",
+                        "line": 246
+                    }
+                ]
+            },
+            {
+                "key": "mprm_saved_cart",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/shop/class-cart.php",
+                        "line": 245
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "mprm_taxonomy_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/class-menu-category.php",
+                        "line": 179
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [
+            {
+                "key": "mprm_customer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "mprm_manager",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            }
+        ],
+        "capabilities": [
+            {
+                "key": "administrator",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 100
+                    },
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "delete_others_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "delete_others_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "delete_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "delete_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "delete_private_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "delete_private_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "delete_published_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "delete_published_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "edit_others_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "edit_others_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "edit_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "edit_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "edit_private_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "edit_private_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "edit_published_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "edit_published_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "manage_categories",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "manage_links",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "moderate_comments",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "mprm_manager",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 97
+                    },
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "publish_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "publish_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "read",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    },
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "read_private_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "read_private_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "upload_files",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-capability.php",
+                        "line": 45
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "register_post_type",
+            "expression": "$menu_item_post_type",
+            "file": "classes/class-media.php",
+            "line": 1614
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$this->get_post_type('order')",
+            "file": "classes/class-media.php",
+            "line": 1651
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$this->get_tax_name('menu_category')",
+            "file": "classes/class-media.php",
+            "line": 1722
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$this->get_tax_name('menu_tag')",
+            "file": "classes/class-media.php",
+            "line": 1748
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$this->get_tax_name('ingredient')",
+            "file": "classes/class-media.php",
+            "line": 1780
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "$meta['key']",
+            "file": "classes/models/class-import.php",
+            "line": 519
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "classes/models/class-import.php",
+            "line": 565
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "classes/models/shop/class-payments.php",
+            "line": 919
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "classes/models/shop/class-payments.php",
+            "line": 970
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$params['post_type']",
+            "file": "classes/modules/class-post.php",
+            "line": 123
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metabox['name']",
+            "file": "classes/modules/class-post.php",
+            "line": 225
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$params['taxonomy']",
+            "file": "classes/modules/class-taxonomy.php",
+            "line": 56
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/upgrade/class-install.php",
+            "line": 84
+        }
+    ]
+}

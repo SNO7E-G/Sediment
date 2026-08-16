@@ -1,0 +1,1099 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "pronamic-ideal",
+        "name": "Pronamic Pay",
+        "version": "10.2.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:48Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 833,
+        "files_skipped": 0,
+        "write_calls_found": 107,
+        "verified": 68,
+        "resolved": 16,
+        "pattern": 0,
+        "dynamic": 23,
+        "resolution_rate": 0.785
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "pronamic_pay_uninstall_clear_data",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "action_scheduler_hybrid_store_demarkation",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_HybridStore.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_migration_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/ActionScheduler_DataController.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "as_has_wp_comment_logs",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_about_page_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Admin/AdminAboutPage.php",
+                        "line": 203
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_active_payment_methods",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Core/PaymentMethods.php",
+                        "line": 764
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_config_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/GatewayPostType.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_home_url",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/HomeUrlController.php",
+                        "line": 39
+                    },
+                    {
+                        "file": "packages/wp-pay/core/src/HomeUrlController.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_installation_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Admin/Install.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_license_status",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/LicenseManager.php",
+                        "line": 338
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Admin/Install.php",
+                        "line": 109
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "action_scheduler_run_queue",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/ActionScheduler_QueueRunner.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_license_check",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/LicenseManager.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "packages/wp-pay/core/src/LicenseManager.php",
+                        "line": 259
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "action_scheduler_admin_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/ActionScheduler_ListTable.php",
+                        "line": 586
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_last_pastdue_actions_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/ActionScheduler_AdminView.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "as-post-store-dependencies-met",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore.php",
+                        "line": 1065
+                    }
+                ]
+            },
+            {
+                "key": "as_comment_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_wpCommentLogger.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_admin_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Admin/AdminAboutPage.php",
+                        "line": 200
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_adyen_migrate_client_key_query",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-gateways/adyen/src/Integration.php",
+                        "line": 538
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_license_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/LicenseManager.php",
+                        "line": 394
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_action_manager_schedule",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "_edd_payment_company",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/easy-digital-downloads/src/CompanyNameController.php",
+                        "line": 267
+                    },
+                    {
+                        "file": "packages/wp-pay-extensions/easy-digital-downloads/src/CompanyNameController.php",
+                        "line": 294
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_gateway_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Admin/AdminGatewayPostType.php",
+                        "line": 373
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_gateway_mollie_profile_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-gateways/mollie/src/Gateway.php",
+                        "line": 292
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_gateway_omnikassa_2_access_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-gateways/omnikassa-2/src/Gateway.php",
+                        "line": 601
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_gateway_omnikassa_2_access_token_valid_until",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-gateways/omnikassa-2/src/Gateway.php",
+                        "line": 611
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_gateway_webhook_log",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Webhooks/WebhookLogger.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_pay_formidable_forms_action_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/formidable-forms/src/Extension.php",
+                        "line": 439
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_pay_formidable_forms_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/formidable-forms/src/Extension.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_pay_gf_condition_enabled",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php",
+                        "line": 462
+                    },
+                    {
+                        "file": "packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php",
+                        "line": 470
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_pay_gf_feed_active",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php",
+                        "line": 479
+                    },
+                    {
+                        "file": "packages/wp-pay-extensions/gravityforms/src/PaymentAddOn.php",
+                        "line": 591
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_payment_memberpress_update_source",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/memberpress/src/Upgrade310.php",
+                        "line": 312
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_payment_memberpress_update_source_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/memberpress/src/Upgrade310.php",
+                        "line": 313
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_payment_rcp_update_source",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/restrict-content-pro/src/Upgrade216.php",
+                        "line": 435
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_payment_rcp_update_source_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/restrict-content-pro/src/Upgrade216.php",
+                        "line": 436
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_payment_url_cancel",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/event-espresso/src/Gateway.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_payment_url_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/event-espresso/src/Gateway.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_payment_url_return",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/event-espresso/src/Gateway.php",
+                        "line": 176
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_payment_url_success",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/event-espresso/src/Gateway.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_subscription_memberpress_update_source",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/memberpress/src/Upgrade310.php",
+                        "line": 256
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_subscription_memberpress_update_source_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/memberpress/src/Upgrade310.php",
+                        "line": 257
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_subscription_rcp_update_source",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/restrict-content-pro/src/Upgrade216.php",
+                        "line": 297
+                    }
+                ]
+            },
+            {
+                "key": "_pronamic_subscription_rcp_update_source_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/restrict-content-pro/src/Upgrade216.php",
+                        "line": 298
+                    }
+                ]
+            },
+            {
+                "key": "_yoast_wpseo_meta-robots-noindex",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/PagesController.php",
+                        "line": 208
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "pronamic_pay_ignore_tour",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Admin/AdminTour.php",
+                        "line": 99
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [
+            {
+                "key": "payer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Admin/Install.php",
+                        "line": 122
+                    }
+                ]
+            }
+        ],
+        "capabilities": [
+            {
+                "key": "administrator",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/pronamic/wp-pronamic-pay-forms/src/Install.php",
+                        "line": 32
+                    },
+                    {
+                        "file": "packages/wp-pay/core/src/Admin/Install.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "read",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Admin/Install.php",
+                        "line": 122
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "pronamic_gateway",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/GatewayPostType.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_form",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_gf",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php",
+                        "line": 41
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_subscr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Subscriptions/SubscriptionPostType.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_payment",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Payments/PaymentPostType.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_submission",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/pronamic/wp-pronamic-forms/psr-4/PostTypesController.php",
+                        "line": 37
+                    }
+                ]
+            },
+            {
+                "key": "scheduled-action",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore_PostTypeRegistrar.php",
+                        "line": 13
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "action-group",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore_TaxonomyRegistrar.php",
+                        "line": 14
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "action_scheduler/cleanup_wp_comment_logs",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler/migration_hook",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/migration/Scheduler.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_run_recurring_actions_schedule_hook",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/woocommerce/action-scheduler/classes/ActionScheduler_RecurringActionScheduler.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_complete_subscription",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Subscriptions/SubscriptionsCompletionController.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_create_subscription_follow_up_payment",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Subscriptions/SubscriptionsFollowUpPaymentsController.php",
+                        "line": 264
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_memberpress_upgrade_3_1_0",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/memberpress/src/Upgrade310.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_mollie_payment_start",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-gateways/mollie/src/Gateway.php",
+                        "line": 479
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_mollie_webhook_status_check",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-gateways/mollie/src/WebhookController.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_payment_status_check",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Payments/StatusChecker.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "packages/wp-pay/core/src/Payments/StatusChecker.php",
+                        "line": 160
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_restrictcontentpro_upgrade_2_1_6",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/restrict-content-pro/src/Upgrade216.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_restrictcontentpro_upgrade_4_5_0",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/restrict-content-pro/src/Upgrade450.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_schedule_follow_up_payments",
+                "recurrence": "0 * * * *",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Subscriptions/SubscriptionsFollowUpPaymentsController.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_schedule_page_woocommerce_upgrade_4_2_0",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/woocommerce/src/Upgrade420.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_schedule_paged_subscriptions_completion",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Subscriptions/SubscriptionsCompletionController.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_schedule_paged_subscriptions_notification",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Subscriptions/SubscriptionsNotificationsController.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_schedule_subscriptions_completion",
+                "recurrence": "0 * * * *",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Subscriptions/SubscriptionsCompletionController.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_schedule_subscriptions_follow_up_payment",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Subscriptions/SubscriptionsFollowUpPaymentsController.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_schedule_subscriptions_notification",
+                "recurrence": "0 0 * * *",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Subscriptions/SubscriptionsNotificationsController.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_schedule_woocommerce_upgrade_4_2_0",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/woocommerce/src/Upgrade420.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_send_subscription_renewal_notification",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay/core/src/Subscriptions/SubscriptionsNotificationsController.php",
+                        "line": 191
+                    }
+                ]
+            },
+            {
+                "key": "pronamic_pay_woocommerce_upgrade_4_2_0",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "packages/wp-pay-extensions/woocommerce/src/Upgrade420.php",
+                        "line": 167
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "packages/woocommerce/action-scheduler/classes/WP_CLI/Action/Generate_Command.php",
+            "line": 77
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "packages/woocommerce/action-scheduler/classes/abstracts/ActionScheduler_Abstract_Schema.php",
+            "line": 129
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$definition",
+            "file": "packages/woocommerce/action-scheduler/classes/abstracts/ActionScheduler_Abstract_Schema.php",
+            "line": 143
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "packages/woocommerce/action-scheduler/deprecated/functions.php",
+            "line": 24
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$hook",
+            "file": "packages/woocommerce/action-scheduler/deprecated/functions.php",
+            "line": 42
+        },
+        {
+            "function": "as_schedule_cron_action",
+            "expression": "$hook",
+            "file": "packages/woocommerce/action-scheduler/deprecated/functions.php",
+            "line": 70
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php",
+            "line": 442
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "packages/wp-pay-extensions/gravityforms/src/PaymentAddOn.php",
+            "line": 649
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "packages/wp-pay-gateways/adyen/src/Gateway.php",
+            "line": 126
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "packages/wp-pay-gateways/buckaroo/src/Gateway.php",
+            "line": 118
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "packages/wp-pay-gateways/mollie/src/Gateway.php",
+            "line": 329
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$queries",
+            "file": "packages/wp-pay-gateways/mollie/src/Install.php",
+            "line": 121
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "packages/wp-pay-gateways/multisafepay/src/Gateway.php",
+            "line": 150
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "packages/wp-pay-gateways/omnikassa-2/src/Gateway.php",
+            "line": 125
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "packages/wp-pay/core/includes/functions.php",
+            "line": 387
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "packages/wp-pay/core/src/AbstractDataStoreCPT.php",
+            "line": 215
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->version_option_name",
+            "file": "packages/wp-pay/core/src/AbstractIntegration.php",
+            "line": 245
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "packages/wp-pay/core/src/Admin/AdminGatewayPostType.php",
+            "line": 468
+        },
+        {
+            "function": "update_option",
+            "expression": "$version_option_name",
+            "file": "packages/wp-pay/core/src/Admin/Install.php",
+            "line": 78
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "packages/wp-pay/core/src/Core/Gateway.php",
+            "line": 208
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->cache_key",
+            "file": "packages/wp-pay/core/src/Fields/CachedCallbackOptions.php",
+            "line": 83
+        },
+        {
+            "function": "update_option",
+            "expression": "$page['option_name']",
+            "file": "packages/wp-pay/core/src/PagesController.php",
+            "line": 210
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "packages/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php",
+            "line": 508
+        }
+    ]
+}

@@ -1,0 +1,141 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-socializer",
+        "name": "WP Socializer",
+        "version": "7.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:34Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 40,
+    "coverage": {
+        "files_scanned": 33,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 6,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpsr_button_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/pages/share-icons.php",
+                        "line": 369
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_last_changelog",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 351
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_sharebar_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/pages/floating-sharebar.php",
+                        "line": 355
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_since",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 334
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 330
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "wpsr_post_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/post-settings.php",
+                        "line": 209
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "admin/admin.php",
+            "line": 240
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "core/import-export.php",
+            "line": 68
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "core/share-counter.php",
+            "line": 91
+        }
+    ]
+}

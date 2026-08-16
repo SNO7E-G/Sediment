@@ -1,0 +1,1331 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-letsencrypt-ssl",
+        "name": "WP Encryption - One Click SSL & Force HTTPS",
+        "version": "7.8.7.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:37Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 182,
+        "files_skipped": 0,
+        "write_calls_found": 168,
+        "verified": 142,
+        "resolved": 1,
+        "pattern": 7,
+        "dynamic": 18,
+        "resolution_rate": 0.851
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "active_sitewide_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 358
+                    }
+                ]
+            },
+            {
+                "key": "fs_active_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 282
+                    },
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 416
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 208
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 318
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 363
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 528
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 572
+                    }
+                ]
+            },
+            {
+                "key": "fs_debug_mode",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/config.php",
+                        "line": 311
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 508
+                    }
+                ]
+            },
+            {
+                "key": "fs_storage_logger",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-fs-logger.php",
+                        "line": 361
+                    }
+                ]
+            },
+            {
+                "key": "wple_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 1079
+                    }
+                ]
+            },
+            {
+                "key": "wple_acc_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 347
+                    }
+                ]
+            },
+            {
+                "key": "wple_activate",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-activator.php",
+                        "line": 37
+                    }
+                ]
+            },
+            {
+                "key": "wple_backup_suggested",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_ajax.php",
+                        "line": 395
+                    }
+                ]
+            },
+            {
+                "key": "wple_dismissed_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_ajax.php",
+                        "line": 457
+                    }
+                ]
+            },
+            {
+                "key": "wple_email_certs",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 656
+                    }
+                ]
+            },
+            {
+                "key": "wple_error",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 229
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 251
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 365
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 755
+                    },
+                    {
+                        "file": "lib/Exceptions/LEConnectorException.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "lib/Exceptions/LEConnectorException.php",
+                        "line": 80
+                    },
+                    {
+                        "file": "lib/Exceptions/LEConnectorException.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "wple_failed_verification",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_ajax.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "wple_have_cpanel",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 546
+                    }
+                ]
+            },
+            {
+                "key": "wple_have_directadmin",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 584
+                    }
+                ]
+            },
+            {
+                "key": "wple_have_plesk",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 565
+                    }
+                ]
+            },
+            {
+                "key": "wple_have_siteground",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 592
+                    }
+                ]
+            },
+            {
+                "key": "wple_http_valid",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 122
+                    },
+                    {
+                        "file": "lib/LEOrder.php",
+                        "line": 357
+                    }
+                ]
+            },
+            {
+                "key": "wple_malware_ignorelist",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_ajax.php",
+                        "line": 435
+                    }
+                ]
+            },
+            {
+                "key": "wple_malware_lastscan",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_handlers.php",
+                        "line": 311
+                    },
+                    {
+                        "file": "admin/le_handlers.php",
+                        "line": 321
+                    }
+                ]
+            },
+            {
+                "key": "wple_mixed_issues",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin.php",
+                        "line": 862
+                    },
+                    {
+                        "file": "classes/le-advanced-scanner.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "wple_mscan_integrity",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-mscan.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "classes/le-mscan.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "wple_notice_disabled_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 1697
+                    }
+                ]
+            },
+            {
+                "key": "wple_notice_trial",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin.php",
+                        "line": 1430
+                    }
+                ]
+            },
+            {
+                "key": "wple_opts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 323
+                    },
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 361
+                    },
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 366
+                    },
+                    {
+                        "file": "admin/le_ajax.php",
+                        "line": 298
+                    },
+                    {
+                        "file": "admin/le_handlers.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "admin/le_handlers.php",
+                        "line": 110
+                    },
+                    {
+                        "file": "classes/le-activator.php",
+                        "line": 35
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 286
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 417
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 441
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 584
+                    },
+                    {
+                        "file": "classes/le-deactivator.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "classes/le-forcessl.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "wple_order_refreshed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 374
+                    }
+                ]
+            },
+            {
+                "key": "wple_panels_checked",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 530
+                    }
+                ]
+            },
+            {
+                "key": "wple_parent_reachable",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 138
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 147
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "wple_passkeys",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-passkeys.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "wple_plan_choose",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_handlers.php",
+                        "line": 179
+                    },
+                    {
+                        "file": "admin/le_handlers.php",
+                        "line": 185
+                    },
+                    {
+                        "file": "admin/le_handlers.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "wple_priv_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 343
+                    }
+                ]
+            },
+            {
+                "key": "wple_renewal_failed_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin.php",
+                        "line": 937
+                    },
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 999
+                    }
+                ]
+            },
+            {
+                "key": "wple_sectigo",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 676
+                    }
+                ]
+            },
+            {
+                "key": "wple_security_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 1666
+                    }
+                ]
+            },
+            {
+                "key": "wple_send_usage",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 124
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 781
+                    }
+                ]
+            },
+            {
+                "key": "wple_show_reminder",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin.php",
+                        "line": 936
+                    },
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 998
+                    }
+                ]
+            },
+            {
+                "key": "wple_show_review",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin.php",
+                        "line": 852
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 442
+                    }
+                ]
+            },
+            {
+                "key": "wple_show_review_disabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 678
+                    }
+                ]
+            },
+            {
+                "key": "wple_ssl_errors",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 806
+                    }
+                ]
+            },
+            {
+                "key": "wple_ssl_screen",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin.php",
+                        "line": 245
+                    },
+                    {
+                        "file": "admin/le_admin.php",
+                        "line": 254
+                    },
+                    {
+                        "file": "admin/le_admin.php",
+                        "line": 266
+                    },
+                    {
+                        "file": "admin/le_admin.php",
+                        "line": 979
+                    },
+                    {
+                        "file": "admin/le_ajax.php",
+                        "line": 300
+                    },
+                    {
+                        "file": "admin/le_handlers.php",
+                        "line": 113
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 328
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 600
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 726
+                    }
+                ]
+            },
+            {
+                "key": "wple_ssl_valid",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-security.php",
+                        "line": 398
+                    },
+                    {
+                        "file": "classes/le-security.php",
+                        "line": 401
+                    }
+                ]
+            },
+            {
+                "key": "wple_ssllabs_expiry",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 982
+                    }
+                ]
+            },
+            {
+                "key": "wple_stage",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_ajax.php",
+                        "line": 156
+                    },
+                    {
+                        "file": "admin/le_ajax.php",
+                        "line": 249
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 180
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 182
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 184
+                    },
+                    {
+                        "file": "classes/le-core.php",
+                        "line": 306
+                    }
+                ]
+            },
+            {
+                "key": "wple_survey_interests",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_handlers.php",
+                        "line": 391
+                    }
+                ]
+            },
+            {
+                "key": "wple_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin.php",
+                        "line": 206
+                    },
+                    {
+                        "file": "admin/le_admin.php",
+                        "line": 210
+                    },
+                    {
+                        "file": "classes/le-activator.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "wple_vulnerability_lastscan",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_handlers.php",
+                        "line": 232
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}fs_logger",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-fs-logger.php",
+                        "line": 339
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "fs_debug_turn_off_logging_hook",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 296
+                    }
+                ]
+            },
+            {
+                "key": "wple_init_malware_scan",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 1057
+                    }
+                ]
+            },
+            {
+                "key": "wple_init_panels_check",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-activator.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "wple_init_ssllabs",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-activator.php",
+                        "line": 41
+                    }
+                ]
+            },
+            {
+                "key": "wple_init_vulnerability_scan",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 1054
+                    }
+                ]
+            },
+            {
+                "key": "wple_remindlater_*",
+                "recurrence": "single",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 1685
+                    }
+                ]
+            },
+            {
+                "key": "wple_show_mxalert",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 694
+                    }
+                ]
+            },
+            {
+                "key": "wple_show_reviewrequest",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 675
+                    }
+                ]
+            },
+            {
+                "key": "wple_ssl_expiry_update",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 1061
+                    },
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 709
+                    },
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 1014
+                    },
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 1019
+                    }
+                ]
+            },
+            {
+                "key": "wple_ssl_reminder_notice",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 666
+                    },
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 1006
+                    },
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 1113
+                    },
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 1130
+                    }
+                ]
+            },
+            {
+                "key": "wple_ssl_renewal",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 996
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_fs_api_connection_retry_counter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 21138
+                    }
+                ]
+            },
+            {
+                "key": "fs_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 7608
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 20788
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 20794
+                    }
+                ]
+            },
+            {
+                "key": "fs_snooze_period",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 2748
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 2750
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "wple_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-passkeys.php",
+                        "line": 341
+                    }
+                ]
+            },
+            {
+                "key": "wple_alternate_headers",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 769
+                    }
+                ]
+            },
+            {
+                "key": "wple_monitor_remindlater",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_admin_pages.php",
+                        "line": 1681
+                    },
+                    {
+                        "file": "classes/le-activator.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "wple_ssllabs",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 920
+                    },
+                    {
+                        "file": "classes/le-trait.php",
+                        "line": 979
+                    }
+                ]
+            },
+            {
+                "key": "wple_vulnerability_scan",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/le_handlers.php",
+                        "line": 303
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wple_registration_challenge",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/le-passkeys.php",
+                        "line": 191
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "freemius/includes/class-fs-plugin-updater.php",
+                    "line": 1286
+                },
+                {
+                    "file": "freemius/includes/fs-essential-functions.php",
+                    "line": 335
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "home",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/le_admin_pages.php",
+                    "line": 328
+                },
+                {
+                    "file": "admin/le_admin_pages.php",
+                    "line": 345
+                },
+                {
+                    "file": "admin/le_admin_pages.php",
+                    "line": 370
+                },
+                {
+                    "file": "admin/le_ajax.php",
+                    "line": 303
+                },
+                {
+                    "file": "admin/le_handlers.php",
+                    "line": 115
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "siteurl",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/le_admin_pages.php",
+                    "line": 327
+                },
+                {
+                    "file": "admin/le_admin_pages.php",
+                    "line": 344
+                },
+                {
+                    "file": "admin/le_admin_pages.php",
+                    "line": 369
+                },
+                {
+                    "file": "admin/le_ajax.php",
+                    "line": 302
+                },
+                {
+                    "file": "admin/le_handlers.php",
+                    "line": 114
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "uninstall_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "freemius/includes/class-freemius.php",
+                    "line": 1896
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "users_can_register",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "classes/le-security.php",
+                    "line": 177
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\WPLE_DEBUGGER",
+            "file": "admin/le_admin.php",
+            "line": 469
+        },
+        {
+            "function": "mkdir",
+            "expression": "$fpath",
+            "file": "admin/le_ajax.php",
+            "line": 101
+        },
+        {
+            "function": "mkdir",
+            "expression": "$fpath",
+            "file": "admin/le_ajax.php",
+            "line": 125
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/credential-repository.php",
+            "line": 35
+        },
+        {
+            "function": "mkdir",
+            "expression": "$keys_above_root",
+            "file": "classes/le-core.php",
+            "line": 140
+        },
+        {
+            "function": "mkdir",
+            "expression": "$fpath",
+            "file": "classes/le-core.php",
+            "line": 775
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 6354
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 6361
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 24874
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "freemius/includes/class-fs-lock.php",
+            "line": 57
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "freemius/includes/class-fs-lock.php",
+            "line": 77
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "freemius/includes/class-fs-plugin-updater.php",
+            "line": 819
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "freemius/includes/class-fs-plugin-updater.php",
+            "line": 851
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-debug-manager.php",
+            "line": 265
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-option-manager.php",
+            "line": 410
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-option-manager.php",
+            "line": 414
+        },
+        {
+            "function": "mkdir",
+            "expression": "$certificateKeys",
+            "file": "lib/LEClient.php",
+            "line": 91
+        },
+        {
+            "function": "mkdir",
+            "expression": "$accountKeys",
+            "file": "lib/LEClient.php",
+            "line": 124
+        }
+    ]
+}

@@ -1,0 +1,237 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "gtm-kit",
+        "name": "GTM Kit",
+        "version": "2.17.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 41,
+    "coverage": {
+        "files_scanned": 77,
+        "files_skipped": 0,
+        "write_calls_found": 18,
+        "verified": 8,
+        "resolved": 9,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.944
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "auto_update_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Installation/AutomaticUpdates.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "gtmkit",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Options/Options.php",
+                        "line": 239
+                    },
+                    {
+                        "file": "src/Options/Options.php",
+                        "line": 243
+                    },
+                    {
+                        "file": "src/Options/Options.php",
+                        "line": 272
+                    }
+                ]
+            },
+            {
+                "key": "gtmkit_activation_prevent_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Admin/SetupWizard.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "gtmkit_initial_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Installation/Activation.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "gtmkit_support_sync",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Common/SupportSync.php",
+                        "line": 442
+                    }
+                ]
+            },
+            {
+                "key": "gtmkit_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Installation/Activation.php",
+                        "line": 55
+                    },
+                    {
+                        "file": "src/Installation/Upgrade.php",
+                        "line": 42
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "gtmkit_send_anonymous_data",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Analytics.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "gtmkit_support_sync_push",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/SupportSync.php",
+                        "line": 284
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "gtmkit_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Installation/Activation.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "gtmkit_first_install",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Installation/Activation.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "gtmkit_upgrade_opportunities",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Common/Util.php",
+                        "line": 421
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "gtmkit_page_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/MetaBox.php",
+                        "line": 116
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_gtmkit_introductions",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Admin/Introductions/Infrastructure/Introductions_Seen_Repository.php",
+                        "line": 59
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "gtmkit_send_anonymous_data",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Analytics.php",
+                        "line": 85
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "src/Common/Util.php",
+            "line": 421
+        }
+    ]
+}

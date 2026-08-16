@@ -1,0 +1,950 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ssl-zen",
+        "name": "SSL Zen — SSL Certificate Installer & HTTPS Redirects",
+        "version": "4.7.42",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:07Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 192,
+        "files_skipped": 0,
+        "write_calls_found": 129,
+        "verified": 110,
+        "resolved": 1,
+        "pattern": 3,
+        "dynamic": 15,
+        "resolution_rate": 0.86
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "active_sitewide_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 355
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 2252
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_cloudflare_fix.php",
+                        "line": 116
+                    }
+                ]
+            },
+            {
+                "key": "fs_active_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 279
+                    },
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 413
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 297
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 458
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 502
+                    }
+                ]
+            },
+            {
+                "key": "fs_debug_mode",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/config.php",
+                        "line": 307
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 3727
+                    }
+                ]
+            },
+            {
+                "key": "fs_storage_logger",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-fs-logger.php",
+                        "line": 359
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_anon_id",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_scripts.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_base_domain",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1765
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_cert_details",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 160
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_certificate_60_days",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1859
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 2467
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_certificate_60_days_email_sent",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1861
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 2469
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_scheduled.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_certificate_90_days",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1860
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 2468
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_certificate_90_days_email_sent",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1862
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 2470
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_scheduled.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_cpanel_detected",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_cpanel.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "ssl_zen/classes/classes.ssl_zen_cpanel.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_deactivated",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 2382
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_debug_url",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 539
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_dns_check_activation",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 411
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_domain_verification_variant",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 391
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1816
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_domain_verified",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 398
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_domainconnect_status",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_domainconnect.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_domains",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1764
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_email",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1766
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_enable_301_htaccess_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1951
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_enable_debug",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 547
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_include_wwww",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1763
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_keys_dir_name",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_certificate.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_lock_htaccess_file",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1952
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_marketing_optin",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1771
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_optin_sent",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 76
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1785
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_review_reminder",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1342
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1346
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_settings_stage",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 152
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 159
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 926
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1386
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1653
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1665
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1687
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1692
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1713
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1718
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1743
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1796
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1818
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1823
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1858
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1863
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1867
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1872
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1886
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1890
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1910
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1923
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1942
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 2035
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 2040
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 2079
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 2091
+                    },
+                    {
+                        "file": "ssl_zen/lib/cPanel/cPanel.php",
+                        "line": 240
+                    },
+                    {
+                        "file": "ssl_zen/lib/cPanel/cPanel.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_show_debug_url",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 538
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_ssl_activated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1651
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1908
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1922
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_ssl_activated_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1329
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1652
+                    },
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                        "line": 1909
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}fs_logger",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-fs-logger.php",
+                        "line": 332
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "ssl_zen_60_days_email",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_scheduled.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "ssl_zen_90_days_email",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_scheduled.php",
+                        "line": 71
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_fs_api_connection_retry_counter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 21274
+                    }
+                ]
+            },
+            {
+                "key": "fs_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 7880
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 20924
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 20930
+                    }
+                ]
+            },
+            {
+                "key": "fs_snooze_period",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 2708
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 2710
+                    }
+                ]
+            },
+            {
+                "key": "sslzen-debug",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ssl_zen/classes/class.ssl_zen_helper.php",
+                        "line": 270
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 3845
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 3854
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 3846
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 3855
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "freemius/includes/class-fs-plugin-updater.php",
+                    "line": 1250
+                },
+                {
+                    "file": "freemius/includes/fs-essential-functions.php",
+                    "line": 332
+                },
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                    "line": 2259
+                },
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                    "line": 2266
+                },
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_cloudflare_fix.php",
+                    "line": 112
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "home",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                    "line": 1650
+                },
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                    "line": 1907
+                },
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                    "line": 1921
+                },
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                    "line": 2331
+                },
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                    "line": 2358
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "siteurl",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                    "line": 1649
+                },
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                    "line": 1906
+                },
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                    "line": 1920
+                },
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                    "line": 2330
+                },
+                {
+                    "file": "ssl_zen/classes/class.ssl_zen_admin.php",
+                    "line": 2357
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "uninstall_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "freemius/includes/class-freemius.php",
+                    "line": 1856
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 3809
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 6608
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 6615
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 24958
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "freemius/includes/class-fs-lock.php",
+            "line": 57
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "freemius/includes/class-fs-lock.php",
+            "line": 77
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "freemius/includes/class-fs-plugin-updater.php",
+            "line": 793
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "freemius/includes/class-fs-plugin-updater.php",
+            "line": 825
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-option-manager.php",
+            "line": 410
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-option-manager.php",
+            "line": 414
+        },
+        {
+            "function": "mkdir",
+            "expression": "$keys_dir",
+            "file": "ssl_zen/classes/class.ssl_zen_certificate.php",
+            "line": 78
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "ssl_zen/classes/class.ssl_zen_helper.php",
+            "line": 294
+        },
+        {
+            "function": "mkdir",
+            "expression": "$certificateKeys",
+            "file": "ssl_zen/lib/LEClient.php",
+            "line": 99
+        },
+        {
+            "function": "mkdir",
+            "expression": "$accountKeys",
+            "file": "ssl_zen/lib/LEClient.php",
+            "line": 138
+        },
+        {
+            "function": "mkdir",
+            "expression": "SSL_ZEN_DIR . 'log'",
+            "file": "ssl_zen/lib/LEFunctions.php",
+            "line": 187
+        }
+    ]
+}

@@ -1,0 +1,816 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cloudinary-image-management-and-manipulation-in-the-cloud-cdn",
+        "name": "Cloudinary",
+        "version": "3.3.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:19Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 167,
+        "files_skipped": 0,
+        "write_calls_found": 103,
+        "verified": 13,
+        "resolved": 22,
+        "pattern": 9,
+        "dynamic": 59,
+        "resolution_rate": 0.34
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_cld_cli_analyzed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/traits/trait-cli.php",
+                        "line": 398
+                    }
+                ]
+            },
+            {
+                "key": "_cloudinary_bulk_sync_enabled",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/sync/class-sync-queue.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "_cloudinary_first_api_emitted",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-analytics.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "_cloudinary_first_sync_emitted",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/sync/class-push-sync.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "_cloudinary_last_active",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-analytics.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "_cloudinary_report",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-report.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "_cloudinary_sync_queue",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/sync/class-sync-queue.php",
+                        "line": 518
+                    }
+                ]
+            },
+            {
+                "key": "cloudinary_cleaning_up",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-deactivation.php",
+                        "line": 474
+                    }
+                ]
+            },
+            {
+                "key": "cloudinary_cron_schedule",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-cron.php",
+                        "line": 285
+                    }
+                ]
+            },
+            {
+                "key": "cloudinary_global_video_transformations",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-media.php",
+                        "line": 3003
+                    }
+                ]
+            },
+            {
+                "key": "cloudinary_media_display",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-utils.php",
+                        "line": 490
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "cloudinary_cleanup_event",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-deactivation.php",
+                        "line": 473
+                    }
+                ]
+            },
+            {
+                "key": "cloudinary_resume_queue",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/sync/class-sync-queue.php",
+                        "line": 873
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_autosync_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/sync/class-sync-queue.php",
+                        "line": 152
+                    }
+                ]
+            },
+            {
+                "key": "_cld_disable_http_upload",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/connect/class-api.php",
+                        "line": 618
+                    }
+                ]
+            },
+            {
+                "key": "_cloudinary_analytics_smoke",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-analytics.php",
+                        "line": 476
+                    }
+                ]
+            },
+            {
+                "key": "_cloudinary_pending_activation",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-analytics.php",
+                        "line": 116
+                    }
+                ]
+            },
+            {
+                "key": "cld_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/cron/class-lock-object.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "wpml_cloudinary",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/integrations/class-wpml.php",
+                        "line": 84
+                    },
+                    {
+                        "file": "php/integrations/class-wpml.php",
+                        "line": 126
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-media.php",
+                        "line": 2150
+                    },
+                    {
+                        "file": "php/class-media.php",
+                        "line": 2153
+                    },
+                    {
+                        "file": "php/media/class-upgrade.php",
+                        "line": 167
+                    },
+                    {
+                        "file": "php/media/class-upgrade.php",
+                        "line": 168
+                    },
+                    {
+                        "file": "php/media/class-upgrade.php",
+                        "line": 239
+                    },
+                    {
+                        "file": "php/sync/class-storage.php",
+                        "line": 317
+                    },
+                    {
+                        "file": "php/sync/class-upload-sync.php",
+                        "line": 380
+                    },
+                    {
+                        "file": "php/sync/class-upload-sync.php",
+                        "line": 383
+                    }
+                ]
+            },
+            {
+                "key": "_cld_replacements",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-delivery.php",
+                        "line": 1184
+                    }
+                ]
+            },
+            {
+                "key": "_cld_usable_transformations",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/media/class-video.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "_cloudinary_featured_overwrite",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/media/class-filter.php",
+                        "line": 586
+                    },
+                    {
+                        "file": "php/media/class-global-transformations.php",
+                        "line": 534
+                    },
+                    {
+                        "file": "php/media/class-global-transformations.php",
+                        "line": 583
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attached_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/media/class-upgrade.php",
+                        "line": 238
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-media.php",
+                        "line": 2160
+                    },
+                    {
+                        "file": "php/class-media.php",
+                        "line": 2320
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_metadata",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/class-svg.php",
+                        "line": 206
+                    },
+                    {
+                        "file": "php/media/class-upgrade.php",
+                        "line": 248
+                    }
+                ]
+            },
+            {
+                "key": "_wpml_cld",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/integrations/class-wpml.php",
+                        "line": 301
+                    }
+                ]
+            },
+            {
+                "key": "cloudinary_apply_type_terms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/media/class-global-transformations.php",
+                        "line": 522
+                    }
+                ]
+            },
+            {
+                "key": "cloudinary_transformations_terms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/media/class-global-transformations.php",
+                        "line": 517
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_cld_ui_state",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/ui/class-state.php",
+                        "line": 137
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "cloudinary_asset",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/cache/class-cache-point.php",
+                        "line": 978
+                    },
+                    {
+                        "file": "php/class-assets.php",
+                        "line": 1318
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "php/assets/class-rest-assets.php",
+            "line": 202
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['excluded_urls']",
+            "file": "php/cache/class-cache-point.php",
+            "line": 345
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['excluded_urls']",
+            "file": "php/cache/class-cache-point.php",
+            "line": 361
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['version']",
+            "file": "php/cache/class-cache-point.php",
+            "line": 653
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['cached_urls']",
+            "file": "php/cache/class-cache-point.php",
+            "line": 733
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['cached_urls']",
+            "file": "php/cache/class-cache-point.php",
+            "line": 735
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['cached_urls']",
+            "file": "php/cache/class-cache-point.php",
+            "line": 881
+        },
+        {
+            "function": "set_transient",
+            "expression": "$token",
+            "file": "php/class-admin.php",
+            "line": 140
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "php/class-admin.php",
+            "line": 183
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::META_KEYS['lock']",
+            "file": "php/class-assets.php",
+            "line": 674
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Cache\\Cache_Point::META_KEYS['upload_error']",
+            "file": "php/class-cache.php",
+            "line": 295
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Cache\\Cache_Point::META_KEYS['cached_urls']",
+            "file": "php/class-cache.php",
+            "line": 306
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Cache\\Cache_Point::META_KEYS['last_updated']",
+            "file": "php/class-cache.php",
+            "line": 307
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Cache\\Cache_Point::META_KEYS['cached_urls']",
+            "file": "php/class-cache.php",
+            "line": 309
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Cache\\Cache_Point::META_KEYS['cached_urls']",
+            "file": "php/class-cache.php",
+            "line": 440
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Cache\\Cache_Point::META_KEYS['cached_urls']",
+            "file": "php/class-cache.php",
+            "line": 442
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::META_KEYS['upload_method']",
+            "file": "php/class-cache.php",
+            "line": 467
+        },
+        {
+            "function": "update_option",
+            "expression": "self::META_KEYS['history']",
+            "file": "php/class-connect.php",
+            "line": 514
+        },
+        {
+            "function": "update_option",
+            "expression": "self::META_KEYS['history']",
+            "file": "php/class-connect.php",
+            "line": 548
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::META_KEYS['usage']",
+            "file": "php/class-connect.php",
+            "line": 780
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "php/class-connect.php",
+            "line": 949
+        },
+        {
+            "function": "update_option",
+            "expression": "self::META_KEYS['connection']",
+            "file": "php/class-connect.php",
+            "line": 962
+        },
+        {
+            "function": "update_option",
+            "expression": "self::META_KEYS['signature']",
+            "file": "php/class-connect.php",
+            "line": 963
+        },
+        {
+            "function": "update_option",
+            "expression": "self::META_KEYS['version']",
+            "file": "php/class-connect.php",
+            "line": 964
+        },
+        {
+            "function": "update_option",
+            "expression": "$plugin::KEYS['notices']",
+            "file": "php/class-connect.php",
+            "line": 1042
+        },
+        {
+            "function": "update_option",
+            "expression": "$plugin::KEYS['notices']",
+            "file": "php/class-connect.php",
+            "line": 1045
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['sync_error']",
+            "file": "php/class-media.php",
+            "line": 471
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['process_log']",
+            "file": "php/class-media.php",
+            "line": 2611
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['cloudinary']",
+            "file": "php/class-media.php",
+            "line": 2711
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['cloudinary']",
+            "file": "php/class-media.php",
+            "line": 2729
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Cloudinary\\Connect::META_KEYS['version']",
+            "file": "php/class-plugin.php",
+            "line": 256
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['sync_error']",
+            "file": "php/class-sync.php",
+            "line": 246
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['process_log']",
+            "file": "php/class-sync.php",
+            "line": 253
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::META_KEYS['pending']",
+            "file": "php/class-sync.php",
+            "line": 985
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "php/class-utils.php",
+            "line": 347
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['db_version']",
+            "file": "php/class-utils.php",
+            "line": 348
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['db_version']",
+            "file": "php/class-utils.php",
+            "line": 440
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['db_version']",
+            "file": "php/class-utils.php",
+            "line": 458
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['db_version']",
+            "file": "php/class-utils.php",
+            "line": 495
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['debug']",
+            "file": "php/class-utils.php",
+            "line": 848
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$meta_key",
+            "file": "php/media/class-global-transformations.php",
+            "line": 162
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['cloudinary']",
+            "file": "php/media/class-upgrade.php",
+            "line": 229
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['cloudinary']",
+            "file": "php/media/class-upgrade.php",
+            "line": 259
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix($slug)",
+            "file": "php/settings/storage/class-options.php",
+            "line": 38
+        },
+        {
+            "function": "set_transient",
+            "expression": "$prefixed_slug",
+            "file": "php/settings/storage/class-transient.php",
+            "line": 43
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['syncing']",
+            "file": "php/sync/class-push-sync.php",
+            "line": 238
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['sync_error']",
+            "file": "php/sync/class-push-sync.php",
+            "line": 293
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['delay']",
+            "file": "php/sync/class-storage.php",
+            "line": 315
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['sync_error']",
+            "file": "php/sync/class-storage.php",
+            "line": 416
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['local_size']",
+            "file": "php/sync/class-storage.php",
+            "line": 428
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['remote_size']",
+            "file": "php/sync/class-storage.php",
+            "line": 430
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['remote_format']",
+            "file": "php/sync/class-storage.php",
+            "line": 431
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['dashboard_cache']",
+            "file": "php/sync/class-sync-queue.php",
+            "line": 358
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['queued']",
+            "file": "php/sync/class-sync-queue.php",
+            "line": 785
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$thread",
+            "file": "php/sync/class-sync-queue.php",
+            "line": 786
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_thread_option($thread)",
+            "file": "php/sync/class-sync-queue.php",
+            "line": 798
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['sync_error']",
+            "file": "php/sync/class-upload-sync.php",
+            "line": 394
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Cloudinary\\Sync::META_KEYS['public_id']",
+            "file": "php/sync/class-upload-sync.php",
+            "line": 414
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "php/traits/trait-cli.php",
+            "line": 358
+        }
+    ]
+}

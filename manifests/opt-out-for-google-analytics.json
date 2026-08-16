@@ -1,0 +1,160 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "opt-out-for-google-analytics",
+        "name": "Opt-Out for Google Analytics (DSGVO / GDPR)",
+        "version": "2.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:02Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 50,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 4,
+        "resolved": 4,
+        "pattern": 2,
+        "dynamic": 6,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_gaoo_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "2.4/inc/admin.class.php",
+                        "line": 509
+                    },
+                    {
+                        "file": "inc/admin.class.php",
+                        "line": 509
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "gaoo_cronjob",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "2.4/inc/utils.class.php",
+                        "line": 530
+                    },
+                    {
+                        "file": "inc/utils.class.php",
+                        "line": 530
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_gaoo_has_todos",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "2.4/inc/utils.class.php",
+                        "line": 579
+                    },
+                    {
+                        "file": "inc/utils.class.php",
+                        "line": 579
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [
+            {
+                "key": "temp",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "2.4/lib/csstidy/class.csstidy.php",
+                        "line": 504
+                    },
+                    {
+                        "file": "2.4/lib/csstidy/css_optimiser.php",
+                        "line": 392
+                    },
+                    {
+                        "file": "lib/csstidy/class.csstidy.php",
+                        "line": 504
+                    },
+                    {
+                        "file": "lib/csstidy/css_optimiser.php",
+                        "line": 392
+                    }
+                ]
+            }
+        ],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "self::$option_key_off",
+            "file": "2.4/inc/promo.class.php",
+            "line": 55
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::$transient_key_notices",
+            "file": "2.4/inc/promo.class.php",
+            "line": 86
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::$transient_key_cache",
+            "file": "2.4/inc/promo.class.php",
+            "line": 189
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$option_key_off",
+            "file": "inc/promo.class.php",
+            "line": 55
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::$transient_key_notices",
+            "file": "inc/promo.class.php",
+            "line": 86
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::$transient_key_cache",
+            "file": "inc/promo.class.php",
+            "line": 189
+        }
+    ]
+}

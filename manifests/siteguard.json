@@ -1,0 +1,157 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "siteguard",
+        "name": "SiteGuard WP Plugin",
+        "version": "1.8.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:05Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 64,
+    "coverage": {
+        "files_scanned": 33,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 1,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.636
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "siteguard_config",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/siteguard-config.php",
+                        "line": 18
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}siteguard_history",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/siteguard-login-history.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}siteguard_login",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/siteguard-admin-filter.php",
+                        "line": 27
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "siteguard_update_check",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/siteguard-updates-notify.php",
+                        "line": 76
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "siteguard_rl_htaccess_rebuild",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/siteguard-rename-login.php",
+                        "line": 370
+                    }
+                ]
+            },
+            {
+                "key": "siteguard_rl_stub_fail",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/siteguard-rename-login.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "siteguard_upgrade_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "siteguard.php",
+                        "line": 374
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$test_dir_path",
+            "file": "classes/siteguard-htaccess.php",
+            "line": 81
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "classes/siteguard-htaccess.php",
+            "line": 184
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "classes/siteguard-rename-login.php",
+            "line": 518
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "really-simple-captcha/siteguard-really-simple-captcha.php",
+            "line": 336
+        }
+    ]
+}

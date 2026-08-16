@@ -1,0 +1,161 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "post-and-page-builder",
+        "name": "Post and Page Builder",
+        "version": "1.27.13",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 22,
+    "coverage": {
+        "files_scanned": 112,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 7,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.818
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "boldgrid_api_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-boldgrid-editor-ajax.php",
+                        "line": 440
+                    }
+                ]
+            },
+            {
+                "key": "boldgrid_editor",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-boldgrid-editor-option.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "includes/class-boldgrid-editor-option.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "boldgrid_editor_bg_block_caps_assigned",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-boldgrid-editor-capability.php",
+                        "line": 74
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_bgppb_default_editor",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-boldgrid-editor-setting.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "boldgrid_hide_page_title",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controls/class-boldgrid-controls-page-title.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "boldgrid_in_page_containers",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/builder/class-boldgrid-editor-builder.php",
+                        "line": 431
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "bg_block",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gridblock/class-boldgrid-editor-gridblock-post.php",
+                        "line": 174
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "bg_block_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gridblock/class-boldgrid-editor-gridblock-post.php",
+                        "line": 159
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "self::get_upload_path()",
+            "file": "includes/builder/class-boldgrid-editor-builder-styles.php",
+            "line": 154
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/class-boldgrid-editor-capability.php",
+            "line": 70
+        }
+    ]
+}

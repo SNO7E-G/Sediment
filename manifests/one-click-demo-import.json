@@ -1,0 +1,185 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "one-click-demo-import",
+        "name": "One Click Demo Import",
+        "version": "3.4.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:56Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 44,
+    "coverage": {
+        "files_scanned": 23,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 10,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "aioseo_activation_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/PluginInstaller.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "widget_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/WidgetImporter.php",
+                        "line": 265
+                    }
+                ]
+            },
+            {
+                "key": "wp_mail_smtp_activation_prevent_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/PluginInstaller.php",
+                        "line": 50
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_activation_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/PluginInstaller.php",
+                        "line": 40
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "ocdi_import_menu_mapping",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/OneClickDemoImport.php",
+                        "line": 835
+                    }
+                ]
+            },
+            {
+                "key": "ocdi_import_posts_with_nav_block",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/OneClickDemoImport.php",
+                        "line": 815
+                    }
+                ]
+            },
+            {
+                "key": "ocdi_importer_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Helpers.php",
+                        "line": 693
+                    }
+                ]
+            },
+            {
+                "key": "ocdi_importer_data_failed_attachment_imports",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Helpers.php",
+                        "line": 820
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_is_custom_header",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/CustomizerImporter.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "ocdi_precreated_demo_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/CreateDemoContent/DemoContentCreator.php",
+                        "line": 432
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/WidgetImporter.php",
+                    "line": 278
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "register_taxonomy",
+            "expression": "$data['taxonomy']",
+            "file": "inc/WXRImporter.php",
+            "line": 95
+        }
+    ]
+}

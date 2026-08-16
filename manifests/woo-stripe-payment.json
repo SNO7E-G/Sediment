@@ -1,0 +1,209 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-stripe-payment",
+        "name": "Payment Plugins for Stripe WooCommerce",
+        "version": "4.0.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 366,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 4,
+        "resolved": 4,
+        "pattern": 1,
+        "dynamic": 11,
+        "resolution_rate": 0.4
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "stripe_wc_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-stripe-install.php",
+                        "line": 22
+                    },
+                    {
+                        "file": "includes/class-wc-stripe-update.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "includes/class-wc-stripe-update.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "wc_stripe_authenticated_routes",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/abstract/abstract-wc-stripe-rest-controller.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "wc_stripe_connect_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/updates/update-3.1.0.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "wc_stripe_initialize_install",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-stripe-install.php",
+                        "line": 20
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_stripe_ach_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/updates/update-3.3.28.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_stripe_plaid_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/updates/update-3.3.28.php",
+                        "line": 33
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "stripe_lock_order_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/abstract/abstract-wc-payment-gateway-stripe.php",
+                        "line": 939
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "includes/admin/settings/class-wc-stripe-account-settings.php",
+            "line": 67
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "includes/admin/settings/class-wc-stripe-api-settings.php",
+            "line": 286
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "includes/admin/settings/class-wc-stripe-api-settings.php",
+            "line": 340
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "includes/admin/settings/class-wc-stripe-api-settings.php",
+            "line": 383
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "includes/admin/settings/class-wc-stripe-api-settings.php",
+            "line": 417
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "includes/traits/wc-stripe-settings-trait.php",
+            "line": 212
+        },
+        {
+            "function": "update_option",
+            "expression": "$settings->get_option_key()",
+            "file": "includes/updates/update-3.3.13.php",
+            "line": 15
+        },
+        {
+            "function": "update_option",
+            "expression": "$account_settings->get_option_key()",
+            "file": "includes/updates/update-3.3.47.php",
+            "line": 16
+        },
+        {
+            "function": "update_option",
+            "expression": "$googlepay->get_option_key()",
+            "file": "includes/updates/update-4.0.0.php",
+            "line": 28
+        },
+        {
+            "function": "update_option",
+            "expression": "$applepay->get_option_key()",
+            "file": "includes/updates/update-4.0.0.php",
+            "line": 44
+        },
+        {
+            "function": "update_option",
+            "expression": "$settings->get_option_key()",
+            "file": "src/Rest/Routes/V1/Admin/GatewaySettings.php",
+            "line": 260
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cancel-order-request-woocommerce",
+        "name": "PiWeb Cancel order / Refund request for WooCommerce",
+        "version": "1.3.4.34",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:26Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 64,
+    "coverage": {
+        "files_scanned": 49,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.4
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pi_cord_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-cancel-order-request-woocommerce-activator.php",
+                        "line": 6
+                    }
+                ]
+            },
+            {
+                "key": "pi_corw_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cancel-order-request-woocommerce.php",
+                        "line": 84
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->enable_tracking",
+            "file": "admin/class-analytics.php",
+            "line": 78
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->saved_value",
+            "file": "includes/review.php",
+            "line": 207
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->activation_date",
+            "file": "includes/review.php",
+            "line": 216
+        }
+    ]
+}

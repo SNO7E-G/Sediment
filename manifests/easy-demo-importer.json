@@ -1,0 +1,634 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "easy-demo-importer",
+        "name": "Easy Demo Importer - A Modern One-Click Demo Import Solution",
+        "version": "2.0.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 73,
+        "files_skipped": 0,
+        "write_calls_found": 71,
+        "verified": 30,
+        "resolved": 9,
+        "pattern": 8,
+        "dynamic": 24,
+        "resolution_rate": 0.549
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "default_product_cat",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/Actions.php",
+                        "line": 687
+                    }
+                ]
+            },
+            {
+                "key": "elementor_active_kit",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/Actions.php",
+                        "line": 826
+                    }
+                ]
+            },
+            {
+                "key": "elementor_cpt_support",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/Actions.php",
+                        "line": 858
+                    }
+                ]
+            },
+            {
+                "key": "elementor_disable_color_schemes",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/Actions.php",
+                        "line": 862
+                    }
+                ]
+            },
+            {
+                "key": "elementor_disable_typography_schemes",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/Actions.php",
+                        "line": 863
+                    }
+                ]
+            },
+            {
+                "key": "elementor_unfiltered_files_upload",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/Actions.php",
+                        "line": 864
+                    }
+                ]
+            },
+            {
+                "key": "sd_edi_import_lock",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/SessionManager.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "sd_edi_import_success",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/Actions.php",
+                        "line": 1119
+                    }
+                ]
+            },
+            {
+                "key": "sd_edi_log_db_version",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/ImportLogger.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "sd_edi_mediasnap",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Utils/MediaSnapshot.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "inc/Common/Utils/MediaSnapshot.php",
+                        "line": 217
+                    }
+                ]
+            },
+            {
+                "key": "sd_edi_plugin_deactivate_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/App/Ajax/Backend/Initialize.php",
+                        "line": 258
+                    },
+                    {
+                        "file": "inc/App/Backend/DeactivateNotice.php",
+                        "line": 169
+                    },
+                    {
+                        "file": "inc/Config/Setup.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "sd_edi_snapshot_session",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Utils/Snapshot.php",
+                        "line": 269
+                    }
+                ]
+            },
+            {
+                "key": "widget_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/Helpers.php",
+                        "line": 298
+                    },
+                    {
+                        "file": "inc/Common/Models/Widgets.php",
+                        "line": 182
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/Actions.php",
+                        "line": 629
+                    },
+                    {
+                        "file": "inc/Common/Functions/Actions.php",
+                        "line": 665
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "IF",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Utils/Snapshot.php",
+                        "line": 337
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "sd_edi_manual_cleanup",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/App/Manual/ManualImport.php",
+                        "line": 102
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "sd_edi_dl_progress_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Utils/DownloadProgress.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "sd_edi_installing",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Config/Setup.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "sd_edi_preflight",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/App/Rest/RestEndpoints.php",
+                        "line": 349
+                    }
+                ]
+            },
+            {
+                "key": "sd_edi_server_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/App/Rest/RestEndpoints.php",
+                        "line": 603
+                    }
+                ]
+            },
+            {
+                "key": "sd_edi_session_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/SessionManager.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "inc/Common/Functions/SessionManager.php",
+                        "line": 160
+                    },
+                    {
+                        "file": "inc/Common/Functions/SessionManager.php",
+                        "line": 190
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_elementor_edit_mode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/Actions.php",
+                        "line": 818
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_template_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/Actions.php",
+                        "line": 817
+                    }
+                ]
+            },
+            {
+                "key": "_menu_item_menu_item_parent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordpress-importer/class-wp-import.php",
+                        "line": 1739
+                    }
+                ]
+            },
+            {
+                "key": "_sd_edi_source_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordpress-importer/class-wp-import.php",
+                        "line": 1286
+                    }
+                ]
+            },
+            {
+                "key": "_stock_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Functions/Actions.php",
+                        "line": 726
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wordpress-importer/class-wp-import.php",
+                        "line": 1813
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_is_custom_header",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Models/Customizer.php",
+                        "line": 143
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "page_for_posts",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/Common/Functions/Actions.php",
+                    "line": 326
+                },
+                {
+                    "file": "inc/Common/Functions/Actions.php",
+                    "line": 358
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "page_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/Common/Functions/Actions.php",
+                    "line": 341
+                },
+                {
+                    "file": "inc/Common/Functions/Actions.php",
+                    "line": 347
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "permalink_structure",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/Common/Functions/Actions.php",
+                    "line": 1101
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "show_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/Common/Functions/Actions.php",
+                    "line": 325
+                },
+                {
+                    "file": "inc/Common/Functions/Actions.php",
+                    "line": 340
+                },
+                {
+                    "file": "inc/Common/Functions/Actions.php",
+                    "line": 346
+                },
+                {
+                    "file": "inc/Common/Functions/Actions.php",
+                    "line": 357
+                },
+                {
+                    "file": "inc/Common/Functions/Actions.php",
+                    "line": 363
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/Common/Functions/Helpers.php",
+                    "line": 295
+                },
+                {
+                    "file": "inc/Common/Models/Widgets.php",
+                    "line": 195
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "inc/App/Ajax/Backend/ImportSettings.php",
+            "line": 142
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "inc/App/Ajax/Backend/ImportSettings.php",
+            "line": 166
+        },
+        {
+            "function": "update_option",
+            "expression": "$state_key",
+            "file": "inc/App/Ajax/Backend/InstallDemo.php",
+            "line": 733
+        },
+        {
+            "function": "update_option",
+            "expression": "$remap_key",
+            "file": "inc/App/Ajax/Backend/InstallDemo.php",
+            "line": 757
+        },
+        {
+            "function": "set_transient",
+            "expression": "$guard",
+            "file": "inc/App/Ajax/Backend/InstallDemo.php",
+            "line": 930
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "inc/App/Manual/ManualImport.php",
+            "line": 211
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$extract",
+            "file": "inc/App/Manual/ManualImport.php",
+            "line": 352
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "dirname($dest)",
+            "file": "inc/App/Manual/ManualImport.php",
+            "line": 382
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$extract",
+            "file": "inc/App/Manual/ManualImport.php",
+            "line": 425
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$staging",
+            "file": "inc/App/Manual/ManualImport.php",
+            "line": 501
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$targetExtractDir",
+            "file": "inc/Common/Abstracts/ImporterAjax.php",
+            "line": 537
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "inc/Common/Functions/Actions.php",
+            "line": 1118
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE {$table} (\\n  id bigint(20) unsigned NOT NULL AUTO_INCREMENT,\\n  session_id varchar(64) NOT NULL DEFAULT '',\\n  demo_slug varchar(191) NOT NULL DEFAULT '',\\n  logged_at datetime NOT NULL DEFAULT '0000-00-00 00:00:00',\\n  level varchar(20) NOT NULL DEFAULT 'info',\\n  message text NOT NULL,\\n  PRIMARY KEY  (id),\\n  KEY session_id (session_id),\\n  KEY logged_at (logged_at)\\n) {$collate};\"",
+            "file": "inc/Common/Functions/ImportLogger.php",
+            "line": 153
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "inc/Common/Functions/ImportLogger.php",
+            "line": 427
+        },
+        {
+            "function": "update_option",
+            "expression": "self::key($session_id)",
+            "file": "inc/Common/Utils/FailedMedia.php",
+            "line": 63
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$root",
+            "file": "inc/Common/Utils/MediaSnapshot.php",
+            "line": 102
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$base",
+            "file": "inc/Common/Utils/MediaSnapshot.php",
+            "line": 149
+        },
+        {
+            "function": "dbDelta",
+            "expression": "self::getTableSchema()",
+            "file": "inc/Config/Setup.php",
+            "line": 107
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "inc/Config/Setup.php",
+            "line": 156
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "\\sanitize_key($key)",
+            "file": "lib/wordpress-importer/class-wp-import.php",
+            "line": 585
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "\\wp_slash($key)",
+            "file": "lib/wordpress-importer/class-wp-import.php",
+            "line": 698
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "\\wp_slash($meta['key'])",
+            "file": "lib/wordpress-importer/class-wp-import.php",
+            "line": 1019
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "\\wp_slash($key)",
+            "file": "lib/wordpress-importer/class-wp-import.php",
+            "line": 1054
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "lib/wordpress-importer/class-wp-import.php",
+            "line": 1213
+        }
+    ]
+}

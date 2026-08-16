@@ -1,0 +1,991 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "security-ninja",
+        "name": "Security Ninja",
+        "version": "5.296",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:59Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 125,
+        "files_skipped": 0,
+        "write_calls_found": 115,
+        "verified": 67,
+        "resolved": 30,
+        "pattern": 2,
+        "dynamic": 16,
+        "resolution_rate": 0.843
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "secnin_activation_redirect",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security-ninja.php",
+                        "line": 1962
+                    }
+                ]
+            },
+            {
+                "key": "secnin_fs_migrated2fs",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wf-sn-utils.php",
+                        "line": 308
+                    },
+                    {
+                        "file": "includes/class-wf-sn-utils.php",
+                        "line": 314
+                    },
+                    {
+                        "file": "includes/class-wf-sn-utils.php",
+                        "line": 320
+                    }
+                ]
+            },
+            {
+                "key": "secnin_last_checked_admin_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/events-logger/events-logger.php",
+                        "line": 104
+                    },
+                    {
+                        "file": "modules/events-logger/events-logger.php",
+                        "line": 243
+                    }
+                ]
+            },
+            {
+                "key": "security_tests_results",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security-ninja.php",
+                        "line": 369
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_ai_advisor",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/ai-security-advisor/class-wf-sn-ai-advisor-page.php",
+                        "line": 1304
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_ai_reevaluate_pending",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/ai-security-advisor/class-wf-sn-ai-advisor-reevaluate-notice.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_banned_ips",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 2718
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_cf",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 130
+                    },
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 2021
+                    },
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 2378
+                    },
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 2906
+                    },
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 2913
+                    },
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 3934
+                    },
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 4054
+                    },
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 4085
+                    },
+                    {
+                        "file": "security-ninja.php",
+                        "line": 1643
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_cf_ai_crawler_ranges",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cloud-firewall/class-wf-sn-cf-utils.php",
+                        "line": 408
+                    },
+                    {
+                        "file": "modules/cloud-firewall/class-wf-sn-cf-utils.php",
+                        "line": 430
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_cf_blocked_count",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 1542
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_cf_blocked_today",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 1552
+                    },
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 1568
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_cf_validated_crawlers",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 463
+                    },
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 490
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_cs_results",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/core-scanner/core-scanner.php",
+                        "line": 352
+                    },
+                    {
+                        "file": "modules/core-scanner/core-scanner.php",
+                        "line": 403
+                    },
+                    {
+                        "file": "modules/core-scanner/core-scanner.php",
+                        "line": 437
+                    },
+                    {
+                        "file": "modules/core-scanner/core-scanner.php",
+                        "line": 1582
+                    },
+                    {
+                        "file": "modules/core-scanner/core-scanner.php",
+                        "line": 1702
+                    },
+                    {
+                        "file": "modules/core-scanner/core-scanner.php",
+                        "line": 1709
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_cs_user_ignore",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/core-scanner/class-wf-sn-cs-utils.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "modules/core-scanner/class-wf-sn-cs-utils.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security-ninja.php",
+                        "line": 308
+                    },
+                    {
+                        "file": "security-ninja.php",
+                        "line": 1981
+                    },
+                    {
+                        "file": "security-ninja.php",
+                        "line": 1991
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_el",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/events-logger/events-logger.php",
+                        "line": 731
+                    },
+                    {
+                        "file": "modules/events-logger/events-logger.php",
+                        "line": 736
+                    },
+                    {
+                        "file": "modules/events-logger/events-logger.php",
+                        "line": 738
+                    },
+                    {
+                        "file": "modules/events-logger/events-logger.php",
+                        "line": 1094
+                    },
+                    {
+                        "file": "modules/events-logger/events-logger.php",
+                        "line": 1191
+                    },
+                    {
+                        "file": "modules/wizard/class-wf-sn-wizard.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_encryption_key",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wf-sn-crypto.php",
+                        "line": 289
+                    },
+                    {
+                        "file": "includes/class-wf-sn-crypto.php",
+                        "line": 407
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_encryption_key_old",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wf-sn-crypto.php",
+                        "line": 404
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_known_vuln_db_counts",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1169
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_options",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/wizard/class-wf-sn-wizard.php",
+                        "line": 158
+                    },
+                    {
+                        "file": "security-ninja.php",
+                        "line": 1955
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_results",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security-ninja.php",
+                        "line": 1764
+                    },
+                    {
+                        "file": "security-ninja.php",
+                        "line": 1887
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_review_notice",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wf-sn-utils.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "security-ninja.php",
+                        "line": 544
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_scan_summary",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1212
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_settings",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/settings/class-wf-sn-settings.php",
+                        "line": 195
+                    },
+                    {
+                        "file": "modules/settings/class-wf-sn-settings.php",
+                        "line": 589
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_settings_migrated",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/settings/class-wf-sn-settings.php",
+                        "line": 613
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_site_id",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wf-sn-crypto.php",
+                        "line": 307
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_vu_last_email",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1464
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_vu_settings_group",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/wizard/class-wf-sn-wizard.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_vu_vulns_notice",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1378
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_vuln_count",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1215
+                    },
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1841
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_vulnerabilities_cache",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1213
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_vulnerabilities_cache_timestamp",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1214
+                    },
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1348
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "secnin_check_direct_admin_creation",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/events-logger/events-logger.php",
+                        "line": 46
+                    }
+                ]
+            },
+            {
+                "key": "secnin_daily_vulnerability_warning_check",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 226
+                    }
+                ]
+            },
+            {
+                "key": "secnin_prune_logs_cron",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/events-logger/events-logger.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "secnin_run_core_scanner",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/core-scanner/core-scanner.php",
+                        "line": 910
+                    }
+                ]
+            },
+            {
+                "key": "secnin_scan_vulnerabilities",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1254
+                    }
+                ]
+            },
+            {
+                "key": "secnin_update_vuln_list",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 231
+                    },
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 236
+                    },
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 982
+                    },
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1885
+                    },
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 2230
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_refresh_security_snapshot_daily",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wf-sn-security-snapshot.php",
+                        "line": 202
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "secnin_2fa_methods_empty_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 3903
+                    }
+                ]
+            },
+            {
+                "key": "secnin_2fa_optin_only_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 3932
+                    }
+                ]
+            },
+            {
+                "key": "secnin_dashboard_ai_advisor",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/dashboard-widget/class-wf-sn-dashboard-widget.php",
+                        "line": 304
+                    }
+                ]
+            },
+            {
+                "key": "secnin_dashboard_updates",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/dashboard-widget/class-wf-sn-dashboard-widget.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "secnin_manual_vuln_scan_last",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 2545
+                    }
+                ]
+            },
+            {
+                "key": "secnin_vuln_db_repair",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 981
+                    }
+                ]
+            },
+            {
+                "key": "secnin_vuln_scan_running",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1559
+                    }
+                ]
+            },
+            {
+                "key": "security_ninja_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wf-sn-utils.php",
+                        "line": 1044
+                    }
+                ]
+            },
+            {
+                "key": "settings_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security-ninja.php",
+                        "line": 977
+                    }
+                ]
+            },
+            {
+                "key": "sn_secret_url_reset_success",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security-ninja.php",
+                        "line": 1651
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_ai_advisor_agg_7d",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/ai-security-advisor/class-wf-sn-ai-advisor-aggregation.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_ai_advisor_agg_prev7d",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/ai-security-advisor/class-wf-sn-ai-advisor-aggregation.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_ai_advisor_pending_meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/ai-security-advisor/class-wf-sn-ai-advisor.php",
+                        "line": 818
+                    },
+                    {
+                        "file": "modules/ai-security-advisor/class-wf-sn-ai-advisor.php",
+                        "line": 940
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_ai_advisor_pending_snapshot",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/ai-security-advisor/class-wf-sn-ai-advisor.php",
+                        "line": 588
+                    },
+                    {
+                        "file": "modules/ai-security-advisor/class-wf-sn-ai-advisor.php",
+                        "line": 939
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_cf_server_ip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 745
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_hashes_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/core-scanner/class-wf-sn-cs-utils.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "wf_sn_security_snapshot_current",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wf-sn-security-snapshot.php",
+                        "line": 170
+                    }
+                ]
+            },
+            {
+                "key": "wp_vers_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+                        "line": 1800
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "sn_last_login",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cloud-firewall/cloud-firewall.php",
+                        "line": 370
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$hash_key",
+            "file": "includes/class-wf-sn-crypto.php",
+            "line": 44
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-wf-sn-utils.php",
+            "line": 477
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wf-sn-utils.php",
+            "line": 977
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wf-sn-utils.php",
+            "line": 981
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wf-sn-utils.php",
+            "line": 989
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "modules/ai-security-advisor/class-wf-sn-ai-advisor-reports.php",
+            "line": 70
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "modules/ai-security-advisor/class-wf-sn-ai-advisor.php",
+            "line": 1512
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "modules/ai-security-advisor/class-wf-sn-ai-advisor.php",
+            "line": 1519
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "modules/ai-security-advisor/class-wf-sn-ai-advisor.php",
+            "line": 1529
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "modules/cloud-firewall/cloud-firewall.php",
+            "line": 399
+        },
+        {
+            "function": "set_transient",
+            "expression": "$rate_limit_key",
+            "file": "modules/cloud-firewall/cloud-firewall.php",
+            "line": 2606
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "modules/core-scanner/class-wf-sn-cs-utils.php",
+            "line": 230
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+            "line": 176
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$sn_dir",
+            "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+            "line": 334
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$sn_dir",
+            "file": "modules/vulnerabilities/class-wf-sn-vu.php",
+            "line": 853
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "modules/wizard/class-wf-sn-wizard.php",
+            "line": 193
+        }
+    ]
+}

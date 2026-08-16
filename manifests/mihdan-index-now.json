@@ -1,0 +1,278 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mihdan-index-now",
+        "name": "CrawlWP SEO - Instant Indexing & SEO Insights",
+        "version": "3.0.17",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:35Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 38,
+    "coverage": {
+        "files_scanned": 1791,
+        "files_skipped": 0,
+        "write_calls_found": 32,
+        "verified": 6,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 25,
+        "resolution_rate": 0.219
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "crawlwp_bing_indexing_rate_limit_expiration",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Providers/Bing/BingWebmaster.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "crawlwp_google_indexing_rate_limit_expiration",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Providers/Google/GoogleWebmaster.php",
+                        "line": 115
+                    }
+                ]
+            },
+            {
+                "key": "crawlwp_lite_db_ver",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/DBUpdates.php",
+                        "line": 13
+                    },
+                    {
+                        "file": "src/DBUpdates.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "crawlwp_yandex_find_website_request_error",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Providers/Yandex/YandexWebmaster.php",
+                        "line": 200
+                    }
+                ]
+            },
+            {
+                "key": "crawlwp_yandex_indexing_rate_limit_expiration",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Providers/Yandex/YandexWebmaster.php",
+                        "line": 357
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "mihdan-index-now__clear-log",
+                "recurrence": "hourly",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Cron.php",
+                        "line": 41
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "src/BackgroundProcess/Libs/WP_Background_Process.php",
+            "line": 150
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "src/BackgroundProcess/Libs/WP_Background_Process.php",
+            "line": 169
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_status_key()",
+            "file": "src/BackgroundProcess/Libs/WP_Background_Process.php",
+            "line": 207
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_status_key()",
+            "file": "src/BackgroundProcess/Libs/WP_Background_Process.php",
+            "line": 235
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "src/BackgroundProcess/Libs/WP_Background_Process.php",
+            "line": 411
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "src/BackgroundProcess/Libs/WP_Background_Process.php",
+            "line": 735
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier . '_custom_healthcheck'",
+            "file": "src/BackgroundProcess/Setup.php",
+            "line": 45
+        },
+        {
+            "function": "update_option",
+            "expression": "$new_option_name",
+            "file": "src/DBUpdates.php",
+            "line": 91
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "\\Mihdan\\IndexNow\\Utils::get_plugin_prefix() . '_last_update'",
+            "file": "src/Hooks.php",
+            "line": 82
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Mihdan\\IndexNow\\Utils::get_plugin_prefix() . '_last_update'",
+            "file": "src/Hooks.php",
+            "line": 148
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "\\Mihdan\\IndexNow\\Utils::get_plugin_prefix() . '_last_update'",
+            "file": "src/Hooks.php",
+            "line": 184
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "\\Mihdan\\IndexNow\\Utils::get_plugin_prefix() . '_last_update'",
+            "file": "src/Hooks.php",
+            "line": 213
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->rate_limit_db_key()",
+            "file": "src/IndexNowAbstract.php",
+            "line": 212
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Main.php",
+            "line": 320
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_plugin_prefix() . '_version'",
+            "file": "src/Utils.php",
+            "line": 135
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "src/Views/Settings.php",
+            "line": 648
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "src/Views/WPOSA.php",
+            "line": 521
+        },
+        {
+            "function": "add_option",
+            "expression": "$section['id']",
+            "file": "src/Views/WPOSA.php",
+            "line": 552
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "src/Views/WPOSA.php",
+            "line": 1159
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$cache_key",
+            "file": "vendor-prefixed/collizo4sky/persist-admin-notices-dismissal/persist-admin-notices-dismissal.php",
+            "line": 155
+        },
+        {
+            "function": "mkdir",
+            "expression": "$this->cachePath",
+            "file": "vendor-prefixed/google/auth/src/Cache/FileSystemCacheItemPool.php",
+            "line": 45
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor-prefixed/monolog/monolog/src/Monolog/Handler/StreamHandler.php",
+            "line": 223
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dist",
+            "file": "vendor-prefixed/paragonie/random_compat/other/build_phar.php",
+            "line": 7
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "vendor-prefixed/symfony/translation/Dumper/FileDumper.php",
+            "line": 55
+        },
+        {
+            "function": "mkdir",
+            "expression": "$options['path']",
+            "file": "vendor-prefixed/symfony/translation/Writer/TranslationWriter.php",
+            "line": 60
+        }
+    ]
+}

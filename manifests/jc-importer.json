@@ -1,0 +1,716 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "jc-importer",
+        "name": "Import WP",
+        "version": "2.14.23",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 491,
+        "files_skipped": 0,
+        "write_calls_found": 83,
+        "verified": 28,
+        "resolved": 1,
+        "pattern": 15,
+        "dynamic": 39,
+        "resolution_rate": 0.349
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "iwp_settings",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "iwp_compat_blacklist",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Rest/RestManager.php",
+                        "line": 1689
+                    }
+                ]
+            },
+            {
+                "key": "iwp_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Migration/Migrations.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "iwp_exporter_config_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Exporter/ExporterManager.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "iwp_exporter_csv_config",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Exporter/File/CSVFile.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "iwp_exporter_json_config",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Exporter/File/JSONFile.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "iwp_exporter_state_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Runner/ExporterRunner.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "iwp_exporter_xml_config",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Exporter/File/XMLFile.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "iwp_importer_config_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/Importer.php",
+                        "line": 497
+                    },
+                    {
+                        "file": "class/Common/Importer/ImporterManager.php",
+                        "line": 743
+                    },
+                    {
+                        "file": "class/Common/Runner/ImporterRunner.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "iwp_importer_state_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Runner/ImporterRunner.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "iwp_is_migrating",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Migration/Migrations.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "class/Common/Migration/Migrations.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "iwp_muplugin_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Compatibility/CompatibilityManager.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "iwp_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Rest/RestManager.php",
+                        "line": 1469
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "jci_db_import_file_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Migration/Migrations.php",
+                        "line": 226
+                    },
+                    {
+                        "file": "class/Common/Migration/Migrations.php",
+                        "line": 274
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_ewp_file_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Exporter/ExporterManager.php",
+                        "line": 401
+                    },
+                    {
+                        "file": "class/Common/Exporter/ExporterManager.php",
+                        "line": 555
+                    }
+                ]
+            },
+            {
+                "key": "_ewp_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Model/ExporterModel.php",
+                        "line": 398
+                    }
+                ]
+            },
+            {
+                "key": "_import_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Migration/Migrations.php",
+                        "line": 246
+                    }
+                ]
+            },
+            {
+                "key": "_importer_file_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/ImporterManager.php",
+                        "line": 252
+                    }
+                ]
+            },
+            {
+                "key": "_importer_files",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/ImporterManager.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "_iwp_attachment_src",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Attachment/Attachment.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "_iwp_cron_scheduled",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Rest/RestManager.php",
+                        "line": 1329
+                    }
+                ]
+            },
+            {
+                "key": "_iwp_session",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/ImporterManager.php",
+                        "line": 658
+                    },
+                    {
+                        "file": "class/Common/Rest/RestManager.php",
+                        "line": 1326
+                    },
+                    {
+                        "file": "class/Common/Rest/RestManager.php",
+                        "line": 1848
+                    }
+                ]
+            },
+            {
+                "key": "_iwp_session_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/Mapper/AttachmentMapper.php",
+                        "line": 406
+                    },
+                    {
+                        "file": "class/Common/Importer/Mapper/PostMapper.php",
+                        "line": 467
+                    }
+                ]
+            },
+            {
+                "key": "_iwp_trash_importer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/Mapper/AttachmentMapper.php",
+                        "line": 393
+                    },
+                    {
+                        "file": "class/Common/Importer/Mapper/PostMapper.php",
+                        "line": 362
+                    }
+                ]
+            },
+            {
+                "key": "_iwp_trash_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/Mapper/AttachmentMapper.php",
+                        "line": 392
+                    },
+                    {
+                        "file": "class/Common/Importer/Mapper/PostMapper.php",
+                        "line": 361
+                    }
+                ]
+            },
+            {
+                "key": "_iwp_v1_importer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Migration/Migrations.php",
+                        "line": 672
+                    }
+                ]
+            },
+            {
+                "key": "_iwp_v2_importer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Migration/Migrations.php",
+                        "line": 673
+                    }
+                ]
+            },
+            {
+                "key": "_iwp_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/ImporterManager.php",
+                        "line": 667
+                    }
+                ]
+            },
+            {
+                "key": "_iwp_zip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Filesystem/ZipArchive.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/Template/Template.php",
+                        "line": 1028
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/Template/Template.php",
+                        "line": 1015
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_iwp_session_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/Mapper/UserMapper.php",
+                        "line": 381
+                    }
+                ]
+            },
+            {
+                "key": "dismissed_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/UI/AdminNotices.php",
+                        "line": 27
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "_iwp_session_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/Mapper/TermMapper.php",
+                        "line": 234
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [
+            {
+                "key": "_iwp_session_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Common/Importer/Mapper/CommentMapper.php",
+                        "line": 340
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_user_meta",
+            "expression": "$key",
+            "file": "class/Common/Addon/AddonBase.php",
+            "line": 273
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "class/Common/Addon/AddonBase.php",
+            "line": 276
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "class/Common/Addon/AddonBase.php",
+            "line": 283
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "class/Common/Addon/AddonBase.php",
+            "line": 286
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "$key",
+            "file": "class/Common/Addon/AddonBase.php",
+            "line": 291
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$key",
+            "file": "class/Common/Addon/AddonBase.php",
+            "line": 294
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$meta_key",
+            "file": "class/Common/Addon/AddonCustomFieldSaveResponse.php",
+            "line": 82
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "$meta_key",
+            "file": "class/Common/Addon/AddonCustomFieldSaveResponse.php",
+            "line": 84
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "class/Common/Addon/AddonCustomFieldSaveResponse.php",
+            "line": 86
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "class/Common/Addon/AddonCustomFieldSaveResponse.php",
+            "line": 94
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$meta_key",
+            "file": "class/Common/Addon/AddonCustomFieldSaveResponse.php",
+            "line": 96
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "class/Common/Addon/AddonCustomFieldSaveResponse.php",
+            "line": 98
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$key",
+            "file": "class/Common/AddonAPI/Importer/ImporterData.php",
+            "line": 96
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "$key",
+            "file": "class/Common/AddonAPI/Importer/ImporterData.php",
+            "line": 99
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "class/Common/AddonAPI/Importer/ImporterData.php",
+            "line": 102
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "class/Common/AddonAPI/Importer/ImporterData.php",
+            "line": 113
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$key",
+            "file": "class/Common/AddonAPI/Importer/ImporterData.php",
+            "line": 116
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "class/Common/AddonAPI/Importer/ImporterData.php",
+            "line": 119
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "dirname($this->properties->mu_plugin_dest)",
+            "file": "class/Common/Compatibility/CompatibilityManager.php",
+            "line": 53
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "class/Common/Exporter/File/File.php",
+            "line": 77
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir_path",
+            "file": "class/Common/Filesystem/Filesystem.php",
+            "line": 261
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "class/Common/Importer/ImporterManager.php",
+            "line": 282
+        },
+        {
+            "function": "mkdir",
+            "expression": "$base",
+            "file": "class/Common/Importer/ImporterManager.php",
+            "line": 560
+        },
+        {
+            "function": "mkdir",
+            "expression": "$base",
+            "file": "class/Common/Importer/ImporterManager.php",
+            "line": 569
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "$key",
+            "file": "class/Common/Importer/Mapper/CommentMapper.php",
+            "line": 295
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "$key",
+            "file": "class/Common/Importer/Mapper/CommentMapper.php",
+            "line": 319
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$key",
+            "file": "class/Common/Importer/Mapper/CommentMapper.php",
+            "line": 321
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "class/Common/Importer/Mapper/PostMapper.php",
+            "line": 430
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "class/Common/Importer/Mapper/PostMapper.php",
+            "line": 454
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "class/Common/Importer/Mapper/PostMapper.php",
+            "line": 456
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "$key",
+            "file": "class/Common/Importer/Mapper/TermMapper.php",
+            "line": 308
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$key",
+            "file": "class/Common/Importer/Mapper/TermMapper.php",
+            "line": 323
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$key",
+            "file": "class/Common/Importer/Mapper/UserMapper.php",
+            "line": 363
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "class/Common/Importer/Mapper/UserMapper.php",
+            "line": 373
+        },
+        {
+            "function": "mkdir",
+            "expression": "$iwp_tmp",
+            "file": "class/Common/Importer/Template/Template.php",
+            "line": 1113
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "class/Common/Migration/Migrations.php",
+            "line": 149
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "class/Common/Migration/Migrations.php",
+            "line": 161
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "class/Common/Migration/Migrations.php",
+            "line": 765
+        },
+        {
+            "function": "update_option",
+            "expression": "$dangling_id",
+            "file": "class/Common/Runner/Runner.php",
+            "line": 118
+        }
+    ]
+}

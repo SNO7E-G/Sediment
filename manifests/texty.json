@@ -1,0 +1,319 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "texty",
+        "name": "Texty",
+        "version": "2.0.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:47Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 93,
+        "files_skipped": 0,
+        "write_calls_found": 39,
+        "verified": 4,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 28,
+        "resolution_rate": 0.282
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "texty_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Install.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "texty_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Install.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "texty_notification_settings",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/NotificationSettings.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "texty_notifications",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Api/Notifications.php",
+                        "line": 286
+                    }
+                ]
+            },
+            {
+                "key": "texty_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Api/Gateway.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "includes/Api/Gateway.php",
+                        "line": 181
+                    },
+                    {
+                        "file": "includes/Api/Gateway.php",
+                        "line": 226
+                    },
+                    {
+                        "file": "includes/Api/Settings.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "includes/Api/SettingsController.php",
+                        "line": 261
+                    }
+                ]
+            },
+            {
+                "key": "texty_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Install.php",
+                        "line": 25
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "texty_phone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Integrations/Dokan.php",
+                        "line": 98
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_last_send'",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 195
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 390
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_allow_tracking'",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 555
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_notice'",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 556
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_allow_tracking'",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 571
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_notice'",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 572
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 746
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_skipped'",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 1096
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "dependencies/Appsero/License.php",
+            "line": 369
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "dependencies/Appsero/License.php",
+            "line": 653
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "dependencies/Appsero/License.php",
+            "line": 677
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->schedule_hook",
+            "file": "dependencies/Appsero/License.php",
+            "line": 757
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->schedule_hook",
+            "file": "dependencies/Appsero/License.php",
+            "line": 759
+        },
+        {
+            "function": "update_option",
+            "expression": "$prefix . '_dismissed_notices'",
+            "file": "dependencies/WeDevs/WPKit/AdminNotification/NoticeRESTController.php",
+            "line": 124
+        },
+        {
+            "function": "update_option",
+            "expression": "$batch_key",
+            "file": "dependencies/WeDevs/WPKit/Migration/BackgroundProcess.php",
+            "line": 85
+        },
+        {
+            "function": "update_option",
+            "expression": "$total_key",
+            "file": "dependencies/WeDevs/WPKit/Migration/BackgroundProcess.php",
+            "line": 90
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->get_cron_hook()",
+            "file": "dependencies/WeDevs/WPKit/Migration/BackgroundProcess.php",
+            "line": 100
+        },
+        {
+            "function": "update_option",
+            "expression": "$batch_key",
+            "file": "dependencies/WeDevs/WPKit/Migration/BackgroundProcess.php",
+            "line": 134
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->get_cron_hook()",
+            "file": "dependencies/WeDevs/WPKit/Migration/BackgroundProcess.php",
+            "line": 137
+        },
+        {
+            "function": "update_option",
+            "expression": "static::get_db_version_key()",
+            "file": "dependencies/WeDevs/WPKit/Migration/BaseMigration.php",
+            "line": 78
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->upgrading_option_key",
+            "file": "dependencies/WeDevs/WPKit/Migration/MigrationManager.php",
+            "line": 90
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_log_option_key()",
+            "file": "dependencies/WeDevs/WPKit/Migration/MigrationManager.php",
+            "line": 184
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_log_option_key()",
+            "file": "dependencies/WeDevs/WPKit/Migration/MigrationManager.php",
+            "line": 199
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_log_option_key()",
+            "file": "dependencies/WeDevs/WPKit/Migration/MigrationManager.php",
+            "line": 217
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->db_version_key",
+            "file": "dependencies/WeDevs/WPKit/Migration/MigrationRegistry.php",
+            "line": 132
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "dependencies/WeDevs/WPKit/Migration/Schema.php",
+            "line": 33
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "dependencies/WeDevs/WPKit/Settings/BaseSettingsRESTController.php",
+            "line": 290
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/Install.php",
+            "line": 66
+        }
+    ]
+}

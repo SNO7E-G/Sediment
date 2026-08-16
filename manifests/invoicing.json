@@ -1,0 +1,761 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "invoicing",
+        "name": "GetPaid",
+        "version": "2.8.57",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 360,
+        "files_skipped": 0,
+        "write_calls_found": 73,
+        "verified": 53,
+        "resolved": 2,
+        "pattern": 4,
+        "dynamic": 14,
+        "resolution_rate": 0.753
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "wpinv_remove_data_on_invoice_unistall",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gepaid_installed_on",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-getpaid-installer.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_authorize_net_cached_profiles",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-getpaid-authorize-net-gateway.php",
+                        "line": 413
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_db_schema",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-getpaid-installer.php",
+                        "line": 639
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_flushed_rewrite_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-post-types.php",
+                        "line": 330
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_admin_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-getpaid-admin.php",
+                        "line": 901
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_cleared_old_events",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-daily-maintenance.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_default_payment_form",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wpinv-general-functions.php",
+                        "line": 397
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_flush_permalinks",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "invoicing.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_last_invoice_number",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/invoice-functions.php",
+                        "line": 757
+                    },
+                    {
+                        "file": "includes/invoice-functions.php",
+                        "line": 761
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_maxmind_database_prefix",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/geolocation/class-getpaid-maxmind-geolocation.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_redirected_to_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-getpaid-admin.php",
+                        "line": 393
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_remove_data_on_invoice_unistall",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/register-settings.php",
+                        "line": 1216
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_renamed_gateways",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpinv.php",
+                        "line": 339
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/register-settings.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_tax_rates",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-getpaid-admin.php",
+                        "line": 607
+                    },
+                    {
+                        "file": "includes/admin/class-getpaid-installer.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "includes/admin/register-settings.php",
+                        "line": 356
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_tax_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/register-settings.php",
+                        "line": 383
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-getpaid-installer.php",
+                        "line": 34
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "getpaid_daily_maintenance",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-daily-maintenance.php",
+                        "line": 43
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "geoip_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/geolocation/class-getpaid-geolocation.php",
+                        "line": 240
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_count_comments",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpinv-notes.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_paypal_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-getpaid-paypal-api.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_paypal_access_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-getpaid-paypal-gateway.php",
+                        "line": 865
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_paypal_sandbox_access_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-getpaid-paypal-gateway.php",
+                        "line": 860
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_updated_geoip_databases",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-daily-maintenance.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "wpi_addons_section_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpinv-addons.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_cache_excluded_uris",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpinv-cache-helper.php",
+                        "line": 64
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_gp_anet_refund",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-getpaid-authorize-net-legacy-gateway.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "_wpinv_has_variations",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/meta-boxes/class-getpaid-meta-box-item-variations.php",
+                        "line": 257
+                    }
+                ]
+            },
+            {
+                "key": "_wpinv_item_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpinv-invoice.php",
+                        "line": 4048
+                    }
+                ]
+            },
+            {
+                "key": "_wpinv_item_variations",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/meta-boxes/class-getpaid-meta-box-item-variations.php",
+                        "line": 258
+                    }
+                ]
+            },
+            {
+                "key": "_wpinv_one_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpinv-ajax.php",
+                        "line": 672
+                    }
+                ]
+            },
+            {
+                "key": "_wpinv_subscr_profile_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/data-stores/class-getpaid-subscription-data-store.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "_wpinv_subscription_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/data-stores/class-getpaid-subscription-data-store.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "includes/data-stores/class-getpaid-subscription-data-store.php",
+                        "line": 174
+                    },
+                    {
+                        "file": "includes/wpinv-subscription.php",
+                        "line": 936
+                    }
+                ]
+            },
+            {
+                "key": "additional_meta_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/class-getpaid-checkout.php",
+                        "line": 406
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_authorizenet_profile_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-getpaid-authorize-net-gateway.php",
+                        "line": 1033
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_subscription_groups",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpinv-subscriptions.php",
+                        "line": 220
+                    },
+                    {
+                        "file": "includes/class-wpinv-subscriptions.php",
+                        "line": 377
+                    }
+                ]
+            },
+            {
+                "key": "payment_form_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/class-getpaid-checkout.php",
+                        "line": 402
+                    }
+                ]
+            },
+            {
+                "key": "refunded_remotely",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-getpaid-paypal-gateway-ipn-handler.php",
+                        "line": 242
+                    }
+                ]
+            },
+            {
+                "key": "shipping_address",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/class-getpaid-checkout.php",
+                        "line": 413
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_created_via",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/invoice-functions.php",
+                        "line": 360
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_processed_payment",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/invoice-functions.php",
+                        "line": 851
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_quote_valid_until",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/invoice-functions.php",
+                        "line": 367
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "getpaid_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-getpaid-payment-gateway.php",
+                        "line": 237
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_admin_footer_text_rated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-getpaid-admin.php",
+                        "line": 275
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "_wpi_customer_note",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpinv-legacy-invoice.php",
+                        "line": 873
+                    },
+                    {
+                        "file": "includes/class-wpinv-notes.php",
+                        "line": 206
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "administrator",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-getpaid-installer.php",
+                        "line": 133
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "wpi_discount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-post-types.php",
+                        "line": 176
+                    }
+                ]
+            },
+            {
+                "key": "wpi_invoice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-post-types.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "wpi_item",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-post-types.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "wpi_payment_form",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-post-types.php",
+                        "line": 81
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "%getpaid-ipn%",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpinv.php",
+                        "line": 624
+                    }
+                ]
+            },
+            {
+                "key": "^getpaid-ipn/([^/]*)/?",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpinv.php",
+                        "line": 625
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$schema",
+            "file": "includes/admin/class-getpaid-installer.php",
+            "line": 637
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->generate_key($this->_customer_id)",
+            "file": "includes/class-wpinv-session-handler.php",
+            "line": 238
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->generate_key($customer_id)",
+            "file": "includes/class-wpinv-session-handler.php",
+            "line": 324
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wpinv-subscriptions-db.php",
+            "line": 136
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "includes/class-wpinv-subscriptions-db.php",
+            "line": 138
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/data-stores/class-getpaid-cache-helper.php",
+            "line": 111
+        },
+        {
+            "function": "add_metadata",
+            "expression": "$meta->key",
+            "file": "includes/data-stores/class-getpaid-data-store-wp.php",
+            "line": 105
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/data-stores/class-getpaid-data-store-wp.php",
+            "line": 276
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->get_customer_profile_meta_name($invoice)",
+            "file": "includes/gateways/class-getpaid-authorize-net-gateway.php",
+            "line": 193
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->get_customer_profile_meta_name($invoice)",
+            "file": "includes/gateways/class-getpaid-authorize-net-gateway.php",
+            "line": 207
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->get_customer_profile_meta_name($invoice)",
+            "file": "includes/gateways/class-getpaid-authorize-net-gateway.php",
+            "line": 324
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->get_customer_profile_meta_name($invoice)",
+            "file": "includes/gateways/class-getpaid-authorize-net-gateway.php",
+            "line": 365
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/geolocation/class-getpaid-geolocation.php",
+            "line": 90
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->slug . '_ignore'",
+            "file": "includes/libraries/wp-all-import/rapid-addon.php",
+            "line": 1087
+        }
+    ]
+}

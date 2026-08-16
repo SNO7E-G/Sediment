@@ -1,0 +1,683 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "opening-hours",
+        "name": "We’re Open!",
+        "version": "2.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:39Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 7,
+        "files_skipped": 0,
+        "write_calls_found": 105,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 102,
+        "resolution_rate": 0.029
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "we_are_open_run",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cron.php",
+                        "line": 26
+                    },
+                    {
+                        "file": "index.php",
+                        "line": 494
+                    },
+                    {
+                        "file": "index.php",
+                        "line": 1655
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_24_hours_text'",
+            "file": "index.php",
+            "line": 290
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_address'",
+            "file": "index.php",
+            "line": 291
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_api_key'",
+            "file": "index.php",
+            "line": 292
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_business_type'",
+            "file": "index.php",
+            "line": 293
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_closed_show'",
+            "file": "index.php",
+            "line": 294
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_closed_text'",
+            "file": "index.php",
+            "line": 295
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_closure'",
+            "file": "index.php",
+            "line": 296
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_consolidation'",
+            "file": "index.php",
+            "line": 297
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_consolidation_labels'",
+            "file": "index.php",
+            "line": 298
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_custom_styles'",
+            "file": "index.php",
+            "line": 299
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_day_format'",
+            "file": "index.php",
+            "line": 300
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_day_format_special'",
+            "file": "index.php",
+            "line": 301
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_everyday_text'",
+            "file": "index.php",
+            "line": 302
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_google_places_api'",
+            "file": "index.php",
+            "line": 303
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_google_result'",
+            "file": "index.php",
+            "line": 304
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_google_sync'",
+            "file": "index.php",
+            "line": 305
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_google_sync_frequency'",
+            "file": "index.php",
+            "line": 306
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_javascript'",
+            "file": "index.php",
+            "line": 307
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_initial_version'",
+            "file": "index.php",
+            "line": 308
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_language'",
+            "file": "index.php",
+            "line": 309
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_log'",
+            "file": "index.php",
+            "line": 310
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_logo'",
+            "file": "index.php",
+            "line": 311
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_midday_text'",
+            "file": "index.php",
+            "line": 312
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_midnight_text'",
+            "file": "index.php",
+            "line": 313
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_name'",
+            "file": "index.php",
+            "line": 314
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_notifications'",
+            "file": "index.php",
+            "line": 315
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_place_id'",
+            "file": "index.php",
+            "line": 316
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_price_range'",
+            "file": "index.php",
+            "line": 317
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_regular'",
+            "file": "index.php",
+            "line": 318
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_retrieval'",
+            "file": "index.php",
+            "line": 319
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_section'",
+            "file": "index.php",
+            "line": 320
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_special'",
+            "file": "index.php",
+            "line": 321
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_special_cut_off'",
+            "file": "index.php",
+            "line": 322
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_structured_data'",
+            "file": "index.php",
+            "line": 323
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_stylesheet'",
+            "file": "index.php",
+            "line": 324
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_telephone'",
+            "file": "index.php",
+            "line": 325
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_time_format'",
+            "file": "index.php",
+            "line": 326
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_time_group_separator'",
+            "file": "index.php",
+            "line": 327
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_time_separator'",
+            "file": "index.php",
+            "line": 328
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_time_type'",
+            "file": "index.php",
+            "line": 329
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_day_separator'",
+            "file": "index.php",
+            "line": 330
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_day_range_separator'",
+            "file": "index.php",
+            "line": 331
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_day_range_suffix'",
+            "file": "index.php",
+            "line": 332
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_day_range_suffix_special'",
+            "file": "index.php",
+            "line": 333
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_week_start'",
+            "file": "index.php",
+            "line": 334
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_weekdays'",
+            "file": "index.php",
+            "line": 335
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_weekdays_text'",
+            "file": "index.php",
+            "line": 336
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_weekend'",
+            "file": "index.php",
+            "line": 337
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_weekend_text'",
+            "file": "index.php",
+            "line": 338
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_language'",
+            "file": "index.php",
+            "line": 349
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_google_result'",
+            "file": "index.php",
+            "line": 372
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_google_places_api'",
+            "file": "index.php",
+            "line": 482
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_javascript'",
+            "file": "index.php",
+            "line": 487
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_stylesheet'",
+            "file": "index.php",
+            "line": 488
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'section'",
+            "file": "index.php",
+            "line": 1062
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'structured_data'",
+            "file": "index.php",
+            "line": 1153
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'google_sync'",
+            "file": "index.php",
+            "line": 1154
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'name'",
+            "file": "index.php",
+            "line": 1155
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'address'",
+            "file": "index.php",
+            "line": 1156
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'telephone'",
+            "file": "index.php",
+            "line": 1157
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'business_type'",
+            "file": "index.php",
+            "line": 1158
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'logo'",
+            "file": "index.php",
+            "line": 1159
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'price_range'",
+            "file": "index.php",
+            "line": 1160
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'time_separator'",
+            "file": "index.php",
+            "line": 1354
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'time_group_separator'",
+            "file": "index.php",
+            "line": 1355
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'day_separator'",
+            "file": "index.php",
+            "line": 1356
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'day_range_separator'",
+            "file": "index.php",
+            "line": 1357
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'day_range_suffix'",
+            "file": "index.php",
+            "line": 1358
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'day_range_suffix_special'",
+            "file": "index.php",
+            "line": 1359
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'closed_text'",
+            "file": "index.php",
+            "line": 1360
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'midday_text'",
+            "file": "index.php",
+            "line": 1361
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'midnight_text'",
+            "file": "index.php",
+            "line": 1362
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . '24_hours_text'",
+            "file": "index.php",
+            "line": 1363
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'weekdays_text'",
+            "file": "index.php",
+            "line": 1364
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'weekend_text'",
+            "file": "index.php",
+            "line": 1365
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'everyday_text'",
+            "file": "index.php",
+            "line": 1366
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'custom_styles'",
+            "file": "index.php",
+            "line": 1548
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'google_result'",
+            "file": "index.php",
+            "line": 1650
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'section'",
+            "file": "index.php",
+            "line": 1670
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_closure'",
+            "file": "index.php",
+            "line": 1707
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_special'",
+            "file": "index.php",
+            "line": 1708
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_regular'",
+            "file": "index.php",
+            "line": 1709
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->prefix . 'offset_changes'",
+            "file": "index.php",
+            "line": 1876
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'regular'",
+            "file": "index.php",
+            "line": 2201
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'closure'",
+            "file": "index.php",
+            "line": 2208
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'special'",
+            "file": "index.php",
+            "line": 2217
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'special'",
+            "file": "index.php",
+            "line": 2324
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'closure'",
+            "file": "index.php",
+            "line": 2357
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'retrieval'",
+            "file": "index.php",
+            "line": 2509
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'force'",
+            "file": "index.php",
+            "line": 2806
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'google_result'",
+            "file": "index.php",
+            "line": 3226
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'google_result'",
+            "file": "index.php",
+            "line": 3246
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'logo'",
+            "file": "index.php",
+            "line": 3507
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'logo'",
+            "file": "index.php",
+            "line": 3539
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'force'",
+            "file": "index.php",
+            "line": 4344
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'api_key'",
+            "file": "index.php",
+            "line": 4350
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'google_result'",
+            "file": "index.php",
+            "line": 4380
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'structured_data'",
+            "file": "index.php",
+            "line": 4381
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'force'",
+            "file": "index.php",
+            "line": 4389
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'place_id'",
+            "file": "index.php",
+            "line": 4401
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . 'log'",
+            "file": "index.php",
+            "line": 6724
+        },
+        {
+            "function": "update_option",
+            "expression": "__CLASS__ . '_log'",
+            "file": "index.php",
+            "line": 6750
+        }
+    ]
+}

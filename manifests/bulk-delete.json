@@ -1,0 +1,165 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "bulk-delete",
+        "name": "Bulk Delete",
+        "version": "6.12",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 28,
+    "coverage": {
+        "files_scanned": 99,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 0,
+        "resolved": 12,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "do-bulk-delete-cat",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/posts/class-bulk-delete-posts.php",
+                        "line": 264
+                    },
+                    {
+                        "file": "include/posts/class-bulk-delete-posts.php",
+                        "line": 266
+                    }
+                ]
+            },
+            {
+                "key": "do-bulk-delete-pages-by-status",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/pages/class-bulk-delete-pages.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "include/pages/class-bulk-delete-pages.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "do-bulk-delete-post-status",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/posts/class-bulk-delete-posts.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "include/posts/class-bulk-delete-posts.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "do-bulk-delete-post-type",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/posts/class-bulk-delete-posts.php",
+                        "line": 751
+                    },
+                    {
+                        "file": "include/posts/class-bulk-delete-posts.php",
+                        "line": 753
+                    }
+                ]
+            },
+            {
+                "key": "do-bulk-delete-tag",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/posts/class-bulk-delete-posts.php",
+                        "line": 401
+                    },
+                    {
+                        "file": "include/posts/class-bulk-delete-posts.php",
+                        "line": 403
+                    }
+                ]
+            },
+            {
+                "key": "do-bulk-delete-taxonomy",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/posts/class-bulk-delete-posts.php",
+                        "line": 581
+                    },
+                    {
+                        "file": "include/posts/class-bulk-delete-posts.php",
+                        "line": 583
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->cron_hook",
+            "file": "include/Core/Base/BaseModule.php",
+            "line": 384
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook",
+            "file": "include/Core/Base/BaseModule.php",
+            "line": 386
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$cron_items[$cron_id]['type']",
+            "file": "include/Core/Cron/CronListPage.php",
+            "line": 62
+        }
+    ]
+}

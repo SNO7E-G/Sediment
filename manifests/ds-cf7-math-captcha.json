@@ -1,0 +1,81 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ds-cf7-math-captcha",
+        "name": "DS CF7 Math Captcha",
+        "version": "4.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:26Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 5,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.25
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dscf7_signing_key",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-dscf7-math-captcha-frontend.php",
+                        "line": 78
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$replay_key",
+            "file": "includes/class-dscf7-math-captcha-frontend.php",
+            "line": 737
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->ip_key(self::LOCK_PREFIX)",
+            "file": "includes/class-dscf7-math-captcha-security.php",
+            "line": 275
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/class-dscf7-math-captcha-security.php",
+            "line": 359
+        }
+    ]
+}

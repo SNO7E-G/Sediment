@@ -1,0 +1,275 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mysterythemes-demo-importer",
+        "name": "Mystery Themes Demo Importer",
+        "version": "1.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:36Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 13,
+    "coverage": {
+        "files_scanned": 14,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 15,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 6,
+        "resolution_rate": 0.652
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mtdi_activated_check",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-mtdi-admin.php",
+                        "line": 431
+                    }
+                ]
+            },
+            {
+                "key": "mtdi_activated_theme",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-mtdi-admin.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "mtdi_import_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mtdi-activator.php",
+                        "line": 23
+                    }
+                ]
+            },
+            {
+                "key": "widget_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wp-importers/class-widget-importer.php",
+                        "line": 176
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-mtdi-admin.php",
+                        "line": 1074
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "mtdi_theme_packages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-mtdi-admin.php",
+                        "line": 115
+                    },
+                    {
+                        "file": "admin/class-mtdi-admin.php",
+                        "line": 126
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_elementor_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-mtdi-admin.php",
+                        "line": 1120
+                    }
+                ]
+            },
+            {
+                "key": "_menu_item_menu_item_parent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wp-importers/class-mtdi-importer.php",
+                        "line": 1327
+                    }
+                ]
+            },
+            {
+                "key": "_menu_item_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-mtdi-admin.php",
+                        "line": 994
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wp-importers/class-mtdi-importer.php",
+                        "line": 1362
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_is_custom_header",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wp-importers/class-customizer-importer.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "panels_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-mtdi-admin.php",
+                        "line": 1191
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "page_for_posts",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/class-mtdi-admin.php",
+                    "line": 507
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "page_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/class-mtdi-admin.php",
+                    "line": 500
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "show_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "admin/class-mtdi-admin.php",
+                    "line": 493
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/wp-importers/class-widget-importer.php",
+                    "line": 182
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "admin/class-mtdi-admin.php",
+            "line": 517
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key_name",
+            "file": "admin/class-mtdi-admin.php",
+            "line": 860
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key_name",
+            "file": "admin/class-mtdi-admin.php",
+            "line": 960
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "$key",
+            "file": "includes/wp-importers/class-mtdi-importer.php",
+            "line": 656
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "$meta['key']",
+            "file": "includes/wp-importers/class-mtdi-importer.php",
+            "line": 909
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/wp-importers/class-mtdi-importer.php",
+            "line": 944
+        }
+    ]
+}

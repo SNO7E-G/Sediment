@@ -1,0 +1,679 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "all-in-one-wp-security-and-firewall",
+        "name": "All-In-One Security (AIOS)",
+        "version": "5.4.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 261,
+        "files_skipped": 0,
+        "write_calls_found": 78,
+        "verified": 53,
+        "resolved": 4,
+        "pattern": 5,
+        "dynamic": 16,
+        "resolution_rate": 0.731
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "aio_wp_security_configs",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/commands/wp-security-settings-commands.php",
+                        "line": 325
+                    },
+                    {
+                        "file": "classes/commands/wp-security-settings-commands.php",
+                        "line": 345
+                    },
+                    {
+                        "file": "classes/wp-security-config.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "aios_antibot_key_map_info",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-comment.php",
+                        "line": 204
+                    }
+                ]
+            },
+            {
+                "key": "aios_start_onboarding",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-onboarding.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "aiowps_captcha_string_info_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-captcha.php",
+                        "line": 443
+                    },
+                    {
+                        "file": "classes/wp-security-captcha.php",
+                        "line": 446
+                    }
+                ]
+            },
+            {
+                "key": "aiowps_captcha_string_info_time_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-captcha.php",
+                        "line": 444
+                    },
+                    {
+                        "file": "classes/wp-security-captcha.php",
+                        "line": 447
+                    }
+                ]
+            },
+            {
+                "key": "aiowps_core_checksums",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-checksums.php",
+                        "line": 192
+                    }
+                ]
+            },
+            {
+                "key": "aiowps_plugin_checksums",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-checksums.php",
+                        "line": 282
+                    }
+                ]
+            },
+            {
+                "key": "aiowpsec_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-configure-settings.php",
+                        "line": 476
+                    }
+                ]
+            },
+            {
+                "key": "aiowpsec_firewall_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-configure-settings.php",
+                        "line": 600
+                    }
+                ]
+            },
+            {
+                "key": "aiowpsec_htaccess_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-security-core.php",
+                        "line": 433
+                    }
+                ]
+            },
+            {
+                "key": "simba_tfa_priv_key_format",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/simba-tfa/providers/totp/loader.php",
+                        "line": 710
+                    }
+                ]
+            },
+            {
+                "key": "tfa_incorrect_code_attempts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/simba-tfa/simba-tfa.php",
+                        "line": 1130
+                    },
+                    {
+                        "file": "includes/simba-tfa/simba-tfa.php",
+                        "line": 1132
+                    }
+                ]
+            },
+            {
+                "key": "tfa_required_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-onboarding.php",
+                        "line": 895
+                    }
+                ]
+            },
+            {
+                "key": "tfa_required__super_admin",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-onboarding.php",
+                        "line": 899
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "aios_15_minutes_cron_event",
+                "recurrence": "aios-every-15-minutes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-installer.php",
+                        "line": 494
+                    }
+                ]
+            },
+            {
+                "key": "aios_change_auth_keys_and_salt",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/commands/wp-security-user-security-commands.php",
+                        "line": 643
+                    }
+                ]
+            },
+            {
+                "key": "aiowps_clean_old_events",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-audit-event-handler.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "aiowps_daily_cron_event",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-installer.php",
+                        "line": 500
+                    }
+                ]
+            },
+            {
+                "key": "aiowps_hourly_cron_event",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-installer.php",
+                        "line": 497
+                    }
+                ]
+            },
+            {
+                "key": "aiowps_process_file_scan_tasks",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/commands/wp-security-file-scan-commands.php",
+                        "line": 142
+                    },
+                    {
+                        "file": "classes/wp-security-cronjob-handler.php",
+                        "line": 210
+                    },
+                    {
+                        "file": "classes/wp-security-task-manager.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "aiowps_weekly_cron_event",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-installer.php",
+                        "line": 503
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "aios_redirect_to_dashboard_page",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-onboarding.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "aiowps_logout_payload",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/commands/wp-security-user-security-commands.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "classes/commands/wp-security-user-security-commands.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "classes/wp-security-user-login.php",
+                        "line": 606
+                    },
+                    {
+                        "file": "classes/wp-security-user-login.php",
+                        "line": 606
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "aiowps_account_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/wp-security-list-registered-users.php",
+                        "line": 171
+                    },
+                    {
+                        "file": "classes/commands/wp-security-user-security-commands.php",
+                        "line": 565
+                    },
+                    {
+                        "file": "classes/wp-security-user-registration.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "classes/wp-security-user-registration.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "aiowps_last_login_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-user-login.php",
+                        "line": 645
+                    }
+                ]
+            },
+            {
+                "key": "aiowps_registrant_ip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-security-user-registration.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "simba_tfa_emergency_codes_64",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/simba-tfa/providers/totp/loader.php",
+                        "line": 759
+                    },
+                    {
+                        "file": "includes/simba-tfa/providers/totp/loader.php",
+                        "line": 865
+                    }
+                ]
+            },
+            {
+                "key": "tfa_algorithm_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/simba-tfa/providers/totp/loader.php",
+                        "line": 905
+                    }
+                ]
+            },
+            {
+                "key": "tfa_enable_tfa",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/simba-tfa/simba-tfa.php",
+                        "line": 997
+                    }
+                ]
+            },
+            {
+                "key": "tfa_hotp_counter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/simba-tfa/providers/totp/loader.php",
+                        "line": 889
+                    },
+                    {
+                        "file": "includes/simba-tfa/providers/totp/loader.php",
+                        "line": 912
+                    }
+                ]
+            },
+            {
+                "key": "tfa_hotp_off_sync",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/simba-tfa/providers/totp/loader.php",
+                        "line": 891
+                    }
+                ]
+            },
+            {
+                "key": "tfa_last_login",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/simba-tfa/providers/totp/loader.php",
+                        "line": 882
+                    }
+                ]
+            },
+            {
+                "key": "tfa_last_pws",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/simba-tfa/providers/totp/loader.php",
+                        "line": 877
+                    }
+                ]
+            },
+            {
+                "key": "tfa_priv_key_64",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/simba-tfa/providers/totp/loader.php",
+                        "line": 647
+                    },
+                    {
+                        "file": "includes/simba-tfa/providers/totp/loader.php",
+                        "line": 697
+                    },
+                    {
+                        "file": "includes/simba-tfa/providers/totp/loader.php",
+                        "line": 747
+                    }
+                ]
+            },
+            {
+                "key": "tfa_trusted_devices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/simba-tfa/simba-tfa.php",
+                        "line": 789
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "admin_email_lifespan",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "other-includes/wp-security-rename-login-feature-pre-5-7.php",
+                    "line": 628
+                },
+                {
+                    "file": "other-includes/wp-security-rename-login-feature-pre-5-7.php",
+                    "line": 654
+                },
+                {
+                    "file": "other-includes/wp-security-rename-login-feature-pre-6-6.php",
+                    "line": 561
+                },
+                {
+                    "file": "other-includes/wp-security-rename-login-feature-pre-6-6.php",
+                    "line": 587
+                },
+                {
+                    "file": "other-includes/wp-security-rename-login-feature.php",
+                    "line": 637
+                },
+                {
+                    "file": "other-includes/wp-security-rename-login-feature.php",
+                    "line": 663
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "siteurl",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "other-includes/wp-security-rename-login-feature-pre-5-2.php",
+                    "line": 451
+                },
+                {
+                    "file": "other-includes/wp-security-rename-login-feature-pre-5-7.php",
+                    "line": 544
+                },
+                {
+                    "file": "other-includes/wp-security-rename-login-feature-pre-6-6.php",
+                    "line": 473
+                },
+                {
+                    "file": "other-includes/wp-security-rename-login-feature.php",
+                    "line": 533
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$target",
+            "file": "classes/firewall/wp-security-firewall-utility.php",
+            "line": 145
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$info['dirname']",
+            "file": "classes/wp-security-block-muplugin.php",
+            "line": 26
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$ld_tbl_sql",
+            "file": "classes/wp-security-installer.php",
+            "line": 141
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$gm_tbl_sql",
+            "file": "classes/wp-security-installer.php",
+            "line": 159
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$evt_tbl_sql",
+            "file": "classes/wp-security-installer.php",
+            "line": 175
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$pb_tbl_sql",
+            "file": "classes/wp-security-installer.php",
+            "line": 188
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$audit_log_tbl_sql",
+            "file": "classes/wp-security-installer.php",
+            "line": 208
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$debug_log_tbl_sql",
+            "file": "classes/wp-security-installer.php",
+            "line": 221
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$liu_tbl_sql",
+            "file": "classes/wp-security-installer.php",
+            "line": 238
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$message_store_log_tbl_sql",
+            "file": "classes/wp-security-installer.php",
+            "line": 247
+        },
+        {
+            "function": "mkdir",
+            "expression": "$aiowps_dir",
+            "file": "classes/wp-security-installer.php",
+            "line": 434
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dirpath",
+            "file": "classes/wp-security-utility-file.php",
+            "line": 352
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$firewall_rules_path",
+            "file": "classes/wp-security-utility-firewall.php",
+            "line": 43
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$info['dirname']",
+            "file": "includes/simba-tfa/includes/tfa-encryption-muplugin.php",
+            "line": 78
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/simba-tfa/simba-tfa.php",
+            "line": 1368
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/simba-tfa/simba-tfa.php",
+            "line": 1374
+        }
+    ]
+}

@@ -1,0 +1,267 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "generateblocks",
+        "name": "GenerateBlocks",
+        "version": "2.4.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:54Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 46,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 20,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.821
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gb_use_v1_blocks",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-plugin-update.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "generateblocks",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-plugin-update.php",
+                        "line": 70
+                    },
+                    {
+                        "file": "includes/class-rest.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "generateblocks_do_activation_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/deprecated.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "generateblocks_dynamic_css_posts",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-enqueue-css.php",
+                        "line": 268
+                    },
+                    {
+                        "file": "includes/class-enqueue-css.php",
+                        "line": 395
+                    },
+                    {
+                        "file": "includes/class-enqueue-css.php",
+                        "line": 446
+                    },
+                    {
+                        "file": "includes/class-enqueue-css.php",
+                        "line": 475
+                    },
+                    {
+                        "file": "includes/class-enqueue-css.php",
+                        "line": 509
+                    },
+                    {
+                        "file": "includes/class-enqueue-css.php",
+                        "line": 523
+                    },
+                    {
+                        "file": "includes/class-plugin-update.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "includes/class-rest.php",
+                        "line": 233
+                    }
+                ]
+            },
+            {
+                "key": "generateblocks_dynamic_css_time",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-enqueue-css.php",
+                        "line": 400
+                    },
+                    {
+                        "file": "includes/class-enqueue-css.php",
+                        "line": 499
+                    }
+                ]
+            },
+            {
+                "key": "generateblocks_pattern_libraries",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/pattern-library/class-pattern-library-rest.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "generateblocks_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-plugin-update.php",
+                        "line": 36
+                    },
+                    {
+                        "file": "includes/class-plugin-update.php",
+                        "line": 54
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_generateblocks_dynamic_css_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-enqueue-css.php",
+                        "line": 421
+                    }
+                ]
+            },
+            {
+                "key": "_generateblocks_reusable_blocks",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-enqueue-css.php",
+                        "line": 436
+                    }
+                ]
+            },
+            {
+                "key": "_generateblocks_untrusted_dynamic_content",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-dynamic-tag-security.php",
+                        "line": 667
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "generateblocks_onboarding",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-rest.php",
+                        "line": 256
+                    },
+                    {
+                        "file": "includes/general.php",
+                        "line": 562
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "gb-template-viewer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/pattern-library/class-libraries.php",
+                        "line": 499
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$folder_path",
+            "file": "includes/class-enqueue-css.php",
+            "line": 335
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "includes/class-rest.php",
+            "line": 181
+        },
+        {
+            "function": "set_transient",
+            "expression": "$option_key",
+            "file": "includes/pattern-library/class-libraries.php",
+            "line": 447
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key . '_0'",
+            "file": "includes/pattern-library/class-libraries.php",
+            "line": 450
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/pattern-library/class-libraries.php",
+            "line": 453
+        }
+    ]
+}

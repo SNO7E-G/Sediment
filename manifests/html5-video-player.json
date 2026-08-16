@@ -1,0 +1,184 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "html5-video-player",
+        "name": "HTML5 Video Player – Embed and Play Videos in Custom Player",
+        "version": "2.12.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:36Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 24,
+    "coverage": {
+        "files_scanned": 31,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 2,
+        "resolved": 8,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "h5vp_option",
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "h5vp_db_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Database/Init.php",
+                        "line": 37
+                    }
+                ]
+            },
+            {
+                "key": "h5vp_onboarding_completed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Model/Onboarding.php",
+                        "line": 117
+                    }
+                ]
+            },
+            {
+                "key": "h5vp_option",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Model/Settings.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "inc/Model/Settings.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "inc/Model/Settings.php",
+                        "line": 92
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "IF",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Database/Table.php",
+                        "line": 81
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "isGutenberg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/PostType/VideoPlayer.php",
+                        "line": 115
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "h5vp_dismissed_onboarding_notice",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Base/OnboardingNotice.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "h5vp_dismissed_video_shortcode_notice",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Base/AdminNotice.php",
+                        "line": 70
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "videoplayer",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/PostType/VideoPlayer.php",
+                        "line": 58
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE {$full_table_name} ( {$columns} ) {$table_options}\"",
+            "file": "inc/Database/Table.php",
+            "line": 65
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$name}_database_version\"",
+            "file": "inc/Database/Table.php",
+            "line": 66
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$name}_database_version\"",
+            "file": "inc/Database/Table.php",
+            "line": 83
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "inc/Model/Video.php",
+            "line": 173
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "inc/Model/Video.php",
+            "line": 201
+        }
+    ]
+}

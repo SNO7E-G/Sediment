@@ -1,0 +1,91 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "elex-woocommerce-role-based-pricing-plugin-basic",
+        "name": "ELEX WooCommerce Role Based Pricing (BASIC)",
+        "version": "1.5.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:34Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 15,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 1,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.6
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "eh_pricing_notice",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/elex-class-admin-notice.php",
+                        "line": 18
+                    },
+                    {
+                        "file": "includes/elex-class-admin-notice.php",
+                        "line": 32
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "read",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/elex-price-discount-settings.php",
+                        "line": 211
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_role",
+            "expression": "$new_user_role",
+            "file": "includes/elex-price-discount-settings.php",
+            "line": 211
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->data['basename'] . '_' . $key",
+            "file": "review_and_troubleshoot_notify/review-and-troubleshoot-notify-class.php",
+            "line": 63
+        }
+    ]
+}

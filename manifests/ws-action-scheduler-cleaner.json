@@ -1,0 +1,320 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ws-action-scheduler-cleaner",
+        "name": "WS Action Scheduler Cleaner",
+        "version": "1.3.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:30Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 35,
+        "verified": 26,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.857
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wsacsc_actions_retention",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 59
+                    },
+                    {
+                        "file": "includes/class-ajax.php",
+                        "line": 260
+                    }
+                ]
+            },
+            {
+                "key": "wsacsc_actions_schedule_interval",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 274
+                    },
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 276
+                    },
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 279
+                    },
+                    {
+                        "file": "includes/class-ajax.php",
+                        "line": 258
+                    }
+                ]
+            },
+            {
+                "key": "wsacsc_actions_schedule_time",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 297
+                    },
+                    {
+                        "file": "includes/class-ajax.php",
+                        "line": 259
+                    }
+                ]
+            },
+            {
+                "key": "wsacsc_logs_retention",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "includes/class-ajax.php",
+                        "line": 263
+                    }
+                ]
+            },
+            {
+                "key": "wsacsc_logs_schedule_interval",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 285
+                    },
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 287
+                    },
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 290
+                    },
+                    {
+                        "file": "includes/class-ajax.php",
+                        "line": 261
+                    }
+                ]
+            },
+            {
+                "key": "wsacsc_logs_schedule_time",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 303
+                    },
+                    {
+                        "file": "includes/class-ajax.php",
+                        "line": 262
+                    }
+                ]
+            },
+            {
+                "key": "wsacsc_migration_v2_done",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 331
+                    }
+                ]
+            },
+            {
+                "key": "wsacsc_selected_statuses",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "includes/class-ajax.php",
+                        "line": 351
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wsacsc_cleanup_actions",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-scheduler.php",
+                        "line": 445
+                    }
+                ]
+            },
+            {
+                "key": "wsacsc_cleanup_logs",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-scheduler.php",
+                        "line": 445
+                    }
+                ]
+            },
+            {
+                "key": "wsacsc_continue_cleanup",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-cleanup.php",
+                        "line": 271
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wsacsc_active_job",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-cleanup.php",
+                        "line": 230
+                    }
+                ]
+            },
+            {
+                "key": "wsacsc_migration_backup",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activation.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "wsacsc_save_backup",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ajax.php",
+                        "line": 252
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "cron",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/class-scheduler.php",
+                    "line": 383
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/class-activation.php",
+            "line": 148
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/class-ajax.php",
+            "line": 314
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::progress_transient_key($cleanup_id)",
+            "file": "includes/class-cleanup.php",
+            "line": 179
+        },
+        {
+            "function": "update_option",
+            "expression": "self::progress_option_key($cleanup_id)",
+            "file": "includes/class-cleanup.php",
+            "line": 180
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "includes/class-scheduler.php",
+            "line": 445
+        }
+    ]
+}

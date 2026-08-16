@@ -1,0 +1,372 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "akismet",
+        "name": "Akismet Anti-spam: Spam Protection",
+        "version": "5.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:33Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 29,
+        "files_skipped": 0,
+        "write_calls_found": 38,
+        "verified": 34,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.895
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "Activated_Akismet",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet.php",
+                        "line": 2099
+                    }
+                ]
+            },
+            {
+                "key": "akismet_available_servers",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet-admin.php",
+                        "line": 926
+                    }
+                ]
+            },
+            {
+                "key": "akismet_comment_form_privacy_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet-admin.php",
+                        "line": 1534
+                    }
+                ]
+            },
+            {
+                "key": "akismet_connectivity_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet-admin.php",
+                        "line": 927
+                    }
+                ]
+            },
+            {
+                "key": "akismet_spam_count",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet-admin.php",
+                        "line": 1262
+                    },
+                    {
+                        "file": "class.akismet.php",
+                        "line": 617
+                    },
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1707
+                    }
+                ]
+            },
+            {
+                "key": "akismet_ssl_disabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1876
+                    }
+                ]
+            },
+            {
+                "key": "akismet_strictness",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet-admin.php",
+                        "line": 1257
+                    }
+                ]
+            },
+            {
+                "key": "wordpress_api_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-akismet-connector.php",
+                        "line": 61
+                    },
+                    {
+                        "file": "class.akismet-admin.php",
+                        "line": 386
+                    },
+                    {
+                        "file": "class.akismet-rest-api.php",
+                        "line": 198
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "akismet_approval_fallback",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet.php",
+                        "line": 804
+                    }
+                ]
+            },
+            {
+                "key": "akismet_email_fallback",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet.php",
+                        "line": 757
+                    }
+                ]
+            },
+            {
+                "key": "akismet_schedule_cron_recheck",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet.php",
+                        "line": 647
+                    },
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1429
+                    },
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1503
+                    },
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1515
+                    },
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1533
+                    }
+                ]
+            },
+            {
+                "key": "akismet_scheduled_delete",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet.php",
+                        "line": 654
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "akismet_compatible_plugin_list_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-akismet-compatible-plugins.php",
+                        "line": 277
+                    }
+                ]
+            },
+            {
+                "key": "akismet_connector_key_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-akismet-connector.php",
+                        "line": 94
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "akismet_delayed_moderation_email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1726
+                    }
+                ]
+            },
+            {
+                "key": "akismet_history",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1113
+                    }
+                ]
+            },
+            {
+                "key": "akismet_rechecking",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1159
+                    },
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1455
+                    }
+                ]
+            },
+            {
+                "key": "akismet_result",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1167
+                    },
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1175
+                    },
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1184
+                    },
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1471
+                    }
+                ]
+            },
+            {
+                "key": "akismet_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1346
+                    },
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1415
+                    }
+                ]
+            },
+            {
+                "key": "akismet_user_result",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1343
+                    },
+                    {
+                        "file": "class.akismet.php",
+                        "line": 1412
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "class.akismet.php",
+                    "line": 2064
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "class.akismet-admin.php",
+            "line": 350
+        },
+        {
+            "function": "update_option",
+            "expression": "$setting_key",
+            "file": "class.akismet-rest-api.php",
+            "line": 259
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "class.akismet.php",
+            "line": 1923
+        }
+    ]
+}

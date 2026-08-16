@@ -1,0 +1,75 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "leira-cron-jobs",
+        "name": "Cron Jobs",
+        "version": "1.2.12",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 14,
+        "files_skipped": 0,
+        "write_calls_found": 3,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.333
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "leira-cron-jobs-footer-rated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-leira-cron-jobs-admin.php",
+                        "line": 694
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$hookname",
+            "file": "admin/class-leira-cron-jobs-manager.php",
+            "line": 330
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hookname",
+            "file": "admin/class-leira-cron-jobs-manager.php",
+            "line": 332
+        }
+    ]
+}

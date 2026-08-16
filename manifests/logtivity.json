@@ -1,0 +1,192 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "logtivity",
+        "name": "Logtivity",
+        "version": "3.3.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:08Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 45,
+    "coverage": {
+        "files_scanned": 48,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 6,
+        "resolved": 2,
+        "pattern": 3,
+        "dynamic": 2,
+        "resolution_rate": 0.615
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dismissed-*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/Admin/Logtivity_Dismiss_Notice_Controller.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "logtivity_activate",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "logtivity.php",
+                        "line": 426
+                    }
+                ]
+            },
+            {
+                "key": "logtivity_app_verify_url",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "logtivity.php",
+                        "line": 190
+                    }
+                ]
+            },
+            {
+                "key": "logtivity_last_settings_check_in_at",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Base/Logtivity_Api.php",
+                        "line": 304
+                    }
+                ]
+            },
+            {
+                "key": "logtivity_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "logtivity.php",
+                        "line": 193
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "dismissed-*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/Admin/Logtivity_Dismiss_Notice_Controller.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "logtivity-welcome-notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "logtivity.php",
+                        "line": 434
+                    }
+                ]
+            },
+            {
+                "key": "logtivity_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/Errors/Logtivity_Error_Log.php",
+                        "line": 195
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "view_log_settings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "logtivity.php",
+                        "line": 216
+                    }
+                ]
+            },
+            {
+                "key": "view_logs",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "logtivity.php",
+                        "line": 212
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "logtivity.php",
+                    "line": 397
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "Base/Logtivity_Abstract_Logger.php",
+            "line": 80
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "Core/Admin/Logtivity_Options.php",
+            "line": 244
+        }
+    ]
+}

@@ -1,0 +1,171 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "constant-contact-forms-by-mailmunch",
+        "name": "Constant Contact Forms by MailMunch",
+        "version": "2.1.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:31Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 82,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 2,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 8,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cc_mm_activation_date",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-constantcontact-mailmunch-admin.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "cc_mm_activation_redirect",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-constantcontact-mailmunch-admin.php",
+                        "line": 230
+                    },
+                    {
+                        "file": "includes/class-constantcontact-mailmunch-activator.php",
+                        "line": 33
+                    },
+                    {
+                        "file": "includes/class-constantcontact-mailmunch-deactivator.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "cc_mm_dismiss_review_notice",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-constantcontact-mailmunch-admin.php",
+                        "line": 303
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_mailmunch_landing_page_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-constantcontact-mailmunch-post-type.php",
+                        "line": 140
+                    },
+                    {
+                        "file": "includes/class-constantcontact-mailmunch-post-type.php",
+                        "line": 142
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "mailmunch_page",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-constantcontact-mailmunch-post-type.php",
+                        "line": 50
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$var",
+            "file": "admin/class-constantcontact-mailmunch-admin.php",
+            "line": 450
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->mailmunch_api->getPrefix() . 'constantcontact_list_id'",
+            "file": "admin/class-constantcontact-mailmunch-admin.php",
+            "line": 469
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$post->post_name . '$'",
+            "file": "includes/class-constantcontact-mailmunch-rewrite.php",
+            "line": 126
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . $settingName",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 32
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . 'user_token'",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 40
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . 'skip_onboarding'",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 176
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . 'site_id'",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 299
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . 'list_id'",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 307
+        }
+    ]
+}

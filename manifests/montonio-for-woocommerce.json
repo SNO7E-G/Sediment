@@ -1,0 +1,337 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "montonio-for-woocommerce",
+        "name": "Montonio for WooCommerce",
+        "version": "10.3.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:57Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 116,
+        "files_skipped": 0,
+        "write_calls_found": 31,
+        "verified": 14,
+        "resolved": 8,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.71
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "montonio_connection_state",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-montonio-connection.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "montonio_last_sync",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wc-montonio-data-sync.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "montonio_payment_methods",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wc-montonio-data-sync.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "montonio_shipping_dropdown_type",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/migrations/montonio-migration-10.2.1.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "montonio_shipping_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/shipping/class-wc-montonio-shipping.php",
+                        "line": 311
+                    }
+                ]
+            },
+            {
+                "key": "montonio_shipping_sync_timestamp",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/migrations/montonio-migration-9.1.4.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "includes/shipping/class-wc-montonio-shipping-sync.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "includes/shipping/class-wc-montonio-shipping-sync.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "montonio_telemetry_sync_timestamp",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wc-montonio-telemetry-service.php",
+                        "line": 147
+                    },
+                    {
+                        "file": "includes/admin/class-wc-montonio-telemetry-service.php",
+                        "line": 161
+                    }
+                ]
+            },
+            {
+                "key": "wc_montonio_plugin_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "montonio.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_gateway_order",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/migrations/montonio-migration-10.3.2.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_wc_montonio_api_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-montonio-connection.php",
+                        "line": 196
+                    },
+                    {
+                        "file": "includes/admin/class-montonio-connection.php",
+                        "line": 369
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_wc_montonio_mobilepay_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/migrations/montonio-migration-10.3.2.php",
+                        "line": 32
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}montonio_shipping_method_items_temp",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/shipping/class-wc-montonio-shipping-sync.php",
+                        "line": 195
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "montonio_payment_methods_sync_event",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wc-montonio-data-sync.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "montonio_shipping_methods_sync_event",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/shipping/class-wc-montonio-shipping-sync.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "montonio_telemetry_sync_event",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wc-montonio-telemetry-service.php",
+                        "line": 109
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_montonio_no_parcel_machine",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/shipping/class-wc-montonio-shipping-product.php",
+                        "line": 64
+                    }
+                ]
+            },
+            {
+                "key": "_montonio_separate_label",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/shipping/class-wc-montonio-shipping-product.php",
+                        "line": 65
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "montonio_banners",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wc-montonio-banners.php",
+                        "line": 61
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/admin/class-montonio-ota-updates.php",
+            "line": 289
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/admin/class-montonio-ota-updates.php",
+            "line": 295
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/admin/class-montonio-ota-updates.php",
+            "line": 297
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/migrations/montonio-migration-10.0.1.php",
+            "line": 144
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/migrations/montonio-migration-9.1.4.php",
+            "line": 52
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/migrations/montonio-migration-9.1.4.php",
+            "line": 115
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/shipping/class-wc-montonio-shipping-pickup-points-search.php",
+            "line": 75
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/shipping/class-wc-montonio-shipping-route-setup.php",
+            "line": 902
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/shipping/class-wc-montonio-shipping-route-setup.php",
+            "line": 925
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "dynamic-qr-code",
+        "name": "Dynamic QR Code",
+        "version": "1.0.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 111,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 8,
+        "resolution_rate": 0.111
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "settings_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "sos/wp/metabox.php",
+                        "line": 346
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "sos/io.php",
+            "line": 76
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "sos/wp/data/form.php",
+            "line": 329
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "sos/wp/data/wpdatabase.php",
+            "line": 56
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "sos/wp/data/wpdatabase.php",
+            "line": 97
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->key",
+            "file": "sos/wp/metabox.php",
+            "line": 292
+        },
+        {
+            "function": "mkdir",
+            "expression": "$folder",
+            "file": "sos/wp/plugin.php",
+            "line": 738
+        },
+        {
+            "function": "set_transient",
+            "expression": "$_key",
+            "file": "sos/wp/ttransient.php",
+            "line": 29
+        },
+        {
+            "function": "mkdir",
+            "expression": "DELTALAB_QR_CACHE_DIR . 'mask_' . $maskNo",
+            "file": "src/lib/phpqrcode.php",
+            "line": 2683
+        }
+    ]
+}

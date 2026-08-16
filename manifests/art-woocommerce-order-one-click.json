@@ -1,0 +1,97 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "art-woocommerce-order-one-click",
+        "name": "Art WooCommerce Order One Click",
+        "version": "3.1.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:33Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 40,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 0,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": true,
+        "condition_option": "woocommerce_awooc_not_del_settings",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woocommerce_awooc_active",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Admin/Create_Form.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_awooc_text_rated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Main.php",
+                        "line": 212
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Admin/Create_Form.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "_hash",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Admin/Create_Form.php",
+                        "line": 138
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

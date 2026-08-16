@@ -1,0 +1,250 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "download-after-email",
+        "name": "Download After Email",
+        "version": "2.1.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 27,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 17,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.739
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dae_db_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "dae.php",
+                        "line": 171
+                    },
+                    {
+                        "file": "dae.php",
+                        "line": 173
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 360
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 362
+                    },
+                    {
+                        "file": "includes/update.php",
+                        "line": 199
+                    }
+                ]
+            },
+            {
+                "key": "dae_field_labels",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dae.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "dae_fields",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dae.php",
+                        "line": 155
+                    }
+                ]
+            },
+            {
+                "key": "dae_htaccess_updated",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/update.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "dae_messages",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dae.php",
+                        "line": 159
+                    }
+                ]
+            },
+            {
+                "key": "dae_options",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "dae.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "includes/update.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "dae_subscribers_per_page",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "dae.php",
+                        "line": 160
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "dae_cleanup_expired_transients",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/cron.php",
+                        "line": 10
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "dae_duplicate_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types.php",
+                        "line": 599
+                    }
+                ]
+            },
+            {
+                "key": "dae_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types.php",
+                        "line": 600
+                    }
+                ]
+            },
+            {
+                "key": "dae_shortcode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types.php",
+                        "line": 598
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "dae_download",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types.php",
+                        "line": 52
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "dae.php",
+            "line": 150
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dirname",
+            "file": "dae.php",
+            "line": 183
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/functions.php",
+            "line": 18
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dirname",
+            "file": "includes/functions.php",
+            "line": 378
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/functions.php",
+            "line": 433
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/functions.php",
+            "line": 437
+        }
+    ]
+}

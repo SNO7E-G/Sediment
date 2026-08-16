@@ -1,0 +1,149 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-maximum-upload-file-size",
+        "name": "EasyMedia - Increase Media Upload Size",
+        "version": "3.0.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:08Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 22,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 7,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.889
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wmufs_notice_disable_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/hooks.php",
+                        "line": 20
+                    }
+                ]
+            },
+            {
+                "key": "wmufs_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wmufs-admin.php",
+                        "line": 81
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "codepopular_blog_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/codepopular-promotion.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "codepopular_promo_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/codepopular-promotion.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "wf-plugin-info-unlimited-theme-addons",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/codepopular-plugin-suggest.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "wmufs_settings_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wmufs-admin.php",
+                        "line": 83
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_is_custom_background",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wmufs-chunk-files.php",
+                        "line": 422
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_is_custom_header",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wmufs-chunk-files.php",
+                        "line": 426
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "inc/class-wmufs-chunk-files.php",
+            "line": 177
+        }
+    ]
+}

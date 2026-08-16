@@ -1,0 +1,115 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "pw-woocommerce-gift-cards",
+        "name": "PW WooCommerce Gift Cards",
+        "version": "2.49",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 43,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 4,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pw_gift_card_designs_free",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/pw-gift-cards-admin.php",
+                        "line": 739
+                    }
+                ]
+            },
+            {
+                "key": "pwgc_database_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/pwgc-database.php",
+                        "line": 46
+                    }
+                ]
+            },
+            {
+                "key": "pwgc_hide_paypal_ipn_pdt_bug_notice",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/pw-gift-cards-admin.php",
+                        "line": 236
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "IF",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/pwgc-database.php",
+                        "line": 12
+                    },
+                    {
+                        "file": "includes/pwgc-database.php",
+                        "line": 28
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "pw_gift_cards_recipient_email",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/emails/class-wc-email-pw-gift-card.php",
+                        "line": 98
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

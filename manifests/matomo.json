@@ -1,0 +1,507 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "matomo",
+        "name": "Matomo Analytics - Ethical Stats. Powerful Insights.",
+        "version": "5.12.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:35Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 2662,
+        "files_skipped": 0,
+        "write_calls_found": 55,
+        "verified": 2,
+        "resolved": 26,
+        "pattern": 4,
+        "dynamic": 23,
+        "resolution_rate": 0.509
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "matomo-after-cron-*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/ScheduledTasks.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "matomo-before-cron-*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/ScheduledTasks.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "matomo-global-option",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Settings.php",
+                        "line": 238
+                    },
+                    {
+                        "file": "classes/WpMatomo/Settings.php",
+                        "line": 240
+                    }
+                ]
+            },
+            {
+                "key": "matomo-install-date",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Installer.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "matomo-install-start-time",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Installer.php",
+                        "line": 491
+                    }
+                ]
+            },
+            {
+                "key": "matomo-install-version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Installer.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "matomo-matomo_salt",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "config/config.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "matomo-option",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Settings.php",
+                        "line": 243
+                    }
+                ]
+            },
+            {
+                "key": "matomo-referral-dismissed",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Referral.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "classes/WpMatomo/Referral.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "matomo-roles-setup",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Roles.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "matomo-site-id-*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Site/Sync.php",
+                        "line": 159
+                    }
+                ]
+            },
+            {
+                "key": "matomo-user-login-*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/User.php",
+                        "line": 41
+                    }
+                ]
+            },
+            {
+                "key": "matomo_last_click_id_occurrence",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Admin/PluginSuggestions/Suggestions/AdvertisingConversionExport.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "matomo_plugin_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/RedirectOnActivation.php",
+                        "line": 34
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "matomo_delayed_tracking",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Ecommerce/Base.php",
+                        "line": 235
+                    }
+                ]
+            },
+            {
+                "key": "matomo_scheduled_check_plugin_suggestions",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Admin/PluginSuggestions/PluginSuggestions.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "matomo_scheduled_disable_addhandler",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Updater.php",
+                        "line": 215
+                    }
+                ]
+            },
+            {
+                "key": "matomo_scheduled_geoipdb",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Admin/GeolocationSettings.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "classes/WpMatomo/Installer.php",
+                        "line": 218
+                    },
+                    {
+                        "file": "classes/WpMatomo/ScheduledTasks.php",
+                        "line": 293
+                    }
+                ]
+            },
+            {
+                "key": "matomo_scheduled_sync",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Access.php",
+                        "line": 70
+                    },
+                    {
+                        "file": "classes/WpMatomo/Installer.php",
+                        "line": 223
+                    },
+                    {
+                        "file": "classes/WpMatomo/Site/Sync/SyncConfig.php",
+                        "line": 116
+                    },
+                    {
+                        "file": "classes/WpMatomo/User/Sync.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "matomo_update_core",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Installer.php",
+                        "line": 211
+                    },
+                    {
+                        "file": "classes/WpMatomo/Updater.php",
+                        "line": 104
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "matomo_dashboard_widgets",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Admin/Dashboard.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "matomo_minimum_requirements_notice_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/MinimumRequirementsNotice.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "matomo_newsletter_signup",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/Admin/Info.php",
+                        "line": 50
+                    }
+                ]
+            },
+            {
+                "key": "matomo_system_report_errors_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WpMatomo/ErrorNotice.php",
+                        "line": 31
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "app/core/Filesystem.php",
+            "line": 100
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "app/plugins/LanguagesManager/Commands/FetchTranslations.php",
+            "line": 82
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "classes/WpMatomo/Admin/AdminSettings.php",
+            "line": 146
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$cache_key",
+            "file": "classes/WpMatomo/Admin/SystemReport.php",
+            "line": 338
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$cache_key",
+            "file": "classes/WpMatomo/Admin/SystemReport.php",
+            "line": 2162
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "classes/WpMatomo/Admin/WhatsNewNotifications.php",
+            "line": 158
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "classes/WpMatomo/Admin/WhatsNewNotifications.php",
+            "line": 160
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->key_order_tracked",
+            "file": "classes/WpMatomo/Ecommerce/Base.php",
+            "line": 94
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "classes/WpMatomo/Ecommerce/Woocommerce.php",
+            "line": 503
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$config_dir",
+            "file": "classes/WpMatomo/Installer.php",
+            "line": 68
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "dirname($path)",
+            "file": "classes/WpMatomo/Installer.php",
+            "line": 323
+        },
+        {
+            "function": "update_option",
+            "expression": "$id",
+            "file": "classes/WpMatomo/Logger.php",
+            "line": 73
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cache_dir",
+            "file": "classes/WpMatomo/Paths.php",
+            "line": 108
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cache_dir",
+            "file": "classes/WpMatomo/Paths.php",
+            "line": 121
+        },
+        {
+            "function": "add_cap",
+            "expression": "$role_name",
+            "file": "classes/WpMatomo/Roles.php",
+            "line": 56
+        },
+        {
+            "function": "add_role",
+            "expression": "$role_name",
+            "file": "classes/WpMatomo/Roles.php",
+            "line": 128
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$event_name",
+            "file": "classes/WpMatomo/ScheduledTasks.php",
+            "line": 92
+        },
+        {
+            "function": "update_option",
+            "expression": "self::FAILURES_LIST_OPTION",
+            "file": "classes/WpMatomo/ScheduledTasks.php",
+            "line": 450
+        },
+        {
+            "function": "update_option",
+            "expression": "self::FAILURES_LIST_OPTION",
+            "file": "classes/WpMatomo/ScheduledTasks.php",
+            "line": 464
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "classes/WpMatomo/Site.php",
+            "line": 36
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "classes/WpMatomo/Updater.php",
+            "line": 115
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "matomo.php",
+            "line": 221
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "matomo.php",
+            "line": 245
+        }
+    ]
+}

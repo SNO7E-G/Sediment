@@ -1,0 +1,203 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "payu-india",
+        "name": "PayU India",
+        "version": "3.9.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 17,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 11,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.688
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woocommerce_enable_guest_checkout",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helper.php",
+                        "line": 229
+                    },
+                    {
+                        "file": "includes/helper.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_enable_guest_checkout_old",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helper.php",
+                        "line": 228
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "pass_arguments_to_save_address",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-payu-account-address-sync.php",
+                        "line": 222
+                    }
+                ]
+            },
+            {
+                "key": "pass_arguments_to_verify",
+                "recurrence": "every_five_min",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-payu-verify-payment.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "payu_check_refund_status_check_next_scheduled",
+                "recurrence": "payu_check_refund_status_set_crone_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payu-refund-process.php",
+                        "line": 573
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "order_txnid",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-gateway-payu.php",
+                        "line": 301
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_woocommerce_persistent_cart_1",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-payu-shipping-tax-api-calculation.php",
+                        "line": 299
+                    }
+                ]
+            },
+            {
+                "key": "payu_phone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-payu-payment-validation.php",
+                        "line": 372
+                    }
+                ]
+            },
+            {
+                "key": "shipping_email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-payu-account-address-sync.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "shipping_phone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-payu-account-address-sync.php",
+                        "line": 241
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$payu_transactions_create_query",
+            "file": "includes/class-payu-activator.php",
+            "line": 45
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$refund_transactions_query",
+            "file": "includes/class-payu-activator.php",
+            "line": 76
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$refund_transactions_query",
+            "file": "includes/class-payu-activator.php",
+            "line": 110
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$verify_payment_log_query",
+            "file": "includes/class-payu-activator.php",
+            "line": 139
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$verify_payment_log_query",
+            "file": "includes/class-payu-activator.php",
+            "line": 169
+        }
+    ]
+}

@@ -1,0 +1,249 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "age-gate",
+        "name": "Age Gate",
+        "version": "3.7.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 122,
+        "files_skipped": 0,
+        "write_calls_found": 29,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 25,
+        "resolution_rate": 0.138
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "age_gate_legacy_css",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Update/Activate.php",
+                        "line": 64
+                    }
+                ]
+            },
+            {
+                "key": "age_gate_theme_css",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Update/Activate.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "age_gate_updated_from",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Update/Activate.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "age_gate_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Update/Activate.php",
+                        "line": 105
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "\\AgeGate\\Admin\\Controller\\ContentController::OPTION",
+            "file": "src/Admin/Ajax.php",
+            "line": 53
+        },
+        {
+            "function": "add_cap",
+            "expression": "$capability",
+            "file": "src/Admin/Controller/AccessController.php",
+            "line": 74
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "src/Admin/Controller/AccessController.php",
+            "line": 89
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::META_AGE",
+            "file": "src/Admin/Controller/ContentController.php",
+            "line": 98
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::META_BYPASS",
+            "file": "src/Admin/Controller/ContentController.php",
+            "line": 107
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::META_RESTRICT",
+            "file": "src/Admin/Controller/ContentController.php",
+            "line": 118
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::META_AGE",
+            "file": "src/Admin/Post/Edit.php",
+            "line": 64
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::META_BYPASS",
+            "file": "src/Admin/Post/Edit.php",
+            "line": 75
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::META_RESTRICT",
+            "file": "src/Admin/Post/Edit.php",
+            "line": 86
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::META_RESTRICT",
+            "file": "src/Admin/Post/ListTable.php",
+            "line": 151
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::META_BYPASS",
+            "file": "src/Admin/Post/ListTable.php",
+            "line": 163
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::META_AGE",
+            "file": "src/Admin/Taxonomy/Term.php",
+            "line": 97
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::META_BYPASS",
+            "file": "src/Admin/Taxonomy/Term.php",
+            "line": 106
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::META_RESTRICT",
+            "file": "src/Admin/Taxonomy/Term.php",
+            "line": 117
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "src/Admin/Tools/Import.php",
+            "line": 75
+        },
+        {
+            "function": "update_option",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::AGE_GATE_OPTIONS[$option]",
+            "file": "src/Admin/Tools/Import.php",
+            "line": 89
+        },
+        {
+            "function": "update_option",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::AGE_GATE_OPTIONS[$key]",
+            "file": "src/Update/Activate.php",
+            "line": 97
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::MESSAGES",
+            "file": "src/Update/Activate.php",
+            "line": 152
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::RESTRICTIONS",
+            "file": "src/Update/Activate.php",
+            "line": 153
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::SET_CONTENT",
+            "file": "src/Update/Activate.php",
+            "line": 154
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::SET_CUSTOM_AGE",
+            "file": "src/Update/Activate.php",
+            "line": 155
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::APPEARANCE",
+            "file": "src/Update/Activate.php",
+            "line": 156
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::SET_CONTENT",
+            "file": "src/Update/Activate.php",
+            "line": 163
+        },
+        {
+            "function": "add_cap",
+            "expression": "\\AgeGate\\Common\\Immutable\\Constants::SET_CUSTOM_AGE",
+            "file": "src/Update/Activate.php",
+            "line": 164
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "src/Update/Activate.php",
+            "line": 191
+        }
+    ]
+}

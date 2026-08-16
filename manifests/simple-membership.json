@@ -1,0 +1,1990 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "simple-membership",
+        "name": "Simple Membership",
+        "version": "4.7.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:48Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 730,
+        "files_skipped": 0,
+        "write_calls_found": 306,
+        "verified": 287,
+        "resolved": 6,
+        "pattern": 5,
+        "dynamic": 8,
+        "resolution_rate": 0.958
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "swpm-messages",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-messages.php",
+                        "line": 19
+                    },
+                    {
+                        "file": "classes/class.swpm-messages.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "swpm-settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-settings.php",
+                        "line": 1789
+                    }
+                ]
+            },
+            {
+                "key": "swpm_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-installation.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "swpm_email_activation_data_usr_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-registration.php",
+                        "line": 39
+                    },
+                    {
+                        "file": "classes/class.swpm-utils-misc.php",
+                        "line": 1413
+                    }
+                ]
+            },
+            {
+                "key": "swpm_email_activation_lvl_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-membership-level.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "classes/class.swpm-membership-level.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "swpm_paypal_webhook_id_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/paypal/class-swpm-paypal-webhook.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "swpm_plugin_activated_time",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin-includes/class.swpm-admin-user-feedback.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "swpm_plugin_user_feedback_notice",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin-includes/class.swpm-admin-user-feedback.php",
+                        "line": 44
+                    },
+                    {
+                        "file": "classes/admin-includes/class.swpm-admin-user-feedback.php",
+                        "line": 165
+                    },
+                    {
+                        "file": "classes/admin-includes/class.swpm-admin-user-feedback.php",
+                        "line": 172
+                    }
+                ]
+            },
+            {
+                "key": "swpm_ppcp_connect_query_args_production",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/paypal/onboarding-related/class-swpm-paypal-onboarding.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "swpm_ppcp_connect_query_args_sandbox",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/paypal/onboarding-related/class-swpm-paypal-onboarding.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "swpm_private_key_one",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-installation.php",
+                        "line": 372
+                    },
+                    {
+                        "file": "views/add-v2.php",
+                        "line": 141
+                    },
+                    {
+                        "file": "views/add.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "swpm_stripe_received_api_old_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ipn/swpm-stripe-webhook-handler.php",
+                        "line": 64
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "swpm_account_status_event",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.simple-wp-membership.php",
+                        "line": 1207
+                    }
+                ]
+            },
+            {
+                "key": "swpm_daily_cron_event",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.simple-wp-membership.php",
+                        "line": 1211
+                    }
+                ]
+            },
+            {
+                "key": "swpm_delete_pending_account_event",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.simple-wp-membership.php",
+                        "line": 1208
+                    }
+                ]
+            },
+            {
+                "key": "swpm_twicedaily_cron_event",
+                "recurrence": "twicedaily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.simple-wp-membership.php",
+                        "line": 1212
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "swpm-passsword-reset-error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-front-registration.php",
+                        "line": 714
+                    },
+                    {
+                        "file": "classes/class.swpm-wp-tasks.php",
+                        "line": 63
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "allow_promotion_codes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 276
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 626
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 435
+                    }
+                ]
+            },
+            {
+                "key": "billing_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 240
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 530
+                    }
+                ]
+            },
+            {
+                "key": "billing_cycle",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 241
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 531
+                    }
+                ]
+            },
+            {
+                "key": "billing_cycle_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 243
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 533
+                    }
+                ]
+            },
+            {
+                "key": "billing_cycle_term",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 242
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 532
+                    }
+                ]
+            },
+            {
+                "key": "billing_reattempt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 244
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 534
+                    }
+                ]
+            },
+            {
+                "key": "braintree_merchant_acc_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 276
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 326
+                    }
+                ]
+            },
+            {
+                "key": "braintree_merchant_acc_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 274
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 324
+                    }
+                ]
+            },
+            {
+                "key": "braintree_private_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 278
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 328
+                    }
+                ]
+            },
+            {
+                "key": "braintree_public_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 277
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 327
+                    }
+                ]
+            },
+            {
+                "key": "button_image_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 365
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 236
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 526
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 255
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 542
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 290
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 662
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 432
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_subscription_button.php",
+                        "line": 317
+                    }
+                ]
+            },
+            {
+                "key": "button_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 271
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 321
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 160
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 359
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 231
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 521
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 107
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 220
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 505
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 260
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 621
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 425
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_subscription_button.php",
+                        "line": 314
+                    }
+                ]
+            },
+            {
+                "key": "cancel_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 289
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 661
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 430
+                    }
+                ]
+            },
+            {
+                "key": "checkout_logo_image_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 167
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 366
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 237
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 527
+                    }
+                ]
+            },
+            {
+                "key": "currency_code",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 296
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 346
+                    }
+                ]
+            },
+            {
+                "key": "db_row_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-transactions.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "discount_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "views/payments/admin_edit_transaction.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 28
+                    },
+                    {
+                        "file": "views/payments/admin_edit_transaction.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "first_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 33
+                    },
+                    {
+                        "file": "views/payments/admin_edit_transaction.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "gateway",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "hide_btn_if_any_active_sub",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 81
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 439
+                    }
+                ]
+            },
+            {
+                "key": "ip_address",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 80
+                    },
+                    {
+                        "file": "views/payments/admin_edit_transaction.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "last_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "views/payments/admin_edit_transaction.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "member_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "membership_level",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "membership_level_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 272
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 322
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 360
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 232
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 522
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 108
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 221
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 506
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 261
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 622
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 426
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_subscription_button.php",
+                        "line": 315
+                    }
+                ]
+            },
+            {
+                "key": "payment_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 55
+                    },
+                    {
+                        "file": "views/payments/admin_edit_transaction.php",
+                        "line": 42
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 273
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 323
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 162
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 361
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 98
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 507
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 262
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 623
+                    }
+                ]
+            },
+            {
+                "key": "payment_currency",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 163
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 362
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 53
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 97
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 233
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 523
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 53
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 116
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 223
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 508
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 263
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 624
+                    }
+                ]
+            },
+            {
+                "key": "paypal_email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 165
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 364
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 235
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 525
+                    }
+                ]
+            },
+            {
+                "key": "pp_buy_now_new_btn_color",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 61
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "pp_buy_now_new_btn_height",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 59
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "pp_buy_now_new_btn_layout",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "pp_buy_now_new_btn_shape",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 57
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "pp_buy_now_new_btn_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 56
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 100
+                    }
+                ]
+            },
+            {
+                "key": "pp_buy_now_new_btn_width",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 104
+                    }
+                ]
+            },
+            {
+                "key": "pp_buy_now_new_disable_funding_card",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "pp_buy_now_new_disable_funding_credit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "pp_buy_now_new_disable_funding_venmo",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "pp_subscription_new_btn_color",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 69
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "pp_subscription_new_btn_height",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "pp_subscription_new_btn_layout",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "pp_subscription_new_btn_shape",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "pp_subscription_new_btn_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "pp_subscription_new_btn_width",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "pp_subscription_new_disable_funding_card",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "pp_subscription_new_disable_funding_credit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "pp_subscription_new_disable_funding_venmo",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "pp_subscription_plan_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/paypal/class-swpm-paypal-utility-functions.php",
+                        "line": 147
+                    },
+                    {
+                        "file": "lib/paypal/class-swpm-paypal-utility-functions.php",
+                        "line": 182
+                    }
+                ]
+            },
+            {
+                "key": "pp_subscription_plan_mode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/paypal/class-swpm-paypal-utility-functions.php",
+                        "line": 148
+                    },
+                    {
+                        "file": "lib/paypal/class-swpm-paypal-utility-functions.php",
+                        "line": 183
+                    }
+                ]
+            },
+            {
+                "key": "recurring_billing_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 117
+                    }
+                ]
+            },
+            {
+                "key": "recurring_billing_cycle",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 55
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "recurring_billing_cycle_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 57
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "recurring_billing_cycle_term",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 56
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "recurring_billing_reattempt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "redirect_to_paid_reg_link_after_payment",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 282
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 332
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 111
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 138
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 279
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 628
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 436
+                    }
+                ]
+            },
+            {
+                "key": "reference",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 79
+                    },
+                    {
+                        "file": "views/payments/admin_edit_transaction.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "return_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 283
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_braintree_buy_now_button.php",
+                        "line": 333
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 164
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_button.php",
+                        "line": 363
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 69
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_buy_now_new_button.php",
+                        "line": 113
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 234
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 524
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 77
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 140
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 254
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 541
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 288
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 660
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 427
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_subscription_button.php",
+                        "line": 316
+                    }
+                ]
+            },
+            {
+                "key": "show_warning_if_any_active_sub",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 80
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 143
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 438
+                    }
+                ]
+            },
+            {
+                "key": "status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-transactions.php",
+                        "line": 148
+                    },
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "stripe_automatic_tax",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 282
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 653
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 434
+                    }
+                ]
+            },
+            {
+                "key": "stripe_collect_address",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 532
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 539
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 281
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 652
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 433
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_subscription_button.php",
+                        "line": 318
+                    }
+                ]
+            },
+            {
+                "key": "stripe_live_publishable_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 244
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 529
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 273
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 649
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 458
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_subscription_button.php",
+                        "line": 336
+                    }
+                ]
+            },
+            {
+                "key": "stripe_live_secret_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 240
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 525
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 271
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 645
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 455
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_subscription_button.php",
+                        "line": 333
+                    }
+                ]
+            },
+            {
+                "key": "stripe_plan_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 489
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_subscription_button.php",
+                        "line": 366
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/stripe_button_shortcode_view.php",
+                        "line": 228
+                    }
+                ]
+            },
+            {
+                "key": "stripe_plan_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 487
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_subscription_button.php",
+                        "line": 365
+                    }
+                ]
+            },
+            {
+                "key": "stripe_test_publishable_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 233
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 518
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 269
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 638
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 452
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_subscription_button.php",
+                        "line": 330
+                    }
+                ]
+            },
+            {
+                "key": "stripe_test_secret_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 229
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 514
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 267
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 634
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 449
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_subscription_button.php",
+                        "line": 327
+                    }
+                ]
+            },
+            {
+                "key": "stripe_trial_period",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 488
+                    }
+                ]
+            },
+            {
+                "key": "stripe_use_global_keys",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 250
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_buy_now_button.php",
+                        "line": 537
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 286
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_buy_now_button.php",
+                        "line": 658
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 464
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_subscription_button.php",
+                        "line": 342
+                    }
+                ]
+            },
+            {
+                "key": "subscr_cancel_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-utils-subscription.php",
+                        "line": 304
+                    },
+                    {
+                        "file": "classes/class.swpm-utils-subscription.php",
+                        "line": 373
+                    }
+                ]
+            },
+            {
+                "key": "subscr_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-transactions.php",
+                        "line": 98
+                    },
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "subscr_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-utils-subscription.php",
+                        "line": 486
+                    },
+                    {
+                        "file": "classes/class.swpm-utils-subscription.php",
+                        "line": 648
+                    },
+                    {
+                        "file": "classes/class.swpm-utils-subscription.php",
+                        "line": 881
+                    },
+                    {
+                        "file": "ipn/swpm_handle_subsc_ipn.php",
+                        "line": 412
+                    },
+                    {
+                        "file": "views/payments/admin_edit_transaction.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "trial_billing_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 247
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 537
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 123
+                    }
+                ]
+            },
+            {
+                "key": "trial_billing_cycle",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 248
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 538
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 61
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 124
+                    }
+                ]
+            },
+            {
+                "key": "trial_billing_cycle_term",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 249
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_button.php",
+                        "line": 539
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "txn_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "txn_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/admin_add_edit_transaction_manually.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "warning_msg_for_existing_sub",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 82
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_paypal_subscription_new_button.php",
+                        "line": 145
+                    },
+                    {
+                        "file": "views/payments/payment-gateway/admin_stripe_sca_subscription_button.php",
+                        "line": 440
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "swpm_payment_button",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-init-time-tasks.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "swpm_transactions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.swpm-init-time-tasks.php",
+                        "line": 128
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/class.swpm-installation.php",
+            "line": 84
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/class.swpm-installation.php",
+            "line": 94
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/class.swpm-installation.php",
+            "line": 117
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/class.swpm-installation.php",
+            "line": 163
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/class.swpm-installation.php",
+            "line": 175
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/class.swpm-installation.php",
+            "line": 194
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "classes/class.swpm-transactions.php",
+            "line": 128
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "lib/paypal/class-swpm-paypal-cache.php",
+            "line": 56
+        }
+    ]
+}

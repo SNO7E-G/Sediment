@@ -1,0 +1,189 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "edit-flow",
+        "name": "Edit Flow",
+        "version": "0.11.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 23,
+    "coverage": {
+        "files_scanned": 20,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 2,
+        "resolved": 7,
+        "pattern": 2,
+        "dynamic": 4,
+        "resolution_rate": 0.6
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "edit_flow_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "edit_flow.php",
+                        "line": 414
+                    },
+                    {
+                        "file": "edit_flow.php",
+                        "line": 430
+                    }
+                ]
+            },
+            {
+                "key": "edit_flow_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "edit_flow.php",
+                        "line": 253
+                    },
+                    {
+                        "file": "edit_flow.php",
+                        "line": 255
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "ef_send_scheduled_email",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/notifications/notifications.php",
+                        "line": 1069
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "notification_list",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/editorial-comments/editorial-comments.php",
+                        "line": 430
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "dashboard-note",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/dashboard/widgets/dashboard-notepad.php",
+                        "line": 37
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "ef_editorial_meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/editorial-metadata/editorial-metadata.php",
+                        "line": 351
+                    }
+                ]
+            },
+            {
+                "key": "ef_usergroup",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/user-groups/user-groups.php",
+                        "line": 245
+                    }
+                ]
+            },
+            {
+                "key": "following_users",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/notifications/notifications.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "post_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/custom-status/custom-status.php",
+                        "line": 274
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "common/php/class-module.php",
+            "line": 369
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "common/php/class-module.php",
+            "line": 647
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$post_meta_key",
+            "file": "modules/calendar/calendar.php",
+            "line": 1876
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "modules/editorial-metadata/editorial-metadata.php",
+            "line": 618
+        }
+    ]
+}

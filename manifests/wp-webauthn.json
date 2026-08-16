@@ -1,0 +1,252 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-webauthn",
+        "name": "WP-WebAuthn",
+        "version": "1.4.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:31Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 42,
+    "coverage": {
+        "files_scanned": 778,
+        "files_skipped": 0,
+        "write_calls_found": 27,
+        "verified": 23,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.852
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wwa_all_sites_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 271
+                    }
+                ]
+            },
+            {
+                "key": "wwa_credentials_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 137
+                    }
+                ]
+            },
+            {
+                "key": "wwa_init",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "wwa_log",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 249
+                    },
+                    {
+                        "file": "wwa-ajax.php",
+                        "line": 1414
+                    },
+                    {
+                        "file": "wwa-functions.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "wwa_network_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 167
+                    },
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 316
+                    }
+                ]
+            },
+            {
+                "key": "wwa_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 246
+                    },
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 322
+                    }
+                ]
+            },
+            {
+                "key": "wwa_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 248
+                    },
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 267
+                    },
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 274
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wwa_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wwa-functions.php",
+                        "line": 8
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wwa_user_handle",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "wwa-ajax.php",
+                        "line": 360
+                    },
+                    {
+                        "file": "wwa-ajax.php",
+                        "line": 364
+                    }
+                ]
+            },
+            {
+                "key": "wwa_webauthn_only",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-webauthn.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "wwa-menus.php",
+                        "line": 35
+                    },
+                    {
+                        "file": "wwa-menus.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "wwa-menus.php",
+                        "line": 39
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "^\\.well-known/webauthn$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wwa-functions.php",
+                        "line": 477
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$pathname",
+            "file": "wp-webauthn-vendor/thecodingmachine/safe/generated/filesystem.php",
+            "line": 1121
+        },
+        {
+            "function": "mkdir",
+            "expression": "$pathname",
+            "file": "wp-webauthn-vendor/thecodingmachine/safe/generated/filesystem.php",
+            "line": 1123
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "wp-webauthn.php",
+            "line": 55
+        }
+    ]
+}

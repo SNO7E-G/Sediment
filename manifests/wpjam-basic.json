@@ -1,0 +1,225 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpjam-basic",
+        "name": "WPJAM BASIC",
+        "version": "7.0.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:11Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 57,
+        "files_skipped": 0,
+        "write_calls_found": 25,
+        "verified": 10,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 15,
+        "resolution_rate": 0.4
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "images",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpjam-core.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "source_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpjam-api.php",
+                        "line": 1325
+                    }
+                ]
+            },
+            {
+                "key": "views",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "extends/wpjam-postviews.php",
+                        "line": 56
+                    },
+                    {
+                        "file": "extends/wpjam-postviews.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "extends/wpjam-postviews.php",
+                        "line": 149
+                    },
+                    {
+                        "file": "public/wpjam-functions.php",
+                        "line": 307
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "wpjam_weixin_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "components/wpjam-admin.php",
+                        "line": 245
+                    },
+                    {
+                        "file": "components/wpjam-admin.php",
+                        "line": 264
+                    }
+                ]
+            },
+            {
+                "key": "wpjam_weixin_user_failed_times",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "components/wpjam-admin.php",
+                        "line": 231
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "%term_id%",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpjam-core.php",
+                        "line": 416
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_rewrite_rule",
+            "expression": "\\CDN_NAME . '/([0-9]+)/image/([^/]+)?$'",
+            "file": "cdn/remote.php",
+            "line": 56
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "extends/duplicate-post.php",
+            "line": 30
+        },
+        {
+            "function": "update_option",
+            "expression": "$k",
+            "file": "extends/wpjam-posts-per-page.php",
+            "line": 10
+        },
+        {
+            "function": "add_role",
+            "expression": "$role",
+            "file": "extends/wpjam-roles.php",
+            "line": 41
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "extends/wpjam-roles.php",
+            "line": 119
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\dirname($file)",
+            "file": "includes/class-wpjam-api.php",
+            "line": 1229
+        },
+        {
+            "function": "add_option",
+            "expression": "$name",
+            "file": "includes/class-wpjam-args.php",
+            "line": 1104
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$this->name",
+            "file": "includes/class-wpjam-core.php",
+            "line": 194
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-wpjam-core.php",
+            "line": 354
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$this->name",
+            "file": "includes/class-wpjam-core.php",
+            "line": 409
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/class-wpjam-model.php",
+            "line": 1520
+        },
+        {
+            "function": "update_option",
+            "expression": "$to",
+            "file": "public/wpjam-compat.php",
+            "line": 309
+        },
+        {
+            "function": "add_option",
+            "expression": "$option_name",
+            "file": "public/wpjam-compat.php",
+            "line": 1429
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "public/wpjam-compat.php",
+            "line": 1485
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$GLOBALS['wp_rewrite']->root . \\array_shift($args)",
+            "file": "public/wpjam-route.php",
+            "line": 485
+        }
+    ]
+}

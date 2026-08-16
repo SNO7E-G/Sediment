@@ -1,0 +1,148 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "send-emails-with-mandrill",
+        "name": "Send E-mails with Mandrill",
+        "version": "1.6.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:36Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 9,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.778
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dashboard_widget_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wpMandrill.class.php",
+                        "line": 1370
+                    }
+                ]
+            },
+            {
+                "key": "sewm_activated_on",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "wpmandrill.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "wpmandrill",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/wpMandrill.class.php",
+                        "line": 479
+                    }
+                ]
+            },
+            {
+                "key": "wpmandrill-stats",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/wpMandrill.class.php",
+                        "line": 1141
+                    }
+                ]
+            },
+            {
+                "key": "wpmandrill_notice_shown",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/wpMandrill.class.php",
+                        "line": 217
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpm_update_stats",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/wpMandrill.class.php",
+                        "line": 152
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wpmandrill-stats",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wpMandrill.class.php",
+                        "line": 1140
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$this->dismissed_meta_key",
+            "file": "lib/reviewNotice.class.php",
+            "line": 105
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->dismissed_meta_key",
+            "file": "lib/reviewNotice.class.php",
+            "line": 115
+        }
+    ]
+}

@@ -1,0 +1,136 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "myfatoorah-woocommerce",
+        "name": "MyFatoorah - WooCommerce",
+        "version": "2.2.11",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:50Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 34,
+    "coverage": {
+        "files_scanned": 24,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 2,
+        "resolution_rate": 0.7
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woocommerce_myfatoorah_*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/class-wc-gateway-myfatoorah.php",
+                        "line": 656
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_myfatoorah_embedded_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/class-wc-gateway-myfatoorah-v2.php",
+                        "line": 259
+                    },
+                    {
+                        "file": "myfatoorah-woocommerce.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_myfatoorah_shipping_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/class-wc-gateway-myfatoorah.php",
+                        "line": 667
+                    },
+                    {
+                        "file": "includes/payments/class-wc-gateway-myfatoorah.php",
+                        "line": 694
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_myfatoorah_v2_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "myfatoorah-woocommerce.php",
+                        "line": 189
+                    },
+                    {
+                        "file": "myfatoorah-woocommerce.php",
+                        "line": 203
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "myfatoorah_backup_log_files",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "myfatoorah-woocommerce.php",
+                        "line": 225
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$mfLogFolder",
+            "file": "myfatoorah-woocommerce.php",
+            "line": 288
+        },
+        {
+            "function": "mkdir",
+            "expression": "$mfLogFolder",
+            "file": "myfatoorah-woocommerce.php",
+            "line": 293
+        }
+    ]
+}

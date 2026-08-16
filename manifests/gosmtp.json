@@ -1,0 +1,174 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "gosmtp",
+        "name": "GoSMTP",
+        "version": "1.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:41Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 31,
+    "coverage": {
+        "files_scanned": 19,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 13,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.938
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gosmtp_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "main/ajax.php",
+                        "line": 32
+                    },
+                    {
+                        "file": "main/mailer/loader.php",
+                        "line": 142
+                    },
+                    {
+                        "file": "main/mailer/loader.php",
+                        "line": 159
+                    },
+                    {
+                        "file": "main/settings.php",
+                        "line": 221
+                    },
+                    {
+                        "file": "main/settings.php",
+                        "line": 249
+                    },
+                    {
+                        "file": "main/settings.php",
+                        "line": 265
+                    },
+                    {
+                        "file": "main/settings.php",
+                        "line": 282
+                    },
+                    {
+                        "file": "main/settings.php",
+                        "line": 376
+                    }
+                ]
+            },
+            {
+                "key": "gosmtp_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "init.php",
+                        "line": 59
+                    },
+                    {
+                        "file": "init.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "softaculous_plugin_update_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "main/ajax.php",
+                        "line": 114
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "gosmtp_log_retention_cron",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "main/settings.php",
+                        "line": 327
+                    }
+                ]
+            },
+            {
+                "key": "gosmtp_weekly_email_reports_cron",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "main/settings.php",
+                        "line": 348
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "gosmtp_mcp_adapter_release",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "main/abilities.php",
+                        "line": 628
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "gosmtp_mcp_test_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "main/abilities.php",
+                        "line": 595
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "main/mailer/loader.php",
+            "line": 367
+        }
+    ]
+}

@@ -1,0 +1,371 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "convertkit",
+        "name": "Kit (formerly ConvertKit)",
+        "version": "3.3.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:10Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 156,
+        "files_skipped": 0,
+        "write_calls_found": 37,
+        "verified": 10,
+        "resolved": 16,
+        "pattern": 0,
+        "dynamic": 11,
+        "resolution_rate": 0.703
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "_wp_convertkit_settings",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "WpFastestCacheExclude",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-convertkit-admin-cache-plugins.php",
+                        "line": 244
+                    },
+                    {
+                        "file": "admin/class-convertkit-admin-cache-plugins.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "_wp_convertkit_restrict_content_posts",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-restrict-content-cache.php",
+                        "line": 131
+                    },
+                    {
+                        "file": "includes/class-convertkit-restrict-content-cache.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "includes/class-convertkit-restrict-content-cache.php",
+                        "line": 221
+                    }
+                ]
+            },
+            {
+                "key": "_wp_convertkit_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-settings.php",
+                        "line": 781
+                    },
+                    {
+                        "file": "uninstall.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "_wp_convertkit_settings_broadcasts",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-settings-broadcasts.php",
+                        "line": 241
+                    }
+                ]
+            },
+            {
+                "key": "_wp_convertkit_settings_restrict_content",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-settings-restrict-content.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "includes/class-convertkit-setup.php",
+                        "line": 289
+                    }
+                ]
+            },
+            {
+                "key": "convertkit-admin-notices",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-admin-notices.php",
+                        "line": 124
+                    },
+                    {
+                        "file": "includes/class-convertkit-admin-notices.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "includes/class-convertkit-admin-notices.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "convertkit_account",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-resource-account.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "convertkit_account_last_queried",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-resource-account.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "convertkit_creator_network_recommendations",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-resource-creator-network-recommendations.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "convertkit_restrict_content_enabled",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-convertkit-admin-restrict-content.php",
+                        "line": 137
+                    }
+                ]
+            },
+            {
+                "key": "convertkit_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-setup.php",
+                        "line": 160
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "convertkit_refresh_token",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-settings.php",
+                        "line": 742
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "convertkit-setup",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions.php",
+                        "line": 28
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_convertkit_broadcast_export_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-broadcasts-exporter.php",
+                        "line": 246
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-broadcasts-importer.php",
+                        "line": 652
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-media-library.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "_wp_convertkit_post_meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-post.php",
+                        "line": 301
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "convertkit_tags",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-user.php",
+                        "line": 85
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "_wp_convertkit_term_meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-convertkit-term.php",
+                        "line": 167
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$settings::SETTINGS_NAME",
+            "file": "admin/section/class-convertkit-admin-section-tools.php",
+            "line": 305
+        },
+        {
+            "function": "update_option",
+            "expression": "$restrict_content_settings::SETTINGS_NAME",
+            "file": "admin/section/class-convertkit-admin-section-tools.php",
+            "line": 311
+        },
+        {
+            "function": "update_option",
+            "expression": "$broadcasts_settings::SETTINGS_NAME",
+            "file": "admin/section/class-convertkit-admin-section-tools.php",
+            "line": 317
+        },
+        {
+            "function": "update_option",
+            "expression": "$convertkit_wlm_settings::SETTINGS_NAME",
+            "file": "includes/class-convertkit-setup.php",
+            "line": 381
+        },
+        {
+            "function": "update_option",
+            "expression": "$convertkit_contact_form_7_settings::SETTINGS_NAME",
+            "file": "includes/class-convertkit-setup.php",
+            "line": 422
+        },
+        {
+            "function": "update_option",
+            "expression": "$convertkit_forminator_settings::SETTINGS_NAME",
+            "file": "includes/class-convertkit-setup.php",
+            "line": 463
+        },
+        {
+            "function": "update_option",
+            "expression": "$convertkit_wlm_settings::SETTINGS_NAME",
+            "file": "includes/class-convertkit-setup.php",
+            "line": 499
+        },
+        {
+            "function": "update_option",
+            "expression": "$convertkit_forminator_settings::SETTINGS_NAME",
+            "file": "includes/class-convertkit-setup.php",
+            "line": 544
+        },
+        {
+            "function": "update_option",
+            "expression": "$convertkit_contact_form_7_settings::SETTINGS_NAME",
+            "file": "includes/class-convertkit-setup.php",
+            "line": 589
+        },
+        {
+            "function": "update_option",
+            "expression": "$convertkit_settings::SETTINGS_NAME",
+            "file": "includes/class-convertkit-setup.php",
+            "line": 712
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->meta_key",
+            "file": "includes/pre-publish-actions/class-convertkit-pre-publish-action.php",
+            "line": 220
+        }
+    ]
+}

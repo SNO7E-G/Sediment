@@ -1,0 +1,171 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mailchimp-forms-by-mailmunch",
+        "name": "Mailmunch Forms for Mailchimp",
+        "version": "3.2.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:21Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 28,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 2,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 8,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mc_mm_activation_date",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-mailchimp-mailmunch-admin.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "mc_mm_activation_redirect",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-mailchimp-mailmunch-admin.php",
+                        "line": 230
+                    },
+                    {
+                        "file": "includes/class-mailchimp-mailmunch-activator.php",
+                        "line": 33
+                    },
+                    {
+                        "file": "includes/class-mailchimp-mailmunch-deactivator.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "mc_mm_dismiss_review_notice",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-mailchimp-mailmunch-admin.php",
+                        "line": 303
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_mailmunch_landing_page_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp-mailmunch-post-type.php",
+                        "line": 140
+                    },
+                    {
+                        "file": "includes/class-mailchimp-mailmunch-post-type.php",
+                        "line": 142
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "mailmunch_page",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp-mailmunch-post-type.php",
+                        "line": 50
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->mailmunch_api->getPrefix() . 'mailchimp_access_token'",
+            "file": "admin/class-mailchimp-mailmunch-admin.php",
+            "line": 449
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->mailmunch_api->getPrefix() . 'mailchimp_list_id'",
+            "file": "admin/class-mailchimp-mailmunch-admin.php",
+            "line": 469
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$post->post_name . '$'",
+            "file": "includes/class-mailchimp-mailmunch-rewrite.php",
+            "line": 113
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . $settingName",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 32
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . 'user_token'",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 40
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . 'skip_onboarding'",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 176
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . 'site_id'",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 312
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . 'list_id'",
+            "file": "includes/class-mailmunch-api.php",
+            "line": 320
+        }
+    ]
+}

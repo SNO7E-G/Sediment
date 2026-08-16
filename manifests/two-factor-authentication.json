@@ -1,0 +1,213 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "two-factor-authentication",
+        "name": "Two Factor Authentication",
+        "version": "1.16.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 20,
+    "coverage": {
+        "files_scanned": 15,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 16,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.842
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "simba_tfa_priv_key_format",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simba-tfa/providers/totp/loader.php",
+                        "line": 710
+                    }
+                ]
+            },
+            {
+                "key": "tfa_incorrect_code_attempts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simba-tfa/simba-tfa.php",
+                        "line": 1130
+                    },
+                    {
+                        "file": "simba-tfa/simba-tfa.php",
+                        "line": 1132
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "simba_tfa_emergency_codes_64",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simba-tfa/providers/totp/loader.php",
+                        "line": 759
+                    },
+                    {
+                        "file": "simba-tfa/providers/totp/loader.php",
+                        "line": 865
+                    }
+                ]
+            },
+            {
+                "key": "tfa_algorithm_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simba-tfa/providers/totp/loader.php",
+                        "line": 905
+                    }
+                ]
+            },
+            {
+                "key": "tfa_enable_tfa",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simba-tfa/simba-tfa.php",
+                        "line": 997
+                    }
+                ]
+            },
+            {
+                "key": "tfa_hotp_counter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simba-tfa/providers/totp/loader.php",
+                        "line": 889
+                    },
+                    {
+                        "file": "simba-tfa/providers/totp/loader.php",
+                        "line": 912
+                    }
+                ]
+            },
+            {
+                "key": "tfa_hotp_off_sync",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simba-tfa/providers/totp/loader.php",
+                        "line": 891
+                    }
+                ]
+            },
+            {
+                "key": "tfa_last_login",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simba-tfa/providers/totp/loader.php",
+                        "line": 882
+                    }
+                ]
+            },
+            {
+                "key": "tfa_last_pws",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simba-tfa/providers/totp/loader.php",
+                        "line": 877
+                    }
+                ]
+            },
+            {
+                "key": "tfa_priv_key_64",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simba-tfa/providers/totp/loader.php",
+                        "line": 647
+                    },
+                    {
+                        "file": "simba-tfa/providers/totp/loader.php",
+                        "line": 697
+                    },
+                    {
+                        "file": "simba-tfa/providers/totp/loader.php",
+                        "line": 747
+                    }
+                ]
+            },
+            {
+                "key": "tfa_trusted_devices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simba-tfa/simba-tfa.php",
+                        "line": 789
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$info['dirname']",
+            "file": "simba-tfa/includes/tfa-encryption-muplugin.php",
+            "line": 78
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "simba-tfa/simba-tfa.php",
+            "line": 1368
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "simba-tfa/simba-tfa.php",
+            "line": 1374
+        }
+    ]
+}

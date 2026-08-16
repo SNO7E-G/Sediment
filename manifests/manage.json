@@ -1,0 +1,104 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "manage",
+        "name": "Manage",
+        "version": "1.0.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:25Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 39,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 0,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.286
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "_manage_jwks_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/jwks-decoder.php",
+                        "line": 75
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "manage_dismissed_pointers",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/core/components/pointers.php",
+                        "line": 36
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "classes/system-user.php",
+            "line": 65
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$subfolder_dir",
+            "file": "modules/api/classes/temp-backup.php",
+            "line": 69
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$destination",
+            "file": "modules/api/classes/temp-backup.php",
+            "line": 151
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$target",
+            "file": "modules/api/classes/temp-backup.php",
+            "line": 164
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "modules/api/components/login.php",
+            "line": 82
+        }
+    ]
+}

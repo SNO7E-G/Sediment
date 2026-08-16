@@ -1,0 +1,867 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-sms",
+        "name": "WSMS (formerly WP SMS)",
+        "version": "7.2.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:02Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 385,
+        "files_skipped": 0,
+        "write_calls_found": 102,
+        "verified": 46,
+        "resolved": 18,
+        "pattern": 3,
+        "dynamic": 35,
+        "resolution_rate": 0.627
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp_last_send_notification",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpsms-notifications.php",
+                        "line": 82
+                    },
+                    {
+                        "file": "includes/class-wpsms-notifications.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/v1/class-wpsms-api-admin-notices.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_db_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpsms-install.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "includes/class-wpsms-install.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_dismissed_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/v1/class-wpsms-api-admin-notices.php",
+                        "line": 174
+                    },
+                    {
+                        "file": "includes/api/v1/class-wpsms-api-admin-notices.php",
+                        "line": 243
+                    },
+                    {
+                        "file": "src/Admin/Dashboard.php",
+                        "line": 449
+                    },
+                    {
+                        "file": "src/Admin/NoticeHandler/Notice.php",
+                        "line": 145
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_import_file",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controller/UploadSubscriberCsv.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_installation_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpsms-install.php",
+                        "line": 348
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_is_fresh",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpsms-install.php",
+                        "line": 341
+                    },
+                    {
+                        "file": "includes/class-wpsms-install.php",
+                        "line": 343
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_notifications",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Notification/NotificationFetcher.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "src/Admin/Notification/NotificationProcessor.php",
+                        "line": 79
+                    },
+                    {
+                        "file": "src/Admin/Notification/NotificationProcessor.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_wp-sms-onboarding_activation_notice_shown",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/v1/class-wpsms-api-settings.php",
+                        "line": 1109
+                    }
+                ]
+            },
+            {
+                "key": "wpcf7_sms_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpsms-integrations.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "wpcf7_sms_form*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpsms-integrations.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "wps_pp_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/v1/class-wpsms-api-settings.php",
+                        "line": 281
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_flash_message",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wpsms-admin-helper.php",
+                        "line": 29
+                    },
+                    {
+                        "file": "src/Helper.php",
+                        "line": 580
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_gateway_credit",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/v1/class-wpsms-api-settings.php",
+                        "line": 446
+                    },
+                    {
+                        "file": "includes/class-wpsms-gateway.php",
+                        "line": 525
+                    },
+                    {
+                        "file": "includes/class-wpsms-gateway.php",
+                        "line": 538
+                    },
+                    {
+                        "file": "includes/class-wpsms-gateway.php",
+                        "line": 677
+                    },
+                    {
+                        "file": "includes/class-wpsms-gateway.php",
+                        "line": 683
+                    },
+                    {
+                        "file": "includes/class-wpsms-gateway.php",
+                        "line": 689
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/v1/class-wpsms-api-admin-notices.php",
+                        "line": 160
+                    },
+                    {
+                        "file": "src/Notice/AbstractNotice.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_number_migration_backup",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controller/NumberMigrationAjax.php",
+                        "line": 537
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_number_migration_notice_dismissed_at",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/v1/class-wpsms-api-admin-notices.php",
+                        "line": 181
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_number_migration_status",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controller/NumberMigrationAjax.php",
+                        "line": 545
+                    },
+                    {
+                        "file": "src/Controller/NumberMigrationAjax.php",
+                        "line": 920
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_recent_phone_failures",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Helper.php",
+                        "line": 824
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/v1/class-wpsms-api-settings.php",
+                        "line": 248
+                    },
+                    {
+                        "file": "includes/class-wpsms.php",
+                        "line": 115
+                    },
+                    {
+                        "file": "src/Utils/OptionUtil.php",
+                        "line": 78
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wp_sms_admin_email_report",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/CronJobs/WeeklyReport.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_anonymized_share_data_hook",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Components/Event.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_daily_cron_hook",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Components/Event.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_midnight_cron_hook",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Components/Event.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_privacy_export_cleanup",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controller/PrivacyDataAjax.php",
+                        "line": 164
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wp_sms_bootstrap_failure_logged",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpsms.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_dashboard_send_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Widget/Widgets/StatsWidget.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "wp_sms_flash_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/NoticeHandler/Notice.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_gateway_registry",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Gateway/GatewayRegistry.php",
+                        "line": 42
+                    },
+                    {
+                        "file": "src/Services/Gateway/GatewayRegistry.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_local_number_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Dashboard.php",
+                        "line": 462
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_migration_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controller/NumberMigrationAjax.php",
+                        "line": 399
+                    },
+                    {
+                        "file": "src/Controller/NumberMigrationAjax.php",
+                        "line": 423
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_uwazii_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/class-wpsms-gateway-uwaziimobile.php",
+                        "line": 248
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wpsms_notification_sent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpsms-notifications.php",
+                        "line": 321
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_scheduled_message_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpsms-notifications.php",
+                        "line": 328
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_scheduled_receivers",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpsms-notifications.php",
+                        "line": 331
+                    },
+                    {
+                        "file": "src/Controller/NumberMigrationAjax.php",
+                        "line": 713
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_scheduled_send_to",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpsms-notifications.php",
+                        "line": 327
+                    },
+                    {
+                        "file": "src/Controller/NumberMigrationAjax.php",
+                        "line": 660
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_woocommerce_order_notification",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/WooCommerce/WooCommerceCheckout.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "src/Services/WooCommerce/WooCommerceCheckout.php",
+                        "line": 77
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "nickname",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/User/UserLoginHandler.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_settings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Utils/OptionUtil.php",
+                        "line": 152
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "wpsms_inbox",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wpsms-admin.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_outbox",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wpsms-admin.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_sendsms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wpsms-admin.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_setting",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wpsms-admin.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "wpsms_subscribers",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wpsms-admin.php",
+                        "line": 143
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_cap",
+            "expression": "",
+            "file": "includes/admin/class-wpsms-admin.php",
+            "line": 159
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->setting_name",
+            "file": "includes/admin/settings/class-wpsms-settings.php",
+            "line": 73
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->setting_name",
+            "file": "includes/admin/settings/class-wpsms-settings.php",
+            "line": 113
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->setting_name",
+            "file": "includes/admin/settings/class-wpsms-settings.php",
+            "line": 128
+        },
+        {
+            "function": "update_option",
+            "expression": "$sanitizedKey",
+            "file": "includes/api/v1/class-wpsms-api-settings.php",
+            "line": 416
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$create_sms_subscribes",
+            "file": "includes/class-wpsms-install.php",
+            "line": 89
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$create_sms_subscribes_group",
+            "file": "includes/class-wpsms-install.php",
+            "line": 99
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$create_sms_send",
+            "file": "includes/class-wpsms-install.php",
+            "line": 114
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "includes/class-wpsms-install.php",
+            "line": 301
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "includes/class-wpsms-install.php",
+            "line": 327
+        },
+        {
+            "function": "add_option",
+            "expression": "$option_name",
+            "file": "includes/class-wpsms-option.php",
+            "line": 64
+        },
+        {
+            "function": "update_option",
+            "expression": "$setting_name",
+            "file": "includes/class-wpsms-option.php",
+            "line": 85
+        },
+        {
+            "function": "update_option",
+            "expression": "$setting_name",
+            "file": "includes/class-wpsms-option.php",
+            "line": 106
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "includes/libraries/wp-background-processing/wp-background-process.php",
+            "line": 127
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "includes/libraries/wp-background-processing/wp-background-process.php",
+            "line": 146
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_status_key()",
+            "file": "includes/libraries/wp-background-processing/wp-background-process.php",
+            "line": 184
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_status_key()",
+            "file": "includes/libraries/wp-background-processing/wp-background-process.php",
+            "line": 216
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "includes/libraries/wp-background-processing/wp-background-process.php",
+            "line": 396
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "includes/libraries/wp-background-processing/wp-background-process.php",
+            "line": 699
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "src/Admin/LicenseManagement/ApiCommunicator.php",
+            "line": 134
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$event",
+            "file": "src/Components/Event.php",
+            "line": 33
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "src/Components/RemoteRequest.php",
+            "line": 153
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "src/Controller/NumberMigrationAjax.php",
+            "line": 874
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "src/Controller/NumberMigrationAjax.php",
+            "line": 904
+        },
+        {
+            "function": "set_transient",
+            "expression": "$rateKey",
+            "file": "src/Controller/PublicUnsubscribeAjax.php",
+            "line": 57
+        },
+        {
+            "function": "add_option",
+            "expression": "$lockName",
+            "file": "src/Services/Subscriber/SubscriberUtil.php",
+            "line": 271
+        },
+        {
+            "function": "set_transient",
+            "expression": "$attemptKey",
+            "file": "src/Services/Subscriber/SubscriberUtil.php",
+            "line": 314
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "src/Traits/TransientCacheTrait.php",
+            "line": 51
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->getUserMobileFieldName()",
+            "file": "src/User/MobileFieldHandler/WooCommerceAddMobileFieldHandler.php",
+            "line": 231
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->getUserMobileFieldName()",
+            "file": "src/User/MobileFieldHandler/WordPressMobileFieldHandler.php",
+            "line": 112
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\\WP_SMS\\Helper::getUserMobileFieldName()",
+            "file": "src/User/RegisterUserViaPhone.php",
+            "line": 58
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$metaKey",
+            "file": "src/User/UserHelper.php",
+            "line": 122
+        },
+        {
+            "function": "update_option",
+            "expression": "$settingName",
+            "file": "src/Utils/OptionUtil.php",
+            "line": 197
+        },
+        {
+            "function": "update_option",
+            "expression": "$settingName",
+            "file": "src/Utils/OptionUtil.php",
+            "line": 230
+        },
+        {
+            "function": "update_option",
+            "expression": "$settingName",
+            "file": "src/Utils/OptionUtil.php",
+            "line": 247
+        }
+    ]
+}

@@ -1,0 +1,354 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-xml-csv-product-import",
+        "name": "WP All Import - WooCommerce Add-On",
+        "version": "1.5.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:28Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 89,
+        "files_skipped": 0,
+        "write_calls_found": 35,
+        "verified": 20,
+        "resolved": 0,
+        "pattern": 3,
+        "dynamic": 12,
+        "resolution_rate": 0.571
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp_all_import_not_linked_products_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/importer/products/ImportProductBase.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "wp_all_import_product_stack_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "actions/pmxi_missing_post.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "wp_all_import_products_maybe_to_delete_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "filters/wp_all_import_is_post_to_delete.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "wp_all_import_woocommerce_addon_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 261
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/updater.php",
+                        "line": 237
+                    }
+                ]
+            },
+            {
+                "key": "wc_attribute_taxonomies",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/services/XmlImportWooTaxonomyService.php",
+                        "line": 133
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_children",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/importer/products/ImportProduct.php",
+                        "line": 609
+                    }
+                ]
+            },
+            {
+                "key": "_parent_sku",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/importer/products/ImportProduct.php",
+                        "line": 528
+                    },
+                    {
+                        "file": "libraries/importer/products/ImportProduct.php",
+                        "line": 562
+                    }
+                ]
+            },
+            {
+                "key": "_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/pmwi_update_prices.php",
+                        "line": 18
+                    }
+                ]
+            },
+            {
+                "key": "_product_attributes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "actions/pmxi_missing_post.php",
+                        "line": 31
+                    },
+                    {
+                        "file": "filters/pmxi_custom_field_to_delete.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "filters/pmxi_custom_field_to_delete.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "libraries/XmlImportWooCommerceService.php",
+                        "line": 323
+                    }
+                ]
+            },
+            {
+                "key": "_product_image_gallery_tmp",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/import/record.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "_product_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/importer/ProductsImporter.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "_regular_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/pmwi_update_prices.php",
+                        "line": 3
+                    }
+                ]
+            },
+            {
+                "key": "_sale_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/pmwi_update_prices.php",
+                        "line": 6
+                    }
+                ]
+            },
+            {
+                "key": "_sale_price_dates_from",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/pmwi_update_prices.php",
+                        "line": 12
+                    }
+                ]
+            },
+            {
+                "key": "_sale_price_dates_to",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/pmwi_update_prices.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "_variation_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/importer/ProductsImporter.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "pmxi_wholesale_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/pmwi_update_prices.php",
+                        "line": 9
+                    }
+                ]
+            },
+            {
+                "key": "total_sales",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/importer/products/ImportProduct.php",
+                        "line": 467
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$product['type']",
+            "file": "actions/pmxi_after_xml_import.php",
+            "line": 123
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "classes/updater.php",
+            "line": 124
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "classes/updater.php",
+            "line": 213
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "classes/updater.php",
+            "line": 338
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$customFieldName",
+            "file": "libraries/XmlImportWooCommerceService.php",
+            "line": 294
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$specific_field",
+            "file": "libraries/XmlImportWooCommerceService.php",
+            "line": 302
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$parentMetaKey",
+            "file": "libraries/XmlImportWooCommerceService.php",
+            "line": 310
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "libraries/XmlImportWooCommerceService.php",
+            "line": 314
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "libraries/XmlImportWooCommerceService.php",
+            "line": 583
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "libraries/XmlImportWooCommerceService.php",
+            "line": 586
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$domain",
+            "file": "libraries/services/XmlImportWooTaxonomyService.php",
+            "line": 91
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "models/import/record.php",
+            "line": 155
+        }
+    ]
+}

@@ -1,0 +1,200 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "variation-swatches-for-woocommerce",
+        "name": "Variation Swatches for WooCommerce",
+        "version": "2.2.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:35Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 26,
+    "coverage": {
+        "files_scanned": 25,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 9,
+        "resolved": 3,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "aovup_dismissed_swatch",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-aovup-freemium.php",
+                        "line": 23
+                    }
+                ]
+            },
+            {
+                "key": "tawcvs_backup_attributes_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "variation-swatches-for-woocommerce.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "tawcvs_restore_attributes_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-admin.php",
+                        "line": 411
+                    },
+                    {
+                        "file": "includes/class-admin.php",
+                        "line": 418
+                    }
+                ]
+            },
+            {
+                "key": "wcvs_current_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-upgrader.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "wcvs_welcome_page_shown_v_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-upgrader.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "woosuite_variation_swatches_option",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-admin.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "includes/class-admin.php",
+                        "line": 606
+                    },
+                    {
+                        "file": "includes/class-menu-page.php",
+                        "line": 160
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "tawcvs_attribute_taxonomies",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "variation-swatches-for-woocommerce.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "woosuite-all-plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "templates/admin/partials/panel-sidebar.php",
+                        "line": 27
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "variation_swatches_disabled",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-admin.php",
+                        "line": 218
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "dismissed_black_friday_banner",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-admin.php",
+                        "line": 703
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_term_meta",
+            "expression": "$type",
+            "file": "includes/class-admin-product.php",
+            "line": 85
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$type",
+            "file": "includes/class-admin.php",
+            "line": 528
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-frontend.php",
+            "line": 135
+        }
+    ]
+}

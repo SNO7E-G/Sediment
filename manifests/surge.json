@@ -1,0 +1,112 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "surge",
+        "name": "Surge",
+        "version": "1.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:14Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 11,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.556
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "surge_installed",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "include/install.php",
+                        "line": 23
+                    },
+                    {
+                        "file": "include/install.php",
+                        "line": 32
+                    },
+                    {
+                        "file": "include/install.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "surge.php",
+                        "line": 25
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "surge_delete_expired",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "surge.php",
+                        "line": 64
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "CACHE_DIR . \"/{$level}/\"",
+            "file": "include/cache.php",
+            "line": 98
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "CACHE_DIR",
+            "file": "include/install.php",
+            "line": 28
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "CACHE_DIR",
+            "file": "include/invalidate.php",
+            "line": 166
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "CACHE_DIR",
+            "file": "include/invalidate.php",
+            "line": 189
+        }
+    ]
+}

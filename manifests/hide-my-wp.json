@@ -1,0 +1,520 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "hide-my-wp",
+        "name": "WP Ghost Lite",
+        "version": "7.0.08",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:11Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 168,
+        "files_skipped": 0,
+        "write_calls_found": 50,
+        "verified": 20,
+        "resolved": 18,
+        "pattern": 1,
+        "dynamic": 11,
+        "resolution_rate": 0.76
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "hmwp_ghostdoctor_report",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/Ghostdoctor.php",
+                        "line": 626
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_ghostdoctor_snapshot",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/Ghostdoctor.php",
+                        "line": 491
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_saltchange_time",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "controllers/SecurityCheck.php",
+                        "line": 1298
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_securitycheck",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "controllers/SecurityCheck.php",
+                        "line": 625
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_securitycheck_ignore",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "controllers/SecurityCheck.php",
+                        "line": 1390
+                    },
+                    {
+                        "file": "controllers/SecurityCheck.php",
+                        "line": 1400
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_securitycheck_time",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "controllers/SecurityCheck.php",
+                        "line": 626
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_threats_purge_time",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/Cron.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "litespeed.conf.cache-exc",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/compatibility/LiteSpeed.php",
+                        "line": 178
+                    },
+                    {
+                        "file": "models/compatibility/LiteSpeed.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "litespeed.conf.cache-exc_qs",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/compatibility/LiteSpeed.php",
+                        "line": 216
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_queue_flush_rewrite_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Tools.php",
+                        "line": 2282
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "hmwp_cron_process",
+                "recurrence": "hmwp_every_minute",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "controllers/Cron.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_cron_process_once",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/Cron.php",
+                        "line": 30
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "hmwp_2fa_email_sent_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/twofactor/Email.php",
+                        "line": 432
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_activate",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Tools.php",
+                        "line": 2293
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_disable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/Settings.php",
+                        "line": 1041
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_disable_hide_urls",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/compatibility/Wordfence.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_geoip_download",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Tools.php",
+                        "line": 675
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_lispeed_ips",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/compatibility/LiteSpeed.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_local_ip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/firewall/Rules.php",
+                        "line": 956
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_restore",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Tools.php",
+                        "line": 2298
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_threats_table_ready",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/firewall/Database.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "models/firewall/Database.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "hmwp_update",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "index.php",
+                        "line": 145
+                    },
+                    {
+                        "file": "index.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/SecurityCheck.php",
+                        "line": 1591
+                    },
+                    {
+                        "file": "models/Rollback.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/SecurityCheck.php",
+                        "line": 1634
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "_hmwp_2fa_devices",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Tools.php",
+                        "line": 821
+                    }
+                ]
+            },
+            {
+                "key": "_hmwp_2fa_method",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Tools.php",
+                        "line": 821
+                    }
+                ]
+            },
+            {
+                "key": "_hmwp_created",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Tools.php",
+                        "line": 821
+                    }
+                ]
+            },
+            {
+                "key": "_hmwp_last_login",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/Templogin.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "_hmwp_login_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/Templogin.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "_hmwp_updated",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Tools.php",
+                        "line": 821
+                    }
+                ]
+            },
+            {
+                "key": "locale",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Tools.php",
+                        "line": 821
+                    }
+                ]
+            },
+            {
+                "key": "nonce_raw",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Tools.php",
+                        "line": 821
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "classes/Tools.php",
+                    "line": 2629
+                },
+                {
+                    "file": "models/Rollback.php",
+                    "line": 168
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$keymeta",
+            "file": "classes/Tools.php",
+            "line": 752
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "classes/Tools.php",
+            "line": 821
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "classes/Tools.php",
+            "line": 2695
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$rewrite['from']",
+            "file": "models/Rewrite.php",
+            "line": 570
+        },
+        {
+            "function": "add_cap",
+            "expression": "$capability",
+            "file": "models/RoleManager.php",
+            "line": 121
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "models/ThreatsLog.php",
+            "line": 80
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "models/ThreatsLog.php",
+            "line": 180
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "models/ThreatsLog.php",
+            "line": 188
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "models/bruteforce/Database.php",
+            "line": 35
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "models/bruteforce/Database.php",
+            "line": 41
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "models/firewall/Database.php",
+            "line": 140
+        }
+    ]
+}

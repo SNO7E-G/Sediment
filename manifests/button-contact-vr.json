@@ -1,0 +1,215 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "button-contact-vr",
+        "name": "Buttonizer - Live Chat, AI Chatbot, Call, Chat, Contact Button",
+        "version": "5.0.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:53Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 28,
+    "coverage": {
+        "files_scanned": 38,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 11,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 8,
+        "resolution_rate": 0.579
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "button_contact_legacy",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/Utils/RevertToLegacy.php",
+                        "line": 56
+                    },
+                    {
+                        "file": "legacy/legacy-detector.php",
+                        "line": 34
+                    },
+                    {
+                        "file": "legacy/plugin.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "buttonizer_buttons_backup_30",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/Settings/MigrateToStandalone.php",
+                        "line": 302
+                    }
+                ]
+            },
+            {
+                "key": "buttonizer_buttons_published_backup_30",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/Settings/MigrateToStandalone.php",
+                        "line": 303
+                    }
+                ]
+            },
+            {
+                "key": "buttonizer_has_changes_backup_30",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/Settings/MigrateToStandalone.php",
+                        "line": 304
+                    }
+                ]
+            },
+            {
+                "key": "buttonizer_rules_backup_30",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/Settings/MigrateToStandalone.php",
+                        "line": 305
+                    }
+                ]
+            },
+            {
+                "key": "buttonizer_rules_published_backup_30",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/Settings/MigrateToStandalone.php",
+                        "line": 306
+                    }
+                ]
+            },
+            {
+                "key": "buttonizer_schedules_backup_30",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/Settings/MigrateToStandalone.php",
+                        "line": 307
+                    }
+                ]
+            },
+            {
+                "key": "buttonizer_schedules_published_backup_30",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/Settings/MigrateToStandalone.php",
+                        "line": 308
+                    }
+                ]
+            },
+            {
+                "key": "buttonizer_settings_backup_30",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/Settings/MigrateToStandalone.php",
+                        "line": 309
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "\\BZContactButton\\Core\\PluginConfig::name() . '_account'",
+            "file": "app/Core/buttonizer/wp-php-core/src/Utils/Account.php",
+            "line": 113
+        },
+        {
+            "function": "update_option",
+            "expression": "\\BZContactButton\\Core\\PluginConfig::name() . '_account'",
+            "file": "app/Core/buttonizer/wp-php-core/src/Utils/Account.php",
+            "line": 125
+        },
+        {
+            "function": "update_option",
+            "expression": "$name . '_site_connection'",
+            "file": "app/Core/buttonizer/wp-php-core/src/Utils/ApiRequest.php",
+            "line": 43
+        },
+        {
+            "function": "update_option",
+            "expression": "$name . '_site_connection'",
+            "file": "app/Core/buttonizer/wp-php-core/src/Utils/ApiRequest.php",
+            "line": 76
+        },
+        {
+            "function": "update_option",
+            "expression": "\\BZContactButton\\Core\\PluginConfig::name() . '_settings'",
+            "file": "app/Core/buttonizer/wp-php-core/src/Utils/Settings.php",
+            "line": 162
+        },
+        {
+            "function": "update_option",
+            "expression": "\\BZContactButton\\Core\\PluginConfig::name() . '_account'",
+            "file": "app/Core/buttonizer/wp-php-core/src/Utils/SiblingPlugins.php",
+            "line": 92
+        },
+        {
+            "function": "update_option",
+            "expression": "$options['settings_option']",
+            "file": "app/Core/buttonizer/wp-php-core/src/Utils/SiblingPlugins.php",
+            "line": 118
+        },
+        {
+            "function": "update_option",
+            "expression": "$options['account_option']",
+            "file": "app/Core/buttonizer/wp-php-core/src/Utils/SiblingPlugins.php",
+            "line": 125
+        }
+    ]
+}

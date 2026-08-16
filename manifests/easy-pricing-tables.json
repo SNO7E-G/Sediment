@@ -1,0 +1,148 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "easy-pricing-tables",
+        "name": "Easy Pricing Tables: Free",
+        "version": "4.1.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 39,
+    "coverage": {
+        "files_scanned": 32,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 8,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dh_ptp_show_legacy_tables",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "pricing-table-plugin.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "dh_ptp_show_review_notice",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/notices/notices.php",
+                        "line": 15
+                    },
+                    {
+                        "file": "includes/notices/notices.php",
+                        "line": 39
+                    },
+                    {
+                        "file": "includes/notices/notices.php",
+                        "line": 66
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "fca_ept_schedule_review_notice",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/notices/notices.php",
+                        "line": 23
+                    },
+                    {
+                        "file": "includes/notices/notices.php",
+                        "line": 37
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "screen_layout_easy-pricing-table",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types.php",
+                        "line": 136
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "easy-pricing-table",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "pricing-table-plugin.php",
+                        "line": 168
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/wpalchemy/MetaBox.php",
+            "line": 505
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field",
+            "file": "includes/wpalchemy/MetaBox.php",
+            "line": 2040
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->id . '_fields'",
+            "file": "includes/wpalchemy/MetaBox.php",
+            "line": 2059
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->id",
+            "file": "includes/wpalchemy/MetaBox.php",
+            "line": 2073
+        }
+    ]
+}

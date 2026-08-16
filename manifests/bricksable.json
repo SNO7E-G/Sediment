@@ -1,0 +1,166 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "bricksable",
+        "name": "Bricksable",
+        "version": "1.6.84",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:10Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 60,
+    "coverage": {
+        "files_scanned": 32,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 1,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.533
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "bricksable_uninstall_on_delete",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bricksable_activation_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-bricksable-review.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "bricksable_migration_offset",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-bricksable-migration.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "includes/class-bricksable-migration.php",
+                        "line": 224
+                    }
+                ]
+            },
+            {
+                "key": "bricksable_migration_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-bricksable-migration.php",
+                        "line": 232
+                    }
+                ]
+            },
+            {
+                "key": "bricksable_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-bricksable.php",
+                        "line": 442
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "bricksable_migrate_content_toggle_batch",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-bricksable-migration.php",
+                        "line": 108
+                    },
+                    {
+                        "file": "includes/class-bricksable-migration.php",
+                        "line": 175
+                    },
+                    {
+                        "file": "includes/class-bricksable-migration.php",
+                        "line": 225
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_site_option",
+            "expression": "$this->slug . '_activation_date'",
+            "file": "includes/class-bricksable-review.php",
+            "line": 153
+        },
+        {
+            "function": "add_site_option",
+            "expression": "$this->nobug_option",
+            "file": "includes/class-bricksable-review.php",
+            "line": 209
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "includes/lib/class-bricksable-admin-api.php",
+            "line": 350
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "includes/lib/class-bricksable-admin-api.php",
+            "line": 352
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$this->post_type",
+            "file": "includes/lib/class-bricksable-post-type.php",
+            "line": 143
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$this->taxonomy",
+            "file": "includes/lib/class-bricksable-taxonomy.php",
+            "line": 140
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$cache_key",
+            "file": "includes/lib/class-persist-admin-notices-dismissal.php",
+            "line": 181
+        }
+    ]
+}

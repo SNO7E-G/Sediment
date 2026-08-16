@@ -1,0 +1,268 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpify-woo",
+        "name": "WPify Woo",
+        "version": "5.4.19",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:30Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 63,
+        "files_skipped": 0,
+        "write_calls_found": 25,
+        "verified": 12,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 12,
+        "resolution_rate": 0.52
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpify-woo-delivery-days-option-update",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/DeliveryDates/DeliveryDatesModule.php",
+                        "line": 1004
+                    }
+                ]
+            },
+            {
+                "key": "wpify-woo-display-subscription",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Settings.php",
+                        "line": 177
+                    },
+                    {
+                        "file": "src/Admin/Settings.php",
+                        "line": 322
+                    }
+                ]
+            },
+            {
+                "key": "wpify-woo-display-subscription-count",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Settings.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "wpify_delivery_dates_admin_notice_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/DeliveryDates/DeliveryDatesModule.php",
+                        "line": 1042
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_billing_company",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/IcDic/BlockSupport.php",
+                        "line": 254
+                    }
+                ]
+            },
+            {
+                "key": "_billing_dic",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/IcDic/BlockSupport.php",
+                        "line": 262
+                    }
+                ]
+            },
+            {
+                "key": "_billing_dic_dph",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/IcDic/BlockSupport.php",
+                        "line": 266
+                    }
+                ]
+            },
+            {
+                "key": "_billing_ic",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/IcDic/BlockSupport.php",
+                        "line": 258
+                    }
+                ]
+            },
+            {
+                "key": "_wpify_woo_delivery_dates",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/DeliveryDates/DeliveryDatesModule.php",
+                        "line": 968
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "wpify_send_email",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/AsyncEmails/AsyncEmailsModule.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "wpify_woo_heureka_overeno_zakazniky",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/HeurekaOverenoZakazniky/HeurekaOverenoZakaznikyModule.php",
+                        "line": 580
+                    }
+                ]
+            },
+            {
+                "key": "wpify_woo_import_heureka_reviews",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/HeurekaOverenoZakazniky/HeurekaOverenoZakaznikyModule.php",
+                        "line": 269
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$this->get_dir_path()",
+            "file": "src/Abstracts/AbstractFeed.php",
+            "line": 24
+        },
+        {
+            "function": "mkdir",
+            "expression": "$this->get_tmp_dir_path()",
+            "file": "src/Abstracts/AbstractFeed.php",
+            "line": 122
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Api/FeedApi.php",
+            "line": 153
+        },
+        {
+            "function": "update_option",
+            "expression": "$hash",
+            "file": "src/Modules/AsyncEmails/AsyncEmailsModule.php",
+            "line": 80
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "src/Modules/DeliveryDates/DeliveryDatesModule.php",
+            "line": 1003
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Modules/IcDic/Api/IcDicApi.php",
+            "line": 174
+        },
+        {
+            "function": "mkdir",
+            "expression": "$qr_path",
+            "file": "src/Modules/QRPayment/QRPaymentModule.php",
+            "line": 719
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Modules/WithdrawalClaims/WithdrawalClaimsModule.php",
+            "line": 924
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "src/Modules/XmlFeedHeureka/XmlFeedHeurekaModule.php",
+            "line": 118
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "src/Modules/XmlFeedHeureka/XmlFeedHeurekaModule.php",
+            "line": 371
+        },
+        {
+            "function": "mkdir",
+            "expression": "$temp_dir",
+            "file": "src/Modules/XmlFeedHeureka/XmlFeedHeurekaModule.php",
+            "line": 403
+        },
+        {
+            "function": "update_option",
+            "expression": "$xml['option_name']",
+            "file": "src/Modules/XmlFeedHeureka/XmlFeedHeurekaModule.php",
+            "line": 578
+        }
+    ]
+}

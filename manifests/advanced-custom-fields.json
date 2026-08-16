@@ -1,0 +1,297 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "advanced-custom-fields",
+        "name": "Advanced Custom Fields",
+        "version": "6.8.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 280,
+        "files_skipped": 0,
+        "write_calls_found": 27,
+        "verified": 11,
+        "resolved": 5,
+        "pattern": 1,
+        "dynamic": 10,
+        "resolution_rate": 0.593
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Meta/Option.php",
+                        "line": 123
+                    }
+                ]
+            },
+            {
+                "key": "acf_email_opt_in_banner_state",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/admin-email-opt-in-banner.php",
+                        "line": 167
+                    },
+                    {
+                        "file": "includes/admin/admin-email-opt-in-banner.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "acf_escaped_html_log",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/api-template.php",
+                        "line": 212
+                    }
+                ]
+            },
+            {
+                "key": "acf_escaped_html_notice_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/admin.php",
+                        "line": 263
+                    }
+                ]
+            },
+            {
+                "key": "acf_first_activated_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "acf.php",
+                        "line": 854
+                    }
+                ]
+            },
+            {
+                "key": "acf_site_health",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Site_Health/Site_Health.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "acf_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrades.php",
+                        "line": 111
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "acf_update_site_health_data",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Site_Health/Site_Health.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "src/Site_Health/Site_Health.php",
+                        "line": 54
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "acf_deactivated_notice_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "acf.php",
+                        "line": 621
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_acf_changed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/revisions.php",
+                        "line": 53
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "acf_user_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/api-helpers.php",
+                        "line": 2194
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "acf-field",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "acf.php",
+                        "line": 535
+                    }
+                ]
+            },
+            {
+                "key": "acf-field-group",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "acf.php",
+                        "line": 501
+                    }
+                ]
+            },
+            {
+                "key": "acf-post-type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/class-acf-post-type.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "acf-taxonomy",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/class-acf-taxonomy.php",
+                        "line": 95
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "\"{$prefix}{$id}_{$name}\"",
+            "file": "includes/acf-meta-functions.php",
+            "line": 176
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->network_upgrade_needed_transient",
+            "file": "includes/admin/admin-upgrade.php",
+            "line": 155
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/deprecated.php",
+            "line": 117
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$post_type_key",
+            "file": "includes/post-types/class-acf-post-type.php",
+            "line": 141
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$post['post_type']",
+            "file": "includes/post-types/class-acf-post-type.php",
+            "line": 757
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy['taxonomy']",
+            "file": "includes/post-types/class-acf-taxonomy.php",
+            "line": 139
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$post['taxonomy']",
+            "file": "includes/post-types/class-acf-taxonomy.php",
+            "line": 632
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "includes/wpml.php",
+            "line": 215
+        },
+        {
+            "function": "update_option",
+            "expression": "$object_id . '_' . $name",
+            "file": "src/Meta/Option.php",
+            "line": 90
+        },
+        {
+            "function": "update_option",
+            "expression": "$object_id . '_' . $field['name']",
+            "file": "src/Meta/Option.php",
+            "line": 108
+        }
+    ]
+}

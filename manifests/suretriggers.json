@@ -1,0 +1,1835 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "suretriggers",
+        "name": "OttoKit",
+        "version": "1.1.36",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:02Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 1446,
+        "files_skipped": 0,
+        "write_calls_found": 202,
+        "verified": 173,
+        "resolved": 2,
+        "pattern": 2,
+        "dynamic": 25,
+        "resolution_rate": 0.866
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ottokit_ff_override_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/fluent-form/fluent-form.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "suretrigger_options",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controllers/OptionController.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "suretriggers_disable_request_logging",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Views/st-admin-outgoing-req-page.php",
+                        "line": 23
+                    }
+                ]
+            },
+            {
+                "key": "suretriggers_enabled_user_roles",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controllers/SettingsController.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "suretriggers_enabled_users",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controllers/SettingsController.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "suretriggers_lifetime_user_plan_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controllers/RestController.php",
+                        "line": 215
+                    }
+                ]
+            },
+            {
+                "key": "suretriggers_plugins_snapshot_sent",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controllers/RestController.php",
+                        "line": 248
+                    }
+                ]
+            },
+            {
+                "key": "suretriggers_verify_connection",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controllers/WebhookRequestsController.php",
+                        "line": 326
+                    },
+                    {
+                        "file": "src/Controllers/WebhookRequestsController.php",
+                        "line": 330
+                    },
+                    {
+                        "file": "src/Controllers/WebhookRequestsController.php",
+                        "line": 332
+                    },
+                    {
+                        "file": "src/Loader.php",
+                        "line": 241
+                    },
+                    {
+                        "file": "src/Loader.php",
+                        "line": 244
+                    },
+                    {
+                        "file": "src/Loader.php",
+                        "line": 246
+                    }
+                ]
+            },
+            {
+                "key": "wpf_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wp-fusion/actions/wf-add-tag-to-user.php",
+                        "line": 140
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "suretriggers_retry_failed_requests",
+                "recurrence": "suretriggers_retry_cron_schedule",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Controllers/WebhookRequestsController.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "suretriggers_verify_api_connection",
+                "recurrence": "suretriggers_verify_connection_cron_schedule",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Controllers/WebhookRequestsController.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "suretriggers_webhook_requests_cleanup_logs",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Controllers/WebhookRequestsController.php",
+                        "line": 123
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "bricks_ottokit_pending_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/bricks-builder/triggers/bricksbuilder-user-account-activated.php",
+                        "line": 115
+                    }
+                ]
+            },
+            {
+                "key": "st-redirect-after-activation",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Loader.php",
+                        "line": 351
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_EventOrganizerID",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/event-calendar/actions/create-event.php",
+                        "line": 175
+                    }
+                ]
+            },
+            {
+                "key": "_EventVenueID",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/event-calendar/actions/create-event.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "_bbp_pre_spammed_replies",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/bbpress/actions/addreplyintopic.php",
+                        "line": 309
+                    }
+                ]
+            },
+            {
+                "key": "_bbp_pre_trashed_replies",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/bbpress/actions/addreplyintopic.php",
+                        "line": 291
+                    }
+                ]
+            },
+            {
+                "key": "_bbp_spam_meta_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/bbpress/actions/addreplyintopic.php",
+                        "line": 297
+                    },
+                    {
+                        "file": "src/Integrations/bbpress/actions/addtopicinforum.php",
+                        "line": 249
+                    }
+                ]
+            },
+            {
+                "key": "_design_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/fluentcrm/actions/create-email-template.php",
+                        "line": 108
+                    },
+                    {
+                        "file": "src/Integrations/fluentcrm/actions/update-template.php",
+                        "line": 145
+                    }
+                ]
+            },
+            {
+                "key": "_edit_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/fluentcrm/actions/create-email-template.php",
+                        "line": 107
+                    },
+                    {
+                        "file": "src/Integrations/fluentcrm/actions/update-template.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "_email_subject",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/fluentcrm/actions/create-email-template.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "src/Integrations/fluentcrm/actions/update-template.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "_evo_lang",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventon/actions/create-event.php",
+                        "line": 181
+                    }
+                ]
+            },
+            {
+                "key": "_featured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventon/actions/create-event.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "_manage_stock",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/woocommerce/actions/create-product.php",
+                        "line": 112
+                    }
+                ]
+            },
+            {
+                "key": "_mepr_coupons_discount_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/memberpress/actions/create-coupon.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "_mepr_coupons_discount_mode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/memberpress/actions/create-coupon.php",
+                        "line": 137
+                    }
+                ]
+            },
+            {
+                "key": "_mepr_coupons_discount_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/memberpress/actions/create-coupon.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "_mepr_coupons_expires_on",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/memberpress/actions/create-coupon.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "_mepr_coupons_should_expire",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/memberpress/actions/create-coupon.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "_mepr_coupons_should_start",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/memberpress/actions/create-coupon.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "_mepr_coupons_starts_on",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/memberpress/actions/create-coupon.php",
+                        "line": 106
+                    }
+                ]
+            },
+            {
+                "key": "_mepr_coupons_usage_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/memberpress/actions/create-coupon.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "_mepr_coupons_use_on_upgrades",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/memberpress/actions/create-coupon.php",
+                        "line": 100
+                    }
+                ]
+            },
+            {
+                "key": "_mepr_coupons_valid_products",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/memberpress/actions/create-coupon.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "_peepso_display_link_preview",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/peepso/actions/add-post-sitewide-activity-stream.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "_product_image_gallery",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/woocommerce/actions/create-product.php",
+                        "line": 155
+                    }
+                ]
+            },
+            {
+                "key": "_product_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/woocommerce/actions/create-product.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "_s_duration",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wp-travel-engine/actions/update-trip.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "_sku",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/woocommerce/actions/create-product.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "_stock",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/woocommerce/actions/create-product.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "_stock_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/woocommerce/actions/create-product.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "_storeengine_manage_stock",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 242
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 250
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 260
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 268
+                    }
+                ]
+            },
+            {
+                "key": "_storeengine_product_downloadable_files",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 238
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 256
+                    }
+                ]
+            },
+            {
+                "key": "_storeengine_product_physical_weight",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 216
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "_storeengine_product_physical_weight_unit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 240
+                    }
+                ]
+            },
+            {
+                "key": "_storeengine_product_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 175
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 185
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 176
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 200
+                    }
+                ]
+            },
+            {
+                "key": "_storeengine_product_shipping_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 211
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 229
+                    }
+                ]
+            },
+            {
+                "key": "_storeengine_product_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 206
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 223
+                    }
+                ]
+            },
+            {
+                "key": "_storeengine_regular_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 176
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "_storeengine_sale_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 184
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 199
+                    }
+                ]
+            },
+            {
+                "key": "_storeengine_sku",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 234
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 252
+                    }
+                ]
+            },
+            {
+                "key": "_storeengine_stock_quantity",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 245
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 263
+                    }
+                ]
+            },
+            {
+                "key": "_storeengine_stock_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 248
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-product.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 266
+                    },
+                    {
+                        "file": "src/Integrations/storeengine/actions/update-product.php",
+                        "line": 270
+                    }
+                ]
+            },
+            {
+                "key": "_unix_end_ev",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventon/actions/create-event.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "_unix_start_ev",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventon/actions/create-event.php",
+                        "line": 163
+                    }
+                ]
+            },
+            {
+                "key": "_visibility",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/woocommerce/actions/create-product.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wordpress/actions/add-new-media.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "advanced_ads_ad_options",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/advanced-ads/actions/set-ad-status.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "advanced_ads_expiration_time",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/advanced-ads/actions/set-ad-status.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "branch_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wpcafe/actions/create-reservation.php",
+                        "line": 159
+                    },
+                    {
+                        "file": "src/Integrations/wpcafe/actions/update-reservation.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "branch_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wpcafe/actions/create-reservation.php",
+                        "line": 164
+                    },
+                    {
+                        "file": "src/Integrations/wpcafe/actions/update-reservation.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "catalog_visibility",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/woocommerce/actions/create-product.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wpcafe/actions/create-reservation.php",
+                        "line": 148
+                    },
+                    {
+                        "file": "src/Integrations/wpcafe/actions/update-reservation.php",
+                        "line": 155
+                    }
+                ]
+            },
+            {
+                "key": "em_all_day",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 208
+                    }
+                ]
+            },
+            {
+                "key": "em_enable_booking",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 215
+                    }
+                ]
+            },
+            {
+                "key": "em_end_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "em_end_date_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 200
+                    }
+                ]
+            },
+            {
+                "key": "em_end_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "em_event_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 235
+                    }
+                ]
+            },
+            {
+                "key": "em_fixed_event_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "em_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "em_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "em_organizer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "em_performer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 260
+                    }
+                ]
+            },
+            {
+                "key": "em_start_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "em_start_date_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 190
+                    }
+                ]
+            },
+            {
+                "key": "em_start_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "em_venue",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventprime/actions/create-event.php",
+                        "line": 226
+                    }
+                ]
+            },
+            {
+                "key": "email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wpcafe/actions/create-reservation.php",
+                        "line": 145
+                    },
+                    {
+                        "file": "src/Integrations/wpcafe/actions/update-reservation.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "end_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wpcafe/actions/create-reservation.php",
+                        "line": 150
+                    },
+                    {
+                        "file": "src/Integrations/wpcafe/actions/update-reservation.php",
+                        "line": 172
+                    }
+                ]
+            },
+            {
+                "key": "evcal_allday",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventon/actions/create-event.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "evcal_erow",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventon/actions/create-event.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "evcal_event_color",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventon/actions/create-event.php",
+                        "line": 192
+                    }
+                ]
+            },
+            {
+                "key": "evcal_event_color_n",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventon/actions/create-event.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "evcal_exlink",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventon/actions/create-event.php",
+                        "line": 199
+                    }
+                ]
+            },
+            {
+                "key": "evcal_srow",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventon/actions/create-event.php",
+                        "line": 161
+                    }
+                ]
+            },
+            {
+                "key": "evcal_subtitle",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventon/actions/create-event.php",
+                        "line": 185
+                    }
+                ]
+            },
+            {
+                "key": "evo_event_timezone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/eventon/actions/create-event.php",
+                        "line": 204
+                    }
+                ]
+            },
+            {
+                "key": "feed_group_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/suredash/actions/suredash-create-space.php",
+                        "line": 221
+                    }
+                ]
+            },
+            {
+                "key": "frontend",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/edd/actions/edd-create-discount.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "integration",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/suredash/actions/suredash-create-space.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "invoice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wpcafe/actions/create-reservation.php",
+                        "line": 152
+                    }
+                ]
+            },
+            {
+                "key": "mec_attendees",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/modern-events-calendar/actions/register-user-for-an-event.php",
+                        "line": 206
+                    }
+                ]
+            },
+            {
+                "key": "mec_book_date_submit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/modern-events-calendar/actions/register-user-for-an-event.php",
+                        "line": 212
+                    }
+                ]
+            },
+            {
+                "key": "mec_gateway",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/modern-events-calendar/actions/register-user-for-an-event.php",
+                        "line": 208
+                    }
+                ]
+            },
+            {
+                "key": "mec_gateway_label",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/modern-events-calendar/actions/register-user-for-an-event.php",
+                        "line": 209
+                    }
+                ]
+            },
+            {
+                "key": "mec_reg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/modern-events-calendar/actions/register-user-for-an-event.php",
+                        "line": 207
+                    }
+                ]
+            },
+            {
+                "key": "name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wpcafe/actions/create-reservation.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "src/Integrations/wpcafe/actions/update-reservation.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "notes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wpcafe/actions/create-reservation.php",
+                        "line": 155
+                    },
+                    {
+                        "file": "src/Integrations/wpcafe/actions/update-reservation.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "phone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wpcafe/actions/create-reservation.php",
+                        "line": 146
+                    },
+                    {
+                        "file": "src/Integrations/wpcafe/actions/update-reservation.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "start_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wpcafe/actions/create-reservation.php",
+                        "line": 149
+                    },
+                    {
+                        "file": "src/Integrations/wpcafe/actions/update-reservation.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wpcafe/actions/create-reservation.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "src/Integrations/wpcafe/actions/update-reservation.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "total_guest",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wpcafe/actions/create-reservation.php",
+                        "line": 147
+                    },
+                    {
+                        "file": "src/Integrations/wpcafe/actions/update-reservation.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "voxel:priority",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/voxel/actions/set-custom-priority.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_booking_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wp-travel-engine/actions/update-booking-status.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_coupon_code",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wp-travel-engine/actions/create-coupon.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "src/Integrations/wp-travel-engine/actions/update-coupon.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_coupon_metas",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wp-travel-engine/actions/create-coupon.php",
+                        "line": 149
+                    },
+                    {
+                        "file": "src/Integrations/wp-travel-engine/actions/update-coupon.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_setting",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wp-travel-engine/actions/create-trip.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "src/Integrations/wp-travel-engine/actions/update-trip.php",
+                        "line": 276
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_setting_trip_duration",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wp-travel-engine/actions/update-trip.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_trip_max_age",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wp-travel-engine/actions/update-trip.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "wp_travel_engine_trip_min_age",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/wp-travel-engine/actions/update-trip.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "wpe_wps_short_description",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/spaces-engine/actions/create-space.php",
+                        "line": 111
+                    },
+                    {
+                        "file": "src/Integrations/spaces-engine/actions/update-space.php",
+                        "line": 103
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_sfwd-course_progress",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/learndash/actions/reset-user-course-progress.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "_sfwd-quizzes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/learndash/actions/mark-course-complete-for-user.php",
+                        "line": 279
+                    },
+                    {
+                        "file": "src/Integrations/learndash/actions/mark-lesson-complete-for-user.php",
+                        "line": 247
+                    },
+                    {
+                        "file": "src/Integrations/learndash/actions/mark-topic-complete-for-user.php",
+                        "line": 199
+                    },
+                    {
+                        "file": "src/Integrations/learndash/actions/reset-user-course-progress.php",
+                        "line": 377
+                    },
+                    {
+                        "file": "src/Integrations/learndash/actions/reset-user-course-progress.php",
+                        "line": 413
+                    }
+                ]
+            },
+            {
+                "key": "billing_address_1",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-order.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "billing_address_2",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-order.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "billing_city",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-order.php",
+                        "line": 199
+                    }
+                ]
+            },
+            {
+                "key": "billing_company",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-order.php",
+                        "line": 196
+                    }
+                ]
+            },
+            {
+                "key": "billing_country",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-order.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "billing_email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-order.php",
+                        "line": 203
+                    }
+                ]
+            },
+            {
+                "key": "billing_first_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-order.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "billing_last_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-order.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "billing_phone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-order.php",
+                        "line": 204
+                    }
+                ]
+            },
+            {
+                "key": "billing_postcode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-order.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "billing_state",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/storeengine/actions/create-order.php",
+                        "line": 200
+                    }
+                ]
+            },
+            {
+                "key": "peepso_last_used_post_privacy",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/peepso/actions/add-post-sitewide-activity-stream.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "portal_badges",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/suredash/actions/suredash-add-badges-to-user.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "src/Integrations/suredash/actions/suredash-remove-badges-from-user.php",
+                        "line": 155
+                    }
+                ]
+            },
+            {
+                "key": "st_last_login",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "suretriggers_rating_clicked",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions.php",
+                        "line": 234
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "src/Controllers/SettingsController.php",
+            "line": 67
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Controllers/WebhookRequestsController.php",
+            "line": 107
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "src/Integrations/advanced-coupons/actions/create-coupon.php",
+            "line": 186
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "src/Integrations/advanced-coupons/actions/create-coupon.php",
+            "line": 206
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "src/Integrations/edd/actions/edd-create-discount.php",
+            "line": 184
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "src/Integrations/edd/actions/update-purchase-meta.php",
+            "line": 118
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta['metaKey']",
+            "file": "src/Integrations/fluent-form/actions/register-a-new-user.php",
+            "line": 117
+        },
+        {
+            "function": "set_transient",
+            "expression": "$dedupe_key",
+            "file": "src/Integrations/memberpress/triggers/coupon-code-redeemed.php",
+            "line": 155
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_name",
+            "file": "src/Integrations/metabox/actions/add-cloneable-field-value.php",
+            "line": 112
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_name",
+            "file": "src/Integrations/metabox/actions/update-cloneable-field-value.php",
+            "line": 106
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$setter",
+            "file": "src/Integrations/profilepress/actions/add-update-profilepress-customer.php",
+            "line": 134
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "src/Integrations/suredash/actions/suredash-create-space.php",
+            "line": 253
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "SUREMEMBERS_USER_EXPIRATION",
+            "file": "src/Integrations/suremembers/actions/update-membership-expiration.php",
+            "line": 110
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "src/Integrations/voxel/actions/change-membership-plan.php",
+            "line": 141
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_name",
+            "file": "src/Integrations/voxel/actions/update-voxel-post-field.php",
+            "line": 246
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy_name",
+            "file": "src/Integrations/woocommerce/actions/add-attribute-terms.php",
+            "line": 204
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy_name",
+            "file": "src/Integrations/woocommerce/actions/add-product-attributes.php",
+            "line": 296
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy_name",
+            "file": "src/Integrations/woocommerce/actions/create-attribute.php",
+            "line": 156
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "src/Integrations/woocommerce/actions/create-coupon-code.php",
+            "line": 186
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy_name",
+            "file": "src/Integrations/woocommerce/actions/create-variable-product.php",
+            "line": 332
+        },
+        {
+            "function": "add_role",
+            "expression": "$role_name",
+            "file": "src/Integrations/wordpress/actions/create-role.php",
+            "line": 122
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta['metaKey']",
+            "file": "src/Integrations/wordpress/actions/create-user-if-not-exists.php",
+            "line": 199
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "src/Integrations/wordpress/actions/set-post-meta.php",
+            "line": 117
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "src/Integrations/wordpress/actions/set-user-meta.php",
+            "line": 126
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "src/Integrations/wp-travel-engine/actions/duplicate-trip.php",
+            "line": 147
+        }
+    ]
+}

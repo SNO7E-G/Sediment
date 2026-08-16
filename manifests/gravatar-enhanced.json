@@ -1,0 +1,81 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "gravatar-enhanced",
+        "name": "Gravatar Enhanced",
+        "version": "0.13.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 41,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 0,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.25
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "gravatar_enhanced_proxy_flush",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/proxy/class-proxy.php",
+                        "line": 129
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_metadata",
+            "expression": "$this->get_notification_key($email)",
+            "file": "classes/email/class-email.php",
+            "line": 126
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "classes/options/class-saved-options.php",
+            "line": 115
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "dirname($proxy_filename)",
+            "file": "classes/proxy/class-proxy-cache.php",
+            "line": 35
+        }
+    ]
+}

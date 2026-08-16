@@ -1,0 +1,117 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wc-no-shipping-message",
+        "name": "No Shipping Message for WooCommerce",
+        "version": "2.2.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:44Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 7,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 0,
+        "resolved": 5,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wnsm_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Migrate.php",
+                        "line": 30
+                    }
+                ]
+            },
+            {
+                "key": "wnsm_msg_cart_text",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/2.0.0.php",
+                        "line": 23
+                    }
+                ]
+            },
+            {
+                "key": "wnsm_msg_cart_type",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/2.0.0.php",
+                        "line": 17
+                    }
+                ]
+            },
+            {
+                "key": "wnsm_msg_checkout_text",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/2.0.0.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "wnsm_msg_checkout_type",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/2.0.0.php",
+                        "line": 18
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$textOption",
+            "file": "src/Settings.php",
+            "line": 167
+        }
+    ]
+}

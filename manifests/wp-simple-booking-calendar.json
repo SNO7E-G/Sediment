@@ -1,0 +1,205 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-simple-booking-calendar",
+        "name": "WP Simple Booking Calendar",
+        "version": "2.0.16",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:59Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 41,
+    "coverage": {
+        "files_scanned": 65,
+        "files_skipped": 0,
+        "write_calls_found": 18,
+        "verified": 9,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpsbc_first_activation",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-simple-booking-calendar.php",
+                        "line": 190
+                    }
+                ]
+            },
+            {
+                "key": "wpsbc_registered_website_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/modules/update-checker/functions-actions-update-checker.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "wpsbc_serial_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/modules/update-checker/functions-actions-update-checker.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "wpsbc_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/base/admin/backup/functions-actions-backup.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "wpsbc_upgrade_8_0_0",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/modules/upgrader/functions-actions-ajax-upgrader.php",
+                        "line": 258
+                    }
+                ]
+            },
+            {
+                "key": "wpsbc_upgrade_8_0_0_skipped",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/modules/upgrader/functions-actions-upgrader.php",
+                        "line": 18
+                    }
+                ]
+            },
+            {
+                "key": "wpsbc_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-simple-booking-calendar.php",
+                        "line": 186
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wpsbc_serial_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/modules/update-checker/functions-actions-update-checker.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "includes/modules/update-checker/functions-actions-update-checker.php",
+                        "line": 173
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "includes/base/calendar/class-object-db-calendars.php",
+            "line": 153
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "includes/base/calendar/class-object-meta-db-calendars.php",
+            "line": 81
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "includes/base/event/class-object-db-events.php",
+            "line": 189
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "includes/base/event/class-object-meta-db-events.php",
+            "line": 81
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "includes/base/legend/class-object-db-legend-items.php",
+            "line": 152
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "includes/base/legend/class-object-meta-db-legend-items.php",
+            "line": 81
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$cronHook",
+            "file": "includes/modules/update-checker/class-update-checker.php",
+            "line": 74
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionName",
+            "file": "includes/modules/update-checker/class-update-checker.php",
+            "line": 199
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionName",
+            "file": "includes/modules/update-checker/class-update-checker.php",
+            "line": 202
+        }
+    ]
+}

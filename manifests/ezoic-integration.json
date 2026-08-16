@@ -1,0 +1,656 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ezoic-integration",
+        "name": "Ezoic",
+        "version": "2.25.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:55Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 107,
+        "files_skipped": 0,
+        "write_calls_found": 91,
+        "verified": 81,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.89
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "activated_plugin",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ezoic-integration-activator.php",
+                        "line": 41
+                    }
+                ]
+            },
+            {
+                "key": "ez_ad_initialized",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/adtester/class-ezoic-adtester.php",
+                        "line": 1085
+                    }
+                ]
+            },
+            {
+                "key": "ez_ad_integration_enabled",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/adtester/class-ezoic-adtester.php",
+                        "line": 1166
+                    },
+                    {
+                        "file": "includes/class-ezoic-integration-activator.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "ez_adtester_config",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/adtester/class-ezoic-adtester-config.php",
+                        "line": 150
+                    }
+                ]
+            },
+            {
+                "key": "ez_emote",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/content/emote/class-ezoic-emote-export.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "ez_emote_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/content/emote/class-ezoic-emote-export.php",
+                        "line": 146
+                    },
+                    {
+                        "file": "includes/content/emote/class-ezoic-emote.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_adstxtmanager_auto_detect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ezoic-integration-form-handler.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_adstxtmanager_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager.php",
+                        "line": 371
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_adstxtmanager_status",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ezoic-adstxtmanager-settings.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "admin/class-ezoic-adstxtmanager-settings.php",
+                        "line": 119
+                    },
+                    {
+                        "file": "admin/class-ezoic-adstxtmanager-settings.php",
+                        "line": 221
+                    },
+                    {
+                        "file": "admin/class-ezoic-adstxtmanager-settings.php",
+                        "line": 236
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-form-handler.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "admin/class-ezoic-settings-helpers.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-file-modifier.php",
+                        "line": 39
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-file-modifier.php",
+                        "line": 46
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-file-modifier.php",
+                        "line": 55
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-file-modifier.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-file-modifier.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-file-modifier.php",
+                        "line": 115
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-htaccess-modifier.php",
+                        "line": 20
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-htaccess-modifier.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-htaccess-modifier.php",
+                        "line": 59
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-htaccess-modifier.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-htaccess-modifier.php",
+                        "line": 82
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-htaccess-modifier.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-htaccess-modifier.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-htaccess-modifier.php",
+                        "line": 119
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-htaccess-modifier.php",
+                        "line": 129
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager-htaccess-modifier.php",
+                        "line": 158
+                    },
+                    {
+                        "file": "includes/adstxtmanager/class-ezoic-adstxtmanager.php",
+                        "line": 390
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_auth_access_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ezoic-auth.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_auth_client_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ezoic-auth.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_auth_client_secret",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ezoic-auth.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_cdn_domain",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/cdn/class-ezoic-cdn.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ezoic-integration-activator.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_integration_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ezoic-integration-form-handler.php",
+                        "line": 97
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-form-handler.php",
+                        "line": 266
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-form-handler.php",
+                        "line": 287
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-renderer.php",
+                        "line": 417
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-renderer.php",
+                        "line": 520
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-settings.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-settings.php",
+                        "line": 318
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_integration_status",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ezoic-integration-admin.php",
+                        "line": 246
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-form-handler.php",
+                        "line": 138
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-form-handler.php",
+                        "line": 169
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-form-handler.php",
+                        "line": 305
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-renderer.php",
+                        "line": 532
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-settings.php",
+                        "line": 184
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-settings.php",
+                        "line": 189
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-settings.php",
+                        "line": 219
+                    },
+                    {
+                        "file": "admin/class-ezoic-js-integration-settings.php",
+                        "line": 304
+                    },
+                    {
+                        "file": "admin/class-ezoic-js-integration-settings.php",
+                        "line": 395
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_js_integration_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ezoic-integration-form-handler.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-form-handler.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-form-handler.php",
+                        "line": 310
+                    },
+                    {
+                        "file": "admin/class-ezoic-js-integration-settings.php",
+                        "line": 293
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_js_integration_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ezoic-integration-form-handler.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "admin/class-ezoic-js-integration-settings.php",
+                        "line": 36
+                    },
+                    {
+                        "file": "includes/adtester/class-ezoic-adtester-placeholder.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "includes/adtester/class-ezoic-adtester-placeholder.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_speed_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ezoic-speed-settings.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_token_generated_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ezoic-auth.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "widget_ezoic_adpos_widget",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/adpos/class-ezoic-adpos.php",
+                        "line": 146
+                    },
+                    {
+                        "file": "includes/adpos/class-ezoic-adpos.php",
+                        "line": 207
+                    },
+                    {
+                        "file": "includes/adtester/class-ezoic-adtester-sidebar-inserter.php",
+                        "line": 192
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "fetch_placeholders",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/adtester/class-ezoic-adtester.php",
+                        "line": 627
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "ezoic_cdn_admin_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/cdn/class-ezoic-cdn.php",
+                        "line": 1399
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_clear_caches",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ezoic-integration-admin.php",
+                        "line": 352
+                    },
+                    {
+                        "file": "admin/class-ezoic-integration-admin.php",
+                        "line": 360
+                    },
+                    {
+                        "file": "includes/class-ezoic-integration-activator.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_config_regenerate",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ezoic-integration-admin.php",
+                        "line": 438
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_duplicate_scripts_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ezoic-js-integration-settings.php",
+                        "line": 588
+                    }
+                ]
+            },
+            {
+                "key": "ezoic_send_debug",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ezoic-integration-admin.php",
+                        "line": 177
+                    },
+                    {
+                        "file": "includes/class-ezoic-integration-plugin-data-service.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "includes/leap/class-ezoic-leap-wp-data.php",
+                        "line": 10
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/adpos/class-ezoic-adpos.php",
+                    "line": 147
+                },
+                {
+                    "file": "includes/adpos/class-ezoic-adpos.php",
+                    "line": 208
+                },
+                {
+                    "file": "includes/adtester/class-ezoic-adtester-sidebar-inserter.php",
+                    "line": 193
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-ezoic-integration-activator.php",
+            "line": 57
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "includes/class-ezoic-integration-cache.php",
+            "line": 138
+        },
+        {
+            "function": "add_option",
+            "expression": "$lock_key",
+            "file": "includes/class-ezoic-integration-privacy-config.php",
+            "line": 82
+        },
+        {
+            "function": "add_option",
+            "expression": "$lock_key",
+            "file": "includes/class-ezoic-integration-privacy-config.php",
+            "line": 89
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock_key",
+            "file": "includes/class-ezoic-integration-privacy-config.php",
+            "line": 103
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-ezoic-integration-privacy-config.php",
+            "line": 147
+        },
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "includes/class-ezoic-integration-privacy-config.php",
+            "line": 151
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_transient_name()",
+            "file": "includes/content/class-ezoic-content-export.php",
+            "line": 94
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->get_cron_event_name()",
+            "file": "includes/content/class-ezoic-content-export.php",
+            "line": 108
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_transient_name()",
+            "file": "includes/content/class-ezoic-content-export.php",
+            "line": 116
+        }
+    ]
+}

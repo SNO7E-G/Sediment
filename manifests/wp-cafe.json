@@ -1,0 +1,467 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-cafe",
+        "name": "WPCafe - Restaurant Menu, Online Food Ordering & Table Booking System",
+        "version": "3.0.17",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:26Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 249,
+        "files_skipped": 0,
+        "write_calls_found": 44,
+        "verified": 25,
+        "resolved": 8,
+        "pattern": 0,
+        "dynamic": 11,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpcafe_aisentic_consent",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/extensions/controllers/plugin-controller.php",
+                        "line": 181
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_db_migration",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/admin/controllers/migration-controller.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_db_migration_pro",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/admin/controllers/migration-controller.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_install_fingerprint",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "base/activate.php",
+                        "line": 19
+                    },
+                    {
+                        "file": "upgrades/install-detector.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_old_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/admin/controllers/migration-controller.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_reservation_settings_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "base/settings.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "base/settings.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "core/rollback/rollback-service.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "uninstall.php",
+                        "line": 18
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_table_layout_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrades/upgrade-3-0-0/upgrade-table-layout.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_table_layout_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrades/upgrade-3-0-0/upgrade-table-layout.php",
+                        "line": 50
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_v2_upgrade_detected",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrades/install-detector.php",
+                        "line": 117
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrades/upgrader.php",
+                        "line": 30
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/rollback/Rollback.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_pro_incompatible",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrades/upgrade-3-0-0/version-guard.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_rollback_versions_3.0.17",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/rollback/controllers/version-controller.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_whatsapp_recent_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/email-automation/Service/email-notification.php",
+                        "line": 212
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_deposet_enable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/payments/gateways/wc/wc-payment.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "_deposet_force",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/payments/gateways/wc/wc-payment.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "_deposet_inherit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/payments/gateways/wc/wc-payment.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "_wpc_payment_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/reservation/controllers/reservation-controller.php",
+                        "line": 378
+                    }
+                ]
+            },
+            {
+                "key": "_wpc_payment_token_expires",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/reservation/controllers/reservation-controller.php",
+                        "line": 379
+                    }
+                ]
+            },
+            {
+                "key": "_wpcafe_allergens",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/products/nutrition/nutrition-admin.php",
+                        "line": 390
+                    }
+                ]
+            },
+            {
+                "key": "_wpcafe_nutrition_info",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/products/nutrition/nutrition-admin.php",
+                        "line": 353
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [
+            {
+                "key": "_wpcafe_label_bg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/products/labels/product-label-admin.php",
+                        "line": 223
+                    }
+                ]
+            },
+            {
+                "key": "_wpcafe_label_display",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/products/labels/product-label-admin.php",
+                        "line": 215
+                    }
+                ]
+            },
+            {
+                "key": "_wpcafe_label_fg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/products/labels/product-label-admin.php",
+                        "line": 231
+                    }
+                ]
+            },
+            {
+                "key": "_wpcafe_label_icon_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/products/labels/product-label-admin.php",
+                        "line": 238
+                    }
+                ]
+            },
+            {
+                "key": "_wpcafe_label_icon_value",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/products/labels/product-label-admin.php",
+                        "line": 247
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "wpcafe_access_admin_menu",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/restaurant-management/roles.php",
+                        "line": 66
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [
+            {
+                "key": "wpcafe_location",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/location/location-taxonomy.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "wpcafe_product_label",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/products/labels/product-label-taxonomy.php",
+                        "line": 55
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "base/database/blueprint.php",
+            "line": 218
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "base/database/migration-table-manager.php",
+            "line": 35
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "base/database/post-model.php",
+            "line": 286
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "base/database/post-model.php",
+            "line": 334
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "base/database/post-model.php",
+            "line": 363
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$key",
+            "file": "base/models/location-model.php",
+            "line": 386
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "core/location/controllers/location-controller.php",
+            "line": 173
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "core/reservation/controllers/reservation-controller.php",
+            "line": 1301
+        },
+        {
+            "function": "add_role",
+            "expression": "$role_slug",
+            "file": "core/restaurant-management/roles.php",
+            "line": 39
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "core/restaurant-management/roles.php",
+            "line": 104
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "core/restaurant-management/roles.php",
+            "line": 223
+        }
+    ]
+}

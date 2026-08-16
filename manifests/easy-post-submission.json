@@ -1,0 +1,158 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "easy-post-submission",
+        "name": "Easy Post Submission",
+        "version": "2.6.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:29Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 33,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 7,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "easy_post_submission_post_manager_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/ajax-handler.php",
+                        "line": 202
+                    },
+                    {
+                        "file": "admin/ajax-handler.php",
+                        "line": 1143
+                    },
+                    {
+                        "file": "includes/recaptcha-migration.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "easy_post_submission_recaptcha_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/recaptcha-migration.php",
+                        "line": 28
+                    },
+                    {
+                        "file": "includes/recaptcha-migration.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "easy_post_submission_setup_flag",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/ajax-handler.php",
+                        "line": 205
+                    }
+                ]
+            },
+            {
+                "key": "easy_post_submission_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/recaptcha-migration.php",
+                        "line": 101
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}rb_submission",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "easy-post-submission.php",
+                        "line": 167
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "rbsm_author_info",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/client-ajax-handler.php",
+                        "line": 1616
+                    }
+                ]
+            },
+            {
+                "key": "rbsm_form_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/client-ajax-handler.php",
+                        "line": 1155
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/client-ajax-handler.php",
+            "line": 1525
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "includes/client-ajax-handler.php",
+            "line": 1665
+        }
+    ]
+}

@@ -1,0 +1,344 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "license-manager-for-woocommerce",
+        "name": "License Manager for WooCommerce",
+        "version": "3.0.20",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:08Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 104,
+        "files_skipped": 0,
+        "write_calls_found": 33,
+        "verified": 20,
+        "resolved": 11,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.939
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "lmfwc_db_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Migration.php",
+                        "line": 46
+                    },
+                    {
+                        "file": "includes/Setup.php",
+                        "line": 415
+                    }
+                ]
+            },
+            {
+                "key": "lmfwc_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/20191012000000_104_add_license_meta_table.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "lmfwc_settings_general",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Settings.php",
+                        "line": 251
+                    },
+                    {
+                        "file": "includes/Setup.php",
+                        "line": 412
+                    },
+                    {
+                        "file": "migrations/20191012000000_104_add_license_meta_table.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "lmfwc_settings_tools",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Setup.php",
+                        "line": 414
+                    },
+                    {
+                        "file": "migrations/20200217000000_107_update_settings.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "lmfwc_settings_woocommerce",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Settings.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "includes/Setup.php",
+                        "line": 413
+                    },
+                    {
+                        "file": "migrations/20200203000000_105_update_settings.php",
+                        "line": 23
+                    },
+                    {
+                        "file": "migrations/20231204000000_109_update_settings.php",
+                        "line": 21
+                    }
+                ]
+            },
+            {
+                "key": "lmfwc_table_check",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Setup.php",
+                        "line": 80
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}lmfwc_activations",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Setup.php",
+                        "line": 233
+                    },
+                    {
+                        "file": "migrations/20231115000000_108_add_activations_table.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}lmfwc_api_keys",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Setup.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}lmfwc_generators",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Setup.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}lmfwc_licenses",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Setup.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}lmfwc_licenses_meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Setup.php",
+                        "line": 219
+                    },
+                    {
+                        "file": "migrations/20191012000000_104_add_license_meta_table.php",
+                        "line": 23
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [
+            {
+                "key": "lmfwc_api_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Controllers/ApiKey.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "lmfwc_consumer_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Controllers/ApiKey.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "lmfwc_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Integrations/WooCommerce/ProductData.php",
+                        "line": 270
+                    },
+                    {
+                        "file": "includes/Integrations/WooCommerce/ProductData.php",
+                        "line": 457
+                    }
+                ]
+            },
+            {
+                "key": "lmfwc_notice_error",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/AdminNotice.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "lmfwc_notice_info",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/AdminNotice.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "lmfwc_notice_success",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/AdminNotice.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "lmfwc_notice_warning",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/AdminNotice.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "max_order_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Settings.php",
+                        "line": 469
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "lmfwc_pro_notice_dismisseds",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "license-manager-for-woocommerce.php",
+                        "line": 148
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "view-license-keys",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Integrations/WooCommerce/MyAccount.php",
+                        "line": 21
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "LMFWC_LOG_DIR",
+            "file": "includes/Logger.php",
+            "line": 168
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dirLmfwc",
+            "file": "includes/Setup.php",
+            "line": 279
+        }
+    ]
+}

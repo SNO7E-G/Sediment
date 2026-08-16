@@ -1,0 +1,93 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "poll-wp",
+        "name": "Poll",
+        "version": "2.6.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:43Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 84,
+    "coverage": {
+        "files_scanned": 30,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "tspoll_dismissed_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ts_poll-admin.php",
+                        "line": 91
+                    },
+                    {
+                        "file": "admin/class-ts_poll-admin.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "tspoll_remindme_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-ts_poll-admin.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "admin/class-ts_poll-admin.php",
+                        "line": 94
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$tsp_questions_table_create",
+            "file": "includes/class-ts_poll.php",
+            "line": 300
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$tsp_answers_table_create",
+            "file": "includes/class-ts_poll.php",
+            "line": 301
+        }
+    ]
+}

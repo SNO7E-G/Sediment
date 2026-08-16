@@ -1,0 +1,190 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mp-timetable",
+        "name": "Timetable and Event Schedule",
+        "version": "2.4.18",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:49Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 16,
+    "coverage": {
+        "files_scanned": 64,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 9,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.563
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mp_timetable_general",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/class-settings.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "mp_timetable_permalinks",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-core.php",
+                        "line": 799
+                    },
+                    {
+                        "file": "classes/class-permalinks.php",
+                        "line": 128
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_menu_item_menu_item_parent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/class-import.php",
+                        "line": 948
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/class-import.php",
+                        "line": 985
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "mp-column",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-core.php",
+                        "line": 476
+                    }
+                ]
+            },
+            {
+                "key": "mp-event",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-core.php",
+                        "line": 437
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "mp-event_category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-core.php",
+                        "line": 375
+                    }
+                ]
+            },
+            {
+                "key": "mp-event_tag",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-core.php",
+                        "line": 419
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/class-core.php",
+            "line": 543
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "classes/models/class-column.php",
+            "line": 210
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "classes/models/class-events.php",
+            "line": 373
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "classes/models/class-events.php",
+            "line": 376
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "classes/models/class-events.php",
+            "line": 931
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "$meta['key']",
+            "file": "classes/models/class-import.php",
+            "line": 843
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "classes/models/class-import.php",
+            "line": 898
+        }
+    ]
+}

@@ -1,0 +1,153 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "google-listings-and-ads",
+        "name": "Google for WooCommerce",
+        "version": "3.9.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 592,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 0,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 13,
+        "resolution_rate": 0.0
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gla_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Infrastructure/GoogleListingsAndAdsPlugin.php",
+                        "line": 54
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "jetpack_json_api_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integration/JetpackWPCOM.php",
+                        "line": 94
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$lock_key",
+            "file": "src/API/Google/AdsReport.php",
+            "line": 121
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/API/Google/AdsReport.php",
+            "line": 166
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "src/ActionScheduler/ActionScheduler.php",
+            "line": 48
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "src/ActionScheduler/ActionScheduler.php",
+            "line": 64
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$hook",
+            "file": "src/ActionScheduler/ActionScheduler.php",
+            "line": 78
+        },
+        {
+            "function": "as_schedule_cron_action",
+            "expression": "$hook",
+            "file": "src/ActionScheduler/ActionScheduler.php",
+            "line": 105
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir_path",
+            "file": "src/Admin/Exports/Writer/CsvExportWriter.php",
+            "line": 65
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_cache_key()",
+            "file": "src/Notification/CachedNotificationEvaluatorTrait.php",
+            "line": 38
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->prefix_name($name)",
+            "file": "src/Options/Transients.php",
+            "line": 71
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Proxies/WP.php",
+            "line": 89
+        },
+        {
+            "function": "add_option",
+            "expression": "$arguments",
+            "file": "src/Proxies/WP.php",
+            "line": 368
+        },
+        {
+            "function": "update_option",
+            "expression": "$arguments",
+            "file": "src/Proxies/WP.php",
+            "line": 377
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "src/Proxies/WP.php",
+            "line": 421
+        }
+    ]
+}

@@ -1,0 +1,159 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "yourchannel",
+        "name": "YourChannel",
+        "version": "1.2.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:20Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 6,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 6,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.571
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "yrc_keys",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "YourChannel.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "YourChannel.php",
+                        "line": 458
+                    },
+                    {
+                        "file": "YourChannel.php",
+                        "line": 487
+                    }
+                ]
+            },
+            {
+                "key": "yrc_lang_terms",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "YourChannel.php",
+                        "line": 503
+                    }
+                ]
+            },
+            {
+                "key": "yrc_upgrade_nag_dismisses",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "YourChannel.php",
+                        "line": 657
+                    },
+                    {
+                        "file": "YourChannel.php",
+                        "line": 700
+                    }
+                ]
+            },
+            {
+                "key": "yrc_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "YourChannel.php",
+                        "line": 106
+                    }
+                ]
+            },
+            {
+                "key": "yrc_wrong_version_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "YourChannel.php",
+                        "line": 757
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$channel_key . '_refresh'",
+            "file": "YourChannel.php",
+            "line": 119
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "YourChannel.php",
+            "line": 447
+        },
+        {
+            "function": "update_option",
+            "expression": "$down['meta']['key']",
+            "file": "YourChannel.php",
+            "line": 459
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->cache_key",
+            "file": "stream/stream.php",
+            "line": 76
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "stream/stream.php",
+            "line": 81
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key . '_perm'",
+            "file": "stream/stream.php",
+            "line": 82
+        }
+    ]
+}

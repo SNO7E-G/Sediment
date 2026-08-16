@@ -1,0 +1,235 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-custom-product-addons",
+        "name": "WooCommerce Custom Product Addons Free",
+        "version": "3.1.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:56Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 29,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 2,
+        "resolved": 17,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.826
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wcpa_active_design",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/backend/designs.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "wcpa_designs_key",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/backend/designs.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "wcpa_screen_options",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/backend/settings.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "wcpa_settings_key",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/backend/settings.php",
+                        "line": 188
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wcpa_daily_event",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/cron.php",
+                        "line": 17
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wcpa_fields_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/render/product.php",
+                        "line": 479
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wcpa_fb_formula_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/form.php",
+                        "line": 320
+                    },
+                    {
+                        "file": "includes/form.php",
+                        "line": 496
+                    },
+                    {
+                        "file": "includes/form.php",
+                        "line": 706
+                    }
+                ]
+            },
+            {
+                "key": "_wcpa_fb_json_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/backend/admin.php",
+                        "line": 307
+                    },
+                    {
+                        "file": "includes/form.php",
+                        "line": 319
+                    },
+                    {
+                        "file": "includes/form.php",
+                        "line": 486
+                    },
+                    {
+                        "file": "includes/form.php",
+                        "line": 705
+                    },
+                    {
+                        "file": "includes/form.php",
+                        "line": 802
+                    }
+                ]
+            },
+            {
+                "key": "_wcpa_product_meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/backend/product-meta.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "includes/backend/product-meta.php",
+                        "line": 184
+                    },
+                    {
+                        "file": "includes/backend/product-meta.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "wcpa_exclude_global_forms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/backend/product-meta.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "includes/backend/product-meta.php",
+                        "line": 98
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wcpa_pt_forms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/form.php",
+                        "line": 244
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "self::$key",
+            "file": "includes/backend/designs.php",
+            "line": 53
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "includes/config.php",
+            "line": 44
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "includes/form.php",
+            "line": 1228
+        }
+    ]
+}

@@ -1,0 +1,506 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "feeds-for-tiktok",
+        "name": "Smash Balloon TikTok Feed",
+        "version": "1.7.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:50Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 74,
+        "files_skipped": 0,
+        "write_calls_found": 58,
+        "verified": 36,
+        "resolved": 12,
+        "pattern": 1,
+        "dynamic": 9,
+        "resolution_rate": 0.828
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": true,
+        "condition_option": "sbtt_global_settings",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "sbtt_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/Upgrade/Routines/UpgradeRoutine.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_global_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Relay/Relay.php",
+                        "line": 289
+                    },
+                    {
+                        "file": "inc/Common/Relay/Relay.php",
+                        "line": 297
+                    },
+                    {
+                        "file": "inc/Common/Services/AjaxHandlerService.php",
+                        "line": 397
+                    },
+                    {
+                        "file": "inc/Common/Services/SettingsManagerService.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "inc/Common/Services/Upgrade/Routines/RegisterWebsiteRoutine.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "inc/Common/Services/Upgrade/Routines/RegisterWebsiteRoutine.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_islicence_upgraded",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/PluginUpgraderService.php",
+                        "line": 508
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_one_click_upgrade",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/PluginUpgraderService.php",
+                        "line": 215
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_rating_notice",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/ActivationService.php",
+                        "line": 131
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 193
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 317
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 323
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 399
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_resize_images_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Feed.php",
+                        "line": 738
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_review_consent",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 189
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_smash_usage_active_dates",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/UsageTracking/EventRecorder.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_smash_usage_events",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/UsageTracking/EventRecorder.php",
+                        "line": 40
+                    },
+                    {
+                        "file": "inc/Common/UsageTracking/SmashUsageTracking.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_smash_usage_session_durations",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/UsageTracking/EventRecorder.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "inc/Common/UsageTracking/SmashUsageTracking.php",
+                        "line": 298
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_smash_usage_tracking",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/UsageTracking/SmashUsageTracking.php",
+                        "line": 229
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_smash_usage_tracking_schedule",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/UsageTracking/Core/Scheduler.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_smash_usage_tracking_site_token",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/UsageTracking/Core/RegisterSite.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_source_errors",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/SourceErrors.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "inc/Common/SourceErrors.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_statuses",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/AuthorizationStatusCheck.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "inc/Common/Services/ActivationService.php",
+                        "line": 123
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 195
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 319
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 401
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_upgraded_info",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/PluginUpgraderService.php",
+                        "line": 509
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "sbtt_feed_update_routine",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/Upgrade/Routines/FeedUpdateRoutine.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_refresh_token_routine",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/Upgrade/Routines/RefreshTokenRoutine.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_smash_usage_tracking_cron",
+                "recurrence": "weekly",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/UsageTracking/Core/Scheduler.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "sbtt_heic_capability",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Utils/Utils.php",
+                        "line": 955
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_new_source_data_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/AjaxHandlerService.php",
+                        "line": 495
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_smash_usage_sending_lock",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/UsageTracking/SmashUsageTracking.php",
+                        "line": 205
+                    }
+                ]
+            },
+            {
+                "key": "tiktok_feed_rating_notice_waiting",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/ActivationService.php",
+                        "line": 130
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 321
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "sbtt_ignore_bfcm_sale_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 349
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 372
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 374
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 407
+                    }
+                ]
+            },
+            {
+                "key": "sbtt_ignore_new_user_sale_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 345
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 376
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 403
+                    },
+                    {
+                        "file": "inc/Common/Services/NewUserService.php",
+                        "line": 410
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "administrator",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Common/Services/ActivationService.php",
+                        "line": 51
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "inc/Common/Database/FeedCacheTable.php",
+            "line": 90
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "inc/Common/Database/FeedLocatorTable.php",
+            "line": 54
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "inc/Common/Database/FeedsTable.php",
+            "line": 96
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "inc/Common/Database/PostsTable.php",
+            "line": 102
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "inc/Common/Database/SourcesTable.php",
+            "line": 101
+        },
+        {
+            "function": "update_option",
+            "expression": "$version_key",
+            "file": "inc/Common/Database/Table.php",
+            "line": 114
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir",
+            "file": "inc/Common/Services/ActivationService.php",
+            "line": 67
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getOptionName()",
+            "file": "inc/Common/Services/NotificationService.php",
+            "line": 225
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getOptionName()",
+            "file": "inc/Common/Services/NotificationService.php",
+            "line": 332
+        }
+    ]
+}

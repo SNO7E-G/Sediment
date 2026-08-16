@@ -1,0 +1,174 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "permalink-manager",
+        "name": "Permalink Manager Lite",
+        "version": "2.6.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:03Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 21,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 14,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.875
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "permalink-manager",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/permalink-manager-actions.php",
+                        "line": 452
+                    },
+                    {
+                        "file": "permalink-manager.php",
+                        "line": 284
+                    }
+                ]
+            },
+            {
+                "key": "permalink-manager-permastructs",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/permalink-manager-permastructures-functions.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "permalink-manager.php",
+                        "line": 268
+                    },
+                    {
+                        "file": "permalink-manager.php",
+                        "line": 271
+                    }
+                ]
+            },
+            {
+                "key": "permalink-manager-redirects",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/permalink-manager-actions.php",
+                        "line": 167
+                    },
+                    {
+                        "file": "includes/core/permalink-manager-actions.php",
+                        "line": 270
+                    },
+                    {
+                        "file": "includes/core/permalink-manager-actions.php",
+                        "line": 302
+                    },
+                    {
+                        "file": "includes/core/permalink-manager-actions.php",
+                        "line": 341
+                    },
+                    {
+                        "file": "includes/core/permalink-manager-actions.php",
+                        "line": 369
+                    },
+                    {
+                        "file": "includes/core/permalink-manager-actions.php",
+                        "line": 397
+                    }
+                ]
+            },
+            {
+                "key": "permalink-manager-uris",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/permalink-manager-uri-functions.php",
+                        "line": 232
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpai_regenerate_uris_after_import_event",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/integrations/permalink-manager-third-parties.php",
+                        "line": 646
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "pm_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/permalink-manager-actions.php",
+                        "line": 651
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "auto_update_uri",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/permalink-manager-uri-functions-post.php",
+                        "line": 785
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$dismissed_transient_name",
+            "file": "includes/core/permalink-manager-actions.php",
+            "line": 779
+        }
+    ]
+}

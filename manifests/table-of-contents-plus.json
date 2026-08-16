@@ -1,0 +1,198 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "table-of-contents-plus",
+        "name": "Table of Contents Plus",
+        "version": "202607.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:08Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 58,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 10,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.545
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "aioseo_table_of_contents_migrations_log",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Main/Migrations/MigrationLog.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "app/Main/Migrations/MigrationLog.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "toc-options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/TocSettings.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "app/Main/Updates.php",
+                        "line": 111
+                    },
+                    {
+                        "file": "app/Standalone/Frontend.php",
+                        "line": 131
+                    },
+                    {
+                        "file": "app/Standalone/Frontend.php",
+                        "line": 142
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "aioseo_plugin_cache_table_exists",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Core/Cache.php",
+                        "line": 76
+                    },
+                    {
+                        "file": "app/Core/Cache.php",
+                        "line": 423
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "_aioseo_table_of_contents_notification_plugin_review_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/Notifications.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "app/Api/Notifications.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "_aioseo_table_of_contents_plugin_review_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Admin/Notices/Review.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "app/Admin/Notices/Review.php",
+                        "line": 229
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transientName",
+            "file": "app/Core/Cache.php",
+            "line": 573
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$schema",
+            "file": "app/Main/PreUpdates.php",
+            "line": 54
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$schemas",
+            "file": "app/Main/Updates.php",
+            "line": 144
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionsName . '_localized'",
+            "file": "app/Traits/Options.php",
+            "line": 302
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionsName",
+            "file": "app/Traits/Options.php",
+            "line": 722
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "app/Utils/Access.php",
+            "line": 58
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$actionName",
+            "file": "app/Utils/ActionScheduler.php",
+            "line": 162
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$actionName",
+            "file": "app/Utils/ActionScheduler.php",
+            "line": 274
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$actionName",
+            "file": "app/Utils/ActionScheduler.php",
+            "line": 297
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->settingsName",
+            "file": "app/Utils/VueSettings.php",
+            "line": 164
+        }
+    ]
+}

@@ -1,0 +1,116 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "fullwidth-templates",
+        "name": "Fullwidth Page Templates",
+        "version": "1.2.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:26Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 13,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.1
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "bsf_analytics_track",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/bsf-analytics/class-bsf-analytics.php",
+                        "line": 484
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$source . '_analytics_optin'",
+            "file": "admin/bsf-analytics/class-bsf-analytics.php",
+            "line": 318
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$source . '_analytics_optin'",
+            "file": "admin/bsf-analytics/class-bsf-analytics.php",
+            "line": 328
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$source . '_analytics_installed_time'",
+            "file": "admin/bsf-analytics/class-bsf-analytics.php",
+            "line": 435
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option",
+            "file": "admin/bsf-analytics/class-bsf-analytics.php",
+            "line": 501
+        },
+        {
+            "function": "add_site_option",
+            "expression": "$option",
+            "file": "admin/bsf-analytics/class-bsf-analytics.php",
+            "line": 503
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice_id",
+            "file": "admin/notices/class-astra-notices.php",
+            "line": 126
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$notice_id",
+            "file": "admin/notices/class-astra-notices.php",
+            "line": 128
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice['id']",
+            "file": "admin/notices/class-astra-notices.php",
+            "line": 305
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$notice['id']",
+            "file": "admin/notices/class-astra-notices.php",
+            "line": 306
+        }
+    ]
+}

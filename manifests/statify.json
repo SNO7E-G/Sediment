@@ -1,0 +1,121 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "statify",
+        "name": "Statify",
+        "version": "2.0.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:49Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 23,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 3,
+        "resolved": 2,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.714
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "statify",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-statify-dashboard.php",
+                        "line": 144
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "statify_cleanup",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-statify-install.php",
+                        "line": 75
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "statify_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-statify-dashboard.php",
+                        "line": 172
+                    }
+                ]
+            },
+            {
+                "key": "statify_data_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-statify-api.php",
+                        "line": 482
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "see_statify_evaluation",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-statify-evaluation.php",
+                        "line": 31
+                    },
+                    {
+                        "file": "inc/class-statify-evaluation.php",
+                        "line": 38
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE `{$wpdb->statify}` (\\n\\t\\t\\t`id` bigint(20) unsigned NOT NULL auto_increment,\\n\\t\\t\\t  `created` date NOT NULL default '0000-00-00',\\n\\t\\t\\t  `referrer` varchar(255) NOT NULL default '',\\n\\t\\t\\t  `target` varchar(255) NOT NULL default '',\\n\\t\\t\\t  PRIMARY KEY  (`id`),\\n\\t\\t\\t  KEY `referrer` (`referrer`),\\n\\t\\t\\t  KEY `target` (`target`),\\n\\t\\t\\t  KEY `created` (`created`)\\n\\t\\t\\t);\"",
+            "file": "inc/class-statify-table.php",
+            "line": 62
+        }
+    ]
+}

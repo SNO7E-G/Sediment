@@ -1,0 +1,241 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-mercadopago",
+        "name": "Mercado Pago",
+        "version": "8.9.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:26Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 280,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 5,
+        "resolved": 7,
+        "pattern": 7,
+        "dynamic": 3,
+        "resolution_rate": 0.545
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_mp_execute_activate",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-mercadopago.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "_mp_execute_after_update",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-mercadopago.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "_mp_installed_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/WoocommerceMercadoPago.php",
+                        "line": 317
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_mercadopago_subscriptions_admin_notices",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Hooks/Subscriptions.php",
+                        "line": 360
+                    },
+                    {
+                        "file": "src/Hooks/Subscriptions.php",
+                        "line": 371
+                    },
+                    {
+                        "file": "src/Hooks/Subscriptions.php",
+                        "line": 388
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "mp_credentials_expired_result",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/AbstractGateway.php",
+                        "line": 1229
+                    }
+                ]
+            },
+            {
+                "key": "mp_health_integrity_checked",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/HealthMonitor/FileIntegrityChecker.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "mp_health_integrity_metric_sent",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/HealthMonitor/FileIntegrityChecker.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "mp_health_script_checked",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/HealthMonitor/ScriptHealthMonitor.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "mp_health_script_metric_sent",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/HealthMonitor/ScriptHealthMonitor.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "mp_subscription_card_change_inconsistencies",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CustomGateway.php",
+                        "line": 567
+                    }
+                ]
+            },
+            {
+                "key": "mp_subscriptions_save_result_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CustomGateway.php",
+                        "line": 1082
+                    },
+                    {
+                        "file": "src/Gateways/CustomGateway.php",
+                        "line": 1123
+                    },
+                    {
+                        "file": "src/Gateways/CustomGateway.php",
+                        "line": 1155
+                    },
+                    {
+                        "file": "src/Gateways/CustomGateway.php",
+                        "line": 1163
+                    }
+                ]
+            },
+            {
+                "key": "mp_wcs_pm_error_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CustomGateway.php",
+                        "line": 620
+                    }
+                ]
+            },
+            {
+                "key": "mp_wcs_pm_success_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CustomGateway.php",
+                        "line": 424
+                    },
+                    {
+                        "file": "src/Gateways/CustomGateway.php",
+                        "line": 477
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "sha1($key)",
+            "file": "src/Helpers/Cache.php",
+            "line": 34
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook",
+            "file": "src/Helpers/Cron.php",
+            "line": 66
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "src/Hooks/Options.php",
+            "line": 49
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cornerstone",
+        "name": "Cornerstone",
+        "version": "0.8.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 16,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 0,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.25
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "permastruct_old",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class.structure.php",
+                        "line": 172
+                    },
+                    {
+                        "file": "includes/class.structure.php",
+                        "line": 234
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "register_post_type",
+            "expression": "$ct->id",
+            "file": "includes/class.content_utilities.php",
+            "line": 189
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->get_fields_meta_key()",
+            "file": "includes/class.content_utilities.php",
+            "line": 983
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->get_type_meta_key()",
+            "file": "includes/class.content_utilities.php",
+            "line": 993
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->get_parent_meta_key()",
+            "file": "includes/class.structure.php",
+            "line": 513
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class.utilities.php",
+            "line": 410
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class.utilities.php",
+            "line": 424
+        }
+    ]
+}

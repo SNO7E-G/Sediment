@@ -1,0 +1,285 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "getpaid-stripe-payments",
+        "name": "GetPaid Stripe Payments",
+        "version": "2.3.25",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:21Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 6,
+    "coverage": {
+        "files_scanned": 27,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 16,
+        "resolved": 0,
+        "pattern": 6,
+        "dynamic": 6,
+        "resolution_rate": 0.571
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "getpaid_stripe_migrated_keys",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-admin.php",
+                        "line": 416
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "uninstall.php",
+                        "line": 41
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_stripe_redirected_to_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-gateway.php",
+                        "line": 1510
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "getpaid_stripe_checkout_session_id_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-session.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_stripe_checkout_session_url_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-session.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_stripe_setup_intent_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-setup-intent.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_stripe_setup_intent_secret_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-setup-intent.php",
+                        "line": 63
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_gp_stripe_charge_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-ipn-handler.php",
+                        "line": 284
+                    }
+                ]
+            },
+            {
+                "key": "_gp_stripe_intent_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-gateway.php",
+                        "line": 1542
+                    },
+                    {
+                        "file": "includes/class-getpaid-stripe-ipn-handler.php",
+                        "line": 283
+                    }
+                ]
+            },
+            {
+                "key": "_gp_stripe_intent_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-gateway.php",
+                        "line": 407
+                    }
+                ]
+            },
+            {
+                "key": "_gp_stripe_process_intent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-gateway.php",
+                        "line": 331
+                    }
+                ]
+            },
+            {
+                "key": "_gp_stripe_refund_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-ipn-handler.php",
+                        "line": 356
+                    },
+                    {
+                        "file": "includes/class-getpaid-stripe-ipn-handler.php",
+                        "line": 363
+                    }
+                ]
+            },
+            {
+                "key": "getpaid_stripe_payment_profile_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-gateway.php",
+                        "line": 463
+                    },
+                    {
+                        "file": "includes/class-getpaid-stripe-gateway.php",
+                        "line": 598
+                    },
+                    {
+                        "file": "includes/class-getpaid-stripe-ipn-handler.php",
+                        "line": 526
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_associated_stripe_invoice_item",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-subscription.php",
+                        "line": 221
+                    }
+                ]
+            },
+            {
+                "key": "wpinv_stripe_intent_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-getpaid-stripe-gateway.php",
+                        "line": 406
+                    },
+                    {
+                        "file": "includes/class-getpaid-stripe-ipn-handler.php",
+                        "line": 565
+                    },
+                    {
+                        "file": "includes/class-getpaid-stripe-payment-intent.php",
+                        "line": 183
+                    },
+                    {
+                        "file": "includes/class-getpaid-stripe-subscription.php",
+                        "line": 359
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$this->get_customer_profile_meta_key()",
+            "file": "includes/class-getpaid-stripe-customer.php",
+            "line": 222
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$product->get_item_profile_meta_name()",
+            "file": "includes/class-getpaid-stripe-gateway.php",
+            "line": 634
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$product->get_item_profile_meta_name()",
+            "file": "includes/class-getpaid-stripe-gateway.php",
+            "line": 700
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/class-getpaid-stripe-gateway.php",
+            "line": 1069
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/class-getpaid-stripe-gateway.php",
+            "line": 1076
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$product->get_item_profile_meta_name()",
+            "file": "includes/class-getpaid-stripe-session.php",
+            "line": 105
+        }
+    ]
+}

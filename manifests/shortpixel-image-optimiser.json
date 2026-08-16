@@ -1,0 +1,288 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "shortpixel-image-optimiser",
+        "name": "ShortPixel Image Optimizer",
+        "version": "6.5.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:09Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 165,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 12,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.679
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "shortpixel-bulk-logs",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Controller/BulkController.php",
+                        "line": 300
+                    }
+                ]
+            },
+            {
+                "key": "spio_key",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Model/ApiKeyModel.php",
+                        "line": 200
+                    }
+                ]
+            },
+            {
+                "key": "wp-short-pixel-activation-date",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Model/SettingsModel.php",
+                        "line": 310
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "spio-refresh-dir",
+                "recurrence": "spio_interval_30min",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Controller/CronController.php",
+                        "line": 163
+                    }
+                ]
+            },
+            {
+                "key": "spio-remove-backups",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Controller/CronController.php",
+                        "line": 182
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "shortpixel_remote_notice",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Controller/AdminNoticesController.php",
+                        "line": 461
+                    },
+                    {
+                        "file": "class/Controller/AdminNoticesController.php",
+                        "line": 466
+                    }
+                ]
+            },
+            {
+                "key": "spio_ai_jwt_token",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Controller/Api/AiController.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "spio_settings_ai_example",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Controller/AjaxController.php",
+                        "line": 1291
+                    }
+                ]
+            },
+            {
+                "key": "spio_settings_ai_example_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Controller/AjaxController.php",
+                        "line": 1290
+                    },
+                    {
+                        "file": "class/Controller/AjaxController.php",
+                        "line": 1391
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_shortpixel_prevent_optimize",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Model/Image/MediaLibraryModel.php",
+                        "line": 1792
+                    }
+                ]
+            },
+            {
+                "key": "_shortpixel_was_converted",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Model/Image/MediaLibraryModel.php",
+                        "line": 2676
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Model/AiDataModel.php",
+                        "line": 459
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_metadata",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Model/Image/MediaLibraryModel.php",
+                        "line": 821
+                    },
+                    {
+                        "file": "class/Model/Image/MediaLibraryModel.php",
+                        "line": 838
+                    },
+                    {
+                        "file": "class/Model/Image/MediaLibraryModel.php",
+                        "line": 2119
+                    },
+                    {
+                        "file": "class/Model/Image/MediaLibraryModel.php",
+                        "line": 2134
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "wp_media_library_mode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Model/EnvironmentModel.php",
+                        "line": 338
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "class/Controller/AdminNoticesController.php",
+            "line": 515
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$options['cron_name']",
+            "file": "class/Controller/CronController.php",
+            "line": 229
+        },
+        {
+            "function": "dbDelta",
+            "expression": "self::getFolderTableSQL()",
+            "file": "class/Helper/InstallHelper.php",
+            "line": 244
+        },
+        {
+            "function": "dbDelta",
+            "expression": "self::getMetaTableSQL()",
+            "file": "class/Helper/InstallHelper.php",
+            "line": 245
+        },
+        {
+            "function": "dbDelta",
+            "expression": "self::getPostMetaSQL()",
+            "file": "class/Helper/InstallHelper.php",
+            "line": 246
+        },
+        {
+            "function": "dbDelta",
+            "expression": "self::getAIPostSQL()",
+            "file": "class/Helper/InstallHelper.php",
+            "line": 247
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->name",
+            "file": "class/Model/CacheModel.php",
+            "line": 110
+        },
+        {
+            "function": "mkdir",
+            "expression": "$this->path",
+            "file": "class/Model/File/DirectoryModel.php",
+            "line": 288
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "class/Model/SettingsModel.php",
+            "line": 151
+        }
+    ]
+}

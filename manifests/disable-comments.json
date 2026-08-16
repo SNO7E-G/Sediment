@@ -1,0 +1,217 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "disable-comments",
+        "name": "Disable Comments",
+        "version": "2.8.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:14Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 56,
+    "coverage": {
+        "files_scanned": 13,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 10,
+        "resolved": 0,
+        "pattern": 4,
+        "dynamic": 5,
+        "resolution_rate": 0.526
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "disable_comment_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "disable-comments.php",
+                        "line": 318
+                    }
+                ]
+            },
+            {
+                "key": "disable_comments_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "disable-comments.php",
+                        "line": 324
+                    },
+                    {
+                        "file": "disable-comments.php",
+                        "line": 326
+                    }
+                ]
+            },
+            {
+                "key": "disable_comments_sitewide_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "disable-comments.php",
+                        "line": 1644
+                    }
+                ]
+            },
+            {
+                "key": "show_avatars",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "disable-comments.php",
+                        "line": 314
+                    },
+                    {
+                        "file": "disable-comments.php",
+                        "line": 1656
+                    },
+                    {
+                        "file": "disable-comments.php",
+                        "line": 1661
+                    }
+                ]
+            },
+            {
+                "key": "wpins_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-plugin-usage-tracker.php",
+                        "line": 489
+                    },
+                    {
+                        "file": "includes/class-plugin-usage-tracker.php",
+                        "line": 490
+                    }
+                ]
+            },
+            {
+                "key": "wpins_allow_tracking",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-plugin-usage-tracker.php",
+                        "line": 293
+                    }
+                ]
+            },
+            {
+                "key": "wpins_block_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-plugin-usage-tracker.php",
+                        "line": 738
+                    }
+                ]
+            },
+            {
+                "key": "wpins_deactivation_details_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-plugin-usage-tracker.php",
+                        "line": 752
+                    }
+                ]
+            },
+            {
+                "key": "wpins_deactivation_reason_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-plugin-usage-tracker.php",
+                        "line": 748
+                    }
+                ]
+            },
+            {
+                "key": "wpins_last_track_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-plugin-usage-tracker.php",
+                        "line": 331
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->event_hook",
+            "file": "includes/class-plugin-usage-tracker.php",
+            "line": 105
+        },
+        {
+            "function": "update_option",
+            "expression": "$site_id_key",
+            "file": "includes/class-plugin-usage-tracker.php",
+            "line": 488
+        },
+        {
+            "function": "update_option",
+            "expression": "$site_id_data_key",
+            "file": "includes/class-plugin-usage-tracker.php",
+            "line": 521
+        },
+        {
+            "function": "update_option",
+            "expression": "$site_id_data_failed_key",
+            "file": "includes/class-plugin-usage-tracker.php",
+            "line": 535
+        },
+        {
+            "function": "update_option",
+            "expression": "$site_id_data_key",
+            "file": "includes/class-plugin-usage-tracker.php",
+            "line": 538
+        }
+    ]
+}

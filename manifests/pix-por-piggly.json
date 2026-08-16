@@ -1,0 +1,265 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "pix-por-piggly",
+        "name": "Pix por Piggly (para Woocommerce)",
+        "version": "2.1.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:29Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 19,
+    "coverage": {
+        "files_scanned": 301,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 14,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 11,
+        "resolution_rate": 0.607
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wc_piggly_pix_counter",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Core/Entities/PixEntity.php",
+                        "line": 1271
+                    }
+                ]
+            },
+            {
+                "key": "wc_piggly_pix_dbversion",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Upgrade/VersionUpgrader.php",
+                        "line": 134
+                    },
+                    {
+                        "file": "src/WP/Activator.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "src/WP/Upgrader.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "src/WP/Upgrader.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "wc_piggly_pix_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Upgrade/VersionUpgrader.php",
+                        "line": 223
+                    }
+                ]
+            },
+            {
+                "key": "wc_piggly_pix_upgrader",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Upgrade/VersionUpgrader.php",
+                        "line": 135
+                    },
+                    {
+                        "file": "src/Upgrade/VersionUpgrader.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "wc_piggly_pix_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Upgrade/VersionUpgrader.php",
+                        "line": 153
+                    },
+                    {
+                        "file": "src/WP/Upgrader.php",
+                        "line": 64
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}pgly_pix",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Upgrade/VersionUpgrader.php",
+                        "line": 276
+                    },
+                    {
+                        "file": "src/WP/Activator.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "src/WP/Upgrader.php",
+                        "line": 138
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "pgly_cron_wc_piggly_pix_processing",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/WP/Cron.php",
+                        "line": 169
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_payment_method_title",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Core/Discount.php",
+                        "line": 175
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "pgly-pix-payment",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Core/Endpoints.php",
+                        "line": 59
+                    }
+                ]
+            },
+            {
+                "key": "pgly-pix-receipt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Core/Endpoints.php",
+                        "line": 60
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "libs/monolog/monolog/src/Monolog/Handler/StreamHandler.php",
+            "line": 192
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\Piggly\\WooPixGateway\\Vendor\\Piggly\\Wordpress\\Core::getPlugin()->getNotices()",
+            "file": "libs/piggly/wordpress-starter-kit/src/Notices/Entities/Notice.php",
+            "line": 122
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\Piggly\\WooPixGateway\\Vendor\\Piggly\\Wordpress\\Core::getPlugin()->getNotices()",
+            "file": "libs/piggly/wordpress-starter-kit/src/Notices/Manager.php",
+            "line": 62
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->_option",
+            "file": "libs/piggly/wordpress-starter-kit/src/Settings/Manager.php",
+            "line": 95
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "src/Core.php",
+            "line": 209
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$uploadPath",
+            "file": "src/Core/Processors/QrCodeProcessor.php",
+            "line": 85
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$uploadPath",
+            "file": "src/Core/Processors/ReceiptProcessor.php",
+            "line": 129
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$PATH",
+            "file": "src/WP/Activator.php",
+            "line": 144
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$PATH",
+            "file": "src/WP/Activator.php",
+            "line": 165
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$PATH",
+            "file": "src/WP/Upgrader.php",
+            "line": 184
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$PATH",
+            "file": "src/WP/Upgrader.php",
+            "line": 205
+        }
+    ]
+}

@@ -1,0 +1,282 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "fluent-booking",
+        "name": "FluentBooking - Appointment Scheduling & Booking Solution",
+        "version": "2.2.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:46Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 296,
+        "files_skipped": 0,
+        "write_calls_found": 27,
+        "verified": 16,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_fluent_booking_enabled_modules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Helper.php",
+                        "line": 2266
+                    }
+                ]
+            },
+            {
+                "key": "_fluent_booking_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Http/Controllers/SettingsController.php",
+                        "line": 113
+                    },
+                    {
+                        "file": "app/Http/Controllers/SettingsController.php",
+                        "line": 152
+                    }
+                ]
+            },
+            {
+                "key": "fcom_last_summary_email_send",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/SummaryReportService.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "fluent_booking_db_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/ActivationHandler.php",
+                        "line": 25
+                    },
+                    {
+                        "file": "boot/app.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "fluent_booking_global_payment_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Http/Controllers/SettingsController.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "fluent_booking_modules",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Http/Controllers/SettingsController.php",
+                        "line": 256
+                    },
+                    {
+                        "file": "app/Services/Helper.php",
+                        "line": 2324
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "fluent_booking/after_booking_pending_async",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/NotificationHandler.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "fluent_booking/after_booking_scheduled_async",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/NotificationHandler.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "app/Hooks/Handlers/NotificationHandler.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "fluent_booking/booking_schedule_reminder",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/NotificationHandler.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "fluent_booking/daily_tasks",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/ActivationHandler.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "fluent_booking/handle_global_notification_background",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/GlobalNotificationHandler.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "fluent_booking/run_booking_integrations_for_scheduled",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/IntegrationHandlers.php",
+                        "line": 18
+                    }
+                ]
+            },
+            {
+                "key": "fluent_booking_five_minutes_tasks",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/ActivationHandler.php",
+                        "line": 35
+                    },
+                    {
+                        "file": "app/Hooks/Handlers/AdminMenuHandler.php",
+                        "line": 95
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "app/Services/Helper.php",
+            "line": 2385
+        },
+        {
+            "function": "mkdir",
+            "expression": "$param['path']",
+            "file": "app/Services/Libs/FileSystem.php",
+            "line": 123
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/BookingActivityMigrator.php",
+            "line": 41
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/BookingHostMigrator.php",
+            "line": 33
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/BookingMetaMigrator.php",
+            "line": 37
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/BookingMigrator.php",
+            "line": 74
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/CalendarMigrator.php",
+            "line": 50
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/CalendarSlotsMigrator.php",
+            "line": 53
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/MetaMigrator.php",
+            "line": 39
+        }
+    ]
+}

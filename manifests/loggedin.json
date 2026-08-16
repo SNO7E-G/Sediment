@@ -1,0 +1,106 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "loggedin",
+        "name": "Loggedin - Session Manager, Limit Concurrent Logins & Force Logout",
+        "version": "3.1.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:19Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 20,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 2,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "loggedin_review_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/setup/class-upgrader.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "loggedin_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/setup/class-settings.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "includes/setup/class-upgrader.php",
+                        "line": 184
+                    }
+                ]
+            },
+            {
+                "key": "loggedin_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/setup/class-upgrader.php",
+                        "line": 78
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "session_tokens",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/cli/class-sessions-command.php",
+                        "line": 305
+                    },
+                    {
+                        "file": "includes/front/class-session-guard.php",
+                        "line": 198
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

@@ -1,0 +1,100 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "blocks-for-shopengine",
+        "name": "Blocks for ShopEngine - Woocommerce Builder",
+        "version": "2.4.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:24Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 113,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 2,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "gutenova_css",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "gutenova/BlockManager.php",
+                        "line": 261
+                    }
+                ]
+            },
+            {
+                "key": "gutenova_font_link",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "gutenova/BlockManager.php",
+                        "line": 262
+                    }
+                ]
+            },
+            {
+                "key": "shopengine_product_views_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 167
+                    },
+                    {
+                        "file": "plugin.php",
+                        "line": 169
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$notice_id",
+            "file": "libs/notice/notice.php",
+            "line": 383
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice_id",
+            "file": "libs/notice/notice.php",
+            "line": 385
+        }
+    ]
+}

@@ -1,0 +1,231 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "simple-google-analytics",
+        "name": "Webcraftic Local Google Analytics",
+        "version": "3.2.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 62,
+    "coverage": {
+        "files_scanned": 153,
+        "files_skipped": 0,
+        "write_calls_found": 26,
+        "verified": 8,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 18,
+        "resolution_rate": 0.308
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "factory_plugin_versions",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/core/includes/class-factory-migrations.php",
+                        "line": 405
+                    },
+                    {
+                        "file": "libs/factory/core/includes/class-factory-migrations.php",
+                        "line": 415
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wbcr/gac/update_analytic_library",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/activation.php",
+                        "line": 31
+                    },
+                    {
+                        "file": "admin/boot.php",
+                        "line": 41
+                    },
+                    {
+                        "file": "migrations/030002.php",
+                        "line": 21
+                    }
+                ]
+            },
+            {
+                "key": "wclearfy/google_tracking_cache_update",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/class-scheduler.php",
+                        "line": 138
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wbcr_factory_google_fonts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/forms/controls/google-font.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_factory_google_fonts_raw",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/forms/controls/google-font.php",
+                        "line": 141
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->busting_path",
+            "file": "includes/classes/class-abstract-cache.php",
+            "line": 432
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->busting_path",
+            "file": "includes/classes/class-facebook-cache.php",
+            "line": 567
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->busting_path",
+            "file": "includes/classes/class-facebook-sdk.php",
+            "line": 242
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cache_dir",
+            "file": "includes/update-local-ga.php",
+            "line": 25
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "libs/factory/adverts/includes/class-rest-request.php",
+            "line": 150
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "libs/factory/adverts/includes/class-rest-request.php",
+            "line": 158
+        },
+        {
+            "function": "mkdir",
+            "expression": "$cache_dir_path",
+            "file": "libs/factory/bootstrap/includes/functions.php",
+            "line": 179
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_activated')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 198
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 199
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_activated')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 201
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 202
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_migration_error')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 372
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_migration_error')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 376
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 406
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 416
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->getPrefix() . $option_name",
+            "file": "libs/factory/core/includes/class-factory-options.php",
+            "line": 280
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . $option_name",
+            "file": "libs/factory/core/includes/class-factory-options.php",
+            "line": 307
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "\"{$this->plugin->getPluginName()}_license_autosync\"",
+            "file": "libs/factory/core/includes/premium/class-factory-provider-abstract.php",
+            "line": 202
+        }
+    ]
+}

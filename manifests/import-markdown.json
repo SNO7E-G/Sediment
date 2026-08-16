@@ -1,0 +1,109 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "import-markdown",
+        "name": "Import Markdown",
+        "version": "1.15",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:46Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 15,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.375
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "daimma_dismissible_notice_a",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "shared/class-daimma-shared.php",
+                        "line": 1660
+                    },
+                    {
+                        "file": "shared/class-daimma-shared.php",
+                        "line": 1715
+                    }
+                ]
+            },
+            {
+                "key": "daimma_options_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-daimma-admin.php",
+                        "line": 505
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$key",
+            "file": "admin/class-daimma-admin.php",
+            "line": 501
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "admin/class-daimma-admin.php",
+            "line": 542
+        },
+        {
+            "function": "update_option",
+            "expression": "$shared->get('slug') . '_database_version'",
+            "file": "admin/class-daimma-admin.php",
+            "line": 545
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "inc/class-daimma-rest.php",
+            "line": 183
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "shared/class-daimma-shared.php",
+            "line": 2083
+        }
+    ]
+}

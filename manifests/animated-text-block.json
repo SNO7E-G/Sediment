@@ -1,0 +1,131 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "animated-text-block",
+        "name": "Animated Text Block",
+        "version": "1.2.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:41Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 61,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 7,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.818
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "atbDeleteDataOnUninstall",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 264
+                    }
+                ]
+            },
+            {
+                "key": "fs_lite_accounts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius-lite/inc/Base/FSActivate.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "freemius-lite/inc/Base/FSActivate.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "freemius-lite/inc/Base/FSActivate.php",
+                        "line": 313
+                    },
+                    {
+                        "file": "freemius-lite/inc/Base/FS_Lite.php",
+                        "line": 100
+                    },
+                    {
+                        "file": "freemius-lite/inc/Base/Freemius_Lite.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "freemius-lite/inc/Base/Freemius_Lite.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "unique_id",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius-lite/inc/Base/FS_Lite.php",
+                        "line": 62
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "animated-text-block",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 159
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "\"{$this->prefix}-redirect\"",
+            "file": "freemius-lite/inc/Base/FSActivate.php",
+            "line": 256
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->prefix}-redirect\"",
+            "file": "freemius-lite/inc/Base/FSActivate.php",
+            "line": 285
+        }
+    ]
+}

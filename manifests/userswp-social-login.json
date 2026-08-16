@@ -1,0 +1,236 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "userswp-social-login",
+        "name": "UsersWP - Social Login",
+        "version": "1.5.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 19,
+        "files_skipped": 0,
+        "write_calls_found": 18,
+        "verified": 16,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.889
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "uwp_settings",
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "uwp-social-authuri-notice-dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-uwp-social.php",
+                        "line": 246
+                    }
+                ]
+            },
+            {
+                "key": "uwp_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "uninstall.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "uwp_social_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/activator.php",
+                        "line": 80
+                    },
+                    {
+                        "file": "includes/class-uwp-social.php",
+                        "line": 104
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "_uwp_social_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/activator.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "uwp_social_profile_incomplete_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-uwp-social.php",
+                        "line": 322
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "_uwp_register_form_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-uwp-social.php",
+                        "line": 492
+                    },
+                    {
+                        "file": "includes/class-uwp-social.php",
+                        "line": 495
+                    }
+                ]
+            },
+            {
+                "key": "first_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/social.php",
+                        "line": 446
+                    }
+                ]
+            },
+            {
+                "key": "is_uwp_social_login",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/social.php",
+                        "line": 448
+                    }
+                ]
+            },
+            {
+                "key": "is_uwp_social_login_no_password",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/social.php",
+                        "line": 449
+                    }
+                ]
+            },
+            {
+                "key": "last_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/social.php",
+                        "line": 447
+                    }
+                ]
+            },
+            {
+                "key": "uwp_current_provider",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/social.php",
+                        "line": 514
+                    }
+                ]
+            },
+            {
+                "key": "uwp_mod",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/social.php",
+                        "line": 453
+                    }
+                ]
+            },
+            {
+                "key": "uwp_social_login_provider",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/social.php",
+                        "line": 450
+                    }
+                ]
+            },
+            {
+                "key": "uwp_social_user_image",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/social.php",
+                        "line": 521
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "^uwphauth/([^/]*)/?",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/social.php",
+                        "line": 16
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$social_profiles",
+            "file": "includes/activator.php",
+            "line": 78
+        }
+    ]
+}

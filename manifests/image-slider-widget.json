@@ -1,0 +1,179 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "image-slider-widget",
+        "name": "Image Slider (Lite)",
+        "version": "1.1.127",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:37Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 23,
+    "coverage": {
+        "files_scanned": 17,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 10,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.714
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "activatedewic",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "easy-slider-widget-lite.php",
+                        "line": 335
+                    }
+                ]
+            },
+            {
+                "key": "ewic-settings-automatic_update",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "easy-slider-widget-lite.php",
+                        "line": 364
+                    },
+                    {
+                        "file": "inc/functions/ewic-functions.php",
+                        "line": 163
+                    },
+                    {
+                        "file": "inc/functions/ewic-functions.php",
+                        "line": 313
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "ewic_auto_update",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "easy-slider-widget-lite.php",
+                        "line": 352
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "easysliderwidget_featured_feed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/pages/ewic-featured.php",
+                        "line": 12
+                    }
+                ]
+            },
+            {
+                "key": "ewiclite_whats_new",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/functions/ewic-functions.php",
+                        "line": 345
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "ewic_meta_select_images",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/functions/ewic-functions.php",
+                        "line": 98
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "ewic_ignore_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/ewic-notice.php",
+                        "line": 40
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "easyimageslider",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "easy-slider-widget-lite.php",
+                        "line": 218
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "inc/ewic-metaboxes.php",
+            "line": 583
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "inc/functions/ewic-functions.php",
+            "line": 426
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "inc/pages/ewic-freeplugins.php",
+            "line": 31
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "inc/pages/ewic-freethemes.php",
+            "line": 95
+        }
+    ]
+}

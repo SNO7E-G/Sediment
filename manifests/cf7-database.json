@@ -1,0 +1,133 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cf7-database",
+        "name": "Contact Form 7 Database Lite",
+        "version": "3.0.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:16Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 6,
+        "dynamic": 3,
+        "resolution_rate": 0.182
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cf7d_settings_field_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/Ajax.php",
+                        "line": 401
+                    },
+                    {
+                        "file": "admin/Ajax.php",
+                        "line": 402
+                    }
+                ]
+            },
+            {
+                "key": "cf7d_settings_nav_table*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/Ajax.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "admin/Ajax.php",
+                        "line": 358
+                    },
+                    {
+                        "file": "admin/Ajax.php",
+                        "line": 359
+                    },
+                    {
+                        "file": "admin/init.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "cf7db_review_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/Ajax.php",
+                        "line": 477
+                    }
+                ]
+            },
+            {
+                "key": "cf7db_user_reviewed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/Ajax.php",
+                        "line": 476
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "cf7-database.php",
+            "line": 100
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "cf7-database.php",
+            "line": 114
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir_upload",
+            "file": "frontend/save-files.php",
+            "line": 14
+        }
+    ]
+}

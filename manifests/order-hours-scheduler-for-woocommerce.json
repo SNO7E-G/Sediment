@@ -1,0 +1,174 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "order-hours-scheduler-for-woocommerce",
+        "name": "Store Order Hours Manager for WooCommerce",
+        "version": "4.3.24",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:37Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 37,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 5,
+        "dynamic": 8,
+        "resolution_rate": 0.235
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "zhours_cache_clear_close",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions.php",
+                        "line": 245
+                    },
+                    {
+                        "file": "functions.php",
+                        "line": 252
+                    }
+                ]
+            },
+            {
+                "key": "zhours_cache_clear_open",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions.php",
+                        "line": 240
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "zhours_manage_options",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/setting.php",
+                        "line": 23
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "%*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Aspect/Template.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "^*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Aspect/Template.php",
+                        "line": 41
+                    },
+                    {
+                        "file": "includes/Aspect/Template.php",
+                        "line": 43
+                    },
+                    {
+                        "file": "includes/Aspect/Template.php",
+                        "line": 47
+                    },
+                    {
+                        "file": "includes/Aspect/Template.php",
+                        "line": 49
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$key_name",
+            "file": "includes/Aspect/Box.php",
+            "line": 63
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$key_name",
+            "file": "includes/Aspect/Box.php",
+            "line": 78
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$name",
+            "file": "includes/Aspect/Taxonomy.php",
+            "line": 87
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$meta_key",
+            "file": "includes/Aspect/Taxonomy.php",
+            "line": 151
+        },
+        {
+            "function": "update_metadata",
+            "expression": "$meta_key",
+            "file": "includes/Aspect/Taxonomy.php",
+            "line": 152
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "$meta_key",
+            "file": "includes/Aspect/Taxonomy.php",
+            "line": 157
+        },
+        {
+            "function": "add_metadata",
+            "expression": "$meta_key",
+            "file": "includes/Aspect/Taxonomy.php",
+            "line": 158
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$name",
+            "file": "includes/Aspect/Type.php",
+            "line": 109
+        }
+    ]
+}

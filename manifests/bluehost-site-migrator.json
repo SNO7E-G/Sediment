@@ -1,0 +1,154 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "bluehost-site-migrator",
+        "name": "Bluehost Site Migrator",
+        "version": "1.0.14",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:50Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 27,
+    "coverage": {
+        "files_scanned": 34,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 6,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.889
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bh_site_migration_country_code",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-rest-can-we-migrate-controller.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "bh_site_migration_geo_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-rest-can-we-migrate-controller.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "bh_site_migration_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-migration-checks.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "bh_site_migration_region_urls",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-migration-checks.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "bh_site_migration_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-migration-checks.php",
+                        "line": 100
+                    }
+                ]
+            },
+            {
+                "key": "bluehost_site_migrator",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-options.php",
+                        "line": 89
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "bluehost_site_migrator_purge_migration_packages",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-scheduled-events.php",
+                        "line": 20
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "bluehost_site_migrator_can_migrate",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-migration-checks.php",
+                        "line": 101
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$directory",
+            "file": "includes/class-utilities.php",
+            "line": 20
+        }
+    ]
+}

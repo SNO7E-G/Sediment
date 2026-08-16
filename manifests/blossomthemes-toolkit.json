@@ -1,0 +1,119 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "blossomthemes-toolkit",
+        "name": "BlossomThemes Toolkit",
+        "version": "2.2.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 40,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 6,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bttk_queue_flush_rewrite_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-blossomthemes-toolkit-admin.php",
+                        "line": 476
+                    },
+                    {
+                        "file": "includes/class-blossomthemes-toolkit-activator.php",
+                        "line": 33
+                    },
+                    {
+                        "file": "includes/class-blossomthemes-toolkit-deactivator.php",
+                        "line": 33
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_bttk_view_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/widgets/widget-popular-post.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "includes/widgets/widget-popular-post.php",
+                        "line": 54
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [
+            {
+                "key": "category-image-id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-blossomthemes-toolkit-admin.php",
+                        "line": 240
+                    },
+                    {
+                        "file": "admin/class-blossomthemes-toolkit-admin.php",
+                        "line": 277
+                    },
+                    {
+                        "file": "admin/class-blossomthemes-toolkit-admin.php",
+                        "line": 279
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "register_post_type",
+            "expression": "$key",
+            "file": "admin/class-blossomthemes-toolkit-admin.php",
+            "line": 474
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$value['taxonomy']",
+            "file": "admin/class-blossomthemes-toolkit-admin.php",
+            "line": 516
+        }
+    ]
+}

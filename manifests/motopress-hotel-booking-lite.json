@@ -1,0 +1,1358 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "motopress-hotel-booking-lite",
+        "name": "Hotel Booking Lite",
+        "version": "6.2.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:29Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 889,
+        "files_skipped": 0,
+        "write_calls_found": 145,
+        "verified": 66,
+        "resolved": 37,
+        "pattern": 6,
+        "dynamic": 36,
+        "resolution_rate": 0.71
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "MPHB_cache_data_prefix",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/abstract-core-api-facade.php",
+                        "line": 41
+                    },
+                    {
+                        "file": "includes/core/abstract-core-api-facade.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_wp_session_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libraries/wp-session-manager/class-wp-session.php",
+                        "line": 187
+                    },
+                    {
+                        "file": "includes/libraries/wp-session-manager/class-wp-session.php",
+                        "line": 191
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_wp_session_expires_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libraries/wp-session-manager/class-wp-session.php",
+                        "line": 97
+                    },
+                    {
+                        "file": "includes/libraries/wp-session-manager/class-wp-session.php",
+                        "line": 188
+                    }
+                ]
+            },
+            {
+                "key": "mphb_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 541
+                    }
+                ]
+            },
+            {
+                "key": "mphb_booking_cancellation_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/page-settings.php",
+                        "line": 289
+                    }
+                ]
+            },
+            {
+                "key": "mphb_booking_confirmation_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/page-settings.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "mphb_booking_rules_custom",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 1110
+                    },
+                    {
+                        "file": "includes/upgrades/background-booking-upgrader-2-3-0.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "mphb_checkout_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/page-settings.php",
+                        "line": 233
+                    }
+                ]
+            },
+            {
+                "key": "mphb_custom_roles_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 1818
+                    }
+                ]
+            },
+            {
+                "key": "mphb_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 889
+                    }
+                ]
+            },
+            {
+                "key": "mphb_db_version_history",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 933
+                    }
+                ]
+            },
+            {
+                "key": "mphb_email_from_email",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 597
+                    }
+                ]
+            },
+            {
+                "key": "mphb_email_hotel_admin_email",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 596
+                    }
+                ]
+            },
+            {
+                "key": "mphb_enable_coupons",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/manage-cpt-pages/coupon-manage-cpt-page.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "mphb_gh_attention_required",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/menu-pages/google-hotels-menu-page.php",
+                        "line": 190
+                    },
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 1258
+                    }
+                ]
+            },
+            {
+                "key": "mphb_google_hotels_integration_on",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/main-settings.php",
+                        "line": 672
+                    }
+                ]
+            },
+            {
+                "key": "mphb_google_hotels_server_id",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/crons/sync-google-hotels-data-cron.php",
+                        "line": 291
+                    }
+                ]
+            },
+            {
+                "key": "mphb_last_known_extensions",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/menu-pages/extensions-menu-page.php",
+                        "line": 59
+                    }
+                ]
+            },
+            {
+                "key": "mphb_license_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/license-settings.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "mphb_license_status",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/license-settings.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "mphb_my_account_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/page-settings.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "mphb_passed_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/notices.php",
+                        "line": 120
+                    },
+                    {
+                        "file": "includes/notices.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "mphb_payment_failed_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/page-settings.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "mphb_payment_success_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/page-settings.php",
+                        "line": 269
+                    }
+                ]
+            },
+            {
+                "key": "mphb_registered_attributes",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/attributes-cpt.php",
+                        "line": 623
+                    }
+                ]
+            },
+            {
+                "key": "mphb_scheduled_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 912
+                    }
+                ]
+            },
+            {
+                "key": "mphb_search_results_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/page-settings.php",
+                        "line": 242
+                    }
+                ]
+            },
+            {
+                "key": "mphb_sync_google_hotels_state",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/crons/sync-google-hotels-data-cron.php",
+                        "line": 238
+                    }
+                ]
+            },
+            {
+                "key": "mphb_upgrade_queue_size",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 964
+                    }
+                ]
+            },
+            {
+                "key": "mphb_user_cancel_redirect_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/page-settings.php",
+                        "line": 260
+                    },
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 947
+                    }
+                ]
+            },
+            {
+                "key": "mphb_wizard_passed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wizard.php",
+                        "line": 242
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "IF",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/repositories/blocks-repository.php",
+                        "line": 25
+                    },
+                    {
+                        "file": "includes/repositories/custom-booking-rules-repository.php",
+                        "line": 22
+                    },
+                    {
+                        "file": "includes/repositories/custom-prices-repository.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}mphb_api_keys",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 768
+                    },
+                    {
+                        "file": "plugin.php",
+                        "line": 1476
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}mphb_customers",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 821
+                    },
+                    {
+                        "file": "plugin.php",
+                        "line": 1474
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}mphb_customers_meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 822
+                    },
+                    {
+                        "file": "plugin.php",
+                        "line": 1475
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}mphb_sync_logs",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 1473
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}mphb_sync_queue",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 1471
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}mphb_sync_stats",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 1472
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}mphb_sync_urls",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 652
+                    },
+                    {
+                        "file": "plugin.php",
+                        "line": 1470
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "mphb_wp_session_garbage_collection",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libraries/wp-session-manager/wp-session.php",
+                        "line": 180
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "mpghp_syncGoogleHotelsData_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/crons/sync-google-hotels-data-cron.php",
+                        "line": 253
+                    }
+                ]
+            },
+            {
+                "key": "mphb_extensions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/menu-pages/extensions-menu-page.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "mphb_sync_google_hotels_verification_token",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/crons/sync-google-hotels-data-cron.php",
+                        "line": 305
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libraries/edd-plugin-updater/edd-plugin-updater.php",
+                        "line": 192
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_mphb_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/metaboxes/payment-authed-funds-metabox.php",
+                        "line": 163
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_authed_funds_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/metaboxes/payment-authed-funds-metabox.php",
+                        "line": 153
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_booking_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer.php",
+                        "line": 188
+                    },
+                    {
+                        "file": "includes/importer.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_booking_internal_notes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ajax-api/ajax-actions/update-booking-notes.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/gateways/paypal/ipn-listener.php",
+                        "line": 396
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_fee",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/gateways/paypal/ipn-listener.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_first_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/gateways/paypal/ipn-listener.php",
+                        "line": 399
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_include_room_types",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer.php",
+                        "line": 241
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_is_authorized",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/entities/payment.php",
+                        "line": 304
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/entities/payment.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_last_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/gateways/paypal/ipn-listener.php",
+                        "line": 402
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_logs",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/entities/payment.php",
+                        "line": 265
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_payment_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/gateways/paypal/ipn-listener.php",
+                        "line": 406
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_pending_expired",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/entities/payment.php",
+                        "line": 233
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_rate_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer.php",
+                        "line": 213
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_room_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 1025
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_room_discount_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 1022
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_uid",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrades/background-booking-upgrader-2-2-0.php",
+                        "line": 17
+                    }
+                ]
+            },
+            {
+                "key": "_mphb_wait_payment",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/entities/booking.php",
+                        "line": 676
+                    },
+                    {
+                        "file": "includes/importer.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "mphb_coupon_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer.php",
+                        "line": 175
+                    }
+                ]
+            },
+            {
+                "key": "mphb_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrades/background-booking-upgrader-4-2-0.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "mphb_gallery",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "mphb_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/entities/booking.php",
+                        "line": 268
+                    }
+                ]
+            },
+            {
+                "key": "mphb_pending_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/entities/booking.php",
+                        "line": 606
+                    }
+                ]
+            },
+            {
+                "key": "mphb_room_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer.php",
+                        "line": 152
+                    },
+                    {
+                        "file": "includes/importer.php",
+                        "line": 207
+                    }
+                ]
+            },
+            {
+                "key": "mphb_room_rate_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer.php",
+                        "line": 158
+                    }
+                ]
+            },
+            {
+                "key": "mphb_room_type_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "includes/importer.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "mphb_season_prices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 1097
+                    },
+                    {
+                        "file": "includes/upgrader.php",
+                        "line": 1173
+                    }
+                ]
+            },
+            {
+                "key": "mphb_services",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "includes/importer.php",
+                        "line": 169
+                    },
+                    {
+                        "file": "includes/importer.php",
+                        "line": 224
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "mphb_display_imported_bookings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/main-settings.php",
+                        "line": 627
+                    }
+                ]
+            },
+            {
+                "key": "mphb_export_columns",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/export-settings.php",
+                        "line": 30
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "mphb_booking",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/booking-cpt.php",
+                        "line": 275
+                    }
+                ]
+            },
+            {
+                "key": "mphb_coupon",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/coupon-cpt.php",
+                        "line": 317
+                    }
+                ]
+            },
+            {
+                "key": "mphb_payment",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/payment-cpt.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "mphb_rate",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/rate-cpt.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "mphb_reserved_room",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/reserved-room-cpt.php",
+                        "line": 41
+                    }
+                ]
+            },
+            {
+                "key": "mphb_room",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/room-cpt.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "mphb_room_attribute",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/attributes-cpt.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "mphb_room_service",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/service-cpt.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "mphb_room_type",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/room-type-cpt.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "mphb_season",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/season-cpt.php",
+                        "line": 129
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "mphb_room_type_category",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/room-type-cpt.php",
+                        "line": 155
+                    }
+                ]
+            },
+            {
+                "key": "mphb_room_type_facility",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/room-type-cpt.php",
+                        "line": 264
+                    }
+                ]
+            },
+            {
+                "key": "mphb_room_type_tag",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types/room-type-cpt.php",
+                        "line": 208
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "functions.php",
+            "line": 854
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "includes/admin/groups/meta-box-group.php",
+            "line": 216
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$name",
+            "file": "includes/admin/groups/meta-box-group.php",
+            "line": 222
+        },
+        {
+            "function": "update_option",
+            "expression": "$field->getName()",
+            "file": "includes/admin/groups/settings-group.php",
+            "line": 121
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/admin/menu-pages/booking-rules-menu-page.php",
+            "line": 601
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/admin/menu-pages/taxes-and-fees-menu-page.php",
+            "line": 118
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "includes/admin/metaboxes/abstract-fields-metabox.php",
+            "line": 280
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$name",
+            "file": "includes/admin/metaboxes/abstract-fields-metabox.php",
+            "line": 286
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/advanced/api/controllers/abstract-rest-options-controller.php",
+            "line": 141
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/advanced/api/controllers/v1/booking-rules-controller.php",
+            "line": 349
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "includes/advanced/api/data/payment-data.php",
+            "line": 315
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$metaName",
+            "file": "includes/attribute-functions.php",
+            "line": 219
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->waitActionsOption",
+            "file": "includes/background-pausable-process.php",
+            "line": 46
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->waitActionsOption",
+            "file": "includes/background-pausable-process.php",
+            "line": 62
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->tasksCountOption",
+            "file": "includes/background-process.php",
+            "line": 105
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->completedTasksOption",
+            "file": "includes/background-process.php",
+            "line": 126
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->getPrefixedCacheDataId($cacheDataId)",
+            "file": "includes/core/abstract-core-api-facade.php",
+            "line": 147
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->action",
+            "file": "includes/crons/abstract-cron.php",
+            "line": 61
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->action",
+            "file": "includes/crons/abstract-cron.php",
+            "line": 67
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->abortOption",
+            "file": "includes/csv/bookings/bookings-exporter.php",
+            "line": 143
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->fileOption",
+            "file": "includes/csv/bookings/bookings-exporter.php",
+            "line": 177
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->columnsOption",
+            "file": "includes/csv/bookings/bookings-exporter.php",
+            "line": 196
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->filterRoomOption",
+            "file": "includes/csv/bookings/bookings-exporter.php",
+            "line": 210
+        },
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "includes/libraries/edd-plugin-updater/edd-plugin-updater.php",
+            "line": 505
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "includes/libraries/wp-background-processing/classes/wp-background-process.php",
+            "line": 103
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "includes/libraries/wp-background-processing/classes/wp-background-process.php",
+            "line": 119
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "includes/libraries/wp-background-processing/classes/wp-background-process.php",
+            "line": 238
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "includes/libraries/wp-background-processing/classes/wp-background-process.php",
+            "line": 464
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->paymentFields[$fieldName]['meta_id']",
+            "file": "includes/payments/gateways/gateway.php",
+            "line": 417
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$postMetaName",
+            "file": "includes/persistences/cpt-persistence.php",
+            "line": 149
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomyName",
+            "file": "includes/post-types/attributes-cpt.php",
+            "line": 192
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomyName",
+            "file": "includes/post-types/attributes-cpt.php",
+            "line": 587
+        },
+        {
+            "function": "update_option",
+            "expression": "$encodingOption",
+            "file": "includes/upgrader.php",
+            "line": 1197
+        },
+        {
+            "function": "add_cap",
+            "expression": "$role",
+            "file": "includes/users-and-roles/capabilities-and-roles.php",
+            "line": 83
+        },
+        {
+            "function": "add_role",
+            "expression": "$this->name",
+            "file": "includes/users-and-roles/role.php",
+            "line": 39
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$ruleRegex",
+            "file": "plugin.php",
+            "line": 681
+        }
+    ]
+}

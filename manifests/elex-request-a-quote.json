@@ -1,0 +1,209 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "elex-request-a-quote",
+        "name": "ELEX WooCommerce Request a Quote - Basic",
+        "version": "2.4.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:19Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 20,
+    "coverage": {
+        "files_scanned": 87,
+        "files_skipped": 0,
+        "write_calls_found": 18,
+        "verified": 11,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "REQUEST_A_QUOTE_MIGRATION_BATCH",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Migrate.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "elex_composite_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Quotelist/Models/QuoteListModel.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "elex_variation_attributes",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Quotelist/Models/QuoteListModel.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "request_a_quote_form_setting",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/FormSetting/FormSettingController.php",
+                        "line": 207
+                    },
+                    {
+                        "file": "src/FormSetting/FormSettingController.php",
+                        "line": 528
+                    },
+                    {
+                        "file": "src/FormSetting/Models/FormSettings.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "request_a_quote_general_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/RequestAQuote.php",
+                        "line": 120
+                    },
+                    {
+                        "file": "src/Settings/Models/GeneralSettings.php",
+                        "line": 19
+                    }
+                ]
+            },
+            {
+                "key": "request_a_quote_notification_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Notification/Models/NotificationModel.php",
+                        "line": 18
+                    }
+                ]
+            },
+            {
+                "key": "request_a_quote_quotelist_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Quotelist/ListPageController.php",
+                        "line": 34
+                    },
+                    {
+                        "file": "src/Quotelist/Models/ListPageSettings.php",
+                        "line": 18
+                    }
+                ]
+            },
+            {
+                "key": "request_a_quote_template_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/TemplateSetting/Models/TemplateModel.php",
+                        "line": 30
+                    }
+                ]
+            },
+            {
+                "key": "request_a_quote_widget_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Widget/Models/WidgetModel.php",
+                        "line": 18
+                    }
+                ]
+            },
+            {
+                "key": "save_hide_cart_new_fields",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/RequestAQuote.php",
+                        "line": 121
+                    },
+                    {
+                        "file": "src/Settings/Models/GeneralSettings.php",
+                        "line": 20
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->data['basename'] . '_' . $key",
+            "file": "review_and_troubleshoot_notify/review-and-troubleshoot-notify-class.php",
+            "line": 63
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "src/Migrate.php",
+            "line": 68
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "src/Migrate.php",
+            "line": 80
+        }
+    ]
+}

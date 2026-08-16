@@ -1,0 +1,255 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "advanced-dynamic-pricing-for-woocommerce",
+        "name": "Advanced Dynamic Pricing and Discount Rules for WooCommerce",
+        "version": "4.13.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:42Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 39,
+    "coverage": {
+        "files_scanned": 599,
+        "files_skipped": 0,
+        "write_calls_found": 24,
+        "verified": 3,
+        "resolved": 11,
+        "pattern": 3,
+        "dynamic": 7,
+        "resolution_rate": 0.583
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "advanced-dynamic-pricing-for-woocommerce-activation-notice-shown",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "BaseVersion/Includes/AdminExtensions/AdminNotice.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "wdp_db_level",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "BaseVersion/Includes/Updater/Updater.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "wdp_db_version",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "BaseVersion/Includes/Updater/Updater.php",
+                        "line": 91
+                    },
+                    {
+                        "file": "BaseVersion/Includes/Updater/Updater.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "wdp_dismissed_notice_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "BaseVersion/Includes/AdminExtensions/AdminNotice.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "wdp_dismissed_persistence_rules_notice",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "BaseVersion/Includes/AdminExtensions/AdminNotice.php",
+                        "line": 217
+                    }
+                ]
+            },
+            {
+                "key": "wdp_rules_disabled_notify",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "BaseVersion/Includes/AdminExtensions/AdminNotice.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "BaseVersion/Includes/AdminExtensions/AdminNotice.php",
+                        "line": 115
+                    }
+                ]
+            },
+            {
+                "key": "wdp_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "BaseVersion/Includes/Settings/StoreStrategy.php",
+                        "line": 22
+                    },
+                    {
+                        "file": "BaseVersion/Includes/Settings/StoreStrategy.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "wdp_settings_compatibility",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "BaseVersion/Includes/Settings/CompatibilityStoreStrategy.php",
+                        "line": 22
+                    },
+                    {
+                        "file": "BaseVersion/Includes/Settings/CompatibilityStoreStrategy.php",
+                        "line": 54
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "import-result",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "BaseVersion/Includes/AdminExtensions/AdminPage/Tabs/Tools.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "wdp_geoip_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "BaseVersion/Includes/SpecialStrategies/GeoLocationStrategy.php",
+                        "line": 115
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_sale_price_adp",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "BaseVersion/Includes/Database/Repository/PersistentRuleRepository.php",
+                        "line": 519
+                    },
+                    {
+                        "file": "BaseVersion/Includes/Database/Repository/PersistentRuleRepository.php",
+                        "line": 534
+                    }
+                ]
+            },
+            {
+                "key": "adp_custom_product_attribute_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "BaseVersion/Includes/WC/WcProductCustomAttributesCache.php",
+                        "line": 61
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "BaseVersion/Includes/Database/Models/Order.php",
+            "line": 167
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "BaseVersion/Includes/Database/Models/OrderItem.php",
+            "line": 158
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "BaseVersion/Includes/Database/Models/PersistentRuleCache.php",
+            "line": 128
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "BaseVersion/Includes/Database/Models/Rule.php",
+            "line": 494
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->getReportTransientKey($reportKey)",
+            "file": "BaseVersion/Includes/Debug/ReportsStorage.php",
+            "line": 38
+        },
+        {
+            "function": "set_transient",
+            "expression": "static::STORAGE_WITH_RULES_KEY",
+            "file": "BaseVersion/Includes/Shortcodes/Products.php",
+            "line": 185
+        },
+        {
+            "function": "set_transient",
+            "expression": "static::STORAGE_WITH_RULES_KEY",
+            "file": "BaseVersion/Includes/Shortcodes/Products.php",
+            "line": 243
+        }
+    ]
+}

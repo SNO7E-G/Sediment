@@ -1,0 +1,140 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "acf-extended",
+        "name": "Advanced Custom Fields: Extended",
+        "version": "0.9.2.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:34Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 187,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 7,
+        "resolution_rate": 0.273
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "acfe",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings.php",
+                        "line": 253
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/modules/form/module-form-upgrades.php",
+                        "line": 382
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/fields/field-image.php",
+                        "line": 213
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [
+            {
+                "key": "acf-field-group-category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/field-groups/field-group-category.php",
+                        "line": 74
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "register_post_type",
+            "expression": "$module->post_type",
+            "file": "includes/module-manager.php",
+            "line": 136
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$new_field_name",
+            "file": "includes/modules/form/module-form-upgrades.php",
+            "line": 373
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$new_field_name",
+            "file": "includes/modules/form/module-form-upgrades.php",
+            "line": 377
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/modules/option/module-option.php",
+            "line": 301
+        },
+        {
+            "function": "update_option",
+            "expression": "$meta_key",
+            "file": "includes/modules/performance/module-performance.php",
+            "line": 282
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$item['name']",
+            "file": "includes/modules/post-type/module-post-type.php",
+            "line": 124
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$item['name']",
+            "file": "includes/modules/taxonomy/module-taxonomy.php",
+            "line": 117
+        }
+    ]
+}

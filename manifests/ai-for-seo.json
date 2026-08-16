@@ -1,0 +1,260 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ai-for-seo",
+        "name": "SOOZ - AI for SEO",
+        "version": "2.4.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:46Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 64,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 1,
+        "resolved": 13,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_ai4seo_num_processing_metadata_post_ids_by_post_type",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/helpers.php",
+                        "line": 3194
+                    }
+                ]
+            },
+            {
+                "key": "ai4seo_already_filled_metadata_post_ids",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/helpers.php",
+                        "line": 3194
+                    }
+                ]
+            },
+            {
+                "key": "ai4seo_failed_attributes_attachment_post_ids",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/helpers.php",
+                        "line": 3194
+                    }
+                ]
+            },
+            {
+                "key": "ai4seo_failed_metadata_post_ids",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/helpers.php",
+                        "line": 3194
+                    }
+                ]
+            },
+            {
+                "key": "ai4seo_failed_to_fill_metadata_post_ids",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/helpers.php",
+                        "line": 3194
+                    }
+                ]
+            },
+            {
+                "key": "ai4seo_processing_metadata_post_ids",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/helpers.php",
+                        "line": 3194
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "ai4seo_active_metadata_migration_v235_cron_job",
+                "recurrence": "five_minutes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/cron-jobs.php",
+                        "line": 145
+                    }
+                ]
+            },
+            {
+                "key": "ai4seo_analyze_plugin_performance",
+                "recurrence": "one_hour",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/cron-jobs.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "ai4seo_automated_generation_cron_job",
+                "recurrence": "five_minutes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/cron-jobs.php",
+                        "line": 34
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "ai4seo_last_contact_form_submit_timestamp",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/pages/help.php",
+                        "line": 672
+                    }
+                ]
+            },
+            {
+                "key": "ai4seo_url_exposed_taxonomies_v1",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/taxonomies.php",
+                        "line": 133
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/metadata.php",
+                        "line": 2248
+                    }
+                ]
+            },
+            {
+                "key": "ai4seo_active_metadata",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/metadata.php",
+                        "line": 452
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "ai4seo_ngg",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/initialization.php",
+                        "line": 75
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/api/class-robhub-api-communicator.php",
+            "line": 588
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$cronjob_name",
+            "file": "includes/core/cron-jobs.php",
+            "line": 243
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$log_directory",
+            "file": "includes/core/helpers.php",
+            "line": 1959
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/core/helpers.php",
+            "line": 3194
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/core/metadata.php",
+            "line": 2248
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\ai4seo_get_prohibit_plugin_token_transient_name($token)",
+            "file": "includes/pages/help.php",
+            "line": 153
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\ai4seo_get_debug_operation_result_transient_name()",
+            "file": "includes/pages/help.php",
+            "line": 468
+        }
+    ]
+}

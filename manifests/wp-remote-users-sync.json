@@ -1,0 +1,189 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-remote-users-sync",
+        "name": "WP Remote Users Sync",
+        "version": "2.1.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:58Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 35,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 3,
+        "dynamic": 6,
+        "resolution_rate": 0.438
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wprus_files_cleanup",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wprus-import-export.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "wprus_logs_cleanup",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/class-wprus-logger.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "wprus_nonce_cleanup",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/class-wprus-nonce.php",
+                        "line": 26
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wprus_flush",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wprus-settings.php",
+                        "line": 69
+                    },
+                    {
+                        "file": "inc/class-wprus.php",
+                        "line": 38
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wprus_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/api/class-wprus-api-abstract.php",
+                        "line": 827
+                    },
+                    {
+                        "file": "inc/api/class-wprus-api-abstract.php",
+                        "line": 1226
+                    }
+                ]
+            },
+            {
+                "key": "wprus_api_tokens",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/api/class-wprus-api-abstract.php",
+                        "line": 969
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "^wprus/*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wprus.php",
+                        "line": 233
+                    }
+                ]
+            },
+            {
+                "key": "^wprus_download",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wprus.php",
+                        "line": 240
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_metadata",
+            "expression": "$meta_key",
+            "file": "inc/api/class-wprus-api-meta.php",
+            "line": 172
+        },
+        {
+            "function": "update_metadata",
+            "expression": "$meta_key",
+            "file": "inc/api/class-wprus-api-meta.php",
+            "line": 181
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "inc/class-wprus-import-export.php",
+            "line": 509
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$meta_key",
+            "file": "inc/class-wprus-import-export.php",
+            "line": 513
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "inc/class-wprus.php",
+            "line": 80
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "inc/class-wprus.php",
+            "line": 101
+        }
+    ]
+}

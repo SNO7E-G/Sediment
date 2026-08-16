@@ -1,0 +1,287 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "qnap-nas-backup",
+        "name": "QNAP NAS Backup",
+        "version": "1.0.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 44,
+    "coverage": {
+        "files_scanned": 65,
+        "files_skipped": 0,
+        "write_calls_found": 24,
+        "verified": 1,
+        "resolved": 22,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.958
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "fs_accounts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/model/import/class-qnap-import-plugins.php",
+                        "line": 41
+                    }
+                ]
+            },
+            {
+                "key": "jetpack_active_modules",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions.php",
+                        "line": 914
+                    }
+                ]
+            },
+            {
+                "key": "qnap_auth_password",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/model/import/class-qnap-import-database.php",
+                        "line": 997
+                    }
+                ]
+            },
+            {
+                "key": "qnap_auth_user",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/model/import/class-qnap-import-database.php",
+                        "line": 994
+                    }
+                ]
+            },
+            {
+                "key": "qnap_backups_labels",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/model/class-qnap-backups.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "lib/model/class-qnap-backups.php",
+                        "line": 113
+                    },
+                    {
+                        "file": "lib/model/import/class-qnap-import-database.php",
+                        "line": 1006
+                    }
+                ]
+            },
+            {
+                "key": "qnap_messages",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/model/class-qnap-message.php",
+                        "line": 12
+                    },
+                    {
+                        "file": "lib/model/class-qnap-message.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "qnap_secret_key",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/controller/class-qnap-main-controller.php",
+                        "line": 234
+                    },
+                    {
+                        "file": "lib/model/import/class-qnap-import-database.php",
+                        "line": 991
+                    }
+                ]
+            },
+            {
+                "key": "qnap_sites_links",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/model/import/class-qnap-import-database.php",
+                        "line": 1009
+                    }
+                ]
+            },
+            {
+                "key": "qnap_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/model/class-qnap-status.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "swift_performance_plugin_organizer",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions.php",
+                        "line": 931
+                    }
+                ]
+            },
+            {
+                "key": "upload_url_path",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/model/import/class-qnap-import-database.php",
+                        "line": 1003
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "resolved",
+            "sources": [
+                {
+                    "file": "functions.php",
+                    "line": 838
+                },
+                {
+                    "file": "functions.php",
+                    "line": 895
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "db_version",
+            "confidence": "resolved",
+            "sources": [
+                {
+                    "file": "functions.php",
+                    "line": 971
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "home",
+            "confidence": "resolved",
+            "sources": [
+                {
+                    "file": "lib/model/import/class-qnap-import-database.php",
+                    "line": 988
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "siteurl",
+            "confidence": "resolved",
+            "sources": [
+                {
+                    "file": "lib/model/import/class-qnap-import-database.php",
+                    "line": 985
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "stylesheet",
+            "confidence": "resolved",
+            "sources": [
+                {
+                    "file": "functions.php",
+                    "line": 876
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "template",
+            "confidence": "resolved",
+            "sources": [
+                {
+                    "file": "functions.php",
+                    "line": 866
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "upload_path",
+            "confidence": "resolved",
+            "sources": [
+                {
+                    "file": "lib/model/import/class-qnap-import-database.php",
+                    "line": 1000
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$storage",
+            "file": "functions.php",
+            "line": 22
+        }
+    ]
+}

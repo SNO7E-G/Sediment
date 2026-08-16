@@ -1,0 +1,391 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-services",
+        "name": "WooCommerce Tax",
+        "version": "3.6.12",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:27Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 76,
+        "files_skipped": 0,
+        "write_calls_found": 35,
+        "verified": 17,
+        "resolved": 6,
+        "pattern": 2,
+        "dynamic": 10,
+        "resolution_rate": 0.657
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wc_connect_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-options.php",
+                        "line": 117
+                    }
+                ]
+            },
+            {
+                "key": "wc_connect_taxes_enabled",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-taxjar-integration.php",
+                        "line": 266
+                    }
+                ]
+            },
+            {
+                "key": "wcs_tax_backup_files_migrated",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-functions.php",
+                        "line": 379
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_migration_state",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-rest-connect-migration-flag-controller.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "wcshipping_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-compatibility-wcshipping-packages.php",
+                        "line": 169
+                    },
+                    {
+                        "file": "classes/class-wc-connect-compatibility-wcshipping-packages.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_ppec_paypal_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-paypal-ec.php",
+                        "line": 246
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wc_connect_fetch_service_schemas",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-services.php",
+                        "line": 1603
+                    }
+                ]
+            },
+            {
+                "key": "wc_connect_fetch_sift_config",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-services.php",
+                        "line": 2133
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "connect_server_is_alive_transient",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-api-client.php",
+                        "line": 404
+                    }
+                ]
+            },
+            {
+                "key": "wc_connect_sift_configuration",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-api-client.php",
+                        "line": 226
+                    }
+                ]
+            },
+            {
+                "key": "wc_connect_sift_fetch_in_progress",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-services.php",
+                        "line": 2130
+                    }
+                ]
+            },
+            {
+                "key": "wcc_is_new_label_user",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-nux.php",
+                        "line": 145
+                    }
+                ]
+            },
+            {
+                "key": "wcc_notice_dismissed_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-services.php",
+                        "line": 2207
+                    }
+                ]
+            },
+            {
+                "key": "wcs_label_reports",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-label-reports.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "wcservices_store_api_unavailable_logged",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-services.php",
+                        "line": 1030
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "wc_connect_customs_info",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-rest-connect-shipping-rates-controller.php",
+                        "line": 59
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "dismissed_wp_pointers",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-nux.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "wc_connect_last_box_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-rest-connect-shipping-label-controller.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "wc_connect_last_carrier_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-rest-connect-shipping-label-controller.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "wc_connect_last_service_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-rest-connect-shipping-label-controller.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "wc_connect_nux_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-nux.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "wcs_migration_survey_completed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-migration-survey.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "wcs_migration_survey_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-migration-survey.php",
+                        "line": 170
+                    }
+                ]
+            },
+            {
+                "key": "wcs_migration_survey_last_shown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-connect-migration-survey.php",
+                        "line": 171
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$backup_dir",
+            "file": "classes/class-wc-connect-functions.php",
+            "line": 270
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$backup_dir",
+            "file": "classes/class-wc-connect-functions.php",
+            "line": 344
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "classes/class-wc-connect-options.php",
+            "line": 195
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$grouped_options[$group]",
+            "file": "classes/class-wc-connect-options.php",
+            "line": 257
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$grouped_options[$group]",
+            "file": "classes/class-wc-connect-options.php",
+            "line": 267
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "classes/class-wc-connect-shipping-method.php",
+            "line": 446
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "classes/class-wc-connect-taxjar-integration.php",
+            "line": 427
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "classes/class-wc-connect-taxjar-integration.php",
+            "line": 2394
+        },
+        {
+            "function": "set_transient",
+            "expression": "$zip_state_cache_key",
+            "file": "classes/class-wc-connect-taxjar-integration.php",
+            "line": 2400
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "classes/class-wc-connect-taxjar-integration.php",
+            "line": 2404
+        }
+    ]
+}

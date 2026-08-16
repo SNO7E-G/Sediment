@@ -1,0 +1,150 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "related-posts-for-wp",
+        "name": "Related Posts for WordPress",
+        "version": "2.3.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:50Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 61,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 2,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "rp4wp",
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "rp4wp",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/hooks/class-hook-ajax-install-link-posts.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "rp4wp_do_install",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/installer-functions.php",
+                        "line": 16
+                    }
+                ]
+            },
+            {
+                "key": "rp4wp_install_date",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-nag-manager.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "rp4wp_is_installing",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/hooks/class-hook-page-install.php",
+                        "line": 100
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}rp4wp_cache",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/installer-functions.php",
+                        "line": 13
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "rp4wp_auto_linked",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-related-post-manager.php",
+                        "line": 160
+                    },
+                    {
+                        "file": "classes/hooks/class-hook-related-auto-link.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "rp4wp_hide_nag",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-nag-manager.php",
+                        "line": 121
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "rp4wp_link",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/hooks/class-hook-post-type.php",
+                        "line": 11
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

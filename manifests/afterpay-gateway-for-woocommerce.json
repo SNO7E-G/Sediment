@@ -1,0 +1,87 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "afterpay-gateway-for-woocommerce",
+        "name": "Afterpay Gateway for WooCommerce",
+        "version": "3.8.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:56Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 8,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "afterpay_do_cron_jobs",
+                "recurrence": "15min",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class/Cron/class-afterpay-plugin-cron.php",
+                        "line": 35
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "afterpay-admin-activation-notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "afterpay-gateway-for-woocommerce.php",
+                        "line": 396
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$gateway->get_option_key()",
+            "file": "class/Cron/class-afterpay-plugin-cron.php",
+            "line": 224
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "class/class-wc-gateway-afterpay.php",
+            "line": 1441
+        }
+    ]
+}

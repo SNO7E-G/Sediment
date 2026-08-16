@@ -1,0 +1,768 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "activecampaign-for-woocommerce",
+        "name": "ActiveCampaign for WooCommerce",
+        "version": "2.11.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:53:55Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 412,
+        "files_skipped": 0,
+        "write_calls_found": 86,
+        "verified": 30,
+        "resolved": 40,
+        "pattern": 2,
+        "dynamic": 14,
+        "resolution_rate": 0.814
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "activecampaign_for_woocommerce_abandoned_cart_last_run",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/abandoned_carts/class-activecampaign-for-woocommerce-run-abandonment-sync-command.php",
+                        "line": 476
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_account_active_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-account-status-manager.php",
+                        "line": 43
+                    },
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-account-status-manager.php",
+                        "line": 50
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_account_blocked_timestamp",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-account-status-manager.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_account_inactive_time_delay",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-account-status-manager.php",
+                        "line": 117
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_connection_health_check_last_run",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin.php",
+                        "line": 726
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_db_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activecampaign-for-woocommerce-plugin-upgrade.php",
+                        "line": 212
+                    },
+                    {
+                        "file": "includes/class-activecampaign-for-woocommerce-plugin-upgrade.php",
+                        "line": 291
+                    },
+                    {
+                        "file": "includes/commands/class-activecampaign-for-woocommerce-uninstall-plugin-command.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_dismiss_error_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin.php",
+                        "line": 484
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_dismiss_plugin_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin.php",
+                        "line": 391
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_historical_sync_delay",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/orders/historical/class-activecampaign-for-woocommerce-historical-sync-runner-cofe.php",
+                        "line": 532
+                    },
+                    {
+                        "file": "includes/orders/historical/class-activecampaign-for-woocommerce-historical-sync-runner-cofe.php",
+                        "line": 832
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_historical_sync_running_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin-historical-sync.php",
+                        "line": 330
+                    },
+                    {
+                        "file": "includes/orders/historical/trait-activecampaign-for-woocommerce-historical-status.php",
+                        "line": 59
+                    },
+                    {
+                        "file": "includes/orders/historical/trait-activecampaign-for-woocommerce-historical-status.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "includes/orders/historical/trait-activecampaign-for-woocommerce-historical-status.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_historical_sync_scheduled_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin-historical-sync.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin-historical-sync.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin-historical-sync.php",
+                        "line": 148
+                    },
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin-historical-sync.php",
+                        "line": 286
+                    },
+                    {
+                        "file": "includes/orders/historical/class-activecampaign-for-woocommerce-historical-sync-handler.php",
+                        "line": 196
+                    },
+                    {
+                        "file": "includes/orders/historical/class-activecampaign-for-woocommerce-historical-sync-runner-cofe.php",
+                        "line": 238
+                    },
+                    {
+                        "file": "includes/orders/historical/class-activecampaign-for-woocommerce-historical-sync-runner-cofe.php",
+                        "line": 606
+                    },
+                    {
+                        "file": "includes/orders/historical/trait-activecampaign-for-woocommerce-historical-status.php",
+                        "line": 226
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_historical_sync_stop",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin-historical-sync.php",
+                        "line": 345
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_last_order_sync",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/orders/class-activecampaign-for-woocommerce-new-order-sync-job.php",
+                        "line": 706
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_last_subscription_sync",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/subscriptions/class-activecampaign-for-woocommerce-new-subscription-sync-job.php",
+                        "line": 452
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_product_cleanup_last_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/products/class-activecampaign-for-woocommerce-product-cleanup-job.php",
+                        "line": 399
+                    },
+                    {
+                        "file": "includes/products/class-activecampaign-for-woocommerce-product-cleanup-job.php",
+                        "line": 450
+                    },
+                    {
+                        "file": "includes/products/class-activecampaign-for-woocommerce-product-cleanup-job.php",
+                        "line": 492
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_product_cleanup_running_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/products/class-activecampaign-for-woocommerce-product-cleanup-job.php",
+                        "line": 236
+                    },
+                    {
+                        "file": "includes/products/class-activecampaign-for-woocommerce-product-cleanup-job.php",
+                        "line": 375
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_product_cleanup_scheduled_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/products/class-activecampaign-for-woocommerce-product-cleanup-job.php",
+                        "line": 255
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_product_cleanup_stop",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/products/class-activecampaign-for-woocommerce-product-cleanup-job.php",
+                        "line": 429
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_product_sync_scheduled_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/products/class-activecampaign-for-woocommerce-product-sync-job.php",
+                        "line": 406
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_product_sync_stop",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/products/class-activecampaign-for-woocommerce-product-sync-job.php",
+                        "line": 801
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin.php",
+                        "line": 950
+                    },
+                    {
+                        "file": "admin/trait-activecampaign-for-woocommerce-admin-connections.php",
+                        "line": 193
+                    },
+                    {
+                        "file": "includes/commands/class-activecampaign-for-woocommerce-create-or-update-connection-option-command.php",
+                        "line": 586
+                    },
+                    {
+                        "file": "includes/commands/class-activecampaign-for-woocommerce-create-or-update-connection-option-command.php",
+                        "line": 613
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_storage",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin.php",
+                        "line": 1041
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}wc_activecampaign",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-activecampaign-for-woocommerce-plugin-upgrade.php",
+                        "line": 252
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "activecampaign_for_woocommerce_run_product_cleanup",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/products/class-activecampaign-for-woocommerce-product-cleanup-job.php",
+                        "line": 290
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_run_product_sync",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/products/class-activecampaign-for-woocommerce-product-sync-job.php",
+                        "line": 386
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "acforwc_abandoned_task_hook",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/abandoned_carts/class-activecampaign-for-woocommerce-run-abandonment-sync-command.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "acforwc_cart_to_order_transition_hook",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/abandoned_carts/class-activecampaign-for-woocommerce-cart-events.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "acforwc_cart_updated_hook",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/abandoned_carts/class-activecampaign-for-woocommerce-cart-events.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "acforwc_order_created_hook",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/orders/class-activecampaign-for-woocommerce-order-action-events.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "acforwc_order_deleted_hook",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/orders/class-activecampaign-for-woocommerce-order-action-events.php",
+                        "line": 332
+                    }
+                ]
+            },
+            {
+                "key": "acforwc_order_updated_hook",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/orders/class-activecampaign-for-woocommerce-order-action-events.php",
+                        "line": 116
+                    },
+                    {
+                        "file": "includes/orders/class-activecampaign-for-woocommerce-order-action-events.php",
+                        "line": 185
+                    },
+                    {
+                        "file": "includes/orders/class-activecampaign-for-woocommerce-order-action-events.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_all_connections",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/trait-activecampaign-for-woocommerce-admin-connections.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_connection",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin.php",
+                        "line": 689
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_contact*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin-subscription-page.php",
+                        "line": 124
+                    },
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin-wc-order-page.php",
+                        "line": 123
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_features",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/features/trait-activecampaign-for-woocommerce-features-checker.php",
+                        "line": 137
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_hs_contacts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/orders/historical/class-activecampaign-for-woocommerce-historical-sync-contacts.php",
+                        "line": 174
+                    },
+                    {
+                        "file": "includes/orders/historical/class-activecampaign-for-woocommerce-historical-sync-handler.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_system_status_wp_version_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-admin-status.php",
+                        "line": 437
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "activecampaign_for_woocommerce_ac_cart_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-activecampaign-for-woocommerce-user-meta-service.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_ac_customer_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-activecampaign-for-woocommerce-user-meta-service.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_accepts_marketing",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-activecampaign-for-woocommerce-user-meta-service.php",
+                        "line": 224
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_contact_synced",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/events/class-activecampaign-for-woocommerce-user-registered-event.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_external_checkout_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-activecampaign-for-woocommerce-user-meta-service.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "includes/services/class-activecampaign-for-woocommerce-user-meta-service.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_hosted_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/customers/class-activecampaign-for-woocommerce-customer-utilities.php",
+                        "line": 208
+                    },
+                    {
+                        "file": "includes/orders/class-activecampaign-for-woocommerce-new-order-sync-job.php",
+                        "line": 672
+                    }
+                ]
+            },
+            {
+                "key": "activecampaign_for_woocommerce_last_synced",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/customers/class-activecampaign-for-woocommerce-customer-utilities.php",
+                        "line": 186
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "activecampaign_for_woocommerce_auto_unblock_account",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-account-status-manager.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "admin/class-activecampaign-for-woocommerce-account-status-manager.php",
+                        "line": 137
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "ac_vendor/php-di/php-di/src/Compiler/Compiler.php",
+            "line": 291
+        },
+        {
+            "function": "mkdir",
+            "expression": "$this->path_to_log_directory",
+            "file": "includes/class-activecampaign-for-woocommerce-logger.php",
+            "line": 315
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-activecampaign-for-woocommerce-plugin-upgrade.php",
+            "line": 209
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-activecampaign-for-woocommerce-plugin-upgrade.php",
+            "line": 310
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-activecampaign-for-woocommerce-plugin-upgrade.php",
+            "line": 328
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-activecampaign-for-woocommerce-plugin-upgrade.php",
+            "line": 334
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$event['hook']",
+            "file": "includes/events/class-activecampaign-for-woocommerce-scheduler-handler.php",
+            "line": 353
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$event['hook']",
+            "file": "includes/events/class-activecampaign-for-woocommerce-scheduler-handler.php",
+            "line": 361
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$event['hook']",
+            "file": "includes/events/class-activecampaign-for-woocommerce-scheduler-handler.php",
+            "line": 370
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$event['hook']",
+            "file": "includes/events/class-activecampaign-for-woocommerce-scheduler-handler.php",
+            "line": 376
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "includes/events/class-activecampaign-for-woocommerce-user-registered-event.php",
+            "line": 124
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "includes/events/class-activecampaign-for-woocommerce-user-registered-event.php",
+            "line": 128
+        },
+        {
+            "function": "set_transient",
+            "expression": "$updating_product_id",
+            "file": "includes/products/class-activecampaign-for-woocommerce-product-sync-job.php",
+            "line": 240
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "includes/products/class-activecampaign-for-woocommerce-sync-status.php",
+            "line": 231
+        }
+    ]
+}

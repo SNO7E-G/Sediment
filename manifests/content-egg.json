@@ -1,0 +1,1164 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "content-egg",
+        "name": "Content Egg",
+        "version": "11.5.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:25Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 731,
+        "files_skipped": 0,
+        "write_calls_found": 134,
+        "verified": 24,
+        "resolved": 44,
+        "pattern": 10,
+        "dynamic": 56,
+        "resolution_rate": 0.507
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cegg_ability_log_db",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/abilities/AbilityLog.php",
+                        "line": 59
+                    }
+                ]
+            },
+            {
+                "key": "cegg_agent_access_enabled",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/AgentAccessRestController.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "cegg_feed_force_refresh_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/AffiliateFeedParserModule.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "cegg_feed_names",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ModuleName.php",
+                        "line": 59
+                    },
+                    {
+                        "file": "application/components/ModuleName.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "cegg_image_optimize_cursor",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ImageOptimizeService.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "application/components/ImageOptimizeService.php",
+                        "line": 142
+                    },
+                    {
+                        "file": "application/components/ImageOptimizeService.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "cegg_image_optimize_done",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ImageOptimizeService.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "cegg_pm_ui_prompt",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/Installer.php",
+                        "line": 358
+                    }
+                ]
+            },
+            {
+                "key": "cegg_products_last_scan",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ProductScanState.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "application/components/ProductScanState.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "content-egg_*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ModuleCloneManager.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "content-egg_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/Installer.php",
+                        "line": 259
+                    }
+                ]
+            },
+            {
+                "key": "content-egg_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/Installer.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "content-egg_first_activation_date",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/Installer.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "content_egg_clones",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ModuleCloneManager.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "contentegg_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/Installer.php",
+                        "line": 355
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "cegg_autoimport_heartbeat",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/import/AutoImportScheduler.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "cegg_autoimport_run",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/import/AutoImportScheduler.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "application/admin/import/AutoImportScheduler.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "application/admin/import/AutoImportScheduler.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "cegg_daily_maintenance",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/MaintenanceScheduler.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "cegg_image_optimize_heartbeat",
+                "recurrence": "ten_min",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/ImageOptimizeScheduler.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "cegg_import_failsafe_heartbeat",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/import/ProductImportScheduler.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "cegg_link_index_backfill_once",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/Installer.php",
+                        "line": 311
+                    },
+                    {
+                        "file": "application/admin/GeneralConfig.php",
+                        "line": 1947
+                    },
+                    {
+                        "file": "application/components/ParserModuleConfig.php",
+                        "line": 243
+                    }
+                ]
+            },
+            {
+                "key": "cegg_link_index_delete_module",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ParserModuleConfig.php",
+                        "line": 231
+                    }
+                ]
+            },
+            {
+                "key": "cegg_maintenance_cron",
+                "recurrence": "twicedaily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/MaintenanceCron.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "cegg_optimize_post_images",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/ImageOptimizeScheduler.php",
+                        "line": 203
+                    }
+                ]
+            },
+            {
+                "key": "cegg_prefill_failsafe_heartbeat",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/ProductPrefillScheduler.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "cegg_run_image_optimize_batch",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/ImageOptimizeScheduler.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "cegg_run_import_batch",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/import/ProductImportScheduler.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "application/admin/import/ProductImportScheduler.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "cegg_run_prefill_batch",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/ProductPrefillScheduler.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_flush_rewrite_rules",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/WooIntegrator.php",
+                        "line": 487
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "cegg-currency-rates-ecb",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/helpers/CurrencyHelper.php",
+                        "line": 755
+                    }
+                ]
+            },
+            {
+                "key": "cegg_autoimport_lock",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/import/AutoImportScheduler.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "cegg_image_optimize_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/ImageOptimizeScheduler.php",
+                        "line": 106
+                    }
+                ]
+            },
+            {
+                "key": "cegg_prefill_batch_lock",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/ProductPrefillScheduler.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "cegg_product_import_batch_lock",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/import/ProductImportScheduler.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "cegg_search_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/abilities/SearchResultCache.php",
+                        "line": 50
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_cegg_data_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ContentManager.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "_cegg_global_autoupdate_keyword",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/EggMetabox.php",
+                        "line": 375
+                    },
+                    {
+                        "file": "application/components/UpdateSettingsService.php",
+                        "line": 149
+                    }
+                ]
+            },
+            {
+                "key": "_cegg_import_unique_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/import/ProductImportService.php",
+                        "line": 991
+                    }
+                ]
+            },
+            {
+                "key": "_cegg_keyword*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/EggMetabox.php",
+                        "line": 359
+                    },
+                    {
+                        "file": "application/components/ShortcodePreprocessor.php",
+                        "line": 114
+                    },
+                    {
+                        "file": "application/models/AutoblogModel.php",
+                        "line": 525
+                    }
+                ]
+            },
+            {
+                "key": "_cegg_last_bykeyword_update*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ContentManager.php",
+                        "line": 205
+                    }
+                ]
+            },
+            {
+                "key": "_cegg_last_update_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ContentManager.php",
+                        "line": 218
+                    }
+                ]
+            },
+            {
+                "key": "_cegg_preset",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/import/PresetForm.php",
+                        "line": 248
+                    },
+                    {
+                        "file": "application/admin/import/PresetRepository.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "_cegg_thumbnail_external",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ExternalFeaturedImage.php",
+                        "line": 172
+                    },
+                    {
+                        "file": "application/components/ExternalFeaturedImage.php",
+                        "line": 205
+                    }
+                ]
+            },
+            {
+                "key": "_cegg_update_params*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/EggMetabox.php",
+                        "line": 362
+                    }
+                ]
+            },
+            {
+                "key": "_cegg_woo_sync_muid",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/WooIntegrator.php",
+                        "line": 629
+                    }
+                ]
+            },
+            {
+                "key": "_global_unique_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/WooIntegrator.php",
+                        "line": 299
+                    }
+                ]
+            },
+            {
+                "key": "_pending_gallery_images",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/GalleryScheduler.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "_product_image_gallery",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ExternalFeaturedImage.php",
+                        "line": 573
+                    }
+                ]
+            },
+            {
+                "key": "_wc_review_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ContentManager.php",
+                        "line": 1135
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/abilities/SetFeaturedImageAbility.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "application/admin/import/ProductImportService.php",
+                        "line": 1078
+                    },
+                    {
+                        "file": "application/components/FeaturedImage.php",
+                        "line": 236
+                    },
+                    {
+                        "file": "application/helpers/WooHelper.php",
+                        "line": 126
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "cegg_post_filter",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/ProductPrefillController.php",
+                        "line": 561
+                    }
+                ]
+            },
+            {
+                "key": "cegg_prefill_config",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/ProductPrefillController.php",
+                        "line": 561
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "cons_review",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ContentManager.php",
+                        "line": 1106
+                    }
+                ]
+            },
+            {
+                "key": "counted",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ContentManager.php",
+                        "line": 1119
+                    }
+                ]
+            },
+            {
+                "key": "pros_review",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ContentManager.php",
+                        "line": 1102
+                    }
+                ]
+            },
+            {
+                "key": "rating",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ContentManager.php",
+                        "line": 1129
+                    }
+                ]
+            },
+            {
+                "key": "user_average",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ContentManager.php",
+                        "line": 1111
+                    }
+                ]
+            },
+            {
+                "key": "user_criteria",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/components/ContentManager.php",
+                        "line": 1112
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "cegg_import_preset",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/admin/import/PresetPostType.php",
+                        "line": 26
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "cegg_maintenance_cron",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/MaintenanceCron.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "cegg_optimize_post_images",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/ImageOptimizeScheduler.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "process_pending_gallery_images",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "application/GalleryScheduler.php",
+                        "line": 72
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "application/BlockRenderRestController.php",
+            "line": 108
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "application/Installer.php",
+            "line": 274
+        },
+        {
+            "function": "update_option",
+            "expression": "\\ContentEgg\\application\\Plugin::getShortSlug() . '_sys_status'",
+            "file": "application/Installer.php",
+            "line": 332
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "application/Installer.php",
+            "line": 382
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock",
+            "file": "application/LinkIndexScheduler.php",
+            "line": 57
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock",
+            "file": "application/LinkIndexScheduler.php",
+            "line": 97
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$pattern",
+            "file": "application/LocalRedirector.php",
+            "line": 50
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "application/MaintenanceScheduler.php",
+            "line": 94
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field",
+            "file": "application/WooIntegrator.php",
+            "line": 311
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field",
+            "file": "application/WooIntegrator.php",
+            "line": 320
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy",
+            "file": "application/WooIntegrator.php",
+            "line": 389
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE {$table} (\\n            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,\\n            created_at DATETIME NOT NULL,\\n            user_id BIGINT UNSIGNED NOT NULL DEFAULT 0,\\n            ability VARCHAR(80) NOT NULL,\\n            status VARCHAR(10) NOT NULL,\\n            code VARCHAR(60) NOT NULL DEFAULT '',\\n            duration_ms INT UNSIGNED NOT NULL DEFAULT 0,\\n            input_digest VARCHAR(255) NOT NULL DEFAULT '',\\n            PRIMARY KEY  (id),\\n            KEY created_at (created_at)\\n        ) {$charset_collate};\"",
+            "file": "application/abilities/AbilityLog.php",
+            "line": 46
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt",
+            "file": "application/abilities/ConnectShopAbility.php",
+            "line": 175
+        },
+        {
+            "function": "update_option",
+            "expression": "$config->option_name()",
+            "file": "application/abilities/CreateFeedModuleAbility.php",
+            "line": 256
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "application/abilities/RateLimiter.php",
+            "line": 42
+        },
+        {
+            "function": "update_option",
+            "expression": "$config->option_name()",
+            "file": "application/abilities/SettingsPatcher.php",
+            "line": 135
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt",
+            "file": "application/admin/AeConnectController.php",
+            "line": 81
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name()",
+            "file": "application/admin/AeIntegrationConfig.php",
+            "line": 169
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name()",
+            "file": "application/admin/AeIntegrationConfig.php",
+            "line": 181
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name()",
+            "file": "application/admin/AeIntegrationConfig.php",
+            "line": 194
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "application/admin/AutoblogController.php",
+            "line": 388
+        },
+        {
+            "function": "update_option",
+            "expression": "$config->option_name()",
+            "file": "application/admin/FeedWizardController.php",
+            "line": 327
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "application/admin/GeneralConfig.php",
+            "line": 1906
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$cf['key']",
+            "file": "application/admin/import/ProductImportService.php",
+            "line": 1039
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefetchOptionName()",
+            "file": "application/components/AffiliateFeedParserModule.php",
+            "line": 155
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "application/components/AffiliateFeedParserModule.php",
+            "line": 326
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->schemaVersionOption()",
+            "file": "application/components/AffiliateFeedParserModule.php",
+            "line": 336
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$hook",
+            "file": "application/components/AffiliateFeedParserModule.php",
+            "line": 526
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "application/components/AffiliateFeedParserModule.php",
+            "line": 534
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dest_dir",
+            "file": "application/components/AffiliateFeedParserModule.php",
+            "line": 1105
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$datafeed_dir",
+            "file": "application/components/AffiliateFeedParserModule.php",
+            "line": 2159
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->option_name()",
+            "file": "application/components/Config.php",
+            "line": 56
+        },
+        {
+            "function": "update_option",
+            "expression": "$slug",
+            "file": "application/components/Config.php",
+            "line": 892
+        },
+        {
+            "function": "add_option",
+            "expression": "$option",
+            "file": "application/components/DurableTransient.php",
+            "line": 140
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "application/components/DurableTransient.php",
+            "line": 142
+        },
+        {
+            "function": "update_option",
+            "expression": "$config->option_name()",
+            "file": "application/components/ModuleManager.php",
+            "line": 636
+        },
+        {
+            "function": "update_option",
+            "expression": "$config->option_name()",
+            "file": "application/components/ModuleManager.php",
+            "line": 657
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "application/components/ModuleManager.php",
+            "line": 699
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::getMetaKey()",
+            "file": "application/components/OfferCountService.php",
+            "line": 62
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::getMetaKey()",
+            "file": "application/components/OfferCountService.php",
+            "line": 133
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::getMetaKey()",
+            "file": "application/components/OfferCountService.php",
+            "line": 316
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "application/components/ParserModule.php",
+            "line": 188
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$cf_name",
+            "file": "application/components/ProductPrefillService.php",
+            "line": 405
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "static::getCronTag()",
+            "file": "application/components/Scheduler.php",
+            "line": 29
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$kw_meta",
+            "file": "application/components/UpdateSettingsService.php",
+            "line": 166
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$params_meta",
+            "file": "application/components/UpdateSettingsService.php",
+            "line": 179
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "application/components/ai/AiClient.php",
+            "line": 454
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->metaOptionName()",
+            "file": "application/components/feed/FeedFileCache.php",
+            "line": 354
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->metaOptionName()",
+            "file": "application/components/feed/FeedFileCache.php",
+            "line": 356
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->optionName()",
+            "file": "application/components/feed/FeedImportState.php",
+            "line": 162
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionName()",
+            "file": "application/components/feed/FeedImportState.php",
+            "line": 164
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->optionName()",
+            "file": "application/components/feed/FeedImportStatus.php",
+            "line": 132
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionName()",
+            "file": "application/components/feed/FeedImportStatus.php",
+            "line": 134
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "application/helpers/CurrencyHelper.php",
+            "line": 795
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "application/helpers/LogoHelper.php",
+            "line": 281
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$logo_dir",
+            "file": "application/helpers/TemplateHelper.php",
+            "line": 681
+        }
+    ]
+}

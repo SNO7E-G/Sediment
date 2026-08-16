@@ -1,0 +1,146 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "flywp",
+        "name": "FlyWP",
+        "version": "1.6.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:25Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 38,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 1,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.7
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "flywp_email_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Email.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "flywp_optimizations",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Optimizations.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "litespeed.conf.cache",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Litespeed.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "includes/Api/Cache.php",
+                        "line": 61
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "flywp_send_updates_data",
+                "recurrence": "twicedaily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Api/UpdatesData.php",
+                        "line": 31
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "flywp_site_info",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin.php",
+                        "line": 130
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "fly-api",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Router.php",
+                        "line": 39
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "flywp()->fastcgi::SETTINGS_KEY",
+            "file": "includes/Admin/Fastcgi_Cache.php",
+            "line": 101
+        },
+        {
+            "function": "update_option",
+            "expression": "flywp()->fastcgi::SETTINGS_KEY",
+            "file": "includes/Admin/Fastcgi_Cache.php",
+            "line": 134
+        },
+        {
+            "function": "update_option",
+            "expression": "flywp()->fastcgi::SETTINGS_KEY",
+            "file": "includes/Api/Cache.php",
+            "line": 36
+        }
+    ]
+}

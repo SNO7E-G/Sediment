@@ -1,0 +1,393 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-product-price-based-on-countries",
+        "name": "WooCommerce Price Based on Country",
+        "version": "4.3.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 96,
+        "files_skipped": 0,
+        "write_calls_found": 38,
+        "verified": 30,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.895
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_wcpay_feature_customer_multi_currency",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/integrations/class-wcpbc-wc-payments.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "includes/integrations/class-wcpbc-wc-payments.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "wc_price_based_country_based_on",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcpbc-install.php",
+                        "line": 240
+                    }
+                ]
+            },
+            {
+                "key": "wc_price_based_country_caching_support",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wcpbc-setup-wizard.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "wc_price_based_country_dbip_prefix",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcpbc-update-geoip-db.php",
+                        "line": 187
+                    }
+                ]
+            },
+            {
+                "key": "wc_price_based_country_gla_integration",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcpbc-install.php",
+                        "line": 275
+                    }
+                ]
+            },
+            {
+                "key": "wc_price_based_country_helper_data",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcpbc-helper-options.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "includes/class-wcpbc-helper-options.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "wc_price_based_country_regions",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcpbc-install.php",
+                        "line": 246
+                    },
+                    {
+                        "file": "includes/class-wcpbc-pricing-zones.php",
+                        "line": 84
+                    },
+                    {
+                        "file": "includes/class-wcpbc-pricing-zones.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "includes/class-wcpbc-pricing-zones.php",
+                        "line": 164
+                    },
+                    {
+                        "file": "includes/wcpbc-update-functions.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "wc_price_based_country_shipping_exchange_rate",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcpbc-install.php",
+                        "line": 243
+                    },
+                    {
+                        "file": "includes/wcpbc-update-functions.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "wc_price_based_country_test_country",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wcpbc-update-functions.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "wc_price_based_country_test_mode",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wcpbc-update-functions.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "wc_price_based_country_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcpbc-install.php",
+                        "line": 116
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_default_customer_address",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wcpbc-setup-wizard.php",
+                        "line": 191
+                    },
+                    {
+                        "file": "includes/admin/class-wcpbc-setup-wizard.php",
+                        "line": 214
+                    },
+                    {
+                        "file": "includes/admin/settings/class-wc-settings-price-based-country.php",
+                        "line": 660
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "woocommerce_geoip_updater",
+                "recurrence": "monthly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcpbc-update-geoip-db.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "includes/class-wcpbc-update-geoip-db.php",
+                        "line": 195
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wcpbc_notify_admin_deprecated_pro",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-product-price-based-country.php",
+                        "line": 645
+                    }
+                ]
+            },
+            {
+                "key": "wcpbc_products_onsale",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcpbc-frontend-pricing.php",
+                        "line": 386
+                    }
+                ]
+            },
+            {
+                "key": "wcpbc_updated_geoip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wcpbc-admin.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wcpbc_base_exchange_rate",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wcpbc-update-functions.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "_wcpbc_pricing_zone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wcpbc-update-functions.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "zone_pricing_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wcpbc-admin-meta-boxes.php",
+                        "line": 226
+                    },
+                    {
+                        "file": "includes/wcpbc-update-functions.php",
+                        "line": 208
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "wc_price_based_country_admin_notices",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wcpbc-admin-notices.php",
+                        "line": 234
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "wc_price_based_country_notify_admin_deprecated_pro/4.1.0",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-product-price-based-country.php",
+                        "line": 594
+                    }
+                ]
+            },
+            {
+                "key": "wc_price_based_country_product_meta_job",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/product-meta/jobs/class-wcpbc-product-meta-job.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "wc_price_based_country_update_database",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcpbc-install.php",
+                        "line": 78
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/class-wcpbc-ajax-geolocation.php",
+            "line": 209
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/class-wcpbc-install.php",
+            "line": 190
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->get_postmetakey($meta_key)",
+            "file": "includes/class-wcpbc-pricing-zone.php",
+            "line": 440
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "includes/class-wcpbc-schedule-recurring-action.php",
+            "line": 119
+        }
+    ]
+}

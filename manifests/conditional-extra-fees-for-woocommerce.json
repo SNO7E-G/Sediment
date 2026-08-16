@@ -1,0 +1,510 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "conditional-extra-fees-for-woocommerce",
+        "name": "PiWeb Conditional cart fee / Extra charge rule for WooCommerce",
+        "version": "1.1.64",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:58Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 80,
+        "files_skipped": 0,
+        "write_calls_found": 62,
+        "verified": 58,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.935
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pi_cefw_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "conditional-fees-rule-woocommerce.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "pi_cefw_new_install",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "conditional-fees-rule-woocommerce.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "pisol_advanced-free-flat-shipping-woocommerce",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/dependency.php",
+                        "line": 104
+                    }
+                ]
+            },
+            {
+                "key": "pisol_affsw_move_to_submenu",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/dependency.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "pisol_cefw_sample_fees_created",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 20
+                    }
+                ]
+            },
+            {
+                "key": "pisol_logged_gateways",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-payment-processing-fee.php",
+                        "line": 88
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "pi_cart_quantity_charges",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/additional-charges/cart-quantity-charges.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "admin/additional-charges/cart-quantity-charges.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "pi_cart_subtotal_charges",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/additional-charges/cart-subtotal-charges.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "admin/additional-charges/cart-subtotal-charges.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "pi_cart_weight_charges",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/additional-charges/weight-based-charges.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "admin/additional-charges/weight-based-charges.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "pi_cefw_cart_quantity_sum_of_charges",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/additional-charges/cart-quantity-charges.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "admin/additional-charges/cart-quantity-charges.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "pi_cefw_cart_subtotal_sum_of_charges",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/additional-charges/cart-subtotal-charges.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "admin/additional-charges/cart-subtotal-charges.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "pi_cefw_cart_weight_sum_of_charges",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/additional-charges/weight-based-charges.php",
+                        "line": 92
+                    },
+                    {
+                        "file": "admin/additional-charges/weight-based-charges.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "pi_condition_logic",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 265
+                    },
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 267
+                    },
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 182
+                    }
+                ]
+            },
+            {
+                "key": "pi_currency",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 271
+                    },
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 273
+                    },
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 183
+                    }
+                ]
+            },
+            {
+                "key": "pi_enable_additional_charges",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/additional-charges/additional-charges.php",
+                        "line": 40
+                    },
+                    {
+                        "file": "admin/additional-charges/additional-charges.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "pi_enable_additional_charges_cart_quantity",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/additional-charges/cart-quantity-charges.php",
+                        "line": 82
+                    },
+                    {
+                        "file": "admin/additional-charges/cart-quantity-charges.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "pi_enable_additional_charges_cart_subtotal",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/additional-charges/cart-subtotal-charges.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "admin/additional-charges/cart-subtotal-charges.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "pi_enable_additional_charges_cart_weight",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/additional-charges/weight-based-charges.php",
+                        "line": 80
+                    },
+                    {
+                        "file": "admin/additional-charges/weight-based-charges.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "pi_fees",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 237
+                    },
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "pi_fees_end_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 261
+                    },
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 181
+                    }
+                ]
+            },
+            {
+                "key": "pi_fees_start_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 257
+                    },
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "pi_fees_tax_class",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 241
+                    },
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "pi_fees_taxable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 245
+                    },
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 247
+                    },
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "pi_fees_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 233
+                    },
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 176
+                    }
+                ]
+            },
+            {
+                "key": "pi_is_optional_fees",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 251
+                    },
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 253
+                    },
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "pi_metabox",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 295
+                    },
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 185
+                    }
+                ]
+            },
+            {
+                "key": "pi_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 228
+                    },
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 230
+                    },
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 343
+                    },
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 345
+                    },
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 170
+                    }
+                ]
+            },
+            {
+                "key": "round_off",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 277
+                    },
+                    {
+                        "file": "admin/class-conditional-fees-rule-woocommerce-add-fees-rule.php",
+                        "line": 279
+                    },
+                    {
+                        "file": "admin/class-sample-fees.php",
+                        "line": 184
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->enable_tracking",
+            "file": "admin/class-analytics.php",
+            "line": 88
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->analytics_start_date",
+            "file": "admin/class-analytics.php",
+            "line": 266
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->saved_value",
+            "file": "includes/review.php",
+            "line": 201
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->activation_date",
+            "file": "includes/review.php",
+            "line": 209
+        }
+    ]
+}

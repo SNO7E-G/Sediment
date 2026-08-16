@@ -1,0 +1,169 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "lana-downloads-manager",
+        "name": "Lana Downloads Manager",
+        "version": "1.12.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:42Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 18,
+    "coverage": {
+        "files_scanned": 7,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 7,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "lana_downloads_manager_post_type",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lana-downloads-manager.php",
+                        "line": 392
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}lana_downloads_manager_logs",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lana-downloads-manager.php",
+                        "line": 78
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "lana_download_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lana-downloads-manager.php",
+                        "line": 1647
+                    }
+                ]
+            },
+            {
+                "key": "lana_download_file_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lana-downloads-manager.php",
+                        "line": 2039
+                    }
+                ]
+            },
+            {
+                "key": "lana_download_file_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lana-downloads-manager.php",
+                        "line": 2038
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "manage_lana_download_logs",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lana-downloads-manager.php",
+                        "line": 215
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "lana_download",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lana-downloads-manager.php",
+                        "line": 327
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "lana_download_category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lana-downloads-manager.php",
+                        "line": 332
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$file['base']",
+            "file": "lana-downloads-manager.php",
+            "line": 111
+        },
+        {
+            "function": "add_rewrite_endpoint",
+            "expression": "\\get_option('lana_downloads_manager_endpoint', 'download')",
+            "file": "lana-downloads-manager.php",
+            "line": 194
+        },
+        {
+            "function": "add_rewrite_endpoint",
+            "expression": "\\get_option('lana_downloads_manager_post_type_endpoint', 'lana-download')",
+            "file": "lana-downloads-manager.php",
+            "line": 195
+        },
+        {
+            "function": "add_rewrite_endpoint",
+            "expression": "\\get_option('lana_downloads_manager_category_endpoint', 'download-category')",
+            "file": "lana-downloads-manager.php",
+            "line": 196
+        }
+    ]
+}

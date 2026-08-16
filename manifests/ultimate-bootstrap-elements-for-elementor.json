@@ -1,0 +1,139 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ultimate-bootstrap-elements-for-elementor",
+        "name": "Ultimate Bootstrap Elements for Elementor",
+        "version": "1.5.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:41Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 43,
+    "coverage": {
+        "files_scanned": 240,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 3,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.778
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ube_default_color_previous",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/functions/site-setting.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "ube_elements",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/functions/elements.php",
+                        "line": 339
+                    }
+                ]
+            },
+            {
+                "key": "ube_integrated_api",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/functions/elements.php",
+                        "line": 367
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_wp_page_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/modules/dynamic-content/module.class.php",
+                        "line": 94
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "ube_admin_messages",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/message.class.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "inc/admin/message.class.php",
+                        "line": 69
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "ube_content",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/modules/dynamic-content/module.class.php",
+                        "line": 40
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "inc/elements/facebook-feed.class.php",
+            "line": 538
+        },
+        {
+            "function": "update_option",
+            "expression": "$id . '_' . $settings['twitter_feed_ac_name'] . '_tf_token'",
+            "file": "inc/elements/twitter-feed.class.php",
+            "line": 605
+        }
+    ]
+}

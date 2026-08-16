@@ -1,0 +1,141 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "eu-order-withdrawal-button-for-woocommerce",
+        "name": "EU Order Withdrawal Button for WooCommerce",
+        "version": "2.4.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:03Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 60,
+    "coverage": {
+        "files_scanned": 44,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "eu_owb_woocommerce_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Install.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "eu_owb_woocommerce_mandatory_fields",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Install.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "eu_owb_woocommerce_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Install.php",
+                        "line": 42
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_customer_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/DataStores/WithdrawalOrderCPT.php",
+                        "line": 290
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "is_customer_note",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/WithdrawalOrder.php",
+                        "line": 813
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "src/Ajax.php",
+            "line": 611
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "src/Ajax.php",
+            "line": 634
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "src/DataStores/WithdrawalOrderCPT.php",
+            "line": 284
+        },
+        {
+            "function": "add_option",
+            "expression": "$setting['id']",
+            "file": "src/Install.php",
+            "line": 221
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "sanitize_key($key)",
+            "file": "src/WithdrawalOrder.php",
+            "line": 827
+        }
+    ]
+}

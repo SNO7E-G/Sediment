@@ -1,0 +1,874 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "video-conferencing-with-zoom-api",
+        "name": "Video Conferencing with Zoom",
+        "version": "4.6.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:14Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 97,
+        "files_skipped": 0,
+        "write_calls_found": 107,
+        "verified": 92,
+        "resolved": 6,
+        "pattern": 4,
+        "dynamic": 5,
+        "resolution_rate": 0.916
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_vczapi_dismiss_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 345
+                    }
+                ]
+            },
+            {
+                "key": "_vczapi_secret",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Helpers/Encryption.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "_vczapi_sync_meetings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-sync.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "_vczapi_user_webinars_for_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Shortcodes/Webinars.php",
+                        "line": 123
+                    },
+                    {
+                        "file": "includes/Shortcodes/Webinars.php",
+                        "line": 124
+                    }
+                ]
+            },
+            {
+                "key": "_vczapi_zoom_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 328
+                    }
+                ]
+            },
+            {
+                "key": "_zvc_user_lists",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Bootstrap.php",
+                        "line": 335
+                    },
+                    {
+                        "file": "includes/Bootstrap.php",
+                        "line": 348
+                    },
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 238
+                    },
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 297
+                    }
+                ]
+            },
+            {
+                "key": "_zvc_user_lists_expiry_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Bootstrap.php",
+                        "line": 336
+                    },
+                    {
+                        "file": "includes/Bootstrap.php",
+                        "line": 349
+                    },
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 223
+                    },
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 239
+                    },
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 298
+                    }
+                ]
+            },
+            {
+                "key": "vczapi_disable_invite",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 344
+                    }
+                ]
+            },
+            {
+                "key": "vczapi_dismiss_sdk_not_active_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-ajax.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "vczapi_global_oauth_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/S2SOAuth.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "vczapi_oauth_account_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 124
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-setup-wizard.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "vczapi_oauth_client_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 125
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-setup-wizard.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "vczapi_oauth_client_secret",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-setup-wizard.php",
+                        "line": 41
+                    }
+                ]
+            },
+            {
+                "key": "vczapi_sdk_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-setup-wizard.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "vczapi_sdk_secret_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 129
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-setup-wizard.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "vczapi_user_meetings_for_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Shortcodes/Meetings.php",
+                        "line": 510
+                    },
+                    {
+                        "file": "includes/Shortcodes/Meetings.php",
+                        "line": 511
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_custom_date_time_format",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 338
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_date_time_format",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 337
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_default_lang_jvb",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 346
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_disable_auto_meeting_pwd",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 347
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_disable_jvb",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 345
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_donot_delete_on_zoom",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 332
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_embed_pwd_join_link",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 341
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_full_month_format",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 339
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_hide_in_jvb",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 343
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_hide_shortcode_join_links",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 342
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_meeting_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-ajax.php",
+                        "line": 292
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-ajax.php",
+                        "line": 295
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-ajax.php",
+                        "line": 316
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-ajax.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_secret",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "zoom_api_twenty_fourhour_format",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 340
+                    }
+                ]
+            },
+            {
+                "key": "zoom_ended_meeting_text",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 336
+                    }
+                ]
+            },
+            {
+                "key": "zoom_going_tostart_meeting_text",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 335
+                    }
+                ]
+            },
+            {
+                "key": "zoom_past_join_links",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 333
+                    }
+                ]
+            },
+            {
+                "key": "zoom_show_author",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 334
+                    }
+                ]
+            },
+            {
+                "key": "zoom_vanity_url",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-settings.php",
+                        "line": 331
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "vczapi_refresh_long_term_meeting_cron",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/Cron.php",
+                        "line": 100
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_meeting_field_start_date_utc",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 638
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 640
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-sync.php",
+                        "line": 167
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-sync.php",
+                        "line": 169
+                    }
+                ]
+            },
+            {
+                "key": "_meeting_fields",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 630
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-sync.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "_meeting_zoom_details",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/Cron.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "includes/admin/Cron.php",
+                        "line": 142
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-ajax.php",
+                        "line": 305
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-ajax.php",
+                        "line": 324
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 677
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 683
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 689
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 695
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 720
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 726
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 734
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 741
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-sync.php",
+                        "line": 172
+                    }
+                ]
+            },
+            {
+                "key": "_meeting_zoom_join_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/Cron.php",
+                        "line": 127
+                    },
+                    {
+                        "file": "includes/admin/Cron.php",
+                        "line": 143
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 678
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 690
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 721
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 735
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-sync.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "_meeting_zoom_meeting_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 680
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 692
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 723
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 737
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-sync.php",
+                        "line": 175
+                    }
+                ]
+            },
+            {
+                "key": "_meeting_zoom_start_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/Cron.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "includes/admin/Cron.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 679
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 691
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 722
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 736
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-sync.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "_vczapi_last_zoom_refresh_timestamp",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/Cron.php",
+                        "line": 129
+                    },
+                    {
+                        "file": "includes/admin/Cron.php",
+                        "line": 145
+                    }
+                ]
+            },
+            {
+                "key": "_vczapi_meeting_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 632
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "user_zoom_hostid",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-users.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-users.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-users.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "vczapi_user_zoom_email_address",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-users.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "includes/admin/class-zvc-admin-users.php",
+                        "line": 105
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "zoom-meetings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 385
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "zoom-meeting",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-zvc-admin-post-type.php",
+                        "line": 332
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "ZVC_LOG_DIR",
+            "file": "includes/Data/Logger.php",
+            "line": 239
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/Shortcodes/Helpers.php",
+            "line": 26
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key . '_expiry_time'",
+            "file": "includes/Shortcodes/Helpers.php",
+            "line": 27
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/Shortcodes/Helpers.php",
+            "line": 44
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key . '_expiry_time'",
+            "file": "includes/Shortcodes/Helpers.php",
+            "line": 45
+        }
+    ]
+}

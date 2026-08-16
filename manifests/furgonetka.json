@@ -1,0 +1,319 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "furgonetka",
+        "name": "Furgonetka.pl",
+        "version": "1.9.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:14Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 61,
+        "files_skipped": 0,
+        "write_calls_found": 42,
+        "verified": 1,
+        "resolved": 2,
+        "pattern": 1,
+        "dynamic": 38,
+        "resolution_rate": 0.071
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "furgonetka_daily_event",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-furgonetka-activator.php",
+                        "line": 36
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "furgonetka_plugin_updated",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "furgonetka.php",
+                        "line": 59
+                    },
+                    {
+                        "file": "furgonetka.php",
+                        "line": 68
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "\\b*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-furgonetka-returns.php",
+                        "line": 74
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_TEST_MODE",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 783
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_CHECKOUT_UUID",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 901
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_CHECKOUT_ACTIVE",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 902
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_CHECKOUT_TEST_MODE",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 903
+        },
+        {
+            "function": "update_option",
+            "expression": "self::OPTION_DETAILS[$key]",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 907
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_SOURCE_ID",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1277
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_INTEGRATION_UUID",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1278
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_MAP_API_KEY",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1279
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_ACCOUNT_TYPE",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1319
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_CHECKOUT_PRODUCT_SELECTOR",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1446
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_CHECKOUT_CART_SELECTOR",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1447
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_CHECKOUT_MINICART_SELECTOR",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1448
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_CHECKOUT_CART_BUTTON_POSITION",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1450
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_CHECKOUT_CART_BUTTON_WIDTH",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1451
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_CHECKOUT_CART_BUTTON_CSS",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1452
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_CHECKOUT_REPLACE_NATIVE_CHECKOUT",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1454
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_CLIENT_ID",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1494
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_CLIENT_SECRET",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1495
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_TEST_MODE",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1502
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_INTEGRATION_UUID",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1624
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_ACCESS_TOKEN",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1678
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_REFRESH_TOKEN",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1681
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_EXPIRES_DATE",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1685
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_TEST_MODE",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1688
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_ACCESS_TOKEN",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1812
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_REFRESH_TOKEN",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1815
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_EXPIRES_DATE",
+            "file": "admin/class-furgonetka-admin.php",
+            "line": 1819
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_VERSION",
+            "file": "furgonetka.php",
+            "line": 91
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_TEMPORARY_CONSUMER_KEY",
+            "file": "includes/class-furgonetka-api-keys.php",
+            "line": 18
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_TEMPORARY_CONSUMER_SECRET",
+            "file": "includes/class-furgonetka-api-keys.php",
+            "line": 19
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_AUTH_API_NONCE",
+            "file": "includes/class-furgonetka-auth-api-permissions.php",
+            "line": 40
+        },
+        {
+            "function": "add_cap",
+            "expression": "$role",
+            "file": "includes/class-furgonetka-capabilities.php",
+            "line": 109
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_DELIVERY_TO_TYPE",
+            "file": "includes/class-furgonetka-map.php",
+            "line": 56
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_DELIVERY_TO_TYPE",
+            "file": "includes/class-furgonetka-migrations-performer.php",
+            "line": 92
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_MAP_API_KEY",
+            "file": "includes/class-furgonetka-migrations-performer.php",
+            "line": 109
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_RETURNS_TARGET",
+            "file": "includes/rest_api/models/class-furgonetka-returns-model.php",
+            "line": 7
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_RETURNS_ACTIVE",
+            "file": "includes/rest_api/models/class-furgonetka-returns-model.php",
+            "line": 8
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Furgonetka_Options::OPTION_RETURNS_ROUTE",
+            "file": "includes/rest_api/models/class-furgonetka-returns-model.php",
+            "line": 9
+        }
+    ]
+}

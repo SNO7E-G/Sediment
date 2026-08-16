@@ -1,0 +1,252 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "materialis-companion",
+        "name": "Materialis Companion",
+        "version": "1.3.57",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 41,
+        "files_skipped": 0,
+        "write_calls_found": 25,
+        "verified": 13,
+        "resolved": 2,
+        "pattern": 5,
+        "dynamic": 5,
+        "resolution_rate": 0.6
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cp_dismissed_notifications",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Notify/NotificationsManager.php",
+                        "line": 207
+                    }
+                ]
+            },
+            {
+                "key": "cp_initialize_notifications",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Notify/NotificationsManager.php",
+                        "line": 19
+                    },
+                    {
+                        "file": "src/Notify/NotificationsManager.php",
+                        "line": 106
+                    }
+                ]
+            },
+            {
+                "key": "widget_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Customizer/Template.php",
+                        "line": 261
+                    }
+                ]
+            },
+            {
+                "key": "widget_block",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "support/wp-5.8.php",
+                        "line": 26
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "theme-data/materialis/updates.php",
+                        "line": 16
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "theme-data/materialis/updates.php",
+                        "line": 34
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_page_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Companion.php",
+                        "line": 1148
+                    }
+                ]
+            },
+            {
+                "key": "is_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Companion.php",
+                        "line": 692
+                    },
+                    {
+                        "file": "src/Companion.php",
+                        "line": 830
+                    },
+                    {
+                        "file": "src/Companion.php",
+                        "line": 850
+                    },
+                    {
+                        "file": "src/Companion.php",
+                        "line": 1144
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "page_for_posts",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "src/Companion.php",
+                    "line": 846
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "page_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "src/Companion.php",
+                    "line": 829
+                },
+                {
+                    "file": "src/Companion.php",
+                    "line": 849
+                },
+                {
+                    "file": "src/Companion.php",
+                    "line": 870
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "show_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "src/Companion.php",
+                    "line": 828
+                },
+                {
+                    "file": "src/Companion.php",
+                    "line": 848
+                },
+                {
+                    "file": "src/Companion.php",
+                    "line": 869
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "src/Customizer/Template.php",
+                    "line": 260
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "add_metadata",
+            "expression": "$key",
+            "file": "src/Companion.php",
+            "line": 358
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "src/Companion.php",
+            "line": 373
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->themeSlug . '_companion_old_show_on_front'",
+            "file": "src/Companion.php",
+            "line": 808
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->themeSlug . '_companion_old_page_on_front'",
+            "file": "src/Companion.php",
+            "line": 809
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transientKey",
+            "file": "src/Notify/NotificationsManager.php",
+            "line": 81
+        }
+    ]
+}

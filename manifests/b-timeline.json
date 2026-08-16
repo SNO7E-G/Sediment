@@ -1,0 +1,229 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "b-timeline",
+        "name": "Timeline",
+        "version": "2.0.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:05Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 90,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 5,
+        "dynamic": 15,
+        "resolution_rate": 0.13
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bptl_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-bptl-main.php",
+                        "line": 237
+                    }
+                ]
+            },
+            {
+                "key": "csf_demo_mode",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/codestar/views/welcome.php",
+                        "line": 111
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_csf_errors_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/codestar/classes/metabox-options.class.php",
+                        "line": 402
+                    },
+                    {
+                        "file": "inc/codestar/classes/nav-menu-options.class.php",
+                        "line": 247
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_csf_errors_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/codestar/classes/profile-options.class.php",
+                        "line": 238
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "_csf_errors_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/codestar/classes/taxonomy-options.class.php",
+                        "line": 257
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [
+            {
+                "key": "_csf_errors_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/codestar/classes/comment-options.class.php",
+                        "line": 323
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "btimeline",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-bptl-admin.php",
+                        "line": 61
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$this->unique",
+            "file": "inc/codestar/classes/admin-options.class.php",
+            "line": 343
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->unique",
+            "file": "inc/codestar/classes/admin-options.class.php",
+            "line": 347
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->unique",
+            "file": "inc/codestar/classes/admin-options.class.php",
+            "line": 349
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$key",
+            "file": "inc/codestar/classes/comment-options.class.php",
+            "line": 316
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$this->unique",
+            "file": "inc/codestar/classes/comment-options.class.php",
+            "line": 319
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->unique",
+            "file": "inc/codestar/classes/customize-options.class.php",
+            "line": 113
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "inc/codestar/classes/metabox-options.class.php",
+            "line": 395
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->unique",
+            "file": "inc/codestar/classes/metabox-options.class.php",
+            "line": 398
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "inc/codestar/classes/nav-menu-options.class.php",
+            "line": 240
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->unique",
+            "file": "inc/codestar/classes/nav-menu-options.class.php",
+            "line": 243
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "inc/codestar/classes/profile-options.class.php",
+            "line": 231
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->unique",
+            "file": "inc/codestar/classes/profile-options.class.php",
+            "line": 234
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$key",
+            "file": "inc/codestar/classes/taxonomy-options.class.php",
+            "line": 250
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$this->unique",
+            "file": "inc/codestar/classes/taxonomy-options.class.php",
+            "line": 253
+        },
+        {
+            "function": "update_option",
+            "expression": "$unique",
+            "file": "inc/codestar/functions/actions.php",
+            "line": 118
+        }
+    ]
+}

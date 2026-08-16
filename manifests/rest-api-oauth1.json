@@ -1,0 +1,153 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "rest-api-oauth1",
+        "name": "WP REST API - OAuth 1.0a Server",
+        "version": "0.4.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 4,
+        "dynamic": 2,
+        "resolution_rate": 0.455
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "oauth1_access_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-wp-rest-oauth1.php",
+                        "line": 629
+                    }
+                ]
+            },
+            {
+                "key": "oauth1_request_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-wp-rest-oauth1.php",
+                        "line": 380
+                    },
+                    {
+                        "file": "lib/class-wp-rest-oauth1.php",
+                        "line": 414
+                    },
+                    {
+                        "file": "lib/class-wp-rest-oauth1.php",
+                        "line": 547
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "nonces",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-wp-rest-oauth1.php",
+                        "line": 866
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "json_consumer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "oauth-server.php",
+                        "line": 64
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "^oauth1/access/?$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "oauth-server.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "^oauth1/authorize/?$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "oauth-server.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "^oauth1/request/?$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "oauth-server.php",
+                        "line": 56
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "lib/class-wp-rest-client.php",
+            "line": 103
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "lib/class-wp-rest-client.php",
+            "line": 221
+        }
+    ]
+}

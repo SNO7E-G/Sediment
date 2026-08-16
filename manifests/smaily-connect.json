@@ -1,0 +1,233 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "smaily-connect",
+        "name": "Smaily Connect",
+        "version": "2.0.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:05Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 3,
+    "coverage": {
+        "files_scanned": 65,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 11,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.895
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "smaily_connect_cf7_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/cf7/admin.class.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "migrations/upgrade-1-3-0.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "migrations/upgrade-1-3-0.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "smaily_connect_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/smaily-lifecycle.class.php",
+                        "line": 245
+                    }
+                ]
+            },
+            {
+                "key": "smaily_connect_flush_rewrite_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/smaily-lifecycle.class.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "includes/smaily-lifecycle.class.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "smaily_connect_notices",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/smaily-notice-registry.class.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "includes/smaily-notice-registry.class.php",
+                        "line": 62
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "smaily_connect_cron_abandoned_carts_email",
+                "recurrence": "smaily_connect_15_minutes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/smaily-lifecycle.class.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "smaily_connect_cron_abandoned_carts_status",
+                "recurrence": "smaily_connect_15_minutes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/smaily-lifecycle.class.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "smaily_connect_cron_sync_subscribers",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/smaily-lifecycle.class.php",
+                        "line": 83
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "smaily_connect_cart_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/woocommerce/cart.class.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "smaily_connect_plugin_updated",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/smaily-lifecycle.class.php",
+                        "line": 206
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "smaily_connect_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/smaily-notice-registry.class.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "smaily_connect_user_language",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/smaily-helper.class.php",
+                        "line": 288
+                    }
+                ]
+            },
+            {
+                "key": "user_newsletter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/woocommerce/cron.class.php",
+                        "line": 109
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "smaily-rss-feed/?$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/woocommerce/rss.class.php",
+                        "line": 79
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$abandoned",
+            "file": "includes/smaily-lifecycle.class.php",
+            "line": 136
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "integrations/woocommerce/profile-settings.class.php",
+            "line": 263
+        }
+    ]
+}

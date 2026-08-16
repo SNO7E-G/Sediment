@@ -1,0 +1,753 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "nelio-ab-testing",
+        "name": "Nelio A/B Testing – AB Tests and Heatmaps for Better Conversion Optimization",
+        "version": "8.5.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:53Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 473,
+        "files_skipped": 0,
+        "write_calls_found": 76,
+        "verified": 43,
+        "resolved": 21,
+        "pattern": 2,
+        "dynamic": 10,
+        "resolution_rate": 0.842
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "nab_alt_checksum",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/hooks/alternative-checksum.php",
+                        "line": 13
+                    },
+                    {
+                        "file": "includes/hooks/alternative-checksum.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "nab_api_secret",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/rest/class-nelio-ab-testing-account-rest-controller.php",
+                        "line": 415
+                    }
+                ]
+            },
+            {
+                "key": "nab_last_quota_notification_sent",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/utils/class-nelio-ab-testing-quota-checker.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "includes/utils/class-nelio-ab-testing-quota-checker.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "nab_pre_alt_checksum",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/hooks/alternative-checksum.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "nab_reusable_goals",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/rest/class-nelio-ab-testing-reusable-entities-rest-controller.php",
+                        "line": 160
+                    }
+                ]
+            },
+            {
+                "key": "nab_reusable_segments",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/rest/class-nelio-ab-testing-reusable-entities-rest-controller.php",
+                        "line": 226
+                    }
+                ]
+            },
+            {
+                "key": "nab_site_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/rest/class-nelio-ab-testing-account-rest-controller.php",
+                        "line": 414
+                    }
+                ]
+            },
+            {
+                "key": "nab_subscription",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/utils/functions/subscription.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "nab_subscription_addons",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/utils/functions/subscription.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "nab_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/utils/class-nelio-ab-testing-install.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "widget_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/hooks/experiments/widget/class-widgets-helper.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "includes/hooks/experiments/widget/class-widgets-helper.php",
+                        "line": 249
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "nab_check_quota",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/utils/class-nelio-ab-testing-quota-checker.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "nab_check_running_experiment",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment-scheduler.php",
+                        "line": 81
+                    },
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment-scheduler.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment-scheduler.php",
+                        "line": 161
+                    }
+                ]
+            },
+            {
+                "key": "nab_start_scheduled_experiment",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment-scheduler.php",
+                        "line": 55
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "nab_chatbot_url_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-nelio-ab-testing-admin.php",
+                        "line": 390
+                    }
+                ]
+            },
+            {
+                "key": "nab_news",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-nelio-ab-testing-overview-widget.php",
+                        "line": 422
+                    }
+                ]
+            },
+            {
+                "key": "nab_products",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/rest/class-nelio-ab-testing-account-rest-controller.php",
+                        "line": 873
+                    }
+                ]
+            },
+            {
+                "key": "nab_site_object",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/rest/class-nelio-ab-testing-account-rest-controller.php",
+                        "line": 951
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_nab_ai_info",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_alternatives",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_are_timeline_results_definitive",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment-results.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "_nab_auto_alternative_application",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_control_backup",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_custom_permalink_backup",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/hooks/compat/custom-permalinks/content.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "_nab_end_date",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_end_mode",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_end_value",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_experiment",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/hooks/experiments/post/content.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "includes/hooks/experiments/synced-pattern/content.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "includes/hooks/woocommerce/experiments/product/class-alternative-product.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "_nab_experiment_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment-manager.php",
+                        "line": 171
+                    },
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_extensions",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_goals",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_is_result_public",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_last_alternative_applied",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_page_view_scope_exclusions",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_scope",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_segment_evaluation",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_segments",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_start_date",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_starter",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_stopper",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_tested_post_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_nab_timeline_results",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment-results.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "_nab_variation_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/hooks/woocommerce/experiments/product/content.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "includes/hooks/woocommerce/experiments/product/content.php",
+                        "line": 337
+                    },
+                    {
+                        "file": "includes/hooks/woocommerce/experiments/product/content.php",
+                        "line": 353
+                    },
+                    {
+                        "file": "includes/hooks/woocommerce/experiments/product/editor/product-data-metabox.php",
+                        "line": 202
+                    },
+                    {
+                        "file": "includes/hooks/woocommerce/experiments/product/legacy/updater.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "_nab_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment-manager.php",
+                        "line": 172
+                    },
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment.php",
+                        "line": 2729
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/hooks/experiments/headline/content.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "custom_permalink",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/hooks/compat/custom-permalinks/content.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "leadpages_slug",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/hooks/compat/leadpages/content.php",
+                        "line": 49
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_nab_quota_boost_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-nelio-ab-testing-quota-boost-notice.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "includes/rest/class-nelio-ab-testing-account-rest-controller.php",
+                        "line": 428
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "_nab_experiment",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/hooks/experiments/menu/content.php",
+                        "line": 41
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "nab_experiment",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/experiments/class-nelio-ab-testing-experiment-post-type-register.php",
+                        "line": 145
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/hooks/experiments/widget/class-widgets-helper.php",
+                    "line": 40
+                },
+                {
+                    "file": "includes/hooks/experiments/widget/class-widgets-helper.php",
+                    "line": 65
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dest_folder",
+            "file": "includes/hooks/compat/cache/index.php",
+            "line": 99
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/hooks/compat/optimizepress/load.php",
+            "line": 50
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_name()",
+            "file": "includes/lib/settings/class-nelio-ab-testing-abstract-settings.php",
+            "line": 129
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/rest/class-nelio-ab-testing-ai-rest-controller.php",
+            "line": 103
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir . '/nab/heatmaps'",
+            "file": "includes/rest/class-nelio-ab-testing-experiment-rest-controller.php",
+            "line": 720
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$new_dir",
+            "file": "includes/rest/class-nelio-ab-testing-experiment-rest-controller.php",
+            "line": 780
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/utils/class-nelio-ab-testing-capability-manager.php",
+            "line": 52
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/utils/class-nelio-ab-testing-capability-manager.php",
+            "line": 82
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/utils/functions/api.php",
+            "line": 207
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/utils/functions/api.php",
+            "line": 222
+        }
+    ]
+}

@@ -1,0 +1,277 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "pinterest-for-woocommerce",
+        "name": "Pinterest for WooCommerce",
+        "version": "1.4.28",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:55Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 30,
+    "coverage": {
+        "files_scanned": 133,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 1,
+        "resolved": 10,
+        "pattern": 0,
+        "dynamic": 17,
+        "resolution_rate": 0.393
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "pinterest_for_woocommerce",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pinterest_for_woocommerce_ads_modal_dismissed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/API/UserInteraction.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "src/PluginUpdate.php",
+                        "line": 318
+                    }
+                ]
+            },
+            {
+                "key": "pinterest_for_woocommerce_ads_notice_dismissed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/API/UserInteraction.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "pinterest_for_woocommerce_billing_setup_flow_entered",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/API/UserInteraction.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "pinterest_for_woocommerce_capi_modal_dismissed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/API/UserInteraction.php",
+                        "line": 95
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "pinterest-for-woocommerce_currencies_list",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/ProductsXmlFeed.php",
+                        "line": 698
+                    }
+                ]
+            },
+            {
+                "key": "wp_rest",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-pinterest-for-woocommerce.php",
+                        "line": 915
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "pinterest-for-woocommerce-create-commerce-integration-retry",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/CommerceIntegration.php",
+                        "line": 113
+                    }
+                ]
+            },
+            {
+                "key": "pinterest_for_woocommerce_daily_heartbeat",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Heartbeat.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "pinterest_for_woocommerce_hourly_heartbeat",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Heartbeat.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "pinterest_for_woocommerce_weekly_heartbeat",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Heartbeat.php",
+                        "line": 52
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "class-pinterest-for-woocommerce.php",
+            "line": 624
+        },
+        {
+            "function": "update_option",
+            "expression": "\\PINTEREST_FOR_WOOCOMMERCE_PINTEREST_API_VERSION",
+            "file": "class-pinterest-for-woocommerce.php",
+            "line": 637
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/API/Base.php",
+            "line": 228
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::ADS_CREDIT_CAMPAIGN_TRANSIENT",
+            "file": "src/AdCredits.php",
+            "line": 203
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::CHECK_BILLING_SETUP_OFTEN",
+            "file": "src/Billing.php",
+            "line": 99
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::CHECK_BILLING_SETUP_ONCE_PER_HOUR",
+            "file": "src/Billing.php",
+            "line": 121
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "self::ACTION_START_FEED_GENERATOR",
+            "file": "src/FeedGenerator.php",
+            "line": 271
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "self::ACTION_HANDLE_FEED_REGISTRATION",
+            "file": "src/FeedRegistration.php",
+            "line": 64
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/Feeds.php",
+            "line": 172
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/Merchants.php",
+            "line": 174
+        },
+        {
+            "function": "update_option",
+            "expression": "self::INIT_TIMESTAMP",
+            "file": "src/Notes/MarketingNotifications.php",
+            "line": 105
+        },
+        {
+            "function": "update_option",
+            "expression": "self::PLUGIN_UPDATE_VERSION_OPTION",
+            "file": "src/PluginUpdate.php",
+            "line": 108
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "self::TOKEN_UPDATE_RETRY_HOOK",
+            "file": "src/PluginUpdate.php",
+            "line": 373
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "src/PluginUpdate.php",
+            "line": 396
+        },
+        {
+            "function": "update_option",
+            "expression": "self::PINTEREST_FOR_WOOCOMMERCE_FEEDS_DATA_PREFIX . $key",
+            "file": "src/ProductFeedStatus.php",
+            "line": 86
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "src/Tracking/Tag.php",
+            "line": 233
+        },
+        {
+            "function": "update_option",
+            "expression": "self::ACCOUNT_CONNECTION_TIMESTAMP",
+            "file": "src/Utilities/Utilities.php",
+            "line": 28
+        }
+    ]
+}

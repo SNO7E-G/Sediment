@@ -1,0 +1,791 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "instagram-widget-by-wpzoom",
+        "name": "WPZOOM Instagram Social Feed",
+        "version": "2.3.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 16,
+        "files_skipped": 0,
+        "write_calls_found": 96,
+        "verified": 65,
+        "resolved": 10,
+        "pattern": 0,
+        "dynamic": 21,
+        "resolution_rate": 0.781
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_wpz-insta_cron-result",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-api.php",
+                        "line": 262
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 542
+                    }
+                ]
+            },
+            {
+                "key": "wpz_insta_basic_api_notice_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-api.php",
+                        "line": 1474
+                    }
+                ]
+            },
+            {
+                "key": "wpzoom-instagram-transition-between-4_7-4_8-versions",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "instagram-widget-by-wpzoom.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "wpzoom_instagram_installed_time",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-review-notice.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "wpzoom_run_only_once_01",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-after-setup.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "wpzoom_run_only_once_02",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-after-setup.php",
+                        "line": 120
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpzoom_instagram_api_key_status",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-email-notification.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "wpzoom_instagram_widget_cron_hook",
+                "recurrence": "before_access_token_expires",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-api.php",
+                        "line": 173
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "zoom_instagram_is_configured",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-image-uploader.php",
+                        "line": 413
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-api.php",
+                        "line": 1148
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-api.php",
+                        "line": 1153
+                    }
+                ]
+            },
+            {
+                "key": "zoom_instagram_user_info",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-api.php",
+                        "line": 972
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-api.php",
+                        "line": 985
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-api.php",
+                        "line": 987
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-after-setup.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_account-type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-after-setup.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3337
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3366
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3424
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3470
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_allowed-post-types",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3614
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_buy-now-bg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3702
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_buy-now-border-radius",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3714
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_buy-now-border-radius-suffix",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3717
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_buy-now-color",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3706
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_buy-now-hover-bg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3710
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_buy-now-new-tab",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3665
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_buy-now-text",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3663
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_connection-type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3338
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3367
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3426
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3471
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_feed_is_duplicate",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 1266
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_hidden-posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3605
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_lightbox-product-layout",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3684
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_lightbox-product-position",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3680
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_page_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3335
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3362
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3434
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_product-badge-label",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3676
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_product-icon-bg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3693
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_product-icon-color",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3697
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_product-icon-size",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3689
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_product-links",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-display.php",
+                        "line": 2255
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 1263
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3785
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_product-links-display-type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3667
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_product-links-icon-position",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3673
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_product-links-popover-title",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3670
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-after-setup.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-api.php",
+                        "line": 237
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3340
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3363
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3436
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3467
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_token_expire",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-after-setup.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-api.php",
+                        "line": 238
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3341
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3365
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3437
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3469
+                    }
+                ]
+            },
+            {
+                "key": "_wpz-insta_user_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-after-setup.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3336
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3364
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3423
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3468
+                    }
+                ]
+            },
+            {
+                "key": "wpzoom_instagram_media_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-image-uploader.php",
+                        "line": 287
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-image-uploader.php",
+                        "line": 300
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "wpzinsta-pointer-feed-embed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 1634
+                    },
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 3995
+                    }
+                ]
+            },
+            {
+                "key": "wpzinsta-settings-pointer-dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 403
+                    }
+                ]
+            },
+            {
+                "key": "wpzoom_instagram_admin_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "instagram-widget-by-wpzoom.php",
+                        "line": 132
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wpz-insta_feed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 243
+                    }
+                ]
+            },
+            {
+                "key": "wpz-insta_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpzoom-instagram-widget-settings.php",
+                        "line": 169
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-instagram-feed-pro.php",
+            "line": 293
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-instagram-feed-pro.php",
+            "line": 604
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "includes/class-wpzoom-instagram-widget-api.php",
+            "line": 383
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "includes/class-wpzoom-instagram-widget-api.php",
+            "line": 408
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "includes/class-wpzoom-instagram-widget-api.php",
+            "line": 435
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "includes/class-wpzoom-instagram-widget-api.php",
+            "line": 445
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-wpzoom-instagram-widget-api.php",
+            "line": 740
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-wpzoom-instagram-widget-api.php",
+            "line": 755
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/class-wpzoom-instagram-widget-api.php",
+            "line": 1217
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/class-wpzoom-instagram-widget-api.php",
+            "line": 1259
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/class-wpzoom-instagram-widget-api.php",
+            "line": 1300
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/class-wpzoom-instagram-widget-api.php",
+            "line": 1367
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/class-wpzoom-instagram-widget-api.php",
+            "line": 1553
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-wpzoom-instagram-widget-settings.php",
+            "line": 1255
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-wpzoom-instagram-widget-settings.php",
+            "line": 1703
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/class-wpzoom-instagram-widget-settings.php",
+            "line": 3648
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/class-wpzoom-instagram-widget-settings.php",
+            "line": 3654
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/class-wpzoom-instagram-widget-settings.php",
+            "line": 3979
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/class-wpzoom-instagram-widget-settings.php",
+            "line": 3981
+        },
+        {
+            "function": "update_option",
+            "expression": "\\WPZOOM_Instagram_Widget_Settings::get_instance()->get_option_name()",
+            "file": "instagram-widget-by-wpzoom.php",
+            "line": 92
+        },
+        {
+            "function": "update_option",
+            "expression": "\\WPZOOM_Instagram_Widget_Settings::get_instance()->get_option_name()",
+            "file": "instagram-widget-by-wpzoom.php",
+            "line": 117
+        }
+    ]
+}

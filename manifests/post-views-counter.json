@@ -1,0 +1,282 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "post-views-counter",
+        "name": "Post Views Counter",
+        "version": "1.7.15",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:59Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 5,
+    "coverage": {
+        "files_scanned": 37,
+        "files_skipped": 0,
+        "write_calls_found": 35,
+        "verified": 32,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.971
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "post_views_counter_activation_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "post-views-counter.php",
+                        "line": 759
+                    }
+                ]
+            },
+            {
+                "key": "post_views_counter_settings_display",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-settings-display.php",
+                        "line": 543
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 329
+                    },
+                    {
+                        "file": "post-views-counter.php",
+                        "line": 990
+                    }
+                ]
+            },
+            {
+                "key": "post_views_counter_settings_emails",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-emails-mailer.php",
+                        "line": 854
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 239
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 254
+                    },
+                    {
+                        "file": "post-views-counter.php",
+                        "line": 335
+                    },
+                    {
+                        "file": "post-views-counter.php",
+                        "line": 992
+                    }
+                ]
+            },
+            {
+                "key": "post_views_counter_settings_general",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-cron.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "includes/class-settings-general.php",
+                        "line": 42
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 136
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 182
+                    },
+                    {
+                        "file": "post-views-counter.php",
+                        "line": 753
+                    },
+                    {
+                        "file": "post-views-counter.php",
+                        "line": 776
+                    },
+                    {
+                        "file": "post-views-counter.php",
+                        "line": 906
+                    },
+                    {
+                        "file": "post-views-counter.php",
+                        "line": 924
+                    },
+                    {
+                        "file": "post-views-counter.php",
+                        "line": 989
+                    }
+                ]
+            },
+            {
+                "key": "post_views_counter_settings_integrations",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 224
+                    }
+                ]
+            },
+            {
+                "key": "post_views_counter_settings_other",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-settings-display.php",
+                        "line": 515
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 163
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 339
+                    },
+                    {
+                        "file": "post-views-counter.php",
+                        "line": 991
+                    }
+                ]
+            },
+            {
+                "key": "post_views_counter_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 219
+                    },
+                    {
+                        "file": "post-views-counter.php",
+                        "line": 993
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}post_views",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "post-views-counter.php",
+                        "line": 976
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "pvc_reset_counts",
+                "recurrence": "post_views_counter_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-cron.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "pvc_weekly_content_summary_send",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-emails-scheduler.php",
+                        "line": 97
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "pvc_dashboard",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-dashboard.php",
+                        "line": 652
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$lock['key']",
+            "file": "includes/class-emails-mailer.php",
+            "line": 359
+        }
+    ]
+}

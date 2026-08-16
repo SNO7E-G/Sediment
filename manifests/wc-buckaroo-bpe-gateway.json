@@ -1,0 +1,549 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wc-buckaroo-bpe-gateway",
+        "name": "WC Buckaroo BPE Gateway",
+        "version": "4.9.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:47Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 862,
+        "files_skipped": 0,
+        "write_calls_found": 60,
+        "verified": 34,
+        "resolved": 6,
+        "pattern": 5,
+        "dynamic": 15,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "BUCKAROO_BPE_VERSION",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Install/Install.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/AbstractPaymentGateway.php",
+                        "line": 714
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_buckaroo_creditcard_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CreditCard/Cards/SingleCreditCardGateway.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_buckaroo_ideal_settings",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Install/Migration/Versions/MigrateIdealToIdealWero.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_buckaroo_klarnapay_settings",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Install/Migration/Versions/MigrateKlarnaPayLaterLabels.php",
+                        "line": 38
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}buckaroo_log",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Install/Migration/Versions/SetupTransactionsAndLogs.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}woocommerce_buckaroo_transactions",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Install/Migration/Versions/SetupTransactionsAndLogs.php",
+                        "line": 36
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "buckaroo_clean_logger_storage",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Hooks/CronEvents.php",
+                        "line": 29
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "buckaroo_credicard_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CreditCard/CreditCardGateway.php",
+                        "line": 294
+                    }
+                ]
+            },
+            {
+                "key": "buckaroo_plugin_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Install/Migration/MigrationHandler.php",
+                        "line": 268
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_buckaroo_klarna_data_request_key",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/Klarna/KlarnaProcessor.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "_buckaroo_klarnakp_reservation_number",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/Klarna/KlarnaKpProcessor.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "_buckaroo_order_in_test_mode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentProcessors/ReturnProcessor.php",
+                        "line": 64
+                    }
+                ]
+            },
+            {
+                "key": "_capturebuckaroo*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentProcessors/Actions/CaptureAction.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "_payload_birthday",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/Afterpay/AfterpayNewProcessor.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "_payload_encrypted_card_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/CreditCard/CreditCardProcessor.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "_payment_method_transaction",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentProcessors/PushProcessor.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "_pushallowed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentProcessors/Actions/CaptureAction.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "src/PaymentProcessors/Actions/CaptureAction.php",
+                        "line": 91
+                    },
+                    {
+                        "file": "src/PaymentProcessors/Actions/CaptureAction.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "src/PaymentProcessors/PushProcessor.php",
+                        "line": 145
+                    },
+                    {
+                        "file": "src/PaymentProcessors/PushProcessor.php",
+                        "line": 349
+                    }
+                ]
+            },
+            {
+                "key": "_refundbuckaroo*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentProcessors/Actions/RefundAction.php",
+                        "line": 40
+                    },
+                    {
+                        "file": "src/PaymentProcessors/Actions/RefundAction.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "src/PaymentProcessors/Actions/RefundAction.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "_wc_order_amount_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentProcessors/Actions/CaptureAction.php",
+                        "line": 26
+                    },
+                    {
+                        "file": "src/PaymentProcessors/Actions/CaptureAction.php",
+                        "line": 31
+                    }
+                ]
+            },
+            {
+                "key": "_wc_order_authorized",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/Afterpay/AfterpayNewGateway.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "src/Gateways/Afterpay/AfterpayOldGateway.php",
+                        "line": 98
+                    },
+                    {
+                        "file": "src/Gateways/CreditCard/CreditCardGateway.php",
+                        "line": 169
+                    },
+                    {
+                        "file": "src/Gateways/Klarna/KlarnaKpGateway.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "src/Gateways/Klarna/KlarnaPayGateway.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "src/Gateways/Wero/WeroGateway.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "_wc_order_captures",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentProcessors/Actions/CaptureAction.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "_wc_order_is_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentProcessors/Actions/CaptureAction.php",
+                        "line": 30
+                    }
+                ]
+            },
+            {
+                "key": "_wc_order_payment_issuer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/AbstractPaymentGateway.php",
+                        "line": 782
+                    },
+                    {
+                        "file": "src/Gateways/Klarna/KlarnaKpGateway.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "_wc_order_selected_payment_method",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/AbstractPaymentGateway.php",
+                        "line": 781
+                    },
+                    {
+                        "file": "src/Gateways/Klarna/KlarnaKpGateway.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "buckaroo_capture",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentProcessors/Actions/CaptureAction.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "buckaroo_captures_refunded",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Order/OrderCaptureRefund.php",
+                        "line": 188
+                    }
+                ]
+            },
+            {
+                "key": "buckaroo_is_reserved",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/Klarna/KlarnaProcessor.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "buckaroo_settlement",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentProcessors/PushProcessor.php",
+                        "line": 210
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "buckaroo_idin",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/Idin/IdinProcessor.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "buckaroo_idin_bin",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateways/Idin/IdinProcessor.php",
+                        "line": 111
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$destinationDir",
+            "file": "src/Gateways/Applepay/ApplepayGateway.php",
+            "line": 641
+        },
+        {
+            "function": "set_transient",
+            "expression": "get_current_user_id() . 'buckarooAdminNotice'",
+            "file": "src/Gateways/PayPerEmail/PayPerEmailProcessor.php",
+            "line": 84
+        },
+        {
+            "function": "set_transient",
+            "expression": "get_current_user_id() . 'buckarooAdminNotice'",
+            "file": "src/Gateways/PayPerEmail/PayPerEmailProcessor.php",
+            "line": 97
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transientKey",
+            "file": "src/Hooks/PaymentSetupScripts.php",
+            "line": 42
+        },
+        {
+            "function": "set_transient",
+            "expression": "get_current_user_id() . 'buckarooAdminNotice'",
+            "file": "src/Install/Migration/MigrationHandler.php",
+            "line": 75
+        },
+        {
+            "function": "set_transient",
+            "expression": "get_current_user_id() . 'buckarooAdminNotice'",
+            "file": "src/Install/Migration/MigrationHandler.php",
+            "line": 107
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dest",
+            "file": "src/Install/Migration/MigrationHandler.php",
+            "line": 145
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "src/Order/OrderDetails.php",
+            "line": 303
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "src/Order/OrderDetails.php",
+            "line": 308
+        },
+        {
+            "function": "set_transient",
+            "expression": "get_current_user_id() . 'buckarooAdminNotice'",
+            "file": "src/PaymentProcessors/Actions/CancelReservationAction.php",
+            "line": 17
+        },
+        {
+            "function": "set_transient",
+            "expression": "get_current_user_id() . 'buckarooAdminNotice'",
+            "file": "src/PaymentProcessors/Actions/CancelReservationAction.php",
+            "line": 28
+        },
+        {
+            "function": "set_transient",
+            "expression": "get_current_user_id() . 'buckarooAdminNotice'",
+            "file": "src/PaymentProcessors/Actions/ExtendReservationAction.php",
+            "line": 16
+        },
+        {
+            "function": "set_transient",
+            "expression": "get_current_user_id() . 'buckarooAdminNotice'",
+            "file": "src/PaymentProcessors/Actions/ExtendReservationAction.php",
+            "line": 27
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "src/Services/AutoConfiguration.php",
+            "line": 193
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor_buckaroo/Monolog/Handler/StreamHandler.php",
+            "line": 248
+        }
+    ]
+}

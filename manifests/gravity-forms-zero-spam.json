@@ -1,0 +1,124 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "gravity-forms-zero-spam",
+        "name": "Gravity Forms Zero Spam",
+        "version": "1.10.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 11,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 3,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.714
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gf_zero_spam_fallback_secret",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-gf-zero-spam-token.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "gf_zero_spam_key",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-gf-zero-spam.php",
+                        "line": 293
+                    }
+                ]
+            },
+            {
+                "key": "gf_zero_spam_legacy_deadline",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-gf-zero-spam.php",
+                        "line": 719
+                    }
+                ]
+            },
+            {
+                "key": "gf_zero_spam_report_last_date",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-gf-zero-spam-addon.php",
+                        "line": 948
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "gf_zero_spam_send_report",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-gf-zero-spam-addon.php",
+                        "line": 1323
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$rate_cap['key']",
+            "file": "includes/class-gf-zero-spam-ai-review.php",
+            "line": 1423
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/class-gf-zero-spam-token-endpoint.php",
+            "line": 148
+        }
+    ]
+}

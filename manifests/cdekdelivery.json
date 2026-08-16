@@ -1,0 +1,116 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cdekdelivery",
+        "name": "CDEKDelivery",
+        "version": "5.0.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:16Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 52,
+    "coverage": {
+        "files_scanned": 98,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 0,
+        "resolved": 5,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.714
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "cdekdelivery_automation",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/OrderCreateAction.php",
+                        "line": 132
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "cdekdelivery_automation",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/DispatchOrderAutomationAction.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "cdekdelivery_task_manager",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/TaskManager.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "src/TaskManager.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "cdekdelivery_upgrade",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Loader.php",
+                        "line": 178
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$hookName",
+            "file": "src/TaskManager.php",
+            "line": 112
+        },
+        {
+            "function": "as_schedule_cron_action",
+            "expression": "$hookName",
+            "file": "src/TaskManager.php",
+            "line": 121
+        }
+    ]
+}

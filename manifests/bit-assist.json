@@ -1,0 +1,85 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "bit-assist",
+        "name": "Bit Assist",
+        "version": "1.8.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 43,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 0,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.4
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "bit_assist_analytics_cleanup",
+                "recurrence": "twicedaily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/app/HTTP/Controllers/AnalyticsController.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "backend/app/Plugin.php",
+                        "line": 80
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "self::withPrefix($option)",
+            "file": "backend/app/Config.php",
+            "line": 168
+        },
+        {
+            "function": "update_option",
+            "expression": "self::withPrefix($option)",
+            "file": "backend/app/Config.php",
+            "line": 182
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$_upload_dir",
+            "file": "backend/app/Helpers/FileHandler.php",
+            "line": 41
+        }
+    ]
+}

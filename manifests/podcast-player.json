@@ -1,0 +1,446 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "podcast-player",
+        "name": "podcast player",
+        "version": "8.3.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:14Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 101,
+        "files_skipped": 0,
+        "write_calls_found": 50,
+        "verified": 37,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.88
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "podcast-player-admin-notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/inc/class-loader.php",
+                        "line": 214
+                    }
+                ]
+            },
+            {
+                "key": "podcast_player_bg_jobs",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/core/class-background-jobs.php",
+                        "line": 440
+                    }
+                ]
+            },
+            {
+                "key": "pp-common-options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/inc/class-background-tasks.php",
+                        "line": 446
+                    },
+                    {
+                        "file": "helper/core/class-background-jobs.php",
+                        "line": 355
+                    }
+                ]
+            },
+            {
+                "key": "pp-register",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 209
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 233
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 273
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 298
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 373
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 439
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 495
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 866
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 1401
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 2152
+                    }
+                ]
+            },
+            {
+                "key": "pp_dismissed_merges",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 1807
+                    }
+                ]
+            },
+            {
+                "key": "pp_dupe_scan_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 1642
+                    }
+                ]
+            },
+            {
+                "key": "pp_managed_shortcodes",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integration/class-api.php",
+                        "line": 316
+                    },
+                    {
+                        "file": "integration/class-api.php",
+                        "line": 353
+                    }
+                ]
+            },
+            {
+                "key": "pp_pending_merges",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 1427
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 1448
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 1465
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 1568
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 1604
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 1804
+                    }
+                ]
+            },
+            {
+                "key": "pp_shortcode_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/admin/class-shortcodegen.php",
+                        "line": 1554
+                    }
+                ]
+            },
+            {
+                "key": "pp_total_image_downloads",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/inc/class-background-tasks.php",
+                        "line": 423
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "pp_auto_update_podcast",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/functions/class-utility.php",
+                        "line": 1062
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "podcast_player_bg_jobs_force_dispatch",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/core/class-background-jobs.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "podcast_player_bg_jobs_process_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/core/class-background-jobs.php",
+                        "line": 565
+                    }
+                ]
+            },
+            {
+                "key": "podcast_player_bg_jobs_queue_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/core/class-background-jobs.php",
+                        "line": 594
+                    }
+                ]
+            },
+            {
+                "key": "podcast_player_bg_jobs_recent_dispatch",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/core/class-background-jobs.php",
+                        "line": 155
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "feed_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 869
+                    }
+                ]
+            },
+            {
+                "key": "modified_feed_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 873
+                    }
+                ]
+            },
+            {
+                "key": "pp_episode_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/functions/class-utility.php",
+                        "line": 932
+                    }
+                ]
+            },
+            {
+                "key": "pp_featured_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/inc/class-background-tasks.php",
+                        "line": 532
+                    },
+                    {
+                        "file": "helper/functions/class-utility.php",
+                        "line": 734
+                    }
+                ]
+            },
+            {
+                "key": "pp_featured_key_norm",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/inc/class-background-tasks.php",
+                        "line": 129
+                    },
+                    {
+                        "file": "backend/inc/class-background-tasks.php",
+                        "line": 536
+                    }
+                ]
+            },
+            {
+                "key": "pp_import_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/functions/class-utility.php",
+                        "line": 910
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 1347
+                    },
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 2103
+                    }
+                ]
+            },
+            {
+                "key": "pp_merge_log",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 900
+                    }
+                ]
+            },
+            {
+                "key": "pp_migration_seen",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 127
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "podcast_player",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/store/class-storemanager.php",
+                        "line": 58
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$lock_key",
+            "file": "backend/inc/class-background-tasks.php",
+            "line": 562
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "helper/feed/class-get-feed.php",
+            "line": 551
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_identity_migration_retry_key()",
+            "file": "helper/feed/class-get-feed.php",
+            "line": 837
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock_key",
+            "file": "helper/feed/class-get-feed.php",
+            "line": 857
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "self::get_episode_import_state_key($episode_key)",
+            "file": "helper/functions/class-utility.php",
+            "line": 232
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "helper/store/class-storemanager.php",
+            "line": 2103
+        }
+    ]
+}

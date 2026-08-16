@@ -1,0 +1,302 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "easy-woocommerce-discounts",
+        "name": "Discount Rules and Dynamic Pricing for WooCommerce",
+        "version": "9.3.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 5,
+    "coverage": {
+        "files_scanned": 133,
+        "files_skipped": 0,
+        "write_calls_found": 31,
+        "verified": 12,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 17,
+        "resolution_rate": 0.387
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "asnp_ewd_review",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/class-wccs-helpers.php",
+                        "line": 516
+                    }
+                ]
+            },
+            {
+                "key": "wccs_install_timestamp",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wccs-activator.php",
+                        "line": 160
+                    }
+                ]
+            },
+            {
+                "key": "wccs_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/menus/class-wccs-admin-settings-menu.php",
+                        "line": 61
+                    },
+                    {
+                        "file": "includes/class-wccs-activator.php",
+                        "line": 245
+                    },
+                    {
+                        "file": "includes/class-wccs-settings.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "wccs_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wccs-activator.php",
+                        "line": 257
+                    }
+                ]
+            },
+            {
+                "key": "wccs_version_upgraded_from",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wccs-activator.php",
+                        "line": 155
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_conditions_admin_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wccs-admin-notices.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_conditions_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wccs-activator.php",
+                        "line": 391
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wccs_can_read_variation_cached_prices_hash",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wccs-product-price-replace.php",
+                        "line": 397
+                    }
+                ]
+            },
+            {
+                "key": "wccs_can_read_variation_cached_prices_hash_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wccs-product-price-replace.php",
+                        "line": 389
+                    }
+                ]
+            },
+            {
+                "key": "wccs_discounted_products",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wccs-products.php",
+                        "line": 398
+                    }
+                ]
+            },
+            {
+                "key": "wccs_installing",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wccs-activator.php",
+                        "line": 151
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "dismissed_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wccs-admin-notices.php",
+                        "line": 106
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$name . '_added'",
+            "file": "admin/class-wccs-admin.php",
+            "line": 227
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "includes/class-wccs-background-analytics.php",
+            "line": 68
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "includes/class-wccs-background-price-updater.php",
+            "line": 81
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "includes/class-wccs-background-updater.php",
+            "line": 78
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wccs-db-analytics.php",
+            "line": 200
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "includes/class-wccs-db-analytics.php",
+            "line": 202
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wccs-db-cache.php",
+            "line": 232
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "includes/class-wccs-db-cache.php",
+            "line": 234
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wccs-db-condition-meta.php",
+            "line": 180
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "includes/class-wccs-db-condition-meta.php",
+            "line": 182
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wccs-db-conditions.php",
+            "line": 375
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "includes/class-wccs-db-conditions.php",
+            "line": 377
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wccs-db-rule-usage-logs.php",
+            "line": 152
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "includes/class-wccs-db-rule-usage-logs.php",
+            "line": 154
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wccs-db-user-usage-logs.php",
+            "line": 119
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "includes/class-wccs-db-user-usage-logs.php",
+            "line": 121
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/helpers/class-wccs-product-helpers.php",
+            "line": 285
+        }
+    ]
+}

@@ -1,0 +1,180 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "disable-admin-notices",
+        "name": "Disable Admin Notices Individually",
+        "version": "1.4.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:14Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 143,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 15,
+        "resolution_rate": 0.211
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "factory_plugin_versions",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/core/includes/class-factory-migrations.php",
+                        "line": 422
+                    },
+                    {
+                        "file": "libs/factory/core/includes/class-factory-migrations.php",
+                        "line": 432
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wbcr_factory_google_fonts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/forms/controls/google-font.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_factory_google_fonts_raw",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/forms/controls/google-font.php",
+                        "line": 141
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "\\WDN_Plugin::app()->getOptionName('hidden_notices')",
+            "file": "admin/ajax/hide-notice.php",
+            "line": 53
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\\WDN_Plugin::app()->getOptionName('hidden_notices')",
+            "file": "admin/ajax/restore-notice.php",
+            "line": 32
+        },
+        {
+            "function": "mkdir",
+            "expression": "$cache_dir_path",
+            "file": "libs/factory/bootstrap/includes/functions.php",
+            "line": 179
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_activated')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 215
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 216
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_activated')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 218
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 219
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_migration_error')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 389
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_migration_error')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 393
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 423
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 433
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->getPrefix() . $option_name",
+            "file": "libs/factory/core/includes/class-factory-options.php",
+            "line": 280
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . $option_name",
+            "file": "libs/factory/core/includes/class-factory-options.php",
+            "line": 307
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "libs/factory/logger/includes/class-logger.php",
+            "line": 197
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->plugin->getOptionName('hidden_notices')",
+            "file": "migrations/010007.php",
+            "line": 19
+        }
+    ]
+}

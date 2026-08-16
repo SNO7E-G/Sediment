@@ -1,0 +1,362 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "loginfy",
+        "name": "Loginfy",
+        "version": "1.0.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:34Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 127,
+        "files_skipped": 0,
+        "write_calls_found": 39,
+        "verified": 10,
+        "resolved": 4,
+        "pattern": 6,
+        "dynamic": 19,
+        "resolution_rate": 0.359
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "jlt_loginfy_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Inc/Classes/Notifications/Model/Notification.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "jlt_loginfy_activation_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-loginfy.php",
+                        "line": 106
+                    }
+                ]
+            },
+            {
+                "key": "jlt_loginfy_sheet_promo_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Inc/Classes/Pro_Upgrade.php",
+                        "line": 331
+                    }
+                ]
+            },
+            {
+                "key": "jlt_loginfy_sheet_promo_data_hash",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Inc/Classes/Pro_Upgrade.php",
+                        "line": 332
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "jlt_loginfy_sheet_promo_data_remote_sync",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Inc/Classes/Pro_Upgrade.php",
+                        "line": 296
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_welcome_screen_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-loginfy.php",
+                        "line": 208
+                    }
+                ]
+            },
+            {
+                "key": "jlt_loginfy-plugin-info-loginfy",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Libs/Featured.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "jlt_loginfy-plugin-info-master-addons",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Libs/Featured.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "jlt_loginfy-plugin-info-ultimate-blocks-for-gutenberg",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Libs/Featured.php",
+                        "line": 96
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_loginfy_errors_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Libs/Admin/classes/metabox-options.class.php",
+                        "line": 400
+                    },
+                    {
+                        "file": "Libs/Admin/classes/nav-menu-options.class.php",
+                        "line": 247
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_loginfy_errors_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Libs/Admin/classes/profile-options.class.php",
+                        "line": 238
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "_loginfy_errors_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Libs/Admin/classes/taxonomy-options.class.php",
+                        "line": 257
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [
+            {
+                "key": "_loginfy_errors_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Libs/Admin/classes/comment-options.class.php",
+                        "line": 323
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "admin_email_lifespan",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "Inc/Core/Inc/loginfy-login-template.php",
+                    "line": 686
+                },
+                {
+                    "file": "Inc/Core/Inc/loginfy-login-template.php",
+                    "line": 711
+                },
+                {
+                    "file": "Inc/Core/Inc/templates/login-both-half.php",
+                    "line": 642
+                },
+                {
+                    "file": "Inc/Core/Inc/templates/login-both-half.php",
+                    "line": 667
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "siteurl",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "Inc/Core/Inc/loginfy-login-template.php",
+                    "line": 607
+                },
+                {
+                    "file": "Inc/Core/Inc/templates/login-both-half.php",
+                    "line": 559
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->get_key()",
+            "file": "Inc/Classes/Notifications/Model/Notification.php",
+            "line": 155
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "Inc/Classes/Pro_Upgrade.php",
+            "line": 406
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->unique",
+            "file": "Libs/Admin/classes/admin-options.class.php",
+            "line": 343
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->unique",
+            "file": "Libs/Admin/classes/admin-options.class.php",
+            "line": 347
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->unique",
+            "file": "Libs/Admin/classes/admin-options.class.php",
+            "line": 349
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$key",
+            "file": "Libs/Admin/classes/comment-options.class.php",
+            "line": 316
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$this->unique",
+            "file": "Libs/Admin/classes/comment-options.class.php",
+            "line": 319
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->unique",
+            "file": "Libs/Admin/classes/customize-options.class.php",
+            "line": 113
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "Libs/Admin/classes/metabox-options.class.php",
+            "line": 393
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->unique",
+            "file": "Libs/Admin/classes/metabox-options.class.php",
+            "line": 396
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "Libs/Admin/classes/nav-menu-options.class.php",
+            "line": 240
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->unique",
+            "file": "Libs/Admin/classes/nav-menu-options.class.php",
+            "line": 243
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "Libs/Admin/classes/profile-options.class.php",
+            "line": 231
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->unique",
+            "file": "Libs/Admin/classes/profile-options.class.php",
+            "line": 234
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$key",
+            "file": "Libs/Admin/classes/taxonomy-options.class.php",
+            "line": 250
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$this->unique",
+            "file": "Libs/Admin/classes/taxonomy-options.class.php",
+            "line": 253
+        },
+        {
+            "function": "update_option",
+            "expression": "$unique",
+            "file": "Libs/Admin/functions/actions.php",
+            "line": 118
+        },
+        {
+            "function": "update_option",
+            "expression": "self::plugin_version_key()",
+            "file": "class-loginfy.php",
+            "line": 109
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "class-loginfy.php",
+            "line": 119
+        }
+    ]
+}

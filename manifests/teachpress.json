@@ -1,0 +1,179 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "teachpress",
+        "name": "teachPress",
+        "version": "9.0.13",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:10Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 49,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 4,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 14,
+        "resolution_rate": 0.263
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "tp_source_update_cron_hook",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/publication-sources.php",
+                        "line": 281
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "tp_authors_sorting",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-authors-page.php",
+                        "line": 333
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "administrator",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-tables.php",
+                        "line": 504
+                    },
+                    {
+                        "file": "core/class-update.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "core/class-update.php",
+                        "line": 54
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$uploads['basedir'] . \"/teachpress{$extra_directory_part}\"",
+            "file": "core/admin.php",
+            "line": 753
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . \\TEACHPRESS_SETTINGS . \" (\\r\\n                    `setting_id` INT UNSIGNED AUTO_INCREMENT,\\r\\n                    `variable` VARCHAR (100),\\r\\n                    `value` LONGTEXT,\\r\\n                    `category` VARCHAR (100),\\r\\n                    PRIMARY KEY (setting_id)\\r\\n                    ) {$charset_collate};\"",
+            "file": "core/class-tables.php",
+            "line": 116
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . \\TEACHPRESS_PUB . \" (\\r\\n                    `pub_id` INT UNSIGNED AUTO_INCREMENT,\\r\\n                    `title` VARCHAR(500),\\r\\n                    `type` VARCHAR (50),\\r\\n                    `award` VARCHAR (100),\\r\\n                    `bibtex` VARCHAR (100),\\r\\n                    `author` VARCHAR (3000),\\r\\n                    `editor` VARCHAR (3000),\\r\\n                    `isbn` VARCHAR (50),\\r\\n                    `url` TEXT,\\r\\n                    `date` DATE,\\r\\n                    `urldate` DATE,\\r\\n                    `booktitle` VARCHAR (1000),\\r\\n                    `issuetitle` VARCHAR (200),\\r\\n                    `journal` VARCHAR(200),\\r\\n                    `issue` VARCHAR(40),\\r\\n                    `volume` VARCHAR(40),\\r\\n                    `number` VARCHAR(40),\\r\\n                    `pages` VARCHAR(40),\\r\\n                    `publisher` VARCHAR (500),\\r\\n                    `address` VARCHAR (300),\\r\\n                    `edition` VARCHAR (100),\\r\\n                    `chapter` VARCHAR (40),\\r\\n                    `institution` VARCHAR (500),\\r\\n                    `organization` VARCHAR (500),\\r\\n                    `school` VARCHAR (200),\\r\\n                    `series` VARCHAR (200),\\r\\n                    `crossref` VARCHAR (100),\\r\\n                    `abstract` TEXT,\\r\\n                    `howpublished` VARCHAR (200),\\r\\n                    `key` VARCHAR (100),\\r\\n                    `techtype` VARCHAR (200),\\r\\n                    `comment` TEXT,\\r\\n                    `note` TEXT,\\r\\n                    `image_url` VARCHAR (400),\\r\\n                    `image_target` VARCHAR (100),\\r\\n                    `image_ext` VARCHAR (400),\\r\\n                    `doi` VARCHAR (100),\\r\\n                    `is_isbn` INT(1),\\r\\n                    `rel_page` INT,\\r\\n                    `status` VARCHAR (100) DEFAULT 'published',\\r\\n                    `added` DATETIME,\\r\\n                    `modified` DATETIME,\\r\\n                    `use_capabilities` INT(1),\\r\\n                    `import_id` INT,\\r\\n                    PRIMARY KEY (pub_id),\\r\\n                    KEY `ind_type` (`type`),\\r\\n                    KEY `ind_date` (`date`),\\r\\n                    KEY `ind_import_id` (`import_id`),\\r\\n                    KEY `ind_key` (`key`),\\r\\n                    KEY `ind_bibtex_key` (`bibtex`),\\r\\n                    KEY `ind_status` (`status`)\\r\\n                ) ROW_FORMAT=DYNAMIC {$charset_collate};\"",
+            "file": "core/class-tables.php",
+            "line": 166
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . \\TEACHPRESS_PUB_META . \" (\\r\\n                    `meta_id` INT UNSIGNED AUTO_INCREMENT,\\r\\n                    `pub_id` INT UNSIGNED,\\r\\n                    `meta_key` VARCHAR(255),\\r\\n                    `meta_value` TEXT,\\r\\n                    PRIMARY KEY (meta_id),\\r\\n                    KEY `ind_pub_id` (`pub_id`)\\r\\n                ) {$charset_collate};\"",
+            "file": "core/class-tables.php",
+            "line": 238
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . \\TEACHPRESS_PUB_CAPABILITIES . \" (\\r\\n                    `cap_id` INT UNSIGNED AUTO_INCREMENT,\\r\\n                    `wp_id` INT UNSIGNED,\\r\\n                    `pub_id` INT UNSIGNED,\\r\\n                    `capability` VARCHAR(100),\\r\\n                    PRIMARY KEY (`cap_id`),\\r\\n                    KEY `ind_pub_id` (`pub_id`),\\r\\n                    KEY `ind_wp_id` (`wp_id`)\\r\\n                ) {$charset_collate};\"",
+            "file": "core/class-tables.php",
+            "line": 265
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . \\TEACHPRESS_PUB_DOCUMENTS . \" (\\r\\n                    `doc_id` INT UNSIGNED AUTO_INCREMENT,\\r\\n                    `name` VARCHAR(500),\\r\\n                    `path` VARCHAR(500),\\r\\n                    `added` DATETIME,\\r\\n                    `size` BIGINT,\\r\\n                    `sort` INT,\\r\\n                    `pub_id` INT UNSIGNED,\\r\\n                    PRIMARY KEY (doc_id),\\r\\n                    KEY `ind_pub_id` (`pub_id`)\\r\\n                ) {$charset_collate};\"",
+            "file": "core/class-tables.php",
+            "line": 293
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . \\TEACHPRESS_PUB_IMPORTS . \" (\\r\\n                    `id` INT UNSIGNED AUTO_INCREMENT,\\r\\n                    `wp_id` INT UNSIGNED,\\r\\n                    `date` DATETIME,\\r\\n                    PRIMARY KEY (id)\\r\\n                ) {$charset_collate};\"",
+            "file": "core/class-tables.php",
+            "line": 323
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . \\TEACHPRESS_TAGS . \" (\\r\\n                    `tag_id` INT UNSIGNED AUTO_INCREMENT,\\r\\n                    `name` VARCHAR(300),\\r\\n                    PRIMARY KEY (tag_id),\\r\\n                    KEY `ind_tag_name` (`name`)\\r\\n                ) ROW_FORMAT=DYNAMIC {$charset_collate};\"",
+            "file": "core/class-tables.php",
+            "line": 348
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . \\TEACHPRESS_RELATION . \" (\\r\\n                    `con_id` INT UNSIGNED AUTO_INCREMENT,\\r\\n                    `pub_id` INT UNSIGNED,\\r\\n                    `tag_id` INT UNSIGNED,\\r\\n                    PRIMARY KEY (con_id),\\r\\n                    KEY `ind_pub_id` (`pub_id`),\\r\\n                    KEY `ind_tag_id` (`tag_id`)\\r\\n                ) {$charset_collate};\"",
+            "file": "core/class-tables.php",
+            "line": 373
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . \\TEACHPRESS_USER . \" (\\r\\n                    `bookmark_id` INT UNSIGNED AUTO_INCREMENT,\\r\\n                    `pub_id` INT UNSIGNED,\\r\\n                    `user` INT UNSIGNED,\\r\\n                    PRIMARY KEY (bookmark_id),\\r\\n                    KEY `ind_pub_id` (`pub_id`),\\r\\n                    KEY `ind_user` (`user`)\\r\\n                    ) {$charset_collate};\"",
+            "file": "core/class-tables.php",
+            "line": 400
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . \\TEACHPRESS_AUTHORS . \" (\\r\\n                    `author_id` INT UNSIGNED AUTO_INCREMENT,\\r\\n                    `name` VARCHAR(500),\\r\\n                    `sort_name` VARCHAR(500),\\r\\n                    PRIMARY KEY (author_id),\\r\\n                    KEY `ind_sort_name` (`sort_name`)\\r\\n                ) ROW_FORMAT=DYNAMIC {$charset_collate};\"",
+            "file": "core/class-tables.php",
+            "line": 427
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . \\TEACHPRESS_REL_PUB_AUTH . \" (\\r\\n                    `con_id` INT UNSIGNED AUTO_INCREMENT,\\r\\n                    `pub_id` INT UNSIGNED,\\r\\n                    `author_id` INT UNSIGNED,\\r\\n                    `is_author` INT(1),\\r\\n                    `is_editor` INT(1),\\r\\n                    PRIMARY KEY (con_id),\\r\\n                    KEY `ind_pub_id` (`pub_id`),\\r\\n                    KEY `ind_author_id` (`author_id`)\\r\\n                ) {$charset_collate};\"",
+            "file": "core/class-tables.php",
+            "line": 453
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . \\TEACHPRESS_MONITORED_SOURCES . \" (\\r\\n                    `src_id` INT UNSIGNED AUTO_INCREMENT,\\r\\n                    `md5` VARCHAR(32) DEFAULT '',\\r\\n                    `name` VARCHAR(4096),\\r\\n                    `last_res` VARCHAR(1024) DEFAULT '',\\r\\n                    `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\\r\\n                    PRIMARY KEY (src_id)\\r\\n                ) {$charset_collate};\"",
+            "file": "core/class-tables.php",
+            "line": 482
+        },
+        {
+            "function": "add_cap",
+            "expression": "$role",
+            "file": "core/general.php",
+            "line": 281
+        }
+    ]
+}

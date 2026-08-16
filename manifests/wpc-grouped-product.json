@@ -1,0 +1,206 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpc-grouped-product",
+        "name": "WPC Grouped Product for WooCommerce",
+        "version": "5.3.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:37Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 5,
+    "coverage": {
+        "files_scanned": 11,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 14,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.824
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woosg_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-woosg.php",
+                        "line": 1166
+                    }
+                ]
+            },
+            {
+                "key": "wpc_logs",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wpc-core/class-wpc-log.php",
+                        "line": 35
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wpclever_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wpc-core/class-wpc-dashboard.php",
+                        "line": 186
+                    },
+                    {
+                        "file": "includes/wpc-core/class-wpc-dashboard.php",
+                        "line": 269
+                    },
+                    {
+                        "file": "includes/wpc-core/class-wpc-kit.php",
+                        "line": 136
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "woosg_after_text",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-woosg.php",
+                        "line": 1623
+                    }
+                ]
+            },
+            {
+                "key": "woosg_before_text",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-woosg.php",
+                        "line": 1619
+                    }
+                ]
+            },
+            {
+                "key": "woosg_custom_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-woosg.php",
+                        "line": 1615
+                    }
+                ]
+            },
+            {
+                "key": "woosg_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-woosg.php",
+                        "line": 724
+                    },
+                    {
+                        "file": "includes/class-woosg.php",
+                        "line": 1599
+                    }
+                ]
+            },
+            {
+                "key": "woosg_including_main",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-woosg.php",
+                        "line": 1607
+                    }
+                ]
+            },
+            {
+                "key": "woosg_layout",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-woosg.php",
+                        "line": 1627
+                    }
+                ]
+            },
+            {
+                "key": "woosg_selector",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-woosg.php",
+                        "line": 1611
+                    }
+                ]
+            },
+            {
+                "key": "woosg_show_atc",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-woosg.php",
+                        "line": 1603
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/wpc-core/class-wpc-dashboard.php",
+            "line": 320
+        },
+        {
+            "function": "update_option",
+            "expression": "$prefix . '_version'",
+            "file": "includes/wpc-core/class-wpc-log.php",
+            "line": 50
+        },
+        {
+            "function": "update_option",
+            "expression": "$prefix . '_version'",
+            "file": "includes/wpc-core/class-wpc-log.php",
+            "line": 70
+        }
+    ]
+}

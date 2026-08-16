@@ -1,0 +1,223 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-security-audit-log",
+        "name": "WP Activity Log",
+        "version": "5.6.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:38Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 209,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 4,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 16,
+        "resolution_rate": 0.304
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "fs_wsalp",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wp-security-audit-log.php",
+                        "line": 1188
+                    }
+                ]
+            },
+            {
+                "key": "wsal_detected_plugins_processed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WPSensors/class-learndash-sensor.php",
+                        "line": 980
+                    }
+                ]
+            },
+            {
+                "key": "wsal_multisite_options_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Migration/class-migration.php",
+                        "line": 1317
+                    }
+                ]
+            },
+            {
+                "key": "wsal_multisite_options_migrated_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Migration/class-migration.php",
+                        "line": 1318
+                    }
+                ]
+            },
+            {
+                "key": "wsal_networkwide_tracker_cpts",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Helpers/class-wp-helper.php",
+                        "line": 1141
+                    },
+                    {
+                        "file": "classes/Helpers/class-wp-helper.php",
+                        "line": 1183
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wsal_deactivate_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wp-security-audit-log.php",
+                        "line": 140
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "classes/AbstractView.php",
+            "line": 124
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$name",
+            "file": "classes/Controllers/class-cron-jobs.php",
+            "line": 511
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$logging_dir",
+            "file": "classes/Helpers/class-file-helper.php",
+            "line": 89
+        },
+        {
+            "function": "update_network_option",
+            "expression": "$option_name",
+            "file": "classes/Helpers/class-settings-helper.php",
+            "line": 678
+        },
+        {
+            "function": "add_option",
+            "expression": "$option_name",
+            "file": "classes/Helpers/class-settings-helper.php",
+            "line": 683
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "classes/Helpers/class-settings-helper.php",
+            "line": 686
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$result",
+            "file": "classes/Helpers/class-settings-helper.php",
+            "line": 1548
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "classes/Helpers/class-upgrade-notice.php",
+            "line": 101
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta",
+            "file": "classes/Helpers/class-user-helper.php",
+            "line": 80
+        },
+        {
+            "function": "update_network_option",
+            "expression": "$prefixed_name",
+            "file": "classes/Helpers/class-wp-helper.php",
+            "line": 350
+        },
+        {
+            "function": "update_option",
+            "expression": "$prefixed_name",
+            "file": "classes/Helpers/class-wp-helper.php",
+            "line": 352
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient",
+            "file": "classes/Helpers/class-wp-helper.php",
+            "line": 743
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "classes/Helpers/class-wp-helper.php",
+            "line": 743
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$cache_key",
+            "file": "classes/Helpers/class-wp-helper.php",
+            "line": 889
+        },
+        {
+            "function": "update_network_option",
+            "expression": "$option_name",
+            "file": "classes/Migration/class-migration.php",
+            "line": 1313
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::get_export_transient_key($token)",
+            "file": "classes/Writers/class-csv-writer.php",
+            "line": 91
+        }
+    ]
+}

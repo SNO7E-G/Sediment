@@ -1,0 +1,190 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "hostinger",
+        "name": "Hostinger Tools",
+        "version": "3.0.75",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:44Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 45,
+    "coverage": {
+        "files_scanned": 47,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 4,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.786
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "hostinger_first_login_at",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Settings.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "hostinger_tools",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/PluginSettings.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "includes/DefaultOptions.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "hostinger_user_segment",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Settings.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "hts_new_installation",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Activator.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "hts_plugin_split_notice_hidden",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Ajax.php",
+                        "line": 33
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "hostinger_is_eligible_www_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Rest/SettingsRoutes.php",
+                        "line": 284
+                    }
+                ]
+            },
+            {
+                "key": "hostinger_mcp_site_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Mcp/Handlers/WebsiteUpdated.php",
+                        "line": 25
+                    }
+                ]
+            },
+            {
+                "key": "hostinger_newest_wordpress_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Rest/SettingsRoutes.php",
+                        "line": 234
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "home",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/Rest/SettingsRoutes.php",
+                    "line": 178
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "siteurl",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/Rest/SettingsRoutes.php",
+                    "line": 177
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "includes/Admin/Jobs/ActionScheduler.php",
+            "line": 22
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "includes/Admin/Jobs/ActionScheduler.php",
+            "line": 30
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/DefaultOptions.php",
+            "line": 18
+        }
+    ]
+}

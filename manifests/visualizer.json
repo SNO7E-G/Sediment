@@ -1,0 +1,796 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "visualizer",
+        "name": "Visualizer: Tables and Charts for WordPress",
+        "version": "4.0.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:02Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 65,
+        "files_skipped": 0,
+        "write_calls_found": 96,
+        "verified": 17,
+        "resolved": 71,
+        "pattern": 3,
+        "dynamic": 5,
+        "resolution_rate": 0.917
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "swcfpc_dashboard_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Wizard.php",
+                        "line": 600
+                    }
+                ]
+            },
+            {
+                "key": "themeisle_blocks_settings_onboarding",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Wizard.php",
+                        "line": 594
+                    }
+                ]
+            },
+            {
+                "key": "themeisle_blocks_settings_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Wizard.php",
+                        "line": 593
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-activated",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Setup.php",
+                        "line": 213
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-db-schedule",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1677
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Setup.php",
+                        "line": 449
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-json-schedule",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 161
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-map-api-key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 826
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-new-user",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Setup.php",
+                        "line": 464
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-upgraded",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Upgrade.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-upgraded-from",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Upgrade.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "visualizer_fresh_install",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Setup.php",
+                        "line": 216
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Wizard.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "visualizer_global_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Admin.php",
+                        "line": 1180
+                    }
+                ]
+            },
+            {
+                "key": "visualizer_logger_flag",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "templates/docs.php",
+                        "line": 12
+                    }
+                ]
+            },
+            {
+                "key": "visualizer_wizard_data",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Wizard.php",
+                        "line": 419
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "visualizer_schedule_refresh_db",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Setup.php",
+                        "line": 503
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "visualizer_count_charts",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Admin.php",
+                        "line": 1549
+                    }
+                ]
+            },
+            {
+                "key": "visualizer_db_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Source/Query/Params.php",
+                        "line": 280
+                    }
+                ]
+            },
+            {
+                "key": "visualizer_db_table_mapping",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Source/Query/Params.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "visualizer_db_tables",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Source/Query/Params.php",
+                        "line": 330
+                    }
+                ]
+            },
+            {
+                "key": "visualizer_wc_token_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Source/Json.php",
+                        "line": 464
+                    }
+                ]
+            },
+            {
+                "key": "viz_ai_wf_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 506
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "visualizer-chart-image",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 656
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-chart-library",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 149
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 582
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 599
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1009
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Upgrade.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Wizard.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-chart-schedule",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 335
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-chart-type",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 595
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1008
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Wizard.php",
+                        "line": 240
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-chart-url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 334
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-d3-code",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 581
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-db-query",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 391
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1663
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-db-schedule",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1666
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-default-data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 255
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 596
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1405
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1667
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Wizard.php",
+                        "line": 241
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-editable-table",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 247
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-editor",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1372
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1375
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-error",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1379
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1394
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1433
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Setup.php",
+                        "line": 398
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-is-woocommerce-source",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-json-headers",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 267
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-json-paging",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 271
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-json-root",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 364
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 257
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-json-schedule",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 366
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 157
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 296
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-json-url",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 363
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 256
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-remote-db-params",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1672
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-series",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 115
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 253
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 598
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1016
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1403
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1665
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Setup.php",
+                        "line": 369
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Wizard.php",
+                        "line": 243
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-settings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 588
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 600
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 846
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 868
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1418
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Utility.php",
+                        "line": 410
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Utility.php",
+                        "line": 469
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Wizard.php",
+                        "line": 264
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-source",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 116
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/AIBuilder.php",
+                        "line": 150
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 254
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 597
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1404
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 1664
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Wizard.php",
+                        "line": 242
+                    }
+                ]
+            },
+            {
+                "key": "visualizer-woocommerce-source",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Chart.php",
+                        "line": 276
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "visualizer_library_view",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Render/Library.php",
+                        "line": 530
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "visualizer",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Setup.php",
+                        "line": 168
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "visualizer_schedule_refresh_db",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Visualizer/Module/Setup.php",
+                        "line": 496
+                    },
+                    {
+                        "file": "classes/Visualizer/Module/Upgrade.php",
+                        "line": 99
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_metadata",
+            "expression": "$key",
+            "file": "classes/Visualizer/Module/Admin.php",
+            "line": 226
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "classes/Visualizer/Module/Admin.php",
+            "line": 254
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "classes/Visualizer/Module/Chart.php",
+            "line": 635
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "classes/Visualizer/Module/Chart.php",
+            "line": 1479
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "classes/Visualizer/Module/Frontend.php",
+            "line": 771
+        }
+    ]
+}

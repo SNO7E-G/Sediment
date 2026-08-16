@@ -1,0 +1,118 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "simple-page-access-restriction",
+        "name": "Simple Page Access Restriction",
+        "version": "1.0.35",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:08Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 23,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 6,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "ps_simple_par_settings",
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ps_simple_par_dismiss_review_notice",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/admin.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "ps_simple_par_review_time",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/admin.php",
+                        "line": 227
+                    }
+                ]
+            },
+            {
+                "key": "ps_simple_par_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/settings/settings.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "ps_simple_par_subscription_shown",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/admin.php",
+                        "line": 188
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "page_access_restricted",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/admin.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "includes/admin/admin.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "includes/admin/functions-posts.php",
+                        "line": 106
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

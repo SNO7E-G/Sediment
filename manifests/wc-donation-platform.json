@@ -1,0 +1,201 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wc-donation-platform",
+        "name": "Donation Platform for WooCommerce: Fundraising & Donation Management",
+        "version": "1.4.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:54Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 6,
+    "coverage": {
+        "files_scanned": 151,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 14,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.882
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wcdp_compatibility_mode",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wc-donation-platform.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "wcdp_fee_recovery_values",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcdp-general-settings.php",
+                        "line": 347
+                    }
+                ]
+            },
+            {
+                "key": "wcdp_max_amount",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/templates/wcdp_step_1.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "wcdp_transient_cache_keys",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcdp_leaderboard.php",
+                        "line": 181
+                    },
+                    {
+                        "file": "includes/class-wcdp_leaderboard.php",
+                        "line": 741
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_email_footer_text",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcdp-general-settings.php",
+                        "line": 395
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_feature_product_block_editor_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcdp-general-settings.php",
+                        "line": 46
+                    },
+                    {
+                        "file": "includes/class-wcdp-general-settings.php",
+                        "line": 352
+                    },
+                    {
+                        "file": "wc-donation-platform.php",
+                        "line": 202
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wcdp_donable_products",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcdp_leaderboard.php",
+                        "line": 301
+                    }
+                ]
+            },
+            {
+                "key": "wcdp_feedback_send",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcdp_feedback.php",
+                        "line": 169
+                    },
+                    {
+                        "file": "includes/class-wcdp_feedback.php",
+                        "line": 267
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_donable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcdp-product-settings.php",
+                        "line": 215
+                    }
+                ]
+            },
+            {
+                "key": "wcdp_total_revenue",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wcdp-progress.php",
+                        "line": 288
+                    },
+                    {
+                        "file": "includes/integrations/polylang/class-wcdp-polylang.php",
+                        "line": 49
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-wcdp-progress.php",
+            "line": 366
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-wcdp_leaderboard.php",
+            "line": 176
+        }
+    ]
+}

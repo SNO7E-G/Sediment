@@ -1,0 +1,153 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "index-wp-mysql-for-speed",
+        "name": "Index WP MySQL For Speed",
+        "version": "1.5.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:23Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 46,
+    "coverage": {
+        "files_scanned": 174,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 0,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.4
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "imfsQueryMonitor",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "code/querymoncontrol.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "index-wp-mysql-for-speed.php",
+                        "line": 147
+                    },
+                    {
+                        "file": "index-wp-mysql-for-speed.php",
+                        "line": 190
+                    }
+                ]
+            },
+            {
+                "key": "imfsQueryMonitorGather",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "code/querymoncontrol.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "imfsQueryMonitornextMonitorUpdate",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "code/querymon.php",
+                        "line": 27
+                    },
+                    {
+                        "file": "code/querymon.php",
+                        "line": 70
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->sOptionKey",
+            "file": "afp/factory/admin_page/_model/AdminPageFramework_Property_admin_page.php",
+            "line": 98
+        },
+        {
+            "function": "update_option",
+            "expression": "$_sImportOptionKey",
+            "file": "afp/factory/admin_page/_model/delegate/validaor/AdminPageFramework_Model__FormSubmission__Validator__Export.php",
+            "line": 52
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->oFactory->oProp->sOptionKey",
+            "file": "afp/factory/admin_page/_model/delegate/validaor/AdminPageFramework_Model__FormSubmission__Validator__ResetConfirm.php",
+            "line": 39
+        },
+        {
+            "function": "update_option",
+            "expression": "$optName",
+            "file": "code/admin.php",
+            "line": 404
+        },
+        {
+            "function": "update_option",
+            "expression": "$optName",
+            "file": "code/cli.php",
+            "line": 316
+        },
+        {
+            "function": "update_option",
+            "expression": "\\index_mysql_for_speed_log",
+            "file": "code/imsfdb.php",
+            "line": 494
+        },
+        {
+            "function": "update_option",
+            "expression": "$logName",
+            "file": "code/querymon.php",
+            "line": 190
+        },
+        {
+            "function": "set_transient",
+            "expression": "$statusName",
+            "file": "code/querymoncontrol.php",
+            "line": 44
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\WPMU_PLUGIN_DIR",
+            "file": "index-wp-mysql-for-speed.php",
+            "line": 208
+        }
+    ]
+}

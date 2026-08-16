@@ -1,0 +1,200 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "media-library-organizer",
+        "name": "Media Library Organizer",
+        "version": "2.1.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 89,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 9,
+        "resolution_rate": 0.412
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_mlo_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/global/class-media-library-organizer-settings.php",
+                        "line": 185
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "media_library_organizer_remove_exported_zip",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "addons/tree-view/includes/global/class-media-library-organizer-tree-view-media.php",
+                        "line": 650
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "mlo_robin_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-media-library-organizer-admin.php",
+                        "line": 335
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/global/class-media-library-organizer-attachment.php",
+                        "line": 441
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_mlo_pro_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-media-library-organizer-admin.php",
+                        "line": 934
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "_created_at",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-media-library-organizer-admin.php",
+                        "line": 793
+                    }
+                ]
+            },
+            {
+                "key": "_folder_order",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/global/class-media-library-organizer-rest.php",
+                        "line": 613
+                    }
+                ]
+            },
+            {
+                "key": "_modified_at",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-media-library-organizer-admin.php",
+                        "line": 796
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->review_name . '-review-request'",
+            "file": "_modules/dashboard/class-wpzincdashboardwidget.php",
+            "line": 711
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->review_name . '-review-dismissed'",
+            "file": "_modules/dashboard/class-wpzincdashboardwidget.php",
+            "line": 733
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->base->plugin->name . '-version'",
+            "file": "addons/defaults/includes/admin/class-media-library-organizer-defaults-install.php",
+            "line": 72
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->base->plugin->name . '-version'",
+            "file": "addons/output/includes/global/class-media-library-organizer-output-install.php",
+            "line": 51
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->key_prefix",
+            "file": "includes/admin/class-media-library-organizer-notices.php",
+            "line": 296
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->base->plugin->name . '-version'",
+            "file": "includes/global/class-media-library-organizer-install.php",
+            "line": 47
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->base->plugin->name . '-version'",
+            "file": "includes/global/class-media-library-organizer-install.php",
+            "line": 78
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy_name",
+            "file": "includes/global/class-media-library-organizer-taxonomies.php",
+            "line": 124
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$meta_key",
+            "file": "includes/global/class-media-library-organizer-taxonomies.php",
+            "line": 377
+        }
+    ]
+}

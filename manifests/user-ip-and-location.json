@@ -1,0 +1,116 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "user-ip-and-location",
+        "name": "User IP and Location",
+        "version": "5.0.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:21Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 25,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 4,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "user_ip_location_cache_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Admin/Settings.php",
+                        "line": 391
+                    }
+                ]
+            },
+            {
+                "key": "user_ip_location_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Activation.php",
+                        "line": 29
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "user-ip-and-location-activate",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Activation.php",
+                        "line": 23
+                    }
+                ]
+            },
+            {
+                "key": "user_ip_location_rate_limit",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Geolocation.php",
+                        "line": 299
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "user_ip_location_cache_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Cache_Compatibility.php",
+                        "line": 180
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "src/Geolocation.php",
+            "line": 265
+        }
+    ]
+}

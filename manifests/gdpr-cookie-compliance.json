@@ -1,0 +1,352 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "gdpr-cookie-compliance",
+        "name": "GDPR Cookie Compliance",
+        "version": "5.1.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:40Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 64,
+        "files_skipped": 0,
+        "write_calls_found": 45,
+        "verified": 4,
+        "resolved": 2,
+        "pattern": 2,
+        "dynamic": 37,
+        "resolution_rate": 0.133
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gdpr_cc_db_created",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-gdpr-db-controller.php",
+                        "line": 64
+                    }
+                ]
+            },
+            {
+                "key": "gdpr_cc_db_unique_index",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-gdpr-db-controller.php",
+                        "line": 76
+                    },
+                    {
+                        "file": "controllers/class-moove-gdpr-db-controller.php",
+                        "line": 84
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}gdpr_cc_options",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-gdpr-db-controller.php",
+                        "line": 39
+                    },
+                    {
+                        "file": "controllers/class-moove-gdpr-db-controller.php",
+                        "line": 162
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [
+            {
+                "key": "plugin_info_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-gdpr-controller.php",
+                        "line": 129
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "gdpr_cc_dismiss_stamp",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-gdpr-review.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "gdpr_cc_dismiss_stamp*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/class-moove-gdpr-review.php",
+                        "line": 81
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "class-moove-gdpr-content.php",
+            "line": 809
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "class-moove-gdpr-content.php",
+            "line": 1226
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "controllers/class-moove-gdpr-controller.php",
+            "line": 68
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "controllers/class-moove-gdpr-controller.php",
+            "line": 488
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "controllers/class-moove-gdpr-controller.php",
+            "line": 669
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "controllers/class-moove-gdpr-controller.php",
+            "line": 821
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "controllers/class-moove-gdpr-license-manager.php",
+            "line": 53
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "gdpr-functions.php",
+            "line": 533
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "moove-gdpr.php",
+            "line": 50
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/advanced-cookies.php",
+            "line": 31
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/advanced-cookies.php",
+            "line": 35
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/advanced-cookies.php",
+            "line": 41
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/advanced-cookies.php",
+            "line": 46
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/advanced-cookies.php",
+            "line": 51
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/banner-settings.php",
+            "line": 121
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/banner-settings.php",
+            "line": 149
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/branding.php",
+            "line": 53
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/cookie-policy.php",
+            "line": 31
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/cookie-policy.php",
+            "line": 37
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/cookie-policy.php",
+            "line": 42
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/floating-button.php",
+            "line": 38
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/floating-button.php",
+            "line": 45
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/general-settings.php",
+            "line": 61
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/general-settings.php",
+            "line": 85
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/integrations.php",
+            "line": 84
+        },
+        {
+            "function": "update_option",
+            "expression": "\\GTM4WP_OPTIONS",
+            "file": "views/moove/admin/settings/integrations.php",
+            "line": 91
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "views/moove/admin/settings/licence.php",
+            "line": 160
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "views/moove/admin/settings/licence.php",
+            "line": 185
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/privacy-overview.php",
+            "line": 29
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/privacy-overview.php",
+            "line": 34
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/screen-settings.php",
+            "line": 112
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/strictly-necessary-cookies.php",
+            "line": 48
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/third-party-cookies.php",
+            "line": 36
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/third-party-cookies.php",
+            "line": 40
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/third-party-cookies.php",
+            "line": 48
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/third-party-cookies.php",
+            "line": 53
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "views/moove/admin/settings/third-party-cookies.php",
+            "line": 58
+        }
+    ]
+}

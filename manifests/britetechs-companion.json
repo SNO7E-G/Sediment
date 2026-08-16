@@ -1,0 +1,174 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "britetechs-companion",
+        "name": "Britetechs Companion",
+        "version": "3.1.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:42Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 123,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 12,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.933
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "home_and_blog_activate",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/theme-pages-activator.php",
+                        "line": 57
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/hotelone/required-plugin/class-tgm-plugin-activation.php",
+                        "line": 970
+                    },
+                    {
+                        "file": "inc/jewelry-store/required-plugin/class-tgm-plugin-activation.php",
+                        "line": 970
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_page_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/theme-pages-activator.php",
+                        "line": 51
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "tgmpa_dismissed_notice_tgmpa",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/hotelone/required-plugin/class-tgm-plugin-activation.php",
+                        "line": 1352
+                    },
+                    {
+                        "file": "inc/jewelry-store/required-plugin/class-tgm-plugin-activation.php",
+                        "line": 1352
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "page_for_posts",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/hotelone/init.php",
+                    "line": 75
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "page_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/hotelone/init.php",
+                    "line": 64
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "recently_activated",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/hotelone/required-plugin/class-tgm-plugin-activation.php",
+                    "line": 2061
+                },
+                {
+                    "file": "inc/hotelone/required-plugin/class-tgm-plugin-activation.php",
+                    "line": 3056
+                },
+                {
+                    "file": "inc/jewelry-store/required-plugin/class-tgm-plugin-activation.php",
+                    "line": 2061
+                },
+                {
+                    "file": "inc/jewelry-store/required-plugin/class-tgm-plugin-activation.php",
+                    "line": 3056
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "show_on_front",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/hotelone/init.php",
+                    "line": 54
+                },
+                {
+                    "file": "inc/theme-pages-activator.php",
+                    "line": 52
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$page_option",
+            "file": "inc/theme-pages-activator.php",
+            "line": 53
+        }
+    ]
+}

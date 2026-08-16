@@ -1,0 +1,198 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "lw-all-in-one",
+        "name": "LocalWeb All In One",
+        "version": "1.10.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:51Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 30,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 11,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.55
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "lw_all_in_one",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "WpFastestCacheExclude",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-lw-all-in-one-activator.php",
+                        "line": 240
+                    }
+                ]
+            },
+            {
+                "key": "lw_all_in_one",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-lw-all-in-one-admin.php",
+                        "line": 412
+                    },
+                    {
+                        "file": "includes/class-lw-all-in-one-activator.php",
+                        "line": 142
+                    },
+                    {
+                        "file": "includes/class-lw-all-in-one.php",
+                        "line": 290
+                    },
+                    {
+                        "file": "includes/class-lw-all-in-one.php",
+                        "line": 298
+                    }
+                ]
+            },
+            {
+                "key": "lw_all_in_one_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-lw-all-in-one-admin.php",
+                        "line": 413
+                    },
+                    {
+                        "file": "includes/class-lw-all-in-one-activator.php",
+                        "line": 26
+                    },
+                    {
+                        "file": "includes/class-lw-all-in-one.php",
+                        "line": 303
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "lw_all_in_one_cf7_sync",
+                "recurrence": "lw_all_in_one_every_5_min_schedule",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-lw-all-in-one.php",
+                        "line": 339
+                    }
+                ]
+            },
+            {
+                "key": "lw_all_in_one_data_retention",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-lw-all-in-one.php",
+                        "line": 309
+                    }
+                ]
+            },
+            {
+                "key": "lw_all_in_one_single_event",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-lw-all-in-one.php",
+                        "line": 265
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql1",
+            "file": "admin/class-lw-all-in-one-admin.php",
+            "line": 427
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql2",
+            "file": "admin/class-lw-all-in-one-admin.php",
+            "line": 447
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_name . '_privacy_pages'",
+            "file": "admin/class-lw-all-in-one-privacy-policy-pages.php",
+            "line": 151
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql1",
+            "file": "includes/class-lw-all-in-one-activator.php",
+            "line": 174
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql2",
+            "file": "includes/class-lw-all-in-one-activator.php",
+            "line": 195
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->webp_cache_dir",
+            "file": "includes/class-lw-all-in-one-performance.php",
+            "line": 100
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->critical_css_cache_dir",
+            "file": "includes/class-lw-all-in-one-performance.php",
+            "line": 103
+        },
+        {
+            "function": "set_transient",
+            "expression": "$nonceKey",
+            "file": "public/class-lw-all-in-one-public.php",
+            "line": 196
+        },
+        {
+            "function": "set_transient",
+            "expression": "$rate_key",
+            "file": "public/class-lw-all-in-one-public.php",
+            "line": 739
+        }
+    ]
+}

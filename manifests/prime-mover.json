@@ -1,0 +1,308 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "prime-mover",
+        "name": "Prime Mover - Backup and Migration",
+        "version": "2.2.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:51Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 113,
+        "files_skipped": 0,
+        "write_calls_found": 34,
+        "verified": 5,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 25,
+        "resolution_rate": 0.265
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "prime_mover_maintenance",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PrimeMoverProgressHandlers.php",
+                        "line": 407
+                    }
+                ]
+            },
+            {
+                "key": "prime_mover_standalone_plugins",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/PrimeMoverProgressHandlers.php",
+                        "line": 468
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "primeMoverDeleteSymlinkEvent",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "utilities/PrimeMoverDownloadUtilities.php",
+                        "line": 184
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "woocommerce_reports-transient-version",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "users/PrimeMoverUserQueries.php",
+                        "line": 1058
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_customer_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "compatibility/PrimeMoverWooCommerceCompat.php",
+                        "line": 550
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "prime_mover_show_sites_with_backups",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "menus/PrimeMoverGearBoxScreenOptions.php",
+                        "line": 266
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "siteurl",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "compatibility/PrimeMoverCompatibility.php",
+                    "line": 888
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "stylesheet",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "classes/PrimeMoverSystemChecks.php",
+                    "line": 1154
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "template",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "classes/PrimeMoverSystemChecks.php",
+                    "line": 1153
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "WPMU_PLUGIN_DIR",
+            "file": "classes/PrimeMover.php",
+            "line": 539
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$main_site_export_folder",
+            "file": "classes/PrimeMoverExporter.php",
+            "line": 765
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$folder_path_export",
+            "file": "classes/PrimeMoverExporter.php",
+            "line": 780
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$target_lang_path",
+            "file": "classes/PrimeMoverImporter.php",
+            "line": 1280
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$media_path",
+            "file": "classes/PrimeMoverImporter.php",
+            "line": 1432
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "classes/PrimeMoverSystemFunctions.php",
+            "line": 2096
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "classes/PrimeMoverSystemFunctions.php",
+            "line": 2321
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "classes/PrimeMoverSystemFunctions.php",
+            "line": 2343
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "classes/PrimeMoverSystemFunctions.php",
+            "line": 2365
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "classes/PrimeMoverSystemFunctions.php",
+            "line": 2622
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$blogexport_path",
+            "file": "classes/PrimeMoverSystemFunctions.php",
+            "line": 3292
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$export_folder",
+            "file": "classes/PrimeMoverSystemInitialization.php",
+            "line": 1513
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$downloads_folder",
+            "file": "classes/PrimeMoverSystemInitialization.php",
+            "line": 1534
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$lock_folder",
+            "file": "classes/PrimeMoverSystemInitialization.php",
+            "line": 1560
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$blogexport_path",
+            "file": "compatibility/PrimeMoverCleanUp.php",
+            "line": 421
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "WPMU_PLUGIN_DIR",
+            "file": "compatibility/PrimeMoverCustomConfig.php",
+            "line": 139
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "compatibility/PrimeMoverHotFix.php",
+            "line": 330
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "dependency-checks/PrimeMoverFileSystemDependencies.php",
+            "line": 46
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$blogexport_path",
+            "file": "menus/PrimeMoverBackupMenus.php",
+            "line": 653
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "utilities/PrimeMoverComponentAuxiliary.php",
+            "line": 420
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "utilities/PrimeMoverFreemiusIntegration.php",
+            "line": 1095
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$template_path_wpcontent",
+            "file": "utilities/PrimeMoverImportUtilities.php",
+            "line": 745
+        },
+        {
+            "function": "update_option",
+            "expression": "$hash_option . $blog_id",
+            "file": "utilities/PrimeMoverShutdownUtilities.php",
+            "line": 200
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "utilities/PrimeMoverSystemCheckUtilities.php",
+            "line": 1058
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$input_data",
+            "file": "utilities/PrimeMoverSystemUtilities.php",
+            "line": 734
+        }
+    ]
+}

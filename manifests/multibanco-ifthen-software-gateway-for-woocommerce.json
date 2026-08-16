@@ -1,0 +1,258 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "multibanco-ifthen-software-gateway-for-woocommerce",
+        "name": "Multibanco, MB WAY, Credit card, Apple Pay, Google Pay, Payshop, Cofidis Pay, and PIX (ifthenpay) for WooCommerce",
+        "version": "12.1.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:54Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 33,
+        "files_skipped": 0,
+        "write_calls_found": 31,
+        "verified": 2,
+        "resolved": 1,
+        "pattern": 7,
+        "dynamic": 21,
+        "resolution_rate": 0.097
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ifthen_for_woocommerce_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-wc-ifthen-webdados.php",
+                        "line": 324
+                    }
+                ]
+            },
+            {
+                "key": "multibanco_last_incremental_expire_ref",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-wc-ifthen-webdados.php",
+                        "line": 1643
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-wc-cofidispay-ifthen-webdados.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "class-wc-creditcard-ifthen-webdados.php",
+                        "line": 193
+                    },
+                    {
+                        "file": "class-wc-gateway-ifthen-webdados.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "class-wc-mbway-ifthen-webdados.php",
+                        "line": 195
+                    },
+                    {
+                        "file": "class-wc-multibanco-ifthen-webdados.php",
+                        "line": 191
+                    },
+                    {
+                        "file": "class-wc-payshop-ifthen-webdados.php",
+                        "line": 184
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "mbifthen_activation_redirect_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "multibanco_ifthen_for_woocommerce.php",
+                        "line": 111
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "wc_ifthen_hourly_cron",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "class-wc-ifthen-webdados.php",
+                        "line": 380
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-cofidispay-ifthen-webdados.php",
+            "line": 74
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-cofidispay-ifthen-webdados.php",
+            "line": 194
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-cofidispay-ifthen-webdados.php",
+            "line": 638
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-creditcard-ifthen-webdados.php",
+            "line": 76
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-creditcard-ifthen-webdados.php",
+            "line": 189
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-creditcard-ifthen-webdados.php",
+            "line": 589
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_gateways'",
+            "file": "class-wc-gateway-ifthen-webdados.php",
+            "line": 648
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "class-wc-gateway-ifthen-webdados.php",
+            "line": 664
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_gateway_methods'",
+            "file": "class-wc-gateway-ifthen-webdados.php",
+            "line": 676
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "class-wc-gateway-ifthen-webdados.php",
+            "line": 695
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "class-wc-gateway-ifthen-webdados.php",
+            "line": 772
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$method_id . '_newmethod_notice_dismiss_until'",
+            "file": "class-wc-ifthen-webdados.php",
+            "line": 4182
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-mbway-ifthen-webdados.php",
+            "line": 87
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-mbway-ifthen-webdados.php",
+            "line": 191
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-mbway-ifthen-webdados.php",
+            "line": 682
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-multibanco-ifthen-webdados.php",
+            "line": 83
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-multibanco-ifthen-webdados.php",
+            "line": 187
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-multibanco-ifthen-webdados.php",
+            "line": 844
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-payshop-ifthen-webdados.php",
+            "line": 73
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-payshop-ifthen-webdados.php",
+            "line": 180
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_callback_email_sent'",
+            "file": "class-wc-payshop-ifthen-webdados.php",
+            "line": 659
+        }
+    ]
+}

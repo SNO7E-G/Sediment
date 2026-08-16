@@ -1,0 +1,189 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "restricted-site-access",
+        "name": "Restricted Site Access",
+        "version": "7.6.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:58Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 3,
+        "files_skipped": 0,
+        "write_calls_found": 24,
+        "verified": 23,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.958
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "rsa_activation_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "restricted_site_access.php",
+                        "line": 1901
+                    },
+                    {
+                        "file": "restricted_site_access.php",
+                        "line": 1908
+                    }
+                ]
+            },
+            {
+                "key": "rsa_hide_page_cache_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "restricted_site_access.php",
+                        "line": 288
+                    },
+                    {
+                        "file": "restricted_site_access.php",
+                        "line": 290
+                    }
+                ]
+            },
+            {
+                "key": "rsa_mode",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "wp-cli.php",
+                        "line": 290
+                    }
+                ]
+            },
+            {
+                "key": "rsa_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "restricted_site_access.php",
+                        "line": 319
+                    },
+                    {
+                        "file": "restricted_site_access.php",
+                        "line": 2197
+                    },
+                    {
+                        "file": "restricted_site_access.php",
+                        "line": 2254
+                    },
+                    {
+                        "file": "restricted_site_access.php",
+                        "line": 2331
+                    },
+                    {
+                        "file": "restricted_site_access.php",
+                        "line": 2367
+                    },
+                    {
+                        "file": "restricted_site_access.php",
+                        "line": 2399
+                    },
+                    {
+                        "file": "wp-cli.php",
+                        "line": 748
+                    },
+                    {
+                        "file": "wp-cli.php",
+                        "line": 750
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "blog_public",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "restricted_site_access.php",
+                    "line": 320
+                },
+                {
+                    "file": "restricted_site_access.php",
+                    "line": 1913
+                },
+                {
+                    "file": "restricted_site_access.php",
+                    "line": 1930
+                },
+                {
+                    "file": "restricted_site_access.php",
+                    "line": 1937
+                },
+                {
+                    "file": "restricted_site_access.php",
+                    "line": 2455
+                },
+                {
+                    "file": "restricted_site_access.php",
+                    "line": 2464
+                },
+                {
+                    "file": "wp-cli.php",
+                    "line": 132
+                },
+                {
+                    "file": "wp-cli.php",
+                    "line": 134
+                },
+                {
+                    "file": "wp-cli.php",
+                    "line": 150
+                },
+                {
+                    "file": "wp-cli.php",
+                    "line": 153
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "restricted_site_access.php",
+            "line": 1075
+        }
+    ]
+}

@@ -1,0 +1,881 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "payment-gateway-stripe-and-woocommerce-integration",
+        "name": "Payment Gateway of Stripe for WooCommerce",
+        "version": "5.0.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:11Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 43,
+        "files_skipped": 0,
+        "write_calls_found": 96,
+        "verified": 70,
+        "resolved": 14,
+        "pattern": 0,
+        "dynamic": 12,
+        "resolution_rate": 0.875
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "eh_order_table_row",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/stripe-overview/include-ajax-functions.php",
+                        "line": 260
+                    }
+                ]
+            },
+            {
+                "key": "eh_stripe_connected_app_author",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-oauth.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "eh_stripe_table_row",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/stripe-overview/include-ajax-functions.php",
+                        "line": 271
+                    }
+                ]
+            },
+            {
+                "key": "notice_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-stripe-admin-handler.php",
+                        "line": 115
+                    }
+                ]
+            },
+            {
+                "key": "th_stripe_since",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-stripe-admin-handler.php",
+                        "line": 1700
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_eh_stripe_pay_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-api.php",
+                        "line": 145
+                    },
+                    {
+                        "file": "includes/class-stripe-oauth.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "includes/class-stripe-oauth.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_eh_stripe_test_mode_type",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-api.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "wt_promotion_banner_state",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wt-promotion-banner.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "includes/admin/class-wt-promotion-banner.php",
+                        "line": 170
+                    }
+                ]
+            },
+            {
+                "key": "wtst_bfcm_twenty_twenty_four_banner_state",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/banner/class-wtst-bfcm-twenty-twenty-four.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "includes/admin/banner/class-wtst-bfcm-twenty-twenty-four.php",
+                        "line": 159
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "eh_stripe_refresh_oauth_token",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-eh-stripe-token-handler.php",
+                        "line": 426
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wtst_dismiss_oauth_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-stripe-admin-handler.php",
+                        "line": 1595
+                    }
+                ]
+            },
+            {
+                "key": "wtst_dismiss_sofort_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-stripe-admin-handler.php",
+                        "line": 1616
+                    }
+                ]
+            },
+            {
+                "key": "wtst_oauth_connect_later",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-stripe-admin-handler.php",
+                        "line": 1545
+                    }
+                ]
+            },
+            {
+                "key": "wtst_oauth_notice_dismissable_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-stripe-admin-handler.php",
+                        "line": 1598
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_eh_affirm_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-affirm.php",
+                        "line": 631
+                    }
+                ]
+            },
+            {
+                "key": "_eh_afterpay_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-afterpay.php",
+                        "line": 680
+                    }
+                ]
+            },
+            {
+                "key": "_eh_alipay_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-gateway-stripe-alipay.php",
+                        "line": 656
+                    }
+                ]
+            },
+            {
+                "key": "_eh_bancontact_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-bancontact.php",
+                        "line": 754
+                    }
+                ]
+            },
+            {
+                "key": "_eh_becs_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-becs.php",
+                        "line": 747
+                    }
+                ]
+            },
+            {
+                "key": "_eh_boleto_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-boleto.php",
+                        "line": 658
+                    }
+                ]
+            },
+            {
+                "key": "_eh_eps_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-eps.php",
+                        "line": 733
+                    }
+                ]
+            },
+            {
+                "key": "_eh_fpx_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-fpx.php",
+                        "line": 731
+                    }
+                ]
+            },
+            {
+                "key": "_eh_giropay_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-giropay.php",
+                        "line": 579
+                    }
+                ]
+            },
+            {
+                "key": "_eh_grabpay_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-grabpay.php",
+                        "line": 703
+                    }
+                ]
+            },
+            {
+                "key": "_eh_ideal_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-ideal.php",
+                        "line": 702
+                    }
+                ]
+            },
+            {
+                "key": "_eh_klarna_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-klarna.php",
+                        "line": 676
+                    }
+                ]
+            },
+            {
+                "key": "_eh_oxxo_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-oxxo.php",
+                        "line": 607
+                    }
+                ]
+            },
+            {
+                "key": "_eh_p24_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-p24.php",
+                        "line": 731
+                    }
+                ]
+            },
+            {
+                "key": "_eh_sepa_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-sepa-pay.php",
+                        "line": 750
+                    }
+                ]
+            },
+            {
+                "key": "_eh_stripe_payment_balance",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-eh-security-helper.php",
+                        "line": 249
+                    },
+                    {
+                        "file": "includes/class-eh-security-helper.php",
+                        "line": 252
+                    }
+                ]
+            },
+            {
+                "key": "_eh_stripe_payment_charge",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-eh-security-helper.php",
+                        "line": 249
+                    },
+                    {
+                        "file": "includes/class-eh-security-helper.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "payment-gateway-stripe-and-woocommerce-integration.php",
+                        "line": 386
+                    }
+                ]
+            },
+            {
+                "key": "_eh_stripe_payment_intent",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-eh-security-helper.php",
+                        "line": 249
+                    },
+                    {
+                        "file": "includes/class-eh-security-helper.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "includes/class-gateway-stripe-alipay.php",
+                        "line": 374
+                    },
+                    {
+                        "file": "includes/class-stripe-affirm.php",
+                        "line": 315
+                    },
+                    {
+                        "file": "includes/class-stripe-afterpay.php",
+                        "line": 316
+                    },
+                    {
+                        "file": "includes/class-stripe-bancontact.php",
+                        "line": 377
+                    },
+                    {
+                        "file": "includes/class-stripe-boleto.php",
+                        "line": 351
+                    },
+                    {
+                        "file": "includes/class-stripe-eps.php",
+                        "line": 373
+                    },
+                    {
+                        "file": "includes/class-stripe-ideal.php",
+                        "line": 402
+                    },
+                    {
+                        "file": "includes/class-stripe-klarna.php",
+                        "line": 307
+                    },
+                    {
+                        "file": "includes/class-stripe-oxxo.php",
+                        "line": 328
+                    },
+                    {
+                        "file": "includes/class-stripe-p24.php",
+                        "line": 374
+                    },
+                    {
+                        "file": "includes/class-stripe-sepa-pay.php",
+                        "line": 422
+                    },
+                    {
+                        "file": "includes/class-stripe-wechat.php",
+                        "line": 479
+                    }
+                ]
+            },
+            {
+                "key": "_eh_stripe_payment_refund",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-eh-security-helper.php",
+                        "line": 249
+                    },
+                    {
+                        "file": "includes/class-eh-security-helper.php",
+                        "line": 252
+                    }
+                ]
+            },
+            {
+                "key": "_eh_wechat_charge_captured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-wechat.php",
+                        "line": 839
+                    }
+                ]
+            },
+            {
+                "key": "eh_becs_intent_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-becs.php",
+                        "line": 418
+                    }
+                ]
+            },
+            {
+                "key": "eh_fpx_intent_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-fpx.php",
+                        "line": 393
+                    }
+                ]
+            },
+            {
+                "key": "eh_giropay_intent_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-giropay.php",
+                        "line": 314
+                    }
+                ]
+            },
+            {
+                "key": "eh_grabpay_intent_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-grabpay.php",
+                        "line": 384
+                    }
+                ]
+            },
+            {
+                "key": "eh_stripe_intent_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-eh-security-helper.php",
+                        "line": 249
+                    },
+                    {
+                        "file": "includes/class-eh-security-helper.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "includes/class-stripe-api.php",
+                        "line": 1345
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_affirm_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-affirm.php",
+                        "line": 248
+                    }
+                ]
+            },
+            {
+                "key": "_afterpay_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-afterpay.php",
+                        "line": 249
+                    }
+                ]
+            },
+            {
+                "key": "_bancontact_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-bancontact.php",
+                        "line": 311
+                    }
+                ]
+            },
+            {
+                "key": "_becs_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-becs.php",
+                        "line": 342
+                    }
+                ]
+            },
+            {
+                "key": "_boleto_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-boleto.php",
+                        "line": 267
+                    }
+                ]
+            },
+            {
+                "key": "_eps_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-eps.php",
+                        "line": 307
+                    }
+                ]
+            },
+            {
+                "key": "_fpx_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-fpx.php",
+                        "line": 324
+                    }
+                ]
+            },
+            {
+                "key": "_giropay_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-giropay.php",
+                        "line": 246
+                    }
+                ]
+            },
+            {
+                "key": "_grabpay_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-grabpay.php",
+                        "line": 316
+                    }
+                ]
+            },
+            {
+                "key": "_ideal_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-ideal.php",
+                        "line": 325
+                    }
+                ]
+            },
+            {
+                "key": "_klarna_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-klarna.php",
+                        "line": 241
+                    }
+                ]
+            },
+            {
+                "key": "_oxxo_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-oxxo.php",
+                        "line": 253
+                    }
+                ]
+            },
+            {
+                "key": "_p24_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-p24.php",
+                        "line": 307
+                    }
+                ]
+            },
+            {
+                "key": "_sepa_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-sepa-pay.php",
+                        "line": 354
+                    }
+                ]
+            },
+            {
+                "key": "_stripe_ch_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-checkout.php",
+                        "line": 579
+                    }
+                ]
+            },
+            {
+                "key": "_stripe_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-api.php",
+                        "line": 922
+                    },
+                    {
+                        "file": "includes/class-stripe-api.php",
+                        "line": 1096
+                    }
+                ]
+            },
+            {
+                "key": "_wechat_customer_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-stripe-wechat.php",
+                        "line": 392
+                    }
+                ]
+            },
+            {
+                "key": "wtst_random_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-stripe-admin-handler.php",
+                        "line": 1476
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "eh_stripe_refresh_oauth_token",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-eh-stripe-token-handler.php",
+                        "line": 424
+                    },
+                    {
+                        "file": "includes/class-eh-stripe-token-handler.php",
+                        "line": 728
+                    },
+                    {
+                        "file": "includes/class-stripe-oauth.php",
+                        "line": 286
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$queue_key",
+            "file": "includes/class-eh-stripe-token-handler.php",
+            "line": 417
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_data['name']",
+            "file": "includes/class-eh-stripe-token-handler.php",
+            "line": 919
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_data['name']",
+            "file": "includes/class-eh-stripe-token-handler.php",
+            "line": 921
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_data['name']",
+            "file": "includes/class-eh-stripe-token-handler.php",
+            "line": 927
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_data['name']",
+            "file": "includes/class-eh-stripe-token-handler.php",
+            "line": 935
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_data['name']",
+            "file": "includes/class-eh-stripe-token-handler.php",
+            "line": 937
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_data['name']",
+            "file": "includes/class-eh-stripe-token-handler.php",
+            "line": 943
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$folder_path",
+            "file": "includes/class-eh-stripe-token-handler.php",
+            "line": 1017
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock_key",
+            "file": "includes/class-eh-stripe-webhook-handler.php",
+            "line": 219
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/class-stripe-api.php",
+            "line": 1450
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock_key",
+            "file": "includes/class-stripe-checkout.php",
+            "line": 843
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock_key",
+            "file": "includes/class-stripe-wechat.php",
+            "line": 767
+        }
+    ]
+}

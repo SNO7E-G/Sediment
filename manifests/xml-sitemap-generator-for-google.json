@@ -1,0 +1,240 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "xml-sitemap-generator-for-google",
+        "name": "Google XML Sitemaps Generator",
+        "version": "2.3.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 40,
+    "coverage": {
+        "files_scanned": 86,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 7,
+        "resolved": 3,
+        "pattern": 3,
+        "dynamic": 10,
+        "resolution_rate": 0.435
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "grim_sg_rules",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Frontend.php",
+                        "line": 218
+                    }
+                ]
+            },
+            {
+                "key": "sgg_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/MediaSitemap.php",
+                        "line": 190
+                    }
+                ]
+            },
+            {
+                "key": "sgg_indexnow_api_key",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/IndexNow.php",
+                        "line": 116
+                    },
+                    {
+                        "file": "includes/IndexNow.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "xml_sitemap_disable_notice_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Notices.php",
+                        "line": 34
+                    },
+                    {
+                        "file": "includes/Notices.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "xml_sitemap_installation_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Notices.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "includes/hooks.php",
+                        "line": 12
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "sgg_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/hooks.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "xml_sitemap_notice_cooldown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Notices.php",
+                        "line": 42
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_sitemap_exclude",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/PostSettings.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "_sitemap_frequency",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/PostSettings.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "_sitemap_priority",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/PostSettings.php",
+                        "line": 128
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$option_name . '_chunk_' . $i",
+            "file": "includes/Cache.php",
+            "line": 55
+        },
+        {
+            "function": "set_transient",
+            "expression": "$option_name . '_chunks'",
+            "file": "includes/Cache.php",
+            "line": 58
+        },
+        {
+            "function": "set_transient",
+            "expression": "$option_name . '_time'",
+            "file": "includes/Cache.php",
+            "line": 59
+        },
+        {
+            "function": "set_transient",
+            "expression": "$option_name",
+            "file": "includes/Cache.php",
+            "line": 65
+        },
+        {
+            "function": "set_transient",
+            "expression": "$option_name . '_time'",
+            "file": "includes/Cache.php",
+            "line": 66
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$slug",
+            "file": "includes/Dashboard.php",
+            "line": 315
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$slug",
+            "file": "includes/ImportExport.php",
+            "line": 25
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name($template, 'latest_mod_time')",
+            "file": "includes/MediaSitemap.php",
+            "line": 161
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name($template, 'latest_post_id')",
+            "file": "includes/MediaSitemap.php",
+            "line": 162
+        },
+        {
+            "function": "update_option",
+            "expression": "self::$slug",
+            "file": "includes/Wizard.php",
+            "line": 85
+        }
+    ]
+}

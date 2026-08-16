@@ -1,0 +1,656 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "youtube-showcase",
+        "name": "Video Gallery – YouTube Gallery, Playlist & Video Grid",
+        "version": "4.0.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:48Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 118,
+        "files_skipped": 0,
+        "write_calls_found": 78,
+        "verified": 17,
+        "resolved": 20,
+        "pattern": 7,
+        "dynamic": 34,
+        "resolution_rate": 0.474
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "youtube_showcase_tools",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_emd_wp_session_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "assets/ext/emd-session/includes/class-emd-wp-session-utils.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "assets/ext/emd-session/includes/class-emd-wp-session.php",
+                        "line": 179
+                    },
+                    {
+                        "file": "assets/ext/emd-session/includes/class-emd-wp-session.php",
+                        "line": 182
+                    }
+                ]
+            },
+            {
+                "key": "_emd_wp_session_expires_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "assets/ext/emd-session/includes/class-emd-wp-session-utils.php",
+                        "line": 69
+                    },
+                    {
+                        "file": "assets/ext/emd-session/includes/class-emd-wp-session.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "assets/ext/emd-session/includes/class-emd-wp-session.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "emd_activated_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 461
+                    },
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 466
+                    },
+                    {
+                        "file": "uninstall.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "emd_form_id_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/emd-form-builder-lite/emd-form-builder.php",
+                        "line": 259
+                    }
+                ]
+            },
+            {
+                "key": "emd_session_db_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "assets/ext/emd-session/emd-session-manager.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_activation_date",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_add_caps",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 153
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_adm_notice1",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_adm_notice2",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 505
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_attr_list",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 379
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_cust_roles",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_ent_list",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 248
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_glob_forms_init_list",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 424
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_glob_forms_list",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 426
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_glob_init_list",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 394
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_glob_list",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 396
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_setup_pages",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 221
+                    },
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 535
+                    },
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 540
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_shc_list",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 307
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_show_rateme_plugin_min",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugin-feedback-functions.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_tax_list",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 457
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_tracking_optin",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugin-feedback-functions.php",
+                        "line": 53
+                    },
+                    {
+                        "file": "includes/plugin-feedback-functions.php",
+                        "line": 56
+                    },
+                    {
+                        "file": "includes/plugin-feedback-functions.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "youtube_showcase_widg_list",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 313
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "emd_wp_session_garbage_collection",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "assets/ext/emd-session/includes/emd-wp-session.php",
+                        "line": 173
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "youtube_showcase_activate_redirect",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "includes/class-install-deactivate.php",
+                        "line": 100
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "wpas_form_submitted_by",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/emd-form-builder-lite/emd-form-frontend.php",
+                        "line": 165
+                    },
+                    {
+                        "file": "includes/emd-form-builder-lite/emd-form-frontend.php",
+                        "line": 170
+                    },
+                    {
+                        "file": "includes/emd-form-builder-lite/emd-form-frontend.php",
+                        "line": 209
+                    },
+                    {
+                        "file": "includes/emd-form-builder-lite/emd-form-frontend.php",
+                        "line": 270
+                    },
+                    {
+                        "file": "includes/emd-form-builder-lite/emd-form-frontend.php",
+                        "line": 1970
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "emd_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/emd-form-builder-lite/emd-form-frontend.php",
+                        "line": 130
+                    },
+                    {
+                        "file": "includes/emd-form-builder-lite/emd-form-functions.php",
+                        "line": 391
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "emd_video",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/entities/class-emd-video.php",
+                        "line": 316
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "$name",
+            "file": "assets/ext/emd-meta-box/inc/field.php",
+            "line": 424
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "assets/ext/emd-meta-box/inc/field.php",
+            "line": 445
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "assets/ext/emd-meta-box/inc/fields/checkbox-list.php",
+            "line": 84
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "assets/ext/emd-meta-box/inc/fields/date.php",
+            "line": 113
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "assets/ext/emd-meta-box/inc/fields/datetime.php",
+            "line": 168
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "assets/ext/emd-meta-box/inc/fields/fieldset-text.php",
+            "line": 74
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$field_id",
+            "file": "assets/ext/emd-meta-box/inc/fields/file-advanced.php",
+            "line": 49
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "assets/ext/emd-meta-box/inc/fields/hidden.php",
+            "line": 82
+        },
+        {
+            "function": "update_option",
+            "expression": "$name . \"_autoinc\"",
+            "file": "assets/ext/emd-meta-box/inc/fields/hidden.php",
+            "line": 86
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$field_id",
+            "file": "assets/ext/emd-meta-box/inc/fields/image-advanced.php",
+            "line": 54
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$field_id",
+            "file": "assets/ext/emd-meta-box/inc/fields/image.php",
+            "line": 55
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$field_id",
+            "file": "assets/ext/emd-meta-box/inc/fields/plupload-image.php",
+            "line": 70
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "assets/ext/emd-meta-box/inc/fields/select.php",
+            "line": 95
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "assets/ext/emd-meta-box/inc/fields/taxonomy-advanced.php",
+            "line": 40
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "assets/ext/emd-meta-box/inc/fields/text-list.php",
+            "line": 87
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "assets/ext/emd-meta-box/inc/fields/time.php",
+            "line": 109
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$table",
+            "file": "assets/ext/emd-session/emd-session-manager.php",
+            "line": 68
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->app . '_user_shortcodes'",
+            "file": "includes/admin/class-emd-list-table.php",
+            "line": 226
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->app . '_tax_list'",
+            "file": "includes/admin/class-emd-list-table.php",
+            "line": 253
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->app . '_attr_list'",
+            "file": "includes/admin/class-emd-list-table.php",
+            "line": 254
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->app . '_custom_attr_tax_list'",
+            "file": "includes/admin/class-emd-list-table.php",
+            "line": 255
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->app . '_tax_list'",
+            "file": "includes/admin/class-emd-list-table.php",
+            "line": 321
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->app . '_attr_list'",
+            "file": "includes/admin/class-emd-list-table.php",
+            "line": 322
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->app . '_custom_attr_tax_list'",
+            "file": "includes/admin/class-emd-list-table.php",
+            "line": 323
+        },
+        {
+            "function": "update_option",
+            "expression": "$app . '_setup_pages_list'",
+            "file": "includes/admin/settings-functions.php",
+            "line": 1440
+        },
+        {
+            "function": "update_option",
+            "expression": "\\sanitize_text_field($_GET['app']) . '_user_shortcodes'",
+            "file": "includes/admin/shortcode-list-functions.php",
+            "line": 106
+        },
+        {
+            "function": "add_role",
+            "expression": "$krole",
+            "file": "includes/class-install-deactivate.php",
+            "line": 164
+        },
+        {
+            "function": "add_cap",
+            "expression": "$myrole",
+            "file": "includes/class-install-deactivate.php",
+            "line": 203
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$user_key",
+            "file": "includes/emd-form-builder-lite/emd-form-frontend.php",
+            "line": 176
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$kattr",
+            "file": "includes/entities/class-emd-entity.php",
+            "line": 547
+        },
+        {
+            "function": "update_option",
+            "expression": "$kattr . \"_autoinc\"",
+            "file": "includes/entities/class-emd-entity.php",
+            "line": 548
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$kattr",
+            "file": "includes/entities/class-emd-entity.php",
+            "line": 552
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$kattr",
+            "file": "includes/entities/class-emd-entity.php",
+            "line": 556
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$kattr",
+            "file": "includes/entities/class-emd-entity.php",
+            "line": 562
+        }
+    ]
+}

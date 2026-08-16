@@ -1,0 +1,146 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "rsvp",
+        "name": "RSVP",
+        "version": "2.7.18",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:56Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 115,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 7,
+        "resolved": 1,
+        "pattern": 2,
+        "dynamic": 1,
+        "resolution_rate": 0.727
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "rsvp_delete_data_on_uninstall",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "rsvp-rate-time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-rsvp-review.php",
+                        "line": 84
+                    },
+                    {
+                        "file": "includes/class-rsvp-review.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "rsvp_db_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/rsvp_db_setup.inc.php",
+                        "line": 32
+                    },
+                    {
+                        "file": "includes/rsvp_db_setup.inc.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "includes/rsvp_db_setup.inc.php",
+                        "line": 45
+                    },
+                    {
+                        "file": "includes/rsvp_db_setup.inc.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "wp-snc_*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "external-libs/wp-simple-nonce/WPSimpleNonce.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "wp-snc_expires_*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "external-libs/wp-simple-nonce/WPSimpleNonce.php",
+                        "line": 58
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}attendees",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/rsvp_db_setup.inc.php",
+                        "line": 17
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "wp_simple_nonce_cleanup",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "external-libs/wp-simple-nonce/wp-simple-nonce.php",
+                        "line": 29
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$folderPath",
+            "file": "external-libs/spout/src/Spout/Common/Helper/FileSystemHelper.php",
+            "line": 39
+        }
+    ]
+}

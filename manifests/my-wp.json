@@ -1,0 +1,182 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "my-wp",
+        "name": "My WP Customize Admin/Frontend",
+        "version": "1.27.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:19Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 42,
+    "coverage": {
+        "files_scanned": 155,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 5,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.412
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "blog_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.logger.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "item_location",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "setting/abstract.setting.toolbar.module.php",
+                        "line": 535
+                    }
+                ]
+            },
+            {
+                "key": "log",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.logger.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "request_uri",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.logger.php",
+                        "line": 199
+                    }
+                ]
+            },
+            {
+                "key": "user_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.logger.php",
+                        "line": 197
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "mywp_notice",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class.notice.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "classes/class.notice.php",
+                        "line": 169
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$option_key",
+            "file": "classes/class.model.php",
+            "line": 214
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "classes/class.model.php",
+            "line": 220
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "classes/class.transient.php",
+            "line": 213
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "classes/class.transient.php",
+            "line": 217
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "core/class.api.php",
+            "line": 1730
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$post_type_name",
+            "file": "post-type/post-type.init.php",
+            "line": 63
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "setting/abstract.setting.toolbar.module.php",
+            "line": 470
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "setting/modules/mywp.setting.admin.sidebar.php",
+            "line": 431
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$bulk_fields['meta_key']",
+            "file": "setting/modules/mywp.setting.bulk.update-post-meta.php",
+            "line": 116
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy_name",
+            "file": "taxonomy/taxonomy.init.php",
+            "line": 71
+        }
+    ]
+}

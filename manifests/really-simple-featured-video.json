@@ -1,0 +1,544 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "really-simple-featured-video",
+        "name": "Really Simple Featured Video",
+        "version": "0.84.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 222,
+        "files_skipped": 0,
+        "write_calls_found": 61,
+        "verified": 30,
+        "resolved": 16,
+        "pattern": 3,
+        "dynamic": 12,
+        "resolution_rate": 0.754
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "active_sitewide_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 355
+                    }
+                ]
+            },
+            {
+                "key": "fs_active_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 279
+                    },
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 413
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 208
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 318
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 363
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 528
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 572
+                    }
+                ]
+            },
+            {
+                "key": "fs_debug_mode",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/config.php",
+                        "line": 307
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 505
+                    }
+                ]
+            },
+            {
+                "key": "fs_storage_logger",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-fs-logger.php",
+                        "line": 361
+                    }
+                ]
+            },
+            {
+                "key": "rsfv_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-updater.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "rsfv_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-options.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "includes/class-options.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "rsfv_previous_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-updater.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "rsfv_queue_flush_rewrite_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Settings/class-admin-settings.php",
+                        "line": 84
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}fs_logger",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-fs-logger.php",
+                        "line": 339
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "fs_debug_turn_off_logging_hook",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 293
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_fs_api_connection_retry_counter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 21117
+                    }
+                ]
+            },
+            {
+                "key": "fs_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 7612
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 20767
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 20773
+                    }
+                ]
+            },
+            {
+                "key": "fs_snooze_period",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 2748
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 2750
+                    }
+                ]
+            },
+            {
+                "key": "rsfv_rollback_versions_0.84.0",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Featuresets/rollback/class-init.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 96
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_rsfv_fv_display_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Featuresets/floating-video/class-rest-api.php",
+                        "line": 441
+                    }
+                ]
+            },
+            {
+                "key": "_rsfv_fv_embed_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Featuresets/floating-video/class-rest-api.php",
+                        "line": 435
+                    }
+                ]
+            },
+            {
+                "key": "_rsfv_fv_page_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Featuresets/floating-video/class-rest-api.php",
+                        "line": 447
+                    }
+                ]
+            },
+            {
+                "key": "_rsfv_fv_target_post_types",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Featuresets/floating-video/class-rest-api.php",
+                        "line": 454
+                    }
+                ]
+            },
+            {
+                "key": "_rsfv_fv_target_taxonomies",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Featuresets/floating-video/class-rest-api.php",
+                        "line": 468
+                    }
+                ]
+            },
+            {
+                "key": "_rsfv_fv_video_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Featuresets/floating-video/class-rest-api.php",
+                        "line": 432
+                    }
+                ]
+            },
+            {
+                "key": "_rsfv_fv_video_source",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Featuresets/floating-video/class-rest-api.php",
+                        "line": 429
+                    }
+                ]
+            },
+            {
+                "key": "rsfv_featured_embed_video",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Compatibility/Plugins/Elementor/widgets/class-rsfv-video-widget.php",
+                        "line": 280
+                    },
+                    {
+                        "file": "includes/Tools/class-rest-api.php",
+                        "line": 472
+                    }
+                ]
+            },
+            {
+                "key": "rsfv_featured_poster",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Compatibility/Plugins/Elementor/widgets/class-rsfv-video-widget.php",
+                        "line": 279
+                    },
+                    {
+                        "file": "includes/Tools/class-rest-api.php",
+                        "line": 531
+                    }
+                ]
+            },
+            {
+                "key": "rsfv_featured_video",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Compatibility/Plugins/Elementor/widgets/class-rsfv-video-widget.php",
+                        "line": 278
+                    },
+                    {
+                        "file": "includes/Tools/class-rest-api.php",
+                        "line": 464
+                    }
+                ]
+            },
+            {
+                "key": "rsfv_source",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Compatibility/Plugins/Elementor/widgets/class-rsfv-video-widget.php",
+                        "line": 277
+                    },
+                    {
+                        "file": "includes/Tools/class-rest-api.php",
+                        "line": 380
+                    },
+                    {
+                        "file": "includes/Tools/class-rest-api.php",
+                        "line": 460
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "rsfv_floating_video",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Featuresets/floating-video/class-init.php",
+                        "line": 65
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "freemius/includes/class-fs-plugin-updater.php",
+                    "line": 1266
+                },
+                {
+                    "file": "freemius/includes/fs-essential-functions.php",
+                    "line": 332
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "uninstall_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "freemius/includes/class-freemius.php",
+                    "line": 1896
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 6354
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 6361
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 24853
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "freemius/includes/class-fs-lock.php",
+            "line": 57
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "freemius/includes/class-fs-lock.php",
+            "line": 77
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "freemius/includes/class-fs-plugin-updater.php",
+            "line": 799
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "freemius/includes/class-fs-plugin-updater.php",
+            "line": 831
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-debug-manager.php",
+            "line": 262
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-option-manager.php",
+            "line": 410
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-option-manager.php",
+            "line": 414
+        },
+        {
+            "function": "add_option",
+            "expression": "$value['id']",
+            "file": "includes/Settings/class-register.php",
+            "line": 141
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/class-metabox.php",
+            "line": 269
+        }
+    ]
+}

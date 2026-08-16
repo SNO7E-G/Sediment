@@ -1,0 +1,392 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-headers-and-footers",
+        "name": "WP Headers And Footers",
+        "version": "3.1.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:08Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 50,
+    "coverage": {
+        "files_scanned": 20,
+        "files_skipped": 0,
+        "write_calls_found": 46,
+        "verified": 13,
+        "resolved": 0,
+        "pattern": 6,
+        "dynamic": 27,
+        "resolution_rate": 0.283
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpb_api_cache",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wpb-sdk/views/wpb-debug.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "wpb_sdk_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+                        "line": 758
+                    },
+                    {
+                        "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+                        "line": 1150
+                    }
+                ]
+            },
+            {
+                "key": "wpb_sdk_lifecycle_basenames",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+                        "line": 3384
+                    },
+                    {
+                        "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+                        "line": 3405
+                    }
+                ]
+            },
+            {
+                "key": "wpheaderandfooter_active_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-notifications.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "classes/class-notifications.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "wpheaderandfooter_basics",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-setup.php",
+                        "line": 117
+                    }
+                ]
+            },
+            {
+                "key": "wpheaderandfooter_basics_logger",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-settings-api.php",
+                        "line": 442
+                    },
+                    {
+                        "file": "wp-headers-and-footers.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "wpheaderandfooter_review_dismiss",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-notifications.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "wpheaderandfooter_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-setup.php",
+                        "line": 108
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpb_data_sync_*",
+                "recurrence": "daily",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wpb-sdk/includes/class-wpb-sdk-logger.php",
+                        "line": 494
+                    },
+                    {
+                        "file": "lib/wpb-sdk/includes/class-wpb-sdk-logger.php",
+                        "line": 511
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wpb-sdk/views/wpb-debug.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wpb-sdk/views/wpb-debug.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "wpb_sdk_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/wpb-sdk/includes/class-wpb-opt-manager.php",
+                        "line": 973
+                    },
+                    {
+                        "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+                        "line": 3033
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "uninstall_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+                    "line": 3562
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$section['id']",
+            "file": "classes/class-settings-api.php",
+            "line": 109
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$name",
+            "file": "lib/wpb-sdk/includes/class-wpb-opt-manager.php",
+            "line": 196
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "lib/wpb-sdk/includes/class-wpb-opt-manager.php",
+            "line": 200
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->sdk_option_name()",
+            "file": "lib/wpb-sdk/includes/class-wpb-opt-manager.php",
+            "line": 933
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->sdk_option_name()",
+            "file": "lib/wpb-sdk/includes/class-wpb-opt-manager.php",
+            "line": 969
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->sdk_option_name()",
+            "file": "lib/wpb-sdk/includes/class-wpb-opt-manager.php",
+            "line": 1002
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->sdk_option_name()",
+            "file": "lib/wpb-sdk/includes/class-wpb-opt-manager.php",
+            "line": 1033
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::deactivation_logged_transient_key($slug)",
+            "file": "lib/wpb-sdk/includes/class-wpb-sdk-logger.php",
+            "line": 655
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$token_meta",
+            "file": "lib/wpb-sdk/includes/class-wpb-sdk-logger.php",
+            "line": 922
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$expires_meta",
+            "file": "lib/wpb-sdk/includes/class-wpb-sdk-logger.php",
+            "line": 924
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt_key",
+            "file": "lib/wpb-sdk/includes/class-wpb-sdk-logger.php",
+            "line": 936
+        },
+        {
+            "function": "update_option",
+            "expression": "self::wpb_sdk_initial_log_option_key($slug)",
+            "file": "lib/wpb-sdk/includes/class-wpb-sdk-logger.php",
+            "line": 1577
+        },
+        {
+            "function": "update_option",
+            "expression": "$optin_option",
+            "file": "lib/wpb-sdk/includes/class-wpb-sdk-optin-verification.php",
+            "line": 236
+        },
+        {
+            "function": "update_option",
+            "expression": "(string) $optin['verified_by_option']",
+            "file": "lib/wpb-sdk/includes/class-wpb-sdk-optin-verification.php",
+            "line": 240
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$dismiss_key",
+            "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+            "line": 1050
+        },
+        {
+            "function": "update_option",
+            "expression": "\\wpb_sdk_lifecycle_module_option_key($slug)",
+            "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+            "line": 1185
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$expires_meta",
+            "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+            "line": 1669
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+            "line": 1884
+        },
+        {
+            "function": "update_option",
+            "expression": "\\wpb_sdk_optin_initiator_option_key($slug)",
+            "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+            "line": 2048
+        },
+        {
+            "function": "update_option",
+            "expression": "\\wpb_sdk_telemetry_contact_cohort_option_key($slug)",
+            "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+            "line": 2286
+        },
+        {
+            "function": "update_option",
+            "expression": "\\wpb_sdk_telemetry_contact_fallback_option_key($slug)",
+            "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+            "line": 2404
+        },
+        {
+            "function": "update_option",
+            "expression": "\\wpb_sdk_optin_initiator_backfill_version_option_key($slug)",
+            "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+            "line": 2681
+        },
+        {
+            "function": "update_option",
+            "expression": "\\wpb_sdk_optin_initiator_backfill_option_key($slug)",
+            "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+            "line": 2684
+        },
+        {
+            "function": "update_option",
+            "expression": "\\wpb_sdk_optin_initiator_backfill_option_key($slug)",
+            "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+            "line": 2712
+        },
+        {
+            "function": "update_option",
+            "expression": "\\wpb_sdk_optin_initiator_backfill_version_option_key($slug)",
+            "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+            "line": 2713
+        },
+        {
+            "function": "set_transient",
+            "expression": "$rate_key",
+            "file": "lib/wpb-sdk/includes/wpb-sdk-essential-functions.php",
+            "line": 3032
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "lib/wpb-sdk/views/wpb-debug.php",
+            "line": 229
+        }
+    ]
+}

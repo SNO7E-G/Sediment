@@ -1,0 +1,480 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "event-organiser",
+        "name": "Event Organiser",
+        "version": "3.12.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:23Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 47,
+        "files_skipped": 0,
+        "write_calls_found": 53,
+        "verified": 37,
+        "resolved": 1,
+        "pattern": 4,
+        "dynamic": 11,
+        "resolution_rate": 0.717
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "eo-event-category_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-cpt.php",
+                        "line": 648
+                    },
+                    {
+                        "file": "includes/event-organiser-cpt.php",
+                        "line": 1057
+                    },
+                    {
+                        "file": "includes/event-organiser-cpt.php",
+                        "line": 1207
+                    },
+                    {
+                        "file": "includes/event-organiser-install.php",
+                        "line": 306
+                    }
+                ]
+            },
+            {
+                "key": "eo_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "event-organiser-edit.php",
+                        "line": 501
+                    },
+                    {
+                        "file": "includes/event-organiser-register.php",
+                        "line": 407
+                    }
+                ]
+            },
+            {
+                "key": "eventorganiser_admin_notices",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-eo-admin-notice.php",
+                        "line": 179
+                    },
+                    {
+                        "file": "includes/event-organiser-install.php",
+                        "line": 117
+                    }
+                ]
+            },
+            {
+                "key": "eventorganiser_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-ajax.php",
+                        "line": 767
+                    },
+                    {
+                        "file": "includes/event-organiser-install.php",
+                        "line": 113
+                    },
+                    {
+                        "file": "includes/event-organiser-install.php",
+                        "line": 217
+                    },
+                    {
+                        "file": "includes/event-organiser-install.php",
+                        "line": 256
+                    }
+                ]
+            },
+            {
+                "key": "eventorganiser_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-install.php",
+                        "line": 178
+                    },
+                    {
+                        "file": "includes/event-organiser-install.php",
+                        "line": 260
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "eventorganiser_delete_expired",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-register.php",
+                        "line": 444
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "eo_full_calendar_admin",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-ajax.php",
+                        "line": 546
+                    }
+                ]
+            },
+            {
+                "key": "eo_full_calendar_public",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-ajax.php",
+                        "line": 284
+                    }
+                ]
+            },
+            {
+                "key": "eo_is_multi_event_organiser",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-utility-functions.php",
+                        "line": 1729
+                    }
+                ]
+            },
+            {
+                "key": "eo_widget_agenda",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-ajax.php",
+                        "line": 693
+                    }
+                ]
+            },
+            {
+                "key": "eo_widget_calendar",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-eo-calendar-widget.php",
+                        "line": 409
+                    }
+                ]
+            },
+            {
+                "key": "eventorganiser_add_ons",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "event-organiser-add-ons.php",
+                        "line": 142
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_eventorganiser_event_schedule",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-install.php",
+                        "line": 352
+                    },
+                    {
+                        "file": "includes/event.php",
+                        "line": 459
+                    },
+                    {
+                        "file": "includes/event.php",
+                        "line": 1100
+                    }
+                ]
+            },
+            {
+                "key": "_eventorganiser_schedule_last_finish",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-install.php",
+                        "line": 356
+                    },
+                    {
+                        "file": "includes/event.php",
+                        "line": 451
+                    }
+                ]
+            },
+            {
+                "key": "_eventorganiser_schedule_last_start",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-install.php",
+                        "line": 355
+                    },
+                    {
+                        "file": "includes/event.php",
+                        "line": 450
+                    }
+                ]
+            },
+            {
+                "key": "_eventorganiser_schedule_start_finish",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-install.php",
+                        "line": 354
+                    },
+                    {
+                        "file": "includes/event.php",
+                        "line": 448
+                    }
+                ]
+            },
+            {
+                "key": "_eventorganiser_schedule_start_start",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-install.php",
+                        "line": 353
+                    },
+                    {
+                        "file": "includes/event.php",
+                        "line": 447
+                    }
+                ]
+            },
+            {
+                "key": "_eventorganiser_schedule_until",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event.php",
+                        "line": 449
+                    },
+                    {
+                        "file": "includes/event.php",
+                        "line": 552
+                    }
+                ]
+            },
+            {
+                "key": "_eventorganiser_uid",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-event-functions.php",
+                        "line": 1818
+                    }
+                ]
+            },
+            {
+                "key": "_menu_item_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-cpt.php",
+                        "line": 426
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "eofc_time_format",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-ajax.php",
+                        "line": 747
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "event",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-cpt.php",
+                        "line": 312
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "event-category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-cpt.php",
+                        "line": 145
+                    }
+                ]
+            },
+            {
+                "key": "event-tag",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-cpt.php",
+                        "line": 208
+                    }
+                ]
+            },
+            {
+                "key": "event-venue",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-cpt.php",
+                        "line": 90
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "%event_ondate%",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/event-organiser-cpt.php",
+                        "line": 265
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_cap",
+            "expression": "$eo_role",
+            "file": "event-organiser-settings.php",
+            "line": 586
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->id . '_plm_local_key'",
+            "file": "includes/class-eo-extension.php",
+            "line": 238
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->id . '_check_lock'",
+            "file": "includes/class-eo-extension.php",
+            "line": 250
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->id . '_check'",
+            "file": "includes/class-eo-extension.php",
+            "line": 251
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->id . '_license'",
+            "file": "includes/class-eo-extension.php",
+            "line": 300
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$key",
+            "file": "includes/class-eo-extension.php",
+            "line": 482
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$key",
+            "file": "includes/class-eo-extension.php",
+            "line": 486
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/event-organiser-event-functions.php",
+            "line": 1777
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_events_table",
+            "file": "includes/event-organiser-install.php",
+            "line": 88
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_venuemeta_table",
+            "file": "includes/event-organiser-install.php",
+            "line": 89
+        },
+        {
+            "function": "add_cap",
+            "expression": "$eo_role",
+            "file": "includes/event-organiser-install.php",
+            "line": 136
+        }
+    ]
+}

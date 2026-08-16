@@ -1,0 +1,133 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "qa-heatmap-analytics",
+        "name": "QA Assistants",
+        "version": "5.2.0.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:12Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 60,
+    "coverage": {
+        "files_scanned": 70,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.556
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "qahm_plugin_type",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "qahm.php",
+                        "line": 33
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "admin_color",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-qahm-admin-init.php",
+                        "line": 527
+                    }
+                ]
+            },
+            {
+                "key": "qahm_advanced_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-qahm-admin-init.php",
+                        "line": 1014
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [
+            {
+                "key": "qazero-admin",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-qahm-activate.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "qazero-view",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-qahm-activate.php",
+                        "line": 71
+                    }
+                ]
+            }
+        ],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook",
+            "file": "class-qahm-activate.php",
+            "line": 149
+        },
+        {
+            "function": "update_option",
+            "expression": "\\QAHM_OPTION_PREFIX . $option",
+            "file": "class-qahm-base.php",
+            "line": 98
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\\QAHM_OPTION_PREFIX . $meta_key",
+            "file": "class-qahm-base.php",
+            "line": 137
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$test_dir",
+            "file": "qahm-ajax.php",
+            "line": 374
+        }
+    ]
+}

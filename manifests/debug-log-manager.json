@@ -1,0 +1,200 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "debug-log-manager",
+        "name": "Debug Log Manager",
+        "version": "2.5.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 7,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 20,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.909
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "debug_log_manager",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-activation.php",
+                        "line": 26
+                    },
+                    {
+                        "file": "classes/class-debug-log.php",
+                        "line": 138
+                    },
+                    {
+                        "file": "classes/class-debug-log.php",
+                        "line": 281
+                    }
+                ]
+            },
+            {
+                "key": "debug_log_manager_autorefresh",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 425
+                    },
+                    {
+                        "file": "classes/class-activation.php",
+                        "line": 32
+                    },
+                    {
+                        "file": "classes/class-debug-log.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "classes/class-debug-log.php",
+                        "line": 326
+                    },
+                    {
+                        "file": "classes/class-debug-log.php",
+                        "line": 337
+                    }
+                ]
+            },
+            {
+                "key": "debug_log_manager_file_path",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-activation.php",
+                        "line": 50
+                    }
+                ]
+            },
+            {
+                "key": "debug_log_manager_js_error_logging",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-activation.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "classes/class-debug-log.php",
+                        "line": 367
+                    },
+                    {
+                        "file": "classes/class-debug-log.php",
+                        "line": 377
+                    }
+                ]
+            },
+            {
+                "key": "debug_log_manager_modify_script_debug",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-activation.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "classes/class-debug-log.php",
+                        "line": 406
+                    },
+                    {
+                        "file": "classes/class-debug-log.php",
+                        "line": 416
+                    }
+                ]
+            },
+            {
+                "key": "debug_log_manager_process_non_utc_timezones",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-activation.php",
+                        "line": 76
+                    },
+                    {
+                        "file": "classes/class-debug-log.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "classes/class-debug-log.php",
+                        "line": 455
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "dlm_trim_debug_log",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 116
+                    },
+                    {
+                        "file": "classes/class-activation.php",
+                        "line": 79
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$uploads_path",
+            "file": "classes/class-activation.php",
+            "line": 57
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "classes/class-debug-log.php",
+            "line": 2140
+        }
+    ]
+}

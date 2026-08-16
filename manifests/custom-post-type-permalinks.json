@@ -1,0 +1,253 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "custom-post-type-permalinks",
+        "name": "Custom Post Type Permalinks",
+        "version": "3.5.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 40,
+    "coverage": {
+        "files_scanned": 11,
+        "files_skipped": 0,
+        "write_calls_found": 30,
+        "verified": 9,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 21,
+        "resolution_rate": 0.3
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "add_post_type_for_tax",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "CPTP/Module/Option.php",
+                        "line": 30
+                    },
+                    {
+                        "file": "CPTP/Module/Option.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "cptp_permalink_checked",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "CPTP/Module/Option.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "cptp_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "CPTP/Module/Setting.php",
+                        "line": 30
+                    }
+                ]
+            },
+            {
+                "key": "no_taxonomy_structure",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "CPTP/Module/Option.php",
+                        "line": 29
+                    },
+                    {
+                        "file": "CPTP/Module/Option.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "CPTP/Module/Setting.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "queue_flush_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "CPTP/Module/FlushRules.php",
+                        "line": 47
+                    },
+                    {
+                        "file": "CPTP/Module/FlushRules.php",
+                        "line": 57
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$post_type . '_structure'",
+            "file": "CPTP/Module/Option.php",
+            "line": 70
+        },
+        {
+            "function": "add_rewrite_tag",
+            "expression": "$slug_placeholder",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 66
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . $date_front . '/([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 92
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . $date_front . '/([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 93
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . $date_front . '/([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/page/?([0-9]{1,})/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 94
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . $date_front . '/([0-9]{4})/([0-9]{1,2})/([0-9]{1,2})/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 95
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . $date_front . '/([0-9]{4})/([0-9]{1,2})/feed/(feed|rdf|rss|rss2|atom)/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 96
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . $date_front . '/([0-9]{4})/([0-9]{1,2})/(feed|rdf|rss|rss2|atom)/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 97
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . $date_front . '/([0-9]{4})/([0-9]{1,2})/page/?([0-9]{1,})/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 98
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . $date_front . '/([0-9]{4})/([0-9]{1,2})/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 99
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . $date_front . '/([0-9]{4})/feed/(feed|rdf|rss|rss2|atom)/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 100
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . $date_front . '/([0-9]{4})/(feed|rdf|rss|rss2|atom)/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 101
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . $date_front . '/([0-9]{4})/page/?([0-9]{1,})/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 102
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . $date_front . '/([0-9]{4})/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 103
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . '/author/([^/]+)/page/?([0-9]{1,})/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 107
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . '/author/([^/]+)/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 108
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . '/' . $category_base . '/([^/]+)/page/?([0-9]{1,})/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 114
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$slug . '/' . $category_base . '/([^/]+)/?$'",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 115
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$regex",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 238
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$regex",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 245
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$regex",
+            "file": "CPTP/Module/Rewrite.php",
+            "line": 251
+        }
+    ]
+}

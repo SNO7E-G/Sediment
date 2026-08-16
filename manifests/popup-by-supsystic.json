@@ -1,0 +1,302 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "popup-by-supsystic",
+        "name": "Popup by Supsystic",
+        "version": "1.13.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 269,
+        "files_skipped": 0,
+        "write_calls_found": 29,
+        "verified": 4,
+        "resolved": 13,
+        "pattern": 0,
+        "dynamic": 12,
+        "resolution_rate": 0.586
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pps_access_py_ip",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/subscribe/models/subscribe.php",
+                        "line": 224
+                    },
+                    {
+                        "file": "modules/subscribe/models/subscribe.php",
+                        "line": 245
+                    }
+                ]
+            },
+            {
+                "key": "pps_full_installed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/modInstaller.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "pps_is_old_user",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 233
+                    }
+                ]
+            },
+            {
+                "key": "pps_opts_data",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/options/models/options.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "pps_plug_was_used",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "pps_plugin_activation_errors",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/frame.php",
+                        "line": 586
+                    }
+                ]
+            },
+            {
+                "key": "pps_stats_recalculated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/popup/models/popup.php",
+                        "line": 655
+                    }
+                ]
+            },
+            {
+                "key": "pps_txt_files_css_updated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 613
+                    }
+                ]
+            },
+            {
+                "key": "pps_txt_files_css_updated_2",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 624
+                    }
+                ]
+            },
+            {
+                "key": "pps_welcome_sent",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/supsystic_promo/mod.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}pps_db_installed",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 228
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}pps_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 227
+                    },
+                    {
+                        "file": "classes/installer.php",
+                        "line": 279
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "_subscribe_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/subscribe/models/subscribe.php",
+                        "line": 381
+                    }
+                ]
+            },
+            {
+                "key": "pps-tour-hst",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 225
+                    },
+                    {
+                        "file": "modules/supsystic_promo/models/supsystic_promo.php",
+                        "line": 18
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "classes/Twig/Environment.php",
+            "line": 1238
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbPps::prepareQuery(\"CREATE TABLE IF NOT EXISTS `@__modules` (\\n\\t\\t\\t  `id` smallint(3) NOT NULL AUTO_INCREMENT,\\n\\t\\t\\t  `code` varchar(32) NOT NULL,\\n\\t\\t\\t  `active` tinyint(1) NOT NULL DEFAULT '0',\\n\\t\\t\\t  `type_id` tinyint(1) NOT NULL DEFAULT '0',\\n\\t\\t\\t  `label` varchar(64) DEFAULT NULL,\\n\\t\\t\\t  `ex_plug_dir` varchar(255) DEFAULT NULL,\\n\\t\\t\\t  PRIMARY KEY (`id`),\\n\\t\\t\\t  UNIQUE INDEX `code` (`code`)\\n\\t\\t\\t) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 21
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbPps::prepareQuery(\"CREATE TABLE IF NOT EXISTS `@__modules_type` (\\n\\t\\t\\t  `id` smallint(3) NOT NULL AUTO_INCREMENT,\\n\\t\\t\\t  `label` varchar(32) NOT NULL,\\n\\t\\t\\t  PRIMARY KEY (`id`)\\n\\t\\t\\t) AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 66
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbPps::prepareQuery(\"CREATE TABLE IF NOT EXISTS `@__popup` (\\n\\t\\t\\t\\t`id` INT(11) NOT NULL AUTO_INCREMENT,\\n\\t\\t\\t\\t`label` VARCHAR(255) NOT NULL,\\n\\t\\t\\t\\t`active` TINYINT(1) NOT NULL,\\n\\t\\t\\t\\t`original_id` INT(11) NOT NULL DEFAULT '0',\\n\\t\\t\\t\\t`params` TEXT NOT NULL,\\n\\t\\t\\t\\t`html` TEXT NOT NULL,\\n\\t\\t\\t\\t`css` TEXT NOT NULL,\\n\\t\\t\\t\\t`img_preview` VARCHAR(128) NULL DEFAULT NULL,\\n\\t\\t\\t\\t`show_on` TINYINT(1) NOT NULL DEFAULT '0',\\n\\t\\t\\t\\t`show_to` TINYINT(1) NOT NULL DEFAULT '0',\\n\\t\\t\\t\\t`show_pages` TINYINT(1) NOT NULL DEFAULT '0',\\n\\t\\t\\t\\t`type_id` TINYINT(1) NOT NULL DEFAULT '1',\\n\\n\\t\\t\\t\\t`views` INT(11) NOT NULL DEFAULT '0',\\n\\t\\t\\t\\t`unique_views` INT(11) NOT NULL DEFAULT '0',\\n\\t\\t\\t\\t`actions` INT(11) NOT NULL DEFAULT '0',\\n\\n\\t\\t\\t\\t`date_created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\\n\\t\\t\\t\\tPRIMARY KEY (`id`)\\n\\t\\t\\t) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 81
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbPps::prepareQuery(\"CREATE TABLE `@__popup_show_pages` (\\n\\t\\t\\t\\t`popup_id` INT(10) NOT NULL,\\n\\t\\t\\t\\t`post_id` INT(10) NOT NULL,\\n\\t\\t\\t\\t`not_show` TINYINT(1) NOT NULL DEFAULT '0'\\n\\t\\t\\t) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 135
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbPps::prepareQuery(\"CREATE TABLE `@__popup_show_categories` (\\n\\t\\t\\t\\t`popup_id` INT(10) NOT NULL,\\n\\t\\t\\t\\t`term_id` INT(10) NOT NULL,\\n\\t\\t\\t\\t`not_show` TINYINT(1) NOT NULL DEFAULT '0'\\n\\t\\t\\t) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 147
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbPps::prepareQuery(\"CREATE TABLE `@__statistics` (\\n\\t\\t\\t\\t`id` int(11) NOT NULL AUTO_INCREMENT,\\n\\t\\t\\t\\t`popup_id` int(11) NOT NULL DEFAULT '0',\\n\\t\\t\\t\\t`type` TINYINT(2) NOT NULL DEFAULT '0',\\n\\t\\t\\t\\t`sm_id` TINYINT(2) NOT NULL DEFAULT '0',\\n\\t\\t\\t\\t`is_unique` TINYINT(1) NOT NULL DEFAULT '0',\\n\\t\\t\\t\\t`date_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\\n\\t\\t\\t\\tPRIMARY KEY (`id`)\\n\\t\\t\\t  ) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 159
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbPps::prepareQuery(\"CREATE TABLE `@__subscribers` (\\n\\t\\t\\t\\t`id` int(11) NOT NULL AUTO_INCREMENT,\\n\\t\\t\\t\\t`username` VARCHAR(128) NULL DEFAULT NULL,\\n\\t\\t\\t\\t`email` VARCHAR(128) NOT NULL,\\n\\t\\t\\t\\t`hash` VARCHAR(128) NOT NULL,\\n\\t\\t\\t\\t`activated` TINYINT(1) NOT NULL DEFAULT '0',\\n\\t\\t\\t\\t`popup_id` int(11) NOT NULL DEFAULT '0',\\n\\t\\t\\t\\t`date_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\\n\\t\\t\\t\\t`all_data` TEXT NOT NULL,\\n\\t\\t\\t\\tPRIMARY KEY (`id`)\\n\\t\\t\\t  ) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 183
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbPps::prepareQuery(\"CREATE TABLE `@__countries` (\\n\\t\\t\\t\\t`id` int(11) NOT NULL AUTO_INCREMENT,\\n\\t\\t\\t\\t`name` varchar(128) NOT NULL,\\n\\t\\t\\t\\t`iso_code_2` varchar(2) DEFAULT NULL,\\n\\t\\t\\t\\t`iso_code_3` varchar(3) DEFAULT NULL,\\n\\t\\t\\t\\tPRIMARY KEY (`id`)\\n\\t\\t\\t  ) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 209
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\PPS_MODULES_DIR . $code",
+            "file": "classes/modInstaller.php",
+            "line": 85
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "classes/utils.php",
+            "line": 44
+        },
+        {
+            "function": "mkdir",
+            "expression": "$destination",
+            "file": "classes/utils.php",
+            "line": 74
+        }
+    ]
+}

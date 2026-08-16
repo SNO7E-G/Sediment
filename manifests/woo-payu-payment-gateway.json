@@ -1,0 +1,143 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-payu-payment-gateway",
+        "name": "PayU Payment Gateway for WooCommerce",
+        "version": "2.10.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:21Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 20,
+    "coverage": {
+        "files_scanned": 41,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 10,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_payu_plugin_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-payu.php",
+                        "line": 130
+                    },
+                    {
+                        "file": "woocommerce-gateway-payu.php",
+                        "line": 150
+                    }
+                ]
+            },
+            {
+                "key": "payu_settings_option_name",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-payu.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "woocommerce-gateway-payu.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "woocommerce-gateway-payu.php",
+                        "line": 146
+                    },
+                    {
+                        "file": "woocommerce-gateway-payu.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_payucreditcard_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-payu.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_payuinstallments_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-payu.php",
+                        "line": 164
+                    },
+                    {
+                        "file": "woocommerce-gateway-payu.php",
+                        "line": 185
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_payulistbanks_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-gateway-payu.php",
+                        "line": 131
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "Payu/Cache/OauthCache.php",
+            "line": 14
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "Payu/Gateways/WC_Payu_Gateways.php",
+            "line": 140
+        }
+    ]
+}

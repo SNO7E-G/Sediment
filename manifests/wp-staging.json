@@ -1,0 +1,1517 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-staging",
+        "name": "WP STAGING WordPress Backup Plugin - Backup Duplicator & Migration",
+        "version": "4.10.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:10Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 1237,
+        "files_skipped": 0,
+        "write_calls_found": 162,
+        "verified": 27,
+        "resolved": 104,
+        "pattern": 3,
+        "dynamic": 28,
+        "resolution_rate": 0.809
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpstg.backups.doing_upload",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/Ajax/Upload.php",
+                        "line": 185
+                    }
+                ]
+            },
+            {
+                "key": "wpstg.backups.upload_from_url_prepared",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/Ajax/BackupDownloader.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "wpstg.backups.upload_prepared",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/Ajax/Upload.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "wpstg.restore.justRestored",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/Task/Tasks/JobRestore/RenameDatabaseTask.php",
+                        "line": 463
+                    }
+                ]
+            },
+            {
+                "key": "wpstg.restore.justRestored.metadata",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/Task/Tasks/JobRestore/RenameDatabaseTask.php",
+                        "line": 464
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_access_token",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Security/AccessToken.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "Framework/Security/AccessToken.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_analytics_consent_remind_me",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Analytics/AnalyticsConsent.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_analytics_event_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Analytics/AnalyticsEventDto.php",
+                        "line": 220
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_analytics_fallback_site_hash",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Analytics/WithAnalyticsAPI.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_analytics_has_consent",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Analytics/AnalyticsConsent.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "Framework/Analytics/AnalyticsConsent.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "Framework/Analytics/AnalyticsConsent.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_analytics_modal_dismissed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Analytics/AnalyticsConsent.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "Framework/Analytics/AnalyticsConsent.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "Framework/Analytics/AnalyticsConsent.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "Framework/Analytics/AnalyticsConsent.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_analytics_notice_dismissed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Analytics/AnalyticsConsent.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "Framework/Analytics/AnalyticsConsent.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "Framework/Analytics/AnalyticsConsent.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_background_http_auth_credentials",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Settings/Settings.php",
+                        "line": 361
+                    },
+                    {
+                        "file": "Framework/Settings/Settings.php",
+                        "line": 376
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backup_notice_is_closed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Notices/BackupPluginsNotice.php",
+                        "line": 116
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backup_notice_remind_me",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Notices/BackupPluginsNotice.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backup_schedules",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/BackupScheduler.php",
+                        "line": 284
+                    },
+                    {
+                        "file": "Backup/BackupScheduler.php",
+                        "line": 361
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backup_schedules_report_email",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backend/Upgrade/Upgrade.php",
+                        "line": 159
+                    },
+                    {
+                        "file": "Framework/Settings/Settings.php",
+                        "line": 340
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backup_schedules_report_slack_webhook",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Settings/Settings.php",
+                        "line": 342
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backup_schedules_send_error_report",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backend/Upgrade/Upgrade.php",
+                        "line": 164
+                    },
+                    {
+                        "file": "Framework/Settings/Settings.php",
+                        "line": 337
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backup_schedules_send_general_report",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Settings/Settings.php",
+                        "line": 339
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backup_schedules_send_slack_error_report",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Settings/Settings.php",
+                        "line": 341
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backup_schedules_send_warning_report",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Settings/Settings.php",
+                        "line": 338
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backup_speed_index",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/Ajax/BackupSpeedIndex.php",
+                        "line": 150
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backup_speed_modal_shown",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/Ajax/BackupSpeedIndex.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backups_retention",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/BackupRetentionHandler.php",
+                        "line": 28
+                    },
+                    {
+                        "file": "Backup/BackupRetentionHandler.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_beta",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backend/Administrator.php",
+                        "line": 1025
+                    },
+                    {
+                        "file": "Backend/Upgrade/Upgrade.php",
+                        "line": 414
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_cli_dock_cta_shown",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Notices/CliIntegrationNotice.php",
+                        "line": 130
+                    },
+                    {
+                        "file": "Framework/Notices/CliIntegrationNotice.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_cli_notice_dismissed_until",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Notices/CliIntegrationNotice.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_cli_notice_hidden_forever",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Notices/CliIntegrationNotice.php",
+                        "line": 145
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_clone_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Staging/CloneOptions.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "Staging/CloneOptions.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_compat_notice_dismissed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Notices/WpVersionCompatNotice.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_completed_upgrades",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Upgrade/UpgradeFlags.php",
+                        "line": 50
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_default_color_mode",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Settings/DarkMode.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_default_os_color_mode",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Settings/DarkMode.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_experiments",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Experiments/ExperimentManager.php",
+                        "line": 123
+                    },
+                    {
+                        "file": "Framework/Experiments/ExperimentManager.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_first_backup_speed_index",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/Ajax/BackupSpeedIndex.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_first_install",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Onboarding/FirstInstall.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_free_install_date",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backend/Upgrade/Upgrade.php",
+                        "line": 376
+                    },
+                    {
+                        "file": "install.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_free_upgrade_date",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backend/Upgrade/Upgrade.php",
+                        "line": 394
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_installDate",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backend/Upgrade/Upgrade.php",
+                        "line": 375
+                    },
+                    {
+                        "file": "install.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_last_backup_failure",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/BackupScheduler.php",
+                        "line": 1022
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_last_backup_info",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/Task/Tasks/JobBackup/FinishBackupTask.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_missing_cloneName_routine_executed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Staging/Sites.php",
+                        "line": 206
+                    },
+                    {
+                        "file": "Staging/Sites.php",
+                        "line": 220
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_onboarding_completed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Onboarding/OnboardingJourney.php",
+                        "line": 367
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_onboarding_exposure",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Onboarding/FreeOnboarding.php",
+                        "line": 263
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_onboarding_journey",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Onboarding/OnboardingJourney.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "Framework/Onboarding/OnboardingJourney.php",
+                        "line": 490
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_onboarding_queued_backup",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Onboarding/QueuedBackup.php",
+                        "line": 302
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_onboarding_restarted",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Onboarding/OnboardingJourney.php",
+                        "line": 390
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_optimizer_excluded",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/ThirdParty/Aios.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "Framework/ThirdParty/Aios.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_otps",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Security/Otp/Otp.php",
+                        "line": 113
+                    },
+                    {
+                        "file": "Framework/Security/Otp/Otp.php",
+                        "line": 300
+                    },
+                    {
+                        "file": "Framework/Security/Otp/Otp.php",
+                        "line": 314
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_q_feature_detection_ajax_available",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/BackgroundProcessing/FeatureDetection.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "Framework/BackgroundProcessing/FeatureDetection.php",
+                        "line": 204
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_queue_table_structure_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/BackgroundProcessing/Queue.php",
+                        "line": 392
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_rating",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backend/Administrator.php",
+                        "line": 975
+                    },
+                    {
+                        "file": "Backend/Administrator.php",
+                        "line": 1009
+                    },
+                    {
+                        "file": "Backend/Upgrade/Upgrade.php",
+                        "line": 418
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_rating_snooze_count",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backend/Administrator.php",
+                        "line": 999
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_resave_permalinks_executed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Frontend/Frontend.php",
+                        "line": 183
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_rmpermalinks_executed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Frontend/Frontend.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_send_email_as_html",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Settings/Settings.php",
+                        "line": 343
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backend/Upgrade/Upgrade.php",
+                        "line": 378
+                    },
+                    {
+                        "file": "Core/DTO/Settings.php",
+                        "line": 371
+                    },
+                    {
+                        "file": "Framework/Analytics/AnalyticsSender.php",
+                        "line": 50
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_staging_engine_preference",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Staging/Service/StagingEngine.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_staging_sites",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backend/Modules/Jobs/Delete.php",
+                        "line": 544
+                    },
+                    {
+                        "file": "Backend/Modules/Jobs/Finish.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "Backend/Modules/Jobs/Finish.php",
+                        "line": 170
+                    },
+                    {
+                        "file": "Staging/Sites.php",
+                        "line": 188
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_staging_sites_backup",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Staging/Sites.php",
+                        "line": 150
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_staging_sites_backup_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Staging/Ajax/Repair.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_unique_identifier",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Security/UniqueIdentifier.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backend/Upgrade/Upgrade.php",
+                        "line": 390
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_version_upgraded_from",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backend/Upgrade/Upgrade.php",
+                        "line": 392
+                    }
+                ]
+            },
+            {
+                "key": "wpstgpro_install_date",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "install.php",
+                        "line": 61
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpstg_create_cron_backup",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/BackupScheduler.php",
+                        "line": 414
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_daily_event",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/Cron/Cron.php",
+                        "line": 308
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_q_ajax_support_feature_detection",
+                "recurrence": "wpstg_weekly",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/BackgroundProcessing/BackgroundProcessingServiceProvider.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_queue_maintain",
+                "recurrence": "wpstg_daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/BackgroundProcessing/BackgroundProcessingServiceProvider.php",
+                        "line": 126
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_queue_process",
+                "recurrence": "wpstg_hourly",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/BackgroundProcessing/BackgroundProcessingServiceProvider.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_weekly_event",
+                "recurrence": "weekly",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/Cron/Cron.php",
+                        "line": 304
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wpstg.backup.schedules.slack_report_sent",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/BackupScheduler.php",
+                        "line": 885
+                    }
+                ]
+            },
+            {
+                "key": "wpstg.bootstrap.opcache.lastCleared",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "opcacheBootstrap.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "wpstg.cron.integrity_checked",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/Cron/CronIntegrity.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "wpstg.directory_listing.last_checked",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Filesystem/DirectoryListing.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "wpstg.queue.request.get_method",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/BackgroundProcessing/WithQueueAwareness.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "wpstg.run_daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/WPStaging.php",
+                        "line": 183
+                    }
+                ]
+            },
+            {
+                "key": "wpstg.upload.nextExpectedChunk.*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/Ajax/Upload.php",
+                        "line": 243
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "install.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_backup_validation_task",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/Task/Tasks/JobBackup/ValidateBackupTask.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_current_job",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Job/JobTransientCache.php",
+                        "line": 159
+                    },
+                    {
+                        "file": "Framework/Job/JobTransientCache.php",
+                        "line": 177
+                    },
+                    {
+                        "file": "Framework/Job/JobTransientCache.php",
+                        "line": 190
+                    },
+                    {
+                        "file": "Framework/Job/JobTransientCache.php",
+                        "line": 265
+                    },
+                    {
+                        "file": "Framework/Job/JobTransientCache.php",
+                        "line": 297
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_email_notification_access_token",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Mails/MailSender.php",
+                        "line": 104
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_file_backup_task",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Backup/Task/FileBackupTask.php",
+                        "line": 50
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_onboarding_backup_nudge",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Onboarding/QueuedBackup.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_otp_consecutive_failures",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Security/Otp/Otp.php",
+                        "line": 231
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_otp_locked",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Security/Otp/Otp.php",
+                        "line": 239
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_otp_sent",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Security/Otp/OtpSender.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_permalinks_do_purge",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Permalinks/PermalinksPurge.php",
+                        "line": 18
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_purge_litespeed_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Permalinks/PermalinksPurge.php",
+                        "line": 20
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_queue_fire_failure_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/BackgroundProcessing/WithQueueAwareness.php",
+                        "line": 257
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_queue_has_work",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/BackgroundProcessing/Queue.php",
+                        "line": 242
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_queue_last_fire_ts",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/BackgroundProcessing/WithQueueAwareness.php",
+                        "line": 151
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_queue_stall_probe_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/BackgroundProcessing/BackgroundProcessingServiceProvider.php",
+                        "line": 235
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_rest_url",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Framework/Assets/Assets.php",
+                        "line": 730
+                    }
+                ]
+            },
+            {
+                "key": "wpstg_user_logged_in_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Frontend/LoginForm.php",
+                        "line": 83
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wpstg_user_general_pro_card_snoozed_until",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Basic/Notices/GeneralProCardNotice.php",
+                        "line": 40
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "cron",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "Backup/BackupScheduler.php",
+                    "line": 493
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$var",
+            "file": "Backend/Pluginmeta/Meta.php",
+            "line": 40
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transientName",
+            "file": "Backup/BackupScheduler.php",
+            "line": 839
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "Backup/Service/AbstractExtractor.php",
+            "line": 862
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "dirname($destinationFilePath)",
+            "file": "Backup/Service/Extractor.php",
+            "line": 329
+        },
+        {
+            "function": "update_option",
+            "expression": "$newOptionName",
+            "file": "Backup/Storage/Providers.php",
+            "line": 332
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->directory->getMuPluginsDirectory()",
+            "file": "Backup/Task/Tasks/JobBackup/BackupRequirementsCheckTask.php",
+            "line": 210
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionToKeep['name']",
+            "file": "Backup/Task/Tasks/JobRestore/RenameDatabaseTask.php",
+            "line": 454
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$action",
+            "file": "Core/Cron/CronIntegrity.php",
+            "line": 164
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$stagingSiteDir",
+            "file": "Framework/Adapter/Directory.php",
+            "line": 194
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->tmpDirectory",
+            "file": "Framework/Adapter/Directory.php",
+            "line": 245
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->downloadsDirectory",
+            "file": "Framework/Adapter/Directory.php",
+            "line": 714
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$directory",
+            "file": "Framework/Adapter/Directory.php",
+            "line": 837
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$tableSql",
+            "file": "Framework/BackgroundProcessing/Queue.php",
+            "line": 343
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$tableSql",
+            "file": "Framework/Database/CustomTable.php",
+            "line": 144
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getTableVersionKey()",
+            "file": "Framework/Database/CustomTable.php",
+            "line": 154
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$target",
+            "file": "Framework/Filesystem/Filesystem.php",
+            "line": 111
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$destination",
+            "file": "Framework/Filesystem/Filesystem.php",
+            "line": 143
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$target",
+            "file": "Framework/Filesystem/Filesystem.php",
+            "line": 334
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$destination",
+            "file": "Framework/Filesystem/Filesystem.php",
+            "line": 366
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "Framework/Filesystem/Filesystem.php",
+            "line": 1097
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$parentDirectory",
+            "file": "Framework/Job/Task/FileHandler/MoveHandler.php",
+            "line": 17
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$tempDirectory",
+            "file": "Framework/Mails/Report/Report.php",
+            "line": 412
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->transientIdentifier",
+            "file": "Framework/Newsfeed/NewsfeedRequester.php",
+            "line": 72
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->getOptionName()",
+            "file": "Framework/Notices/BooleanNotice.php",
+            "line": 26
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->getTransientName()",
+            "file": "Framework/Traits/BooleanTransientTrait.php",
+            "line": 16
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "Framework/Utils/Cache/TransientCache.php",
+            "line": 29
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cloneDir",
+            "file": "Staging/Ajax/StagingSiteDataChecker.php",
+            "line": 43
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dist",
+            "file": "vendor_wpstg/paragonie/random_compat/other/build_phar.php",
+            "line": 7
+        }
+    ]
+}

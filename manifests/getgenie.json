@@ -1,0 +1,280 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "getgenie",
+        "name": "GetGenie AI",
+        "version": "4.5.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:57Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 14,
+    "coverage": {
+        "files_scanned": 31,
+        "files_skipped": 0,
+        "write_calls_found": 30,
+        "verified": 13,
+        "resolved": 1,
+        "pattern": 1,
+        "dynamic": 15,
+        "resolution_rate": 0.467
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "genie_role_management_config",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/RoleManagement.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "app/Services/RoleManager/RoleManager.php",
+                        "line": 30
+                    }
+                ]
+            },
+            {
+                "key": "getgenie_admin_dashboard_config",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/AdminConfig.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "getgenie_auth_token_secret_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/License.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "getgenie_site_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/License.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "getgenie_subscription_statistics",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/GetGenieChat.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "app/Api/History.php",
+                        "line": 81
+                    },
+                    {
+                        "file": "app/Api/UsageLimitStats.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "getgenie_subscription_statistics_timestamp",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/GetGenieChat.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "app/Api/History.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "app/Api/UsageLimitStats.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "getgenie_writing_templates_languages",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "getgenie.php",
+                        "line": 134
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "getgenie_blogwizard_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Api/Store.php",
+                        "line": 77
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "getgenie_chat",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/GetGenieChat/Cpt.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "getgenie_history",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/History/Cpt.php",
+                        "line": 70
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->text_domain . '__banner_last_check'",
+            "file": "app/ProLabel/GenieBanner.php",
+            "line": 222
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->text_domain . '__banner_data'",
+            "file": "app/ProLabel/GenieBanner.php",
+            "line": 223
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$notice_id",
+            "file": "app/ProLabel/GenieNotice.php",
+            "line": 488
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice_id",
+            "file": "app/ProLabel/GenieNotice.php",
+            "line": 490
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->text_domain . '_install_date'",
+            "file": "app/ProLabel/GenieRating.php",
+            "line": 236
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->text_domain . '_first_action_Date'",
+            "file": "app/ProLabel/GenieRating.php",
+            "line": 251
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->text_domain . '_first_action'",
+            "file": "app/ProLabel/GenieRating.php",
+            "line": 252
+        },
+        {
+            "function": "add_option",
+            "expression": "$plugin_name . '_never_show'",
+            "file": "app/ProLabel/GenieRating.php",
+            "line": 289
+        },
+        {
+            "function": "add_option",
+            "expression": "$plugin_name . '_ask_me_later'",
+            "file": "app/ProLabel/GenieRating.php",
+            "line": 393
+        },
+        {
+            "function": "add_option",
+            "expression": "$plugin_name . '_never_show'",
+            "file": "app/ProLabel/GenieRating.php",
+            "line": 395
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->text_domain . '_version'",
+            "file": "app/ProLabel/GenieRating.php",
+            "line": 433
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->text_domain . '_version'",
+            "file": "app/ProLabel/GenieRating.php",
+            "line": 435
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->text_domain . '__stories_last_check'",
+            "file": "app/ProLabel/GenieStories.php",
+            "line": 202
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->text_domain . '__stories_data'",
+            "file": "app/ProLabel/GenieStories.php",
+            "line": 203
+        },
+        {
+            "function": "update_option",
+            "expression": "$user_id . '_getgenie_showed_notification'",
+            "file": "app/Providers/SideMenuProvider.php",
+            "line": 168
+        }
+    ]
+}

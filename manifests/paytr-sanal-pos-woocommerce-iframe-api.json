@@ -1,0 +1,80 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "paytr-sanal-pos-woocommerce-iframe-api",
+        "name": "PayTR Virtual POS WooCommerce - iFrame API",
+        "version": "3.1.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:09Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.25
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "paytr_error_mail_hourly_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-paytr-log-manager.php",
+                        "line": 440
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->log_dir",
+            "file": "includes/class-paytr-log-manager.php",
+            "line": 17
+        },
+        {
+            "function": "set_transient",
+            "expression": "$count_key",
+            "file": "includes/class-paytr-log-manager.php",
+            "line": 402
+        },
+        {
+            "function": "set_transient",
+            "expression": "$sent_key",
+            "file": "includes/class-paytr-log-manager.php",
+            "line": 431
+        }
+    ]
+}

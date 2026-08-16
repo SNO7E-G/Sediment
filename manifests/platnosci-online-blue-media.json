@@ -1,0 +1,226 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "platnosci-online-blue-media",
+        "name": "Autopay",
+        "version": "5.0.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:42Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 35,
+    "coverage": {
+        "files_scanned": 135,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 10,
+        "resolved": 1,
+        "pattern": 6,
+        "dynamic": 2,
+        "resolution_rate": 0.579
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "autopay_order_remote_status_path",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateway/Webhook/Order_Remote_Status_Manager.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "bluemedia_activated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Plugin.php",
+                        "line": 522
+                    },
+                    {
+                        "file": "src/Plugin.php",
+                        "line": 699
+                    }
+                ]
+            },
+            {
+                "key": "bm_gateway_list_cache_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateway/Blue_Media_Gateway.php",
+                        "line": 2048
+                    },
+                    {
+                        "file": "src/Gateway/Blue_Media_Gateway.php",
+                        "line": 2057
+                    }
+                ]
+            },
+            {
+                "key": "bm_gateway_list_cache_time_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateway/Blue_Media_Gateway.php",
+                        "line": 2050
+                    },
+                    {
+                        "file": "src/Gateway/Blue_Media_Gateway.php",
+                        "line": 2059
+                    }
+                ]
+            },
+            {
+                "key": "bm_payment_methods_order",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateway/Blue_Media_Gateway.php",
+                        "line": 2969
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_bluemedia_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Domain/Service/Legacy/Importer.php",
+                        "line": 114
+                    },
+                    {
+                        "file": "src/Helpers/Helper.php",
+                        "line": 39
+                    },
+                    {
+                        "file": "src/Plugin.php",
+                        "line": 822
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_gateway_order",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Plugin.php",
+                        "line": 742
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "bm_cancel_failed_pending_order_after_one_hour",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateway/Blue_Media_Gateway.php",
+                        "line": 1503
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "autopay_audit_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Utilities/Test_Connection/Auditor.php",
+                        "line": 123
+                    }
+                ]
+            },
+            {
+                "key": "autopay_debug_enabled",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Utilities/Test_Connection/Async_Request.php",
+                        "line": 25
+                    }
+                ]
+            },
+            {
+                "key": "autopay_request_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Domain/Service/Currency/Currency.php",
+                        "line": 356
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "autopay_test_product",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Utilities/Test_Connection/Order_Creator.php",
+                        "line": 109
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$settings_key",
+            "file": "src/Gateway/Blue_Media_Gateway.php",
+            "line": 2964
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Gateway/Webhook/Order_Remote_Status_Manager.php",
+            "line": 108
+        }
+    ]
+}

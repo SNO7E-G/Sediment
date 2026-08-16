@@ -1,0 +1,217 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-payment-gateway-paysera",
+        "name": "Paysera Payment Gateway for WooCommerce",
+        "version": "3.12.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:51Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 35,
+    "coverage": {
+        "files_scanned": 1011,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 5,
+        "resolved": 11,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "PAYSERA_DB_VERSION",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Helper/DatabaseHelper.php",
+                        "line": 37
+                    }
+                ]
+            },
+            {
+                "key": "paysera_delivery_extra_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Action/PayseraDeliveryActions.php",
+                        "line": 175
+                    }
+                ]
+            },
+            {
+                "key": "paysera_delivery_gateways_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Action/PayseraDeliveryActions.php",
+                        "line": 157
+                    },
+                    {
+                        "file": "src/Action/PayseraDeliveryActions.php",
+                        "line": 186
+                    },
+                    {
+                        "file": "src/Action/PayseraDeliveryActions.php",
+                        "line": 204
+                    }
+                ]
+            },
+            {
+                "key": "paysera_delivery_gateways_titles",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Action/PayseraDeliveryActions.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "paysera_delivery_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Action/PayseraDeliveryActions.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "src/Service/SettingsSynchronizer.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "paysera_payment_main_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Service/SettingsSynchronizer.php",
+                        "line": 34
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "paysera_admin_notices",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Service/AdminNotice.php",
+                        "line": 39
+                    },
+                    {
+                        "file": "src/Service/AdminNotice.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "paysera_plugins_deactivation_message",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "paysera.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "paysera.php",
+                        "line": 224
+                    }
+                ]
+            },
+            {
+                "key": "paysera_plugins_needs_deactivation",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "paysera.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "paysera.php",
+                        "line": 227
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "paysera_new_delivery_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PayseraInit.php",
+                        "line": 182
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$newOptionName",
+            "file": "src/Helper/DatabaseHelper.php",
+            "line": 73
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Service/TransientNoticeMessenger.php",
+            "line": 45
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Service/TransientNoticeMessenger.php",
+            "line": 164
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "vendor-scoped/symfony/config/Builder/ConfigBuilderGenerator.php",
+            "line": 73
+        }
+    ]
+}

@@ -1,0 +1,672 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mailchimp",
+        "name": "Mailchimp",
+        "version": "2.1.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:09Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 33,
+        "files_skipped": 0,
+        "write_calls_found": 73,
+        "verified": 54,
+        "resolved": 4,
+        "pattern": 2,
+        "dynamic": 13,
+        "resolution_rate": 0.795
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mailchimp_sf_access_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp-admin.php",
+                        "line": 372
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_analytics_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp-analytics-data.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_auth_error",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/mailchimp/mailchimp.php",
+                        "line": 130
+                    },
+                    {
+                        "file": "lib/mailchimp/mailchimp.php",
+                        "line": 184
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 1012
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_interest_groups_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 606
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_last_sync_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp-user-sync-backgroud-process.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "includes/class-mailchimp-user-sync-backgroud-process.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_lists",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/blocks/class-mailchimp-list-subscribe-form-blocks.php",
+                        "line": 114
+                    },
+                    {
+                        "file": "includes/class-mailchimp-admin.php",
+                        "line": 393
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 647
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_merge_fields_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 603
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_user_sync_errors",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-mailchimp-user-sync.php",
+                        "line": 810
+                    },
+                    {
+                        "file": "includes/admin/class-mailchimp-user-sync.php",
+                        "line": 832
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_user_sync_running",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp-user-sync-backgroud-process.php",
+                        "line": 375
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_user_sync_start_cta_shown",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-mailchimp-user-sync.php",
+                        "line": 424
+                    },
+                    {
+                        "file": "includes/admin/class-mailchimp-user-sync.php",
+                        "line": 528
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_waiting_for_login",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp-admin.php",
+                        "line": 229
+                    }
+                ]
+            },
+            {
+                "key": "mc_api_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 838
+                    }
+                ]
+            },
+            {
+                "key": "mc_custom_style",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 439
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 512
+                    }
+                ]
+            },
+            {
+                "key": "mc_datacenter",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp-admin.php",
+                        "line": 373
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 840
+                    }
+                ]
+            },
+            {
+                "key": "mc_double_optin",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 440
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 458
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 462
+                    }
+                ]
+            },
+            {
+                "key": "mc_email_type_option",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 614
+                    }
+                ]
+            },
+            {
+                "key": "mc_form_background",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 445
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 522
+                    }
+                ]
+            },
+            {
+                "key": "mc_form_border_color",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 444
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 519
+                    }
+                ]
+            },
+            {
+                "key": "mc_form_border_width",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 443
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 516
+                    }
+                ]
+            },
+            {
+                "key": "mc_form_text_color",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 446
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 525
+                    }
+                ]
+            },
+            {
+                "key": "mc_header_content",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 501
+                    }
+                ]
+            },
+            {
+                "key": "mc_interest_groups",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 742
+                    }
+                ]
+            },
+            {
+                "key": "mc_list_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 612
+                    }
+                ]
+            },
+            {
+                "key": "mc_list_name",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 613
+                    }
+                ]
+            },
+            {
+                "key": "mc_merge_field_migrate",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 285
+                    }
+                ]
+            },
+            {
+                "key": "mc_merge_vars",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 670
+                    }
+                ]
+            },
+            {
+                "key": "mc_nuke_all_styles",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 469
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 473
+                    }
+                ]
+            },
+            {
+                "key": "mc_subheader_content",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 505
+                    }
+                ]
+            },
+            {
+                "key": "mc_submit_text",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 437
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 509
+                    }
+                ]
+            },
+            {
+                "key": "mc_update_existing",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 480
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 484
+                    }
+                ]
+            },
+            {
+                "key": "mc_use_unsub_link",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp.php",
+                        "line": 441
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 490
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 494
+                    }
+                ]
+            },
+            {
+                "key": "mc_user",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp-admin.php",
+                        "line": 374
+                    },
+                    {
+                        "file": "mailchimp.php",
+                        "line": 839
+                    }
+                ]
+            },
+            {
+                "key": "mc_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailchimp_upgrade.php",
+                        "line": 29
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "mailchimp_sf_cancel_user_sync_process",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp-user-sync-backgroud-process.php",
+                        "line": 416
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_oauth_secret",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp-admin.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_user_sync_notices",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-mailchimp-user-sync.php",
+                        "line": 588
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "mailchimp_sf_handle_user_update",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-mailchimp-user-sync.php",
+                        "line": 565
+                    }
+                ]
+            },
+            {
+                "key": "mailchimp_sf_user_sync_background_process",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-mailchimp-user-sync-backgroud-process.php",
+                        "line": 366
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$fields_key",
+            "file": "includes/blocks/class-mailchimp-list-subscribe-form-blocks.php",
+            "line": 167
+        },
+        {
+            "function": "update_option",
+            "expression": "$groups_key",
+            "file": "includes/blocks/class-mailchimp-list-subscribe-form-blocks.php",
+            "line": 188
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-mailchimp-analytics-data.php",
+            "line": 66
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-mailchimp-form-performance.php",
+            "line": 144
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-mailchimp-subscriber-activity.php",
+            "line": 185
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt",
+            "file": "mailchimp.php",
+            "line": 534
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt",
+            "file": "mailchimp.php",
+            "line": 536
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt",
+            "file": "mailchimp.php",
+            "line": 546
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt",
+            "file": "mailchimp.php",
+            "line": 548
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt",
+            "file": "mailchimp.php",
+            "line": 679
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt",
+            "file": "mailchimp.php",
+            "line": 682
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt",
+            "file": "mailchimp.php",
+            "line": 735
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "mailchimp_upgrade.php",
+            "line": 78
+        }
+    ]
+}

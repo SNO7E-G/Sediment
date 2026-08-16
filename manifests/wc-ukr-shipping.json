@@ -1,0 +1,226 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wc-ukr-shipping",
+        "name": "SmartyParcel (formerly WC Ukr Shipping)",
+        "version": "1.21.13",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:23Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 35,
+    "coverage": {
+        "files_scanned": 237,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 6,
+        "resolved": 3,
+        "pattern": 4,
+        "dynamic": 6,
+        "resolution_rate": 0.474
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wc_ukr_shipping_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/DB/OptionsRepository.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "src/DB/OptionsRepository.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "wcus_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/DB/OptionsRepository.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "src/DB/OptionsRepository.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "wcus_i18n_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/Core/Localization.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "wcus_loader_last_sync",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/DB/Repositories/WarehouseSyncRepository.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "wcus_smartyparcel_api_key",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/SmartyParcel.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "wcus_smartyparcel_user_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/SmartyParcel.php",
+                        "line": 43
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wcus_smartyparcel_auto_create_label",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Component/Automation/Action/CreateLabelAction.php",
+                        "line": 41
+                    }
+                ]
+            },
+            {
+                "key": "wcus_smartyparcel_sync_order",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/Frontend/OrderCreator.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "smarty_parcel_acc",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/SmartyParcelService.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "smartyparcel_manifest",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/SmartyParcel/ManifestService.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "wcus_last_feedback",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Http/Controllers/FeedbackController.php",
+                        "line": 36
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$this->getKey($key)",
+            "file": "src/Component/Cache/TransientCache.php",
+            "line": 20
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->getKey($key)",
+            "file": "src/Component/Cache/TransientLockProvider.php",
+            "line": 18
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "src/Http/Controllers/JWTController.php",
+            "line": 42
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "src/Includes/Customer/LoggedCustomerStorage.php",
+            "line": 28
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$task->getName()",
+            "file": "src/Services/TaskService.php",
+            "line": 18
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$task->getName()",
+            "file": "src/Services/TaskService.php",
+            "line": 28
+        }
+    ]
+}

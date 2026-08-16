@@ -1,0 +1,135 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "vk-google-job-posting-manager",
+        "name": "VK Google Job Posting Manager",
+        "version": "1.3.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:16Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 9,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 3,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "vgjpm_create_jobpost_posttype",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vk-google-job-posting-manager.php",
+                        "line": 55
+                    },
+                    {
+                        "file": "vk-google-job-posting-manager.php",
+                        "line": 431
+                    },
+                    {
+                        "file": "vk-google-job-posting-manager.php",
+                        "line": 433
+                    }
+                ]
+            },
+            {
+                "key": "vkjpm_common_fields",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vk-google-job-posting-manager.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "vk-google-job-posting-manager.php",
+                        "line": 416
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "job-posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/custom-posttype-builder.php",
+                        "line": 7
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "inc/custom-field-builder/package/custom-field-builder.php",
+            "line": 389
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "inc/custom-field-builder/package/custom-field-builder.php",
+            "line": 392
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$field",
+            "file": "inc/custom-field-builder/package/custom-field-flexible-table.php",
+            "line": 176
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field",
+            "file": "inc/custom-field-builder/package/custom-field-flexible-table.php",
+            "line": 179
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "vk-google-job-posting-manager.php",
+            "line": 456
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "vk-google-job-posting-manager.php",
+            "line": 458
+        }
+    ]
+}

@@ -1,0 +1,349 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "pushengage",
+        "name": "PushEngage",
+        "version": "4.2.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:11Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 78,
+        "files_skipped": 0,
+        "write_calls_found": 33,
+        "verified": 24,
+        "resolved": 4,
+        "pattern": 3,
+        "dynamic": 2,
+        "resolution_rate": 0.848
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pe_notification_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Ajax.php",
+                        "line": 1097
+                    },
+                    {
+                        "file": "app/Ajax.php",
+                        "line": 1529
+                    },
+                    {
+                        "file": "app/Integrations/Abilities/AutomationAbilities.php",
+                        "line": 392
+                    }
+                ]
+            },
+            {
+                "key": "pe_notifications_row_setting",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Ajax.php",
+                        "line": 1105
+                    },
+                    {
+                        "file": "app/Ajax.php",
+                        "line": 1499
+                    },
+                    {
+                        "file": "app/Integrations/Abilities/AutomationAbilities.php",
+                        "line": 344
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_encryption_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Utils/Encryption.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Installer.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "app/Utils/Options.php",
+                        "line": 57
+                    },
+                    {
+                        "file": "app/Utils/Options.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_wa_automation_campaigns",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Utils/Options.php",
+                        "line": 293
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_whatsapp_access_token_invalid",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Utils/Options.php",
+                        "line": 260
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_whatsapp_click_to_chat",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Utils/Options.php",
+                        "line": 390
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_whatsapp_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Utils/Options.php",
+                        "line": 228
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "pushengage_check_abandoned_carts",
+                "recurrence": "pushengage_check_abandoned_cart_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Integrations/WooCommerce/Whatsapp/CartAbandonment/Tracker.php",
+                        "line": 614
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_send_review_request_notification",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Integrations/WooCommerce/NotificationHandler.php",
+                        "line": 442
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_send_weekly_metrics",
+                "recurrence": "pushengage_weekly_metrics_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Includes/WPMetricsCron.php",
+                        "line": 102
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "pe_subscription_plan_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Utils/AdminNavMenuItems.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Installer.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_debug_system_info",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Ajax.php",
+                        "line": 2044
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_default_notification_expiry",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/HttpClient.php",
+                        "line": 152
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_transient_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Core.php",
+                        "line": 485
+                    },
+                    {
+                        "file": "app/Core.php",
+                        "line": 513
+                    },
+                    {
+                        "file": "app/Core.php",
+                        "line": 549
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_wp_metrics_whatsapp_tracking",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Integrations/WooCommerce/Whatsapp/WhatsappCloudApi.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "app/Integrations/WooCommerce/Whatsapp/WhatsappCloudApi.php",
+                        "line": 60
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "pe_push_options",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Core.php",
+                        "line": 410
+                    },
+                    {
+                        "file": "app/Core.php",
+                        "line": 597
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "pushengage_review_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/ReviewNotice.php",
+                        "line": 163
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_subscriber_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Includes/SubscriberSync.php",
+                        "line": 126
+                    }
+                ]
+            },
+            {
+                "key": "pushengage_woo_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Integrations/WooCommerce/Woo.php",
+                        "line": 578
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "app/Integrations/WooCommerce/Whatsapp/CartAbandonment/Installer.php",
+            "line": 105
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$log_dir",
+            "file": "app/Logger.php",
+            "line": 452
+        }
+    ]
+}

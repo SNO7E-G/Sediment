@@ -1,0 +1,148 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "recrawler",
+        "name": "ReCrawler",
+        "version": "0.3.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:30Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 683,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 0,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 12,
+        "resolution_rate": 0.143
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "recrawler_versions",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Migrations/Migrations.php",
+                        "line": 111
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "recrawler__clear-log",
+                "recurrence": "hourly",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Cron.php",
+                        "line": 41
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_comment_meta",
+            "expression": "\\Mihdan\\ReCrawler\\Utils::get_plugin_prefix() . '_last_update'",
+            "file": "src/Hooks.php",
+            "line": 82
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\Mihdan\\ReCrawler\\Utils::get_plugin_prefix() . '_last_update'",
+            "file": "src/Hooks.php",
+            "line": 148
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "\\Mihdan\\ReCrawler\\Utils::get_plugin_prefix() . '_last_update'",
+            "file": "src/Hooks.php",
+            "line": 184
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "\\Mihdan\\ReCrawler\\Utils::get_plugin_prefix() . '_last_update'",
+            "file": "src/Hooks.php",
+            "line": 213
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Main.php",
+            "line": 287
+        },
+        {
+            "function": "update_option",
+            "expression": "$new_option_name",
+            "file": "src/Migrations/Migrations.php",
+            "line": 250
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_plugin_prefix() . '_version'",
+            "file": "src/Utils.php",
+            "line": 130
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "src/Views/Settings.php",
+            "line": 734
+        },
+        {
+            "function": "add_option",
+            "expression": "$tab['id']",
+            "file": "src/Views/WPOSA.php",
+            "line": 465
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "src/Views/WPOSA.php",
+            "line": 1037
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "vendor-prefixed/monolog/monolog/src/Monolog/Handler/StreamHandler.php",
+            "line": 152
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dist",
+            "file": "vendor-prefixed/paragonie/random_compat/other/build_phar.php",
+            "line": 7
+        }
+    ]
+}

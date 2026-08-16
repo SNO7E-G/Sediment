@@ -1,0 +1,179 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "youtube-embed",
+        "name": "Embeds for YouTube",
+        "version": "5.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:05:27Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 14,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 7,
+        "resolved": 2,
+        "pattern": 5,
+        "dynamic": 0,
+        "resolution_rate": 0.643
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "youtube_embed_general",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "youtube_embed_general",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/options-general.php",
+                        "line": 121
+                    },
+                    {
+                        "file": "includes/shared-functions.php",
+                        "line": 288
+                    }
+                ]
+            },
+            {
+                "key": "youtube_embed_list*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/options-lists.php",
+                        "line": 80
+                    },
+                    {
+                        "file": "includes/shared-functions.php",
+                        "line": 505
+                    }
+                ]
+            },
+            {
+                "key": "youtube_embed_profile*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/options-profiles.php",
+                        "line": 344
+                    },
+                    {
+                        "file": "includes/shared-functions.php",
+                        "line": 363
+                    }
+                ]
+            },
+            {
+                "key": "youtube_embed_shortcode",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/options-general.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "includes/shared-functions.php",
+                        "line": 200
+                    },
+                    {
+                        "file": "includes/shared-functions.php",
+                        "line": 207
+                    }
+                ]
+            },
+            {
+                "key": "youtube_embed_shortcode_admin",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/add-scripts.php",
+                        "line": 239
+                    }
+                ]
+            },
+            {
+                "key": "youtube_embed_shortcode_site",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/add-scripts.php",
+                        "line": 239
+                    }
+                ]
+            },
+            {
+                "key": "youtube_embed_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/add-scripts.php",
+                        "line": 23
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "housekeep_ye_transients",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/caching.php",
+                        "line": 60
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "youtubeembed_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/caching.php",
+                        "line": 27
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

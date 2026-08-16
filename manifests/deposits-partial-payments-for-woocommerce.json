@@ -1,0 +1,150 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "deposits-partial-payments-for-woocommerce",
+        "name": "Deposits & Partial Payments for WooCommerce",
+        "version": "1.2.11",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 12,
+    "coverage": {
+        "files_scanned": 41,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 9,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.9
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "awcdp_general_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-awcdp-api.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "includes/class-awcdp-api.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "awcdp_pys_pending_events",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compatibility/pixelyoursite.php",
+                        "line": 336
+                    }
+                ]
+            },
+            {
+                "key": "awcdp_text_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-awcdp-api.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "includes/class-awcdp-api.php",
+                        "line": 130
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "awcdp_pys_deferred_tracking",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compatibility/pixelyoursite.php",
+                        "line": 148
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_awcdp_pys_full_payment_tracked",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compatibility/pixelyoursite.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "_awcdp_pys_purchase_tracked",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compatibility/pixelyoursite.php",
+                        "line": 103
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "woocommerce_admin_new_appointment_notification",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compatibility/woocommerce-appointments.php",
+                        "line": 139
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->_token . '_version'",
+            "file": "includes/class-awcdp-backend.php",
+            "line": 805
+        }
+    ]
+}

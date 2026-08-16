@@ -1,0 +1,230 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "codeflavors-vimeo-video-post-lite",
+        "name": "Vimeotheque",
+        "version": "2.3.7.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:57Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 31,
+    "coverage": {
+        "files_scanned": 156,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 6,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 14,
+        "resolution_rate": 0.391
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "vimeotheque_setup_activated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/plugin.class.php",
+                        "line": 460
+                    }
+                ]
+            },
+            {
+                "key": "vimeotheque_updated_slugs",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/admin/page/settings-page.class.php",
+                        "line": 242
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "__vimeo_image_uri",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/image-import.class.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "includes/libs/image-import.class.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/image-import.class.php",
+                        "line": 325
+                    }
+                ]
+            },
+            {
+                "key": "video_thumbnail",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/image-import.class.php",
+                        "line": 318
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "vimeo-video",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/post/post-type.class.php",
+                        "line": 134
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "vimeo-tag",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/post/post-type.class.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "vimeo-videos",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/post/post-type.class.php",
+                        "line": 151
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_cap",
+            "expression": "$cap['capability']",
+            "file": "includes/libs/admin/admin.class.php",
+            "line": 240
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap['capability']",
+            "file": "includes/libs/admin/admin.class.php",
+            "line": 250
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "includes/libs/admin/notice/review-notice.class.php",
+            "line": 112
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->meta_name",
+            "file": "includes/libs/admin/notice/user-notice/user.class.php",
+            "line": 98
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "includes/libs/extensions/remote-loader.class.php",
+            "line": 67
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "includes/libs/options/options.class.php",
+            "line": 135
+        },
+        {
+            "function": "register_post_type",
+            "expression": "parent::get_post_name()",
+            "file": "includes/libs/series/Post_Type/Series.php",
+            "line": 28
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field",
+            "file": "includes/libs/series/Rest_Api/Series_Rest_Fields.php",
+            "line": 49
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_name",
+            "file": "includes/libs/series/Rest_Api/Series_Rest_Fields.php",
+            "line": 60
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/libs/video-post.class.php",
+            "line": 464
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field",
+            "file": "themes-series/default/functions.php",
+            "line": 46
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_name",
+            "file": "themes-series/default/functions.php",
+            "line": 58
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field",
+            "file": "themes-series/list/functions.php",
+            "line": 52
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_name",
+            "file": "themes-series/list/functions.php",
+            "line": 63
+        }
+    ]
+}

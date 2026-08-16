@@ -1,0 +1,1001 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-health",
+        "name": "WP Umbrella",
+        "version": "2.27.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:36Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 582,
+        "files_skipped": 0,
+        "write_calls_found": 113,
+        "verified": 33,
+        "resolved": 42,
+        "pattern": 1,
+        "dynamic": 37,
+        "resolution_rate": 0.664
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_wp_umbrella_is_new_hash",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-umbrella-functions.php",
+                        "line": 352
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_hybrid_store_demarkation",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/data-stores/ActionScheduler_HybridStore.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_migration_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/ActionScheduler_DataController.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "as_has_wp_comment_logs",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "thirds/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "wp-health",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Services/Option.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "wp-umbrella-errors-save",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/TrackingError.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "wp_health_allow_tracking",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Actions/Admin/Ajax/AllowTracking.php",
+                        "line": 30
+                    },
+                    {
+                        "file": "src/Actions/Admin/Ajax/AllowTracking.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "src/Actions/Admin/Option.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "src/Actions/Admin/Option.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "src/Controller/Options/IssuesMonitoring.php",
+                        "line": 12
+                    }
+                ]
+            },
+            {
+                "key": "wp_health_version_god_handler",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Admin/PrepareErrorHandler.php",
+                        "line": 19
+                    },
+                    {
+                        "file": "src/Actions/Admin/PrepareErrorHandler.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_activity_log_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Admin/Option.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "src/Actions/Admin/Option.php",
+                        "line": 102
+                    },
+                    {
+                        "file": "src/Controller/Options/ActivityLogEnabled.php",
+                        "line": 19
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_activity_log_last_sync_at",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Async/ActionSchedulerSendActivityLog.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_activity_log_last_sync_status",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Async/ActionSchedulerSendActivityLog.php",
+                        "line": 196
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_activity_log_sync_interval_seconds",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Admin/Option.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_backup_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Admin/Ajax/ValidationApiKey.php",
+                        "line": 300
+                    },
+                    {
+                        "file": "src/Actions/Admin/Pages.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "src/CLI/AttachByApiKeyCommand.php",
+                        "line": 209
+                    },
+                    {
+                        "file": "src/Controller/Options/SetBackupVersion.php",
+                        "line": 16
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_disallow_one_click_access",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Actions/Admin/Ajax/AllowOneClickAccess.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "src/Actions/Admin/Option.php",
+                        "line": 70
+                    },
+                    {
+                        "file": "src/Controller/DangerRoom.php",
+                        "line": 11
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_hardening_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Services/HardeningSettings.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "src/Services/HardeningSettings.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_htaccess_pending_write",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Actions/Hardening/HtaccessLifecycle.php",
+                        "line": 104
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_last_htaccess_clean",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Admin/HtaccessClean.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_last_test_ping",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Admin/TestPingWorker.php",
+                        "line": 112
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_login_guard_filter_blob",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Hardening/AttackerIps/FilterStorage.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_login_guard_filter_fetched_at",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Hardening/AttackerIps/FilterStorage.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_restoration_suffix_security",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Restore/V2/RestorationDirectory.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_transient_update_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Provider/Compatibility/PremiumUpdateDetector.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "wphealth_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Actions/Admin/Option.php",
+                        "line": 36
+                    },
+                    {
+                        "file": "src/Actions/Migration.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "wpumbrella_backup_path_not_allowed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Backup/PreventErrorOnPathNotAllowed.php",
+                        "line": 37
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "action_scheduler_run_queue",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/ActionScheduler_QueueRunner.php",
+                        "line": 84
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "action_scheduler_admin_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/ActionScheduler_ListTable.php",
+                        "line": 586
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_last_pastdue_actions_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/ActionScheduler_AdminView.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "as-post-store-dependencies-met",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore.php",
+                        "line": 1065
+                    }
+                ]
+            },
+            {
+                "key": "as_comment_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/data-stores/ActionScheduler_wpCommentLogger.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Manage/ManagePlugin.php",
+                        "line": 22
+                    },
+                    {
+                        "file": "src/Services/Manage/ManagePlugin.php",
+                        "line": 24
+                    },
+                    {
+                        "file": "src/Services/Plugin/Update.php",
+                        "line": 288
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Provider/Themes.php",
+                        "line": 57
+                    },
+                    {
+                        "file": "src/Services/Provider/Themes.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "wp-umbrella-error-already-send",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/God/ErrorHandler.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "wp-umbrella-errors-save",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/God/ErrorHandler.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "src/God/ErrorHandler.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_activity_log_buffer_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Async/ActionSchedulerSendActivityLog.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_auto_install_lock",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Actions/AutoInstallByConstant.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_htaccess_block_reconcile_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Hardening/HtaccessLifecycle.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_htaccess_uploads_backfill_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Hardening/HtaccessLifecycle.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_login_guard_filter_backoff",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Hardening/AttackerIps/FilterStorage.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_pairing_retry_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Migration.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_static_protection_probe",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Security/StaticFileProtectionProbe.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_uploads_php_probe",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Security/HtaccessFile.php",
+                        "line": 718
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_white_label_data_cache",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Services/WhiteLabel.php",
+                        "line": 35
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_action_manager_schedule",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore.php",
+                        "line": 167
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "session_tokens",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/SessionStore.php",
+                        "line": 25
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_suspended",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Manage/ManageUser.php",
+                        "line": 41
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "scheduled-action",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore_PostTypeRegistrar.php",
+                        "line": 13
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "action-group",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/data-stores/ActionScheduler_wpPostStore_TaxonomyRegistrar.php",
+                        "line": 14
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "umbrella-backup",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/BackupRouter.php",
+                        "line": 23
+                    },
+                    {
+                        "file": "src/Actions/Migration.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "umbrella-restore",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/Migration.php",
+                        "line": 129
+                    },
+                    {
+                        "file": "src/Actions/RestoreRouter.php",
+                        "line": 23
+                    }
+                ]
+            }
+        ],
+        "actions": [
+            {
+                "key": "action_scheduler/cleanup_wp_comment_logs",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/ActionScheduler_WPCommentCleaner.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler/migration_hook",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/migration/Scheduler.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "action_scheduler_run_recurring_actions_schedule_hook",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "thirds/action-scheduler/classes/ActionScheduler_RecurringActionScheduler.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "action_wp_umbrella_send_errors_v2",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/TrackingError.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "wp_umbrella_activity_log_sync",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Actions/ActivityLog/Framework/SyncScheduler.php",
+                        "line": 45
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "src/Core/Kernel.php",
+                    "line": 376
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "backup-script/Backup/SiteChecksumDirectoryGenerator.php",
+            "line": 41
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "backup-script/Context.php",
+            "line": 450
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "backup-script/Context.php",
+            "line": 546
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "backup-script/Filesystem/RotatingFileHandle.php",
+            "line": 95
+        },
+        {
+            "function": "set_transient",
+            "expression": "$bucketKey",
+            "file": "src/Actions/ActivityLog/Framework/ProtectionEventRecorder.php",
+            "line": 82
+        },
+        {
+            "function": "set_transient",
+            "expression": "$bucketKey",
+            "file": "src/Actions/ActivityLog/Framework/ProtectionEventRecorder.php",
+            "line": 91
+        },
+        {
+            "function": "set_transient",
+            "expression": "$bucketKey",
+            "file": "src/Actions/ActivityLog/Framework/ProtectionEventRecorder.php",
+            "line": 95
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Actions/ActivityLog/Framework/SchemaInstaller.php",
+            "line": 98
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "WPMU_PLUGIN_DIR",
+            "file": "src/Actions/Admin/PrepareErrorHandler.php",
+            "line": 40
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "WPMU_PLUGIN_DIR",
+            "file": "src/Actions/Admin/PrepareMuPlugins.php",
+            "line": 25
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "src/Actions/Hardening/AttackerIps/FilterStorage.php",
+            "line": 148
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->knownGoodKey($ip)",
+            "file": "src/Actions/Hardening/LoginIpBlocklist.php",
+            "line": 91
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->strikesKey($ip)",
+            "file": "src/Actions/Hardening/LoginRateLimit.php",
+            "line": 74
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->blockKey($ip)",
+            "file": "src/Actions/Hardening/LoginRateLimit.php",
+            "line": 79
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->key($ip)",
+            "file": "src/Actions/Hardening/LoginRateLimit.php",
+            "line": 96
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "WPMU_PLUGIN_DIR",
+            "file": "src/Actions/Migration.php",
+            "line": 47
+        },
+        {
+            "function": "mkdir",
+            "expression": "$databaseFolder",
+            "file": "src/Controller/BackupV4/CheckBackupCapabilities.php",
+            "line": 29
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "self::CRON_HOOK",
+            "file": "src/Core/Scheduler/QueueRunner.php",
+            "line": 18
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Services/ApiWordPress/SignedRequestVerifier.php",
+            "line": 226
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Services/BrokenLinkChecker/RedirectTableManager.php",
+            "line": 53
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lockKey",
+            "file": "src/Services/Manage/ManagePlugin.php",
+            "line": 131
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lockKey",
+            "file": "src/Services/Manage/ManagePlugin.php",
+            "line": 216
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lockKey",
+            "file": "src/Services/Manage/Theme.php",
+            "line": 137
+        },
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "src/Services/Provider/Compatibility/SecuPressEDDUpdater.php",
+            "line": 335
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$hashedDirectory",
+            "file": "src/Services/Restore/V2/RestorationDirectory.php",
+            "line": 41
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "src/Services/Security/HtaccessFile.php",
+            "line": 586
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "src/Services/Security/HtaccessFile.php",
+            "line": 775
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "src/Services/Security/StaticFileProtectionProbe.php",
+            "line": 110
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "src/Services/UpdateStateManager.php",
+            "line": 70
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "src/Services/UpdateStateManager.php",
+            "line": 110
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "src/Services/UpdateStateManager.php",
+            "line": 151
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "thirds/action-scheduler/classes/WP_CLI/Action/Generate_Command.php",
+            "line": 77
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "thirds/action-scheduler/classes/abstracts/ActionScheduler_Abstract_Schema.php",
+            "line": 129
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$definition",
+            "file": "thirds/action-scheduler/classes/abstracts/ActionScheduler_Abstract_Schema.php",
+            "line": 143
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "$hook",
+            "file": "thirds/action-scheduler/deprecated/functions.php",
+            "line": 24
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$hook",
+            "file": "thirds/action-scheduler/deprecated/functions.php",
+            "line": 42
+        },
+        {
+            "function": "as_schedule_cron_action",
+            "expression": "$hook",
+            "file": "thirds/action-scheduler/deprecated/functions.php",
+            "line": 70
+        }
+    ]
+}

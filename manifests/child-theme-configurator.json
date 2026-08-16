@@ -1,0 +1,193 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "child-theme-configurator",
+        "name": "Child Theme Configurator",
+        "version": "2.6.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:46Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 59,
+    "coverage": {
+        "files_scanned": 37,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 5,
+        "resolved": 3,
+        "pattern": 2,
+        "dynamic": 4,
+        "resolution_rate": 0.571
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "allowedthemes",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Admin.php",
+                        "line": 1955
+                    }
+                ]
+            },
+            {
+                "key": "chld_thm_cfg_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Upgrade.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "chld_thm_cfg_options_debug",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Admin.php",
+                        "line": 1799
+                    }
+                ]
+            },
+            {
+                "key": "theme_mods_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Admin.php",
+                        "line": 1948
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "chld_thm_cfg_options_debug",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Admin.php",
+                        "line": 1811
+                    }
+                ]
+            },
+            {
+                "key": "plugins_delete_result_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Upgrade.php",
+                        "line": 280
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_is_custom_header",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Admin.php",
+                        "line": 1903
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "chld_thm_cfg_upgrade_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Admin.php",
+                        "line": 377
+                    }
+                ]
+            },
+            {
+                "key": "ctc_pro_upgrade_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/Upgrade.php",
+                        "line": 89
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "uninstall_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/classes/Upgrade.php",
+                    "line": 273
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$option . '_configvars'",
+            "file": "includes/classes/CSS.php",
+            "line": 262
+        },
+        {
+            "function": "update_option",
+            "expression": "$option . '_configvars'",
+            "file": "includes/classes/CSS.php",
+            "line": 265
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option . '_' . $configkey",
+            "file": "includes/classes/CSS.php",
+            "line": 272
+        },
+        {
+            "function": "update_option",
+            "expression": "$option . '_' . $configkey",
+            "file": "includes/classes/CSS.php",
+            "line": 275
+        }
+    ]
+}

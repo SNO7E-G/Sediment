@@ -1,0 +1,157 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "added-to-cart-popup-woocommerce",
+        "name": "Cart Popup for WooCommerce",
+        "version": "1.8.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:53:57Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 20,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 3,
+        "dynamic": 5,
+        "resolution_rate": 0.333
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woocommerce_enable_ajax_add_to_cart",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-xoo-cp.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "xoo-cp-version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-xoo-cp.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "xoo_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/xoo-framework/class-xoo-helper.php",
+                        "line": 319
+                    }
+                ]
+            },
+            {
+                "key": "xoo_cp_added_cart_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-xoo-cp-core.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "includes/class-xoo-cp-core.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "xoo_tracking_consent_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/xoo-framework/admin/class-xoo-admin-settings.php",
+                        "line": 129
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "xoo_tracking_consent_last_sent_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/xoo-framework/admin/class-xoo-admin-settings.php",
+                        "line": 151
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/class-xoo-cp.php",
+            "line": 116
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/xoo-framework/admin/class-xoo-admin-settings.php",
+            "line": 226
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/xoo-framework/admin/class-xoo-admin-settings.php",
+            "line": 276
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->tabs[$tab_id]['option_key']",
+            "file": "includes/xoo-framework/admin/class-xoo-admin-settings.php",
+            "line": 299
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/xoo-framework/admin/class-xoo-admin-settings.php",
+            "line": 386
+        }
+    ]
+}

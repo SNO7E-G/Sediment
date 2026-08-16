@@ -1,0 +1,175 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "peters-login-redirect",
+        "name": "LoginWP (Formerly Peter's Login Redirect)",
+        "version": "3.0.9.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 32,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 11,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.857
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "loginwp_free_license",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/core/src/Admin/Admin.php",
+                        "line": 326
+                    },
+                    {
+                        "file": "src/core/src/Admin/Admin.php",
+                        "line": 355
+                    },
+                    {
+                        "file": "src/core/src/Admin/Admin.php",
+                        "line": 387
+                    }
+                ]
+            },
+            {
+                "key": "loginwp_from_ab_initio",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/core/src/Core.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "loginwp_install_date",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/core/src/Core.php",
+                        "line": 79
+                    },
+                    {
+                        "file": "src/core/src/Core.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "rul_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/core/src/Admin/RedirectionsPage.php",
+                        "line": 451
+                    }
+                ]
+            },
+            {
+                "key": "rul_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/core/src/Core.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "src/core/src/Core.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "wo_dismiss_adnotice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/core/src/MoAdminNotice.php",
+                        "line": 22
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}login_redirects",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/core/src/Core.php",
+                        "line": 62
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "loginwp_first_time_login_flag",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/core/src/Helpers.php",
+                        "line": 362
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$cache_key",
+            "file": "src/core/src/Admin/Admin.php",
+            "line": 63
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/core/src/Admin/SettingsPageApi.php",
+            "line": 283
+        }
+    ]
+}

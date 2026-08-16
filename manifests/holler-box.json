@@ -1,0 +1,177 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "holler-box",
+        "name": "HollerBox",
+        "version": "2.3.13",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:44Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 40,
+    "coverage": {
+        "files_scanned": 14,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 6,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.615
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "holler_previous_updates",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-holler-updater.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "hollerbox_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-holler-settings.php",
+                        "line": 111
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "hollerbox/telemetry",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-holler-telemetry.php",
+                        "line": 24
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Holler_EDD_SL_Plugin_Updater.php",
+                        "line": 214
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "avatar",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-holler-popup.php",
+                        "line": 249
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "hollerbox_closed_popups",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-holler-api.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "hollerbox_popup_conversions",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-holler-api.php",
+                        "line": 213
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "hollerbox",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-holler-admin.php",
+                        "line": 538
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "includes/Holler_EDD_SL_Plugin_Updater.php",
+            "line": 584
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/class-holler-admin.php",
+            "line": 550
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-holler-popup.php",
+            "line": 249
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-holler-reporting.php",
+            "line": 127
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_table_version'",
+            "file": "includes/class-holler-reporting.php",
+            "line": 129
+        }
+    ]
+}

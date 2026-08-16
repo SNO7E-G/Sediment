@@ -1,0 +1,87 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "rest-api",
+        "name": "WP REST API",
+        "version": "2.0-beta15",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:59Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 19,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/endpoints/class-wp-rest-attachments-controller.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "lib/endpoints/class-wp-rest-attachments-controller.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "_wp_page_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/endpoints/class-wp-rest-posts-controller.php",
+                        "line": 1002
+                    },
+                    {
+                        "file": "lib/endpoints/class-wp-rest-posts-controller.php",
+                        "line": 1004
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$args['option_name']",
+            "file": "lib/endpoints/class-wp-rest-settings-controller.php",
+            "line": 104
+        }
+    ]
+}

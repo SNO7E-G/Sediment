@@ -1,0 +1,852 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-social-reviews",
+        "name": "WP Social Ninja",
+        "version": "4.3.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:05:09Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 275,
+        "files_skipped": 0,
+        "write_calls_found": 113,
+        "verified": 67,
+        "resolved": 23,
+        "pattern": 7,
+        "dynamic": 16,
+        "resolution_rate": 0.796
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_wp_social_ninja_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/ActivationHandler.php",
+                        "line": 14
+                    }
+                ]
+            },
+            {
+                "key": "last_fetched_reviews_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Reviews/BaseReview.php",
+                        "line": 249
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/BaseFeed.php",
+                        "line": 120
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/BaseFeed.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "app/Services/Platforms/ImageOptimizationHandler.php",
+                        "line": 713
+                    },
+                    {
+                        "file": "app/Services/Platforms/Reviews/BaseReview.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_auth_bridge_identity",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/RemoteAuth.php",
+                        "line": 161
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_errors",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/PlatformErrorManager.php",
+                        "line": 173
+                    },
+                    {
+                        "file": "app/Services/Platforms/PlatformErrorManager.php",
+                        "line": 526
+                    },
+                    {
+                        "file": "app/Services/Platforms/PlatformErrorManager.php",
+                        "line": 541
+                    },
+                    {
+                        "file": "app/Services/Platforms/PlatformErrorManager.php",
+                        "line": 565
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_facebook_feed_authorized_sources",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Facebook/FacebookFeed.php",
+                        "line": 283
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_facebook_feed_connected_sources_config",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Facebook/FacebookFeed.php",
+                        "line": 181
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Facebook/FacebookFeed.php",
+                        "line": 225
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Facebook/FacebookFeed.php",
+                        "line": 314
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Facebook/FacebookFeed.php",
+                        "line": 851
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Facebook/FacebookFeed.php",
+                        "line": 1120
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Facebook/FacebookFeed.php",
+                        "line": 1225
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_facebook_feed_global_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Facebook/FacebookFeed.php",
+                        "line": 1107
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_facebook_feed_verification_configs",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Facebook/FacebookFeed.php",
+                        "line": 172
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_global_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Http/Controllers/SettingsController.php",
+                        "line": 197
+                    },
+                    {
+                        "file": "app/Http/Controllers/SettingsController.php",
+                        "line": 289
+                    },
+                    {
+                        "file": "app/Services/GlobalSettings.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_global_shoppable_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Http/Controllers/ShoppablesController.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "app/Http/Controllers/ShoppablesController.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_instagram_authorized_business_accounts_list",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/InstagramFeed.php",
+                        "line": 330
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_instagram_failed_oembed_requests",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/SingleFeed.php",
+                        "line": 223
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/SingleFeed.php",
+                        "line": 237
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_instagram_global_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/InstagramFeed.php",
+                        "line": 1057
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_instagram_oembed_permissions_errors",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/SingleFeed.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_instagram_verification_configs",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/InstagramFeed.php",
+                        "line": 487
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/InstagramFeed.php",
+                        "line": 515
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/InstagramFeed.php",
+                        "line": 844
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/InstagramFeed.php",
+                        "line": 949
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/InstagramFeed.php",
+                        "line": 971
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/InstagramFeed.php",
+                        "line": 1018
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/RefreshToken.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_last_m_run",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Maintenance.php",
+                        "line": 25
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_onboarding_sessions",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Onboarding/OnboardingHelper.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "app/Services/Onboarding/OnboardingService.php",
+                        "line": 734
+                    },
+                    {
+                        "file": "app/Services/Onboarding/OnboardingService.php",
+                        "line": 761
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_optimize_images_table_status",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "database/Migrations/ImageOptimizationMigrator.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_reviews_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Http/Controllers/Platforms/Reviews/RecommendationsController.php",
+                        "line": 183
+                    },
+                    {
+                        "file": "app/Services/Platforms/Reviews/Airbnb.php",
+                        "line": 311
+                    },
+                    {
+                        "file": "app/Services/Platforms/Reviews/Airbnb.php",
+                        "line": 487
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_reviews_facebook_business_info",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/PlatformData.php",
+                        "line": 248
+                    },
+                    {
+                        "file": "app/Services/Platforms/PlatformData.php",
+                        "line": 445
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_reviews_google_business_info",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Reviews/GoogleMyBusiness.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_reviews_google_connected_accounts",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Reviews/GoogleMyBusiness.php",
+                        "line": 152
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_reviews_google_locations_list",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Reviews/GoogleMyBusiness.php",
+                        "line": 601
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_reviews_google_verification_configs",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Reviews/GoogleMyBusiness.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "app/Services/Platforms/Reviews/GoogleMyBusiness.php",
+                        "line": 460
+                    },
+                    {
+                        "file": "app/Services/Platforms/Reviews/GoogleMyBusiness.php",
+                        "line": 497
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_statuses",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/ActivationHandler.php",
+                        "line": 79
+                    },
+                    {
+                        "file": "app/Http/Controllers/Platforms/PlatformController.php",
+                        "line": 191
+                    },
+                    {
+                        "file": "app/Services/DashboardNotices.php",
+                        "line": 115
+                    },
+                    {
+                        "file": "app/Services/DashboardNotices.php",
+                        "line": 120
+                    },
+                    {
+                        "file": "app/Services/DashboardNotices.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "app/Services/DashboardNotices.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "app/Services/DashboardNotices.php",
+                        "line": 139
+                    },
+                    {
+                        "file": "app/Services/DashboardNotices.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "app/Services/DashboardNotices.php",
+                        "line": 173
+                    },
+                    {
+                        "file": "app/Services/Platforms/PlatformData.php",
+                        "line": 317
+                    },
+                    {
+                        "file": "app/Services/Platforms/PlatformData.php",
+                        "line": 368
+                    },
+                    {
+                        "file": "app/Services/Platforms/PlatformData.php",
+                        "line": 378
+                    },
+                    {
+                        "file": "app/Services/Platforms/PlatformData.php",
+                        "line": 388
+                    },
+                    {
+                        "file": "app/Services/Platforms/PlatformData.php",
+                        "line": 408
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_twitter_global_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Twitter/TwitterFeed.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Twitter/TwitterFeed.php",
+                        "line": 513
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_twitter_verification_configs",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Twitter/TwitterFeed.php",
+                        "line": 115
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_youtube_global_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Youtube/YoutubeFeed.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_youtube_privacy_cache_purged",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/ActivationHandler.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_youtube_verification_configs",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Platforms/Feeds/Youtube/OAuth.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Youtube/YoutubeFeed.php",
+                        "line": 238
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpsr_cron_job",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/ActivateCronEvent.php",
+                        "line": 12
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_do_email_report_scheduled_tasks",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/ActivateCronEvent.php",
+                        "line": 17
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_scheduled_twicedaily",
+                "recurrence": "twicedaily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/ActivateCronEvent.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "wpsr_scheduled_weekly",
+                "recurrence": "1week",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/ActivateCronEvent.php",
+                        "line": 27
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_wpsn_elementor_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/Widgets/Helper.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "_wpsn_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/actions.php",
+                        "line": 77
+                    },
+                    {
+                        "file": "app/Hooks/actions.php",
+                        "line": 82
+                    },
+                    {
+                        "file": "app/Services/Widgets/Oxygen/OxygenEl.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "_wpsr_driver",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Models/Post.php",
+                        "line": 170
+                    }
+                ]
+            },
+            {
+                "key": "_wpsr_template_config",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/ChatHandler.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "app/Http/Controllers/NotificationsController.php",
+                        "line": 143
+                    },
+                    {
+                        "file": "app/Http/Controllers/Platforms/Reviews/MetaController.php",
+                        "line": 299
+                    },
+                    {
+                        "file": "app/Http/Controllers/Platforms/SocialWall/MetaController.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "app/Http/Controllers/TemplatesController.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "app/Http/Controllers/WidgetsController.php",
+                        "line": 135
+                    },
+                    {
+                        "file": "app/Models/Post.php",
+                        "line": 165
+                    },
+                    {
+                        "file": "app/Services/Platforms/Chats/SocialChat.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Facebook/FacebookFeed.php",
+                        "line": 540
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Instagram/InstagramFeed.php",
+                        "line": 709
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Twitter/TwitterFeed.php",
+                        "line": 232
+                    },
+                    {
+                        "file": "app/Services/Platforms/Feeds/Youtube/YoutubeFeed.php",
+                        "line": 475
+                    }
+                ]
+            },
+            {
+                "key": "_wpsr_template_styles_config",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Http/Controllers/NotificationsController.php",
+                        "line": 147
+                    },
+                    {
+                        "file": "app/Http/Controllers/TemplatesController.php",
+                        "line": 202
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$settings_option_name",
+            "file": "app/Http/Controllers/Platforms/Reviews/ConfigsController.php",
+            "line": 200
+        },
+        {
+            "function": "update_option",
+            "expression": "$business_info_option_name",
+            "file": "app/Http/Controllers/Platforms/Reviews/ConfigsController.php",
+            "line": 201
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$uploadDir",
+            "file": "app/Services/Helper.php",
+            "line": 720
+        },
+        {
+            "function": "add_cap",
+            "expression": "$permission",
+            "file": "app/Services/PermissionManager.php",
+            "line": 133
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$uploadDir",
+            "file": "app/Services/Platforms/BaseImageOptimizationHandler.php",
+            "line": 80
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$uploadDir",
+            "file": "app/Services/Platforms/BaseImageOptimizationHandler.php",
+            "line": 402
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->wpsr_revoke_platform_data_option_key",
+            "file": "app/Services/Platforms/PlatformData.php",
+            "line": 303
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::transientKey($platform, $flowId)",
+            "file": "app/Services/Platforms/RemoteAuth.php",
+            "line": 253
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionKey",
+            "file": "app/Services/Platforms/Reviews/Airbnb.php",
+            "line": 886
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cronScheduleName",
+            "file": "app/Services/Platforms/Reviews/BaseReview.php",
+            "line": 317
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionKey",
+            "file": "app/Services/Platforms/Reviews/GoogleMyBusiness.php",
+            "line": 382
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionKey",
+            "file": "app/Services/Platforms/Reviews/GoogleMyBusiness.php",
+            "line": 397
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/CacheMigrator.php",
+            "line": 33
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/ImageOptimizationMigrator.php",
+            "line": 37
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/ReviewFormsMigrator.php",
+            "line": 31
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/ReviewsMigrator.php",
+            "line": 44
+        }
+    ]
+}

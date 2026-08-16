@@ -1,0 +1,105 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "sendcloud-connected-shipping",
+        "name": "Sendcloud Shipping",
+        "version": "1.0.33",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:04Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 81,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "SCCSP_SENDCLOUD_SCHEMA_VERSION",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/Utility/class-database.php",
+                        "line": 95
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "service_point_carriers",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/class-config-service.php",
+                        "line": 87
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "productUpdateHash",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/HookHandlers/class-product-handler.php",
+                        "line": 71
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/migration.v.1.0.0.php",
+            "line": 39
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/migration.v.1.0.28.php",
+            "line": 39
+        },
+        {
+            "function": "update_option",
+            "expression": "$new_method->get_instance_option_key()",
+            "file": "includes/Controllers/Backend/class-migration-controller.php",
+            "line": 98
+        }
+    ]
+}

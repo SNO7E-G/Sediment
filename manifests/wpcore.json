@@ -1,0 +1,113 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpcore",
+        "name": "WPCore Plugin Manager",
+        "version": "1.9.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:40Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 8,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 4,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpcore_keys",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/class-wpcore.php",
+                        "line": 316
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/TGM-Plugin-Activation-2.6.1/class-tgm-plugin-activation.php",
+                        "line": 1002
+                    }
+                ]
+            },
+            {
+                "key": "wpcore_payload",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-wpcore.php",
+                        "line": 370
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "tgmpa_dismissed_notice_tgmpa",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/TGM-Plugin-Activation-2.6.1/class-tgm-plugin-activation.php",
+                        "line": 1407
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "recently_activated",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "lib/TGM-Plugin-Activation-2.6.1/class-tgm-plugin-activation.php",
+                    "line": 2155
+                },
+                {
+                    "file": "lib/TGM-Plugin-Activation-2.6.1/class-tgm-plugin-activation.php",
+                    "line": 3202
+                }
+            ]
+        }
+    ],
+    "unresolved": []
+}

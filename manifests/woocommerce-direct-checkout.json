@@ -1,0 +1,249 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-direct-checkout",
+        "name": "WooCommerce Direct Checkout",
+        "version": "3.6.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:19Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 64,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 16,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "qlwcdc_add_archive_text",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "qlwcdc_add_archive_text_content",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "qlwcdc_add_archive_text_in",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "qlwcdc_add_product_text",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 106
+                    }
+                ]
+            },
+            {
+                "key": "qlwcdc_add_product_text_content",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "qlwcdc_add_to_cart",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 100
+                    }
+                ]
+            },
+            {
+                "key": "qlwcdc_add_to_cart_redirect_page",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "qlwcdc_add_to_cart_redirect_url",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "qlwcdc_wcd_imported2",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 137
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "jetpack_is_single_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "jetpack_vendor/automattic/jetpack-status/src/class-status.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "quadlayers_news_feed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "jetpack_vendor/quadlayers/wp-dashboard-widget-news/src/Load.php",
+                        "line": 168
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "qlwcdc_add_product_text",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "qlwcdc_add_product_text_content",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-install.php",
+                        "line": 130
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "wc-direct-checkout.php",
+                    "line": 18
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "jetpack_vendor/automattic/jetpack-status/src/class-modules.php",
+            "line": 182
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_transient_key()",
+            "file": "jetpack_vendor/quadlayers/wp-notice-plugin-promote/src/Load.php",
+            "line": 117
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->get_user_notice_meta_hidden_key($notice_index)",
+            "file": "jetpack_vendor/quadlayers/wp-notice-plugin-promote/src/Load.php",
+            "line": 292
+        },
+        {
+            "function": "set_transient",
+            "expression": "$tk",
+            "file": "jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php",
+            "line": 116
+        }
+    ]
+}

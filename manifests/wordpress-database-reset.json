@@ -1,0 +1,207 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wordpress-database-reset",
+        "name": "WP Database Reset",
+        "version": "3.25",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 15,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 13,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "current_theme",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-db-resetter.php",
+                        "line": 226
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "default_password_nag",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-db-resetter.php",
+                        "line": 163
+                    }
+                ]
+            },
+            {
+                "key": "session_tokens",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-db-resetter.php",
+                        "line": 209
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}default_password_nag",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-db-resetter.php",
+                        "line": 167
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "WPLANG",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "lib/helpers.php",
+                    "line": 93
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "class-db-resetter.php",
+                    "line": 221
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "admin_email",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "lib/helpers.php",
+                    "line": 89
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "blog_public",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "lib/helpers.php",
+                    "line": 90
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "blogname",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "lib/helpers.php",
+                    "line": 88
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "default_pingback_flag",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "lib/helpers.php",
+                    "line": 103
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "home",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "lib/helpers.php",
+                    "line": 99
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "siteurl",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "lib/helpers.php",
+                    "line": 98
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "stylesheet",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "class-db-resetter.php",
+                    "line": 223
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "template",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "class-db-resetter.php",
+                    "line": 222
+                }
+            ]
+        }
+    ],
+    "unresolved": []
+}

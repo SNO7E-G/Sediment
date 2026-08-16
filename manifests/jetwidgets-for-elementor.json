@@ -1,0 +1,191 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "jetwidgets-for-elementor",
+        "name": "JetWidgets For Elementor",
+        "version": "1.0.22",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:35Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 159,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 4,
+        "resolved": 2,
+        "pattern": 3,
+        "dynamic": 8,
+        "resolution_rate": 0.353
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cherry_customiser_fonts_*",
+                "autoload": "yes",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cherry-framework/modules/cherry-customizer/cherry-customizer.php",
+                        "line": 903
+                    },
+                    {
+                        "file": "cherry-framework/modules/cherry-customizer/cherry-customizer.php",
+                        "line": 924
+                    }
+                ]
+            },
+            {
+                "key": "cherry_customiser_fonts_inited",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cherry-framework/modules/cherry-customizer/cherry-customizer.php",
+                        "line": 906
+                    }
+                ]
+            },
+            {
+                "key": "jet-widgets-settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-jet-widgets-settings.php",
+                        "line": 203
+                    }
+                ]
+            },
+            {
+                "key": "theme_mods_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cherry-framework/modules/cherry-customizer/cherry-customizer.php",
+                        "line": 1097
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/class-tgm-plugin-activation.php",
+                        "line": 971
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "tgmpa_dismissed_notice_tgmpa",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/lib/class-tgm-plugin-activation.php",
+                        "line": 1353
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "recently_activated",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/lib/class-tgm-plugin-activation.php",
+                    "line": 2062
+                },
+                {
+                    "file": "includes/lib/class-tgm-plugin-activation.php",
+                    "line": 3058
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "cherry-framework/modules/cherry-db-updater/cherry-db-updater.php",
+            "line": 142
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->transient_key()",
+            "file": "cherry-framework/modules/cherry-google-fonts-loader/cherry-google-fonts-loader.php",
+            "line": 144
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "cherry-framework/modules/cherry-post-meta/cherry-post-meta.php",
+            "line": 436
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "cherry-framework/modules/cherry-post-meta/cherry-post-meta.php",
+            "line": 438
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "cherry-framework/modules/cherry-post-meta/cherry-post-meta.php",
+            "line": 461
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "cherry-framework/modules/cherry-post-meta/cherry-post-meta.php",
+            "line": 467
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$key",
+            "file": "cherry-framework/modules/cherry-term-meta/cherry-term-meta.php",
+            "line": 284
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/class-jet-widgets-tools.php",
+            "line": 256
+        }
+    ]
+}

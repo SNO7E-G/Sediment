@@ -1,0 +1,87 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "genesis-custom-blocks",
+        "name": "Genesis Custom Blocks",
+        "version": "1.7.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:28Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 42,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 0,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "genesis_custom_blocks_example_post_id",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/Admin/Onboarding.php",
+                        "line": 440
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "genesis_custom_blocks_show_welcome",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "php/Admin/Onboarding.php",
+                        "line": 121
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "register_post_type",
+            "expression": "$this->slug",
+            "file": "php/PostTypes/BlockPost.php",
+            "line": 207
+        },
+        {
+            "function": "add_cap",
+            "expression": "$custom_capability",
+            "file": "php/PostTypes/BlockPost.php",
+            "line": 226
+        }
+    ]
+}

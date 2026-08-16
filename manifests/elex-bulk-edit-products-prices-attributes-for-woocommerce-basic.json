@@ -1,0 +1,153 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "elex-bulk-edit-products-prices-attributes-for-woocommerce-basic",
+        "name": "ELEX WooCommerce Bulk Edit Products, Prices & Attributes (Basic)",
+        "version": "1.5.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 13,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 12,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.923
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "eh_bulk_edit_choosed_product_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/elex-ajax-apifunctions.php",
+                        "line": 1188
+                    }
+                ]
+            },
+            {
+                "key": "eh_bulk_edit_choosed_variation_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-eh-datatables.php",
+                        "line": 649
+                    },
+                    {
+                        "file": "includes/elex-class-table-data.php",
+                        "line": 485
+                    }
+                ]
+            },
+            {
+                "key": "eh_bulk_edit_table_row",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/elex-ajax-apifunctions.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "elex_bep_filter_checkbox_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/elex-ajax-apifunctions.php",
+                        "line": 30
+                    },
+                    {
+                        "file": "includes/elex-ajax-apifunctions.php",
+                        "line": 34
+                    },
+                    {
+                        "file": "includes/elex-ajax-apifunctions.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "xa_bulk_selected_ids",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/elex-ajax-apifunctions.php",
+                        "line": 1225
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_product_attributes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/elex-ajax-apifunctions.php",
+                        "line": 1058
+                    },
+                    {
+                        "file": "includes/elex-ajax-apifunctions.php",
+                        "line": 1060
+                    },
+                    {
+                        "file": "includes/elex-ajax-apifunctions.php",
+                        "line": 1108
+                    },
+                    {
+                        "file": "includes/elex-ajax-apifunctions.php",
+                        "line": 1110
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->data['basename'] . '_' . $key",
+            "file": "review_and_troubleshoot_notify/review-and-troubleshoot-notify-class.php",
+            "line": 64
+        }
+    ]
+}

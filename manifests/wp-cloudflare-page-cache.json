@@ -1,0 +1,354 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-cloudflare-page-cache",
+        "name": "Super Page Cache",
+        "version": "5.3.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:11Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 16,
+    "coverage": {
+        "files_scanned": 59,
+        "files_skipped": 0,
+        "write_calls_found": 33,
+        "verified": 8,
+        "resolved": 15,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.697
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cf_rule_update_failed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Cloudflare_Integration.php",
+                        "line": 334
+                    }
+                ]
+            },
+            {
+                "key": "cf_will_run_free_to_pro_migrations",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 293
+                    }
+                ]
+            },
+            {
+                "key": "swcfpc_config",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "migrations/2026_04_27_000000_legacy_pre_5_1_2_cleanup.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "src/Services/Settings_Store.php",
+                        "line": 486
+                    }
+                ]
+            },
+            {
+                "key": "swcfpc_dashboard_redirect",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 401
+                    }
+                ]
+            },
+            {
+                "key": "swcfpc_encryption_sentinel",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Settings_Store.php",
+                        "line": 866
+                    }
+                ]
+            },
+            {
+                "key": "swcfpc_fc_ttl_registry",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "migrations/2026_04_27_000000_legacy_pre_5_1_2_cleanup.php",
+                        "line": 56
+                    },
+                    {
+                        "file": "src/Modules/Fallback_Cache.php",
+                        "line": 629
+                    }
+                ]
+            },
+            {
+                "key": "swcfpc_legacy_multisite_dir_purged",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/2026_07_13_000000_split_multisite_subdirectory_content_dir.php",
+                        "line": 23
+                    }
+                ]
+            },
+            {
+                "key": "swcfpc_preloader_lock",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Modules/Preloader_Process.php",
+                        "line": 28
+                    },
+                    {
+                        "file": "src/Modules/Preloader_Process.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "swcfpc_previous_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 159
+                    }
+                ]
+            },
+            {
+                "key": "swcfpc_purge_cache_lock",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Services/Purge_Queue.php",
+                        "line": 223
+                    },
+                    {
+                        "file": "src/Services/Purge_Queue.php",
+                        "line": 230
+                    }
+                ]
+            },
+            {
+                "key": "swcfpc_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 236
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "swcfpc_cache_purge_cron",
+                "recurrence": "swcfpc_purge_cache_cron_interval",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Services/Purge_Queue.php",
+                        "line": 159
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "spc_cf_analytics",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Cloudflare_Client.php",
+                        "line": 650
+                    }
+                ]
+            },
+            {
+                "key": "spc_database_optimization_counts",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/Database_Optimization.php",
+                        "line": 227
+                    }
+                ]
+            },
+            {
+                "key": "spc_docs_api_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/Dashboard.php",
+                        "line": 569
+                    }
+                ]
+            },
+            {
+                "key": "spc_robin_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/Dashboard.php",
+                        "line": 381
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "spc/prune_metric_files",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/Metrics_Cleanup.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "spc_preloader_completed",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/Preloader_Process.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "spc_preloader_job",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Modules/Preloader_Process.php",
+                        "line": 52
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "\\SPC_METRICS_DIR",
+            "file": "assets/advanced-cache.php",
+            "line": 78
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/Models/Asset_Rules.php",
+            "line": 40
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$hook",
+            "file": "src/Modules/Database_Optimization.php",
+            "line": 138
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cache_path",
+            "file": "src/Modules/Fallback_Cache.php",
+            "line": 600
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cache_path",
+            "file": "src/Modules/Html_Cache.php",
+            "line": 174
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$control['meta_key']",
+            "file": "src/Modules/Page_Settings_Metabox.php",
+            "line": 192
+        },
+        {
+            "function": "update_option",
+            "expression": "self::REGISTRY[$notice]",
+            "file": "src/Services/Notices_Handler.php",
+            "line": 40
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cache_path",
+            "file": "src/Services/Purge_Queue.php",
+            "line": 40
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "src/Utils/Helpers.php",
+            "line": 184
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "src/Utils/Helpers.php",
+            "line": 190
+        }
+    ]
+}

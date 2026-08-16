@@ -1,0 +1,111 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "aaa-option-optimizer",
+        "name": "AAA Option Optimizer",
+        "version": "1.6.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:29Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 8,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.556
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "option_optimizer",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "aaa-option-optimizer.php",
+                        "line": 52
+                    },
+                    {
+                        "file": "aaa-option-optimizer.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "src/class-database.php",
+                        "line": 162
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "aaa_option_optimizer_migration_total",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/class-database.php",
+                        "line": 111
+                    },
+                    {
+                        "file": "src/class-database.php",
+                        "line": 150
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/class-database.php",
+            "line": 51
+        },
+        {
+            "function": "add_option",
+            "expression": "$option_name",
+            "file": "src/class-rest.php",
+            "line": 653
+        },
+        {
+            "function": "add_option",
+            "expression": "$option_name",
+            "file": "src/class-rest.php",
+            "line": 730
+        },
+        {
+            "function": "add_option",
+            "expression": "$option_name",
+            "file": "src/class-rest.php",
+            "line": 744
+        }
+    ]
+}

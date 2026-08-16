@@ -1,0 +1,230 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "universally-language-translation-multilingual-tool",
+        "name": "Universally Language Translation Multilingual Tool",
+        "version": "1.0.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 29,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 9,
+        "resolved": 6,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.789
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "active_sitewide_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/conflict-handler.php",
+                        "line": 46
+                    }
+                ]
+            },
+            {
+                "key": "universally_api_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "app/ActivationToken.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "app/RestApi.php",
+                        "line": 273
+                    },
+                    {
+                        "file": "config.php",
+                        "line": 23
+                    },
+                    {
+                        "file": "includes/conflict-handler.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "universally_migrations_completed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "app/Migration.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "universally_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "app/Onboarding.php",
+                        "line": 256
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "universally_activation_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/ActivationToken.php",
+                        "line": 117
+                    }
+                ]
+            },
+            {
+                "key": "universally_all_languages",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "universally_connect_state",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Onboarding.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "universally_limit_reached",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/UnifiedBuffer.php",
+                        "line": 507
+                    }
+                ]
+            },
+            {
+                "key": "universally_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/notice.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "universally_old_plugin_deactivated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/conflict-handler.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "universally_onboarding_redirect",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Onboarding.php",
+                        "line": 116
+                    }
+                ]
+            },
+            {
+                "key": "universally_site_config",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 191
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/conflict-handler.php",
+                    "line": 37
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->optionName",
+            "file": "panel/src/OnboardingState.php",
+            "line": 163
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->makeKey($key)",
+            "file": "panel/src/Storage/SeparateOption.php",
+            "line": 39
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionName",
+            "file": "panel/src/Storage/SingleOption.php",
+            "line": 42
+        }
+    ]
+}

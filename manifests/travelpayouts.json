@@ -1,0 +1,227 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "travelpayouts",
+        "name": "Travelpayouts",
+        "version": "1.2.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:26Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 576,
+        "files_skipped": 0,
+        "write_calls_found": 25,
+        "verified": 2,
+        "resolved": 3,
+        "pattern": 2,
+        "dynamic": 18,
+        "resolution_rate": 0.2
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "TravelpayoutsSettingsFrameworkPlugin_ACTIVATED_NOTICES",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "redux-core/inc/classes/class-travelpayouts-api.php",
+                        "line": 1782
+                    }
+                ]
+            },
+            {
+                "key": "auto_update_Redux_Travelpayouts_google_fonts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "redux-core/inc/fields/typography/class-travelpayouts-typography.php",
+                        "line": 1406
+                    }
+                ]
+            },
+            {
+                "key": "travelpayouts_options_import_done",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/admin/AdminHooks.php",
+                        "line": 305
+                    },
+                    {
+                        "file": "src/includes/migrations/Migration.php",
+                        "line": 911
+                    }
+                ]
+            },
+            {
+                "key": "travelpayouts_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/admin/AdminHooks.php",
+                        "line": 235
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "ignore_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "redux-core/inc/classes/class-travelpayouts-admin-notices.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "redux-core/inc/classes/class-travelpayouts-admin-notices.php",
+                        "line": 229
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$opt_name",
+            "file": "redux-core/inc/classes/class-travelpayouts-api.php",
+            "line": 1417
+        },
+        {
+            "function": "set_transient",
+            "expression": "$handle . $tran_key",
+            "file": "redux-core/inc/classes/class-travelpayouts-cdn.php",
+            "line": 153
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$abs_path",
+            "file": "redux-core/inc/classes/class-travelpayouts-filesystem.php",
+            "line": 826
+        },
+        {
+            "function": "mkdir",
+            "expression": "$abs_path",
+            "file": "redux-core/inc/classes/class-travelpayouts-filesystem.php",
+            "line": 838
+        },
+        {
+            "function": "set_transient",
+            "expression": "$core->args['opt_name'] . '-transient'",
+            "file": "redux-core/inc/classes/class-travelpayouts-options-constructor.php",
+            "line": 162
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$core->args['opt_name']",
+            "file": "redux-core/inc/classes/class-travelpayouts-options-constructor.php",
+            "line": 170
+        },
+        {
+            "function": "update_option",
+            "expression": "$core->args['opt_name']",
+            "file": "redux-core/inc/classes/class-travelpayouts-options-constructor.php",
+            "line": 172
+        },
+        {
+            "function": "update_option",
+            "expression": "$core->args['opt_name'] . '-transients'",
+            "file": "redux-core/inc/classes/class-travelpayouts-transients.php",
+            "line": 40
+        },
+        {
+            "function": "update_option",
+            "expression": "$optName",
+            "file": "src/components/DisabledRedux.php",
+            "line": 12
+        },
+        {
+            "function": "add_option",
+            "expression": "$optionName . self::CORRUPTED_SUFFIX",
+            "file": "src/components/SettingsRecovery.php",
+            "line": 244
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->cachePath",
+            "file": "src/components/base/cache/FileCache.php",
+            "line": 67
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "dirname($cacheFile)",
+            "file": "src/components/base/cache/FileCache.php",
+            "line": 131
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/components/base/cache/TransientCache.php",
+            "line": 34
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionPath",
+            "file": "src/components/model/OptionCollectionModel.php",
+            "line": 32
+        },
+        {
+            "function": "add_option",
+            "expression": "$optionPath",
+            "file": "src/components/model/OptionCollectionModel.php",
+            "line": 33
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionName()",
+            "file": "src/components/notices/Notices.php",
+            "line": 104
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "src/components/notices/Notices.php",
+            "line": 177
+        },
+        {
+            "function": "set_transient",
+            "expression": "$url",
+            "file": "src/controllers/LinksController.php",
+            "line": 63
+        }
+    ]
+}

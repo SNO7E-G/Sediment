@@ -1,0 +1,177 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "modular-connector",
+        "name": "Modular Connector",
+        "version": "3.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 32,
+    "coverage": {
+        "files_scanned": 275,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 8,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_modular_connection_access_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modular-php/src/ModularClient.php",
+                        "line": 275
+                    }
+                ]
+            },
+            {
+                "key": "_modular_connection_client_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modular-php/src/ModularClient.php",
+                        "line": 272
+                    }
+                ]
+            },
+            {
+                "key": "_modular_connection_client_secret",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modular-php/src/ModularClient.php",
+                        "line": 273
+                    }
+                ]
+            },
+            {
+                "key": "_modular_connection_connected_at",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modular-php/src/ModularClient.php",
+                        "line": 279
+                    }
+                ]
+            },
+            {
+                "key": "_modular_connection_expires_in",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modular-php/src/ModularClient.php",
+                        "line": 277
+                    }
+                ]
+            },
+            {
+                "key": "_modular_connection_refresh_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modular-php/src/ModularClient.php",
+                        "line": 276
+                    }
+                ]
+            },
+            {
+                "key": "_modular_connection_used_at",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modular-php/src/ModularClient.php",
+                        "line": 280
+                    }
+                ]
+            },
+            {
+                "key": "_modular_jwt_secret_key",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/config/hashing.php",
+                        "line": 31
+                    }
+                ]
+            },
+            {
+                "key": "_modular_linking_registered",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/app/Helper/OauthClient.php",
+                        "line": 90
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "src/app/BrokenLinks/Ndjson/Manifest/NdjsonWriter.php",
+            "line": 44
+        },
+        {
+            "function": "mkdir",
+            "expression": "$storagePath",
+            "file": "src/bootstrap/autoload.php",
+            "line": 47
+        },
+        {
+            "function": "mkdir",
+            "expression": "$subPath",
+            "file": "src/bootstrap/autoload.php",
+            "line": 60
+        }
+    ]
+}

@@ -1,0 +1,197 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "customer-reviews-collector-for-woocommerce",
+        "name": "Customer Reviews Collector for WooCommerce",
+        "version": "4.7.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:12Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 19,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 19,
+        "resolution_rate": 0.174
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woocommerce_email_from_address",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "trustindex-collector-plugin.class.php",
+                        "line": 433
+                    },
+                    {
+                        "file": "trustindex-collector-plugin.class.php",
+                        "line": 443
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_email_from_name",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "trustindex-collector-plugin.class.php",
+                        "line": 436
+                    },
+                    {
+                        "file": "trustindex-collector-plugin.class.php",
+                        "line": 446
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_schedule_event",
+            "expression": "$trustindex_collector->get_schedule_cronname()",
+            "file": "customer-reviews-collector-for-woocommerce.php",
+            "line": 99
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\trim($ti_db_schema[$tableName])",
+            "file": "include/activate.php",
+            "line": 23
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('active')",
+            "file": "include/activate.php",
+            "line": 53
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('platform-url')",
+            "file": "include/update.php",
+            "line": 24
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('email-text')",
+            "file": "include/update.php",
+            "line": 28
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('campaign-active')",
+            "file": "include/update.php",
+            "line": 31
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('platform-url')",
+            "file": "include/update.php",
+            "line": 66
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('platform-url')",
+            "file": "include/update.php",
+            "line": 85
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('update-version-check')",
+            "file": "include/update.php",
+            "line": 87
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('version')",
+            "file": "include/update.php",
+            "line": 88
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('campaign-active')",
+            "file": "tabs/dashboard.php",
+            "line": 5
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('rate-us-feedback')",
+            "file": "tabs/dashboard.php",
+            "line": 13
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('settings-state')",
+            "file": "tabs/settings.php",
+            "line": 8
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('campaign-active')",
+            "file": "tabs/settings.php",
+            "line": 52
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('update-version-check')",
+            "file": "tabs/troubleshooting.php",
+            "line": 8
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('update-version-check')",
+            "file": "trustindex-collector-plugin.class.php",
+            "line": 71
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('activation-redirect')",
+            "file": "trustindex-collector-plugin.class.php",
+            "line": 72
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('active')",
+            "file": "trustindex-collector-plugin.class.php",
+            "line": 86
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name($name)",
+            "file": "trustindex-collector-plugin.class.php",
+            "line": 324
+        }
+    ]
+}

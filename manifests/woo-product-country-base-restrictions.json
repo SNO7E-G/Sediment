@@ -1,0 +1,249 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-product-country-base-restrictions",
+        "name": "Country Based Restrictions for WooCommerce",
+        "version": "3.8.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:33Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 32,
+    "coverage": {
+        "files_scanned": 22,
+        "files_skipped": 0,
+        "write_calls_found": 26,
+        "verified": 14,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 11,
+        "resolution_rate": 0.538
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cbr_free_review_notice_ignore",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin-notice.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "cbr_pro_update_ignore_379",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin-notice.php",
+                        "line": 149
+                    }
+                ]
+            },
+            {
+                "key": "product_visibility",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin-settings.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "wpcbr_hide_product_price",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin-settings.php",
+                        "line": 139
+                    },
+                    {
+                        "file": "include/admin-settings.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "wpcbr_hide_restricted_product_variation",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin-settings.php",
+                        "line": 134
+                    },
+                    {
+                        "file": "include/admin-settings.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "wpcbr_make_non_purchasable",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin-settings.php",
+                        "line": 136
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "zorem_usage_data_*",
+                "recurrence": "weekly",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "zorem-tracking/zorem-tracking.php",
+                        "line": 158
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_fz_country_restriction_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/single-product.php",
+                        "line": 214
+                    },
+                    {
+                        "file": "include/single-product.php",
+                        "line": 217
+                    },
+                    {
+                        "file": "include/single-product.php",
+                        "line": 241
+                    },
+                    {
+                        "file": "include/single-product.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "_restricted_countries",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/single-product.php",
+                        "line": 227
+                    },
+                    {
+                        "file": "include/single-product.php",
+                        "line": 252
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "include/admin-settings.php",
+            "line": 106
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "include/admin-settings.php",
+            "line": 114
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "include/admin-settings.php",
+            "line": 122
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_slug_with_hyphens . '_usage_data_selector'",
+            "file": "zorem-tracking/zorem-tracking.php",
+            "line": 120
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_slug_with_hyphens . '_optin_email_notification'",
+            "file": "zorem-tracking/zorem-tracking.php",
+            "line": 125
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_slug_with_hyphens . '_enable_usage_data'",
+            "file": "zorem-tracking/zorem-tracking.php",
+            "line": 129
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_slug_with_hyphens . '_usage_data_selector'",
+            "file": "zorem-tracking/zorem-tracking.php",
+            "line": 134
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_slug_with_hyphens . '_usage_data_selector'",
+            "file": "zorem-tracking/zorem-tracking.php",
+            "line": 145
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_slug_with_hyphens . '_optin_email_notification'",
+            "file": "zorem-tracking/zorem-tracking.php",
+            "line": 146
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_slug_with_hyphens . '_enable_usage_data'",
+            "file": "zorem-tracking/zorem-tracking.php",
+            "line": 147
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_slug_with_hyphens . '_usage_tracker_last_send'",
+            "file": "zorem-tracking/zorem-tracking.php",
+            "line": 177
+        }
+    ]
+}

@@ -1,0 +1,287 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "user-role-editor",
+        "name": "User Role Editor",
+        "version": "4.65",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:07Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 38,
+        "files_skipped": 0,
+        "write_calls_found": 30,
+        "verified": 12,
+        "resolved": 5,
+        "pattern": 0,
+        "dynamic": 13,
+        "resolution_rate": 0.567
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ure_role_additional_options_values",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/role-additional-options.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "ure_tasks_queue",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/task-queue.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "includes/classes/task-queue.php",
+                        "line": 84
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "ure_caps_columns_quant",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/editor.php",
+                        "line": 112
+                    }
+                ]
+            },
+            {
+                "key": "ure_caps_readable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/editor.php",
+                        "line": 160
+                    },
+                    {
+                        "file": "includes/classes/editor.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "ure_show_deprecated_caps",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/editor.php",
+                        "line": 165
+                    },
+                    {
+                        "file": "includes/classes/editor.php",
+                        "line": 206
+                    }
+                ]
+            },
+            {
+                "key": "ure_users_without_role",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/assign-role.php",
+                        "line": 129
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [
+            {
+                "key": "no_rights",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/assign-role.php",
+                        "line": 42
+                    }
+                ]
+            }
+        ],
+        "capabilities": [
+            {
+                "key": "administrator",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/user-role-editor.php",
+                        "line": 441
+                    }
+                ]
+            },
+            {
+                "key": "read",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/capabilities.php",
+                        "line": 329
+                    }
+                ]
+            },
+            {
+                "key": "subscriber",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/uninstall.php",
+                        "line": 67
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "default_role",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/classes/editor.php",
+                    "line": 1345
+                },
+                {
+                    "file": "includes/classes/settings.php",
+                    "line": 105
+                },
+                {
+                    "file": "includes/classes/user-role-editor.php",
+                    "line": 445
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "{prefix}user_roles",
+            "confidence": "resolved",
+            "sources": [
+                {
+                    "file": "includes/classes/editor.php",
+                    "line": 446
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->options_id",
+            "file": "includes/classes/base-lib.php",
+            "line": 233
+        },
+        {
+            "function": "add_cap",
+            "expression": "$post_type->cap->create_posts",
+            "file": "includes/classes/capabilities.php",
+            "line": 184
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/classes/capabilities.php",
+            "line": 202
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/classes/capabilities.php",
+            "line": 322
+        },
+        {
+            "function": "add_cap",
+            "expression": "$admin_role",
+            "file": "includes/classes/capability.php",
+            "line": 109
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$user->cap_key",
+            "file": "includes/classes/editor.php",
+            "line": 759
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/classes/editor.php",
+            "line": 831
+        },
+        {
+            "function": "add_role",
+            "expression": "$role_id",
+            "file": "includes/classes/editor.php",
+            "line": 1052
+        },
+        {
+            "function": "update_option",
+            "expression": "$wp_roles->role_key",
+            "file": "includes/classes/editor.php",
+            "line": 1165
+        },
+        {
+            "function": "update_option",
+            "expression": "$wp_roles->role_key",
+            "file": "includes/classes/editor.php",
+            "line": 1249
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->options_id",
+            "file": "includes/classes/lib.php",
+            "line": 165
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/classes/own-capabilities.php",
+            "line": 136
+        },
+        {
+            "function": "update_option",
+            "expression": "$backup_roles_key",
+            "file": "includes/classes/user-role-editor.php",
+            "line": 701
+        }
+    ]
+}

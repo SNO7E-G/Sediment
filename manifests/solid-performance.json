@@ -1,0 +1,169 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "solid-performance",
+        "name": "Kadence Performance",
+        "version": "2.0.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 63,
+    "coverage": {
+        "files_scanned": 279,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 0,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "solid-performance-welcome-notice",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Performance/Notices/Notices/Welcome.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "solid_performance_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Performance/Config/Writers/Network_Option_Writer.php",
+                        "line": 61
+                    },
+                    {
+                        "file": "src/Performance/Config/Writers/Option_Writer.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "solid_performance_urls",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Performance/Preload/Sitemap/Repositories/Sitemap_Option_Repository.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "swpsp_preload_monitor",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Performance/Preload/Monitor/Repository.php",
+                        "line": 45
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "solid_performance_notices",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Performance/Notices/Notice_Handler.php",
+                        "line": 121
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_swpsp_post_exclude",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Performance/Admin/Post_Cache_Exclusion.php",
+                        "line": 225
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->config_file->dir()",
+            "file": "src/Performance/Config/Writers/File_Writer.php",
+            "line": 80
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$task->hook()",
+            "file": "src/Performance/Cron/Scheduler.php",
+            "line": 49
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "src/Performance/Page_Cache/Cache_Handler.php",
+            "line": 191
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "src/Performance/Page_Cache/Meta/Writers/Array_File_Writer.php",
+            "line": 52
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cache_dir",
+            "file": "src/Performance/Plugin/Activator.php",
+            "line": 99
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->key($key)",
+            "file": "src/Performance/Storage/Drivers/Option_Storage.php",
+            "line": 41
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->key($key)",
+            "file": "src/Performance/Storage/Drivers/Transient_Storage.php",
+            "line": 36
+        }
+    ]
+}

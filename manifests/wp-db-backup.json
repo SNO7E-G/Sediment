@@ -1,0 +1,142 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-db-backup",
+        "name": "Database Backup for WordPress",
+        "version": "2.5.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:12Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 1,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 9,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.9
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp_cron_backup_recipient",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-db-backup.php",
+                        "line": 1203
+                    }
+                ]
+            },
+            {
+                "key": "wp_cron_backup_schedule",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-db-backup.php",
+                        "line": 1191
+                    },
+                    {
+                        "file": "wp-db-backup.php",
+                        "line": 1197
+                    }
+                ]
+            },
+            {
+                "key": "wp_cron_backup_tables",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-db-backup.php",
+                        "line": 1200
+                    }
+                ]
+            },
+            {
+                "key": "wp_db_backup_excs",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-db-backup.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "wpdb_backup_recip",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-db-backup.php",
+                        "line": 352
+                    },
+                    {
+                        "file": "wp-db-backup.php",
+                        "line": 505
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wp_db_backup_cron",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-db-backup.php",
+                        "line": 680
+                    },
+                    {
+                        "file": "wp-db-backup.php",
+                        "line": 1194
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$this->backup_dir",
+            "file": "wp-db-backup.php",
+            "line": 1230
+        }
+    ]
+}

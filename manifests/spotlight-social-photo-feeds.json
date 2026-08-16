@@ -1,0 +1,208 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "spotlight-social-photo-feeds",
+        "name": "Spotlight - Social Media Feeds",
+        "version": "1.7.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:49Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 44,
+    "coverage": {
+        "files_scanned": 204,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 2,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 12,
+        "resolution_rate": 0.4
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "sli_plugin_conflicts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/init.php",
+                        "line": 582
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "sli_deactivated_plugin",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 43
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_sli_access_token",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/AccountsModule.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "_sli_access_token_iv",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/AccountsModule.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "_sli_custom_media",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/core/PostTypes/CustomMedia.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "_sli_source",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/MediaModule.php",
+                        "line": 138
+                    },
+                    {
+                        "file": "src/core/Engine/IgPostStore.php",
+                        "line": 102
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "sli_developer",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/Dev/DevModule.php",
+                        "line": 57
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "modules/RestApiModule.php",
+            "line": 139
+        },
+        {
+            "function": "update_option",
+            "expression": "$c->get('onboarding/option')",
+            "file": "modules/UiModule.php",
+            "line": 432
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->key",
+            "file": "src/core/Config/WpOption.php",
+            "line": 115
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option",
+            "file": "src/core/Engine/DbOptionMarker.php",
+            "line": 28
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->name",
+            "file": "src/core/Engine/DbTransientMarker.php",
+            "line": 28
+        },
+        {
+            "function": "mkdir",
+            "expression": "$uploadDir['basedir']",
+            "file": "src/core/Engine/Store/MediaFileStore.php",
+            "line": 376
+        },
+        {
+            "function": "mkdir",
+            "expression": "$subDir",
+            "file": "src/core/Engine/Store/MediaFileStore.php",
+            "line": 385
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$job->hook",
+            "file": "src/core/Wp/CronJob.php",
+            "line": 72
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$job->hook",
+            "file": "src/core/Wp/CronJob.php",
+            "line": 74
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$postType->slug",
+            "file": "src/core/Wp/PostType.php",
+            "line": 283
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient->key",
+            "file": "src/core/Wp/Transient.php",
+            "line": 89
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "vendor_scoped/psr4/WpOop/TransientCache/CachePool.php",
+            "line": 270
+        }
+    ]
+}

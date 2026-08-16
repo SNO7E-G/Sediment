@@ -1,0 +1,103 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-mail-log",
+        "name": "WP Mail Log",
+        "version": "1.1.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:30Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 16,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 3,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wml_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/db-table.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "classes/db-table.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "wpv_wml_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/settings.php",
+                        "line": 90
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wpvibes_review_reminder_global_cooldown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "vendor-prefixed/wpvibes/review-reminder/src/State.php",
+                        "line": 184
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/db-table.php",
+            "line": 57
+        },
+        {
+            "function": "update_option",
+            "expression": "self::option_key($slug)",
+            "file": "vendor-prefixed/wpvibes/review-reminder/src/State.php",
+            "line": 75
+        }
+    ]
+}

@@ -1,0 +1,134 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "simple-ajax-chat",
+        "name": "Simple Ajax Chat",
+        "version": "20260811",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:03Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.875
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "sac_censors",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "simple-ajax-chat-admin.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "sac_export",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "simple-ajax-chat-admin.php",
+                        "line": 304
+                    }
+                ]
+            },
+            {
+                "key": "sac_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "simple-ajax-chat-admin.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "simple-ajax-chat-admin.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "simple-ajax-chat-dismiss-notice",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "simple-ajax-chat-admin.php",
+                        "line": 1373
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "sac_cron_truncate",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "simple-ajax-chat.php",
+                        "line": 481
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "sac_logged_users",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "simple-ajax-chat.php",
+                        "line": 843
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "simple-ajax-chat.php",
+            "line": 164
+        }
+    ]
+}

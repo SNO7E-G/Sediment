@@ -1,0 +1,266 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-retina-2x",
+        "name": "Perfect Images: Regenerate Thumbnails, Image Sizes, WebP & AVIF",
+        "version": "7.1.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 34,
+    "coverage": {
+        "files_scanned": 17,
+        "files_skipped": 0,
+        "write_calls_found": 30,
+        "verified": 15,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.7
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "elementor_css_print_method",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/rest.php",
+                        "line": 1001
+                    }
+                ]
+            },
+            {
+                "key": "litespeed.conf.cache-rest",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "common/issues.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "meowapps_news",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "common/news.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "common/news.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "common/news.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "wr2x_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/core.php",
+                        "line": 157
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 1423
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 2517
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 2523
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 2586
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wr2x_issues",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/core.php",
+                        "line": 642
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 681
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 719
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 726
+                    }
+                ]
+            },
+            {
+                "key": "wr2x_optimize_issues",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/core.php",
+                        "line": 797
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 831
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 838
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_media_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/core.php",
+                        "line": 1860
+                    }
+                ]
+            },
+            {
+                "key": "_wr2x_ignored",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/core.php",
+                        "line": 757
+                    }
+                ]
+            },
+            {
+                "key": "_wr2x_optimize",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/optimize.php",
+                        "line": 103
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "(.+.(?:jpe?g|gif|png))",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/admin.php",
+                        "line": 165
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->core->get_option_name()",
+            "file": "classes/rest.php",
+            "line": 968
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->core->get_option_name()",
+            "file": "classes/rest.php",
+            "line": 996
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "common/news.php",
+            "line": 30
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . '_rating_date'",
+            "file": "common/ratings.php",
+            "line": 53
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . '_rating_date'",
+            "file": "common/ratings.php",
+            "line": 63
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . '_rating_date'",
+            "file": "common/ratings.php",
+            "line": 68
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . '_rating_date'",
+            "file": "common/ratings.php",
+            "line": 73
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "common/rest.php",
+            "line": 86
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "common/rest.php",
+            "line": 161
+        }
+    ]
+}

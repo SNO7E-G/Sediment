@@ -1,0 +1,176 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "omnibus",
+        "name": "Omnibus — show the lowest price",
+        "version": "3.0.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:20Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 23,
+    "coverage": {
+        "files_scanned": 35,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 0,
+        "resolved": 12,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "iworks_omnibus_data_migration_v3",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/iworks/class-iworks-omnibus.php",
+                        "line": 379
+                    },
+                    {
+                        "file": "includes/iworks/class-iworks-omnibus.php",
+                        "line": 381
+                    }
+                ]
+            },
+            {
+                "key": "iworks_rates",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/iworks/rate/rate.php",
+                        "line": 186
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_iwo_last_price_drop_timestamp",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/iworks/omnibus/class-iworks-omnibus-integration.php",
+                        "line": 141
+                    },
+                    {
+                        "file": "includes/iworks/omnibus/class-iworks-omnibus-integration.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "_iwo_price_last_change",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/iworks/omnibus/integration/class-iworks-omnibus-integration-woocommerce.php",
+                        "line": 224
+                    },
+                    {
+                        "file": "includes/iworks/omnibus/integration/class-iworks-omnibus-integration-woocommerce.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "_iwo_price_log",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/iworks/omnibus/class-iworks-omnibus-integration.php",
+                        "line": 631
+                    }
+                ]
+            },
+            {
+                "key": "_iwo_price_lowest",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/iworks/omnibus/class-iworks-omnibus-integration.php",
+                        "line": 134
+                    },
+                    {
+                        "file": "includes/iworks/omnibus/integration/class-iworks-omnibus-integration-learnpress.php",
+                        "line": 352
+                    },
+                    {
+                        "file": "includes/iworks/omnibus/integration/class-iworks-omnibus-integration-woocommerce.php",
+                        "line": 974
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "iw_omnibus_price_log",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/iworks/omnibus/post-types/class-iworks-omnibus-post-type-price-log.php",
+                        "line": 90
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/iworks/omnibus/integration/class-iworks-omnibus-integration-woocommerce.php",
+            "line": 1088
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/iworks/omnibus/integration/class-iworks-omnibus-integration-woocommerce.php",
+            "line": 1089
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/iworks/omnibus/post-types/class-iworks-omnibus-post-type-price-log.php",
+            "line": 273
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/iworks/omnibus/post-types/class-iworks-omnibus-post-type.php",
+            "line": 59
+        }
+    ]
+}

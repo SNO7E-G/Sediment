@@ -1,0 +1,200 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-products-slider",
+        "name": "Product Slider for WooCommerce by PickPlugins",
+        "version": "1.13.63",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:54Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 48,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 15,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.882
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wcps_plugin_info",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-admin-notices.php",
+                        "line": 34
+                    },
+                    {
+                        "file": "includes/functions-settings-hook.php",
+                        "line": 169
+                    }
+                ]
+            },
+            {
+                "key": "wcps_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions-settings-hook.php",
+                        "line": 779
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wcps_cron_reset_migrate",
+                "recurrence": "1minute",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions-settings-hook.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "wcps_cron_upgrade_settings",
+                "recurrence": "1minute",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-admin-notices.php",
+                        "line": 35
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "custom_scripts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-metabox-wcps-layout-hook.php",
+                        "line": 412
+                    },
+                    {
+                        "file": "includes/functions-layout-api.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "layout_elements_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-metabox-wcps-layout-hook.php",
+                        "line": 409
+                    },
+                    {
+                        "file": "includes/functions-layout-api.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "layout_options",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-metabox-wcps-layout-hook.php",
+                        "line": 406
+                    },
+                    {
+                        "file": "includes/functions-layout-api.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "wcps_options",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-metabox-wcps-hook.php",
+                        "line": 2601
+                    },
+                    {
+                        "file": "includes/duplicate-post.php",
+                        "line": 103
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wcps",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-post-types.php",
+                        "line": 27
+                    }
+                ]
+            },
+            {
+                "key": "wcps_layout",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-post-types.php",
+                        "line": 90
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/duplicate-post.php",
+            "line": 83
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "includes/functions-rest.php",
+            "line": 489
+        }
+    ]
+}

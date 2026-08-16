@@ -1,0 +1,167 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "html-forms",
+        "name": "HTML Forms",
+        "version": "1.6.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:05Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 24,
+    "coverage": {
+        "files_scanned": 32,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 9,
+        "resolved": 1,
+        "pattern": 2,
+        "dynamic": 1,
+        "resolution_rate": 0.769
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "hf_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/functions.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "hf_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/admin/class-admin.php",
+                        "line": 85
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}hf_submissions",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/functions.php",
+                        "line": 503
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_hf_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/1.1.6-move-save-submissions-setting.php",
+                        "line": 17
+                    },
+                    {
+                        "file": "src/admin/class-admin.php",
+                        "line": 445
+                    }
+                ]
+            },
+            {
+                "key": "hf_message_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/admin/class-admin.php",
+                        "line": 451
+                    },
+                    {
+                        "file": "src/admin/class-admin.php",
+                        "line": 453
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "administrator",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/1.1.1-add-role-cap.php",
+                        "line": 4
+                    }
+                ]
+            },
+            {
+                "key": "edit_forms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/functions.php",
+                        "line": 459
+                    },
+                    {
+                        "file": "src/functions.php",
+                        "line": 485
+                    },
+                    {
+                        "file": "src/functions.php",
+                        "line": 523
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "html-form",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/class-forms.php",
+                        "line": 41
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "src/admin/class-table.php",
+            "line": 273
+        }
+    ]
+}

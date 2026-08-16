@@ -1,0 +1,263 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "push-notification",
+        "name": "Push Notifications for WP - Self Hosted Web Push Notifications",
+        "version": "1.51",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 1,
+    "coverage": {
+        "files_scanned": 15,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 16,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.773
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pn_website_token_ids",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/frontend/pn-frontend.php",
+                        "line": 852
+                    }
+                ]
+            },
+            {
+                "key": "push_notification_auth_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-function.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "inc/admin/class-function.php",
+                        "line": 53
+                    }
+                ]
+            },
+            {
+                "key": "push_notification_details_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/class-function.php",
+                        "line": 173
+                    }
+                ]
+            },
+            {
+                "key": "push_notification_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/admin.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "inc/admin/admin.php",
+                        "line": 857
+                    }
+                ]
+            },
+            {
+                "key": "pwaforwp_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "push-notification.php",
+                        "line": 71
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}pn_token_urls",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "push-notification.php",
+                        "line": 264
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [
+            {
+                "key": "push_notification_older_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "push-notification.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "push_notification_pro_checker",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "push-notification.php",
+                        "line": 155
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "buddyboss_pn_notification_token_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/frontend/pn-frontend.php",
+                        "line": 1872
+                    }
+                ]
+            },
+            {
+                "key": "fluent_community_pn_notification_token_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/frontend/pn-frontend.php",
+                        "line": 2134
+                    }
+                ]
+            },
+            {
+                "key": "gravity_pn_notification_token_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/frontend/pn-frontend.php",
+                        "line": 2106
+                    }
+                ]
+            },
+            {
+                "key": "peepso_pn_notification_token_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/frontend/pn-frontend.php",
+                        "line": 2077
+                    }
+                ]
+            },
+            {
+                "key": "pnwoo_notification_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/frontend/pn-frontend.php",
+                        "line": 1404
+                    }
+                ]
+            },
+            {
+                "key": "um_new_notifications",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/admin.php",
+                        "line": 2154
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "subscribe/pushnotification/?$",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/frontend/pn-frontend.php",
+                        "line": 581
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_field['id']",
+            "file": "inc/admin/PnMetaBox.php",
+            "line": 112
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_field['id']",
+            "file": "inc/admin/PnMetaBox.php",
+            "line": 114
+        },
+        {
+            "function": "update_option",
+            "expression": "$date_key",
+            "file": "inc/admin/admin.php",
+            "line": 1982
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "inc/admin/admin.php",
+            "line": 3429
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "inc/frontend/pn-frontend.php",
+            "line": 1487
+        }
+    ]
+}

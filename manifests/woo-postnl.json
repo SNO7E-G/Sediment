@@ -1,0 +1,151 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-postnl",
+        "name": "PostNL for WooCommerce",
+        "version": "5.9.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:58Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 62,
+    "coverage": {
+        "files_scanned": 92,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 3,
+        "resolved": 6,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.818
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_postnl_bulk_action_confirmation",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Order/Bulk.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "src/Order/Bulk.php",
+                        "line": 204
+                    },
+                    {
+                        "file": "src/Order/Bulk.php",
+                        "line": 678
+                    }
+                ]
+            },
+            {
+                "key": "postnl_merchant_codes",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Shipping_Method/PostNL.php",
+                        "line": 280
+                    },
+                    {
+                        "file": "src/Shipping_Method/PostNL.php",
+                        "line": 307
+                    }
+                ]
+            },
+            {
+                "key": "postnl_shipping_return_reverted",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Main.php",
+                        "line": 212
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_postnl_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Main.php",
+                        "line": 206
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "_postnl_bulk_download_labels_file_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Order/Bulk.php",
+                        "line": 267
+                    }
+                ]
+            },
+            {
+                "key": "postnl_code_verifier",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Frontend/Fill_In_With_Postnl.php",
+                        "line": 233
+                    }
+                ]
+            },
+            {
+                "key": "updated_postnl_orders",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Updater/Order.php",
+                        "line": 49
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "POSTNL_UPLOADS_DIR",
+            "file": "src/Order/Base.php",
+            "line": 842
+        }
+    ]
+}

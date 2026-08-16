@@ -1,0 +1,232 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "gutenberg",
+        "name": "Gutenberg",
+        "version": "23.7.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:19Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 147,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 8,
+        "resolved": 8,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.842
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_gutenberg_user_content_types_flush_rewrite_rules",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/experimental/content-types/index.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "active_templates",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/compat/wordpress-7.0/template-activate.php",
+                        "line": 580
+                    }
+                ]
+            },
+            {
+                "key": "gutenberg_version_migration",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/upgrade.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "wp_collaboration_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/experimental/collaboration/collaboration.php",
+                        "line": 317
+                    },
+                    {
+                        "file": "lib/upgrade.php",
+                        "line": 78
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wp_styles_for_blocks",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/global-styles-and-settings.php",
+                        "line": 336
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_crdt_document",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/experimental/collaboration/class-wp-sync-save-server.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "lib/experimental/collaboration/collaboration.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "_menu_item_content",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/experimental/navigation-theme-opt-in.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "_wp_user_taxonomy_object_type",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/experimental/content-types/index.php",
+                        "line": 298
+                    },
+                    {
+                        "file": "lib/experimental/content-types/index.php",
+                        "line": 343
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wp_knowledge",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/experimental/knowledge/class-gutenberg-knowledge-post-type.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "wp_sync_storage",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/experimental/collaboration/collaboration.php",
+                        "line": 21
+                    }
+                ]
+            },
+            {
+                "key": "wp_user_post_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/experimental/content-types/post-types.php",
+                        "line": 37
+                    }
+                ]
+            },
+            {
+                "key": "wp_user_taxonomy",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/experimental/content-types/index.php",
+                        "line": 104
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "wp_knowledge_type",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/experimental/knowledge/class-gutenberg-knowledge-post-type.php",
+                        "line": 118
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$setting_name",
+            "file": "lib/compat/wordpress-7.0/default-connectors.php",
+            "line": 538
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$slug",
+            "file": "lib/experimental/content-types/index.php",
+            "line": 462
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$slug",
+            "file": "lib/experimental/content-types/post-types.php",
+            "line": 304
+        }
+    ]
+}

@@ -1,0 +1,463 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "miniorange-saml-20-single-sign-on",
+        "name": "SAML Single Sign On – SSO Login",
+        "version": "5.4.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:33Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 87,
+        "files_skipped": 0,
+        "write_calls_found": 56,
+        "verified": 18,
+        "resolved": 36,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.964
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "MO_SAML_REQUEST",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-mo-saml-utilities.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "MO_SAML_RESPONSE",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-mo-saml-login-validate.php",
+                        "line": 276
+                    },
+                    {
+                        "file": "mo-saml-settings-page.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "MO_SAML_TEST",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-mo-saml-login-validate.php",
+                        "line": 370
+                    },
+                    {
+                        "file": "mo-saml-settings-page.php",
+                        "line": 241
+                    }
+                ]
+            },
+            {
+                "key": "MO_SAML_TEST_STATUS",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-mo-saml-login-validate.php",
+                        "line": 371
+                    },
+                    {
+                        "file": "mo-saml-settings-page.php",
+                        "line": 242
+                    }
+                ]
+            },
+            {
+                "key": "mo_date_expire_notice",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "login.php",
+                        "line": 430
+                    }
+                ]
+            },
+            {
+                "key": "mo_is_new_user",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "handlers/class-mo-saml-welcome-modal-handler.php",
+                        "line": 23
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_add_sso_button_wp",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "handlers/class-mo-saml-register-abilities.php",
+                        "line": 518
+                    },
+                    {
+                        "file": "handlers/class-mo-saml-register-abilities.php",
+                        "line": 577
+                    },
+                    {
+                        "file": "login.php",
+                        "line": 173
+                    },
+                    {
+                        "file": "views/mo-saml-redirection-sso-links.php",
+                        "line": 27
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_admin_password",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "handlers/class-mo-saml-customer-login-handler.php",
+                        "line": 140
+                    },
+                    {
+                        "file": "handlers/class-mo-saml-customer-login-handler.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_black_friday_sale_notice_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "notices/class-mo-saml-black-friday-sale.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_black_friday_sale_notice_dismissed_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "notices/class-mo-saml-black-friday-sale.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_close_notice",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "handlers/class-mo-saml-service-provider-settings-handler.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "handlers/class-mo-saml-service-provider-settings-handler.php",
+                        "line": 69
+                    },
+                    {
+                        "file": "login.php",
+                        "line": 431
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_enable_abilities_api",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "handlers/class-mo-saml-register-abilities.php",
+                        "line": 766
+                    },
+                    {
+                        "file": "handlers/class-mo-saml-register-abilities.php",
+                        "line": 771
+                    },
+                    {
+                        "file": "handlers/class-mo-saml-register-abilities.php",
+                        "line": 782
+                    },
+                    {
+                        "file": "handlers/class-mo-saml-register-abilities.php",
+                        "line": 785
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_encoding_enabled",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-mo-saml-login-validate.php",
+                        "line": 300
+                    },
+                    {
+                        "file": "handlers/class-mo-saml-register-abilities.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_htaccess_updated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-mo-saml-logger.php",
+                        "line": 492
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_keep_settings_on_deletion",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "login.php",
+                        "line": 214
+                    },
+                    {
+                        "file": "mo-saml-import-export.php",
+                        "line": 80
+                    },
+                    {
+                        "file": "mo-saml-import-export.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_message",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-mo-saml-utilities.php",
+                        "line": 797
+                    },
+                    {
+                        "file": "class-mo-saml-utilities.php",
+                        "line": 814
+                    },
+                    {
+                        "file": "class-mo-saml-utilities.php",
+                        "line": 1009
+                    },
+                    {
+                        "file": "class-mo-saml-wp-config-editor.php",
+                        "line": 47
+                    },
+                    {
+                        "file": "class-mo-saml-wp-config-editor.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "class-mo-saml-wp-config-editor.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "class-mo-saml-wp-config-editor.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "class-mo-saml-wp-config-editor.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "class-mo-saml-wp-config-editor.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "class-mo-saml-wp-config-editor.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "class-mo-saml-wp-config-editor.php",
+                        "line": 218
+                    },
+                    {
+                        "file": "class-mo-saml-wp-config-editor.php",
+                        "line": 225
+                    },
+                    {
+                        "file": "handlers/class-mo-saml-base-handler.php",
+                        "line": 127
+                    },
+                    {
+                        "file": "handlers/class-mo-saml-post-save-handler.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "mo-saml-import-export.php",
+                        "line": 84
+                    },
+                    {
+                        "file": "mo-saml-settings-page.php",
+                        "line": 294
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_multisite_notice_dismissed_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "login.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_required_issuer",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-mo-saml-utilities.php",
+                        "line": 722
+                    }
+                ]
+            },
+            {
+                "key": "mo_saml_test_config_attrs",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-mo-saml-login-validate.php",
+                        "line": 400
+                    }
+                ]
+            },
+            {
+                "key": "mosaml_debug_log_file_path",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-mo-saml-logger.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "mosaml_plugin_plan_details",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-mo-saml-utilities.php",
+                        "line": 1259
+                    }
+                ]
+            },
+            {
+                "key": "saml_am_default_user_role",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "handlers/class-mo-saml-register-abilities.php",
+                        "line": 275
+                    }
+                ]
+            },
+            {
+                "key": "saml_issuer",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-mo-saml-login-validate.php",
+                        "line": 294
+                    },
+                    {
+                        "file": "handlers/class-mo-saml-register-abilities.php",
+                        "line": 148
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$log_dir",
+            "file": "class-mo-saml-logger.php",
+            "line": 479
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "handlers/class-mo-saml-database-handler.php",
+            "line": 40
+        }
+    ]
+}

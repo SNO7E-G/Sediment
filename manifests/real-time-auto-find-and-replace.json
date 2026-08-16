@@ -1,0 +1,163 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "real-time-auto-find-and-replace",
+        "name": "Better Find and Replace",
+        "version": "1.9.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 28,
+    "coverage": {
+        "files_scanned": 59,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 7,
+        "resolved": 2,
+        "pattern": 1,
+        "dynamic": 4,
+        "resolution_rate": 0.643
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cs_ai_config",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/admin/functions/ai/Settings.php",
+                        "line": 46
+                    },
+                    {
+                        "file": "core/admin/functions/ai/Settings.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "rtafar_db_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/install/Activate.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "core/install/Activate.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "rtafar_plugin_install_date",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/admin/notices/RtafarNotices.php",
+                        "line": 56
+                    },
+                    {
+                        "file": "core/install/Activate.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "rtafar_plugin_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/install/Activate.php",
+                        "line": 55
+                    },
+                    {
+                        "file": "core/install/Activate.php",
+                        "line": 131
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "rtafar_ai_oauth_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/admin/functions/ai/OAuth/StateStore.php",
+                        "line": 22
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/admin/functions/MediaImageReplacer.php",
+                        "line": 133
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "core/actions/RTAFAR_WP_Hooks.php",
+            "line": 303
+        },
+        {
+            "function": "update_option",
+            "expression": "CS_NOTICE_ID . 'ed_' . $dismiss_option",
+            "file": "core/admin/builders/NoticeBuilder.php",
+            "line": 57
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "core/install/Activate.php",
+            "line": 45
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "core/install/Activate.php",
+            "line": 106
+        }
+    ]
+}

@@ -1,0 +1,249 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "https-redirection",
+        "name": "Easy HTTPS (SSL) Redirection",
+        "version": "2.0.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:45Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 27,
+        "files_skipped": 0,
+        "write_calls_found": 26,
+        "verified": 21,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.808
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ehssl_configs",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/ehssl-config.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "ehssl_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/ehssl-installation.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "httpsrdrctn_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/ehssl-admin-init.php",
+                        "line": 143
+                    },
+                    {
+                        "file": "admin/ehssl-admin-init.php",
+                        "line": 148
+                    },
+                    {
+                        "file": "admin/ehssl-admin-init.php",
+                        "line": 163
+                    },
+                    {
+                        "file": "admin/ehssl-admin-init.php",
+                        "line": 228
+                    },
+                    {
+                        "file": "admin/ehssl-certificate-expiry-menu.php",
+                        "line": 183
+                    },
+                    {
+                        "file": "admin/ehssl-settings-menu.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "admin/ehssl-settings-menu.php",
+                        "line": 116
+                    },
+                    {
+                        "file": "admin/ehssl-settings-menu.php",
+                        "line": 384
+                    },
+                    {
+                        "file": "admin/ehssl-ssl-management-menu.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "classes/ehssl-debug-logger.php",
+                        "line": 43
+                    },
+                    {
+                        "file": "classes/ehssl-ssl-certificate.php",
+                        "line": 98
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "ehssl_daily_cron_event",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "easy-https-ssl-core.php",
+                        "line": 93
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "expires_on",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/utilities/ehssl-ssl-utils.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "expiry_notification_email_sent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/utilities/ehssl-ssl-utils.php",
+                        "line": 254
+                    }
+                ]
+            },
+            {
+                "key": "id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/utilities/ehssl-ssl-utils.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "issued_on",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/utilities/ehssl-ssl-utils.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "issuer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/utilities/ehssl-ssl-utils.php",
+                        "line": 196
+                    }
+                ]
+            },
+            {
+                "key": "label",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/utilities/ehssl-ssl-utils.php",
+                        "line": 195
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "ehssl_certs_info",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/ehssl-custom-post-types.php",
+                        "line": 29
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/ehssl-installation.php",
+            "line": 58
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "classes/ehssl-non-https-resources-scan-update.php",
+            "line": 630
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "classes/ehssl-non-https-resources-scan-update.php",
+            "line": 654
+        },
+        {
+            "function": "mkdir",
+            "expression": "$acme_challenge_dir_path",
+            "file": "classes/ehssl-ssl-certificate.php",
+            "line": 153
+        },
+        {
+            "function": "mkdir",
+            "expression": "$certificate_dir_path",
+            "file": "classes/ehssl-ssl-certificate.php",
+            "line": 160
+        }
+    ]
+}

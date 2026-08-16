@@ -1,0 +1,193 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ga-in",
+        "name": "GAinWP Google Analytics Integration for WordPress",
+        "version": "5.4.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:56Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 75,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 9,
+        "resolved": 4,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.867
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gainwp_cache_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "tools/tools.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "gainwp_cache_errors_count",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "tools/tools.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "gainwp_cache_gapi_errors",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "tools/tools.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "gainwp_cache_last_error",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "tools/tools.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "gainwp_cache_sampleddata",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "tools/tools.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "gainwp_got_updated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "config.php",
+                        "line": 233
+                    }
+                ]
+            },
+            {
+                "key": "gainwp_network_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "config.php",
+                        "line": 192
+                    },
+                    {
+                        "file": "config.php",
+                        "line": 448
+                    }
+                ]
+            },
+            {
+                "key": "gainwp_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "config.php",
+                        "line": 195
+                    },
+                    {
+                        "file": "config.php",
+                        "line": 457
+                    },
+                    {
+                        "file": "install/install.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "gainwp_redeemed_code",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/settings.php",
+                        "line": 1008
+                    },
+                    {
+                        "file": "admin/settings.php",
+                        "line": 1391
+                    }
+                ]
+            },
+            {
+                "key": "gainwp_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "config.php",
+                        "line": 232
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$storageDir",
+            "file": "tools/src/Deconfin/Cache/File.php",
+            "line": 149
+        }
+    ]
+}

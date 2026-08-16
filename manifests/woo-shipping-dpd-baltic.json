@@ -1,0 +1,235 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-shipping-dpd-baltic",
+        "name": "DPD Baltic Shipping",
+        "version": "1.2.91",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 30,
+        "files_skipped": 0,
+        "write_calls_found": 24,
+        "verified": 12,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.792
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dpd_baltic_flash_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "dpd_request_order_nr",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-dpd-baltic-ajax.php",
+                        "line": 134
+                    },
+                    {
+                        "file": "includes/class-dpd-baltic-ajax.php",
+                        "line": 138
+                    }
+                ]
+            },
+            {
+                "key": "wc_shipping_dpd_baltic_db_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-dpd-baltic-activator.php",
+                        "line": 176
+                    },
+                    {
+                        "file": "includes/class-dpd-baltic-activator.php",
+                        "line": 176
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "dpd_parcels_country_update",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-dpd-admin.php",
+                        "line": 219
+                    },
+                    {
+                        "file": "admin/class-dpd-admin.php",
+                        "line": 239
+                    }
+                ]
+            },
+            {
+                "key": "dpd_parcels_receiver",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/settings/class-dpd-settings-general.php",
+                        "line": 336
+                    },
+                    {
+                        "file": "class-dpd-baltic-activator.php",
+                        "line": 187
+                    },
+                    {
+                        "file": "includes/class-dpd-baltic-activator.php",
+                        "line": 187
+                    }
+                ]
+            },
+            {
+                "key": "dpd_parcels_updater",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-dpd-baltic-activator.php",
+                        "line": 189
+                    },
+                    {
+                        "file": "includes/class-dpd-baltic-activator.php",
+                        "line": 189
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_dpd_custom_label_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "dpd_does_not_fit_in_terminal",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-dpd-admin.php",
+                        "line": 296
+                    }
+                ]
+            },
+            {
+                "key": "dpd_shipping_note",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "dpd_shipping_return",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "includes/helpers.php",
+                        "line": 154
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "admin/settings/class-dpd-settings-general.php",
+            "line": 356
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$table",
+            "file": "class-dpd-baltic-activator.php",
+            "line": 124
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$table",
+            "file": "includes/class-dpd-baltic-activator.php",
+            "line": 124
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/helpers.php",
+            "line": 151
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/helpers.php",
+            "line": 154
+        }
+    ]
+}

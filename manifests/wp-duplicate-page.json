@@ -1,0 +1,211 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-duplicate-page",
+        "name": "WP Duplicate Page",
+        "version": "1.8.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:27Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 43,
+    "coverage": {
+        "files_scanned": 31,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 9,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.474
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "njt_duplicate_in_editor",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Page/Settings.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "njt_duplicate_post_types",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Page/Settings.php",
+                        "line": 123
+                    }
+                ]
+            },
+            {
+                "key": "njt_duplicate_reviewed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Page/Settings.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "njt_duplicate_roles",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Page/Settings.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "njt_duplicate_text_link",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Page/Settings.php",
+                        "line": 124
+                    }
+                ]
+            },
+            {
+                "key": "yaymail_wc_settings_banner_notification",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "recommended-modules/yaymail-wc-settings-banner/main.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "yaymail_wc_settings_email_column_hidden",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "recommended-modules/yaymail-wc-settings-email-column/main.php",
+                        "line": 174
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "njt_duplicate_page",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Page/Settings.php",
+                        "line": 139
+                    },
+                    {
+                        "file": "includes/Plugin.php",
+                        "line": 34
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "$metaKey",
+            "file": "includes/Classes/CreateDuplicate.php",
+            "line": 236
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->plugin_prefix}_plugins_page_notification\"",
+            "file": "recommended-modules/filebird-plugins-page-notification/main.php",
+            "line": 79
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->plugin_prefix}_plugins_page_notification\"",
+            "file": "recommended-modules/filebird-plugins-page-notification/main.php",
+            "line": 226
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->plugin_prefix}_plugins_page_notification\"",
+            "file": "recommended-modules/filebird-plugins-page-notification/main.php",
+            "line": 235
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->plugin_prefix}_sidebar_popup_media_page\"",
+            "file": "recommended-modules/filebird-sidebar-popup/main.php",
+            "line": 117
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->plugin_prefix}_sidebar_post_page\"",
+            "file": "recommended-modules/filebird-sidebar-popup/main.php",
+            "line": 120
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->plugin_prefix}_sidebar_product_page\"",
+            "file": "recommended-modules/filebird-sidebar-popup/main.php",
+            "line": 123
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->plugin_prefix}_sidebar_popup_{$type}_page\"",
+            "file": "recommended-modules/filebird-sidebar-popup/main.php",
+            "line": 458
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->plugin_prefix}_sidebar_{$type}_page\"",
+            "file": "recommended-modules/filebird-sidebar-popup/main.php",
+            "line": 461
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->plugin_prefix}_sidebar_{$type}_page\"",
+            "file": "recommended-modules/filebird-sidebar-popup/main.php",
+            "line": 464
+        }
+    ]
+}

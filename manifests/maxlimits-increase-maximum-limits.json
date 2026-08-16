@@ -1,0 +1,185 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "maxlimits-increase-maximum-limits",
+        "name": "MaxLimits - Increase Maximum Upload, Post & PHP Limits",
+        "version": "1.8.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:23Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 6,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 10,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.846
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "maxlimits_allow_tracking",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-maxlimits-admin.php",
+                        "line": 1042
+                    }
+                ]
+            },
+            {
+                "key": "maxlimits_first_activated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "maxlimits-increase-maximum-limits.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "maxlimits_iml_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "maxlimits-increase-maximum-limits.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "maxlimits_insights_consent",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-maxlimits-insights.php",
+                        "line": 138
+                    },
+                    {
+                        "file": "includes/class-maxlimits-insights.php",
+                        "line": 150
+                    }
+                ]
+            },
+            {
+                "key": "maxlimits_install_event_sent",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-maxlimits-insights.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "maxlimits_just_activated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "maxlimits-increase-maximum-limits.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "maxlimits_version_tracked",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-maxlimits-insights.php",
+                        "line": 218
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "dominopress_promoter_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-maxlimits-promoter.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "maxlimits_insights_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-maxlimits-insights.php",
+                        "line": 149
+                    }
+                ]
+            },
+            {
+                "key": "maxlimits_other_plugins_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-maxlimits-admin.php",
+                        "line": 70
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->core->limit_option_name",
+            "file": "includes/class-maxlimits-admin.php",
+            "line": 619
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->core->advanced_option_name",
+            "file": "includes/class-maxlimits-admin.php",
+            "line": 628
+        }
+    ]
+}

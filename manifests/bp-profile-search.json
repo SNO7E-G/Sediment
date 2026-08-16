@@ -1,0 +1,103 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "bp-profile-search",
+        "name": "BP Profile Search",
+        "version": "5.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:24Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 16,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bps_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bps-admin.php",
+                        "line": 279
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "bps_options",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bps-admin.php",
+                        "line": 267
+                    },
+                    {
+                        "file": "bps-start.php",
+                        "line": 45
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "bps_form",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bps-start.php",
+                        "line": 112
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$path",
+            "file": "bps-directory.php",
+            "line": 84
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "bps-start.php",
+            "line": 131
+        }
+    ]
+}

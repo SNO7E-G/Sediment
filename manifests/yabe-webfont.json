@@ -1,0 +1,161 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "yabe-webfont",
+        "name": "Yabe Webfont",
+        "version": "1.0.114",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 35,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 1,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.615
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "yabe_webfont_license",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Api/Setting/License.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "src/Plugin.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "yabe_webfont_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Api/Setting/Option.php",
+                        "line": 48
+                    },
+                    {
+                        "file": "src/Utils/Config.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "yabe_webfont_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Plugin.php",
+                        "line": 144
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "a!yabe/webfont/core/cache:build_cache",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Core/Cache.php",
+                        "line": 68
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "yabe_webfont_scanned_apis_1.0.114",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Api/Router.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "yabe_webfont_scanned_builders_1.0.114",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Builder/Integration.php",
+                        "line": 71
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "migrations/Version20221121114557.php",
+            "line": 35
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/Api/Font.php",
+            "line": 799
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\dirname($file_path)",
+            "file": "src/Utils/Common.php",
+            "line": 62
+        },
+        {
+            "function": "update_option",
+            "expression": "self::OPTION_NAME",
+            "file": "src/Utils/Notice.php",
+            "line": 49
+        },
+        {
+            "function": "update_option",
+            "expression": "self::OPTION_NAME",
+            "file": "src/Utils/Notice.php",
+            "line": 70
+        }
+    ]
+}

@@ -1,0 +1,521 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-cart-abandonment-recovery",
+        "name": "Cart Abandonment Recovery for WooCommerce",
+        "version": "2.1.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:49Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 73,
+        "files_skipped": 0,
+        "write_calls_found": 57,
+        "verified": 31,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 23,
+        "resolution_rate": 0.596
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "wcf_ca_delete_plugin_data",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "allowed_astra_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/astra-notices/class-astra-notices.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "bsf_product_referers",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/bsf-analytics/modules/utm-analytics.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "bsf_usage_last_displayed_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/bsf-analytics/class-bsf-analytics.php",
+                        "line": 400
+                    },
+                    {
+                        "file": "lib/bsf-analytics/class-bsf-analytics.php",
+                        "line": 435
+                    }
+                ]
+            },
+            {
+                "key": "bsf_usage_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/bsf-analytics/class-bsf-analytics.php",
+                        "line": 461
+                    }
+                ]
+            },
+            {
+                "key": "cartflows_ca_use_new_ui",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-cartflows-ca-admin-notices.php",
+                        "line": 311
+                    },
+                    {
+                        "file": "classes/class-cartflows-ca-update.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "classes/class-cartflows-ca-update.php",
+                        "line": 125
+                    },
+                    {
+                        "file": "modules/cart-abandonment/classes/class-cartflows-ca-setting-functions.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "wcar_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cart-abandonment/classes/class-cartflows-ca-db-updater.php",
+                        "line": 92
+                    },
+                    {
+                        "file": "modules/cart-abandonment/classes/class-cartflows-ca-db-updater.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "wcar_do_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-cartflows-ca-loader.php",
+                        "line": 611
+                    }
+                ]
+            },
+            {
+                "key": "wcar_onboarding_completed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/inc/wcar-onboarding.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "wcar_onboarding_skipped",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/inc/wcar-admin.php",
+                        "line": 429
+                    }
+                ]
+            },
+            {
+                "key": "wcar_tracked_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-cartflows-ca-bsf-analytics.php",
+                        "line": 124
+                    }
+                ]
+            },
+            {
+                "key": "wcar_usage_optin",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-cartflows-ca-update.php",
+                        "line": 172
+                    },
+                    {
+                        "file": "classes/class-cartflows-ca-update.php",
+                        "line": 191
+                    }
+                ]
+            },
+            {
+                "key": "wcf_ca_admin_email",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/weekly-email-report/class-cartflows-ca-admin-report-emails.php",
+                        "line": 179
+                    }
+                ]
+            },
+            {
+                "key": "wcf_ca_all_db_tables_created",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cart-abandonment/classes/class-cartflows-ca-database.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "wcf_ca_ignore_users",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-cartflows-ca-update.php",
+                        "line": 155
+                    }
+                ]
+            },
+            {
+                "key": "wcf_ca_show_weekly_report_email_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-cartflows-ca-update.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "wcf_ca_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-cartflows-ca-update.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "classes/class-cartflows-ca-update.php",
+                        "line": 105
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "cartflows_ca_update_order_status_action",
+                "recurrence": "every_fifteen_minutes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "modules/cart-abandonment/classes/class-cartflows-ca-cron.php",
+                        "line": 32
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "bsf_usage_track",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/bsf-analytics/class-bsf-analytics.php",
+                        "line": 457
+                    },
+                    {
+                        "file": "lib/bsf-analytics/class-bsf-analytics.php",
+                        "line": 620
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-cartflows-ca-rollback.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "wcar_2.1.3",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-cartflows-ca-helper.php",
+                        "line": 486
+                    }
+                ]
+            },
+            {
+                "key": "wcar_redirect_to_onboarding",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-cartflows-ca-loader.php",
+                        "line": 616
+                    }
+                ]
+            },
+            {
+                "key": "wcar_state_events_checked",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-cartflows-ca-bsf-analytics.php",
+                        "line": 104
+                    }
+                ]
+            },
+            {
+                "key": "wcf_ca_show_message",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-cartflows-ca-tabs.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "classes/class-cartflows-ca-tabs.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_ca_delete_garbage_coupons",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/cart-abandonment/classes/class-cartflows-ca-setting-functions.php",
+                        "line": 140
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "cartflows_ca_send_report_summary_email",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/weekly-email-report/class-cartflows-ca-admin-report-emails.php",
+                        "line": 58
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$option_key",
+            "file": "classes/class-cartflows-ca-helper.php",
+            "line": 363
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "classes/class-cartflows-ca-helper.php",
+            "line": 366
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "classes/class-cartflows-ca-loader.php",
+            "line": 488
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice_id",
+            "file": "lib/astra-notices/class-astra-notices.php",
+            "line": 154
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$notice_id",
+            "file": "lib/astra-notices/class-astra-notices.php",
+            "line": 156
+        },
+        {
+            "function": "set_transient",
+            "expression": "$notice['id']",
+            "file": "lib/astra-notices/class-astra-notices.php",
+            "line": 377
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$notice['id']",
+            "file": "lib/astra-notices/class-astra-notices.php",
+            "line": 378
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->slug . '_' . $key",
+            "file": "lib/bsf-analytics/class-bsf-analytics-events.php",
+            "line": 198
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$source . '_usage_optin'",
+            "file": "lib/bsf-analytics/class-bsf-analytics.php",
+            "line": 389
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$source . '_usage_optin'",
+            "file": "lib/bsf-analytics/class-bsf-analytics.php",
+            "line": 399
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key . '_usage_optin'",
+            "file": "lib/bsf-analytics/class-bsf-analytics.php",
+            "line": 443
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key . '_usage_installed_time'",
+            "file": "lib/bsf-analytics/class-bsf-analytics.php",
+            "line": 449
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$source . '_usage_installed_time'",
+            "file": "lib/bsf-analytics/class-bsf-analytics.php",
+            "line": 571
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option",
+            "file": "lib/bsf-analytics/class-bsf-analytics.php",
+            "line": 637
+        },
+        {
+            "function": "add_site_option",
+            "expression": "$option",
+            "file": "lib/bsf-analytics/class-bsf-analytics.php",
+            "line": 639
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_nps_id(\\strval($request['plugin_slug']))",
+            "file": "lib/nps-survey/classes/nps-survey-script.php",
+            "line": 417
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_nps_id(\\strval($request['plugin_slug']))",
+            "file": "lib/nps-survey/classes/nps-survey-script.php",
+            "line": 483
+        },
+        {
+            "function": "update_option",
+            "expression": "self::get_nps_id($plugin_slug)",
+            "file": "lib/nps-survey/classes/nps-survey-script.php",
+            "line": 547
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "modules/cart-abandonment/classes/class-cartflows-ca-database.php",
+            "line": 94
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "modules/cart-abandonment/classes/class-cartflows-ca-database.php",
+            "line": 127
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "modules/cart-abandonment/classes/class-cartflows-ca-database.php",
+            "line": 156
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "modules/cart-abandonment/classes/class-cartflows-ca-database.php",
+            "line": 187
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "modules/cart-abandonment/classes/class-cartflows-ca-email-schedule.php",
+            "line": 675
+        }
+    ]
+}

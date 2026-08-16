@@ -1,0 +1,699 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "content-protector",
+        "name": "Passster",
+        "version": "4.3.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:36Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 167,
+        "files_skipped": 0,
+        "write_calls_found": 79,
+        "verified": 63,
+        "resolved": 1,
+        "pattern": 3,
+        "dynamic": 12,
+        "resolution_rate": 0.81
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "active_sitewide_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/freemius/includes/fs-essential-functions.php",
+                        "line": 358
+                    }
+                ]
+            },
+            {
+                "key": "fs_active_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/freemius/includes/fs-essential-functions.php",
+                        "line": 282
+                    },
+                    {
+                        "file": "inc/freemius/includes/fs-essential-functions.php",
+                        "line": 416
+                    },
+                    {
+                        "file": "inc/freemius/start.php",
+                        "line": 208
+                    },
+                    {
+                        "file": "inc/freemius/start.php",
+                        "line": 318
+                    },
+                    {
+                        "file": "inc/freemius/start.php",
+                        "line": 363
+                    },
+                    {
+                        "file": "inc/freemius/start.php",
+                        "line": 528
+                    },
+                    {
+                        "file": "inc/freemius/start.php",
+                        "line": 572
+                    }
+                ]
+            },
+            {
+                "key": "fs_debug_mode",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/freemius/config.php",
+                        "line": 311
+                    },
+                    {
+                        "file": "inc/freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 508
+                    }
+                ]
+            },
+            {
+                "key": "fs_storage_logger",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/freemius/includes/class-fs-logger.php",
+                        "line": 361
+                    }
+                ]
+            },
+            {
+                "key": "passster",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-admin-settings.php",
+                        "line": 235
+                    },
+                    {
+                        "file": "inc/class-ps-migrator.php",
+                        "line": 20
+                    },
+                    {
+                        "file": "inc/class-ps-migrator.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "passster_secure_key",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "content-protector.php",
+                        "line": 56
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}fs_logger",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/freemius/includes/class-fs-logger.php",
+                        "line": 339
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "fs_debug_turn_off_logging_hook",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 296
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_fs_api_connection_retry_counter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/freemius/includes/class-freemius.php",
+                        "line": 21138
+                    }
+                ]
+            },
+            {
+                "key": "fs_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/freemius/includes/class-freemius.php",
+                        "line": 7608
+                    },
+                    {
+                        "file": "inc/freemius/includes/class-freemius.php",
+                        "line": 20788
+                    },
+                    {
+                        "file": "inc/freemius/includes/class-freemius.php",
+                        "line": 20794
+                    }
+                ]
+            },
+            {
+                "key": "fs_snooze_period",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/freemius/includes/class-freemius.php",
+                        "line": 2748
+                    },
+                    {
+                        "file": "inc/freemius/includes/class-freemius.php",
+                        "line": 2750
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "inc/freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "inc/freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 99
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_passster_block_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-ps-block-editor.php",
+                        "line": 314
+                    }
+                ]
+            },
+            {
+                "key": "_passster_source",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-ps-block-editor.php",
+                        "line": 312
+                    }
+                ]
+            },
+            {
+                "key": "_passster_source_post_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-ps-block-editor.php",
+                        "line": 313
+                    }
+                ]
+            },
+            {
+                "key": "passster_activate_misc_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "passster_activate_overwrite_defaults",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "passster_activate_protection",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 43
+                    },
+                    {
+                        "file": "inc/class-ps-block-editor.php",
+                        "line": 317
+                    }
+                ]
+            },
+            {
+                "key": "passster_area_shortcode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-admin.php",
+                        "line": 143
+                    },
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 100
+                    }
+                ]
+            },
+            {
+                "key": "passster_button",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "passster_headline",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "passster_hide",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "passster_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "passster_instruction",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "passster_password",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-admin.php",
+                        "line": 851
+                    },
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "inc/class-ps-block-editor.php",
+                        "line": 321
+                    }
+                ]
+            },
+            {
+                "key": "passster_password_list",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-admin.php",
+                        "line": 859
+                    },
+                    {
+                        "file": "inc/class-ps-block-editor.php",
+                        "line": 327
+                    }
+                ]
+            },
+            {
+                "key": "passster_passwords",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-admin.php",
+                        "line": 855
+                    },
+                    {
+                        "file": "inc/class-ps-block-editor.php",
+                        "line": 324
+                    }
+                ]
+            },
+            {
+                "key": "passster_placeholder",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "passster_protect_child_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "passster_protection_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-admin.php",
+                        "line": 847
+                    },
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 53
+                    },
+                    {
+                        "file": "inc/class-ps-block-editor.php",
+                        "line": 318
+                    }
+                ]
+            },
+            {
+                "key": "passster_redirect_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-meta.php",
+                        "line": 90
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [
+            {
+                "key": "passster_activate_protection",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-ps-category-lock.php",
+                        "line": 485
+                    },
+                    {
+                        "file": "inc/class-ps-category-lock.php",
+                        "line": 906
+                    }
+                ]
+            },
+            {
+                "key": "passster_button",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-ps-category-lock.php",
+                        "line": 504
+                    }
+                ]
+            },
+            {
+                "key": "passster_headline",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-ps-category-lock.php",
+                        "line": 495
+                    }
+                ]
+            },
+            {
+                "key": "passster_instruction",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-ps-category-lock.php",
+                        "line": 498
+                    }
+                ]
+            },
+            {
+                "key": "passster_password",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-ps-category-lock.php",
+                        "line": 488
+                    },
+                    {
+                        "file": "inc/class-ps-category-lock.php",
+                        "line": 909
+                    }
+                ]
+            },
+            {
+                "key": "passster_placeholder",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-ps-category-lock.php",
+                        "line": 501
+                    }
+                ]
+            },
+            {
+                "key": "passster_redirect_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-ps-category-lock.php",
+                        "line": 491
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "protected_areas",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/admin/inc/class-ps-admin.php",
+                        "line": 194
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/freemius/includes/class-fs-plugin-updater.php",
+                    "line": 1286
+                },
+                {
+                    "file": "inc/freemius/includes/fs-essential-functions.php",
+                    "line": 335
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "uninstall_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "inc/freemius/includes/class-freemius.php",
+                    "line": 1896
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "inc/admin/inc/class-ps-meta.php",
+            "line": 272
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$meta_key",
+            "file": "inc/class-ps-category-lock.php",
+            "line": 412
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "inc/freemius/includes/class-freemius.php",
+            "line": 6354
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "inc/freemius/includes/class-freemius.php",
+            "line": 6361
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "inc/freemius/includes/class-freemius.php",
+            "line": 24874
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "inc/freemius/includes/class-fs-lock.php",
+            "line": 57
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "inc/freemius/includes/class-fs-lock.php",
+            "line": 77
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "inc/freemius/includes/class-fs-plugin-updater.php",
+            "line": 819
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "inc/freemius/includes/class-fs-plugin-updater.php",
+            "line": 851
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "inc/freemius/includes/managers/class-fs-debug-manager.php",
+            "line": 265
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "inc/freemius/includes/managers/class-fs-option-manager.php",
+            "line": 410
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "inc/freemius/includes/managers/class-fs-option-manager.php",
+            "line": 414
+        }
+    ]
+}

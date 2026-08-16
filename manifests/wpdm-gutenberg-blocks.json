@@ -1,0 +1,79 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpdm-gutenberg-blocks",
+        "name": "WPDM - Editor Blocks",
+        "version": "3.0.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:08Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 28,
+        "files_skipped": 0,
+        "write_calls_found": 3,
+        "verified": 0,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wpdm_gb_layouts",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/RestAPI.php",
+                        "line": 403
+                    }
+                ]
+            },
+            {
+                "key": "wpdm_gb_link_templates",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/RestAPI.php",
+                        "line": 222
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "libs/RestAPI.php",
+            "line": 371
+        }
+    ]
+}

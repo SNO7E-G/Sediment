@@ -1,0 +1,265 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "google-pagespeed-insights",
+        "name": "Insights from Google PageSpeed",
+        "version": "4.0.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 32,
+        "files_skipped": 0,
+        "write_calls_found": 26,
+        "verified": 16,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.731
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gpagespeedi_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-GPI-Actions.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "classes/class-GPI-Activation.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "classes/class-GPI-Activation.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "classes/class-GPI-Core.php",
+                        "line": 774
+                    }
+                ]
+            },
+            {
+                "key": "gpagespeedi_ui_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-GPI-Actions.php",
+                        "line": 230
+                    },
+                    {
+                        "file": "classes/class-GPI-Activation.php",
+                        "line": 72
+                    },
+                    {
+                        "file": "classes/class-GPI-Activation.php",
+                        "line": 115
+                    }
+                ]
+            },
+            {
+                "key": "gpi_abort_scan",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-GPI-Actions.php",
+                        "line": 155
+                    }
+                ]
+            },
+            {
+                "key": "gpi_check_now",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-GPI-Core.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "gpi_error_message",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-GPI-Core.php",
+                        "line": 296
+                    }
+                ]
+            },
+            {
+                "key": "gpi_missed_url_groups",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-GPI-Core.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "gpi_progress",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-GPI-Core.php",
+                        "line": 232
+                    },
+                    {
+                        "file": "classes/class-GPI-Core.php",
+                        "line": 291
+                    }
+                ]
+            },
+            {
+                "key": "gpi_recheck_urls",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-GPI-Actions.php",
+                        "line": 291
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}gpi_custom_urls",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-GPI-Admin.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}gpi_summary_snapshots",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-GPI-Admin.php",
+                        "line": 106
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "googlepagespeedinsightsworker",
+                "recurrence": "gpi_scheduled_interval",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-GPI-Actions.php",
+                        "line": 234
+                    },
+                    {
+                        "file": "classes/class-GPI-Actions.php",
+                        "line": 237
+                    }
+                ]
+            },
+            {
+                "key": "gpi_prune_logs",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-GPI-Core.php",
+                        "line": 41
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$gpi_page_stats",
+            "file": "classes/class-GPI-Activation.php",
+            "line": 210
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$gpi_page_reports",
+            "file": "classes/class-GPI-Activation.php",
+            "line": 211
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$gpi_page_blacklist",
+            "file": "classes/class-GPI-Activation.php",
+            "line": 212
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$gpi_custom_urls",
+            "file": "classes/class-GPI-Activation.php",
+            "line": 213
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$gpi_summary_snapshots",
+            "file": "classes/class-GPI-Activation.php",
+            "line": 214
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$gpi_api_error_logs",
+            "file": "classes/class-GPI-Activation.php",
+            "line": 215
+        },
+        {
+            "function": "update_option",
+            "expression": "$opt_group",
+            "file": "classes/class-GPI-Core.php",
+            "line": 774
+        }
+    ]
+}

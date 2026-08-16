@@ -1,0 +1,74 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "acymailing",
+        "name": "AcyMailing",
+        "version": "11.0.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 758,
+        "files_skipped": 0,
+        "write_calls_found": 3,
+        "verified": 0,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.333
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [
+            {
+                "key": "IF",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "WpInit/Activation.php",
+                        "line": 60
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "back/Core/wordpress/file.php",
+            "line": 103
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$options['name']",
+            "file": "back/Core/wordpress/miscellaneous.php",
+            "line": 52
+        }
+    ]
+}

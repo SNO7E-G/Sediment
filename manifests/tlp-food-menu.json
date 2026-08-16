@@ -1,0 +1,318 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "tlp-food-menu",
+        "name": "Food Menu - Restaurant Menu & Online Ordering for WooCommerce",
+        "version": "6.0.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:20Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 106,
+        "files_skipped": 0,
+        "write_calls_found": 34,
+        "verified": 18,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 16,
+        "resolution_rate": 0.529
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "rtfm_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Helpers/Install.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "rtfm_ny_2025",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Notices/BlackFriday.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "rtfm_plugin_activation_time",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Notices/Review.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "app/Helpers/Install.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "rtfm_rated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Notices/Review.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "rtfm_remind_me",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Notices/Review.php",
+                        "line": 100
+                    }
+                ]
+            },
+            {
+                "key": "rtfm_spare_me",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Notices/Review.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "app/Controllers/Admin/Notices/Review.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "app/Controllers/Admin/Notices/Review.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "tlp_fm_m_3_0",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Upgrade.php",
+                        "line": 155
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_regular_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/AdminColumns.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "app/Controllers/Admin/Upgrade.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "_rtfm_last_active_tab",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Metabox/ShortcodeMeta.php",
+                        "line": 209
+                    }
+                ]
+            },
+            {
+                "key": "fmp_categories",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Admin/Upgrade.php",
+                        "line": 344
+                    }
+                ]
+            },
+            {
+                "key": "fmp_resi_meta_date",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Reservation/ReservationMeta.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "fmp_resi_meta_invoice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Reservation/ReservationMeta.php",
+                        "line": 206
+                    }
+                ]
+            },
+            {
+                "key": "fmp_resi_meta_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Controllers/Reservation/Reservation.php",
+                        "line": 474
+                    },
+                    {
+                        "file": "app/Controllers/Reservation/ReservationSubmit.php",
+                        "line": 321
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "TLPFoodMenu()->options['flash']",
+            "file": "app/Controllers/Admin/Ajax/Settings.php",
+            "line": 119
+        },
+        {
+            "function": "update_option",
+            "expression": "TLPFoodMenu()->options['settings']",
+            "file": "app/Controllers/Admin/Ajax/Settings.php",
+            "line": 137
+        },
+        {
+            "function": "update_option",
+            "expression": "TLPFoodMenu()->options['settings']",
+            "file": "app/Controllers/Admin/Ajax/Settings.php",
+            "line": 220
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "app/Controllers/Admin/Metabox/PostMeta.php",
+            "line": 118
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "app/Controllers/Admin/Metabox/ShortcodeMeta.php",
+            "line": 191
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "app/Controllers/Admin/Metabox/ShortcodeMeta.php",
+            "line": 194
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$metaKey",
+            "file": "app/Controllers/Admin/Metabox/ShortcodeMeta.php",
+            "line": 199
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "app/Controllers/Admin/Metabox/ShortcodeMeta.php",
+            "line": 202
+        },
+        {
+            "function": "update_option",
+            "expression": "TLPFoodMenu()->options['settings']",
+            "file": "app/Controllers/Admin/Upgrade.php",
+            "line": 133
+        },
+        {
+            "function": "update_option",
+            "expression": "TLPFoodMenu()->options['installed_version']",
+            "file": "app/Controllers/Admin/Upgrade.php",
+            "line": 169
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$post_type",
+            "file": "app/Controllers/PostTypesController.php",
+            "line": 67
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "TLPFoodMenu()->taxonomies[$taxonomy]",
+            "file": "app/Controllers/PostTypesController.php",
+            "line": 93
+        },
+        {
+            "function": "update_option",
+            "expression": "TLPFoodMenu()->options['flash']",
+            "file": "app/Controllers/PostTypesController.php",
+            "line": 350
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "app/Controllers/Reservation/ReservationMeta.php",
+            "line": 182
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$metaKey",
+            "file": "app/Controllers/Reservation/ReservationMeta.php",
+            "line": 187
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "app/Controllers/Reservation/ReservationSubmit.php",
+            "line": 236
+        }
+    ]
+}

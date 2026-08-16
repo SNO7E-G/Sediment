@@ -1,0 +1,1141 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "stripe-payments",
+        "name": "Accept Stripe Payments",
+        "version": "2.1.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:16Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 286,
+        "files_skipped": 0,
+        "write_calls_found": 120,
+        "verified": 109,
+        "resolved": 7,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.967
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "AcceptStripePayments-settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-asp-admin.php",
+                        "line": 1750
+                    },
+                    {
+                        "file": "admin/includes/class-coupons.php",
+                        "line": 211
+                    },
+                    {
+                        "file": "includes/class-asp.php",
+                        "line": 389
+                    },
+                    {
+                        "file": "includes/class-asp.php",
+                        "line": 425
+                    },
+                    {
+                        "file": "includes/class-asp.php",
+                        "line": 446
+                    },
+                    {
+                        "file": "includes/class-asp.php",
+                        "line": 468
+                    }
+                ]
+            },
+            {
+                "key": "asp_cache_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-utils.php",
+                        "line": 920
+                    }
+                ]
+            },
+            {
+                "key": "asp_daily_txn_count_args",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-daily-txn-counter.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "includes/class-asp-daily-txn-counter.php",
+                        "line": 46
+                    },
+                    {
+                        "file": "includes/class-asp-daily-txn-counter.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "asp_hash_private_key_one",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-utils-bot-mitigation.php",
+                        "line": 9
+                    },
+                    {
+                        "file": "includes/class-asp.php",
+                        "line": 331
+                    }
+                ]
+            },
+            {
+                "key": "asp_lib_warning_last_logged_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-utils.php",
+                        "line": 886
+                    }
+                ]
+            },
+            {
+                "key": "asp_log_file_name",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-debug-logger.php",
+                        "line": 18
+                    },
+                    {
+                        "file": "includes/class-asp-debug-logger.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "asp_new_api_notice_dismissed1",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-asp-admin.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "asp_ng_ipn_txn_being_processed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-process-ipn-ng.php",
+                        "line": 319
+                    },
+                    {
+                        "file": "includes/class-asp-process-ipn-ng.php",
+                        "line": 810
+                    }
+                ]
+            },
+            {
+                "key": "asp_plugin_activated_time",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-user-feedback.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "asp_plugin_user_feedback_notice",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-user-feedback.php",
+                        "line": 44
+                    },
+                    {
+                        "file": "admin/includes/class-asp-admin-user-feedback.php",
+                        "line": 172
+                    },
+                    {
+                        "file": "admin/includes/class-asp-admin-user-feedback.php",
+                        "line": 179
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "asp_send_scheduled_email",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-utils.php",
+                        "line": 628
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "asp_admin_msg_arr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-asp-admin.php",
+                        "line": 210
+                    },
+                    {
+                        "file": "admin/class-asp-admin.php",
+                        "line": 222
+                    }
+                ]
+            },
+            {
+                "key": "asp_captcha_solve_ip_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-utils-bot-mitigation.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "asp_full_discount_signature",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-utils-bot-mitigation.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "asp_ng_throttle_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-self-hooks-handler.php",
+                        "line": 317
+                    }
+                ]
+            },
+            {
+                "key": "asp_page_load_signature",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-utils-bot-mitigation.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "asp_request_usage_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-utils-bot-mitigation.php",
+                        "line": 244
+                    }
+                ]
+            },
+            {
+                "key": "wp-asp-urlHash",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-asp-admin.php",
+                        "line": 2083
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "asp_coupon_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-coupons.php",
+                        "line": 560
+                    }
+                ]
+            },
+            {
+                "key": "asp_coupon_red_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-process-ipn-ng.php",
+                        "line": 643
+                    },
+                    {
+                        "file": "includes/process_ipn.php",
+                        "line": 569
+                    }
+                ]
+            },
+            {
+                "key": "asp_is_physical_product",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1153
+                    }
+                ]
+            },
+            {
+                "key": "asp_order_events",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-order-item.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "asp_order_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-order-item.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_authorize_only",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1231
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_button_class",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1262
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_button_only",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1263
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_button_text",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1261
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_collect_billing_addr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1293
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_collect_shipping_addr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1292
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_coupons_setting",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1259
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_currency",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1150
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_currency_variable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1347
+                    },
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1353
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_custom_field",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1260
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_custom_quantity",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1210
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_description",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1266
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_emember_level",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1294
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_enable_stock",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1211
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_extended_authorization",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1235
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_force_test_mode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1227
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_hide_amount_input",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1331
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-order-item.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_min_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1343
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_no_popup_thumbnail",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1284
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_pdf_stamper_enabled",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1257
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_popup_button_text",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1264
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1344
+                    },
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1392
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_quantity",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1208
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_shipping",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1157
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_shipping_variations",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1176
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_show_remaining_items",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1223
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_show_your_order",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1265
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_stock_items",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1212
+                    },
+                    {
+                        "file": "includes/class-asp-process-ipn-ng.php",
+                        "line": 788
+                    },
+                    {
+                        "file": "includes/process_ipn.php",
+                        "line": 645
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_swpm_level",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1295
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_swpm_member_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/integrations/class-asp-swpm-integrations.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_tax",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1181
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_tax_variations",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1201
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_tax_variations_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1204
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_thankyou_page",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1285
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_thumbnail",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1275
+                    },
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1280
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_thumbnail_thumb",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1281
+                    },
+                    {
+                        "file": "includes/class-asp-utils.php",
+                        "line": 716
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1339
+                    }
+                ]
+            },
+            {
+                "key": "asp_product_upload",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1267
+                    }
+                ]
+            },
+            {
+                "key": "asp_stripe_live_pub_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1242
+                    }
+                ]
+            },
+            {
+                "key": "asp_stripe_live_sec_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1244
+                    }
+                ]
+            },
+            {
+                "key": "asp_stripe_test_pub_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1246
+                    }
+                ]
+            },
+            {
+                "key": "asp_stripe_test_sec_key",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1248
+                    }
+                ]
+            },
+            {
+                "key": "asp_sub_plan_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1305
+                    }
+                ]
+            },
+            {
+                "key": "asp_surcharge_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1217
+                    }
+                ]
+            },
+            {
+                "key": "asp_surcharge_label",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1219
+                    }
+                ]
+            },
+            {
+                "key": "asp_surcharge_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1215
+                    }
+                ]
+            },
+            {
+                "key": "asp_use_other_stripe_acc",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1239
+                    }
+                ]
+            },
+            {
+                "key": "asp_user_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-order-item.php",
+                        "line": 39
+                    },
+                    {
+                        "file": "includes/class-asp-order-item.php",
+                        "line": 205
+                    }
+                ]
+            },
+            {
+                "key": "asp_variations_groups",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1311
+                    },
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1322
+                    }
+                ]
+            },
+            {
+                "key": "asp_variations_names",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1313
+                    },
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1323
+                    }
+                ]
+            },
+            {
+                "key": "asp_variations_opts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1319
+                    },
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1326
+                    }
+                ]
+            },
+            {
+                "key": "asp_variations_prices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1315
+                    },
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1324
+                    }
+                ]
+            },
+            {
+                "key": "asp_variations_urls",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1317
+                    },
+                    {
+                        "file": "admin/includes/class-asp-admin-product-meta-boxes.php",
+                        "line": 1325
+                    }
+                ]
+            },
+            {
+                "key": "charge_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-process-ipn-ng.php",
+                        "line": 777
+                    },
+                    {
+                        "file": "includes/process_ipn.php",
+                        "line": 629
+                    }
+                ]
+            },
+            {
+                "key": "order_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-order.php",
+                        "line": 256
+                    },
+                    {
+                        "file": "admin/includes/class-order.php",
+                        "line": 290
+                    },
+                    {
+                        "file": "admin/includes/class-order.php",
+                        "line": 348
+                    },
+                    {
+                        "file": "admin/includes/class-order.php",
+                        "line": 382
+                    },
+                    {
+                        "file": "includes/class-asp-process-ipn-ng.php",
+                        "line": 776
+                    },
+                    {
+                        "file": "includes/process_ipn.php",
+                        "line": 628
+                    }
+                ]
+            },
+            {
+                "key": "pi_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-order-item.php",
+                        "line": 29
+                    },
+                    {
+                        "file": "includes/class-asp-pp-ajax.php",
+                        "line": 644
+                    }
+                ]
+            },
+            {
+                "key": "trans_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-asp-process-ipn-ng.php",
+                        "line": 778
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "asp_dismiss_auc_msg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-asp-admin.php",
+                        "line": 172
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "asp_coupons",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-coupons.php",
+                        "line": 172
+                    }
+                ]
+            },
+            {
+                "key": "stripe_order",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-order.php",
+                        "line": 72
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "register_post_type",
+            "expression": "\\ASPMain::$products_slug",
+            "file": "admin/includes/class-asp-admin-products.php",
+            "line": 79
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->trans_name",
+            "file": "includes/session-handler-class.php",
+            "line": 35
+        },
+        {
+            "function": "set_transient",
+            "expression": "$trans_name",
+            "file": "includes/shortcodes/class-asp-shortcode-ng.php",
+            "line": 677
+        }
+    ]
+}

@@ -1,0 +1,374 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ai",
+        "name": "AI",
+        "version": "1.2.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:33Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 133,
+        "files_skipped": 0,
+        "write_calls_found": 36,
+        "verified": 4,
+        "resolved": 24,
+        "pattern": 0,
+        "dynamic": 8,
+        "resolution_rate": 0.778
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_secrets_master_key",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Vendor/Secrets/Secrets_Provider_Encrypted_Options.php",
+                        "line": 275
+                    },
+                    {
+                        "file": "includes/Vendor/Secrets/Secrets_Provider_Encrypted_Options.php",
+                        "line": 320
+                    },
+                    {
+                        "file": "includes/Vendor/Secrets/Secrets_Provider_Encrypted_Options.php",
+                        "line": 355
+                    }
+                ]
+            },
+            {
+                "key": "wpai_connector_approval_pending",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Connector_Approval/Approvals_Store.php",
+                        "line": 195
+                    },
+                    {
+                        "file": "includes/Connector_Approval/Approvals_Store.php",
+                        "line": 213
+                    }
+                ]
+            },
+            {
+                "key": "wpai_connector_approvals",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Connector_Approval/Approvals_Store.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "wpai_failed_upgrade_message",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Upgrades.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "wpai_feature_editorial-notes_enabled",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Upgrades/V1_0_0.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "wpai_feature_editorial-updates_enabled",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Upgrades/V1_0_0.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "wpai_features_enabled",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Upgrades/V0_6_0.php",
+                        "line": 77
+                    },
+                    {
+                        "file": "includes/Admin/Upgrades/V1_0_0.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "wpai_key_encryption_resume_migration",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Experiments/Key_Encryption/Key_Encryption.php",
+                        "line": 157
+                    }
+                ]
+            },
+            {
+                "key": "wpai_request_logs_schema_version",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Logging/AI_Request_Log_Schema.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "wpai_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/Upgrades.php",
+                        "line": 106
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpai_request_logs_cleanup",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Logging/AI_Request_Log_Manager.php",
+                        "line": 85
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wpai_active_seo_plugin",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Abilities/Meta_Description/SEO_Integration.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "wpai_request_logs_filter_options",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Logging/AI_Request_Log_Repository.php",
+                        "line": 351
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/CLI/Alt_Text_Command.php",
+                        "line": 364
+                    }
+                ]
+            },
+            {
+                "key": "ai_generated_summary",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Experiments/Summarization/Summarization.php",
+                        "line": 90
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "wpai_connector_approval_notice_dismissed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Connector_Approval/Admin_Notice.php",
+                        "line": 110
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "_wpai_analysis_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Abilities/Comment_Moderation/Comment_Analysis.php",
+                        "line": 129
+                    },
+                    {
+                        "file": "includes/Abilities/Comment_Moderation/Comment_Analysis.php",
+                        "line": 136
+                    },
+                    {
+                        "file": "includes/Abilities/Comment_Moderation/Comment_Analysis.php",
+                        "line": 143
+                    },
+                    {
+                        "file": "includes/Experiments/Comment_Moderation/Comment_Moderation.php",
+                        "line": 880
+                    }
+                ]
+            },
+            {
+                "key": "_wpai_analyzed_at",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Abilities/Comment_Moderation/Comment_Analysis.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "_wpai_sentiment",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Abilities/Comment_Moderation/Comment_Analysis.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "_wpai_toxicity_score",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Abilities/Comment_Moderation/Comment_Analysis.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "ai_note",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Experiments/Editorial_Notes/Editorial_Notes.php",
+                        "line": 60
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$new_option",
+            "file": "includes/Admin/Upgrades/V0_5_0.php",
+            "line": 76
+        },
+        {
+            "function": "update_option",
+            "expression": "$new_option",
+            "file": "includes/Admin/Upgrades/V0_6_0.php",
+            "line": 77
+        },
+        {
+            "function": "update_option",
+            "expression": "$setting_name",
+            "file": "includes/Experiments/Key_Encryption/Secrets_Bridge.php",
+            "line": 141
+        },
+        {
+            "function": "update_option",
+            "expression": "$setting_name",
+            "file": "includes/Experiments/Key_Encryption/Secrets_Bridge.php",
+            "line": 181
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/Logging/AI_Request_Log_Repository.php",
+            "line": 310
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/Logging/AI_Request_Log_Schema.php",
+            "line": 146
+        },
+        {
+            "function": "add_option",
+            "expression": "$option_name",
+            "file": "includes/Vendor/Secrets/Secrets_Provider_Encrypted_Options.php",
+            "line": 134
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/Vendor/Secrets/Secrets_Provider_Encrypted_Options.php",
+            "line": 137
+        }
+    ]
+}

@@ -1,0 +1,322 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "limit-login-attempts-reloaded",
+        "name": "Limit Login Attempts Reloaded",
+        "version": "3.3.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 5,
+    "coverage": {
+        "files_scanned": 93,
+        "files_skipped": 0,
+        "write_calls_found": 35,
+        "verified": 4,
+        "resolved": 11,
+        "pattern": 0,
+        "dynamic": 20,
+        "resolution_rate": 0.429
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "auto_update_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/Ajax.php",
+                        "line": 1119
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "llar_mfa_daily_cleanup",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "limit-login-attempts-reloaded.php",
+                        "line": 263
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "llar_dashboard_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/LimitLoginAttempts.php",
+                        "line": 336
+                    }
+                ]
+            },
+            {
+                "key": "llar_digest_storage_cleanup_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/digest/DigestStorage.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "llar_mfa_email_confirm_required",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/mfa/MfaManager.php",
+                        "line": 315
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_llar_digest_day_ts",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/digest/DigestStorage.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "_llar_digest_failed_attempts_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/digest/DigestStorage.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "_llar_digest_ip_stats",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/digest/DigestStorage.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "core/digest/DigestStorage.php",
+                        "line": 205
+                    },
+                    {
+                        "file": "core/digest/DigestStorage.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "_llar_digest_lockouts_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/digest/DigestStorage.php",
+                        "line": 87
+                    }
+                ]
+            },
+            {
+                "key": "_llar_digest_username_stats",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/digest/DigestStorage.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "core/digest/DigestStorage.php",
+                        "line": 212
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "llar_admin",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/LimitLoginAttempts.php",
+                        "line": 896
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "llar_digest_day",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/digest/DigestStorage.php",
+                        "line": 24
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$rate_key",
+            "file": "core/LimitLoginAttempts.php",
+            "line": 2279
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\LLAR\\Core\\MfaConstants::TRANSIENT_MFA_DISABLED",
+            "file": "core/LimitLoginAttempts.php",
+            "line": 2350
+        },
+        {
+            "function": "set_transient",
+            "expression": "$rate_key",
+            "file": "core/LimitLoginAttempts.php",
+            "line": 2355
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::transient_key($token)",
+            "file": "core/LoginFlowTransientStore.php",
+            "line": 114
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock_key",
+            "file": "core/digest/DigestDispatcher.php",
+            "line": 60
+        },
+        {
+            "function": "set_transient",
+            "expression": "$sent_key",
+            "file": "core/digest/DigestDispatcher.php",
+            "line": 68
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$event_hook",
+            "file": "core/digest/DigestScheduler.php",
+            "line": 90
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "(string) $meta_key",
+            "file": "core/digest/DigestStorage.php",
+            "line": 313
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "core/mfa-flow/SessionStore.php",
+            "line": 61
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "core/mfa-flow/SessionStore.php",
+            "line": 111
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "core/mfa-flow/SessionStore.php",
+            "line": 162
+        },
+        {
+            "function": "add_option",
+            "expression": "$lock_name",
+            "file": "core/mfa-flow/SessionStore.php",
+            "line": 192
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "core/mfa-flow/SessionStore.php",
+            "line": 316
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\LLAR\\Core\\MfaConstants::TRANSIENT_MFA_DISABLED",
+            "file": "core/mfa/MfaEndpoint.php",
+            "line": 264
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_pending_rescue_codes_key($user_id)",
+            "file": "core/mfa/MfaManager.php",
+            "line": 58
+        },
+        {
+            "function": "set_transient",
+            "expression": "\\LLAR\\Core\\MfaConstants::TRANSIENT_CHECKBOX_STATE",
+            "file": "core/mfa/MfaManager.php",
+            "line": 329
+        },
+        {
+            "function": "set_transient",
+            "expression": "$rate_key",
+            "file": "core/mfa/MfaManager.php",
+            "line": 406
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_value_key($hash_id)",
+            "file": "core/mfa/rescuepayloadstorage/RescuePayloadOptionsStorage.php",
+            "line": 43
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_expiry_key($hash_id)",
+            "file": "core/mfa/rescuepayloadstorage/RescuePayloadOptionsStorage.php",
+            "line": 44
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_transient_key($hash_id)",
+            "file": "core/mfa/rescuepayloadstorage/RescuePayloadTransientStorage.php",
+            "line": 31
+        }
+    ]
+}

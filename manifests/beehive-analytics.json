@@ -1,0 +1,231 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "beehive-analytics",
+        "name": "Beehive Analytics",
+        "version": "3.5.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 52,
+    "coverage": {
+        "files_scanned": 84,
+        "files_skipped": 0,
+        "write_calls_found": 26,
+        "verified": 5,
+        "resolved": 18,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.885
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "beehive_owner_user",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/controllers/class-installer.php",
+                        "line": 140
+                    },
+                    {
+                        "file": "core/controllers/class-installer.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "beehive_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/controllers/class-settings.php",
+                        "line": 483
+                    },
+                    {
+                        "file": "core/controllers/class-settings.php",
+                        "line": 483
+                    }
+                ]
+            },
+            {
+                "key": "beehive_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/controllers/class-installer.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "core/controllers/class-installer.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "wdev-frash",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/external/free-notices/classes/class-handler.php",
+                        "line": 786
+                    }
+                ]
+            },
+            {
+                "key": "wpmudev_notices",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/external/free-notices/classes/class-handler.php",
+                        "line": 375
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "beehive_cache_timestamp",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/helpers/class-cache.php",
+                        "line": 378
+                    },
+                    {
+                        "file": "core/helpers/class-cache.php",
+                        "line": 384
+                    },
+                    {
+                        "file": "core/helpers/class-cache.php",
+                        "line": 547
+                    },
+                    {
+                        "file": "core/helpers/class-cache.php",
+                        "line": 553
+                    }
+                ]
+            },
+            {
+                "key": "beehive_cache_version",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/helpers/class-cache.php",
+                        "line": 180
+                    },
+                    {
+                        "file": "core/helpers/class-cache.php",
+                        "line": 182
+                    },
+                    {
+                        "file": "core/helpers/class-cache.php",
+                        "line": 393
+                    },
+                    {
+                        "file": "core/helpers/class-cache.php",
+                        "line": 399
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "beehive_manage_settings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/controllers/class-capability.php",
+                        "line": 173
+                    },
+                    {
+                        "file": "core/controllers/class-capability.php",
+                        "line": 207
+                    },
+                    {
+                        "file": "core/controllers/class-capability.php",
+                        "line": 217
+                    },
+                    {
+                        "file": "core/controllers/class-installer.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "beehive_view_analytics",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/controllers/class-capability.php",
+                        "line": 115
+                    },
+                    {
+                        "file": "core/controllers/class-capability.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "core/controllers/class-installer.php",
+                        "line": 166
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "core/external/plugins-cross-sell-page/core/class-utilities.php",
+            "line": 172
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "self::cache_key($key)",
+            "file": "core/helpers/class-cache.php",
+            "line": 194
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::cache_key($key)",
+            "file": "core/helpers/class-cache.php",
+            "line": 196
+        }
+    ]
+}

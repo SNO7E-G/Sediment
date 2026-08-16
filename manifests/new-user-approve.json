@@ -1,0 +1,722 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "new-user-approve",
+        "name": "New User Approve",
+        "version": "3.2.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:44Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 169,
+        "files_skipped": 0,
+        "write_calls_found": 89,
+        "verified": 48,
+        "resolved": 22,
+        "pattern": 4,
+        "dynamic": 15,
+        "resolution_rate": 0.787
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "active_sitewide_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 355
+                    }
+                ]
+            },
+            {
+                "key": "fs_active_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 279
+                    },
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 413
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 208
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 318
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 363
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 528
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 572
+                    }
+                ]
+            },
+            {
+                "key": "fs_debug_mode",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/config.php",
+                        "line": 307
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 505
+                    }
+                ]
+            },
+            {
+                "key": "fs_storage_logger",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-fs-logger.php",
+                        "line": 361
+                    }
+                ]
+            },
+            {
+                "key": "new_user_approve_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/end-points/class-nua-settings-api.php",
+                        "line": 146
+                    },
+                    {
+                        "file": "includes/end-points/class-nua-settings-api.php",
+                        "line": 297
+                    }
+                ]
+            },
+            {
+                "key": "new_user_approve_user_statuses_count",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-pw-new-user-approve.php",
+                        "line": 607
+                    },
+                    {
+                        "file": "class-pw-new-user-approve.php",
+                        "line": 1338
+                    },
+                    {
+                        "file": "includes/class-pw-new-user-approve-user-list.php",
+                        "line": 765
+                    }
+                ]
+            },
+            {
+                "key": "nua_api_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/end-points/class-users-api.php",
+                        "line": 992
+                    }
+                ]
+            },
+            {
+                "key": "nua_app_auth_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-pw-new-user-approve.php",
+                        "line": 665
+                    }
+                ]
+            },
+            {
+                "key": "nua_app_tokens",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/end-points/class-nuaf-mobile-api.php",
+                        "line": 262
+                    },
+                    {
+                        "file": "includes/end-points/class-nuaf-mobile-api.php",
+                        "line": 547
+                    }
+                ]
+            },
+            {
+                "key": "nua_users_count",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-pw-new-user-approve.php",
+                        "line": 413
+                    }
+                ]
+            },
+            {
+                "key": "nua_zapier_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/zapier/includes/nua-zapier-functions.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "nua_zapier_option_status",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/zapier/includes/class-restroutes.php",
+                        "line": 357
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}fs_logger",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-fs-logger.php",
+                        "line": 339
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "fs_debug_turn_off_logging_hook",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 293
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_fs_api_connection_retry_counter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 21117
+                    }
+                ]
+            },
+            {
+                "key": "fs_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 7612
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 20767
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 20773
+                    }
+                ]
+            },
+            {
+                "key": "fs_snooze_period",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 2748
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 2750
+                    }
+                ]
+            },
+            {
+                "key": "new_user_approve_user_statuses",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-pw-new-user-approve.php",
+                        "line": 629
+                    }
+                ]
+            },
+            {
+                "key": "nua_gf_valid_inv_code_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-nua-gravityforms.php",
+                        "line": 403
+                    }
+                ]
+            },
+            {
+                "key": "nua_plugin_status_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/end-points/class-nuaf-mobile-api.php",
+                        "line": 183
+                    },
+                    {
+                        "file": "includes/end-points/class-nuaf-mobile-api.php",
+                        "line": 188
+                    },
+                    {
+                        "file": "includes/end-points/class-nuaf-mobile-api.php",
+                        "line": 193
+                    },
+                    {
+                        "file": "includes/end-points/class-nuaf-mobile-api.php",
+                        "line": 220
+                    },
+                    {
+                        "file": "includes/end-points/class-nuaf-mobile-api.php",
+                        "line": 224
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 96
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_nua_code",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/end-points/class-invitation-code-api.php",
+                        "line": 311
+                    },
+                    {
+                        "file": "includes/end-points/class-invitation-code-api.php",
+                        "line": 889
+                    }
+                ]
+            },
+            {
+                "key": "_nua_code_expiry",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/end-points/class-invitation-code-api.php",
+                        "line": 322
+                    },
+                    {
+                        "file": "includes/end-points/class-invitation-code-api.php",
+                        "line": 892
+                    }
+                ]
+            },
+            {
+                "key": "_nua_code_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-nua-gravityforms.php",
+                        "line": 227
+                    },
+                    {
+                        "file": "includes/class-nua-invitation-code.php",
+                        "line": 1323
+                    },
+                    {
+                        "file": "includes/end-points/class-invitation-code-api.php",
+                        "line": 327
+                    },
+                    {
+                        "file": "includes/end-points/class-invitation-code-api.php",
+                        "line": 893
+                    }
+                ]
+            },
+            {
+                "key": "_nua_usage_limit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-nua-gravityforms.php",
+                        "line": 224
+                    },
+                    {
+                        "file": "includes/class-nua-invitation-code.php",
+                        "line": 1310
+                    },
+                    {
+                        "file": "includes/end-points/class-invitation-code-api.php",
+                        "line": 316
+                    },
+                    {
+                        "file": "includes/end-points/class-invitation-code-api.php",
+                        "line": 890
+                    }
+                ]
+            },
+            {
+                "key": "_registered_users",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-nua-gravityforms.php",
+                        "line": 236
+                    },
+                    {
+                        "file": "includes/class-nua-invitation-code.php",
+                        "line": 1291
+                    },
+                    {
+                        "file": "includes/class-nua-invitation-code.php",
+                        "line": 1298
+                    }
+                ]
+            },
+            {
+                "key": "_total_nua_code",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/end-points/class-invitation-code-api.php",
+                        "line": 321
+                    },
+                    {
+                        "file": "includes/end-points/class-invitation-code-api.php",
+                        "line": 891
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "nua_invcode_used",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/zapier/includes/class-user.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "nua_user_role_based_approved",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/zapier/includes/class-user.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "nua_wl_domain_used",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/zapier/includes/class-user.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "pw_new_user_approve_has_signed_in",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-pw-new-user-approve.php",
+                        "line": 1272
+                    }
+                ]
+            },
+            {
+                "key": "pw_new_user_approve_ignore_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-pw-new-user-approve-admin-approve.php",
+                        "line": 668
+                    }
+                ]
+            },
+            {
+                "key": "pw_user_approve_password_reset",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-nua-email-template-tags.php",
+                        "line": 459
+                    }
+                ]
+            },
+            {
+                "key": "pw_user_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-pw-new-user-approve.php",
+                        "line": 1020
+                    },
+                    {
+                        "file": "class-pw-new-user-approve.php",
+                        "line": 1072
+                    },
+                    {
+                        "file": "class-pw-new-user-approve.php",
+                        "line": 1241
+                    }
+                ]
+            },
+            {
+                "key": "pw_user_status_time",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-pw-new-user-approve.php",
+                        "line": 1022
+                    },
+                    {
+                        "file": "class-pw-new-user-approve.php",
+                        "line": 1073
+                    },
+                    {
+                        "file": "class-pw-new-user-approve.php",
+                        "line": 1242
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "freemius/includes/class-fs-plugin-updater.php",
+                    "line": 1266
+                },
+                {
+                    "file": "freemius/includes/fs-essential-functions.php",
+                    "line": 332
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "uninstall_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "freemius/includes/class-freemius.php",
+                    "line": 1896
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "class-pw-new-user-approve.php",
+            "line": 216
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 6354
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 6361
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 24853
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "freemius/includes/class-fs-lock.php",
+            "line": 57
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "freemius/includes/class-fs-lock.php",
+            "line": 77
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "freemius/includes/class-fs-plugin-updater.php",
+            "line": 799
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "freemius/includes/class-fs-plugin-updater.php",
+            "line": 831
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-debug-manager.php",
+            "line": 262
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-option-manager.php",
+            "line": 410
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-option-manager.php",
+            "line": 414
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$inv->registered_users",
+            "file": "includes/memberpress.php",
+            "line": 242
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$inv->registered_users",
+            "file": "includes/memberpress.php",
+            "line": 245
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$inv->usage_limit_key",
+            "file": "includes/memberpress.php",
+            "line": 251
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$inv->status_key",
+            "file": "includes/memberpress.php",
+            "line": 258
+        }
+    ]
+}

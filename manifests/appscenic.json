@@ -1,0 +1,156 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "appscenic",
+        "name": "AppScenic",
+        "version": "1.2.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:33Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 60,
+    "coverage": {
+        "files_scanned": 32,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 5,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "appscenic_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Upgrade.php",
+                        "line": 31
+                    }
+                ]
+            },
+            {
+                "key": "appscenic_webhook_secret",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/API/Controllers/Webhook.php",
+                        "line": 36
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_product_image_gallery",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Import/ProductImporter.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Import/Importer.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "appscenic_attachment_identifier",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Import/Importer.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "appscenic_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Import/Importer.php",
+                        "line": 68
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "src/AsyncRequests/Library/WP_Background_Process.php",
+            "line": 125
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "src/AsyncRequests/Library/WP_Background_Process.php",
+            "line": 144
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_status_key()",
+            "file": "src/AsyncRequests/Library/WP_Background_Process.php",
+            "line": 182
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_status_key()",
+            "file": "src/AsyncRequests/Library/WP_Background_Process.php",
+            "line": 214
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "src/AsyncRequests/Library/WP_Background_Process.php",
+            "line": 394
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "src/AsyncRequests/Library/WP_Background_Process.php",
+            "line": 696
+        }
+    ]
+}

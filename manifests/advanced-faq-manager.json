@@ -1,0 +1,162 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "advanced-faq-manager",
+        "name": "Advanced FAQ Manager (Best FAQ Plugin for WordPress)",
+        "version": "1.5.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:14Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 23,
+    "coverage": {
+        "files_scanned": 9,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 4,
+        "resolved": 6,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "faq_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-thfaqf-utils.php",
+                        "line": 1264
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "thfaq_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/public/class-thfaqf-public.php",
+                        "line": 334
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_thfaqf_individual_settings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-thfaqf-admin-settings-faq.php",
+                        "line": 395
+                    }
+                ]
+            },
+            {
+                "key": "_thfaqf_items",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-thfaqf-admin-settings-faq.php",
+                        "line": 340
+                    },
+                    {
+                        "file": "includes/public/class-thfaqf-public.php",
+                        "line": 506
+                    },
+                    {
+                        "file": "includes/public/class-thfaqf-public.php",
+                        "line": 747
+                    }
+                ]
+            },
+            {
+                "key": "_thfaqf_settings",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-thfaqf-admin-settings-faq.php",
+                        "line": 385
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "faq",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-thfaqf-admin-settings-faq.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "includes/class-thfaqf-activator.php",
+                        "line": 10
+                    }
+                ]
+            },
+            {
+                "key": "user-comment",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-thfaqf-admin-settings-faq.php",
+                        "line": 87
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "faq_category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-thfaqf-admin-settings-faq.php",
+                        "line": 92
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$rate_key",
+            "file": "includes/public/class-thfaqf-public.php",
+            "line": 460
+        }
+    ]
+}

@@ -1,0 +1,341 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "sns-count-cache",
+        "name": "SNS Count Cache",
+        "version": "1.1.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:49Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 65,
+        "files_skipped": 0,
+        "write_calls_found": 47,
+        "verified": 1,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 43,
+        "resolution_rate": 0.085
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "scc_share_app_status",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-scc-share-app-status-engine.php",
+                        "line": 176
+                    },
+                    {
+                        "file": "includes/class-scc-share-app-status-engine.php",
+                        "line": 274
+                    },
+                    {
+                        "file": "includes/class-scc-share-cache-engine.php",
+                        "line": 279
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "scc_wp_cron_test",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-scc-wp-cron.php",
+                        "line": 319
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "self::DB_SETTINGS",
+            "file": "includes/admin-setting.php",
+            "line": 424
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::OPT_COMMON_ERROR_MESSAGE",
+            "file": "includes/admin-setting.php",
+            "line": 428
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-common-data-export-engine.php",
+            "line": 235
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-common-job-reset-engine.php",
+            "line": 164
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->prime_cron",
+            "file": "includes/class-scc-engine.php",
+            "line": 130
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-follow-analytical-engine.php",
+            "line": 192
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-follow-analytical-engine.php",
+            "line": 372
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-follow-analytical-engine.php",
+            "line": 387
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-follow-base-cache-engine.php",
+            "line": 178
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-scc-follow-cache-engine.php",
+            "line": 172
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-follow-lazy-cache-engine.php",
+            "line": 171
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-follow-restore-cache-engine.php",
+            "line": 145
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_id",
+            "file": "includes/class-scc-follow-restore-cache-engine.php",
+            "line": 199
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-follow-second-cache-engine.php",
+            "line": 165
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-follow-second-cache-engine.php",
+            "line": 207
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-follow-second-cache-engine.php",
+            "line": 243
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-share-analytical-engine.php",
+            "line": 203
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-scc-share-analytical-engine.php",
+            "line": 483
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-scc-share-analytical-engine.php",
+            "line": 493
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-share-analytical-engine.php",
+            "line": 528
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-share-analytical-engine.php",
+            "line": 544
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-share-app-status-engine.php",
+            "line": 149
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-share-base-cache-engine.php",
+            "line": 225
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-share-base-cache-engine.php",
+            "line": 233
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-share-base-cache-engine.php",
+            "line": 284
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-share-base-cache-engine.php",
+            "line": 296
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-share-base-cache-engine.php",
+            "line": 460
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-scc-share-cache-engine.php",
+            "line": 275
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-share-lazy-cache-engine.php",
+            "line": 206
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-share-restore-cache-engine.php",
+            "line": 169
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-share-restore-cache-engine.php",
+            "line": 171
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_id",
+            "file": "includes/class-scc-share-restore-cache-engine.php",
+            "line": 249
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-share-rush-cache-engine.php",
+            "line": 236
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-share-rush-cache-engine.php",
+            "line": 244
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-share-rush-cache-engine.php",
+            "line": 389
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->execute_cron",
+            "file": "includes/class-scc-share-second-cache-engine.php",
+            "line": 189
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-scc-share-second-cache-engine.php",
+            "line": 262
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-scc-share-second-cache-engine.php",
+            "line": 264
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-scc-share-second-cache-engine.php",
+            "line": 268
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-scc-share-second-cache-engine.php",
+            "line": 270
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-share-second-cache-engine.php",
+            "line": 297
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/class-scc-share-second-cache-engine.php",
+            "line": 334
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/class-scc-share-second-cache-engine.php",
+            "line": 356
+        }
+    ]
+}

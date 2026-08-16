@@ -1,0 +1,147 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "kliken-marketing-for-google",
+        "name": "AI Powered Marketing",
+        "version": "1.5.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:25Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 36,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 0,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.583
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "kk_wc_bootstrap_message_dismissed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-plugin.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "kk_wc_welcome_message_dismissed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-plugin.php",
+                        "line": 216
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "kk_wc_activation_redirect",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-plugin.php",
+                        "line": 97
+                    },
+                    {
+                        "file": "classes/class-wc-integration.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "kk_wc_bootstrap_message",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-plugin.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "kk_wc_welcome_message",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/class-plugin.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "classes/class-wc-integration.php",
+                        "line": 157
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "self::get_option_key()",
+            "file": "classes/class-helper.php",
+            "line": 352
+        },
+        {
+            "function": "update_option",
+            "expression": "$state['option_key']",
+            "file": "classes/class-helper.php",
+            "line": 466
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Kliken\\WcPlugin\\Helper::get_option_key()",
+            "file": "classes/class-plugin.php",
+            "line": 78
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Kliken\\WcPlugin\\Helper::get_option_key()",
+            "file": "classes/class-rest-misc-controller.php",
+            "line": 87
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Kliken\\WcPlugin\\Helper::get_option_key()",
+            "file": "classes/class-rest-misc-controller.php",
+            "line": 113
+        }
+    ]
+}

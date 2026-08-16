@@ -1,0 +1,199 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "media-deduper",
+        "name": "Media Deduper",
+        "version": "1.5.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:14Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 36,
+    "coverage": {
+        "files_scanned": 18,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 11,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.867
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mdd-activated",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/class-media-deduper.php",
+                        "line": 293
+                    }
+                ]
+            },
+            {
+                "key": "mdd_reindex_option_changed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-mdd-indexer.php",
+                        "line": 317
+                    }
+                ]
+            },
+            {
+                "key": "mdd_reindex_updated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-mdd-compat-manager.php",
+                        "line": 102
+                    },
+                    {
+                        "file": "inc/class-mdd-indexer.php",
+                        "line": 316
+                    }
+                ]
+            },
+            {
+                "key": "mdd_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-mdd-compat-manager.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "inc/class-mdd-compat-manager.php",
+                        "line": 105
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "mdd_count_indexed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-media-deduper.php",
+                        "line": 750
+                    }
+                ]
+            },
+            {
+                "key": "mdd_duplicate_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-media-deduper.php",
+                        "line": 1273
+                    }
+                ]
+            },
+            {
+                "key": "mdd_sharedfile_ids",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-media-deduper.php",
+                        "line": 1308
+                    }
+                ]
+            },
+            {
+                "key": "mdd_wp_cron_request",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/helper-functions.php",
+                        "line": 79
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-media-deduper.php",
+                        "line": 1496
+                    }
+                ]
+            },
+            {
+                "key": "mdd_size",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-media-deduper.php",
+                        "line": 711
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "mdd_dismissed_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-media-deduper.php",
+                        "line": 406
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "inc/class-mdd-async-test.php",
+            "line": 77
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "inc/class-mdd-indexer.php",
+            "line": 215
+        }
+    ]
+}

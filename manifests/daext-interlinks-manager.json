@@ -1,0 +1,172 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "daext-interlinks-manager",
+        "name": "Interlinks Manager",
+        "version": "1.19",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:11Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 62,
+    "coverage": {
+        "files_scanned": 18,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 12,
+        "resolution_rate": 0.25
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "daextinma_database_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-daextinma-admin.php",
+                        "line": 678
+                    }
+                ]
+            },
+            {
+                "key": "daextinma_options_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-daextinma-admin.php",
+                        "line": 585
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "daextinma_cron_hook",
+                "recurrence": "daextinma_custom_schedule",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "shared/class-daextinma-shared.php",
+                        "line": 2384
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_daextinma_seo_power",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-daextinma-admin.php",
+                        "line": 1007
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$key",
+            "file": "admin/class-daextinma-admin.php",
+            "line": 581
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "admin/class-daextinma-admin.php",
+            "line": 624
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "admin/class-daextinma-admin.php",
+            "line": 636
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "admin/class-daextinma-admin.php",
+            "line": 651
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "admin/class-daextinma-admin.php",
+            "line": 669
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "inc/class-daextinma-rest.php",
+            "line": 279
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->shared->get('slug') . '_analysis_runs'",
+            "file": "inc/class-daextinma-rest.php",
+            "line": 342
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->shared->get('slug') . '_analysis_runs'",
+            "file": "inc/class-daextinma-rest.php",
+            "line": 487
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "inc/daext-notices-manager/class-daext-notices-manager.php",
+            "line": 294
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "inc/daext-notices-manager/class-daext-notices-manager.php",
+            "line": 307
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get('slug') . '_internal_links_data_last_update'",
+            "file": "shared/class-daextinma-shared.php",
+            "line": 1524
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get('slug') . '_juice_data_last_update'",
+            "file": "shared/class-daextinma-shared.php",
+            "line": 1806
+        }
+    ]
+}

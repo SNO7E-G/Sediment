@@ -1,0 +1,145 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "doneren-met-mollie",
+        "name": "Doneren met Mollie",
+        "version": "2.11.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:31Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.455
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dmm_v251_updated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-start.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "dmm_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-start.php",
+                        "line": 112
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "^dmm-webhook/?",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-webhook.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "^dmm-webhook/first/([0-9]+)/secret/([a-zA-Z0-9]+)/?",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-webhook.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "^dmm-webhook/sub/([0-9]+)/?",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-webhook.php",
+                        "line": 46
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sqlDonations",
+            "file": "includes/class-start.php",
+            "line": 65
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sqlDonors",
+            "file": "includes/class-start.php",
+            "line": 83
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sqlSubscriptions",
+            "file": "includes/class-start.php",
+            "line": 102
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"UPDATE {$table_name} SET dm_settlement_currency = 'EUR', dm_settlement_amount = dm_amount\"",
+            "file": "includes/class-start.php",
+            "line": 105
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"UPDATE {$table_donors} SET sub_settlement_currency = 'EUR', sub_settlement_amount = sub_amount\"",
+            "file": "includes/class-start.php",
+            "line": 106
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\"UPDATE {$table_subscriptions} SET sub_settlement_currency = 'EUR', sub_settlement_amount = sub_amount\"",
+            "file": "includes/class-start.php",
+            "line": 107
+        }
+    ]
+}

@@ -1,0 +1,206 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "stripe-tax-for-woocommerce",
+        "name": "Stripe Tax - Sales tax automation for WooCommerce",
+        "version": "2.0.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:06Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 25,
+    "coverage": {
+        "files_scanned": 365,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 11,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.875
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "stripe_string_tax_rate_id_fixer_num_processed_orders",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "WordPress/class-stringtaxrateidfixerscheduledaction.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "stripe_tax_migration",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "WordPress/class-hooks.php",
+                        "line": 1024
+                    },
+                    {
+                        "file": "WordPress/class-hooks.php",
+                        "line": 1030
+                    }
+                ]
+            },
+            {
+                "key": "stripe_tax_string_tax_rate_id_fixer_as_status",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "WordPress/class-stringtaxrateidfixerscheduledaction.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_tax_display_cart",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "WordPress/class-hooks.php",
+                        "line": 454
+                    },
+                    {
+                        "file": "WordPress/class-hooks.php",
+                        "line": 457
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_tax_display_shop",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "WordPress/class-hooks.php",
+                        "line": 453
+                    },
+                    {
+                        "file": "WordPress/class-hooks.php",
+                        "line": 456
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "stripe_tax_calculate_tax_cleanup_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Stripe/class-calculatetax.php",
+                        "line": 1155
+                    }
+                ]
+            },
+            {
+                "key": "stripe_tax_for_woocommerce_activate",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "WordPress/class-pluginactivate.php",
+                        "line": 315
+                    }
+                ]
+            },
+            {
+                "key": "stripe_tax_for_woocommerce_settings_update_error_flag",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Stripe/class-stripetaxpluginhelper.php",
+                        "line": 1487
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_stripe_tax_last_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "WordPress/class-hook-handlers.php",
+                        "line": 140
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "tax_exemption",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Stripe/class-taxexemptions.php",
+                        "line": 83
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "stripe_string_tax_rate_id_fixer",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "WordPress/class-stringtaxrateidfixerscheduledaction.php",
+                        "line": 61
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$this->get_persistent_cache_key($include_scheduled)",
+            "file": "Stripe/class-taxregistrations.php",
+            "line": 143
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_persistent_cache_key()",
+            "file": "Stripe/class-taxsettings.php",
+            "line": 178
+        }
+    ]
+}

@@ -1,0 +1,602 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "activelayer-anti-spam-spam-protection-for-forms-comments",
+        "name": "ActiveLayer Anti-Spam: Spam Protection for Forms & Comments",
+        "version": "1.6.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:53:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 177,
+        "files_skipped": 0,
+        "write_calls_found": 63,
+        "verified": 20,
+        "resolved": 23,
+        "pattern": 5,
+        "dynamic": 15,
+        "resolution_rate": 0.683
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "activelayer_api_key_validated",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Helpers/SettingsHelper.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_elementor_forms_form_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/ElementorForms/AdminSettings.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_fluentforms_form_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/FluentForms/AdminSettings.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_forminator_form_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/Forminator/AdminSettings.php",
+                        "line": 196
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_funnelkit_form_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/FunnelKit/AdminSettings.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_global_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "activelayer-anti-spam-spam-protection-for-forms-comments.php",
+                        "line": 155
+                    },
+                    {
+                        "file": "src/Admin/Settings/SettingsPersistor.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "src/Helpers/SettingsHelper.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_gravityforms_form_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/GravityForms/AdminSettings.php",
+                        "line": 162
+                    },
+                    {
+                        "file": "src/Integrations/GravityForms/AdminSettings.php",
+                        "line": 185
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_last_queue_run",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Queue/QueueWatchdog.php",
+                        "line": 135
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_logs",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Logger/Logger.php",
+                        "line": 45
+                    },
+                    {
+                        "file": "src/Logger/Logger.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_onboarding_completed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Onboarding/OnboardingManager.php",
+                        "line": 158
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_onboarding_dismissed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Onboarding/OnboardingManager.php",
+                        "line": 148
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_opt_out_announce_required",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/UpgradeRunner.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_plugin_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/UpgradeRunner.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_queue_watchdog_notice",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Queue/QueueWatchdog.php",
+                        "line": 220
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_review_request",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Components/ReviewRequestNotice.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "src/Admin/Components/ReviewRequestNotice.php",
+                        "line": 204
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_storage_schema_version",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Storage/SchemaManager.php",
+                        "line": 165
+                    },
+                    {
+                        "file": "src/Storage/SchemaManager.php",
+                        "line": 227
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_sureforms_form_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/SureForms/AdminSettings.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_usage_banner_dismissed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Helpers/UpgradeHelper.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_ws_form_form_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/WSForm/AdminSettings.php",
+                        "line": 180
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "activelayer_queue_watchdog",
+                "recurrence": "activelayer_fifteen_minutes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Queue/QueueWatchdog.php",
+                        "line": 111
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "activelayer_activation_redirect",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "activelayer-anti-spam-spam-protection-for-forms-comments.php",
+                        "line": 149
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_subscription_stats",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Subscription/SubscriptionStats.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_table_creation_failed",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "activelayer-anti-spam-spam-protection-for-forms-comments.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "src/Storage/SchemaManager.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "al_connect_notice_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Connect/ConnectFlow.php",
+                        "line": 263
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_activelayer_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/ContactForm7/AdminSettings.php",
+                        "line": 149
+                    },
+                    {
+                        "file": "src/Integrations/ContactForm7/AdminSettings.php",
+                        "line": 233
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "activelayer_original_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/Comments/SubmissionHandler.php",
+                        "line": 350
+                    },
+                    {
+                        "file": "src/Integrations/WooCommerce/Reviews/ReviewsSubmissionHandler.php",
+                        "line": 264
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/Comments/CommentsIntegration.php",
+                        "line": 158
+                    },
+                    {
+                        "file": "src/Integrations/Comments/SubmissionHandler.php",
+                        "line": 345
+                    },
+                    {
+                        "file": "src/Integrations/Traits/CommentVerdictTrait.php",
+                        "line": 57
+                    },
+                    {
+                        "file": "src/Integrations/Traits/CommentVerdictTrait.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "src/Integrations/WooCommerce/Reviews/ReviewsSubmissionHandler.php",
+                        "line": 259
+                    }
+                ]
+            },
+            {
+                "key": "edd_review_approved",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Integrations/EasyDigitalDownloads/Reviews/ReviewsIntegration.php",
+                        "line": 171
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "manage_activelayer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "activelayer-anti-spam-spam-protection-for-forms-comments.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "activelayer-anti-spam-spam-protection-for-forms-comments.php",
+                        "line": 174
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "activelayer_cleanup_submissions",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Queue/SubmissionCleanup.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_process_submission",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Queue/QueueManager.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_refresh_subscription_stats",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Subscription/SubscriptionStats.php",
+                        "line": 246
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_retry_failed_submissions",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Queue/FailedSubmissionRetrier.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "activelayer_send_feedback",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Queue/QueueManager.php",
+                        "line": 146
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "src/Admin/Pages/IntegrationsPage.php",
+            "line": 966
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Admin/Settings/SettingsPersistor.php",
+            "line": 180
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Connect/ConnectFlow.php",
+            "line": 102
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Integrations/AffiliateWP/AdminSettings.php",
+            "line": 92
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Integrations/BuddySignup/AbstractBuddyAdminSettings.php",
+            "line": 99
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Integrations/Comments/AdminSettings.php",
+            "line": 124
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Integrations/EasyDigitalDownloads/Registration/RegistrationAdminSettings.php",
+            "line": 94
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Integrations/EasyDigitalDownloads/Reviews/ReviewsAdminSettings.php",
+            "line": 108
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Integrations/FormidableForms/EmailReconstructor.php",
+            "line": 182
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Integrations/MemberPress/AdminSettings.php",
+            "line": 101
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Integrations/NinjaForms/EmailReconstructor.php",
+            "line": 172
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Integrations/WooCommerce/Registration/RegistrationAdminSettings.php",
+            "line": 92
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Integrations/WooCommerce/Reviews/ReviewsAdminSettings.php",
+            "line": 110
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$this->get_schema_sql()",
+            "file": "src/Storage/SchemaManager.php",
+            "line": 151
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$this->get_schema_sql()",
+            "file": "src/Storage/SchemaManager.php",
+            "line": 193
+        }
+    ]
+}

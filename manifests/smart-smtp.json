@@ -1,0 +1,217 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "smart-smtp",
+        "name": "SmartSMTP",
+        "version": "1.2.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:12Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 32,
+    "coverage": {
+        "files_scanned": 36,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 6,
+        "resolved": 6,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "smart_smtp_brevo_mailer_validation",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/Providers/Brevo/Mailer.php",
+                        "line": 479
+                    }
+                ]
+            },
+            {
+                "key": "smart_smtp_failed_emails_count",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Controller/Admin/FailedEmailNoticeController.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "smart_smtp_failed_emails_dismissed_count",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Controller/Admin/FailedEmailNoticeController.php",
+                        "line": 69
+                    },
+                    {
+                        "file": "includes/Controller/Admin/FailedEmailNoticeController.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "smart_smtp_failure_notification_last_sent",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Controller/Admin/FailedEmailNoticeController.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "smart_smtp_fallback_dismissed_count",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Controller/Admin/FallbackNoticeController.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "smart_smtp_fallback_triggered_count",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/BaseMailer.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "smart_smtp_is_fallback_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Model/Provider.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "smart_smtp_provider_type",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Model/Provider.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "smart_smtp_secret_iv",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Helper.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "smart_smtp_secret_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Helper.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "smart_smtp_test_mail_configuration",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Model/TestMail.php",
+                        "line": 68
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "smart_smtp_notice_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Controller/Admin/GoogleConnectController.php",
+                        "line": 475
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/Controller/Admin/GoogleConnectController.php",
+            "line": 279
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/Model/Provider.php",
+            "line": 99
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/Model/Provider.php",
+            "line": 112
+        }
+    ]
+}

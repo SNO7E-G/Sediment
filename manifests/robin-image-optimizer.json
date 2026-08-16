@@ -1,0 +1,341 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "robin-image-optimizer",
+        "name": "Robin image optimizer",
+        "version": "2.0.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:40Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 34,
+    "coverage": {
+        "files_scanned": 288,
+        "files_skipped": 0,
+        "write_calls_found": 39,
+        "verified": 10,
+        "resolved": 1,
+        "pattern": 1,
+        "dynamic": 27,
+        "resolution_rate": 0.282
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "factory_plugin_versions",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/core/includes/class-factory-migrations.php",
+                        "line": 400
+                    },
+                    {
+                        "file": "libs/factory/core/includes/class-factory-migrations.php",
+                        "line": 410
+                    }
+                ]
+            },
+            {
+                "key": "robin_image_optimizer_logger_flag",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-rio-plugin.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_io_license",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/class-wrio-premium-provider.php",
+                        "line": 267
+                    },
+                    {
+                        "file": "includes/classes/class-wrio-premium-provider.php",
+                        "line": 463
+                    }
+                ]
+            },
+            {
+                "key": "wrio_freemius_uid",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/class-wrio-premium-provider.php",
+                        "line": 297
+                    }
+                ]
+            },
+            {
+                "key": "wrio_user_subscribed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/includes/class-wrio-subscribe-widget.php",
+                        "line": 220
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wrio/cron/*",
+                "recurrence": null,
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/class-rio-cron.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "wrio/cron/optimization_process",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/classes/class-rio-cron.php",
+                        "line": 81
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wbcr_factory_google_fonts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/forms/controls/google-font.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "wbcr_factory_google_fonts_raw",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/factory/forms/controls/google-font.php",
+                        "line": 135
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wrio_avif_banner_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/boot.php",
+                        "line": 351
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "includes/classes/class-rio-backup.php",
+            "line": 524
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\\WRIO_Plugin::app()->getOptionName('db_version')",
+            "file": "includes/classes/models/class-rio-process-queue-table.php",
+            "line": 183
+        },
+        {
+            "function": "update_option",
+            "expression": "\\WRIO_Plugin::app()->getOptionName('db_version')",
+            "file": "includes/classes/models/class-rio-process-queue-table.php",
+            "line": 188
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_string",
+            "file": "libs/addons/includes/classes/format/class-format-converter-api.php",
+            "line": 229
+        },
+        {
+            "function": "mkdir",
+            "expression": "$cache_dir_path",
+            "file": "libs/factory/bootstrap/includes/functions.php",
+            "line": 163
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_activated')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 194
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 195
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_activated')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 197
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 198
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_migration_error')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 367
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_migration_error')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 371
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 401
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "libs/factory/core/includes/class-factory-migrations.php",
+            "line": 411
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->getPrefix() . $option_name",
+            "file": "libs/factory/core/includes/class-factory-options.php",
+            "line": 273
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPrefix() . $option_name",
+            "file": "libs/factory/core/includes/class-factory-options.php",
+            "line": 300
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "\"{$this->plugin->getPluginName()}_license_autosync\"",
+            "file": "libs/factory/core/includes/premium/class-factory-provider-abstract.php",
+            "line": 199
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "libs/factory/logger/includes/class-logger.php",
+            "line": 195
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "libs/factory/processing/includes/classes/wp-background-process.php",
+            "line": 113
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "libs/factory/processing/includes/classes/wp-background-process.php",
+            "line": 129
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "libs/factory/processing/includes/classes/wp-background-process.php",
+            "line": 159
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "libs/factory/processing/includes/classes/wp-background-process.php",
+            "line": 268
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "libs/factory/processing/includes/classes/wp-background-process.php",
+            "line": 521
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_activated')",
+            "file": "migrations/010309.php",
+            "line": 68
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "migrations/010309.php",
+            "line": 69
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_activated')",
+            "file": "migrations/010309.php",
+            "line": 71
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->getOptionName('plugin_version')",
+            "file": "migrations/010309.php",
+            "line": 72
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "migrations/010501.php",
+            "line": 62
+        }
+    ]
+}

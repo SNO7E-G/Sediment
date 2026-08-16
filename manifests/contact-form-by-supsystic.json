@@ -1,0 +1,217 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "contact-form-by-supsystic",
+        "name": "Contact Form by Supsystic",
+        "version": "1.10.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:02Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 26,
+    "coverage": {
+        "files_scanned": 278,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 0,
+        "resolved": 9,
+        "pattern": 0,
+        "dynamic": 11,
+        "resolution_rate": 0.45
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cfs_full_installed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/modInstaller.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "cfs_opts_data",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/options/models/options.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "cfs_plug_was_used",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 260
+                    }
+                ]
+            },
+            {
+                "key": "cfs_plugin_activation_errors",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/frame.php",
+                        "line": 579
+                    }
+                ]
+            },
+            {
+                "key": "cfs_welcome_sent",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "modules/supsystic_promo/mod.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}cfs_db_installed",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 256
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}cfs_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 255
+                    },
+                    {
+                        "file": "classes/installer.php",
+                        "line": 289
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "cfs-tour-hst",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/installer.php",
+                        "line": 253
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "classes/Twig/Environment.php",
+            "line": 1238
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbCfs::prepareQuery(\"CREATE TABLE IF NOT EXISTS `@__modules` (\\r\\n\\t\\t\\t  `id` smallint(3) NOT NULL AUTO_INCREMENT,\\r\\n\\t\\t\\t  `code` varchar(32) NOT NULL,\\r\\n\\t\\t\\t  `active` tinyint(1) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t  `type_id` tinyint(1) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t  `label` varchar(64) DEFAULT NULL,\\r\\n\\t\\t\\t  `ex_plug_dir` varchar(255) DEFAULT NULL,\\r\\n\\t\\t\\t  PRIMARY KEY (`id`),\\r\\n\\t\\t\\t  UNIQUE INDEX `code` (`code`)\\r\\n\\t\\t\\t) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 20
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbCfs::prepareQuery(\"CREATE TABLE IF NOT EXISTS `@__modules_type` (\\r\\n\\t\\t\\t  `id` smallint(3) NOT NULL AUTO_INCREMENT,\\r\\n\\t\\t\\t  `label` varchar(32) NOT NULL,\\r\\n\\t\\t\\t  PRIMARY KEY (`id`)\\r\\n\\t\\t\\t) AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 142
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbCfs::prepareQuery(\"CREATE TABLE IF NOT EXISTS `@__forms` (\\r\\n\\t\\t\\t\\t`id` INT(11) NOT NULL AUTO_INCREMENT,\\r\\n\\t\\t\\t\\t`label` VARCHAR(255) NOT NULL,\\r\\n\\t\\t\\t\\t`active` TINYINT(1) NOT NULL DEFAULT '1',\\r\\n\\t\\t\\t\\t`original_id` INT(11) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t\\t`unique_id` VARCHAR(8) NOT NULL,\\r\\n\\r\\n\\t\\t\\t\\t`params` MEDIUMTEXT NOT NULL,\\r\\n\\t\\t\\t\\t`html` TEXT NOT NULL,\\r\\n\\t\\t\\t\\t`css` TEXT NOT NULL,\\r\\n\\t\\t\\t\\t`img_preview` VARCHAR(128) NULL DEFAULT NULL,\\r\\n\\r\\n\\t\\t\\t\\t`views` INT(11) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t\\t`unique_views` INT(11) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t\\t`actions` INT(11) NOT NULL DEFAULT '0',\\r\\n\\r\\n\\t\\t\\t\\t`sort_order` MEDIUMINT(5) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t\\t`is_pro`  TINYINT(1) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t\\t`ab_id`  INT(11) NOT NULL DEFAULT '0',\\r\\n\\r\\n\\t\\t\\t\\t`date_created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\\r\\n\\t\\t\\t\\tPRIMARY KEY (`id`)\\r\\n\\t\\t\\t) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 163
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbCfs::prepareQuery(\"CREATE TABLE IF NOT EXISTS `@__contacts` (\\r\\n\\t\\t\\t\\t`id` INT(11) NOT NULL AUTO_INCREMENT,\\r\\n\\t\\t\\t\\t`form_id` INT(11) NOT NULL,\\r\\n\\t\\t\\t\\t`fields` TEXT NOT NULL,\\r\\n\\t\\t\\t\\t`ip` varchar(16) DEFAULT NULL,\\r\\n\\t\\t\\t\\t`url` varchar(255) DEFAULT NULL,\\r\\n\\r\\n\\t\\t\\t\\t`date_created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\\r\\n\\t\\t\\t\\tPRIMARY KEY (`id`)\\r\\n\\t\\t\\t) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 194
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbCfs::prepareQuery(\"CREATE TABLE `@__statistics` (\\r\\n\\t\\t\\t\\t`id` int(11) NOT NULL AUTO_INCREMENT,\\r\\n\\t\\t\\t\\t`form_id` int(11) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t\\t`type` TINYINT(2) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t\\t`is_unique` TINYINT(1) NOT NULL DEFAULT '0',\\r\\n\\t\\t\\t\\t`date_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\\r\\n\\t\\t\\t\\tPRIMARY KEY (`id`)\\r\\n\\t\\t\\t  ) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 211
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbCfs::prepareQuery(\"CREATE TABLE `@__countries` (\\r\\n\\t\\t\\t\\t`id` int(11) NOT NULL AUTO_INCREMENT,\\r\\n\\t\\t\\t\\t`name` varchar(128) NOT NULL,\\r\\n\\t\\t\\t\\t`iso_code_2` varchar(2) DEFAULT NULL,\\r\\n\\t\\t\\t\\t`iso_code_3` varchar(3) DEFAULT NULL,\\r\\n\\t\\t\\t\\tPRIMARY KEY (`id`)\\r\\n\\t\\t\\t  ) DEFAULT CHARSET=utf8;\")",
+            "file": "classes/installer.php",
+            "line": 226
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\dbCfs::prepareQuery(\"CREATE TABLE `@__membership_presets` (\\r\\n\\t\\t\\t\\t`form_id` int(11) NOT NULL,\\r\\n\\t\\t\\t \\t`allow_use` TINYINT(1) NOT NULL DEFAULT 0,\\r\\n\\t\\t\\t\\tPRIMARY KEY (`form_id`)\\r\\n\\t\\t\\t) DEFAULT CHARSET=utf8\")",
+            "file": "classes/installer.php",
+            "line": 241
+        },
+        {
+            "function": "mkdir",
+            "expression": "\\CFS_MODULES_DIR . $code",
+            "file": "classes/modInstaller.php",
+            "line": 86
+        },
+        {
+            "function": "mkdir",
+            "expression": "$path",
+            "file": "classes/utils.php",
+            "line": 29
+        },
+        {
+            "function": "mkdir",
+            "expression": "$destination",
+            "file": "classes/utils.php",
+            "line": 59
+        }
+    ]
+}

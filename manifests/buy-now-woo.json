@@ -1,0 +1,140 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "buy-now-woo",
+        "name": "Quick Buy Now Button for WooCommerce",
+        "version": "1.1.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:11Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 12,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 0,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 13,
+        "resolution_rate": 0.0
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "cdx-wpgs-plugin-info-*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-plugin-suggest.php",
+                        "line": 86
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_last_send'",
+            "file": "includes/usage-tracking/Insights.php",
+            "line": 195
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "includes/usage-tracking/Insights.php",
+            "line": 390
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_allow_tracking'",
+            "file": "includes/usage-tracking/Insights.php",
+            "line": 555
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_notice'",
+            "file": "includes/usage-tracking/Insights.php",
+            "line": 556
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_allow_tracking'",
+            "file": "includes/usage-tracking/Insights.php",
+            "line": 571
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_notice'",
+            "file": "includes/usage-tracking/Insights.php",
+            "line": 572
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "includes/usage-tracking/Insights.php",
+            "line": 746
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_skipped'",
+            "file": "includes/usage-tracking/Insights.php",
+            "line": 1096
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "includes/usage-tracking/License.php",
+            "line": 369
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "includes/usage-tracking/License.php",
+            "line": 653
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "includes/usage-tracking/License.php",
+            "line": 677
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->schedule_hook",
+            "file": "includes/usage-tracking/License.php",
+            "line": 757
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->schedule_hook",
+            "file": "includes/usage-tracking/License.php",
+            "line": 759
+        }
+    ]
+}

@@ -1,0 +1,218 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "comments-import-export-woocommerce",
+        "name": "Comments Import & Export",
+        "version": "2.5.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:21Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 4,
+    "coverage": {
+        "files_scanned": 30,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 9,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.706
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cmt_ex_im_option",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "hf-comments-import-export.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "hw_prod_comment_csv_imp_exp_mapping",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer/class-hf_cmt_impexpcsv-import.php",
+                        "line": 591
+                    }
+                ]
+            },
+            {
+                "key": "hw_shipment_tracking_importer_ftp",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer/class-hf_cmt_impexpcsv-import.php",
+                        "line": 1224
+                    },
+                    {
+                        "file": "includes/importer/class-hf_cmt_impexpcsv-import.php",
+                        "line": 1252
+                    }
+                ]
+            },
+            {
+                "key": "wbte_ema_banner_analytics_page_dismiss",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/banner/class-wbte-ema-banner.php",
+                        "line": 106
+                    }
+                ]
+            },
+            {
+                "key": "wbte_sc_hidden_promotion_banners",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/banner/class-wt-bfcm-twenty-twenty-five.php",
+                        "line": 292
+                    }
+                ]
+            },
+            {
+                "key": "wcie_wt_plugin_reviewed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "hf-comments-import-export.php",
+                        "line": 249
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_hw_cmt_imp_exp_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/class-hf_cmt_impexpcsv-settings.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "wt_bfcm_twenty_twenty_five_banner_state",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/banner/class-wt-bfcm-twenty-twenty-five.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "wt_post_comment_alter_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/importer/class-hf_cmt_impexpcsv-import.php",
+                        "line": 1053
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "hw_cmt_csv_im_ex_auto_export_products",
+                "recurrence": "export_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-hf_cmt_impexpcsv-cron.php",
+                        "line": 50
+                    }
+                ]
+            },
+            {
+                "key": "hw_cmt_csv_im_ex_auto_import_products",
+                "recurrence": "import_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-hf_cmt_impexpcsv-import-cron.php",
+                        "line": 55
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->start_date_option_name",
+            "file": "includes/class-wt-cmt_impexp-plugin-review-request.php",
+            "line": 114
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->banner_state_option_name",
+            "file": "includes/class-wt-cmt_impexp-plugin-review-request.php",
+            "line": 122
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/class-wt-cmt_impexp-plugin-review-request.php",
+            "line": 397
+        },
+        {
+            "function": "update_comment_meta",
+            "expression": "$meta['key']",
+            "file": "includes/importer/class-hf_cmt_impexpcsv-import.php",
+            "line": 973
+        },
+        {
+            "function": "add_comment_meta",
+            "expression": "$meta['key']",
+            "file": "includes/importer/class-hf_cmt_impexpcsv-import.php",
+            "line": 1063
+        }
+    ]
+}

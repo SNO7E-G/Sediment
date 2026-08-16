@@ -1,0 +1,119 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mycryptocheckout",
+        "name": "MyCryptoCheckout",
+        "version": "2.171",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:31Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 49,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 6,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "mycryptocheckout_check_for_valid_payment_id",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/misc_methods_trait.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "mycryptocheckout_hourly",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/admin_trait.php",
+                        "line": 31
+                    }
+                ]
+            },
+            {
+                "key": "mycryptocheckout_retrieve_account",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/admin_trait.php",
+                        "line": 36
+                    },
+                    {
+                        "file": "src/admin_trait.php",
+                        "line": 1199
+                    },
+                    {
+                        "file": "src/ecommerce/woocommerce/WooCommerce.php",
+                        "line": 560
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_mcc_transaction_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/ecommerce/easy_digital_downloads/Easy_Digital_Downloads.php",
+                        "line": 667
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "src/ecommerce/woocommerce/WC_Gateway_MyCryptoCheckout.php",
+            "line": 476
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "src/security_trait.php",
+            "line": 248
+        }
+    ]
+}

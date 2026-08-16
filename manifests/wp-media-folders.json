@@ -1,0 +1,172 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-media-folders",
+        "name": "WP Media folders",
+        "version": "1.1.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:59Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 7,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 10,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.917
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp-media-folders-disclaimer-confirmed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-media-folders.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "wp-media-folders-options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-media-folders.php",
+                        "line": 248
+                    },
+                    {
+                        "file": "classes/wp-media-folders.php",
+                        "line": 264
+                    }
+                ]
+            },
+            {
+                "key": "wp-media-folders-tables",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-media-folders.php",
+                        "line": 274
+                    }
+                ]
+            },
+            {
+                "key": "wp-media-folders-token",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-media-folders.php",
+                        "line": 253
+                    }
+                ]
+            },
+            {
+                "key": "wp-media-folders-version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-media-folders.php",
+                        "line": 268
+                    }
+                ]
+            },
+            {
+                "key": "wpmfs_queue_running",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/queue.php",
+                        "line": 102
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}wpmfs_queue",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/wp-media-folders.php",
+                        "line": 217
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_wp_attached_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/helper.php",
+                        "line": 310
+                    },
+                    {
+                        "file": "classes/helper.php",
+                        "line": 360
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_backup_sizes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/helper.php",
+                        "line": 413
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "classes/helper.php",
+            "line": 283
+        }
+    ]
+}

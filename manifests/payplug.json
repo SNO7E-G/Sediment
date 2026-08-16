@@ -1,0 +1,184 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "payplug",
+        "name": "PayPlug pour WooCommerce (Officiel)",
+        "version": "3.0.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:44Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 72,
+    "coverage": {
+        "files_scanned": 657,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 15,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.682
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "woocommerce_payplug_settings",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woocommerce_payplug_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/PayplugWoocommerceHelper.php",
+                        "line": 748
+                    },
+                    {
+                        "file": "src/Service/Configuration.php",
+                        "line": 659
+                    },
+                    {
+                        "file": "src/Service/Configuration.php",
+                        "line": 699
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_payplug_metadata",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PayplugWoocommerceHelper.php",
+                        "line": 445
+                    }
+                ]
+            },
+            {
+                "key": "_transaction_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controller/ApplePay.php",
+                        "line": 603
+                    },
+                    {
+                        "file": "src/Controller/PayplugGenericGateway.php",
+                        "line": 214
+                    },
+                    {
+                        "file": "src/Controller/PayplugGenericGateway.php",
+                        "line": 327
+                    },
+                    {
+                        "file": "src/Gateway/PPRO/Scalapay.php",
+                        "line": 134
+                    },
+                    {
+                        "file": "src/Gateway/PayplugCreditCard.php",
+                        "line": 308
+                    },
+                    {
+                        "file": "src/Gateway/PayplugGateway.php",
+                        "line": 783
+                    },
+                    {
+                        "file": "src/Gateway/PayplugGateway.php",
+                        "line": 918
+                    },
+                    {
+                        "file": "src/Gateway/PayplugGateway.php",
+                        "line": 1020
+                    },
+                    {
+                        "file": "src/Gateway/PayplugGatewayOney3x.php",
+                        "line": 368
+                    },
+                    {
+                        "file": "src/PayplugWoocommerceRequest.php",
+                        "line": 639
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "payplug_addresses_hash",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateway/PayplugAddressData.php",
+                        "line": 106
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$payplug_gateway->get_option_key()",
+            "file": "src/Admin/Ajax.php",
+            "line": 445
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$refund_meta_key",
+            "file": "src/Controller/PayplugGenericGateway.php",
+            "line": 458
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$refund_meta_key",
+            "file": "src/Gateway/PayplugGateway.php",
+            "line": 1137
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_key()",
+            "file": "src/Gateway/PayplugPermissions.php",
+            "line": 113
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$refund_meta_key",
+            "file": "src/Gateway/PayplugResponse.php",
+            "line": 300
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "src/PayplugWoocommerceHelper.php",
+            "line": 498
+        },
+        {
+            "function": "set_transient",
+            "expression": "self::get_transient_key(self::get_payplug_options())",
+            "file": "src/PayplugWoocommerceHelper.php",
+            "line": 796
+        }
+    ]
+}

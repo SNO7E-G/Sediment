@@ -1,0 +1,220 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "events-for-geodirectory",
+        "name": "Events for GeoDirectory",
+        "version": "2.3.31",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 61,
+    "coverage": {
+        "files_scanned": 52,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 11,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 8,
+        "resolution_rate": 0.6
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "geodir_settings",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gdevents_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/admin-functions.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "geodir_event_db_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-geodir-event-admin-install.php",
+                        "line": 220
+                    }
+                ]
+            },
+            {
+                "key": "geodir_event_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-geodir-event-admin-install.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "geodir_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-geodir-event-activator.php",
+                        "line": 111
+                    },
+                    {
+                        "file": "includes/class-geodir-event-activator.php",
+                        "line": 204
+                    },
+                    {
+                        "file": "uninstall.php",
+                        "line": 187
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "geodir_event_schedule_handle_past_events",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-geodir-event-admin-install.php",
+                        "line": 444
+                    }
+                ]
+            },
+            {
+                "key": "geodir_flush_rewrite_rules",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-geodir-event-post-type.php",
+                        "line": 209
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libraries/class-tgm-plugin-activation.php",
+                        "line": 970
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "tgmpa_dismissed_notice_tgmpa",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libraries/class-tgm-plugin-activation.php",
+                        "line": 1353
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "recently_activated",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/libraries/class-tgm-plugin-activation.php",
+                    "line": 2062
+                },
+                {
+                    "file": "includes/libraries/class-tgm-plugin-activation.php",
+                    "line": 3057
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "self::get_schema()",
+            "file": "includes/admin/class-geodir-event-admin-install.php",
+            "line": 234
+        },
+        {
+            "function": "update_option",
+            "expression": "$post_type . 'category_installed'",
+            "file": "includes/admin/class-geodir-event-admin-install.php",
+            "line": 333
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$rsvp_args['type']",
+            "file": "includes/class-geodir-event-ayi.php",
+            "line": 354
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$rsvp_args['type']",
+            "file": "includes/class-geodir-event-ayi.php",
+            "line": 379
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$rsvp_args['type']",
+            "file": "includes/class-geodir-event-ayi.php",
+            "line": 391
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$rsvp_args['type']",
+            "file": "includes/class-geodir-event-ayi.php",
+            "line": 405
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$post_type",
+            "file": "includes/class-geodir-event-post-type.php",
+            "line": 96
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy",
+            "file": "includes/class-geodir-event-post-type.php",
+            "line": 133
+        }
+    ]
+}

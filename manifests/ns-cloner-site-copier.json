@@ -1,0 +1,250 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ns-cloner-site-copier",
+        "name": "NS Cloner - Site Copier",
+        "version": "4.4.9.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:23Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 40,
+    "coverage": {
+        "files_scanned": 34,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 4,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 11,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ns-media-source-site-url",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-ns-cloner-process-manager.php",
+                        "line": 518
+                    }
+                ]
+            },
+            {
+                "key": "ns_cloner_analytics_mode",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "features/class-ns-cloner-analytics.php",
+                        "line": 170
+                    }
+                ]
+            },
+            {
+                "key": "ns_cloner_analytics_mode_last_saved",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "features/class-ns-cloner-analytics.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "ns_cloner_exited",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-ns-cloner-process-manager.php",
+                        "line": 391
+                    }
+                ]
+            },
+            {
+                "key": "ns_cloner_finish_queries",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-ns-cloner-process-manager.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "ns_cloner_installed_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-ns-cloner.php",
+                        "line": 840
+                    }
+                ]
+            },
+            {
+                "key": "ns_cloner_report",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-ns-cloner-report.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "ns_cloner_saved_request",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-ns-cloner-request.php",
+                        "line": 147
+                    }
+                ]
+            },
+            {
+                "key": "ns_cloner_scheduled",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-ns-cloner-schedule.php",
+                        "line": 126
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "ns_cloner_cron",
+                "recurrence": "ns_cloner_cron_interval",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-ns-cloner-schedule.php",
+                        "line": 76
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "ns_cloner_reviewed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "features/class-ns-cloner-reviews.php",
+                        "line": 75
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$this->batch_key",
+            "file": "abstracts/class-ns-cloner-process.php",
+            "line": 86
+        },
+        {
+            "function": "update_site_option",
+            "expression": "\"{$this->identifier}_dispatched\"",
+            "file": "abstracts/class-ns-cloner-process.php",
+            "line": 130
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$progress_key",
+            "file": "abstracts/class-ns-cloner-process.php",
+            "line": 498
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_key",
+            "file": "class-ns-cloner-request.php",
+            "line": 268
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "class-ns-cloner.php",
+            "line": 839
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "lib/wp-background-processing/classes/wp-background-process.php",
+            "line": 103
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "lib/wp-background-processing/classes/wp-background-process.php",
+            "line": 119
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "lib/wp-background-processing/classes/wp-background-process.php",
+            "line": 237
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "lib/wp-background-processing/classes/wp-background-process.php",
+            "line": 461
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "processes/class-ns-cloner-files-process.php",
+            "line": 67
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->identifier . '_primary_keys'",
+            "file": "processes/class-ns-cloner-rows-process.php",
+            "line": 361
+        }
+    ]
+}

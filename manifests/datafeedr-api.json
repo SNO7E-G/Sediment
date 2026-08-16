@@ -1,0 +1,316 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "datafeedr-api",
+        "name": "Datafeedr API",
+        "version": "1.4.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:58Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 51,
+        "files_skipped": 0,
+        "write_calls_found": 33,
+        "verified": 17,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 12,
+        "resolution_rate": 0.636
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dfrapi_account",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-dfrapi-account.php",
+                        "line": 29
+                    },
+                    {
+                        "file": "functions/global.php",
+                        "line": 1823
+                    },
+                    {
+                        "file": "functions/global.php",
+                        "line": 1881
+                    },
+                    {
+                        "file": "hooks/admin/ajax.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "dfrapi_configuration",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/global.php",
+                        "line": 1776
+                    }
+                ]
+            },
+            {
+                "key": "dfrapi_coupon_networks",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/global.php",
+                        "line": 2044
+                    }
+                ]
+            },
+            {
+                "key": "dfrapi_merchants",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-dfrapi-import.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "dfrapi_networks",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-dfrapi-import.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "dfrapi_product_networks",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/global.php",
+                        "line": 2043
+                    }
+                ]
+            },
+            {
+                "key": "dfrapi_transient_whitelist",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/global.php",
+                        "line": 286
+                    }
+                ]
+            },
+            {
+                "key": "dfrapi_usage_notification_tracker",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "hooks/global/emails.php",
+                        "line": 38
+                    },
+                    {
+                        "file": "hooks/global/emails.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "hooks/global/emails.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "dfrapi_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/upgrade.php",
+                        "line": 24
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "dfrapi_all_networks",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/global.php",
+                        "line": 1905
+                    }
+                ]
+            },
+            {
+                "key": "dfrapi_capi_access_token",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/global.php",
+                        "line": 3222
+                    }
+                ]
+            },
+            {
+                "key": "effiliation_affiliate_ids",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/global.php",
+                        "line": 2496
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_owner_datafeedr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-datafeedr-image-importer.php",
+                        "line": 438
+                    },
+                    {
+                        "file": "functions/global.php",
+                        "line": 725
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-datafeedr-image-importer.php",
+                        "line": 427
+                    },
+                    {
+                        "file": "classes/class-dfrapi-image-uploader.php",
+                        "line": 65
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->hook",
+            "file": "classes/class-datafeedr-cron.php",
+            "line": 80
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "\\dfrapi_as_hook_name($hook)",
+            "file": "functions/global.php",
+            "line": 1294
+        },
+        {
+            "function": "as_schedule_single_action",
+            "expression": "\\dfrapi_as_hook_name($hook)",
+            "file": "functions/global.php",
+            "line": 1310
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "\\dfrapi_as_hook_name($hook)",
+            "file": "functions/global.php",
+            "line": 1327
+        },
+        {
+            "function": "as_schedule_cron_action",
+            "expression": "\\dfrapi_as_hook_name($hook)",
+            "file": "functions/global.php",
+            "line": 1353
+        },
+        {
+            "function": "set_transient",
+            "expression": "$option_name",
+            "file": "functions/global.php",
+            "line": 1947
+        },
+        {
+            "function": "set_transient",
+            "expression": "$option_name",
+            "file": "functions/global.php",
+            "line": 1984
+        },
+        {
+            "function": "set_transient",
+            "expression": "$option_name",
+            "file": "functions/global.php",
+            "line": 2015
+        },
+        {
+            "function": "set_transient",
+            "expression": "$option_name",
+            "file": "functions/global.php",
+            "line": 2067
+        },
+        {
+            "function": "set_transient",
+            "expression": "$option_name",
+            "file": "functions/global.php",
+            "line": 2105
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "hooks/admin/merchants.php",
+            "line": 74
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cooldown_key",
+            "file": "hooks/admin/merchants.php",
+            "line": 81
+        }
+    ]
+}

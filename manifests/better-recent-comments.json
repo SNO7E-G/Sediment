@@ -1,0 +1,169 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "better-recent-comments",
+        "name": "Better Recent Comments",
+        "version": "1.2.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:49Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 68,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 0,
+        "resolved": 0,
+        "pattern": 4,
+        "dynamic": 12,
+        "resolution_rate": 0.0
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "barn2_plugin_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dependencies/barn2/setup-wizard/src/Util.php",
+                        "line": 155
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dependencies/barn2/setup-wizard/src/Starter.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "barn2_plugin_promo_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dependencies/barn2/barn2-lib/src/Admin/Abstract_Plugin_Promo.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "barn2_plugin_review_banner_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dependencies/barn2/barn2-lib/src/Admin/Abstract_Plugin_Promo.php",
+                        "line": 74
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "dependencies/barn2/barn2-lib/src/Cache.php",
+            "line": 82
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$key",
+            "file": "dependencies/barn2/barn2-lib/src/Cache.php",
+            "line": 123
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_cache_key()",
+            "file": "dependencies/barn2/barn2-lib/src/Plugin/Admin/Plugin_Updater.php",
+            "line": 246
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_notice_dismissed_transient_name($notice_type)",
+            "file": "dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Notices.php",
+            "line": 200
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->license_option",
+            "file": "dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php",
+            "line": 452
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_cron_hook()",
+            "file": "dependencies/barn2/barn2-lib/src/Scheduled_Task.php",
+            "line": 29
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "dependencies/barn2/barn2-lib/src/Util.php",
+            "line": 299
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "dependencies/barn2/barn2-lib/src/Util.php",
+            "line": 320
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->get_slug()}_completed\"",
+            "file": "dependencies/barn2/setup-wizard/src/Setup_Wizard.php",
+            "line": 264
+        },
+        {
+            "function": "set_transient",
+            "expression": "$plugin->get_slug() . '_remote_utm_id'",
+            "file": "dependencies/barn2/setup-wizard/src/Util.php",
+            "line": 181
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\"{$this->prefix}_{$this->id}\"",
+            "file": "dependencies/wptrt/admin-notices/src/Dismiss.php",
+            "line": 148
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->prefix}_{$this->id}\"",
+            "file": "dependencies/wptrt/admin-notices/src/Dismiss.php",
+            "line": 151
+        }
+    ]
+}

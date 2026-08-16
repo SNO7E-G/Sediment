@@ -1,0 +1,147 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "gdpr-compliance-cookie-consent",
+        "name": "GDPR Compliance & Cookie Consent",
+        "version": "1.6.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 48,
+    "coverage": {
+        "files_scanned": 71,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 6,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.727
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "gdpr-compliance-cookie-consent-lt",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/STM_Helpers.php",
+                        "line": 52
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_form",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugins/STM_ContactForm7.php",
+                        "line": 162
+                    },
+                    {
+                        "file": "includes/plugins/STM_ContactForm7.php",
+                        "line": 206
+                    }
+                ]
+            },
+            {
+                "key": "_mail",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugins/STM_ContactForm7.php",
+                        "line": 190
+                    },
+                    {
+                        "file": "includes/plugins/STM_ContactForm7.php",
+                        "line": 223
+                    }
+                ]
+            },
+            {
+                "key": "_stmgdpr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugins/STM_WooCommerce.php",
+                        "line": 35
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "stm_gdpr_cookie",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/STM_Cookie.php",
+                        "line": 48
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "gdpr-compliance-cookie-consent",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugins/STM_WordPress.php",
+                        "line": 44
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->key",
+            "file": "includes/cmb2/includes/CMB2_Options.php",
+            "line": 197
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->option_key",
+            "file": "includes/cmb2/includes/CMB2_Options_Hookup.php",
+            "line": 327
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/cmb2/includes/types/CMB2_Type_Taxonomy_Base.php",
+            "line": 80
+        }
+    ]
+}

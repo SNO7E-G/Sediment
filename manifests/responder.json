@@ -1,0 +1,103 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "responder",
+        "name": "Responder",
+        "version": "4.4.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:33Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 68,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 2,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "form_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/PojoForms/DataManager.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "responder_pojo_responder_values",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "integrations/PojoForms/DataManager.php",
+                        "line": 70
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "responder_debug",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin/Debugger.php",
+                        "line": 117
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$metabox_name",
+            "file": "integrations/PojoForms/DataManager.php",
+            "line": 30
+        },
+        {
+            "function": "add_option",
+            "expression": "$optionName",
+            "file": "plugin/OptionsManager.php",
+            "line": 37
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "plugin/OptionsManager.php",
+            "line": 90
+        }
+    ]
+}

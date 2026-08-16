@@ -1,0 +1,180 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mw-wp-form",
+        "name": "MW WP Form",
+        "version": "5.1.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:34Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 52,
+    "coverage": {
+        "files_scanned": 127,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 0,
+        "resolved": 5,
+        "pattern": 0,
+        "dynamic": 12,
+        "resolution_rate": 0.294
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "mwform_deprecated_shortcodes_forms",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controllers/class.deprecation-notice.php",
+                        "line": 132
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_mwf_upload_files",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/functions.php",
+                        "line": 208
+                    }
+                ]
+            },
+            {
+                "key": "mw-wp-form",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/class.setting.php",
+                        "line": 294
+                    }
+                ]
+            },
+            {
+                "key": "tracking_number",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/models/class.setting.php",
+                        "line": 336
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "mw-wp-form",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mw-wp-form.php",
+                        "line": 165
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "classes/controllers/class.chart.php",
+            "line": 121
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir",
+            "file": "classes/functions.php",
+            "line": 139
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "classes/functions.php",
+            "line": 202
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\MWF_config::INQUIRY_DATA_NAME",
+            "file": "classes/models/class.contact-data-setting.php",
+            "line": 194
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "classes/models/class.contact-data-setting.php",
+            "line": 200
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$save_dir",
+            "file": "classes/models/class.directory.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$new_user_file_dir",
+            "file": "classes/models/class.file.php",
+            "line": 82
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->session_id",
+            "file": "classes/models/class.session.php",
+            "line": 99
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->session_id",
+            "file": "classes/models/class.session.php",
+            "line": 115
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->session_id",
+            "file": "classes/models/class.session.php",
+            "line": 140
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->session_id",
+            "file": "classes/models/class.session.php",
+            "line": 178
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$post_type",
+            "file": "mw-wp-form.php",
+            "line": 190
+        }
+    ]
+}

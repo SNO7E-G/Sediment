@@ -1,0 +1,331 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "media-cleaner",
+        "name": "Media Cleaner",
+        "version": "7.2.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:59Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 60,
+    "coverage": {
+        "files_scanned": 27,
+        "files_skipped": 0,
+        "write_calls_found": 42,
+        "verified": 7,
+        "resolved": 15,
+        "pattern": 0,
+        "dynamic": 20,
+        "resolution_rate": 0.524
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "litespeed.conf.cache-rest",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "common/issues.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "meowapps_news",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "common/news.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "common/news.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "common/news.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "wpmc_active_run_id",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/runs.php",
+                        "line": 455
+                    },
+                    {
+                        "file": "classes/runs.php",
+                        "line": 522
+                    }
+                ]
+            },
+            {
+                "key": "wpmc_options",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/core.php",
+                        "line": 3319
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 3411
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 3433
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 3609
+                    },
+                    {
+                        "file": "classes/runs.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "wpmc_scan_lock",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/runs.php",
+                        "line": 182
+                    },
+                    {
+                        "file": "classes/runs.php",
+                        "line": 208
+                    },
+                    {
+                        "file": "classes/runs.php",
+                        "line": 227
+                    },
+                    {
+                        "file": "classes/runs.php",
+                        "line": 259
+                    },
+                    {
+                        "file": "classes/runs.php",
+                        "line": 880
+                    }
+                ]
+            },
+            {
+                "key": "wpmc_schema_upgrade_lock",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/runs.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "wpmc_schema_version",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/core.php",
+                        "line": 3612
+                    },
+                    {
+                        "file": "classes/core.php",
+                        "line": 3625
+                    },
+                    {
+                        "file": "classes/runs.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "wpmc_trash_secret",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/core.php",
+                        "line": 1273
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wpmc_progress",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/core.php",
+                        "line": 2414
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$log_dir",
+            "file": "classes/core.php",
+            "line": 1189
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$root",
+            "file": "classes/core.php",
+            "line": 1298
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\dirname($trash)",
+            "file": "classes/core.php",
+            "line": 1311
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$trash",
+            "file": "classes/core.php",
+            "line": 1329
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\dirname($original_path)",
+            "file": "classes/core.php",
+            "line": 1489
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\dirname($trash_path)",
+            "file": "classes/core.php",
+            "line": 1584
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/core.php",
+            "line": 3471
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/core.php",
+            "line": 3494
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/core.php",
+            "line": 3517
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/core.php",
+            "line": 3537
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/core.php",
+            "line": 3556
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/core.php",
+            "line": 3573
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transientKey",
+            "file": "classes/rest.php",
+            "line": 2028
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "common/news.php",
+            "line": 30
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . '_rating_date'",
+            "file": "common/ratings.php",
+            "line": 53
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . '_rating_date'",
+            "file": "common/ratings.php",
+            "line": 66
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . '_rating_date'",
+            "file": "common/ratings.php",
+            "line": 71
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->prefix . '_rating_date'",
+            "file": "common/ratings.php",
+            "line": 76
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "common/rest.php",
+            "line": 86
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "common/rest.php",
+            "line": 161
+        }
+    ]
+}

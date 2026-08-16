@@ -1,0 +1,282 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "fluent-boards",
+        "name": "Fluent Boards - Project Management Tool",
+        "version": "2.0.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 205,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 7,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 15,
+        "resolution_rate": 0.464
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_fluent_ai_creds",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/AiService.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "_fluent_boards_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Hooks/Handlers/UpdateHandler.php",
+                        "line": 17
+                    },
+                    {
+                        "file": "app/Hooks/Handlers/UpdateHandler.php",
+                        "line": 27
+                    }
+                ]
+            },
+            {
+                "key": "fluent_boards_modules",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Http/Controllers/OptionsController.php",
+                        "line": 843
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "fbs_profile_photo",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Http/Controllers/UserController.php",
+                        "line": 313
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "fluent_boards/one_time_schedule_send_email_for_add_assignee",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/TaskService.php",
+                        "line": 1794
+                    }
+                ]
+            },
+            {
+                "key": "fluent_boards/one_time_schedule_send_email_for_comment",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Http/Controllers/CommentController.php",
+                        "line": 281
+                    }
+                ]
+            },
+            {
+                "key": "fluent_boards/one_time_schedule_send_email_for_due_date_update",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/TaskService.php",
+                        "line": 1794
+                    }
+                ]
+            },
+            {
+                "key": "fluent_boards/one_time_schedule_send_email_for_mention",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/NotificationService.php",
+                        "line": 313
+                    }
+                ]
+            },
+            {
+                "key": "fluent_boards/one_time_schedule_send_email_for_remove_assignee",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/TaskService.php",
+                        "line": 1794
+                    }
+                ]
+            },
+            {
+                "key": "fluent_boards/one_time_schedule_send_email_for_stage_change",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Http/Controllers/TaskController.php",
+                        "line": 1312
+                    },
+                    {
+                        "file": "app/Services/TaskService.php",
+                        "line": 1794
+                    }
+                ]
+            },
+            {
+                "key": "fluent_boards/one_time_schedule_send_email_for_task_archived",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Services/TaskService.php",
+                        "line": 1794
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cacheKey",
+            "file": "app/Modules/MCP/Tools/ContextTools.php",
+            "line": 28
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$targetDir",
+            "file": "app/Services/AttachmentFileService.php",
+            "line": 279
+        },
+        {
+            "function": "mkdir",
+            "expression": "$param['basedir'] . $fbsUploadDir",
+            "file": "app/Services/Libs/FileSystem.php",
+            "line": 168
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/ActivityMigrator.php",
+            "line": 40
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/AttachmentMigrator.php",
+            "line": 46
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/BoardMigrator.php",
+            "line": 40
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/BoardTermMigrator.php",
+            "line": 42
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/CommentsMigrator.php",
+            "line": 46
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/MetaMigrator.php",
+            "line": 34
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/NotificationMigrator.php",
+            "line": 39
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/NotificationUserMigrator.php",
+            "line": 34
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/RelationMigrator.php",
+            "line": 37
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/TaskMetaMigrator.php",
+            "line": 33
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/TaskMigrator.php",
+            "line": 61
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "database/Migrations/TeamMigrator.php",
+            "line": 43
+        }
+    ]
+}

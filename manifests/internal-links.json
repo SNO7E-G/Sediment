@@ -1,0 +1,393 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "internal-links",
+        "name": "Internal Link Juicer",
+        "version": "2.26.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:17Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 137,
+        "files_skipped": 0,
+        "write_calls_found": 44,
+        "verified": 3,
+        "resolved": 28,
+        "pattern": 1,
+        "dynamic": 12,
+        "resolution_rate": 0.705
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "fs_accounts",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/uninstall.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "ilj_configured_keywords_count",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/statistic.php",
+                        "line": 59
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "ilj_filtered_content_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/contenttransient.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "ilj_upload_keywords",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/ajax.php",
+                        "line": 382
+                    }
+                ]
+            },
+            {
+                "key": "ilj_upload_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/ajax.php",
+                        "line": 379
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "ilj_blacklistdefinition",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/editor.php",
+                        "line": 201
+                    }
+                ]
+            },
+            {
+                "key": "ilj_linkdefinition",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/editor.php",
+                        "line": 256
+                    },
+                    {
+                        "file": "helper/keyword.php",
+                        "line": 108
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "ilj_user",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/user.php",
+                        "line": 81
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "ilj_build_batched_index",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/batchbuilding.php",
+                        "line": 412
+                    }
+                ]
+            },
+            {
+                "key": "ilj_delete_index_by_id",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/app.php",
+                        "line": 606
+                    }
+                ]
+            },
+            {
+                "key": "ilj_individual_delete_index",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/options.php",
+                        "line": 258
+                    }
+                ]
+            },
+            {
+                "key": "ilj_individual_index_rebuild_incoming",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/batchbuilding.php",
+                        "line": 266
+                    }
+                ]
+            },
+            {
+                "key": "ilj_individual_index_rebuild_outgoing",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/batchbuilding.php",
+                        "line": 185
+                    }
+                ]
+            },
+            {
+                "key": "ilj_run_setting_batched_index_rebuild",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/batchbuilding.php",
+                        "line": 594
+                    }
+                ]
+            },
+            {
+                "key": "ilj_set_batched_index_rebuild",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/batchbuilding.php",
+                        "line": 463
+                    }
+                ]
+            },
+            {
+                "key": "ilj_set_individual_index_rebuild",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/app.php",
+                        "line": 221
+                    },
+                    {
+                        "file": "core/app.php",
+                        "line": 230
+                    },
+                    {
+                        "file": "core/app.php",
+                        "line": 483
+                    },
+                    {
+                        "file": "core/app.php",
+                        "line": 501
+                    },
+                    {
+                        "file": "core/app.php",
+                        "line": 549
+                    },
+                    {
+                        "file": "core/app.php",
+                        "line": 566
+                    },
+                    {
+                        "file": "core/app.php",
+                        "line": 620
+                    },
+                    {
+                        "file": "core/app.php",
+                        "line": 638
+                    },
+                    {
+                        "file": "core/app.php",
+                        "line": 655
+                    },
+                    {
+                        "file": "helper/options.php",
+                        "line": 269
+                    },
+                    {
+                        "file": "helper/options.php",
+                        "line": 287
+                    },
+                    {
+                        "file": "helper/options.php",
+                        "line": 299
+                    },
+                    {
+                        "file": "helper/options.php",
+                        "line": 312
+                    }
+                ]
+            },
+            {
+                "key": "ilj_set_individual_index_rebuild_incoming",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/batchbuilding.php",
+                        "line": 297
+                    }
+                ]
+            },
+            {
+                "key": "ilj_update_statistics_info",
+                "recurrence": "async",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helper/batchbuilding.php",
+                        "line": 457
+                    },
+                    {
+                        "file": "helper/batchbuilding.php",
+                        "line": 556
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "cache/transient-cache.php",
+            "line": 17
+        },
+        {
+            "function": "update_option",
+            "expression": "$subaction",
+            "file": "core/app.php",
+            "line": 788
+        },
+        {
+            "function": "update_option",
+            "expression": "$subaction",
+            "file": "core/app.php",
+            "line": 790
+        },
+        {
+            "function": "update_option",
+            "expression": "$subaction",
+            "file": "core/app.php",
+            "line": 793
+        },
+        {
+            "function": "update_option",
+            "expression": "$subaction",
+            "file": "core/app.php",
+            "line": 795
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "core/options.php",
+            "line": 160
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "core/options.php",
+            "line": 169
+        },
+        {
+            "function": "add_option",
+            "expression": "$option",
+            "file": "core/options.php",
+            "line": 209
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "core/options.php",
+            "line": 213
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query_linkindex",
+            "file": "database/linkindexindividualtemp.php",
+            "line": 37
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query_linkindex",
+            "file": "database/linkindextemp.php",
+            "line": 35
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query_linkindex",
+            "file": "includes/install.php",
+            "line": 40
+        }
+    ]
+}

@@ -1,0 +1,257 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-myparcel",
+        "name": "MyParcel",
+        "version": "4.26.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:20Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 86,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 5,
+        "resolved": 12,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.739
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "myparcel_hide_be_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/settings/class-wcmypa-settings.php",
+                        "line": 267
+                    }
+                ]
+            },
+            {
+                "key": "myparcel_notice_dismissed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/MessagesRepository.php",
+                        "line": 158
+                    }
+                ]
+            },
+            {
+                "key": "myparcel_notice_persisted",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/MessagesRepository.php",
+                        "line": 53
+                    },
+                    {
+                        "file": "includes/admin/MessagesRepository.php",
+                        "line": 61
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_myparcel_account_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Settings/Api/AccountSettingsService.php",
+                        "line": 163
+                    },
+                    {
+                        "file": "includes/Settings/Api/AccountSettingsService.php",
+                        "line": 231
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_myparcel_checkout_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migration/wcmp-upgrade-migration-v3-0-4.php",
+                        "line": 34
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_myparcel_dashboard_widget",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/views/MyParcelWidget.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_myparcel_export_defaults_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migration/wcmp-installation-migration-v2-0-0.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_myparcel_general_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migration/wcmp-installation-migration-v2-0-0.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_myparcel_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "woocommerce-myparcel.php",
+                        "line": 319
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_myparcel_webhook_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Webhook/Service/WebhookSubscriptionService.php",
+                        "line": 92
+                    },
+                    {
+                        "file": "includes/Webhook/Service/WebhookSubscriptionService.php",
+                        "line": 298
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_myparcel_country_of_origin_variation",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wcmypa-admin.php",
+                        "line": 292
+                    }
+                ]
+            },
+            {
+                "key": "_myparcel_hs_code_variation",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-wcmypa-admin.php",
+                        "line": 342
+                    }
+                ]
+            },
+            {
+                "key": "_myparcel_pps",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Webhook/Hooks/OrderStatusWebhook.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "includes/admin/class-wcmp-export.php",
+                        "line": 1794
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$optionIdentifier",
+            "file": "includes/admin/settings/class-wcmp-settings-data.php",
+            "line": 223
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionIdentifier",
+            "file": "includes/admin/settings/class-wcmp-settings-data.php",
+            "line": 227
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/compatibility/abstract-wc-data-compatibility.php",
+            "line": 173
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/compatibility/abstract-wc-data-compatibility.php",
+            "line": 200
+        },
+        {
+            "function": "add_option",
+            "expression": "$option",
+            "file": "migration/wcmp-upgrade-migration.php",
+            "line": 105
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "migration/wcmp-upgrade-migration.php",
+            "line": 107
+        }
+    ]
+}

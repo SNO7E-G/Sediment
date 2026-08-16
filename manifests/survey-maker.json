@@ -1,0 +1,271 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "survey-maker",
+        "name": "Survey Maker",
+        "version": "5.2.3.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:09Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 50,
+    "coverage": {
+        "files_scanned": 63,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 17,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 10,
+        "resolution_rate": 0.607
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "ays_survey_maker_upgrade_plugin",
+        "condition_default": "false"
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ays_survey_banner_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-survey-maker-admin.php",
+                        "line": 4672
+                    },
+                    {
+                        "file": "admin/class-survey-maker-admin.php",
+                        "line": 4685
+                    }
+                ]
+            },
+            {
+                "key": "ays_survey_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-survey-maker-activator.php",
+                        "line": 297
+                    }
+                ]
+            },
+            {
+                "key": "ays_survey_maker_upgrade_plugin",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/class-survey-maker-admin.php",
+                        "line": 1082
+                    },
+                    {
+                        "file": "admin/class-survey-maker-admin.php",
+                        "line": 1084
+                    }
+                ]
+            },
+            {
+                "key": "ays_survey_sale_btn",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-survey-maker-admin.php",
+                        "line": 1743
+                    },
+                    {
+                        "file": "admin/class-survey-maker-admin.php",
+                        "line": 1757
+                    }
+                ]
+            },
+            {
+                "key": "ays_survey_sale_date",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-survey-maker-admin.php",
+                        "line": 1744
+                    }
+                ]
+            },
+            {
+                "key": "survey_flush_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-survey-maker-custom-post-type.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "survey_maker_agree_terms",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-survey-maker-activator.php",
+                        "line": 880
+                    },
+                    {
+                        "file": "includes/class-survey-maker-ays-welcome.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "includes/class-survey-maker-ays-welcome.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "survey_maker_first_time_activation_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-survey-maker-activator.php",
+                        "line": 891
+                    }
+                ]
+            },
+            {
+                "key": "survey_maker_show_agree_terms",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-survey-maker-activator.php",
+                        "line": 881
+                    },
+                    {
+                        "file": "includes/class-survey-maker-ays-welcome.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "includes/class-survey-maker-ays-welcome.php",
+                        "line": 94
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "ays-*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-survey-maker-custom-post-type.php",
+                        "line": 29
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "ays-survey-maker/([^/]+)/?",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-survey-maker-custom-post-type.php",
+                        "line": 79
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-survey-maker-activator.php",
+            "line": 83
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-survey-maker-activator.php",
+            "line": 112
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-survey-maker-activator.php",
+            "line": 134
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-survey-maker-activator.php",
+            "line": 153
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-survey-maker-activator.php",
+            "line": 175
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-survey-maker-activator.php",
+            "line": 195
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-survey-maker-activator.php",
+            "line": 225
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-survey-maker-activator.php",
+            "line": 251
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-survey-maker-activator.php",
+            "line": 270
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-survey-maker-activator.php",
+            "line": 294
+        }
+    ]
+}

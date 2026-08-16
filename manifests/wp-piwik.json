@@ -1,0 +1,143 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-piwik",
+        "name": "Connect Matomo",
+        "version": "1.1.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:33Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 66,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 1,
+        "resolved": 2,
+        "pattern": 5,
+        "dynamic": 2,
+        "resolution_rate": 0.3
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp-piwik-*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WP_Piwik/Settings.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "wp-piwik-manually",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/WP_Piwik/Settings.php",
+                        "line": 493
+                    }
+                ]
+            },
+            {
+                "key": "wp-piwik-notices",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/WP_Piwik.php",
+                        "line": 1583
+                    },
+                    {
+                        "file": "classes/WP_Piwik.php",
+                        "line": 1585
+                    }
+                ]
+            },
+            {
+                "key": "wp-piwik_global-*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WP_Piwik/Settings.php",
+                        "line": 191
+                    },
+                    {
+                        "file": "classes/WP_Piwik/Settings.php",
+                        "line": 193
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wp-piwik_c_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WP_Piwik/Request.php",
+                        "line": 96
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "wp-piwik_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WP_Piwik/Settings.php",
+                        "line": 211
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "$str_meta_key",
+            "file": "classes/WP_Piwik/Template/MetaBoxCustomVars.php",
+            "line": 64
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$str_meta_key",
+            "file": "classes/WP_Piwik/Template/MetaBoxCustomVars.php",
+            "line": 67
+        }
+    ]
+}

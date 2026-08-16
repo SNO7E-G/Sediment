@@ -1,0 +1,206 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "the-courier-guy",
+        "name": "The Courier Guy Shipping for WooCommerce",
+        "version": "5.5.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 40,
+    "coverage": {
+        "files_scanned": 17,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 5,
+        "resolved": 4,
+        "pattern": 1,
+        "dynamic": 7,
+        "resolution_rate": 0.529
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "dismissed-*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Core/TCG_Plugin.php",
+                        "line": 240
+                    }
+                ]
+            },
+            {
+                "key": "tcg_logging",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Shipping/TCG_ShippingMethod.php",
+                        "line": 413
+                    }
+                ]
+            },
+            {
+                "key": "tcg_password",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Shipping/TCG_ShippingMethod.php",
+                        "line": 403
+                    }
+                ]
+            },
+            {
+                "key": "tcg_ship_logic_access_key_id",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Shipping/TCG_ShippingMethod.php",
+                        "line": 404
+                    }
+                ]
+            },
+            {
+                "key": "tcg_ship_logic_secret_access_key",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Shipping/TCG_ShippingMethod.php",
+                        "line": 405
+                    }
+                ]
+            },
+            {
+                "key": "tcg_ship_logic_secret_access_token",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Shipping/TCG_ShippingMethod.php",
+                        "line": 409
+                    }
+                ]
+            },
+            {
+                "key": "tcg_username",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Shipping/TCG_ShippingMethod.php",
+                        "line": 402
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "tcg_cleanup_transients",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "TheCourierGuy.php",
+                        "line": 46
+                    },
+                    {
+                        "file": "TheCourierGuy.php",
+                        "line": 82
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "Includes/ls-framework-custom/Core/CustomPluginDependencies.php",
+                    "line": 52
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "Core/TCGRateCache.php",
+            "line": 25
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getPluginTextDomain() . '_installed'",
+            "file": "Includes/ls-framework-custom/Core/CustomPlugin.php",
+            "line": 72
+        },
+        {
+            "function": "mkdir",
+            "expression": "$pluginUploadsPath",
+            "file": "Includes/ls-framework-custom/Core/CustomPlugin.php",
+            "line": 255
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$identifier",
+            "file": "Includes/ls-framework-custom/Core/CustomPostType.php",
+            "line": 88
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$identifier",
+            "file": "Includes/ls-framework-custom/Core/CustomPostType.php",
+            "line": 455
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$identifier",
+            "file": "Includes/ls-framework-custom/Core/CustomPostType.php",
+            "line": 517
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$identifier",
+            "file": "Includes/ls-framework-custom/Core/CustomPostType.php",
+            "line": 520
+        }
+    ]
+}

@@ -1,0 +1,126 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpremote",
+        "name": "WP Remote",
+        "version": "6.65",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:40Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 79,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 2,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.4
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "auto_plugin_theme_update_emails",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "callback/wings/manage.php",
+                        "line": 495
+                    },
+                    {
+                        "file": "callback/wings/manage.php",
+                        "line": 669
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wpr_2fa_enabled",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "callback/wings/security.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "wpr_2fa_secret",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "callback/wings/security.php",
+                        "line": 77
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "callback/wings/fs_write.php",
+            "line": 56
+        },
+        {
+            "function": "mkdir",
+            "expression": "$target_dir",
+            "file": "callback/wings/fs_write.php",
+            "line": 375
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$query",
+            "file": "wp_db.php",
+            "line": 116
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "wp_settings.php",
+            "line": 27
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "wp_settings.php",
+            "line": 29
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$name",
+            "file": "wp_settings.php",
+            "line": 66
+        }
+    ]
+}

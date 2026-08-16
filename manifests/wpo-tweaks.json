@@ -1,0 +1,263 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpo-tweaks",
+        "name": "DietPress",
+        "version": "3.5.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:10Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 28,
+        "files_skipped": 0,
+        "write_calls_found": 28,
+        "verified": 10,
+        "resolved": 11,
+        "pattern": 3,
+        "dynamic": 4,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "core_diet_cache_last_gc",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/cache/class-core-diet-cache-purge.php",
+                        "line": 437
+                    }
+                ]
+            },
+            {
+                "key": "core_diet_cache_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/cache/class-core-diet-cache.php",
+                        "line": 214
+                    },
+                    {
+                        "file": "includes/class-core-diet-tools.php",
+                        "line": 252
+                    },
+                    {
+                        "file": "includes/class-core-diet-tools.php",
+                        "line": 273
+                    },
+                    {
+                        "file": "includes/class-core-diet-tools.php",
+                        "line": 293
+                    },
+                    {
+                        "file": "includes/class-core-diet-tools.php",
+                        "line": 763
+                    }
+                ]
+            },
+            {
+                "key": "core_diet_settings",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-core-diet-tools.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "includes/class-core-diet-tools.php",
+                        "line": 136
+                    },
+                    {
+                        "file": "includes/class-core-diet-tools.php",
+                        "line": 184
+                    },
+                    {
+                        "file": "includes/class-core-diet-tools.php",
+                        "line": 717
+                    },
+                    {
+                        "file": "includes/class-core-diet-tools.php",
+                        "line": 758
+                    },
+                    {
+                        "file": "includes/class-core-diet.php",
+                        "line": 122
+                    },
+                    {
+                        "file": "includes/class-core-diet.php",
+                        "line": 212
+                    },
+                    {
+                        "file": "includes/class-core-diet.php",
+                        "line": 366
+                    }
+                ]
+            },
+            {
+                "key": "core_diet_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-core-diet.php",
+                        "line": 220
+                    },
+                    {
+                        "file": "includes/class-core-diet.php",
+                        "line": 304
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "core_diet_cache_gc",
+                "recurrence": "twicedaily",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/cache/class-core-diet-cache.php",
+                        "line": 175
+                    }
+                ]
+            },
+            {
+                "key": "core_diet_clean_transients",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-core-diet-database.php",
+                        "line": 33
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "core_diet_activation_notice",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-core-diet.php",
+                        "line": 223
+                    }
+                ]
+            },
+            {
+                "key": "core_diet_cache_auto_disabled",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/cache/class-core-diet-cache.php",
+                        "line": 216
+                    }
+                ]
+            },
+            {
+                "key": "core_diet_fonts_fail_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-core-diet-perf-fonts.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "core_diet_fonts_lock_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-core-diet-perf-fonts.php",
+                        "line": 149
+                    }
+                ]
+            },
+            {
+                "key": "core_diet_restored_notice_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-core-diet-tools.php",
+                        "line": 771
+                    }
+                ]
+            },
+            {
+                "key": "core_diet_security_removed_notice",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-core-diet.php",
+                        "line": 370
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$root",
+            "file": "includes/cache/class-core-diet-cache-store.php",
+            "line": 62
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "includes/cache/class-core-diet-cache-store.php",
+            "line": 252
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-core-diet-perf-criticalcss.php",
+            "line": 86
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "includes/class-core-diet-perf-fonts.php",
+            "line": 179
+        }
+    ]
+}

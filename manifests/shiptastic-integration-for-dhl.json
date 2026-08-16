@@ -1,0 +1,226 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "shiptastic-integration-for-dhl",
+        "name": "Shiptastic Integration for DHL",
+        "version": "4.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:41Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 59,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 11,
+        "resolved": 0,
+        "pattern": 4,
+        "dynamic": 4,
+        "resolution_rate": 0.579
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woocommerce_shiptastic_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Importer/DHL.php",
+                        "line": 98
+                    },
+                    {
+                        "file": "src/Admin/Importer/DHL.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "src/Admin/Importer/DHL.php",
+                        "line": 114
+                    },
+                    {
+                        "file": "src/Admin/Importer/DHL.php",
+                        "line": 115
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shiptastic_dhl_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Install.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shiptastic_return_address_country",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Importer/DHL.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_shiptastic_shipper_address_country",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Importer/DHL.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_stc_dhl_import_finished",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Importer/DHL.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_stc_internetmarke_import_finished",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Importer/Internetmarke.php",
+                        "line": 53
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "_wc_stc_dhl_im_page_formats_refresh_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Admin.php",
+                        "line": 150
+                    }
+                ]
+            },
+            {
+                "key": "_wc_stc_dhl_im_products_refresh_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Admin.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "wc_stc_dhl_im_current_page_formats",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Api/Internetmarke.php",
+                        "line": 257
+                    }
+                ]
+            },
+            {
+                "key": "wc_stc_dhl_im_products_expire",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/ShippingProvider/DeutschePost.php",
+                        "line": 319
+                    }
+                ]
+            },
+            {
+                "key": "wc_stc_dhl_portokasse_balance",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Api/InternetmarkeRest.php",
+                        "line": 64
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_stc_dhl_paket_api_access_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Api/OAuthPaket.php",
+                        "line": 71
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$method->option_name",
+            "file": "src/Install.php",
+            "line": 196
+        },
+        {
+            "function": "dbDelta",
+            "expression": "self::get_schema()",
+            "file": "src/Install.php",
+            "line": 208
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "src/Package.php",
+            "line": 838
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient",
+            "file": "src/Package.php",
+            "line": 859
+        }
+    ]
+}

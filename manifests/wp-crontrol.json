@@ -1,0 +1,121 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-crontrol",
+        "name": "WP Crontrol",
+        "version": "1.21.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:03Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 31,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 3,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.444
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "crontrol_schedules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/schedule.php",
+                        "line": 41
+                    },
+                    {
+                        "file": "src/schedule.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "wp_crontrol_paused",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/bootstrap.php",
+                        "line": 140
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "crontrol-cron-test-ok",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/bootstrap.php",
+                        "line": 1391
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/bootstrap.php",
+            "line": 90
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$hook",
+            "file": "src/event.php",
+            "line": 171
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook",
+            "file": "src/event.php",
+            "line": 173
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Crontrol\\PAUSED_OPTION",
+            "file": "src/event.php",
+            "line": 229
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Crontrol\\PAUSED_OPTION",
+            "file": "src/event.php",
+            "line": 260
+        }
+    ]
+}

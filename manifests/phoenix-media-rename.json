@@ -1,0 +1,142 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "phoenix-media-rename",
+        "name": "Phoenix Media Rename",
+        "version": "3.13.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:08Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 24,
+    "coverage": {
+        "files_scanned": 7,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 5,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.7
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "Activated_phoenix_media_rename",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "phoenix-media-rename.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "pmr_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-pmr-settings.php",
+                        "line": 21
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_fl_builder_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-plugins.php",
+                        "line": 535
+                    }
+                ]
+            },
+            {
+                "key": "_fl_builder_draft",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-plugins.php",
+                        "line": 535
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attached_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-media-rename.php",
+                        "line": 729
+                    },
+                    {
+                        "file": "classes/class-plugins.php",
+                        "line": 152
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_metadata",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-plugins.php",
+                        "line": 153
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "classes/class-media-rename.php",
+            "line": 935
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/class-pmr-db.php",
+            "line": 100
+        },
+        {
+            "function": "update_option",
+            "expression": "$option['name']",
+            "file": "classes/class-pmr-options.php",
+            "line": 135
+        }
+    ]
+}

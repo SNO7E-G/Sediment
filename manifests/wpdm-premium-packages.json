@@ -1,0 +1,537 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpdm-premium-packages",
+        "name": "Premium Packages - Sell Digital Products Securely",
+        "version": "7.0.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:07Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 161,
+        "files_skipped": 0,
+        "write_calls_found": 58,
+        "verified": 33,
+        "resolved": 9,
+        "pattern": 6,
+        "dynamic": 10,
+        "resolution_rate": 0.724
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "__wpdmpp_cart_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/Cart.php",
+                        "line": 285
+                    }
+                ]
+            },
+            {
+                "key": "__wpdmpp_cart_coupon_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/Cart.php",
+                        "line": 360
+                    }
+                ]
+            },
+            {
+                "key": "__wpdmpp_cart_tax_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/Cart.php",
+                        "line": 463
+                    }
+                ]
+            },
+            {
+                "key": "__wpdmpp_db_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/Installer.php",
+                        "line": 509
+                    }
+                ]
+            },
+            {
+                "key": "__wpdmpp_order_note_templates",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Order/OrderNoteTemplateService.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "src/Admin/Order/OrderNoteTemplateService.php",
+                        "line": 159
+                    }
+                ]
+            },
+            {
+                "key": "__wpdmpp_ssm_sent",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Core/Jobs/DailySalesSummaryJob.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "src/Core/Jobs/DailySalesSummaryJob.php",
+                        "line": 123
+                    }
+                ]
+            },
+            {
+                "key": "_wpdmpp_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Payment/AbstractGateway.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "_wpdmpp_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/Installer.php",
+                        "line": 536
+                    },
+                    {
+                        "file": "src/Admin/Settings/SettingsService.php",
+                        "line": 170
+                    },
+                    {
+                        "file": "src/Admin/Settings/SettingsService.php",
+                        "line": 251
+                    },
+                    {
+                        "file": "src/Admin/Setup/SetupWizardService.php",
+                        "line": 290
+                    },
+                    {
+                        "file": "src/Admin/Setup/SetupWizardService.php",
+                        "line": 310
+                    },
+                    {
+                        "file": "src/Admin/Setup/SetupWizardService.php",
+                        "line": 358
+                    },
+                    {
+                        "file": "src/Invoice/Repository/DatabaseRepository.php",
+                        "line": 232
+                    },
+                    {
+                        "file": "src/Payment/Gateways/PayPalGateway.php",
+                        "line": 158
+                    }
+                ]
+            },
+            {
+                "key": "wpdmpp_active_pom",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Payout/PayoutAdminService.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "wpdmpp_mini_cart_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/hooks.php",
+                        "line": 114
+                    },
+                    {
+                        "file": "src/Cart/MiniCart/MiniCartService.php",
+                        "line": 260
+                    }
+                ]
+            },
+            {
+                "key": "wpdmpp_payout_duration",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Payout/PayoutAdminService.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "src/Admin/Payout/views/payouts.php",
+                        "line": 6
+                    }
+                ]
+            },
+            {
+                "key": "wpdmpp_payout_min_amount",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Payout/PayoutAdminService.php",
+                        "line": 101
+                    }
+                ]
+            },
+            {
+                "key": "wpdmpp_paypal_webhook",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Payment/Gateways/PayPalGateway.php",
+                        "line": 449
+                    }
+                ]
+            },
+            {
+                "key": "wpdmpp_setp_wizard_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Setup/SetupWizardService.php",
+                        "line": 243
+                    },
+                    {
+                        "file": "wpdm-premium-packages.php",
+                        "line": 260
+                    },
+                    {
+                        "file": "wpdm-premium-packages.php",
+                        "line": 295
+                    }
+                ]
+            },
+            {
+                "key": "wpdmpp_user_comission",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Payout/PayoutAdminService.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "src/Admin/Payout/views/payouts.php",
+                        "line": 12
+                    }
+                ]
+            },
+            {
+                "key": "wppm_fx_rate_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/functions.php",
+                        "line": 1815
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpdmpp_daily_sales_summary",
+                "recurrence": "six_hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Core/Jobs/CronJobService.php",
+                        "line": 112
+                    }
+                ]
+            },
+            {
+                "key": "wpdmpp_delete_incomplete_order",
+                "recurrence": "six_hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Core/Jobs/CronJobService.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "wpdmpp_notify_to_renew",
+                "recurrence": "six_hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Core/Jobs/CronJobService.php",
+                        "line": 106
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_wpdmpp_setup_wizard_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wpdm-premium-packages.php",
+                        "line": 261
+                    }
+                ]
+            },
+            {
+                "key": "wpdmpp_license_form_error_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/License/LicenseAdminService.php",
+                        "line": 225
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "__wpdm_sales_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/functions.php",
+                        "line": 1325
+                    }
+                ]
+            },
+            {
+                "key": "__wpdm_sales_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/functions.php",
+                        "line": 1326
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "__wpdm_last_login_time",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Customer/Repository/DatabaseRepository.php",
+                        "line": 177
+                    },
+                    {
+                        "file": "src/Customer/Repository/DatabaseRepository.php",
+                        "line": 347
+                    }
+                ]
+            },
+            {
+                "key": "__wpdm_store",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/functions.php",
+                        "line": 844
+                    }
+                ]
+            },
+            {
+                "key": "__wpdm_store_owner",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/functions.php",
+                        "line": 841
+                    }
+                ]
+            },
+            {
+                "key": "__wpdmpp_payment_account",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Payout/PayoutService.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "__wpdmpp_total_spent",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Customer/Repository/DatabaseRepository.php",
+                        "line": 173
+                    },
+                    {
+                        "file": "src/Customer/Repository/DatabaseRepository.php",
+                        "line": 330
+                    }
+                ]
+            },
+            {
+                "key": "user_billing_shipping",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/functions.php",
+                        "line": 848
+                    },
+                    {
+                        "file": "src/Customer/BillingInfoService.php",
+                        "line": 160
+                    },
+                    {
+                        "file": "wpdm-premium-packages.php",
+                        "line": 823
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [
+            {
+                "key": "wpdmpp_customer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/libs/Installer.php",
+                        "line": 544
+                    }
+                ]
+            }
+        ],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "self::$log_dir",
+            "file": "includes/libs/Logger.php",
+            "line": 90
+        },
+        {
+            "function": "update_option",
+            "expression": "$cart_id",
+            "file": "includes/libs/cart-functions.php",
+            "line": 582
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/Admin/Customer/views/customers.php",
+            "line": 157
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/Admin/Metabox/views/product-sales-overview.php",
+            "line": 127
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/Admin/Order/views/list-orders.php",
+            "line": 126
+        },
+        {
+            "function": "update_option",
+            "expression": "$cartId",
+            "file": "src/Cart/Storage/OptionsStorage.php",
+            "line": 89
+        },
+        {
+            "function": "update_option",
+            "expression": "$trackingKey",
+            "file": "src/Core/Jobs/OrderRenewalNotificationJob.php",
+            "line": 140
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "src/Product/Repository/MetaRepository.php",
+            "line": 97
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Security/RateLimiter.php",
+            "line": 92
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "src/Security/RateLimiter.php",
+            "line": 129
+        }
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "testimonial-widgets",
+        "name": "WP Testimonials",
+        "version": "1.4.13",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:28Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 50,
+    "coverage": {
+        "files_scanned": 13,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 4,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.571
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp-testimonials-visited-get-reviews",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "testimonials-plugin.class.php",
+                        "line": 1009
+                    }
+                ]
+            },
+            {
+                "key": "wpttst_custom_forms",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "testimonials-plugin.class.php",
+                        "line": 1006
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wpt-testimonial",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "post-types.php",
+                        "line": 9
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "wpt-testimonial-category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "post-types.php",
+                        "line": 14
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "post-editor.class.php",
+            "line": 237
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "post-editor.class.php",
+            "line": 263
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "testimonials-plugin.class.php",
+            "line": 3938
+        }
+    ]
+}

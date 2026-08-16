@@ -1,0 +1,118 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "duplica",
+        "name": "Duplica",
+        "version": "0.16",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 54,
+    "coverage": {
+        "files_scanned": 11,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "duplica_install_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "duplica_settings_init",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin.php",
+                        "line": 150
+                    }
+                ]
+            },
+            {
+                "key": "duplica_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin.php",
+                        "line": 54
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "codexpert-daily",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Cron.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_elementor_page_assets",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/AJAX.php",
+                        "line": 85
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "src/AJAX.php",
+            "line": 130
+        }
+    ]
+}

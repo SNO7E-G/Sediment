@@ -1,0 +1,188 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-fingerprint",
+        "name": "WP Fingerprint",
+        "version": "2.1.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:55Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 16,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 13,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.867
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpfingerprint_checkstamp",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpfingerprint-api.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "inc/class-wpfingerprint-api.php",
+                        "line": 68
+                    }
+                ]
+            },
+            {
+                "key": "wpfingerprint_checksum",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpfingerprint-plugins.php",
+                        "line": 135
+                    },
+                    {
+                        "file": "inc/class-wpfingerprint-plugins.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "wpfingerprint_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-fingerprint.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "wpfingerprint_fails",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-fingerprint.php",
+                        "line": 88
+                    }
+                ]
+            },
+            {
+                "key": "wpfingerprint_invalid",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpfingerprint-api.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "wpfingerprint_last_run",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpfingerprint-runner.php",
+                        "line": 227
+                    },
+                    {
+                        "file": "wp-fingerprint.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "wpfingerprint_mode",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-fingerprint.php",
+                        "line": 87
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wpfingerprint_cron",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-fingerprint.php",
+                        "line": 90
+                    }
+                ]
+            },
+            {
+                "key": "wpfingerprint_run_now",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class-wpfingerprint-model-checksums.php",
+                        "line": 125
+                    },
+                    {
+                        "file": "inc/class-wpfingerprint-settings.php",
+                        "line": 136
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "inc/class-wpfingerprint-model-checksums.php",
+            "line": 28
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "inc/class-wpfingerprint-model-diffs.php",
+            "line": 33
+        }
+    ]
+}

@@ -1,0 +1,205 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wps-cleaner",
+        "name": "WPS Cleaner",
+        "version": "1.6.11",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:10Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 21,
+    "coverage": {
+        "files_scanned": 26,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 11,
+        "resolved": 1,
+        "pattern": 2,
+        "dynamic": 1,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wps_cleaner_alert",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/plugin.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "wps_cleaner_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/db-table.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "wpscleaner_admin_footer_text_rated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/plugin.php",
+                        "line": 1268
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wps_cleaner_indexation_medias",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/plugin.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "wps_cleaner_indexation_medias_queue",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/plugin.php",
+                        "line": 161
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wps_cleaner_dir_size",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "blocks/settings_media.php",
+                        "line": 738
+                    }
+                ]
+            },
+            {
+                "key": "wps_cleaner_dir_size_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "blocks/settings_files.php",
+                        "line": 168
+                    },
+                    {
+                        "file": "blocks/settings_files.php",
+                        "line": 196
+                    }
+                ]
+            },
+            {
+                "key": "wps_cleaner_img_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/helpers.php",
+                        "line": 307
+                    }
+                ]
+            },
+            {
+                "key": "wps_cleaner_total_postmeta",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "blocks/settings.php",
+                        "line": 14
+                    }
+                ]
+            },
+            {
+                "key": "wps_cleaner_total_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "blocks/settings.php",
+                        "line": 9
+                    }
+                ]
+            },
+            {
+                "key": "wps_plugins_adds",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/pub.php",
+                        "line": 46
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "wps_cleaner_media_use",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/plugin.php",
+                        "line": 390
+                    },
+                    {
+                        "file": "classes/plugin.php",
+                        "line": 395
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/db-table.php",
+            "line": 105
+        }
+    ]
+}

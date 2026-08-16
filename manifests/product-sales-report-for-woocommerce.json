@@ -1,0 +1,132 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "product-sales-report-for-woocommerce",
+        "name": "Ninjalytics: Sales Reports & Order Export for WooCommerce and EDD",
+        "version": "2.0.15",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 16,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 2,
+        "resolution_rate": 0.556
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ninjalytics_hide_inactive_templates",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/settings.php",
+                        "line": 24
+                    }
+                ]
+            },
+            {
+                "key": "ninjalytics_report_dates_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "hm-product-sales-report.php",
+                        "line": 255
+                    }
+                ]
+            },
+            {
+                "key": "ninjalytics_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 745
+                    },
+                    {
+                        "file": "admin/admin.php",
+                        "line": 756
+                    },
+                    {
+                        "file": "hm-product-sales-report.php",
+                        "line": 2029
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "ninjalytics_update_field_cache",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "hm-product-sales-report.php",
+                        "line": 2337
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "hm_psrp_fields_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "hm-product-sales-report.php",
+                        "line": 2394
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "admin/new-report.php",
+            "line": 195
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$tempDir",
+            "file": "hm-product-sales-report.php",
+            "line": 2166
+        }
+    ]
+}

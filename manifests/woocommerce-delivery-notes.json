@@ -1,0 +1,480 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-delivery-notes",
+        "name": "Print Invoice & Delivery Notes for WooCommerce",
+        "version": "7.3.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:09Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 46,
+        "files_skipped": 0,
+        "write_calls_found": 58,
+        "verified": 17,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 38,
+        "resolution_rate": 0.345
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ts_tracker_last_send",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/component/plugin-tracking/class-tyche-plugin-tracking.php",
+                        "line": 182
+                    }
+                ]
+            },
+            {
+                "key": "wcdn_flush_rewrite_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-settings.php",
+                        "line": 285
+                    },
+                    {
+                        "file": "includes/core/class-install.php",
+                        "line": 153
+                    }
+                ]
+            },
+            {
+                "key": "wcdn_invoice_number_counter",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-settings.php",
+                        "line": 267
+                    },
+                    {
+                        "file": "includes/core/class-migration.php",
+                        "line": 1851
+                    },
+                    {
+                        "file": "includes/helpers/class-utils.php",
+                        "line": 289
+                    }
+                ]
+            },
+            {
+                "key": "wcdn_invoice_number_counter_lock",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/class-utils.php",
+                        "line": 258
+                    },
+                    {
+                        "file": "includes/helpers/class-utils.php",
+                        "line": 266
+                    }
+                ]
+            },
+            {
+                "key": "wcdn_invoice_number_counter_year",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-settings.php",
+                        "line": 276
+                    }
+                ]
+            },
+            {
+                "key": "wcdn_invoice_number_year_counters",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/helpers/class-utils.php",
+                        "line": 284
+                    }
+                ]
+            },
+            {
+                "key": "wcdn_legacy_backup",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-migration.php",
+                        "line": 335
+                    }
+                ]
+            },
+            {
+                "key": "wcdn_legacy_backup_autoload",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-migration.php",
+                        "line": 336
+                    }
+                ]
+            },
+            {
+                "key": "wcdn_migration_7_0_2_completed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-migration.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "wcdn_migration_7_1_0_completed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-migration.php",
+                        "line": 256
+                    }
+                ]
+            },
+            {
+                "key": "wcdn_migration_7_1_2_completed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-migration.php",
+                        "line": 314
+                    }
+                ]
+            },
+            {
+                "key": "wcdn_migration_7_completed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-migration.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "includes/core/class-migration.php",
+                        "line": 122
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wcdn_preview_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-templates.php",
+                        "line": 1058
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "wcdn_delete_pdf_files",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/class-pdf.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "wcdn_prefetch_locale_fonts",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-install.php",
+                        "line": 149
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "WCDN_SLUG . '_notices'",
+            "file": "includes/admin/class-notices.php",
+            "line": 49
+        },
+        {
+            "function": "update_option",
+            "expression": "WCDN_SLUG . '_notice_' . $name",
+            "file": "includes/admin/class-notices.php",
+            "line": 90
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$font_dir",
+            "file": "includes/api/class-fonts.php",
+            "line": 123
+        },
+        {
+            "function": "update_option",
+            "expression": "self::OPTION_KEY",
+            "file": "includes/api/class-settings.php",
+            "line": 288
+        },
+        {
+            "function": "update_option",
+            "expression": "self::OPTION_KEY",
+            "file": "includes/api/class-templates.php",
+            "line": 1194
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->plugin_short_name . '_ts_tracker_send_event'",
+            "file": "includes/component/plugin-tracking/class-tyche-plugin-tracking.php",
+            "line": 135
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_short_name . '_allow_tracking'",
+            "file": "includes/component/plugin-tracking/class-tyche-plugin-tracking.php",
+            "line": 157
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin_short_name . '_allow_tracking'",
+            "file": "includes/component/plugin-tracking/class-tyche-plugin-tracking.php",
+            "line": 237
+        },
+        {
+            "function": "add_option",
+            "expression": "$lock_key",
+            "file": "includes/core/class-install.php",
+            "line": 65
+        },
+        {
+            "function": "update_option",
+            "expression": "$lock_key",
+            "file": "includes/core/class-install.php",
+            "line": 75
+        },
+        {
+            "function": "update_option",
+            "expression": "WCDN_SLUG . '_db_version'",
+            "file": "includes/core/class-install.php",
+            "line": 89
+        },
+        {
+            "function": "update_option",
+            "expression": "WCDN_SLUG . '_version'",
+            "file": "includes/core/class-install.php",
+            "line": 90
+        },
+        {
+            "function": "update_option",
+            "expression": "WCDN_SLUG . '_db_version'",
+            "file": "includes/core/class-install.php",
+            "line": 107
+        },
+        {
+            "function": "update_option",
+            "expression": "WCDN_SLUG . '_version'",
+            "file": "includes/core/class-install.php",
+            "line": 108
+        },
+        {
+            "function": "set_transient",
+            "expression": "WCDN_SLUG . '_installing'",
+            "file": "includes/core/class-install.php",
+            "line": 128
+        },
+        {
+            "function": "update_option",
+            "expression": "WCDN_SLUG . '_db_version'",
+            "file": "includes/core/class-install.php",
+            "line": 134
+        },
+        {
+            "function": "update_option",
+            "expression": "WCDN_SLUG . '_version'",
+            "file": "includes/core/class-install.php",
+            "line": 137
+        },
+        {
+            "function": "set_transient",
+            "expression": "WCDN_SLUG . '_installed'",
+            "file": "includes/core/class-install.php",
+            "line": 141
+        },
+        {
+            "function": "set_transient",
+            "expression": "WCDN_SLUG . '_show_welcome_installation_notice'",
+            "file": "includes/core/class-install.php",
+            "line": 142
+        },
+        {
+            "function": "add_option",
+            "expression": "WCDN_SLUG . '_admin_installation_timestamp'",
+            "file": "includes/core/class-install.php",
+            "line": 144
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Tyche\\WCDN\\Api\\Settings::OPTION_KEY",
+            "file": "includes/core/class-migration.php",
+            "line": 92
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Tyche\\WCDN\\Api\\Templates::OPTION_KEY",
+            "file": "includes/core/class-migration.php",
+            "line": 93
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Tyche\\WCDN\\Api\\Settings::OPTION_KEY",
+            "file": "includes/core/class-migration.php",
+            "line": 119
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Tyche\\WCDN\\Api\\Templates::OPTION_KEY",
+            "file": "includes/core/class-migration.php",
+            "line": 120
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Tyche\\WCDN\\Api\\Settings::OPTION_KEY",
+            "file": "includes/core/class-migration.php",
+            "line": 183
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Tyche\\WCDN\\Api\\Templates::OPTION_KEY",
+            "file": "includes/core/class-migration.php",
+            "line": 236
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Tyche\\WCDN\\Api\\Templates::OPTION_KEY",
+            "file": "includes/core/class-migration.php",
+            "line": 253
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Tyche\\WCDN\\Api\\Settings::OPTION_KEY",
+            "file": "includes/core/class-migration.php",
+            "line": 308
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/core/class-migration.php",
+            "line": 1792
+        },
+        {
+            "function": "update_option",
+            "expression": "WCDN_SLUG . '_db_version'",
+            "file": "includes/core/class-uninstall.php",
+            "line": 76
+        },
+        {
+            "function": "update_option",
+            "expression": "WCDN_SLUG . '_v7_settings_snapshot'",
+            "file": "includes/core/class-uninstall.php",
+            "line": 90
+        },
+        {
+            "function": "update_option",
+            "expression": "WCDN_SLUG . '_v7_templates_snapshot'",
+            "file": "includes/core/class-uninstall.php",
+            "line": 94
+        },
+        {
+            "function": "add_rewrite_endpoint",
+            "expression": "\\Tyche\\WCDN\\Helpers\\Settings::get('printEndpoint')",
+            "file": "includes/frontend/class-frontend.php",
+            "line": 76
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$folder",
+            "file": "includes/services/class-pdf.php",
+            "line": 82
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$base_dir",
+            "file": "includes/services/class-pdf.php",
+            "line": 151
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_fonts_dir",
+            "file": "includes/services/class-pdf.php",
+            "line": 212
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$font_dir",
+            "file": "includes/services/template/class-template-renderer.php",
+            "line": 997
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$font_dir",
+            "file": "includes/services/template/class-template-renderer.php",
+            "line": 1056
+        }
+    ]
+}

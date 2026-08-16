@@ -1,0 +1,129 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "autoshare-for-twitter",
+        "name": "Autopost for X (formerly Autoshare for Twitter)",
+        "version": "2.3.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:35Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 13,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 6,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.889
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "autoshare_for_twitter_accounts",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-twitter-accounts.php",
+                        "line": 257
+                    },
+                    {
+                        "file": "includes/class-twitter-accounts.php",
+                        "line": 271
+                    },
+                    {
+                        "file": "includes/core.php",
+                        "line": 294
+                    }
+                ]
+            },
+            {
+                "key": "autoshare_ignore_duplicate_site_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ast-staging.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "autoshare_liveurl",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ast-staging.php",
+                        "line": 159
+                    }
+                ]
+            },
+            {
+                "key": "autoshare_migrate_to_v2_api_notice_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "autoshare-for-twitter.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "includes/core.php",
+                        "line": 224
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "autoshare_for_twitter_connection_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-twitter-accounts.php",
+                        "line": 227
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "sprintf('%s_%s', \\TenUp\\AutoshareForTwitter\\Core\\Post_Meta\\META_PREFIX, $key)",
+            "file": "includes/utils.php",
+            "line": 56
+        }
+    ]
+}

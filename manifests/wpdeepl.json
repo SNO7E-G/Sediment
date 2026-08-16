@@ -1,0 +1,139 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wpdeepl",
+        "name": "Translation with DeepL API",
+        "version": "2.6.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:23Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 18,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 6,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.6
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "deepl_plugin_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/deepl-plugin-install.php",
+                        "line": 6
+                    },
+                    {
+                        "file": "settings/wp-improved-settings-wpdeepl.class.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "wpdeepl_metabox_context",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/deepl-plugin-install.php",
+                        "line": 13
+                    }
+                ]
+            },
+            {
+                "key": "wpdeepl_metabox_post_types",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/deepl-plugin-install.php",
+                        "line": 9
+                    }
+                ]
+            },
+            {
+                "key": "wpdeepl_metabox_priority",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/deepl-plugin-install.php",
+                        "line": 16
+                    }
+                ]
+            },
+            {
+                "key": "wpdeepl_plugin_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/deepl-plugin-install.php",
+                        "line": 28
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/deepl-plugin-install.php",
+            "line": 20
+        },
+        {
+            "function": "update_option",
+            "expression": "$field_key",
+            "file": "settings/wp-improved-settings-api.class.php",
+            "line": 167
+        },
+        {
+            "function": "update_option",
+            "expression": "$field_key",
+            "file": "settings/wp-improved-settings-api.class.php",
+            "line": 169
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_field_key($key)",
+            "file": "settings/wp-improved-settings-api.class.php",
+            "line": 259
+        }
+    ]
+}

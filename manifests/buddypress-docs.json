@@ -1,0 +1,283 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "buddypress-docs",
+        "name": "BuddyPress Docs",
+        "version": "2.2.7",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:43Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 51,
+        "files_skipped": 0,
+        "write_calls_found": 26,
+        "verified": 13,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.769
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_bp_docs_last_pinged",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/edit-lock.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "includes/edit-lock.php",
+                        "line": 322
+                    }
+                ]
+            },
+            {
+                "key": "bp_docs_last_editor",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/query-builder.php",
+                        "line": 584
+                    }
+                ]
+            },
+            {
+                "key": "bp_docs_revision_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/query-builder.php",
+                        "line": 603
+                    },
+                    {
+                        "file": "includes/upgrade.php",
+                        "line": 301
+                    }
+                ]
+            },
+            {
+                "key": "bp_docs_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions.php",
+                        "line": 652
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 704
+                    },
+                    {
+                        "file": "includes/upgrade.php",
+                        "line": 292
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "bp_docs_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/functions.php",
+                        "line": 400
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "bp_docs_folder",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/addon-folders.php",
+                        "line": 49
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "bp_docs_doc_in_folder",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/addon-folders.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "bp_docs_folder_in_group",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/addon-folders.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "bp_docs_folder_in_user",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/addon-folders.php",
+                        "line": 73
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "%%create%%",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-docs.php",
+                        "line": 502
+                    }
+                ]
+            },
+            {
+                "key": "%%delete%%",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-docs.php",
+                        "line": 500
+                    }
+                ]
+            },
+            {
+                "key": "%%edit%%",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-docs.php",
+                        "line": 498
+                    }
+                ]
+            },
+            {
+                "key": "%%history%%",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-docs.php",
+                        "line": 499
+                    }
+                ]
+            },
+            {
+                "key": "%%my-groups%%",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-docs.php",
+                        "line": 503
+                    }
+                ]
+            },
+            {
+                "key": "%%unlink-from-group%%",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-docs.php",
+                        "line": 504
+                    }
+                ]
+            },
+            {
+                "key": "%%untrash%%",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-docs.php",
+                        "line": 501
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "register_post_type",
+            "expression": "$this->post_type_name",
+            "file": "bp-docs.php",
+            "line": 370
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$this->associated_item_tax_name",
+            "file": "bp-docs.php",
+            "line": 379
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$this->access_tax_name",
+            "file": "bp-docs.php",
+            "line": 387
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$this->comment_access_tax_name",
+            "file": "bp-docs.php",
+            "line": 394
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$this->docs_tag_tax_name",
+            "file": "includes/addon-taxonomy.php",
+            "line": 91
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$test_dir",
+            "file": "includes/attachments.php",
+            "line": 922
+        }
+    ]
+}

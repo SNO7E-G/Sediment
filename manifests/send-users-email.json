@@ -1,0 +1,199 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "send-users-email",
+        "name": "Send Users Email",
+        "version": "2.0.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:41Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 79,
+        "files_skipped": 0,
+        "write_calls_found": 27,
+        "verified": 19,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.852
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "admin_notification_message",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-send-users-email-admin.php",
+                        "line": 423
+                    }
+                ]
+            },
+            {
+                "key": "sue_send_users_email",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-send-users-email-admin.php",
+                        "line": 580
+                    },
+                    {
+                        "file": "admin/class-send-users-email-admin.php",
+                        "line": 585
+                    },
+                    {
+                        "file": "admin/class-send-users-email-admin.php",
+                        "line": 655
+                    },
+                    {
+                        "file": "admin/class-send-users-email-admin.php",
+                        "line": 815
+                    },
+                    {
+                        "file": "admin/class-send-users-email-admin.php",
+                        "line": 820
+                    },
+                    {
+                        "file": "admin/class-send-users-email-admin.php",
+                        "line": 881
+                    },
+                    {
+                        "file": "admin/class-send-users-email-admin.php",
+                        "line": 1096
+                    },
+                    {
+                        "file": "admin/class-send-users-email-admin.php",
+                        "line": 1124
+                    },
+                    {
+                        "file": "admin/class-send-users-email-admin.php",
+                        "line": 1213
+                    },
+                    {
+                        "file": "helpers/cleanup.class.php",
+                        "line": 10
+                    },
+                    {
+                        "file": "helpers/cleanup.class.php",
+                        "line": 19
+                    },
+                    {
+                        "file": "helpers/cleanup.class.php",
+                        "line": 28
+                    },
+                    {
+                        "file": "includes/class-send-email-to-external-lists.php",
+                        "line": 132
+                    },
+                    {
+                        "file": "includes/class-send-email-to-external-lists.php",
+                        "line": 143
+                    },
+                    {
+                        "file": "includes/class-send-email-to-external-lists.php",
+                        "line": 246
+                    },
+                    {
+                        "file": "includes/class-send-user-single-address.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "includes/class-send-user-single-address.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "includes/class-send-user-single-address.php",
+                        "line": 133
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "sue_email_subscription",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-email-subscription-user-meta.php",
+                        "line": 109
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "sue_send_email_capability",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-send-users-email-admin.php",
+                        "line": 1189
+                    },
+                    {
+                        "file": "helpers/functions.php",
+                        "line": 53
+                    },
+                    {
+                        "file": "includes/class-send-users-email-activator.php",
+                        "line": 11
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$uploads_dir . \\DIRECTORY_SEPARATOR . 'send-users-email'",
+            "file": "helpers/functions.php",
+            "line": 138
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_rows",
+            "file": "includes/class-external-list-schema.php",
+            "line": 76
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_meta",
+            "file": "includes/class-external-list-schema.php",
+            "line": 105
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql_rows",
+            "file": "includes/class-queue-meta-schema.php",
+            "line": 54
+        }
+    ]
+}

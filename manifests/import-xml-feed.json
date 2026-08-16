@@ -1,0 +1,130 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "import-xml-feed",
+        "name": "Import XML feed",
+        "version": "2.1.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:10Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 45,
+    "coverage": {
+        "files_scanned": 15,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 2,
+        "resolution_rate": 0.625
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "import_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "moove-actions.php",
+                        "line": 283
+                    }
+                ]
+            },
+            {
+                "key": "import_limit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "moove-actions.php",
+                        "line": 287
+                    }
+                ]
+            },
+            {
+                "key": "import_selected_node",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "moove-actions.php",
+                        "line": 288
+                    }
+                ]
+            },
+            {
+                "key": "import_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "moove-actions.php",
+                        "line": 286
+                    }
+                ]
+            },
+            {
+                "key": "import_xml_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "moove-actions.php",
+                        "line": 285
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "moove_feed_importer",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/moove-controller.php",
+                        "line": 86
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir['path']",
+            "file": "controllers/moove-controller.php",
+            "line": 552
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "\\sanitize_text_field($customfield_value['field'])",
+            "file": "controllers/moove-controller.php",
+            "line": 657
+        }
+    ]
+}

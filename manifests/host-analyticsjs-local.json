@@ -1,0 +1,212 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "host-analyticsjs-local",
+        "name": "CAOS",
+        "version": "5.0.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:19Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 47,
+    "coverage": {
+        "files_scanned": 34,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 4,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 9,
+        "resolution_rate": 0.55
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "caos_cron_file_aliases",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-caos.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "caos_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db/class-migrate.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "caos_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db/migrate/class-v460.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "includes/db/migrate/class-v470.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "includes/db/migrate/class-v473.php",
+                        "line": 40
+                    },
+                    {
+                        "file": "includes/db/migrate/class-v480.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "compatibility_mode",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/db/migrate/class-v430.php",
+                        "line": 35
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "caos_update_analytics_js",
+                "recurrence": "twicedaily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-setup.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "caos_admin_notice",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-notice.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "caos_admin_update_error_shown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-functions.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "caos_news_reel",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-settings.php",
+                        "line": 299
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$this->transient_label . self::TRANSIENT_LABEL_APPENDIX",
+            "file": "includes/admin/class-updates.php",
+            "line": 182
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$allowed_path",
+            "file": "includes/class-admin.php",
+            "line": 128
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/class-caos.php",
+            "line": 458
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "includes/class-caos.php",
+            "line": 460
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "includes/class-file-manager.php",
+            "line": 137
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir",
+            "file": "includes/class-setup.php",
+            "line": 38
+        },
+        {
+            "function": "update_option",
+            "expression": "$new",
+            "file": "includes/db/class-migrate.php",
+            "line": 41
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/db/class-migrate.php",
+            "line": 61
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/db/class-migrate.php",
+            "line": 64
+        }
+    ]
+}

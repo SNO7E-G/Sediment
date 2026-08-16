@@ -1,0 +1,343 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "mollie-payments-for-woocommerce",
+        "name": "Mollie Payments for WooCommerce",
+        "version": "8.1.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:35Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 283,
+        "files_skipped": 0,
+        "write_calls_found": 35,
+        "verified": 7,
+        "resolved": 13,
+        "pattern": 0,
+        "dynamic": 15,
+        "resolution_rate": 0.571
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "mollie-db-version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Activation/ActivationModule.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "mollie-new-install",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Activation/ActivationModule.php",
+                        "line": 121
+                    },
+                    {
+                        "file": "src/Activation/ActivationModule.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "mollie-plugin-version",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Activation/ActivationModule.php",
+                        "line": 122
+                    },
+                    {
+                        "file": "src/Activation/ActivationModule.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "src/Activation/ActivationModule.php",
+                        "line": 164
+                    }
+                ]
+            },
+            {
+                "key": "mollie_tracks_api_keys_viewed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tracks/TracksModule.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "mollie_tracks_first_test_payment_pending",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tracks/TracksModule.php",
+                        "line": 159
+                    }
+                ]
+            },
+            {
+                "key": "mollie_tracks_first_test_payment_tracked",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tracks/TracksModule.php",
+                        "line": 160
+                    }
+                ]
+            },
+            {
+                "key": "mollie_tracks_plugin_activated",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tracks/TracksModule.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "mollie_tracks_plugin_activated_tracked",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tracks/TracksModule.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "mollie_wc_applepay_validated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Buttons/ApplePayButton/AppleAjaxRequests.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "src/Buttons/ApplePayButton/AppleAjaxRequests.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "mollie_wc_is_phone_required_flag",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateway/GatewayModule.php",
+                        "line": 131
+                    },
+                    {
+                        "file": "src/Gateway/GatewayModule.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "mollie_webhook_secret",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Payment/Webhooks/WebhookSecret.php",
+                        "line": 23
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}mollie_pending_payment",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Activation/ActivationModule.php",
+                        "line": 67
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "pending_payment_confirmation_check",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Subscription/SubscriptionModule.php",
+                        "line": 53
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [
+            {
+                "key": "_mollie_voucher_category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Gateway/Voucher/VoucherModule.php",
+                        "line": 251
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "mollie_woocommerce_cancel_unpaid_orders",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Payment/PaymentModule.php",
+                        "line": 411
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "src/Activation/Migrations/PaymentMethodSettingsMigrator.php",
+            "line": 61
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "src/PaymentMethods/AbstractPaymentMethod.php",
+            "line": 163
+        },
+        {
+            "function": "update_option",
+            "expression": "sprintf('%s_settings', $gatewayId)",
+            "file": "src/Settings/Settings.php",
+            "line": 76
+        },
+        {
+            "function": "update_option",
+            "expression": "$merchantProfileIdOptionKey",
+            "file": "src/Settings/Settings.php",
+            "line": 233
+        },
+        {
+            "function": "update_option",
+            "expression": "$gateway->id . \"_settings\"",
+            "file": "src/Settings/Settings.php",
+            "line": 432
+        },
+        {
+            "function": "update_option",
+            "expression": "$merchantProfileIdOptionKey",
+            "file": "src/Settings/Settings.php",
+            "line": 470
+        },
+        {
+            "function": "update_option",
+            "expression": "sprintf('%s_settings', $gatewayId)",
+            "file": "src/Settings/Settings.php",
+            "line": 567
+        },
+        {
+            "function": "update_option",
+            "expression": "$defaultOption['id']",
+            "file": "src/Settings/SettingsModule.php",
+            "line": 253
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->getTransientKey($testId)",
+            "file": "src/Settings/Webhooks/WebhookTestService.php",
+            "line": 233
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->getTransientKey($testId)",
+            "file": "src/Settings/Webhooks/WebhookTestService.php",
+            "line": 259
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_id",
+            "file": "src/Shared/Data.php",
+            "line": 310
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_id",
+            "file": "src/Shared/Data.php",
+            "line": 320
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_id",
+            "file": "src/Shared/Data.php",
+            "line": 369
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_id",
+            "file": "src/Shared/Data.php",
+            "line": 600
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_id",
+            "file": "src/Shared/Data.php",
+            "line": 610
+        }
+    ]
+}

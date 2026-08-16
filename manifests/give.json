@@ -1,0 +1,2844 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "give",
+        "name": "Give - Donation Plugin",
+        "version": "4.16.6.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:42Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 1777,
+        "files_skipped": 0,
+        "write_calls_found": 344,
+        "verified": 210,
+        "resolved": 70,
+        "pattern": 5,
+        "dynamic": 59,
+        "resolution_rate": 0.814
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_give_activation_redirect",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-cache.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "_give_ajax_works",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-cache.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "_give_installed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-cache.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "_give_reset_sequential_number",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/settings/class-settings-general.php",
+                        "line": 610
+                    }
+                ]
+            },
+            {
+                "key": "_give_table_check",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/install.php",
+                        "line": 280
+                    }
+                ]
+            },
+            {
+                "key": "give_addon_last_activated",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/admin-actions.php",
+                        "line": 1580
+                    }
+                ]
+            },
+            {
+                "key": "give_campaigns_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Campaigns/Actions/CacheCampaignData.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "src/Campaigns/Actions/CacheCampaignData.php",
+                        "line": 148
+                    },
+                    {
+                        "file": "src/Campaigns/Migrations/CacheCampaignsData.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "src/Campaigns/Repositories/CampaignsDataRepository.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "give_campaigns_subscriptions_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Campaigns/Actions/CacheCampaignData.php",
+                        "line": 141
+                    },
+                    {
+                        "file": "src/Campaigns/Actions/CacheCampaignData.php",
+                        "line": 164
+                    },
+                    {
+                        "file": "src/Campaigns/Migrations/CacheCampaignsData.php",
+                        "line": 106
+                    },
+                    {
+                        "file": "src/Campaigns/Repositories/CampaignsDataRepository.php",
+                        "line": 109
+                    }
+                ]
+            },
+            {
+                "key": "give_completed_upgrades",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1154
+                    },
+                    {
+                        "file": "src/Framework/Migrations/Actions/ClearCompletedUpgrade.php",
+                        "line": 31
+                    }
+                ]
+            },
+            {
+                "key": "give_db_update_count",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/class-give-updates.php",
+                        "line": 504
+                    },
+                    {
+                        "file": "includes/admin/upgrades/class-give-updates.php",
+                        "line": 545
+                    },
+                    {
+                        "file": "includes/admin/upgrades/class-give-updates.php",
+                        "line": 734
+                    }
+                ]
+            },
+            {
+                "key": "give_default_api_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/install.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "give_doing_upgrade",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/class-give-updates.php",
+                        "line": 578
+                    },
+                    {
+                        "file": "includes/admin/upgrades/class-give-updates.php",
+                        "line": 736
+                    },
+                    {
+                        "file": "includes/class-give-background-updater.php",
+                        "line": 430
+                    }
+                ]
+            },
+            {
+                "key": "give_earnings_total",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/tools/data/class-give-tools-delete-donations.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "includes/admin/tools/data/class-give-tools-delete-import-donors.php",
+                        "line": 326
+                    },
+                    {
+                        "file": "includes/admin/tools/data/class-give-tools-delete-test-donors.php",
+                        "line": 273
+                    },
+                    {
+                        "file": "includes/admin/tools/data/class-give-tools-delete-test-transactions.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "includes/admin/tools/data/class-give-tools-recount-income.php",
+                        "line": 129
+                    },
+                    {
+                        "file": "includes/admin/tools/data/class-give-tools-reset-stats.php",
+                        "line": 309
+                    },
+                    {
+                        "file": "includes/payments/functions.php",
+                        "line": 864
+                    },
+                    {
+                        "file": "includes/payments/functions.php",
+                        "line": 886
+                    },
+                    {
+                        "file": "includes/payments/functions.php",
+                        "line": 906
+                    }
+                ]
+            },
+            {
+                "key": "give_estimated_monthly_stats",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-cache.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "give_free_addon_modal_displayed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Promotions/FreeAddonModal/Controllers/CompleteRestApiEndpoint.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "give_get_versions",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 2540
+                    }
+                ]
+            },
+            {
+                "key": "give_hidden_sale_banners",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Promotions/InPluginUpsells/SaleBanners.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "give_i18n_give_promo_hide",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-cache.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "give_import_donation_report",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/import-functions.php",
+                        "line": 33
+                    },
+                    {
+                        "file": "includes/admin/import-functions.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "give_import_subscription_report",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/tools/import/class-give-import-subscriptions.php",
+                        "line": 1190
+                    },
+                    {
+                        "file": "includes/admin/tools/import/class-give-import-subscriptions.php",
+                        "line": 1199
+                    }
+                ]
+            },
+            {
+                "key": "give_install_pages_created",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/install.php",
+                        "line": 483
+                    }
+                ]
+            },
+            {
+                "key": "give_last_paypal_ipn_received",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentGateways/Gateways/PayPalStandard/Controllers/PayPalStandardWebhook.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "give_licenses",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/add-ons/actions.php",
+                        "line": 342
+                    },
+                    {
+                        "file": "includes/admin/add-ons/actions.php",
+                        "line": 501
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 3256
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 3381
+                    },
+                    {
+                        "file": "includes/class-give-license-handler.php",
+                        "line": 402
+                    },
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 2539
+                    }
+                ]
+            },
+            {
+                "key": "give_licenses_last_active_date",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 2557
+                    }
+                ]
+            },
+            {
+                "key": "give_licenses_platform_fee_percentage",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 2550
+                    }
+                ]
+            },
+            {
+                "key": "give_licenses_refreshed_last_checked",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/add-ons/actions.php",
+                        "line": 552
+                    },
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 2545
+                    }
+                ]
+            },
+            {
+                "key": "give_pause_upgrade",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/class-give-updates.php",
+                        "line": 358
+                    }
+                ]
+            },
+            {
+                "key": "give_paused_batches",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/class-give-updates.php",
+                        "line": 363
+                    }
+                ]
+            },
+            {
+                "key": "give_payment_totals_upgraded",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/actions.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "give_recently_activated_addons",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/plugins.php",
+                        "line": 160
+                    }
+                ]
+            },
+            {
+                "key": "give_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/admin-actions.php",
+                        "line": 1029
+                    },
+                    {
+                        "file": "includes/admin/class-admin-settings.php",
+                        "line": 1277
+                    },
+                    {
+                        "file": "includes/admin/tools/import/class-give-import-core-settings.php",
+                        "line": 232
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 906
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1377
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1628
+                    },
+                    {
+                        "file": "includes/filters.php",
+                        "line": 69
+                    },
+                    {
+                        "file": "includes/install.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "includes/install.php",
+                        "line": 480
+                    },
+                    {
+                        "file": "includes/setting-functions.php",
+                        "line": 56
+                    },
+                    {
+                        "file": "includes/setting-functions.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "src/PaymentGateways/Gateways/PayPalStandard/Migrations/SetPayPalStandardGatewayId.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "give_settings_old",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/admin-actions.php",
+                        "line": 1010
+                    }
+                ]
+            },
+            {
+                "key": "give_show_db_upgrade_complete_notice",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-background-updater.php",
+                        "line": 461
+                    }
+                ]
+            },
+            {
+                "key": "give_telemetry_hide_usage_tracking_notice",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tracking/Repositories/Settings.php",
+                        "line": 64
+                    }
+                ]
+            },
+            {
+                "key": "give_telemetry_recently_edited_donation_form",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tracking/Repositories/TrackEvents.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "give_telemetry_records",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tracking/Repositories/TrackEvents.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "give_telemetry_server_access_token",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tracking/Repositories/TelemetryAccessDetails.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "give_telemetry_usage_tracking_last_request",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tracking/Repositories/TrackEvents.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "give_telemetry_website_data_checksum",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tracking/Repositories/TrackEvents.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "give_temp_delete_donation_count",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/tools/data/class-give-tools-delete-donations.php",
+                        "line": 255
+                    },
+                    {
+                        "file": "includes/admin/tools/data/class-give-tools-delete-donations.php",
+                        "line": 258
+                    }
+                ]
+            },
+            {
+                "key": "give_test_mode_default_gateway",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-cli-commands.php",
+                        "line": 1043
+                    }
+                ]
+            },
+            {
+                "key": "give_total_api_keys",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-cache.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "give_upgrade_error",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-background-updater.php",
+                        "line": 379
+                    },
+                    {
+                        "file": "includes/class-give-background-updater.php",
+                        "line": 414
+                    },
+                    {
+                        "file": "src/Log/Migrations/MigrateExistingLogs.php",
+                        "line": 153
+                    },
+                    {
+                        "file": "src/Revenue/Migrations/AddPastDonationsToRevenueTable.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "give_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 514
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 517
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 669
+                    },
+                    {
+                        "file": "includes/install.php",
+                        "line": 112
+                    }
+                ]
+            },
+            {
+                "key": "give_version_upgraded_from",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/install.php",
+                        "line": 69
+                    },
+                    {
+                        "file": "includes/install.php",
+                        "line": 501
+                    }
+                ]
+            },
+            {
+                "key": "givewp_feature_flag_notifications_count",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/BetaFeatures/Repositories/FeatureFlagRepository.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "src/BetaFeatures/ServiceProvider.php",
+                        "line": 72
+                    }
+                ]
+            },
+            {
+                "key": "givewp_new_notification_campaigns_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Campaigns/Actions/AddNewBadgeToAdminMenuItem.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "paypal_commerce_account_country",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentGateways/PayPalCommerce/Repositories/Settings.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "temp_give_paypal_commerce_partner_link",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentGateways/PayPalCommerce/Repositories/Settings.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "temp_give_paypal_commerce_seller_access_token",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentGateways/PayPalCommerce/Repositories/Settings.php",
+                        "line": 103
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "give_daily_scheduled_events",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-give-cron.php",
+                        "line": 158
+                    }
+                ]
+            },
+            {
+                "key": "give_monthly_scheduled_events",
+                "recurrence": "monthly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-cron.php",
+                        "line": 132
+                    }
+                ]
+            },
+            {
+                "key": "give_telemetry_send_requests",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Tracking/TrackJobScheduler.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "give_thricely_scheduled_events",
+                "recurrence": "thricely",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-cron.php",
+                        "line": 171
+                    }
+                ]
+            },
+            {
+                "key": "give_weekly_scheduled_events",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-give-cron.php",
+                        "line": 145
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "give-in-plugin-upsells",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Promotions/InPluginUpsells/AddonsRepository.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "give_paypal_onboarding_state_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PaymentGateways/PayPalCommerce/AjaxRequestHandler.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "give_premium_addons_ids",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/License/PremiumAddonsListManager.php",
+                        "line": 58
+                    },
+                    {
+                        "file": "src/License/PremiumAddonsListManager.php",
+                        "line": 70
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 787
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_elementor_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/ThirdPartySupport/Elementor/Actions/SetupElementorCampaignTemplate.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_edit_mode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/ThirdPartySupport/Elementor/Actions/SetupElementorCampaignTemplate.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_template_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/ThirdPartySupport/Elementor/Actions/SetupElementorCampaignTemplate.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "_elementor_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/ThirdPartySupport/Elementor/Actions/SetupElementorCampaignTemplate.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "_give_anonymous_donation",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_content_placement",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_current_page_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/actions.php",
+                        "line": 463
+                    }
+                ]
+            },
+            {
+                "key": "_give_current_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/payments/actions.php",
+                        "line": 459
+                    }
+                ]
+            },
+            {
+                "key": "_give_custom_amount_minimum",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1185
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1423
+                    }
+                ]
+            },
+            {
+                "key": "_give_custom_amount_range_minimum",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_customize_offline_donations",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_default_gateway",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_display_content",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_donation_company",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_donation_levels",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1206
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1459
+                    },
+                    {
+                        "file": "src/Onboarding/Migrations/SetFormDonationLevelsToStrings.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "_give_donor_billing_address1",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_donor_billing_address2",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_donor_billing_city",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_donor_billing_country",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_donor_billing_first_name",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_donor_billing_last_name",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_donor_billing_state",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_donor_billing_zip",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_email_throttle_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_form_earnings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1443
+                    },
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_form_goal_progress",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_form_sales",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_form_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_goal_option",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_levels_maximum_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1433
+                    },
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_levels_minimum_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1428
+                    },
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_logged_in_only",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_offline-donation-instruction_email_message",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1853
+                    }
+                ]
+            },
+            {
+                "key": "_give_offline-donation-instruction_email_subject",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1865
+                    }
+                ]
+            },
+            {
+                "key": "_give_offline-donation-instruction_notification",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1850
+                    }
+                ]
+            },
+            {
+                "key": "_give_payment_currency",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_payment_date",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_payment_donor_email",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_payment_donor_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_payment_donor_ip",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_payment_meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_payment_price_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_payment_total",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1467
+                    }
+                ]
+            },
+            {
+                "key": "_give_payment_transaction_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/stripe/includes/filters.php",
+                        "line": 37
+                    }
+                ]
+            },
+            {
+                "key": "_give_set_goal",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1438
+                    }
+                ]
+            },
+            {
+                "key": "_give_set_price",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1178
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 1418
+                    },
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_stripe_account_slug",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_stripe_customer_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_stripe_donation_summary",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_stripe_payment_intent_require_action_url",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_stripe_payment_method_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_give_stripe_source_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "_givewp_elementor_auto_template",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/ThirdPartySupport/Elementor/Actions/SetupElementorCampaignTemplate.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "_givewp_elementor_template_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/ThirdPartySupport/Elementor/Actions/SetupElementorCampaignTemplate.php",
+                        "line": 104
+                    }
+                ]
+            },
+            {
+                "key": "give_campaign_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Campaigns/Actions/RegisterCampaignIdRestField.php",
+                        "line": 25
+                    },
+                    {
+                        "file": "src/Campaigns/Repositories/CampaignPageRepository.php",
+                        "line": 102
+                    },
+                    {
+                        "file": "src/Campaigns/Repositories/CampaignPageRepository.php",
+                        "line": 149
+                    },
+                    {
+                        "file": "src/Campaigns/ServiceProvider.php",
+                        "line": 214
+                    }
+                ]
+            },
+            {
+                "key": "give_last_paypal_ipn_received",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "givewp-form-builder-migration-hide-notice",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "givewp-form-builder-transfer-hide-notice",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "migratedFormId",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            },
+            {
+                "key": "transferredFormId",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/misc-functions.php",
+                        "line": 1037
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_give_disconnected_donor_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/donors/donor-actions.php",
+                        "line": 357
+                    }
+                ]
+            },
+            {
+                "key": "first_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 2090
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 2523
+                    }
+                ]
+            },
+            {
+                "key": "give_addon_activation_ignore_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-addon-activation-banner.php",
+                        "line": 464
+                    }
+                ]
+            },
+            {
+                "key": "givewp-*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/DonationForms/V2/ServiceProvider.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "givewp-additional-payment-gateways-notice-dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/FormBuilder/ServiceProvider.php",
+                        "line": 96
+                    }
+                ]
+            },
+            {
+                "key": "givewp-form-builder-*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/FormBuilder/ServiceProvider.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "givewp-goal-notice-dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/FormBuilder/ServiceProvider.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "last_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 2093
+                    },
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 2526
+                    }
+                ]
+            },
+            {
+                "key": "marketing_optin",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Onboarding/Wizard/Page.php",
+                        "line": 213
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "_give_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-comment.php",
+                        "line": 647
+                    }
+                ]
+            },
+            {
+                "key": "_give_comment_moved",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 3078
+                    }
+                ]
+            },
+            {
+                "key": "_give_donor_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/donors/frontend-donor-functions.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "note_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/payments/actions.php",
+                        "line": 427
+                    }
+                ]
+            }
+        ],
+        "roles": [
+            {
+                "key": "give_accountant",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "give_donor",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "give_manager",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "give_worker",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 99
+                    }
+                ]
+            }
+        ],
+        "capabilities": [
+            {
+                "key": "administrator",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 149
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 150
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 152
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 153
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 159
+                    },
+                    {
+                        "file": "src/Framework/Permissions/Migrations/AddViewCapabilitiesToAdminRoles.php",
+                        "line": 77
+                    },
+                    {
+                        "file": "src/Framework/Permissions/Migrations/AddViewCapabilitiesToAdminRoles.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "delete_others_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "delete_others_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "delete_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "delete_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "delete_private_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "delete_private_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "delete_published_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "delete_published_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "edit_others_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "edit_others_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "edit_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "edit_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "edit_private_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "edit_private_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "edit_published_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "edit_published_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "export",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "give_accountant",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 181
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 182
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 183
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 184
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 185
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 186
+                    },
+                    {
+                        "file": "src/Framework/Permissions/Migrations/FixGiveAccountantCapabilities.php",
+                        "line": 78
+                    }
+                ]
+            },
+            {
+                "key": "give_manager",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 143
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 145
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 146
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 147
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 160
+                    },
+                    {
+                        "file": "src/Framework/Permissions/Migrations/AddViewCapabilitiesToAdminRoles.php",
+                        "line": 73
+                    },
+                    {
+                        "file": "src/Framework/Permissions/Migrations/AddViewCapabilitiesToAdminRoles.php",
+                        "line": 74
+                    }
+                ]
+            },
+            {
+                "key": "give_worker",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 166
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 167
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 168
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 169
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 170
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 171
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 172
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 173
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 174
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 175
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 176
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 177
+                    },
+                    {
+                        "file": "src/Framework/Permissions/Migrations/FixGiveWorkerCapabilities.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "src/Framework/Permissions/Migrations/FixGiveWorkerCapabilities.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "import",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "manage_categories",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "manage_links",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "moderate_comments",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "publish_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "publish_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "read",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "read_private_pages",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "read_private_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "unfiltered_html",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    }
+                ]
+            },
+            {
+                "key": "upload_files",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "includes/class-give-roles.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "view_give_forms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Framework/Permissions/Migrations/AddViewCapabilitiesToAdminRoles.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "src/Framework/Permissions/Migrations/FixGiveAccountantCapabilities.php",
+                        "line": 109
+                    },
+                    {
+                        "file": "src/Framework/Permissions/Migrations/FixGiveWorkerCapabilities.php",
+                        "line": 117
+                    }
+                ]
+            },
+            {
+                "key": "view_give_payments",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/upgrades/upgrade-functions.php",
+                        "line": 2805
+                    },
+                    {
+                        "file": "src/Framework/Permissions/Migrations/AddViewCapabilitiesToAdminRoles.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "src/Framework/Permissions/Migrations/FixGiveWorkerCapabilities.php",
+                        "line": 112
+                    }
+                ]
+            }
+        ],
+        "post_types": [
+            {
+                "key": "give_forms",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "give_payment",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types.php",
+                        "line": 140
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "give_forms_category",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types.php",
+                        "line": 253
+                    }
+                ]
+            },
+            {
+                "key": "give_forms_tag",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/post-types.php",
+                        "line": 258
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "give-api",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/class-give-api.php",
+                        "line": 205
+                    }
+                ]
+            }
+        ],
+        "actions": [
+            {
+                "key": "givewp_cache_campaign_data",
+                "recurrence": "async",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Campaigns/Actions/CacheCampaignData.php",
+                        "line": 45
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_key",
+            "file": "includes/admin/class-addon-activation-banner.php",
+            "line": 181
+        },
+        {
+            "function": "update_option",
+            "expression": "$name",
+            "file": "includes/admin/class-admin-settings.php",
+            "line": 1262
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/admin/emails/class-email-access-email.php",
+            "line": 307
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/admin/emails/class-new-offline-donation-email.php",
+            "line": 303
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "includes/admin/emails/class-offline-donation-instruction-email.php",
+            "line": 269
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "includes/admin/plugins.php",
+            "line": 341
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/admin/tools/data/class-give-tools-delete-import-donors.php",
+            "line": 537
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/admin/tools/data/class-give-tools-delete-test-donors.php",
+            "line": 433
+        },
+        {
+            "function": "update_option",
+            "expression": "$batch->key",
+            "file": "includes/admin/upgrades/class-give-updates.php",
+            "line": 406
+        },
+        {
+            "function": "update_option",
+            "expression": "$batch->key",
+            "file": "includes/admin/upgrades/class-give-updates.php",
+            "line": 530
+        },
+        {
+            "function": "update_option",
+            "expression": "$addon_license_option_name",
+            "file": "includes/admin/upgrades/upgrade-functions.php",
+            "line": 791
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/admin/upgrades/upgrade-functions.php",
+            "line": 1143
+        },
+        {
+            "function": "add_cap",
+            "expression": "$role",
+            "file": "includes/admin/upgrades/upgrade-functions.php",
+            "line": 1667
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$new_public_key",
+            "file": "includes/api/class-give-api.php",
+            "line": 2101
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$new_secret_key",
+            "file": "includes/api/class-give-api.php",
+            "line": 2102
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "includes/class-give-background-updater.php",
+            "line": 111
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "includes/class-give-background-updater.php",
+            "line": 143
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/class-give-background-updater.php",
+            "line": 227
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/class-give-background-updater.php",
+            "line": 246
+        },
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "includes/class-give-cache.php",
+            "line": 278
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/database/class-give-db-comments.php",
+            "line": 258
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "includes/database/class-give-db-comments.php",
+            "line": 260
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/database/class-give-db-donors.php",
+            "line": 587
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "includes/database/class-give-db-donors.php",
+            "line": 589
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/database/class-give-db-meta.php",
+            "line": 551
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "includes/database/class-give-db-meta.php",
+            "line": 553
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/database/class-give-db-sequential-ordering.php",
+            "line": 109
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "includes/database/class-give-db-sequential-ordering.php",
+            "line": 119
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/database/class-give-db-sessions.php",
+            "line": 103
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "includes/database/class-give-db-sessions.php",
+            "line": 105
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\\give_stripe_get_customer_key()",
+            "file": "includes/gateways/stripe/includes/class-give-stripe-gateway.php",
+            "line": 422
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\\give_stripe_get_customer_key()",
+            "file": "includes/gateways/stripe/includes/give-stripe-helpers.php",
+            "line": 346
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "includes/misc-functions.php",
+            "line": 1037
+        },
+        {
+            "function": "register_meta",
+            "expression": "$metaKey",
+            "file": "src/Campaigns/ServiceProvider.php",
+            "line": 139
+        },
+        {
+            "function": "add_user_meta",
+            "expression": "$name",
+            "file": "src/Campaigns/ServiceProvider.php",
+            "line": 155
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transientName",
+            "file": "src/DonationForms/AsyncData/Actions/GetAsyncFormDataForListView.php",
+            "line": 74
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "sprintf('_give_%s_archive_show_legacy', $this->slug)",
+            "file": "src/Donations/Endpoints/SwitchDonationView.php",
+            "line": 57
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$delta",
+            "file": "src/Framework/Database/DB.php",
+            "line": 48
+        },
+        {
+            "function": "update_option",
+            "expression": "\\Give\\Framework\\Migrations\\MigrationsRunner::MIGRATION_OPTION",
+            "file": "src/Framework/Migrations/Actions/ManuallyRunMigration.php",
+            "line": 70
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$this->getHook()",
+            "file": "src/Framework/Migrations/Controllers/BatchMigrationRunner.php",
+            "line": 69
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$this->getHook()",
+            "file": "src/Framework/Migrations/Controllers/BatchMigrationRunner.php",
+            "line": 181
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$this->getHook()",
+            "file": "src/Framework/Migrations/Controllers/BatchMigrationRunner.php",
+            "line": 213
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$hook",
+            "file": "src/Framework/Support/Facades/ActionScheduler/AsBackgroundJobsFacade.php",
+            "line": 39
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "src/Framework/WordPressLibraries/WPBackgroundProcess.php",
+            "line": 106
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "src/Framework/WordPressLibraries/WPBackgroundProcess.php",
+            "line": 123
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "src/Framework/WordPressLibraries/WPBackgroundProcess.php",
+            "line": 252
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "src/Framework/WordPressLibraries/WPBackgroundProcess.php",
+            "line": 491
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "src/LegacySubscriptions/includes/give-subscriptions-db.php",
+            "line": 377
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->table_name . '_db_version'",
+            "file": "src/LegacySubscriptions/includes/give-subscriptions-db.php",
+            "line": 379
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionName",
+            "file": "src/Onboarding/SettingsRepositoryFactory.php",
+            "line": 22
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->getCronJobHookName()",
+            "file": "src/PaymentGateways/PayPalCommerce/RefreshToken.php",
+            "line": 92
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getAccountKey()",
+            "file": "src/PaymentGateways/PayPalCommerce/Repositories/MerchantDetails.php",
+            "line": 58
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getAccountErrorsKey()",
+            "file": "src/PaymentGateways/PayPalCommerce/Repositories/MerchantDetails.php",
+            "line": 96
+        },
+        {
+            "function": "set_transient",
+            "expression": "$optionName",
+            "file": "src/PaymentGateways/PayPalCommerce/Repositories/MerchantDetails.php",
+            "line": 154
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getSellerAccessTokenOptionName()",
+            "file": "src/PaymentGateways/PayPalCommerce/Repositories/Settings.php",
+            "line": 159
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->getOptionKey()",
+            "file": "src/PaymentGateways/PayPalCommerce/Repositories/Webhooks.php",
+            "line": 258
+        },
+        {
+            "function": "update_option",
+            "expression": "$request->get_param('option')",
+            "file": "src/Promotions/InPluginUpsells/Endpoints/ProductRecommendationsRoute.php",
+            "line": 95
+        },
+        {
+            "function": "update_option",
+            "expression": "$request->get_param('action')",
+            "file": "src/Promotions/WelcomeBanner/Endpoints/DismissWelcomeBannerRoute.php",
+            "line": 84
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "\"{$this->base}/(.+?)/?\\$\"",
+            "file": "src/Route/Form.php",
+            "line": 96
+        }
+    ]
+}

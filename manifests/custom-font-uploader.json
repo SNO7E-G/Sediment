@@ -1,0 +1,137 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "custom-font-uploader",
+        "name": "Wbcom Designs - Custom Font Uploader",
+        "version": "2.4.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:23Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 14,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.7
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cfu_general_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cfup-general-settings.php",
+                        "line": 23
+                    }
+                ]
+            },
+            {
+                "key": "cfupgooglefonts_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cfup-googlefont-settings.php",
+                        "line": 27
+                    }
+                ]
+            },
+            {
+                "key": "font_file_name",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cfup-customfont-settings.php",
+                        "line": 50
+                    },
+                    {
+                        "file": "inc/cfup-functions.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "googlefont_file_name",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/cfup-googlefont-settings.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "inc/cfup-functions.php",
+                        "line": 110
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "_cfu_is_new_install",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "custom-font-uploader.php",
+                        "line": 133
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_site_option",
+            "expression": "$this->date_option",
+            "file": "admin/class-cfup-admin-feedback.php",
+            "line": 144
+        },
+        {
+            "function": "add_site_option",
+            "expression": "$this->nobug_option",
+            "file": "admin/class-cfup-admin-feedback.php",
+            "line": 300
+        },
+        {
+            "function": "mkdir",
+            "expression": "$cfu_upload_dir",
+            "file": "custom-font-uploader.php",
+            "line": 94
+        }
+    ]
+}

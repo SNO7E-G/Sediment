@@ -1,0 +1,299 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "disco",
+        "name": "Disco",
+        "version": "1.4.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:16Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 130,
+        "files_skipped": 0,
+        "write_calls_found": 30,
+        "verified": 14,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 14,
+        "resolution_rate": 0.533
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "DISCO_DB_VERSION",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/ActDeact.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "disco-version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/ActDeact.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "disco_active_campaign_subscribe",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/ActiveCampaign/ActiveCampaign.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "disco_install_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/ActDeact.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "disco_review_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/WebAppick/Classes/DiscoWebAppickAPI.php",
+                        "line": 512
+                    }
+                ]
+            },
+            {
+                "key": "disco_review_notice_next_show_time",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/WebAppick/Classes/DiscoWebAppickAPI.php",
+                        "line": 490
+                    },
+                    {
+                        "file": "libs/WebAppick/Classes/DiscoWebAppickAPI.php",
+                        "line": 503
+                    }
+                ]
+            },
+            {
+                "key": "disco_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Utility/Settings.php",
+                        "line": 184
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "disco_blog_posts_cache",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/DashboardWidget.php",
+                        "line": 320
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "disco_compatible_plugin_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ajax/Ajax.php",
+                        "line": 112
+                    }
+                ]
+            },
+            {
+                "key": "disco_feature_unlock_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ajax/Ajax.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "disco_promotional_holiday_banner_2025",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ajax/Ajax.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "disco_review_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ajax/Ajax.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "ajax/Ajax.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "disco_review_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libs/WebAppick/Classes/DiscoWebAppickAPI.php",
+                        "line": 489
+                    },
+                    {
+                        "file": "libs/WebAppick/Classes/DiscoWebAppickAPI.php",
+                        "line": 499
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "app/Analytics/Services/CustomerService.php",
+            "line": 229
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "app/Features/UserLimit.php",
+            "line": 133
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir['path']",
+            "file": "app/Upload/ImageUpload.php",
+            "line": 322
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "backend/ActDeact.php",
+            "line": 150
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "backend/ActDeact.php",
+            "line": 234
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->getSlug() . '_tracking_last_send'",
+            "file": "libs/WebAppick/AppServices/Insights.php",
+            "line": 277
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "libs/WebAppick/AppServices/Insights.php",
+            "line": 419
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->getSlug() . '_allow_tracking'",
+            "file": "libs/WebAppick/AppServices/Insights.php",
+            "line": 550
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->getSlug() . '_tracking_notice'",
+            "file": "libs/WebAppick/AppServices/Insights.php",
+            "line": 551
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->getSlug() . '_allow_tracking'",
+            "file": "libs/WebAppick/AppServices/Insights.php",
+            "line": 563
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->getSlug() . '_tracking_notice'",
+            "file": "libs/WebAppick/AppServices/Insights.php",
+            "line": 564
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->client->getSlug() . '_tracker_send_event'",
+            "file": "libs/WebAppick/AppServices/Insights.php",
+            "line": 707
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->client->getSlug() . '_cached_promos'",
+            "file": "libs/WebAppick/AppServices/Promotions.php",
+            "line": 234
+        },
+        {
+            "function": "update_option",
+            "expression": "\\sprintf('disco_%s_notice_hidden', $which)",
+            "file": "libs/WebAppick/Classes/DiscoWebAppickAPI.php",
+            "line": 525
+        }
+    ]
+}

@@ -1,0 +1,228 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-rest-api-log",
+        "name": "REST API Log",
+        "version": "1.7.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:21Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 17,
+    "coverage": {
+        "files_scanned": 45,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 2,
+        "resolved": 7,
+        "pattern": 2,
+        "dynamic": 9,
+        "resolution_rate": 0.45
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp-rest-api-log-db-notice-dismissed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/class-wp-rest-api-log-settings-general.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "wp-rest-api-log-plugin-activated",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-rest-api-log-activator.php",
+                        "line": 13
+                    }
+                ]
+            },
+            {
+                "key": "wp-rest-api-log-plugin-version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-rest-api-log-settings.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "wp-rest-api-log-settings-general",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-rest-api-log-settings.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "includes/settings/class-wp-rest-api-log-settings.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "wp-rest-api-log-settings-routes",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/settings/class-wp-rest-api-log-settings.php",
+                        "line": 56
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wp-rest-api-log-purge-old-records",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-rest-api-log.php",
+                        "line": 149
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_wp_rest_api_log_migrated_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-rest-api-log-db.php",
+                        "line": 483
+                    }
+                ]
+            },
+            {
+                "key": "request_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-rest-api-log-db.php",
+                        "line": 200
+                    }
+                ]
+            },
+            {
+                "key": "response_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-rest-api-log-db.php",
+                        "line": 227
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wp-rest-api-log",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-rest-api-log-post-type.php",
+                        "line": 17
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-wp-rest-api-log-db-base.php",
+            "line": 17
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/class-wp-rest-api-log-db-entries.php",
+            "line": 46
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/class-wp-rest-api-log-db-meta.php",
+            "line": 46
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/class-wp-rest-api-log-db.php",
+            "line": 167
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/class-wp-rest-api-log-db.php",
+            "line": 175
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "includes/class-wp-rest-api-log-settings.php",
+            "line": 64
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy",
+            "file": "includes/class-wp-rest-api-log-taxonomies.php",
+            "line": 56
+        },
+        {
+            "function": "update_option",
+            "expression": "$options_key",
+            "file": "includes/settings/class-wp-rest-api-log-settings-base.php",
+            "line": 23
+        },
+        {
+            "function": "update_option",
+            "expression": "$options_key",
+            "file": "includes/settings/class-wp-rest-api-log-settings-base.php",
+            "line": 43
+        }
+    ]
+}

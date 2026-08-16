@@ -1,0 +1,226 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "assistant",
+        "name": "Assistant",
+        "version": "1.5.4.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 100,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 11,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_fl_builder_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/src/Services/CustomizerService.php",
+                        "line": 240
+                    }
+                ]
+            },
+            {
+                "key": "fl_assistant_export_file",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/src/Controllers/PostsExportController.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "fl_asst_installed_labels",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/src/Data/Repository/LabelsRepository.php",
+                        "line": 146
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_fl_asst_imported_media_hash",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/src/Services/MediaLibraryService.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "_fl_asst_preview_library_item_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/src/Controllers/Cloud/Libraries/LibraryItemPostController.php",
+                        "line": 213
+                    }
+                ]
+            },
+            {
+                "key": "_wp_attachment_image_alt",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/src/Controllers/AttachmentsController.php",
+                        "line": 290
+                    },
+                    {
+                        "file": "backend/src/Controllers/Cloud/Libraries/LibraryItemImageController.php",
+                        "line": 62
+                    },
+                    {
+                        "file": "backend/src/Controllers/Cloud/Libraries/LibraryItemSvgController.php",
+                        "line": 39
+                    },
+                    {
+                        "file": "backend/src/Services/MediaLibraryService.php",
+                        "line": 137
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "fl_assistant_state",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/src/Data/UserState.php",
+                        "line": 92
+                    },
+                    {
+                        "file": "backend/src/Hooks/Actions/OnPersonalOptionsUpdate.php",
+                        "line": 38
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "fl_asst_notation_color",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/src/Data/Repository/LabelsRepository.php",
+                        "line": 142
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "fl_asst_notation",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/src/PostTypes/NotationsPostType.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "fl_code",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/src/PostTypes/CodePostType.php",
+                        "line": 24
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "fl_asst_label",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "backend/src/PostTypes/NotationsPostType.php",
+                        "line": 36
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "backend/src/Controllers/Cloud/Libraries/LibraryItemPostController.php",
+            "line": 665
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "backend/src/Controllers/PostsController.php",
+            "line": 424
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$key",
+            "file": "backend/src/Controllers/TermsController.php",
+            "line": 323
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "backend/src/Helpers/AstraSettingsHelper.php",
+            "line": 53
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "backend/src/Services/CustomizerService.php",
+            "line": 248
+        }
+    ]
+}

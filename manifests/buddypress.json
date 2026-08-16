@@ -1,0 +1,364 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "buddypress",
+        "name": "BuddyPress",
+        "version": "14.5.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:23Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 20,
+    "coverage": {
+        "files_scanned": 687,
+        "files_skipped": 0,
+        "write_calls_found": 42,
+        "verified": 16,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 26,
+        "resolution_rate": 0.381
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_bp_retain_bp_default",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-core/bp-core-update.php",
+                        "line": 457
+                    }
+                ]
+            },
+            {
+                "key": "illegal_names",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-core/deprecated/6.0.php",
+                        "line": 158
+                    },
+                    {
+                        "file": "bp-members/bp-members-functions.php",
+                        "line": 1499
+                    }
+                ]
+            },
+            {
+                "key": "registration",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "cli/src/tool.php",
+                        "line": 121
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "bp_activity_akismet_delete_old_metadata",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-activity/classes/class-bp-akismet.php",
+                        "line": 624
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_bp_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-core/bp-core-update.php",
+                        "line": 1114
+                    }
+                ]
+            },
+            {
+                "key": "_bp_admin_signups_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-members/classes/class-bp-members-admin.php",
+                        "line": 1962
+                    },
+                    {
+                        "file": "bp-members/classes/class-bp-members-admin.php",
+                        "line": 1989
+                    },
+                    {
+                        "file": "bp-members/classes/class-bp-members-admin.php",
+                        "line": 2016
+                    }
+                ]
+            },
+            {
+                "key": "_bp_is_new_install",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-core/bp-core-update.php",
+                        "line": 1110
+                    }
+                ]
+            },
+            {
+                "key": "bp_active_member_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-members/bp-members-functions.php",
+                        "line": 631
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "bp_favorite_activities",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-activity/bp-activity-functions.php",
+                        "line": 1034
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "bp_activity_comment_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-blogs/bp-blogs-activity.php",
+                        "line": 811
+                    },
+                    {
+                        "file": "bp-blogs/bp-blogs-functions.php",
+                        "line": 810
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "bp_nav_menu_item",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-core/admin/bp-core-admin-functions.php",
+                        "line": 1207
+                    }
+                ]
+            },
+            {
+                "key": "buddypress",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bp-core/classes/class-bp-core.php",
+                        "line": 347
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "bp-core/admin/bp-core-admin-schema.php",
+            "line": 113
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "bp-core/admin/bp-core-admin-schema.php",
+            "line": 162
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "bp-core/admin/bp-core-admin-schema.php",
+            "line": 186
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "bp-core/admin/bp-core-admin-schema.php",
+            "line": 244
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "bp-core/admin/bp-core-admin-schema.php",
+            "line": 300
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "bp-core/admin/bp-core-admin-schema.php",
+            "line": 375
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$insert_sql",
+            "file": "bp-core/admin/bp-core-admin-schema.php",
+            "line": 394
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "bp-core/admin/bp-core-admin-schema.php",
+            "line": 424
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$create_queries",
+            "file": "bp-core/admin/bp-core-admin-schema.php",
+            "line": 464
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "bp-core/admin/bp-core-admin-schema.php",
+            "line": 592
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "bp-core/admin/bp-core-admin-schema.php",
+            "line": 626
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$meta_key",
+            "file": "bp-core/admin/bp-core-admin-types.php",
+            "line": 188
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$attachment_data['path']",
+            "file": "bp-core/bp-core-attachments.php",
+            "line": 399
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$avatar_dir",
+            "file": "bp-core/bp-core-avatars.php",
+            "line": 1248
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$avatar_folder_dir",
+            "file": "bp-core/bp-core-avatars.php",
+            "line": 1267
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "bp-core/bp-core-caps.php",
+            "line": 75
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\\bp_get_user_meta_key($key)",
+            "file": "bp-core/bp-core-functions.php",
+            "line": 1890
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$meta_key",
+            "file": "bp-core/bp-core-functions.php",
+            "line": 3578
+        },
+        {
+            "function": "register_taxonomy",
+            "expression": "$taxonomy_name",
+            "file": "bp-core/bp-core-taxonomy.php",
+            "line": 63
+        },
+        {
+            "function": "add_option",
+            "expression": "$option_name",
+            "file": "bp-core/bp-core-wpabstraction.php",
+            "line": 77
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "bp-core/bp-core-wpabstraction.php",
+            "line": 96
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->upload_path",
+            "file": "bp-core/classes/class-bp-attachment.php",
+            "line": 435
+        },
+        {
+            "function": "mkdir",
+            "expression": "$revision_dir",
+            "file": "bp-core/classes/class-bp-attachment.php",
+            "line": 632
+        },
+        {
+            "function": "add_rewrite_tag",
+            "expression": "$rewrite_tag",
+            "file": "bp-core/classes/class-bp-component.php",
+            "line": 1095
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$rewrite_rule['regex']",
+            "file": "bp-core/classes/class-bp-component.php",
+            "line": 1176
+        },
+        {
+            "function": "register_post_type",
+            "expression": "\\bp_get_email_post_type()",
+            "file": "bp-core/classes/class-bp-core.php",
+            "line": 373
+        }
+    ]
+}

@@ -1,0 +1,213 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-conversion-tracking",
+        "name": "Conversion Tracking for WooCommerce",
+        "version": "2.1.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:49Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 21,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 9,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 13,
+        "resolution_rate": 0.409
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_wcct_20_notice_dismiss",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrades/upgrade-2.0.php",
+                        "line": 23
+                    }
+                ]
+            },
+            {
+                "key": "wcct_dismissable_notice",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ajax.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "wcct_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "conversion-tracking.php",
+                        "line": 174
+                    }
+                ]
+            },
+            {
+                "key": "wcct_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ajax.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "includes/upgrades/upgrade-2.0.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "wcct_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "conversion-tracking.php",
+                        "line": 177
+                    },
+                    {
+                        "file": "includes/class-upgrades.php",
+                        "line": 60
+                    },
+                    {
+                        "file": "includes/class-upgrades.php",
+                        "line": 64
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wcct_upgrade_to_20",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/upgrades/upgrade-2.0.php",
+                        "line": 26
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_last_send'",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 195
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 390
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_allow_tracking'",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 555
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_notice'",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 556
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_allow_tracking'",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 571
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_notice'",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 572
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook_name",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 746
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->client->slug . '_tracking_skipped'",
+            "file": "dependencies/Appsero/Insights.php",
+            "line": 1096
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "dependencies/Appsero/License.php",
+            "line": 369
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "dependencies/Appsero/License.php",
+            "line": 653
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "dependencies/Appsero/License.php",
+            "line": 677
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->schedule_hook",
+            "file": "dependencies/Appsero/License.php",
+            "line": 757
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->schedule_hook",
+            "file": "dependencies/Appsero/License.php",
+            "line": 759
+        }
+    ]
+}

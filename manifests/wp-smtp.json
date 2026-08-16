@@ -1,0 +1,131 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-smtp",
+        "name": "Kadence Mail",
+        "version": "3.0.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 50,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 1,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.778
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "solid_mail_maybe_show_200210_notice",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Mail/Migration/MigrationVer210.php",
+                        "line": 69
+                    }
+                ]
+            },
+            {
+                "key": "solid_mail_migration_error",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Mail/Migration/MigrationVer130.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "solid_mail_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Mail/Migration/MigrationVer130.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "solid_smtp_providers",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Mail/Migration/MigrationVer221.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "src/Mail/Repository/ProvidersRepository.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "src/Mail/Repository/ProvidersRepository.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "solid_smtp_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Mail/Migration/Provider.php",
+                        "line": 45
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "inc/Logger/Table.php",
+            "line": 34
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$flag",
+            "file": "src/Mail/Admin/Notice.php",
+            "line": 57
+        }
+    ]
+}

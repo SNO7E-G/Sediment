@@ -1,0 +1,141 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "content-views-query-and-display-post-page",
+        "name": "Content Views - Post Grid & Filter (Shortcode, Blocks, Elementor Widgets)",
+        "version": "4.5.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 62,
+    "coverage": {
+        "files_scanned": 61,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 2,
+        "resolved": 2,
+        "pattern": 1,
+        "dynamic": 5,
+        "resolution_rate": 0.4
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "opd_external_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compatibility.php",
+                        "line": 263
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "contentviews_block_cron",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "block/template_pattern.php",
+                        "line": 29
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "cv_shortcode_tags_193",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/hooks.php",
+                        "line": 288
+                    }
+                ]
+            },
+            {
+                "key": "pt-cv-view-settings-*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/compatibility.php",
+                        "line": 339
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "pt_view",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/content-views.php",
+                        "line": 270
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cache_file_dir",
+            "file": "block/template_pattern.php",
+            "line": 118
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\PT_CV_META_ID",
+            "file": "includes/functions.php",
+            "line": 1138
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\PT_CV_META_SETTINGS",
+            "file": "includes/functions.php",
+            "line": 1139
+        },
+        {
+            "function": "update_option",
+            "expression": "\\PT_CV_OPTION_VERSION",
+            "file": "includes/update.php",
+            "line": 20
+        },
+        {
+            "function": "update_option",
+            "expression": "\\PT_CV_OPTION_VERSION",
+            "file": "public/content-views.php",
+            "line": 195
+        }
+    ]
+}

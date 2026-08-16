@@ -1,0 +1,342 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-ses",
+        "name": "WP Offload SES Lite",
+        "version": "1.8.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:38Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 10,
+    "coverage": {
+        "files_scanned": 81,
+        "files_skipped": 0,
+        "write_calls_found": 34,
+        "verified": 17,
+        "resolved": 4,
+        "pattern": 1,
+        "dynamic": 12,
+        "resolution_rate": 0.618
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wposes_constant_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Settings.php",
+                        "line": 151
+                    }
+                ]
+            },
+            {
+                "key": "wposes_cron_error_email",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Queue/Queue-Status.php",
+                        "line": 321
+                    }
+                ]
+            },
+            {
+                "key": "wposes_doing_upgrade",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WP-Offload-SES.php",
+                        "line": 214
+                    }
+                ]
+            },
+            {
+                "key": "wposes_last_cron_check",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Queue/Queue-Status.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "wposes_last_cron_run",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Queue/Email-Cron.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "wposes_lite_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WP-Offload-SES.php",
+                        "line": 229
+                    }
+                ]
+            },
+            {
+                "key": "wposes_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WP-Offload-SES.php",
+                        "line": 253
+                    },
+                    {
+                        "file": "classes/WP-Offload-SES.php",
+                        "line": 280
+                    },
+                    {
+                        "file": "classes/WP-Offload-SES.php",
+                        "line": 331
+                    }
+                ]
+            },
+            {
+                "key": "wposes_tracking_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WP-Offload-SES.php",
+                        "line": 222
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "deliciousbrains_wp_offload_ses_log_cleanup",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Email-Log.php",
+                        "line": 194
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wposes_deactivated_notice_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Compatibility-Check.php",
+                        "line": 333
+                    }
+                ]
+            },
+            {
+                "key": "wposes_doing_cron_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Queue/Queue-Status.php",
+                        "line": 159
+                    }
+                ]
+            },
+            {
+                "key": "wposes_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Notices.php",
+                        "line": 153
+                    },
+                    {
+                        "file": "classes/Notices.php",
+                        "line": 519
+                    }
+                ]
+            },
+            {
+                "key": "wposes_triggered_queue",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WP-Offload-SES.php",
+                        "line": 1576
+                    }
+                ]
+            },
+            {
+                "key": "wposes_unverified_senders",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Email.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "wposes_verified_senders",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/WP-Offload-SES.php",
+                        "line": 735
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wposes_dismissed_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Notices.php",
+                        "line": 221
+                    },
+                    {
+                        "file": "classes/Notices.php",
+                        "line": 505
+                    }
+                ]
+            },
+            {
+                "key": "wposes_notices",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/Notices.php",
+                        "line": 151
+                    },
+                    {
+                        "file": "classes/Notices.php",
+                        "line": 505
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->attachments_dir . $salt",
+            "file": "classes/Attachments.php",
+            "line": 135
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/Attachments.php",
+            "line": 347
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/Attachments.php",
+            "line": 355
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/Email-Events.php",
+            "line": 466
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/Email-Log.php",
+            "line": 354
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$cron",
+            "file": "classes/Health-Report.php",
+            "line": 134
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$cron",
+            "file": "classes/Health-Report.php",
+            "line": 150
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->id",
+            "file": "classes/Queue/Email-Cron.php",
+            "line": 49
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/Queue/Email-Queue.php",
+            "line": 172
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/Queue/Email-Queue.php",
+            "line": 181
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option",
+            "file": "classes/Settings.php",
+            "line": 575
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "classes/Settings.php",
+            "line": 578
+        }
+    ]
+}

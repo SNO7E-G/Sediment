@@ -1,0 +1,193 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-global-site-tag",
+        "name": "WP Global Site Tag",
+        "version": "2.0.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:56Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 63,
+    "coverage": {
+        "files_scanned": 32,
+        "files_skipped": 0,
+        "write_calls_found": 18,
+        "verified": 1,
+        "resolved": 11,
+        "pattern": 2,
+        "dynamic": 4,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp-global-site-tag-cache-keys",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/analytics/class-wp-global-site-tag-report-cache.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "includes/analytics/class-wp-global-site-tag-report-cache.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "wp-global-site-tag-oauth-credentials",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/analytics/class-wp-global-site-tag-oauth-credentials.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "includes/analytics/class-wp-global-site-tag-oauth-credentials.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "wp-global-site-tag-oauth-state-keys",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/analytics/class-wp-global-site-tag-oauth-state-store.php",
+                        "line": 110
+                    },
+                    {
+                        "file": "includes/analytics/class-wp-global-site-tag-oauth-state-store.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "includes/analytics/class-wp-global-site-tag-oauth-state-store.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "wp-global-site-tag-oauth-tokens",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/analytics/class-wp-global-site-tag-token-store.php",
+                        "line": 104
+                    },
+                    {
+                        "file": "includes/analytics/class-wp-global-site-tag-token-store.php",
+                        "line": 106
+                    }
+                ]
+            },
+            {
+                "key": "wp-global-site-tag-options",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wp-global-site-tag-activator.php",
+                        "line": 31
+                    },
+                    {
+                        "file": "includes/class-wp-global-site-tag-settings.php",
+                        "line": 191
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wpgst_f_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/analytics/class-wp-global-site-tag-report-cache.php",
+                        "line": 55
+                    }
+                ]
+            },
+            {
+                "key": "wpgst_properties",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-wp-global-site-tag-analytics-admin.php",
+                        "line": 372
+                    }
+                ]
+            },
+            {
+                "key": "wpgst_s_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/analytics/class-wp-global-site-tag-report-cache.php",
+                        "line": 56
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "admin/class-wp-global-site-tag-analytics-admin.php",
+            "line": 390
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/analytics/class-wp-global-site-tag-oauth-state-store.php",
+            "line": 43
+        },
+        {
+            "function": "set_transient",
+            "expression": "$lock_key",
+            "file": "includes/analytics/class-wp-global-site-tag-report-cache.php",
+            "line": 68
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cooldown_key",
+            "file": "includes/analytics/class-wp-global-site-tag-rest-controller.php",
+            "line": 104
+        }
+    ]
+}

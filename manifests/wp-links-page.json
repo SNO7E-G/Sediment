@@ -1,0 +1,234 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-links-page",
+        "name": "WP Links Page",
+        "version": "5.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 1,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 20,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.87
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wplp_apikey",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "wplp_screenshot_refresh",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "wplp_screenshot_size",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 83
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wp_ajax_wplf_ajax_update_screenshots",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "wp_links_page_free_event",
+                "recurrence": null,
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 154
+                    },
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 1294
+                    },
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 1299
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "wplp_display",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 748
+                    },
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 752
+                    }
+                ]
+            },
+            {
+                "key": "wplp_media_fav",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 827
+                    }
+                ]
+            },
+            {
+                "key": "wplp_media_image",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 815
+                    },
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 823
+                    },
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 1276
+                    },
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 1480
+                    },
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 1538
+                    }
+                ]
+            },
+            {
+                "key": "wplp_no_update",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 763
+                    },
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 766
+                    },
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 787
+                    }
+                ]
+            },
+            {
+                "key": "wplp_screenshot_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 759
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wplp_link",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-links-page-free.php",
+                        "line": 463
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$wplf_upload_path",
+            "file": "wp-links-page-free.php",
+            "line": 65
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir",
+            "file": "wp-links-page-free.php",
+            "line": 1309
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir",
+            "file": "wp-links-page-free.php",
+            "line": 1379
+        }
+    ]
+}

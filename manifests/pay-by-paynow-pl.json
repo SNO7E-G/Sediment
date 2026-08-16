@@ -1,0 +1,169 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "pay-by-paynow-pl",
+        "name": "Pay by paynow.pl",
+        "version": "2.5.11",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:02Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 42,
+    "coverage": {
+        "files_scanned": 37,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 3,
+        "resolved": 5,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.533
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "paynow_plugin_status_to_send",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "pay-by-paynow-pl.php",
+                        "line": 60
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_pay_by_paynow_pl_modified_at",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/abstract/class-wc-gateway-pay-by-paynow-pl.php",
+                        "line": 532
+                    }
+                ]
+            },
+            {
+                "key": "_pay_by_paynow_pl_notification_history",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/abstract/class-wc-gateway-pay-by-paynow-pl.php",
+                        "line": 599
+                    }
+                ]
+            },
+            {
+                "key": "_pay_by_paynow_pl_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/abstract/class-wc-gateway-pay-by-paynow-pl.php",
+                        "line": 531
+                    }
+                ]
+            },
+            {
+                "key": "_paynow_transaction_lock_counter",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wc-pay-by-paynow-pl-helper.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "_transaction_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/abstract/class-wc-gateway-pay-by-paynow-pl.php",
+                        "line": 215
+                    },
+                    {
+                        "file": "includes/abstract/class-wc-gateway-pay-by-paynow-pl.php",
+                        "line": 221
+                    },
+                    {
+                        "file": "includes/abstract/class-wc-gateway-pay-by-paynow-pl.php",
+                        "line": 735
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "includes/abstract/class-wc-gateway-pay-by-paynow-pl.php",
+            "line": 114
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_api_option_key_name()",
+            "file": "includes/abstract/class-wc-gateway-pay-by-paynow-pl.php",
+            "line": 115
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key()",
+            "file": "includes/abstract/class-wc-gateway-pay-by-paynow-pl.php",
+            "line": 132
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-paynow-gateway.php",
+            "line": 392
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/class-paynow-gateway.php",
+            "line": 396
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$lock_path",
+            "file": "includes/class-wc-pay-by-paynow-pl-locking-mechanism.php",
+            "line": 31
+        },
+        {
+            "function": "mkdir",
+            "expression": "$lock_path",
+            "file": "includes/class-wc-pay-by-paynow-pl-locking-mechanism.php",
+            "line": 35
+        }
+    ]
+}

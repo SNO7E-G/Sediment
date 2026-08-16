@@ -1,0 +1,97 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "disable-email-notification-for-auto-updates",
+        "name": "Disable Auto Update Emails and Block Updates for Plugins, WP Core, and Themes",
+        "version": "1.0.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:58Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 27,
+        "files_skipped": 0,
+        "write_calls_found": 5,
+        "verified": 1,
+        "resolved": 2,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.6
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "disable_email_notification_for_auto_updates_module_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/BaseController.php",
+                        "line": 26
+                    },
+                    {
+                        "file": "includes/BaseController.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "itc_notice_dismissed_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-admin.php",
+                        "line": 178
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "disable-email-notification-for-auto-updates*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/BaseController.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$this->get_settings()",
+            "file": "includes/class-activator.php",
+            "line": 13
+        }
+    ]
+}

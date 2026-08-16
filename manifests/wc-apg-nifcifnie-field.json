@@ -1,0 +1,163 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wc-apg-nifcifnie-field",
+        "name": "WC - APG NIF/CIF/NIE Field",
+        "version": "4.15.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:52Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 22,
+        "files_skipped": 0,
+        "write_calls_found": 13,
+        "verified": 5,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 7,
+        "resolution_rate": 0.385
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "apg_nif_actualizado",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "apg-nif.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "apg_nif_meta_pedido_migrado",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "apg-nif.php",
+                        "line": 108
+                    }
+                ]
+            },
+            {
+                "key": "apg_nif_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "apg-nif.php",
+                        "line": 188
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "apg_nif_duplicados",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/clases/admin/pedidos.php",
+                        "line": 424
+                    }
+                ]
+            },
+            {
+                "key": "apg_nif_limpieza_resultado_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/clases/admin/pedidos.php",
+                        "line": 309
+                    }
+                ]
+            },
+            {
+                "key": "apg_nif_plugin",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/admin/funciones-apg.php",
+                        "line": 129
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$campo_origen",
+            "file": "includes/clases/mi-cuenta.php",
+            "line": 161
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$campo_destino",
+            "file": "includes/clases/mi-cuenta.php",
+            "line": 162
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/clases/pedido.php",
+            "line": 1619
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/clases/pedido.php",
+            "line": 1637
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/clases/pedido.php",
+            "line": 1695
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/clases/pedido.php",
+            "line": 1709
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/clases/pedido.php",
+            "line": 1719
+        }
+    ]
+}

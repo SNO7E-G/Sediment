@@ -1,0 +1,264 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "generate-pdf-using-contact-form-7",
+        "name": "Generate PDF using Contact Form 7",
+        "version": "4.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 15,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 7,
+        "resolved": 10,
+        "pattern": 0,
+        "dynamic": 6,
+        "resolution_rate": 0.739
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cf7pdf_submissions_public_status_upgraded",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class.cf7-pdf-submissions.php",
+                        "line": 179
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "cf7-pdf-generation_faqs_cache_v1",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/templates/cf7-pdf-generation.help.support.php",
+                        "line": 121
+                    }
+                ]
+            },
+            {
+                "key": "cf7-pdf-generation_help_newsletter_embed_html_v2",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/templates/cf7-pdf-generation.help.support.php",
+                        "line": 149
+                    }
+                ]
+            },
+            {
+                "key": "cf7-pdf-generation_plugin_blogs_cache_v1",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/templates/cf7-pdf-generation.help.support.php",
+                        "line": 51
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_cf7pdf_form_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class.cf7-pdf-submissions.php",
+                        "line": 231
+                    }
+                ]
+            },
+            {
+                "key": "_cf7pdf_pdf_path",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class.cf7-pdf-submissions.php",
+                        "line": 233
+                    }
+                ]
+            },
+            {
+                "key": "_cf7pdf_pdf_url",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class.cf7-pdf-submissions.php",
+                        "line": 232
+                    }
+                ]
+            },
+            {
+                "key": "_cf7pdf_submitted_date",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class.cf7-pdf-submissions.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "_form_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class.cf7-pdf-submissions.php",
+                        "line": 243
+                    }
+                ]
+            },
+            {
+                "key": "_form_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class.cf7-pdf-submissions.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "_pdf_link",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class.cf7-pdf-submissions.php",
+                        "line": 237
+                    }
+                ]
+            },
+            {
+                "key": "_pdf_path",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class.cf7-pdf-submissions.php",
+                        "line": 239
+                    }
+                ]
+            },
+            {
+                "key": "_wp_cf7_pdf",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/templates/cf7-pdf-generation.admin.html.php",
+                        "line": 141
+                    },
+                    {
+                        "file": "inc/templates/cf7-pdf-generation.admin.html.php",
+                        "line": 149
+                    }
+                ]
+            },
+            {
+                "key": "cf7_pdf",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/templates/cf7-pdf-generation.admin.html.php",
+                        "line": 142
+                    },
+                    {
+                        "file": "inc/templates/cf7-pdf-generation.admin.html.php",
+                        "line": 150
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "cf7pdf_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/class.cf7-pdf-cpt.php",
+                        "line": 103
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "inc/class.cf7-pdf-pdf-builder.php",
+            "line": 369
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "inc/class.cf7-pdf-pdf-builder.php",
+            "line": 602
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "inc/class.cf7-pdf-pdf-builder.php",
+            "line": 624
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "inc/class.cf7-pdf-pdf-builder.php",
+            "line": 652
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$cf7pdf_dir",
+            "file": "inc/class.cf7-pdf-submissions.php",
+            "line": 1024
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\dirname($pdf_file_path1)",
+            "file": "inc/front/class.cf7-pdf-generation.front.action.php",
+            "line": 604
+        }
+    ]
+}

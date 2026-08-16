@@ -1,0 +1,236 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "apcu-manager",
+        "name": "APCu Manager",
+        "version": "4.5.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 32,
+    "coverage": {
+        "files_scanned": 233,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 1,
+        "resolved": 12,
+        "pattern": 2,
+        "dynamic": 2,
+        "resolution_rate": 0.765
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "apcm_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system/class-option.php",
+                        "line": 195
+                    },
+                    {
+                        "file": "includes/system/class-option.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "apcm_adminbar",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system/class-option.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "apcm_analytics",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system/class-option.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "apcm_display_nag",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system/class-option.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "apcm_earlyloading",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system/class-option.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "apcm_gc",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system/class-option.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "apcm_history",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system/class-option.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "apcm_metrics",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system/class-option.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "apcm_nags",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system/class-option.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "apcm_use_cdn",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system/class-option.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "apcm_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system/class-option.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "auto_update_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system/class-plugin.php",
+                        "line": 130
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "apcm_apcu_gc",
+                "recurrence": "fifteen_minutes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugin/class-core.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "apcm_apcu_stats",
+                "recurrence": "five_minutes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/plugin/class-core.php",
+                        "line": 90
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "self::$pool_name . '_' . $item_name",
+            "file": "includes/system/class-cache.php",
+            "line": 272
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "includes/system/class-favicon.php",
+            "line": 78
+        }
+    ]
+}

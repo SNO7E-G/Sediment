@@ -1,0 +1,955 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "spice-post-slider",
+        "name": "Spice Post Slider",
+        "version": "2.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:10Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 155,
+        "files_skipped": 0,
+        "write_calls_found": 94,
+        "verified": 80,
+        "resolved": 1,
+        "pattern": 3,
+        "dynamic": 10,
+        "resolution_rate": 0.862
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "active_sitewide_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 355
+                    }
+                ]
+            },
+            {
+                "key": "fs_active_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 279
+                    },
+                    {
+                        "file": "freemius/includes/fs-essential-functions.php",
+                        "line": 413
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 204
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 314
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 359
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 520
+                    },
+                    {
+                        "file": "freemius/start.php",
+                        "line": 564
+                    }
+                ]
+            },
+            {
+                "key": "fs_debug_mode",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/config.php",
+                        "line": 307
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 505
+                    }
+                ]
+            },
+            {
+                "key": "fs_storage_logger",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-fs-logger.php",
+                        "line": 361
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}fs_logger",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-fs-logger.php",
+                        "line": 339
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "fs_debug_turn_off_logging_hook",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 293
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "_fs_api_connection_retry_counter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 21053
+                    }
+                ]
+            },
+            {
+                "key": "fs_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 7613
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 20703
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 20709
+                    }
+                ]
+            },
+            {
+                "key": "fs_snooze_period",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 2748
+                    },
+                    {
+                        "file": "freemius/includes/class-freemius.php",
+                        "line": 2750
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "update_themes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 87
+                    },
+                    {
+                        "file": "freemius/includes/managers/class-fs-debug-manager.php",
+                        "line": 96
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "sps_auth_enable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 206
+                    }
+                ]
+            },
+            {
+                "key": "sps_banner_height",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 238
+                    }
+                ]
+            },
+            {
+                "key": "sps_banner_overlay_clr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 394
+                    }
+                ]
+            },
+            {
+                "key": "sps_banner_overlay_enable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 222
+                    }
+                ]
+            },
+            {
+                "key": "sps_banner_overlay_opacity",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 226
+                    }
+                ]
+            },
+            {
+                "key": "sps_banner_padding_bottom",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "sps_banner_padding_top",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 230
+                    }
+                ]
+            },
+            {
+                "key": "sps_btn_bg_clr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 374
+                    }
+                ]
+            },
+            {
+                "key": "sps_btn_bg_hov_clr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 382
+                    }
+                ]
+            },
+            {
+                "key": "sps_btn_txt_clr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 378
+                    }
+                ]
+            },
+            {
+                "key": "sps_btn_txt_hov_clr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 386
+                    }
+                ]
+            },
+            {
+                "key": "sps_cat_enable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 198
+                    }
+                ]
+            },
+            {
+                "key": "sps_cat_query",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 409
+                    }
+                ]
+            },
+            {
+                "key": "sps_comment_enable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 202
+                    }
+                ]
+            },
+            {
+                "key": "sps_content_clr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 370
+                    }
+                ]
+            },
+            {
+                "key": "sps_content_ff",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "sps_content_fs",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 282
+                    }
+                ]
+            },
+            {
+                "key": "sps_content_fstyle",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 294
+                    }
+                ]
+            },
+            {
+                "key": "sps_content_fw",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 290
+                    }
+                ]
+            },
+            {
+                "key": "sps_content_lheight",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 286
+                    }
+                ]
+            },
+            {
+                "key": "sps_content_trans",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 298
+                    }
+                ]
+            },
+            {
+                "key": "sps_desc_enable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 218
+                    }
+                ]
+            },
+            {
+                "key": "sps_dt_enable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 194
+                    }
+                ]
+            },
+            {
+                "key": "sps_icon_clr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 350
+                    }
+                ]
+            },
+            {
+                "key": "sps_meta_clr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 354
+                    }
+                ]
+            },
+            {
+                "key": "sps_meta_ff",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 302
+                    }
+                ]
+            },
+            {
+                "key": "sps_meta_fs",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 306
+                    }
+                ]
+            },
+            {
+                "key": "sps_meta_fstyle",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 318
+                    }
+                ]
+            },
+            {
+                "key": "sps_meta_fw",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 314
+                    }
+                ]
+            },
+            {
+                "key": "sps_meta_hov_clr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 358
+                    }
+                ]
+            },
+            {
+                "key": "sps_meta_lheight",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 310
+                    }
+                ]
+            },
+            {
+                "key": "sps_meta_trans",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 322
+                    }
+                ]
+            },
+            {
+                "key": "sps_nav_clr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 390
+                    }
+                ]
+            },
+            {
+                "key": "sps_navigation_style",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 178
+                    }
+                ]
+            },
+            {
+                "key": "sps_orderby",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 170
+                    }
+                ]
+            },
+            {
+                "key": "sps_post_page",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 182
+                    }
+                ]
+            },
+            {
+                "key": "sps_read",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 247
+                    }
+                ]
+            },
+            {
+                "key": "sps_read_ff",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 326
+                    }
+                ]
+            },
+            {
+                "key": "sps_read_fs",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 330
+                    }
+                ]
+            },
+            {
+                "key": "sps_read_fstyle",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 342
+                    }
+                ]
+            },
+            {
+                "key": "sps_read_fw",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 338
+                    }
+                ]
+            },
+            {
+                "key": "sps_read_lheight",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 334
+                    }
+                ]
+            },
+            {
+                "key": "sps_read_trans",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 346
+                    }
+                ]
+            },
+            {
+                "key": "sps_slide_img",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 190
+                    }
+                ]
+            },
+            {
+                "key": "sps_slide_item",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "sps_slider_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "sps_speed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 250
+                    }
+                ]
+            },
+            {
+                "key": "sps_title_clr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 362
+                    }
+                ]
+            },
+            {
+                "key": "sps_title_enable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 214
+                    }
+                ]
+            },
+            {
+                "key": "sps_title_ff",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 254
+                    }
+                ]
+            },
+            {
+                "key": "sps_title_fs",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 258
+                    }
+                ]
+            },
+            {
+                "key": "sps_title_fstyle",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 270
+                    }
+                ]
+            },
+            {
+                "key": "sps_title_fw",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 266
+                    }
+                ]
+            },
+            {
+                "key": "sps_title_hov_clr",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 366
+                    }
+                ]
+            },
+            {
+                "key": "sps_title_lheight",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 262
+                    }
+                ]
+            },
+            {
+                "key": "sps_title_trans",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 274
+                    }
+                ]
+            },
+            {
+                "key": "sps_video_banner",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 174
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "spice_post_slider",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/admin/sps-cpt.php",
+                        "line": 42
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "freemius/includes/class-fs-plugin-updater.php",
+                    "line": 1279
+                },
+                {
+                    "file": "freemius/includes/fs-essential-functions.php",
+                    "line": 332
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "uninstall_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "freemius/includes/class-freemius.php",
+                    "line": 1896
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 6355
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$this->get_action_tag($action_tag)",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 6362
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "freemius/includes/class-freemius.php",
+            "line": 24754
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "freemius/includes/class-fs-lock.php",
+            "line": 57
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->_lock_id",
+            "file": "freemius/includes/class-fs-lock.php",
+            "line": 77
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "freemius/includes/class-fs-plugin-updater.php",
+            "line": 812
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$transient_key",
+            "file": "freemius/includes/class-fs-plugin-updater.php",
+            "line": 844
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-debug-manager.php",
+            "line": 262
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-option-manager.php",
+            "line": 410
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "freemius/includes/managers/class-fs-option-manager.php",
+            "line": 414
+        }
+    ]
+}

@@ -1,0 +1,205 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "download-attachments",
+        "name": "Download Attachments",
+        "version": "1.4.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:16Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 15,
+        "files_skipped": 0,
+        "write_calls_found": 25,
+        "verified": 20,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.84
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "download_attachments_general",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "download-attachments.php",
+                        "line": 233
+                    },
+                    {
+                        "file": "includes/class-settings.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "download_attachments_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "download-attachments.php",
+                        "line": 234
+                    },
+                    {
+                        "file": "includes/class-update.php",
+                        "line": 38
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_da_attachments",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-metabox.php",
+                        "line": 48
+                    },
+                    {
+                        "file": "includes/class-metabox.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 463
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 505
+                    }
+                ]
+            },
+            {
+                "key": "_da_downloads",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-media.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "includes/class-media.php",
+                        "line": 227
+                    },
+                    {
+                        "file": "includes/class-metabox.php",
+                        "line": 171
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 475
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 868
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 889
+                    }
+                ]
+            },
+            {
+                "key": "_da_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-metabox.php",
+                        "line": 165
+                    },
+                    {
+                        "file": "includes/class-metabox.php",
+                        "line": 167
+                    },
+                    {
+                        "file": "includes/class-metabox.php",
+                        "line": 192
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 469
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 471
+                    },
+                    {
+                        "file": "includes/functions.php",
+                        "line": 513
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "manage_download_attachments",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "download-attachments.php",
+                        "line": 229
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_cap",
+            "expression": "$capability",
+            "file": "includes/class-settings.php",
+            "line": 146
+        },
+        {
+            "function": "add_cap",
+            "expression": "$capability",
+            "file": "includes/class-settings.php",
+            "line": 152
+        },
+        {
+            "function": "add_cap",
+            "expression": "$capability",
+            "file": "includes/class-settings.php",
+            "line": 162
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "$rule",
+            "file": "includes/class-settings.php",
+            "line": 873
+        }
+    ]
+}

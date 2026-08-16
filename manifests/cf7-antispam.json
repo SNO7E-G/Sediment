@@ -1,0 +1,285 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "cf7-antispam",
+        "name": "AntiSpam for Contact Form 7",
+        "version": "0.7.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:27Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 53,
+        "files_skipped": 0,
+        "write_calls_found": 30,
+        "verified": 25,
+        "resolved": 1,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.867
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "cf7a_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "engine/CF7_AntiSpam_Activator.php",
+                        "line": 292
+                    },
+                    {
+                        "file": "engine/CF7_AntiSpam_Uninstaller.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "cf7a_geodb_update",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/CF7_Antispam_Geoip.php",
+                        "line": 761
+                    },
+                    {
+                        "file": "core/CF7_Antispam_Geoip.php",
+                        "line": 763
+                    }
+                ]
+            },
+            {
+                "key": "cf7a_options",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/CF7_AntiSpam.php",
+                        "line": 369
+                    },
+                    {
+                        "file": "core/CF7_AntiSpam_Filters.php",
+                        "line": 116
+                    },
+                    {
+                        "file": "core/Filters/Filter_Plugin_Version.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "engine/CF7_AntiSpam_Activator.php",
+                        "line": 253
+                    },
+                    {
+                        "file": "engine/CF7_AntiSpam_Activator.php",
+                        "line": 271
+                    },
+                    {
+                        "file": "engine/CF7_AntiSpam_Updater.php",
+                        "line": 87
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "cf7a_cron",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/CF7_AntiSpam_Admin_Customizations.php",
+                        "line": 1090
+                    }
+                ]
+            },
+            {
+                "key": "cf7a_geoip_update_db",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/CF7_Antispam_Geoip.php",
+                        "line": 166
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "cf7a_activation",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "engine/CF7_AntiSpam_Activator.php",
+                        "line": 303
+                    }
+                ]
+            },
+            {
+                "key": "cf7a_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/CF7_AntiSpam_Admin_Tools.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "mail_sent_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/CF7_AntiSpam_Frontend.php",
+                        "line": 646
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_cf7a_b8_classification",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/CF7_AntiSpam_Flamingo.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "core/CF7_AntiSpam_Flamingo.php",
+                        "line": 97
+                    },
+                    {
+                        "file": "core/CF7_AntiSpam_Flamingo.php",
+                        "line": 122
+                    },
+                    {
+                        "file": "core/CF7_AntiSpam_Flamingo.php",
+                        "line": 549
+                    }
+                ]
+            },
+            {
+                "key": "_fields",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/CF7_AntiSpam_Flamingo.php",
+                        "line": 600
+                    }
+                ]
+            },
+            {
+                "key": "_meta",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/CF7_AntiSpam_Flamingo.php",
+                        "line": 529
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "cf7a_hide_welcome_panel_on",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/CF7_AntiSpam_Admin_Tools.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "admin/CF7_AntiSpam_Admin_Tools.php",
+                        "line": 77
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [
+            {
+                "key": "_cf7a_b8_classification",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/CF7_AntiSpam_Comments.php",
+                        "line": 108
+                    },
+                    {
+                        "file": "core/CF7_AntiSpam_Comments.php",
+                        "line": 125
+                    },
+                    {
+                        "file": "core/CF7_AntiSpam_Comments.php",
+                        "line": 256
+                    }
+                ]
+            },
+            {
+                "key": "_cf7a_spam_reasons",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/CF7_AntiSpam_Comments.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$upload_dir",
+            "file": "core/CF7_Antispam_Geoip.php",
+            "line": 268
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$cf7a_wordlist",
+            "file": "engine/CF7_AntiSpam_Activator.php",
+            "line": 178
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$cf7a_database",
+            "file": "engine/CF7_AntiSpam_Activator.php",
+            "line": 207
+        }
+    ]
+}

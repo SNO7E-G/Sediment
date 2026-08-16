@@ -1,0 +1,109 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "tumblr-importer",
+        "name": "Tumblr Importer",
+        "version": "1.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:03Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 4,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 1,
+        "resolved": 0,
+        "pattern": 8,
+        "dynamic": 1,
+        "resolution_rate": 0.1
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wp_cron_importer_hook",
+                "recurrence": "everyminute",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/class-wp-importer-cron.php",
+                        "line": 80
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "tumblr_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/class-tumblr-import.php",
+                        "line": 655
+                    },
+                    {
+                        "file": "src/class-tumblr-import.php",
+                        "line": 656
+                    },
+                    {
+                        "file": "src/class-tumblr-import.php",
+                        "line": 759
+                    },
+                    {
+                        "file": "src/class-tumblr-import.php",
+                        "line": 760
+                    },
+                    {
+                        "file": "src/class-tumblr-import.php",
+                        "line": 828
+                    },
+                    {
+                        "file": "src/class-tumblr-import.php",
+                        "line": 829
+                    },
+                    {
+                        "file": "src/class-tumblr-import.php",
+                        "line": 875
+                    },
+                    {
+                        "file": "src/class-tumblr-import.php",
+                        "line": 1462
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "get_class($this)",
+            "file": "src/class-wp-importer-cron.php",
+            "line": 116
+        }
+    ]
+}

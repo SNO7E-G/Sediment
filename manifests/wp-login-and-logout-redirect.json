@@ -1,0 +1,237 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-login-and-logout-redirect",
+        "name": "Entryway - WP Login & Logout Redirect",
+        "version": "4.0.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:57Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 19,
+        "files_skipped": 0,
+        "write_calls_found": 16,
+        "verified": 9,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.938
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wplalr_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Logs/Installer.php",
+                        "line": 137
+                    }
+                ]
+            },
+            {
+                "key": "wplalr_enable_logs",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/REST/SettingsController.php",
+                        "line": 118
+                    }
+                ]
+            },
+            {
+                "key": "wplalr_login_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/REST/SettingsController.php",
+                        "line": 106
+                    }
+                ]
+            },
+            {
+                "key": "wplalr_logout_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/REST/SettingsController.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "wplalr_logs_digest",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/REST/SettingsController.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "wplalr_logs_notification_email",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/REST/SettingsController.php",
+                        "line": 126
+                    }
+                ]
+            },
+            {
+                "key": "wplalr_logs_notify_roles",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/REST/SettingsController.php",
+                        "line": 130
+                    }
+                ]
+            },
+            {
+                "key": "wplalr_logs_retention_days",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/REST/SettingsController.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "wplalr_redirect_rules",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/REST/SettingsController.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "wplalr_release_notice_dismissed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ReleaseNotice.php",
+                        "line": 201
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wplalr_logs_cleanup",
+                "recurrence": "daily",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Logs/Installer.php",
+                        "line": 149
+                    }
+                ]
+            },
+            {
+                "key": "wplalr_logs_digest_send",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Logs/Installer.php",
+                        "line": 206
+                    }
+                ]
+            },
+            {
+                "key": "wplalr_send_login_alert",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Logs/Notifier.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "session_tokens",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Sessions/SessionRepository.php",
+                        "line": 257
+                    }
+                ]
+            },
+            {
+                "key": "wplalr_last_login",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/UserLoginTime.php",
+                        "line": 25
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/Logs/Installer.php",
+            "line": 135
+        }
+    ]
+}

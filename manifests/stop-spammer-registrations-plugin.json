@@ -1,0 +1,141 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "stop-spammer-registrations-plugin",
+        "name": "Stop Spammers Classic",
+        "version": "2026.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:44Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 277,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 7,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 2,
+        "resolution_rate": 0.7
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ss_muswitch",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "settings/ss_network.php",
+                        "line": 41
+                    }
+                ]
+            },
+            {
+                "key": "ss_stop_sp_reg_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/stop-spam-utils.php",
+                        "line": 173
+                    },
+                    {
+                        "file": "stop-spammer-registrations-new.php",
+                        "line": 344
+                    }
+                ]
+            },
+            {
+                "key": "ss_stop_sp_reg_stats",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "stop-spammer-registrations-new.php",
+                        "line": 323
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "signup_ip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "stop-spammer-registrations-new.php",
+                        "line": 697
+                    },
+                    {
+                        "file": "stop-spammer-registrations-new.php",
+                        "line": 721
+                    }
+                ]
+            },
+            {
+                "key": "ss_notice_dismissed_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "stop-spammer-registrations-new.php",
+                        "line": 71
+                    }
+                ]
+            },
+            {
+                "key": "ss_wc_notice_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "stop-spammer-registrations-new.php",
+                        "line": 92
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$f",
+            "file": "includes/ss-mu-options.php",
+            "line": 53
+        },
+        {
+            "function": "update_option",
+            "expression": "$f",
+            "file": "includes/ss-mu-options.php",
+            "line": 73
+        }
+    ]
+}

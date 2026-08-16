@@ -1,0 +1,206 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "multisafepay",
+        "name": "MultiSafepay",
+        "version": "6.13.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:17Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 35,
+    "coverage": {
+        "files_scanned": 72,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 5,
+        "resolved": 7,
+        "pattern": 2,
+        "dynamic": 3,
+        "resolution_rate": 0.706
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woocommerce_multisafepay_postepay_migration_done",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/PostepayMigrationService.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_multisafepay_postepay_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/PostepayMigrationService.php",
+                        "line": 115
+                    },
+                    {
+                        "file": "src/Services/PostepayMigrationService.php",
+                        "line": 204
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "is_multisafepay_payment_component_qr_enabled",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/PaymentMethodService.php",
+                        "line": 285
+                    },
+                    {
+                        "file": "src/Services/PaymentMethodService.php",
+                        "line": 290
+                    }
+                ]
+            },
+            {
+                "key": "multisafepay_api_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/ApiTokenService.php",
+                        "line": 64
+                    }
+                ]
+            },
+            {
+                "key": "multisafepay_payment_methods",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/PaymentMethodService.php",
+                        "line": 121
+                    },
+                    {
+                        "file": "src/Services/SdkService.php",
+                        "line": 66
+                    }
+                ]
+            },
+            {
+                "key": "multisafepay_qr_order_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Qr/QrOrderService.php",
+                        "line": 191
+                    }
+                ]
+            },
+            {
+                "key": "multisafepay_token_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Services/Qr/QrOrderService.php",
+                        "line": 142
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_multisafepay_order_environment",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Utils/Hpos.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "multisafepay_transaction_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Utils/Hpos.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "payment_url",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Utils/Hpos.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "send_payment_link",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Utils/Hpos.php",
+                        "line": 57
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Services/PostepayMigrationService.php",
+            "line": 133
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "src/Services/PostepayMigrationService.php",
+            "line": 159
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "src/Utils/Hpos.php",
+            "line": 57
+        }
+    ]
+}

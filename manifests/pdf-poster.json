@@ -1,0 +1,104 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "pdf-poster",
+        "name": "PDF Poster – Display PDF Files with Custom Viewer",
+        "version": "2.5.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:51Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 24,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 2,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.5
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [
+            {
+                "key": "IF",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/database/class-pdfp-table.php",
+                        "line": 62
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "isGutenberg",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/base/class-pdfp-pdfposter.php",
+                        "line": 185
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "pdfposter",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/base/class-pdfp-pdfposter.php",
+                        "line": 59
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "\"CREATE TABLE \" . esc_sql($full_table_name) . \" ( {$columns} ) {$table_options}\"",
+            "file": "includes/database/class-pdfp-table.php",
+            "line": 51
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$name}_database_version\"",
+            "file": "includes/database/class-pdfp-table.php",
+            "line": 52
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$name}_database_version\"",
+            "file": "includes/database/class-pdfp-table.php",
+            "line": 65
+        }
+    ]
+}

@@ -1,0 +1,220 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-reset",
+        "name": "WP Reset",
+        "version": "2.08",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:37Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 20,
+        "files_skipped": 1,
+        "write_calls_found": 19,
+        "verified": 16,
+        "resolved": 1,
+        "pattern": 1,
+        "dynamic": 1,
+        "resolution_rate": 0.895
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "current_theme",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-reset.php",
+                        "line": 727
+                    }
+                ]
+            },
+            {
+                "key": "wf_licensing_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-reset-licensing.php",
+                        "line": 272
+                    }
+                ]
+            },
+            {
+                "key": "wp-reset",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "wp-reset.php",
+                        "line": 164
+                    },
+                    {
+                        "file": "wp-reset.php",
+                        "line": 235
+                    },
+                    {
+                        "file": "wp-reset.php",
+                        "line": 1101
+                    },
+                    {
+                        "file": "wp-reset.php",
+                        "line": 2760
+                    }
+                ]
+            },
+            {
+                "key": "wp-reset-snapshots",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "wp-reset.php",
+                        "line": 1102
+                    },
+                    {
+                        "file": "wp-reset.php",
+                        "line": 2605
+                    },
+                    {
+                        "file": "wp-reset.php",
+                        "line": 2642
+                    },
+                    {
+                        "file": "wp-reset.php",
+                        "line": 2761
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "wpr_active_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-reset.php",
+                        "line": 1006
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "default_password_nag",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-reset.php",
+                        "line": 1106
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}default_password_nag",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "wp-reset.php",
+                        "line": 1109
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "wp-reset.php",
+                    "line": 1008
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "home",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "wp-reset.php",
+                    "line": 1100
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "siteurl",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "wp-reset.php",
+                    "line": 1099
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "stylesheet",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "wp-reset.php",
+                    "line": 726
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "template",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "wp-reset.php",
+                    "line": 725
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "\\trailingslashit(\\WP_CONTENT_DIR) . $this->snapshots_folder",
+            "file": "wp-reset.php",
+            "line": 2683
+        }
+    ]
+}

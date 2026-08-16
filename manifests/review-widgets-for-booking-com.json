@@ -1,0 +1,609 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "review-widgets-for-booking-com",
+        "name": "Widgets for Booking.com Reviews",
+        "version": "13.3.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:27Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 27,
+        "files_skipped": 0,
+        "write_calls_found": 89,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 85,
+        "resolution_rate": 0.034
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "litespeed.conf.optm-localize_domains",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "include/cache-plugin-filters.php",
+                        "line": 111
+                    }
+                ]
+            },
+            {
+                "key": "ti-online-users-*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "trustindex-plugin.class.php",
+                        "line": 6697
+                    }
+                ]
+            },
+            {
+                "key": "trustindex-core-shortcode-inited",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "trustindex-plugin.class.php",
+                        "line": 899
+                    }
+                ]
+            },
+            {
+                "key": "trustindex-wc-notification",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "settings.php",
+                        "line": 30
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "\\trim($ti_db_schema[$tableName])",
+            "file": "include/activate.php",
+            "line": 23
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('active')",
+            "file": "include/activate.php",
+            "line": 53
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('rate-us-feedback')",
+            "file": "include/admin.php",
+            "line": 61
+        },
+        {
+            "function": "update_option",
+            "expression": "$optName",
+            "file": "include/admin.php",
+            "line": 92
+        },
+        {
+            "function": "update_option",
+            "expression": "$optName",
+            "file": "include/admin.php",
+            "line": 95
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\trim($ti_db_schema['views'])",
+            "file": "include/update.php",
+            "line": 79
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "review-widgets-for-booking-com.php",
+            "line": 55
+        },
+        {
+            "function": "dbDelta",
+            "expression": "\\trim($ti_db_schema[$tableName])",
+            "file": "review-widgets-for-booking-com.php",
+            "line": 68
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-download-inprogress')",
+            "file": "review-widgets-for-booking-com.php",
+            "line": 172
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('download-timestamp')",
+            "file": "review-widgets-for-booking-com.php",
+            "line": 185
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('load-css-inline')",
+            "file": "tabs/advanced.php",
+            "line": 6
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-download-request-id')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 152
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-download-inprogress')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 164
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-manual-download')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 165
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-download-is-connecting')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 166
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('download-timestamp')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 187
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-download-modal')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 190
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('page-details')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 192
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('lang')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 198
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('style-id')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 212
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('scss-set')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 227
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('verified-by-trustindex')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 231
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('filter')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 242
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('lang')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 248
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('align')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 251
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('dateformat')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 258
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('nameformat')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 264
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('top-rated-type')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 270
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('top-rated-date')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 276
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('verified-icon')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 286
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('enable-animation')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 291
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('show-arrows')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 296
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('show-header-button')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 301
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('reviews-load-more')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 306
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('show-reviewers-photo')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 311
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('no-rating-text')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 316
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('disable-font')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 321
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('show-logos')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 326
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('show-stars')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 331
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('footer-filter-text')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 336
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('show-review-replies')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 341
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('filter')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 344
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-open')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 349
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-link')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 354
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-border')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 359
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-arrow')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 364
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-icon-background')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 369
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('align')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 375
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-icon')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 381
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-open')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 383
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-color')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 390
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-margin')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 396
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-title')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 402
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-text')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 408
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-url')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 415
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-day')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 424
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('fomo-hide-count')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 430
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-text-mode')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 436
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('verified-by-trustindex')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 442
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('amp-hidden-notification')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 446
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-download-inprogress')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 465
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('download-timestamp')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 473
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('widget-setted-up')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 491
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-download-token')",
+            "file": "tabs/free-widget-configurator.php",
+            "line": 630
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('instagram-promo-opened')",
+            "file": "tabs/instagram-feed-widget.php",
+            "line": 3
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('reply-generated')",
+            "file": "tabs/my-reviews.php",
+            "line": 65
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-download-inprogress')",
+            "file": "tabs/my-reviews.php",
+            "line": 72
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-manual-download')",
+            "file": "tabs/my-reviews.php",
+            "line": 73
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-download-request-id')",
+            "file": "tabs/my-reviews.php",
+            "line": 75
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-download-modal')",
+            "file": "tabs/my-reviews.php",
+            "line": 77
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('page-details')",
+            "file": "tabs/my-reviews.php",
+            "line": 107
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-download-is-failed')",
+            "file": "tabs/my-reviews.php",
+            "line": 115
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('download-timestamp')",
+            "file": "tabs/my-reviews.php",
+            "line": 117
+        },
+        {
+            "function": "update_option",
+            "expression": "$pluginManagerInstance->get_option_name('review-download-token')",
+            "file": "tabs/my-reviews.php",
+            "line": 203
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('page-details')",
+            "file": "trustindex-plugin.class.php",
+            "line": 186
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('review-download-modal')",
+            "file": "trustindex-plugin.class.php",
+            "line": 241
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('activation-redirect')",
+            "file": "trustindex-plugin.class.php",
+            "line": 282
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('active')",
+            "file": "trustindex-plugin.class.php",
+            "line": 286
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('notifications')",
+            "file": "trustindex-plugin.class.php",
+            "line": 736
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('scss-set')",
+            "file": "trustindex-plugin.class.php",
+            "line": 995
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('css-content')",
+            "file": "trustindex-plugin.class.php",
+            "line": 1000
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('review-content')",
+            "file": "trustindex-plugin.class.php",
+            "line": 6142
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name(\"subscription-id\")",
+            "file": "trustindex-plugin.class.php",
+            "line": 6916
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('cdn-version-control')",
+            "file": "trustindex-plugin.class.php",
+            "line": 7211
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_name('version-control')",
+            "file": "trustindex-plugin.class.php",
+            "line": 7232
+        }
+    ]
+}

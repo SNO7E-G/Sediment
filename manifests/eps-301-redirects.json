@@ -1,0 +1,137 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "eps-301-redirects",
+        "name": "301 Redirects",
+        "version": "2.85",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 31,
+        "files_skipped": 0,
+        "write_calls_found": 9,
+        "verified": 5,
+        "resolved": 1,
+        "pattern": 2,
+        "dynamic": 1,
+        "resolution_rate": 0.667
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "301-redirects-notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 199
+                    }
+                ]
+            },
+            {
+                "key": "eps_pointers",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "eps-301-redirects.php",
+                        "line": 123
+                    },
+                    {
+                        "file": "plugin.php",
+                        "line": 408
+                    }
+                ]
+            },
+            {
+                "key": "eps_redirects_404_log",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "eps-301-redirects.php",
+                        "line": 975
+                    }
+                ]
+            },
+            {
+                "key": "eps_redirects_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 810
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}redirects",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "plugin.php",
+                        "line": 338
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [
+            {
+                "key": "post_type_cache_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "eps-form-elements.php",
+                        "line": 156
+                    },
+                    {
+                        "file": "plugin.php",
+                        "line": 444
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_option",
+            "expression": "$this->setting_slug($section)",
+            "file": "libs/eps-plugin-options.php",
+            "line": 184
+        }
+    ]
+}

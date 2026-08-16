@@ -1,0 +1,336 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wc-fields-factory",
+        "name": "WC Fields Factory",
+        "version": "4.1.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:37Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 4,
+    "coverage": {
+        "files_scanned": 37,
+        "files_skipped": 0,
+        "write_calls_found": 41,
+        "verified": 10,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 30,
+        "resolution_rate": 0.244
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "taxonomy_product_cat_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wcff_admin_fields.php",
+                        "line": 227
+                    }
+                ]
+            },
+            {
+                "key": "wcff_ask_rate_dissmiss",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wcff_ajax.php",
+                        "line": 377
+                    }
+                ]
+            },
+            {
+                "key": "wcff_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wcff_options.php",
+                        "line": 49
+                    },
+                    {
+                        "file": "includes/wcff_options.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "wcff.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "wccaf_location_rules",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wcff_dao.php",
+                        "line": 1845
+                    },
+                    {
+                        "file": "wcff.php",
+                        "line": 198
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wccaf",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wcff_setup.php",
+                        "line": 120
+                    }
+                ]
+            },
+            {
+                "key": "wcccf",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wcff_setup.php",
+                        "line": 200
+                    }
+                ]
+            },
+            {
+                "key": "wccpf",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wcff_setup.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "wccvf",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/wcff_setup.php",
+                        "line": 157
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$_meta[\"key\"]",
+            "file": "includes/wcff_admin_fields.php",
+            "line": 225
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$field_meta[\"key\"]",
+            "file": "includes/wcff_checkout_fields.php",
+            "line": 130
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'condition_rules'",
+            "file": "includes/wcff_dao.php",
+            "line": 191
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'location_rules'",
+            "file": "includes/wcff_dao.php",
+            "line": 197
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'layout_meta'",
+            "file": "includes/wcff_dao.php",
+            "line": 203
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'target_stock_status'",
+            "file": "includes/wcff_dao.php",
+            "line": 208
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'custom_product_data_tab_title'",
+            "file": "includes/wcff_dao.php",
+            "line": 213
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'custom_product_data_tab_priority'",
+            "file": "includes/wcff_dao.php",
+            "line": 218
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'use_custom_layout'",
+            "file": "includes/wcff_dao.php",
+            "line": 223
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'use_custom_layout'",
+            "file": "includes/wcff_dao.php",
+            "line": 226
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'field_location_on_product'",
+            "file": "includes/wcff_dao.php",
+            "line": 232
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'product_tab_title'",
+            "file": "includes/wcff_dao.php",
+            "line": 236
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'product_tab_priority'",
+            "file": "includes/wcff_dao.php",
+            "line": 237
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'field_location_on_archive'",
+            "file": "includes/wcff_dao.php",
+            "line": 244
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'is_this_group_clonable'",
+            "file": "includes/wcff_dao.php",
+            "line": 250
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'show_group_title'",
+            "file": "includes/wcff_dao.php",
+            "line": 256
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'fields_label_alignement'",
+            "file": "includes/wcff_dao.php",
+            "line": 262
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'is_this_group_for_authorized_only'",
+            "file": "includes/wcff_dao.php",
+            "line": 268
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'wcff_group_preference_target_roles'",
+            "file": "includes/wcff_dao.php",
+            "line": 274
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/wcff_dao.php",
+            "line": 309
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$this->wcff_key_prefix . 'condition_rules'",
+            "file": "includes/wcff_dao.php",
+            "line": 334
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'condition_rules'",
+            "file": "includes/wcff_dao.php",
+            "line": 839
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'condition_rules'",
+            "file": "includes/wcff_dao.php",
+            "line": 874
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . $id",
+            "file": "includes/wcff_dao.php",
+            "line": 1098
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$_payload[\"key\"]",
+            "file": "includes/wcff_dao.php",
+            "line": 1110
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$_key",
+            "file": "includes/wcff_dao.php",
+            "line": 1130
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . $id",
+            "file": "includes/wcff_dao.php",
+            "line": 1226
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$this->wcff_key_prefix . 'layout_meta'",
+            "file": "includes/wcff_dao.php",
+            "line": 1277
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$fkey",
+            "file": "includes/wcff_dao.php",
+            "line": 1836
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$fkey",
+            "file": "wcff.php",
+            "line": 187
+        }
+    ]
+}

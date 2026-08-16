@@ -1,0 +1,2387 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "really-simple-ssl",
+        "name": "Really Simple Security",
+        "version": "9.7.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:26Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 241,
+        "files_skipped": 0,
+        "write_calls_found": 285,
+        "verified": 220,
+        "resolved": 28,
+        "pattern": 8,
+        "dynamic": 29,
+        "resolution_rate": 0.87
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "active_sitewide_plugins",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 440
+                    }
+                ]
+            },
+            {
+                "key": "rlrsssl_network_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 102
+                    }
+                ]
+            },
+            {
+                "key": "rss_core_activation_flag",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/bootstrap/Plugin.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "rss_core_activation_source_page",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/bootstrap/Plugin.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "progress/class-progress.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_404_cache",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/includes/check404/class-rsssl-simple-404-interceptor.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_404_notice_shown",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/includes/check404/class-rsssl-simple-404-interceptor.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_404_resources_to_check",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/includes/check404/class-rsssl-test-404.php",
+                        "line": 49
+                    },
+                    {
+                        "file": "security/includes/check404/class-rsssl-test-404.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "security/includes/check404/class-rsssl-test-404.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_6_notice_dismissed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 2043
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_activated_recommended_features_extendify",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "rlrsssl-really-simple-ssl.php",
+                        "line": 318
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_activation",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "rlrsssl-really-simple-ssl.php",
+                        "line": 42
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_activation_time",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/functions.php",
+                        "line": 418
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_activation_timestamp",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 551
+                    },
+                    {
+                        "file": "class-admin.php",
+                        "line": 1777
+                    },
+                    {
+                        "file": "class-admin.php",
+                        "line": 1924
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_admin_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 2621
+                    },
+                    {
+                        "file": "progress/class-progress.php",
+                        "line": 139
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_auto_prepend_config",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-server.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_before_review_notice_user",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 1778
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_cache",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions.php",
+                        "line": 214
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_callback_queue",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/services/class-rsssl-callback-queue.php",
+                        "line": 50
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_certificate_path",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 910
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_create_folders_in_root",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1542
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_current_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 291
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_deactivate_list",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/deactivate-integration.php",
+                        "line": 30
+                    },
+                    {
+                        "file": "security/deactivate-integration.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_email_verification_code",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailer/class-mail.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_email_verification_code_expiration",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailer/class-mail.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_email_verification_status",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions.php",
+                        "line": 596
+                    },
+                    {
+                        "file": "mailer/class-mail-admin.php",
+                        "line": 65
+                    },
+                    {
+                        "file": "mailer/class-mail-admin.php",
+                        "line": 130
+                    },
+                    {
+                        "file": "mailer/class-mail.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "settings/settings.php",
+                        "line": 1210
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_email_warning_fields",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/functions.php",
+                        "line": 2030
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_email_warning_fields_saved",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/functions.php",
+                        "line": 2022
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_encryption_keys_set",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions.php",
+                        "line": 557
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_firewall_environment_signature",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/firewall-manager.php",
+                        "line": 926
+                    },
+                    {
+                        "file": "security/firewall-manager.php",
+                        "line": 932
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_firewall_error",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/firewall-manager.php",
+                        "line": 598
+                    },
+                    {
+                        "file": "security/firewall-manager.php",
+                        "line": 623
+                    },
+                    {
+                        "file": "security/firewall-manager.php",
+                        "line": 625
+                    },
+                    {
+                        "file": "security/firewall-manager.php",
+                        "line": 627
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_flush_caches",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 555
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_flush_rewrite_rules",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 553
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_folder_name",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/vulnerabilities/class-rsssl-folder-name.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_free_deactivated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "deactivate-alternate.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_hashkey",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/vulnerabilities/FileStorage.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_header_detection_nonce",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/firewall-manager.php",
+                        "line": 728
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_homepage_contains_404_resources",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/includes/check404/class-rsssl-test-404.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "security/includes/check404/class-rsssl-test-404.php",
+                        "line": 68
+                    },
+                    {
+                        "file": "security/includes/check404/class-rsssl-test-404.php",
+                        "line": 74
+                    },
+                    {
+                        "file": "security/includes/check404/class-rsssl-test-404.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "security/includes/check404/class-rsssl-test-404.php",
+                        "line": 130
+                    },
+                    {
+                        "file": "security/includes/check404/class-rsssl-test-404.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_hosting_dashboard",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-le-restapi.php",
+                        "line": 256
+                    },
+                    {
+                        "file": "lets-encrypt/class-le-restapi.php",
+                        "line": 258
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_htaccess_branding_migration_pending",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/functions.php",
+                        "line": 1198
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_htaccess_deactivation_lockout_until",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/functions.php",
+                        "line": 181
+                    },
+                    {
+                        "file": "security/functions.php",
+                        "line": 185
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_htaccess_error",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/functions.php",
+                        "line": 1297
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_htaccess_file_set_certs",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1711
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1717
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1722
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1726
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_htaccess_file_set_key",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1711
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1717
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1722
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1726
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_htaccess_file_set_ssl",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1711
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1717
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1722
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1726
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_htaccess_needs_update",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/functions.php",
+                        "line": 438
+                    },
+                    {
+                        "file": "security/functions.php",
+                        "line": 442
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_htaccess_retry_cooldown",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/functions.php",
+                        "line": 487
+                    },
+                    {
+                        "file": "security/functions.php",
+                        "line": 491
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_htaccess_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/functions.php",
+                        "line": 1298
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_htaccess_test_success",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 1349
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_http_methods_allowed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/tests.php",
+                        "line": 99
+                    },
+                    {
+                        "file": "security/tests.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_initial_alias_domain_value_set",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1985
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_installation_error",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/integrations/cpanel/cpanel.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/cpanel/cpanel.php",
+                        "line": 110
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/cpanel/cpanel.php",
+                        "line": 115
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/cpanel/cpanel.php",
+                        "line": 125
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/cpanel/cpanel.php",
+                        "line": 189
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/cpanel/cpanel.php",
+                        "line": 194
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/cpanel/cpanel.php",
+                        "line": 204
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/directadmin/directadmin.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/plesk/plesk.php",
+                        "line": 92
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_intermediate_path",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 915
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_last_tested_http_method",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/tests.php",
+                        "line": 94
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_le_certificate_generated_by_rsssl",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 883
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_le_certificate_installed_by_rsssl",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/integrations/cloudways/functions.php",
+                        "line": 16
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/cpanel/cpanel.php",
+                        "line": 70
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/cpanel/functions.php",
+                        "line": 10
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/cpanel/functions.php",
+                        "line": 28
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/directadmin/directadmin.php",
+                        "line": 173
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/directadmin/functions.php",
+                        "line": 10
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/plesk/functions.php",
+                        "line": 10
+                    },
+                    {
+                        "file": "lets-encrypt/integrations/plesk/plesk.php",
+                        "line": 86
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_le_dns_configured_by_rsssl",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/integrations/cpanel/functions.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_le_dns_records_verified",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 563
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 643
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 652
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_le_dns_tokens",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 442
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_le_installation_progress",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/functions.php",
+                        "line": 275
+                    },
+                    {
+                        "file": "lets-encrypt/functions.php",
+                        "line": 343
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_le_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 211
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_le_start_installation",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/cron.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_le_start_renewal",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/cron.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_license_key",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 208
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_main_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions.php",
+                        "line": 554
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_manually_changed_verification_type",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-le-restapi.php",
+                        "line": 28
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_network_activation_status",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 567
+                    },
+                    {
+                        "file": "class-multisite.php",
+                        "line": 379
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 95
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_onboarding_dismissed",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-wp-cli.php",
+                        "line": 583
+                    },
+                    {
+                        "file": "class-wp-cli.php",
+                        "line": 611
+                    },
+                    {
+                        "file": "core/app/Features/Onboarding/OnboardingController.php",
+                        "line": 201
+                    },
+                    {
+                        "file": "core/app/Services/GlobalOnboardingService.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "deactivate-alternate.php",
+                        "line": 45
+                    },
+                    {
+                        "file": "deactivate-alternate.php",
+                        "line": 47
+                    },
+                    {
+                        "file": "deactivate-alternate.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "deactivate-alternate.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 185
+                    },
+                    {
+                        "file": "settings/settings.php",
+                        "line": 731
+                    },
+                    {
+                        "file": "settings/settings.php",
+                        "line": 733
+                    },
+                    {
+                        "file": "settings/settings.php",
+                        "line": 788
+                    },
+                    {
+                        "file": "settings/settings.php",
+                        "line": 790
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 137
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 139
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 177
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_options_lets-encrypt",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 40
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_permalink_changed_to_plain",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 3158
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_plusone_count",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 2725
+                    },
+                    {
+                        "file": "progress/class-progress.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_port_check_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/functions.php",
+                        "line": 232
+                    },
+                    {
+                        "file": "lets-encrypt/functions.php",
+                        "line": 236
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_previous_version",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 289
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_private_key_path",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 906
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_redirect_to_settings_page",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "mailer/class-mail-admin.php",
+                        "line": 66
+                    },
+                    {
+                        "file": "rlrsssl-really-simple-ssl.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_reset_fix",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/services/class-rsssl-two-factor-reset-service.php",
+                        "line": 43
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/services/class-rsssl-two-factor-reset-service.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 231
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_run",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-multisite.php",
+                        "line": 270
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_show_onboarding",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/app/Services/GlobalOnboardingService.php",
+                        "line": 25
+                    },
+                    {
+                        "file": "rlrsssl-really-simple-ssl.php",
+                        "line": 43
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_siteprocessing_progress",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-multisite.php",
+                        "line": 329
+                    },
+                    {
+                        "file": "class-multisite.php",
+                        "line": 386
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_skip_challenge_directory_request",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-le-restapi.php",
+                        "line": 104
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_skip_dns_check",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-le-restapi.php",
+                        "line": 53
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_ssl_activation_active",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-multisite.php",
+                        "line": 330
+                    },
+                    {
+                        "file": "class-multisite.php",
+                        "line": 342
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_ssl_detection_overridden",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/app/Features/Onboarding/OnboardingController.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_ssl_dirname",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1446
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_ssl_labs_data",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "settings/settings.php",
+                        "line": 335
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_two_fa_reminder_pending",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/services/class-rsssl-two-fa-reminder-service.php",
+                        "line": 37
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/services/class-rsssl-two-fa-reminder-service.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_two_fa_upgrade",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor.php",
+                        "line": 255
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_upgrade_firewall",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 105
+                    },
+                    {
+                        "file": "class-admin.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_upgrade_le_key",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade.php",
+                        "line": 216
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_uploads_htaccess_error",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/functions.php",
+                        "line": 1929
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_uploads_htaccess_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/functions.php",
+                        "line": 1930
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_vulnerabilities",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/app/Features/Vulnerability/Repositories/VulnerabilityStorageRepository.php",
+                        "line": 51
+                    },
+                    {
+                        "file": "core/app/Features/Vulnerability/Repositories/VulnerabilityStorageRepository.php",
+                        "line": 206
+                    },
+                    {
+                        "file": "core/app/Features/Vulnerability/Repositories/VulnerabilityStorageRepository.php",
+                        "line": 219
+                    },
+                    {
+                        "file": "upgrade.php",
+                        "line": 277
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_vulnerability_pending_sync",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/app/Features/Vulnerability/VulnerabilityController.php",
+                        "line": 361
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_vulnerability_snapshot",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/app/Features/Vulnerability/Repositories/VulnerabilitySnapshotRepository.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_wp_version_detected",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/tests.php",
+                        "line": 406
+                    },
+                    {
+                        "file": "security/tests.php",
+                        "line": 425
+                    },
+                    {
+                        "file": "security/tests.php",
+                        "line": 427
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_wp_version_token",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/hide-wp-version.php",
+                        "line": 46
+                    }
+                ]
+            },
+            {
+                "key": "test_vulnerability_tester",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/app/Features/Vulnerability/Controllers/VulnerabilityDataController.php",
+                        "line": 203
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "rsssl_every_day_hook",
+                "recurrence": "rsssl_daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/cron.php",
+                        "line": 18
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_every_five_minutes_hook",
+                "recurrence": "rsssl_five_minutes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/cron.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_every_month_hook",
+                "recurrence": "rsssl_monthly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/cron.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_every_three_hours_hook",
+                "recurrence": "rsssl_every_three_hours",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/cron.php",
+                        "line": 22
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_every_week_hook",
+                "recurrence": "rsssl_weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/cron.php",
+                        "line": 29
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_process_batched_users",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/services/class-rsssl-two-factor-reset-service.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_ssl_process_hook",
+                "recurrence": "rsssl_one_minute",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/cron.php",
+                        "line": 141
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "rsp_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade/upgrade-to-pro.php",
+                        "line": 367
+                    }
+                ]
+            },
+            {
+                "key": "rsp_plugin_download_active",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/app/Services/RelatedPluginService.php",
+                        "line": 158
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-installer.php",
+                        "line": 175
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_admin_user_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/tests.php",
+                        "line": 176
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_admin_users",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/tests.php",
+                        "line": 217
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_alias_domain_available",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1399
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1963
+                    },
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 1990
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_can_use_curl_headers_check",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 1513
+                    },
+                    {
+                        "file": "class-admin.php",
+                        "line": 1571
+                    },
+                    {
+                        "file": "security/functions.php",
+                        "line": 35
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_certinfo",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-certificate.php",
+                        "line": 27
+                    },
+                    {
+                        "file": "class-certificate.php",
+                        "line": 240
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_code_execution_allowed_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/tests.php",
+                        "line": 306
+                    },
+                    {
+                        "file": "security/tests.php",
+                        "line": 345
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_curl_error",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 1660
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_cw_app_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/integrations/cloudways/cloudways.php",
+                        "line": 234
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_cw_server_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/integrations/cloudways/cloudways.php",
+                        "line": 235
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_cw_t",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/integrations/cloudways/cloudways.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_directory_indexing_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/tests.php",
+                        "line": 366
+                    },
+                    {
+                        "file": "security/tests.php",
+                        "line": 391
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_le_generate_attempt_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 981
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_le_install_attempt_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lets-encrypt/class-letsencrypt-handler.php",
+                        "line": 2052
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_mixed_content_fixer_detected",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 1665
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_plugin_download_active",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-installer.php",
+                        "line": 100
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_testpage",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-admin.php",
+                        "line": 2905
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_two_fa_forced_role_service",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/services/class-rsssl-two-fa-forced-role-service.php",
+                        "line": 31
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_two_factor_auth_error_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-parameter-validation.php",
+                        "line": 129
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_upgrade_dir",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "upgrade/upgrade-to-pro.php",
+                        "line": 417
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_username_admin_changed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/rename-admin-user.php",
+                        "line": 154
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_xmlrpc_allowed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/tests.php",
+                        "line": 18
+                    },
+                    {
+                        "file": "security/tests.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "skip_two_fa_token_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor-settings.php",
+                        "line": 173
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "_rsssl_factor_email_token",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/providers/class-rsssl-two-factor-email.php",
+                        "line": 123
+                    }
+                ]
+            },
+            {
+                "key": "_rsssl_factor_email_token_timestamp",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/providers/class-rsssl-two-factor-email.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "_rsssl_two_factor_failed_login_attempts",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor.php",
+                        "line": 1129
+                    }
+                ]
+            },
+            {
+                "key": "_rsssl_two_factor_last_login_failure",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor.php",
+                        "line": 1126
+                    }
+                ]
+            },
+            {
+                "key": "_rsssl_two_factor_nonce",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-fa-authentication.php",
+                        "line": 93
+                    }
+                ]
+            },
+            {
+                "key": "_rsssl_two_factor_password_was_reset",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor.php",
+                        "line": 1294
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_passkey_configured",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/controllers/class-rsssl-base-controller.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_two_fa_last_login",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "class-wp-cli.php",
+                        "line": 717
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-fa-status.php",
+                        "line": 70
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor-admin.php",
+                        "line": 242
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor-profile-settings.php",
+                        "line": 236
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor-settings.php",
+                        "line": 586
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor.php",
+                        "line": 212
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/models/class-rsssl-two-fa-user.php",
+                        "line": 98
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/services/class-rsssl-two-fa-status-service.php",
+                        "line": 48
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/services/class-rsssl-two-factor-reset-service.php",
+                        "line": 76
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_two_fa_reminder_sent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/services/class-rsssl-two-fa-reminder-service.php",
+                        "line": 161
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_two_fa_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/providers/class-rsssl-two-factor-provider.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_two_fa_status_email",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor.php",
+                        "line": 297
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor.php",
+                        "line": 301
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/providers/class-rsssl-two-factor-email.php",
+                        "line": 240
+                    },
+                    {
+                        "file": "security/wordpress/two-fa/providers/class-rsssl-two-factor-email.php",
+                        "line": 562
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_two_fa_status_reset",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor-admin.php",
+                        "line": 155
+                    }
+                ]
+            },
+            {
+                "key": "rsssl_two_fa_status_totp",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "security/wordpress/two-fa/class-rsssl-two-factor.php",
+                        "line": 302
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "manage_security",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "rlrsssl-really-simple-ssl.php",
+                        "line": 245
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "active_plugins",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "class-admin.php",
+                    "line": 447
+                },
+                {
+                    "file": "class-admin.php",
+                    "line": 453
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "home",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "class-admin.php",
+                    "line": 975
+                },
+                {
+                    "file": "class-admin.php",
+                    "line": 1000
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "https_migration_required",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "class-admin.php",
+                    "line": 980
+                }
+            ]
+        },
+        {
+            "type": "option",
+            "key": "siteurl",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "class-admin.php",
+                    "line": 974
+                },
+                {
+                    "file": "class-admin.php",
+                    "line": 999
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$prefix . '_tour_started'",
+            "file": "class-installer.php",
+            "line": 84
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$prefix . '_tour_shown_once'",
+            "file": "class-installer.php",
+            "line": 85
+        },
+        {
+            "function": "update_option",
+            "expression": "$handle",
+            "file": "core/app/Features/Onboarding/OnboardingFeatureService.php",
+            "line": 127
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$event",
+            "file": "core/app/Features/Onboarding/OnboardingFeatureService.php",
+            "line": 152
+        },
+        {
+            "function": "update_option",
+            "expression": "$optionHandle",
+            "file": "core/app/Features/Onboarding/OnboardingFeatureService.php",
+            "line": 190
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$eventHandle",
+            "file": "core/app/Features/Onboarding/OnboardingFeatureService.php",
+            "line": 191
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transientName",
+            "file": "core/app/Services/RelatedPluginService.php",
+            "line": 292
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$hook",
+            "file": "core/app/Traits/HasScheduler.php",
+            "line": 36
+        },
+        {
+            "function": "update_option",
+            "expression": "$lockOption",
+            "file": "core/app/Traits/HasScheduler.php",
+            "line": 61
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$hook",
+            "file": "core/app/Traits/HasScheduler.php",
+            "line": 65
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$legacy_option",
+            "file": "functions.php",
+            "line": 289
+        },
+        {
+            "function": "update_option",
+            "expression": "$legacy_option",
+            "file": "functions.php",
+            "line": 291
+        },
+        {
+            "function": "mkdir",
+            "expression": "$root_directory . '.well-known'",
+            "file": "lets-encrypt/class-letsencrypt-handler.php",
+            "line": 1420
+        },
+        {
+            "function": "mkdir",
+            "expression": "$root_directory . '.well-known/acme-challenge'",
+            "file": "lets-encrypt/class-letsencrypt-handler.php",
+            "line": 1424
+        },
+        {
+            "function": "mkdir",
+            "expression": "$root_directory . \\get_option('rsssl_ssl_dirname')",
+            "file": "lets-encrypt/class-letsencrypt-handler.php",
+            "line": 1449
+        },
+        {
+            "function": "mkdir",
+            "expression": "$sslPath",
+            "file": "lets-encrypt/class-letsencrypt-handler.php",
+            "line": 1495
+        },
+        {
+            "function": "mkdir",
+            "expression": "$sslPath . '/certs'",
+            "file": "lets-encrypt/class-letsencrypt-handler.php",
+            "line": 1499
+        },
+        {
+            "function": "mkdir",
+            "expression": "$sslPath",
+            "file": "lets-encrypt/class-letsencrypt-handler.php",
+            "line": 1523
+        },
+        {
+            "function": "mkdir",
+            "expression": "$sslPath . '/keys'",
+            "file": "lets-encrypt/class-letsencrypt-handler.php",
+            "line": 1527
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$directory",
+            "file": "lets-encrypt/class-letsencrypt-handler.php",
+            "line": 1740
+        },
+        {
+            "function": "mkdir",
+            "expression": "$upload_dir . 'rsssl'",
+            "file": "lets-encrypt/class-letsencrypt-handler.php",
+            "line": 1948
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$directory",
+            "file": "security/class-rsssl-htaccess-file-manager.php",
+            "line": 1396
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "security/class-rsssl-htaccess-file-manager.php",
+            "line": 1780
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "security/functions.php",
+            "line": 740
+        },
+        {
+            "function": "mkdir",
+            "expression": "$test_dir",
+            "file": "security/tests.php",
+            "line": 372
+        },
+        {
+            "function": "update_option",
+            "expression": "$cache_key",
+            "file": "security/two-fa-frontend-functions.php",
+            "line": 54
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "security/wordpress/two-fa/controllers/class-rsssl-email-controller.php",
+            "line": 351
+        },
+        {
+            "function": "mkdir",
+            "expression": "$folder_path",
+            "file": "security/wordpress/vulnerabilities/class-rsssl-folder-name.php",
+            "line": 46
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->prefix . 'auto_installed_license'",
+            "file": "upgrade/upgrade-to-pro.php",
+            "line": 477
+        }
+    ]
+}

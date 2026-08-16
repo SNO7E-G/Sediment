@@ -1,0 +1,143 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "author-avatars",
+        "name": "Author Avatars List/Block",
+        "version": "2.2.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 20,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 7,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.8
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "author_avatars_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/AuthorAvatarsSettings.class.php",
+                        "line": 166
+                    }
+                ]
+            },
+            {
+                "key": "author_avatars_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/AuthorAvatars.class.php",
+                        "line": 244
+                    },
+                    {
+                        "file": "lib/AuthorAvatars.class.php",
+                        "line": 246
+                    }
+                ]
+            },
+            {
+                "key": "author_avatars_wpmu_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/AuthorAvatarsSettings.class.php",
+                        "line": 193
+                    }
+                ]
+            },
+            {
+                "key": "multiwidget_author_avatars",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "lib/AuthorAvatars.class.php",
+                        "line": 352
+                    },
+                    {
+                        "file": "lib/AuthorAvatars.class.php",
+                        "line": 384
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "AA_gutenberg_data",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "lib/class-api.php",
+                        "line": 215
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "sidebars_widgets",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "lib/AuthorAvatars.class.php",
+                    "line": 364
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "lib/MultiWidget.class.php",
+            "line": 253
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_id",
+            "file": "lib/UserList.class.php",
+            "line": 1227
+        }
+    ]
+}

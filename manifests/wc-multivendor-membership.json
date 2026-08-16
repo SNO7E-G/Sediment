@@ -1,0 +1,1523 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wc-multivendor-membership",
+        "name": "WCFM - WooCommerce Multivendor Membership",
+        "version": "2.11.11",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:02:39Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 493,
+        "files_skipped": 0,
+        "write_calls_found": 187,
+        "verified": 174,
+        "resolved": 4,
+        "pattern": 2,
+        "dynamic": 7,
+        "resolution_rate": 0.952
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wcfm_membership_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-settings.php",
+                        "line": 37
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_page_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 296
+                    },
+                    {
+                        "file": "helpers/class-wcfmvm-install.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_pay_for_product_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm-pay-for-product.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_subcription_products",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_updated_end_point_wcfmvm_vendor_membership",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm-frontend.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_vendor_membership_page_id",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/class-wcfmvm-install.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "helpers/class-wcfmvm-install.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_vendor_registration_page_id",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/class-wcfmvm-install.php",
+                        "line": 71
+                    },
+                    {
+                        "file": "helpers/class-wcfmvm-install.php",
+                        "line": 85
+                    }
+                ]
+            },
+            {
+                "key": "wcfmvm_installed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 266
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 282
+                    }
+                ]
+            },
+            {
+                "key": "wcfmvm_membership_scheduler",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 2077
+                    }
+                ]
+            },
+            {
+                "key": "wcfmvm_page_install",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/class-wcfmvm-install.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "wcfmvm_paypal_txn_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ipn/wcfmvm-handle-pp-ipn.php",
+                        "line": 230
+                    }
+                ]
+            },
+            {
+                "key": "wcfmvm_table_install",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/class-wcfmvm-install.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "wcvendors_vendor_allow_registration",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 150
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_group_vendors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 261
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 263
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 277
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 280
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 952
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1036
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 2279
+                    }
+                ]
+            },
+            {
+                "key": "_product_credit_limit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm-pay-for-product.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "_sold_individually",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 128
+                    },
+                    {
+                        "file": "core/class-wcfmvm-pay-for-product.php",
+                        "line": 126
+                    }
+                ]
+            },
+            {
+                "key": "_wcfm_membership",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "_wcfm_pay_for_product",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm-pay-for-product.php",
+                        "line": 124
+                    }
+                ]
+            },
+            {
+                "key": "associated_group",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 283
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 285
+                    }
+                ]
+            },
+            {
+                "key": "commission",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 225
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 227
+                    }
+                ]
+            },
+            {
+                "key": "features",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 105
+                    }
+                ]
+            },
+            {
+                "key": "is_wcfm_membership_disable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "is_wcfm_membership_plan_disable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "membership_users",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 158
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 161
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 941
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1027
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 2266
+                    }
+                ]
+            },
+            {
+                "key": "required_approval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 290
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 292
+                    }
+                ]
+            },
+            {
+                "key": "stripe_plan_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm-frontend.php",
+                        "line": 1219
+                    }
+                ]
+            },
+            {
+                "key": "subscribe_button_label",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 96
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "subscription",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 139
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "subscription_product",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 126
+                    }
+                ]
+            },
+            {
+                "key": "vendor_reject_rule",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 297
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_disable_vendor",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1820
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1947
+                    }
+                ]
+            },
+            {
+                "key": "_vendor_commission",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 185
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 618
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 621
+                    }
+                ]
+            },
+            {
+                "key": "_vendor_commission_percentage",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 183
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 619
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 622
+                    }
+                ]
+            },
+            {
+                "key": "_vendor_page_title",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 570
+                    }
+                ]
+            },
+            {
+                "key": "_vendor_phone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 603
+                    }
+                ]
+            },
+            {
+                "key": "_wcfm_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 364
+                    }
+                ]
+            },
+            {
+                "key": "_wcfm_email_verified",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 454
+                    }
+                ]
+            },
+            {
+                "key": "_wcfm_email_verified_for",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 455
+                    }
+                ]
+            },
+            {
+                "key": "_wcfm_pay_for_product_credit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm-pay-for-product.php",
+                        "line": 260
+                    }
+                ]
+            },
+            {
+                "key": "_wcfm_sms_verified",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 467
+                    }
+                ]
+            },
+            {
+                "key": "_wcfm_sms_verified_for",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 468
+                    }
+                ]
+            },
+            {
+                "key": "_wcfm_vendor_group",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 256
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1040
+                    }
+                ]
+            },
+            {
+                "key": "_wcfm_vendor_group_list",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 257
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1041
+                    }
+                ]
+            },
+            {
+                "key": "_wcfmmp_avg_review_rating",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 927
+                    }
+                ]
+            },
+            {
+                "key": "_wcfmmp_profile_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 923
+                    }
+                ]
+            },
+            {
+                "key": "_wcfmmp_shipping",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 835
+                    }
+                ]
+            },
+            {
+                "key": "_wcfmmp_unique_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 924
+                    }
+                ]
+            },
+            {
+                "key": "_wcpv_active_vendor",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 646
+                    }
+                ]
+            },
+            {
+                "key": "_wcv_commission_amount",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 196
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 712
+                    }
+                ]
+            },
+            {
+                "key": "_wcv_commission_percent",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 193
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 709
+                    }
+                ]
+            },
+            {
+                "key": "_wcv_commission_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 192
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 195
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 708
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 711
+                    }
+                ]
+            },
+            {
+                "key": "_wcv_store_phone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 692
+                    }
+                ]
+            },
+            {
+                "key": "billing_first_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 331
+                    }
+                ]
+            },
+            {
+                "key": "billing_last_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 337
+                    }
+                ]
+            },
+            {
+                "key": "billing_phone",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 386
+                    }
+                ]
+            },
+            {
+                "key": "can_post_product",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 800
+                    }
+                ]
+            },
+            {
+                "key": "dokan_admin_percentage",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 203
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 206
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 790
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 793
+                    }
+                ]
+            },
+            {
+                "key": "dokan_admin_percentage_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 202
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 205
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 789
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 792
+                    }
+                ]
+            },
+            {
+                "key": "dokan_enable_selling",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 798
+                    }
+                ]
+            },
+            {
+                "key": "dokan_profile_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 736
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 781
+                    }
+                ]
+            },
+            {
+                "key": "dokan_publishing",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 799
+                    }
+                ]
+            },
+            {
+                "key": "dokan_store_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 739
+                    }
+                ]
+            },
+            {
+                "key": "expired_wcfm_membership",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1821
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1948
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 2303
+                    }
+                ]
+            },
+            {
+                "key": "icl_admin_language",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm-frontend.php",
+                        "line": 1362
+                    }
+                ]
+            },
+            {
+                "key": "pv_custom_commission_rate",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 190
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 706
+                    }
+                ]
+            },
+            {
+                "key": "pv_shop_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 658
+                    }
+                ]
+            },
+            {
+                "key": "pv_shop_slug",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 659
+                    }
+                ]
+            },
+            {
+                "key": "shipping_first_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 332
+                    }
+                ]
+            },
+            {
+                "key": "shipping_last_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 338
+                    }
+                ]
+            },
+            {
+                "key": "show_admin_bar_front",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 507
+                    }
+                ]
+            },
+            {
+                "key": "store_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 394
+                    }
+                ]
+            },
+            {
+                "key": "temp_wcfm_membership",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 401
+                    },
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 403
+                    },
+                    {
+                        "file": "core/class-wcfmvm-ajax.php",
+                        "line": 174
+                    },
+                    {
+                        "file": "core/class-wcfmvm-ajax.php",
+                        "line": 605
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1507
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1570
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1808
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1935
+                    }
+                ]
+            },
+            {
+                "key": "wcemailverified",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 462
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1347
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_is_send_approval_reminder_admin",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ipn/wcfmvm-handle-pp-ipn.php",
+                        "line": 142
+                    },
+                    {
+                        "file": "ipn/wcfmvm-handle-pp-ipn.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_membership",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 958
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_membership_application_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1718
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_membership_billing_cycle",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1006
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1009
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1015
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 2184
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_membership_billing_period",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1012
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1017
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 2115
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_membership_next_schedule",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm-ajax.php",
+                        "line": 702
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1011
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1016
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1613
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 2188
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_membership_order",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1486
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1563
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_membership_paymode",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-payment.php",
+                        "line": 57
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1379
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1485
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1562
+                    },
+                    {
+                        "file": "ipn/wcfmvm-handle-pp-ipn.php",
+                        "line": 133
+                    },
+                    {
+                        "file": "ipn/wcfmvm-handle-pp-ipn.php",
+                        "line": 202
+                    },
+                    {
+                        "file": "ipn/wcfmvm-handle-stripe-ipn.php",
+                        "line": 123
+                    },
+                    {
+                        "file": "ipn/wcfmvm-handle-stripe-sca-ipn.php",
+                        "line": 119
+                    },
+                    {
+                        "file": "ipn/wcfmvm-handle-stripe-sca-subs-ipn.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "ipn/wcfmvm-handle-stripe-subs-ipn.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_membership_subscribe_on",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 985
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_membership_subscription",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1499
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1564
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_paypal_subscription_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ipn/wcfmvm-handle-pp-ipn.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_register_member",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1346
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_register_on",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 926
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_restricted_memberships",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 981
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_stripe_subscription_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "ipn/wcfmvm-handle-stripe-sca-subs-ipn.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "ipn/wcfmvm-handle-stripe-subs-ipn.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_subscription_profile_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1404
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_subscription_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1378
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1382
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1388
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1406
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1717
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_subscription_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1413
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_transaction_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 1377
+                    }
+                ]
+            },
+            {
+                "key": "wcfm_vendor_store_hours_migrated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 928
+                    }
+                ]
+            },
+            {
+                "key": "wcfmmp_profile_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 828
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 896
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 905
+                    }
+                ]
+            },
+            {
+                "key": "wcfmmp_store_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 395
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 831
+                    }
+                ]
+            },
+            {
+                "key": "wcfmvm_custom_infos",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 421
+                    }
+                ]
+            },
+            {
+                "key": "wcfmvm_static_infos",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-registration.php",
+                        "line": 408
+                    }
+                ]
+            }
+        ],
+        "term_meta": [
+            {
+                "key": "vendor_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/wcfmvm-controller-memberships-manage.php",
+                        "line": 214
+                    },
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 642
+                    }
+                ]
+            }
+        ],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wcfm_memberships",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "core/class-wcfmvm.php",
+                        "line": 72
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$billing_address_field_key",
+            "file": "controllers/wcfmvm-controller-memberships-registration.php",
+            "line": 363
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$shipping_address_field_key",
+            "file": "controllers/wcfmvm-controller-memberships-registration.php",
+            "line": 379
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$wcfmvm_registration_custom_field['name']",
+            "file": "controllers/wcfmvm-controller-memberships-registration.php",
+            "line": 446
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$file['base']",
+            "file": "core/class-wcfmvm.php",
+            "line": 464
+        },
+        {
+            "function": "update_option",
+            "expression": "$file['key']",
+            "file": "core/class-wcfmvm.php",
+            "line": 467
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$store_address_field_key",
+            "file": "core/class-wcfmvm.php",
+            "line": 596
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$store_address_field_key",
+            "file": "core/class-wcfmvm.php",
+            "line": 685
+        }
+    ]
+}

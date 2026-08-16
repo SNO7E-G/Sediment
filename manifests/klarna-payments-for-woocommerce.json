@@ -1,0 +1,221 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "klarna-payments-for-woocommerce",
+        "name": "Klarna for WooCommerce",
+        "version": "4.12.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:19Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 15,
+    "coverage": {
+        "files_scanned": 168,
+        "files_skipped": 0,
+        "write_calls_found": 18,
+        "verified": 13,
+        "resolved": 1,
+        "pattern": 3,
+        "dynamic": 1,
+        "resolution_rate": 0.778
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "klarna_acquiring_partner_key",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PluginFeatures.php",
+                        "line": 167
+                    }
+                ]
+            },
+            {
+                "key": "kp_client_id_error",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-kp-settings-saved.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "classes/class-kp-settings-saved.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "kp_credentials_error",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-kp-settings-saved.php",
+                        "line": 269
+                    }
+                ]
+            },
+            {
+                "key": "kp_has_valid_credentials",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-kp-settings-saved.php",
+                        "line": 136
+                    },
+                    {
+                        "file": "classes/class-kp-settings-saved.php",
+                        "line": 199
+                    },
+                    {
+                        "file": "classes/class-kp-settings-saved.php",
+                        "line": 228
+                    }
+                ]
+            },
+            {
+                "key": "kp_plugin_features",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/PluginFeatures.php",
+                        "line": 210
+                    },
+                    {
+                        "file": "src/PluginFeatures.php",
+                        "line": 414
+                    }
+                ]
+            },
+            {
+                "key": "kp_uuid4",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-kp-api.php",
+                        "line": 275
+                    }
+                ]
+            },
+            {
+                "key": "krokedil_support_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dependencies/krokedil/support/src/SystemReport.php",
+                        "line": 208
+                    },
+                    {
+                        "file": "dependencies/krokedil/support/src/SystemReport.php",
+                        "line": 225
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_klarna_payments_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SignInWithKlarna/Settings.php",
+                        "line": 114
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "klarna_payments_settings_page_config",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-wc-gateway-klarna-payments.php",
+                        "line": 258
+                    }
+                ]
+            },
+            {
+                "key": "siwk_used_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SignInWithKlarna/JWT.php",
+                        "line": 236
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "_siwk_tokens",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/SignInWithKlarna/User.php",
+                        "line": 72
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "kp_wc_authorization",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-kp-callbacks.php",
+                        "line": 38
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "src/ExpressCheckout/Settings.php",
+            "line": 75
+        }
+    ]
+}

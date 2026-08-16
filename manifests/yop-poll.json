@@ -1,0 +1,231 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "yop-poll",
+        "name": "YOP Poll",
+        "version": "7.0.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:19Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 58,
+        "files_skipped": 0,
+        "write_calls_found": 24,
+        "verified": 18,
+        "resolved": 2,
+        "pattern": 2,
+        "dynamic": 2,
+        "resolution_rate": 0.833
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "yop_poll_caps_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-plugin.php",
+                        "line": 27
+                    }
+                ]
+            },
+            {
+                "key": "yop_poll_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 80
+                    },
+                    {
+                        "file": "includes/class-activator.php",
+                        "line": 27
+                    }
+                ]
+            },
+            {
+                "key": "yop_poll_migration_offset",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 117
+                    },
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 255
+                    },
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 286
+                    }
+                ]
+            },
+            {
+                "key": "yop_poll_migration_status",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 116
+                    },
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 238
+                    },
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 254
+                    }
+                ]
+            },
+            {
+                "key": "yop_poll_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/Admin/class-guide.php",
+                        "line": 44
+                    },
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 103
+                    },
+                    {
+                        "file": "includes/Database/class-seeder.php",
+                        "line": 187
+                    },
+                    {
+                        "file": "includes/REST/class-rest-settings.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "yop_poll_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 46
+                    },
+                    {
+                        "file": "includes/class-activator.php",
+                        "line": 25
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "yop_poll_auto_reset_check",
+                "recurrence": "yop_poll_15min",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Cron/class-cron-auto-reset.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "yop_poll_run_migration",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 64
+                    },
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 257
+                    },
+                    {
+                        "file": "includes/Database/class-migrator.php",
+                        "line": 287
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "yop_captcha_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Captcha/class-captcha.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "yop_poll_data_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/REST/class-rest-polls.php",
+                        "line": 596
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/Database/class-schema.php",
+            "line": 142
+        },
+        {
+            "function": "add_cap",
+            "expression": "$capability",
+            "file": "includes/Helpers/class-capabilities.php",
+            "line": 101
+        }
+    ]
+}

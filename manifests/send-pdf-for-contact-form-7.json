@@ -1,0 +1,228 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "send-pdf-for-contact-form-7",
+        "name": "Send PDF for Contact Form 7",
+        "version": "1.0.3.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:02Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 67,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 14,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.783
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": true,
+        "condition_option": "wpcf7pdf_version",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wpcf7pdf_admin_notices",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/send-pdf.php",
+                        "line": 110
+                    }
+                ]
+            },
+            {
+                "key": "wpcf7pdf_path_temp",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/send-pdf.php",
+                        "line": 31
+                    },
+                    {
+                        "file": "classes/send-pdf.php",
+                        "line": 33
+                    },
+                    {
+                        "file": "classes/send-pdf.php",
+                        "line": 628
+                    },
+                    {
+                        "file": "classes/send-pdf.php",
+                        "line": 653
+                    },
+                    {
+                        "file": "classes/send-pdf.php",
+                        "line": 655
+                    },
+                    {
+                        "file": "views/send-pdf-admin.php",
+                        "line": 134
+                    },
+                    {
+                        "file": "views/send-pdf-admin.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "wpcf7pdf_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/send-pdf.php",
+                        "line": 22
+                    },
+                    {
+                        "file": "classes/send-pdf.php",
+                        "line": 24
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "pdf_password",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/send-pdf.php",
+                        "line": 919
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_cf7pdf",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/send-pdf.php",
+                        "line": 331
+                    },
+                    {
+                        "file": "classes/settings.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "_wp_cf7pdf_conditionalfieldsname",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/send-pdf-admin.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "_wp_cf7pdf_customtagsname",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/settings.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "_wp_cf7pdf_fields",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/settings.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "_wp_cf7pdf_fields_scan",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "classes/settings.php",
+                        "line": 60
+                    }
+                ]
+            },
+            {
+                "key": "_wp_cf7pdf_limit",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "views/send-pdf-admin.php",
+                        "line": 123
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/send-pdf.php",
+            "line": 489
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$file['base']",
+            "file": "classes/send-pdf.php",
+            "line": 648
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$file['base']",
+            "file": "classes/send-pdf.php",
+            "line": 674
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$file['base']",
+            "file": "classes/send-pdf.php",
+            "line": 695
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$file['base']",
+            "file": "classes/send-pdf.php",
+            "line": 743
+        }
+    ]
+}

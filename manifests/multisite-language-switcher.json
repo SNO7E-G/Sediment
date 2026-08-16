@@ -1,0 +1,110 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "multisite-language-switcher",
+        "name": "Multisite Language Switcher",
+        "version": "2.10.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:39Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 108,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 1,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 4,
+        "resolution_rate": 0.429
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "msls_last_import_log",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ContentImport/LogWriters/AdminNoticeLogger.php",
+                        "line": 117
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_msls_linked",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ContentImport/Importers/PostThumbnail/Linking.php",
+                        "line": 121
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "WPLANG",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/MslsAdmin.php",
+                    "line": 478
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/ContentImport/Importers/PostMeta/Duplicating.php",
+            "line": 46
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "includes/ContentImport/Importers/PostThumbnail/Linking.php",
+            "line": 118
+        },
+        {
+            "function": "add_term_meta",
+            "expression": "$key",
+            "file": "includes/ContentImport/Importers/Terms/ShallowDuplicating.php",
+            "line": 128
+        },
+        {
+            "function": "add_option",
+            "expression": "$this->name",
+            "file": "includes/MslsOptions.php",
+            "line": 175
+        }
+    ]
+}

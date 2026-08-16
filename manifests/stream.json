@@ -1,0 +1,310 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "stream",
+        "name": "Stream - Activity Log & Audit Trail",
+        "version": "4.3.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:10Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 15,
+    "coverage": {
+        "files_scanned": 85,
+        "files_skipped": 0,
+        "write_calls_found": 33,
+        "verified": 6,
+        "resolved": 13,
+        "pattern": 1,
+        "dynamic": 13,
+        "resolution_rate": 0.576
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp_stream_db",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-install.php",
+                        "line": 198
+                    },
+                    {
+                        "file": "classes/class-install.php",
+                        "line": 442
+                    }
+                ]
+            },
+            {
+                "key": "wp_stream_db_registered_connectors",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-install.php",
+                        "line": 178
+                    },
+                    {
+                        "file": "classes/class-install.php",
+                        "line": 180
+                    }
+                ]
+            },
+            {
+                "key": "wp_stream_large_table_cron_notice",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-admin.php",
+                        "line": 867
+                    }
+                ]
+            },
+            {
+                "key": "wp_stream_network",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-network.php",
+                        "line": 392
+                    },
+                    {
+                        "file": "classes/class-settings.php",
+                        "line": 578
+                    }
+                ]
+            },
+            {
+                "key": "wp_stream_plugins_to_delete",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "connectors/class-connector-installer.php",
+                        "line": 404
+                    }
+                ]
+            },
+            {
+                "key": "wp_stream_scheduler_backend",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-admin.php",
+                        "line": 1108
+                    },
+                    {
+                        "file": "classes/class-admin.php",
+                        "line": 1147
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "settings_errors",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-network.php",
+                        "line": 399
+                    }
+                ]
+            },
+            {
+                "key": "wp_stream_scheduler_running",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-cron-scheduler.php",
+                        "line": 173
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "alert_meta",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-alerts-list.php",
+                        "line": 394
+                    },
+                    {
+                        "file": "classes/class-alerts.php",
+                        "line": 870
+                    }
+                ]
+            },
+            {
+                "key": "alert_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-alerts-list.php",
+                        "line": 385
+                    },
+                    {
+                        "file": "classes/class-alerts.php",
+                        "line": 861
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "manage*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-list-table.php",
+                        "line": 161
+                    }
+                ]
+            },
+            {
+                "key": "stream_live_update_records",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-live-update.php",
+                        "line": 67
+                    },
+                    {
+                        "file": "classes/class-live-update.php",
+                        "line": 74
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "wp_stream_alerts",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/class-alerts.php",
+                        "line": 384
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_user_meta",
+            "expression": "$this->get_key()",
+            "file": "alerts/class-alert-type-menu-alert.php",
+            "line": 163
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$meta_key",
+            "file": "classes/class-admin.php",
+            "line": 1931
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$meta_key",
+            "file": "classes/class-alert.php",
+            "line": 202
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$hook",
+            "file": "classes/class-as-scheduler.php",
+            "line": 38
+        },
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "$hook",
+            "file": "classes/class-as-scheduler.php",
+            "line": 58
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$hook",
+            "file": "classes/class-cron-scheduler.php",
+            "line": 79
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook",
+            "file": "classes/class-cron-scheduler.php",
+            "line": 101
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/class-install.php",
+            "line": 405
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/class-install.php",
+            "line": 417
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "classes/class-install.php",
+            "line": 440
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->plugin->admin->live_update->user_meta_key",
+            "file": "classes/class-list-table.php",
+            "line": 1146
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_key",
+            "file": "classes/class-settings.php",
+            "line": 580
+        },
+        {
+            "function": "set_transient",
+            "expression": "$settings_cache_key",
+            "file": "connectors/class-connector-woocommerce.php",
+            "line": 891
+        }
+    ]
+}

@@ -1,0 +1,192 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woocommerce-eu-vat-assistant",
+        "name": "EU VAT Assistant for WooCommerce",
+        "version": "2.1.30.260413",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:53Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 48,
+    "coverage": {
+        "files_scanned": 225,
+        "files_skipped": 0,
+        "write_calls_found": 17,
+        "verified": 4,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.412
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [
+            {
+                "key": "aelia_wc_eu_vat_assistant_exchange_rates_update_hook",
+                "recurrence": null,
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/lib/classes/settings/settings.php",
+                        "line": 657
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "VIES_WSDL",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/lib/classes/integration/vat_number_validation/validators/eu_vat_number_validator.php",
+                        "line": 133
+                    }
+                ]
+            },
+            {
+                "key": "aelia_wc_eu_vat_rates",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/plugin-main.php",
+                        "line": 330
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_vies_product_is_service",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/lib/classes/integration/admin/products_integration.php",
+                        "line": 149
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "_vat_country",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/plugin-main.php",
+                        "line": 1376
+                    }
+                ]
+            },
+            {
+                "key": "_vat_number_validated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/plugin-main.php",
+                        "line": 1377
+                    }
+                ]
+            },
+            {
+                "key": "vat_number",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/plugin-main.php",
+                        "line": 1375
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "src/embedded-framework/wc-aelia-foundation-classes-embedded/src/dependencies/packages/Monolog/Handler/StreamHandler.php",
+            "line": 186
+        },
+        {
+            "function": "update_option",
+            "expression": "$plugin_id",
+            "file": "src/embedded-framework/wc-aelia-foundation-classes-embedded/src/lib/classes/base/install/install.php",
+            "line": 447
+        },
+        {
+            "function": "update_option",
+            "expression": "$plugin_id",
+            "file": "src/embedded-framework/wc-aelia-foundation-classes-embedded/src/lib/classes/base/install/install.php",
+            "line": 471
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "src/embedded-framework/wc-aelia-foundation-classes-embedded/src/lib/classes/base/messages/messages.php",
+            "line": 333
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->settings_key",
+            "file": "src/embedded-framework/wc-aelia-foundation-classes-embedded/src/lib/classes/base/settings/settings.php",
+            "line": 179
+        },
+        {
+            "function": "set_transient",
+            "expression": "md5(get_class($this)) . '_' . $cache_key",
+            "file": "src/embedded-framework/wc-aelia-foundation-classes-embedded/src/lib/classes/currency/aelia-wc-exchangeratesmodel.php",
+            "line": 81
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "src/embedded-framework/wc-aelia-foundation-classes-embedded/src/lib/classes/install/aelia-upgrade-handler.php",
+            "line": 93
+        },
+        {
+            "function": "update_option",
+            "expression": "$database_version_key",
+            "file": "src/embedded-framework/wc-aelia-foundation-classes-embedded/src/lib/traits/database-trait.php",
+            "line": 184
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_name",
+            "file": "src/lib/classes/integration/admin/products_integration.php",
+            "line": 191
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_vat_number_validation_cache_key($vat_prefix, $vat_number)",
+            "file": "src/lib/classes/integration/vat_number_validation/validators/vat_number_validator.php",
+            "line": 187
+        }
+    ]
+}

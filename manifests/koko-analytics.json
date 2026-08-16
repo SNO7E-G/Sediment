@@ -1,0 +1,392 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "koko-analytics",
+        "name": "Koko Analytics",
+        "version": "2.5.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:21Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 97,
+        "files_skipped": 0,
+        "write_calls_found": 41,
+        "verified": 20,
+        "resolved": 6,
+        "pattern": 0,
+        "dynamic": 15,
+        "resolution_rate": 0.634
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "koko_analytics_jetpack_import_params",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Import/Jetpack_Importer.php",
+                        "line": 56
+                    }
+                ]
+            },
+            {
+                "key": "koko_analytics_last_aggregation_at",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Aggregator.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "koko_analytics_migrations",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Controller.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "koko_analytics_realtime_pageview_count",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Pageview_Aggregator.php",
+                        "line": 158
+                    }
+                ]
+            },
+            {
+                "key": "koko_analytics_settings",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "migrations/005-migrate-to-new-tracking-method-setting.php",
+                        "line": 11
+                    },
+                    {
+                        "file": "src/Admin/Actions.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "src/Admin/Actions.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "koko_analytics_use_custom_endpoint",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Endpoint_Installer.php",
+                        "line": 131
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}koko_analytics_paths",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/007-prepare-post-stats-table.php",
+                        "line": 8
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}koko_analytics_post_stats",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/001-initial-schema.php",
+                        "line": 16
+                    },
+                    {
+                        "file": "src/Post_Stats_Migrator.php",
+                        "line": 58
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}koko_analytics_referrer_stats",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/001-initial-schema.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}koko_analytics_referrer_urls",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/001-initial-schema.php",
+                        "line": 36
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}koko_analytics_site_stats",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/001-initial-schema.php",
+                        "line": 8
+                    }
+                ]
+            }
+        ],
+        "cron": [
+            {
+                "key": "koko_analytics_aggregate_stats",
+                "recurrence": "koko_analytics_stats_aggregate_interval",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/003-schedule-aggregate-event.php",
+                        "line": 16
+                    },
+                    {
+                        "file": "src/Admin/Pages.php",
+                        "line": 112
+                    },
+                    {
+                        "file": "src/Cron.php",
+                        "line": 10
+                    }
+                ]
+            },
+            {
+                "key": "koko_analytics_prune_data",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Cron.php",
+                        "line": 14
+                    }
+                ]
+            },
+            {
+                "key": "koko_analytics_rotate_fingerprint_seed",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Cron.php",
+                        "line": 19
+                    }
+                ]
+            },
+            {
+                "key": "koko_analytics_test_custom_endpoint",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Endpoint_Installer.php",
+                        "line": 94
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "koko_analytics_remote_posts",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Resources/views/settings/help.php",
+                        "line": 53
+                    }
+                ]
+            },
+            {
+                "key": "koko_analytics_show_activation_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Plugin.php",
+                        "line": 22
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "manage_koko_analytics",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/001-initial-schema.php",
+                        "line": 48
+                    },
+                    {
+                        "file": "src/Plugin.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "view_koko_analytics",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "migrations/001-initial-schema.php",
+                        "line": 47
+                    },
+                    {
+                        "file": "src/Plugin.php",
+                        "line": 38
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$buffer_dirname",
+            "file": "src/Admin/Pages.php",
+            "line": 38
+        },
+        {
+            "function": "mkdir",
+            "expression": "$upload_dir",
+            "file": "src/Fingerprinter.php",
+            "line": 14
+        },
+        {
+            "function": "mkdir",
+            "expression": "$sessions_dir",
+            "file": "src/Fingerprinter.php",
+            "line": 18
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "src/Migrations.php",
+            "line": 43
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "src/Migrations.php",
+            "line": 64
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "src/Migrations.php",
+            "line": 91
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "src/Migrations_v2.php",
+            "line": 89
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "src/Migrations_v2.php",
+            "line": 97
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "src/Migrations_v2.php",
+            "line": 153
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "src/Plugin.php",
+            "line": 48
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "src/Resources/functions/collect.php",
+            "line": 234
+        },
+        {
+            "function": "mkdir",
+            "expression": "$directory",
+            "file": "src/Resources/functions/collect.php",
+            "line": 261
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->option_name",
+            "file": "src/Review_Notice.php",
+            "line": 129
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->get_user_meta_key()",
+            "file": "src/Review_Notice.php",
+            "line": 150
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/Shortcodes/Shortcode_Site_Counter.php",
+            "line": 48
+        }
+    ]
+}

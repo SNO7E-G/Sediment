@@ -1,0 +1,93 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "advanced-accordion-block",
+        "name": "Advanced Accordion Block",
+        "version": "5.4.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:53:58Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 18,
+        "files_skipped": 0,
+        "write_calls_found": 6,
+        "verified": 0,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 5,
+        "resolution_rate": 0.0
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "noticepilot_rnc_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-remote-notice-client.php",
+                        "line": 610
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_schedule_event",
+            "expression": "$hook",
+            "file": "admin/class-remote-notice-client.php",
+            "line": 229
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key('dismissed_ids')",
+            "file": "admin/class-remote-notice-client.php",
+            "line": 292
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "admin/class-remote-notice-client.php",
+            "line": 295
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key('fetched_time')",
+            "file": "admin/class-remote-notice-client.php",
+            "line": 296
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_option_key('dismissed_ids')",
+            "file": "admin/class-remote-notice-client.php",
+            "line": 368
+        }
+    ]
+}

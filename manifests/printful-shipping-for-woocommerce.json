@@ -1,0 +1,259 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "printful-shipping-for-woocommerce",
+        "name": "Printful Integration for WooCommerce",
+        "version": "2.2.12",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:48Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 21,
+    "coverage": {
+        "files_scanned": 39,
+        "files_skipped": 0,
+        "write_calls_found": 23,
+        "verified": 8,
+        "resolved": 10,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.783
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pf-migration-in-progress",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-token-migration.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "includes/class-printful-token-migration.php",
+                        "line": 93
+                    },
+                    {
+                        "file": "includes/class-printful-token-migration.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "printful_connect_error",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-integration.php",
+                        "line": 119
+                    }
+                ]
+            },
+            {
+                "key": "printful_last_api_response",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-request-log.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_calc_taxes",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-taxes.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_printful_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-integration.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "woocommerce_tax_based_on",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-taxes.php",
+                        "line": 18
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "printful_api_connect_status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-integration.php",
+                        "line": 94
+                    },
+                    {
+                        "file": "includes/class-printful-integration.php",
+                        "line": 101
+                    },
+                    {
+                        "file": "includes/class-printful-integration.php",
+                        "line": 107
+                    }
+                ]
+            },
+            {
+                "key": "printful_cached_checklist",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-admin-status.php",
+                        "line": 218
+                    }
+                ]
+            },
+            {
+                "key": "printful_carriers",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-carriers.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "printful_orders",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-admin-dashboard.php",
+                        "line": 246
+                    }
+                ]
+            },
+            {
+                "key": "printful_stats",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-admin-dashboard.php",
+                        "line": 208
+                    }
+                ]
+            },
+            {
+                "key": "printful_status_issue_count",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-admin-status.php",
+                        "line": 219
+                    }
+                ]
+            },
+            {
+                "key": "printful_tax_countries",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-taxes.php",
+                        "line": 140
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "pf_size_chart",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-printful-size-chart-tab.php",
+                        "line": 149
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$log",
+            "file": "includes/class-printful-request-log.php",
+            "line": 139
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$metaKey",
+            "file": "includes/class-printful-rest-api-controller.php",
+            "line": 179
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/class-printful-shipping.php",
+            "line": 165
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/class-printful-shipping.php",
+            "line": 289
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/class-printful-taxes.php",
+            "line": 75
+        }
+    ]
+}

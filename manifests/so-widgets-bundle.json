@@ -1,0 +1,252 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "so-widgets-bundle",
+        "name": "SiteOrigin Widgets Bundle",
+        "version": "1.74.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:18Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 6,
+    "coverage": {
+        "files_scanned": 224,
+        "files_skipped": 0,
+        "write_calls_found": 20,
+        "verified": 14,
+        "resolved": 1,
+        "pattern": 3,
+        "dynamic": 2,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "siteorigin_installer",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "base/inc/installer/siteorigin-installer.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "siteorigin_installer_admin_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "base/inc/installer/inc/admin.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "siteorigin_widget_bundle_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "so-widgets-bundle.php",
+                        "line": 127
+                    }
+                ]
+            },
+            {
+                "key": "siteorigin_widgets_active",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "so-widgets-bundle.php",
+                        "line": 633
+                    },
+                    {
+                        "file": "so-widgets-bundle.php",
+                        "line": 692
+                    }
+                ]
+            },
+            {
+                "key": "siteorigin_widgets_new_widgets",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "so-widgets-bundle.php",
+                        "line": 195
+                    }
+                ]
+            },
+            {
+                "key": "siteorigin_widgets_old_widgets",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "so-widgets-bundle.php",
+                        "line": 187
+                    },
+                    {
+                        "file": "so-widgets-bundle.php",
+                        "line": 196
+                    }
+                ]
+            },
+            {
+                "key": "so_contact_hashes",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "widgets/contact/contact.php",
+                        "line": 1983
+                    },
+                    {
+                        "file": "widgets/contact/contact.php",
+                        "line": 2009
+                    }
+                ]
+            },
+            {
+                "key": "so_widget_settings[*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "base/siteorigin-widget.class.php",
+                        "line": 1520
+                    }
+                ]
+            },
+            {
+                "key": "sowb_block_migration",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "compat/block-editor/widget-block.php",
+                        "line": 924
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "siteorigin_installer_product_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "base/inc/installer/inc/admin.php",
+                        "line": 310
+                    }
+                ]
+            },
+            {
+                "key": "sow-vid-embed[*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "base/inc/video.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "sow:cleared",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "so-widgets-bundle.php",
+                        "line": 382
+                    }
+                ]
+            },
+            {
+                "key": "sow_inst[*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "base/siteorigin-widget.class.php",
+                        "line": 209
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "siteorigin-widgets-post-meta",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "base/inc/meta-box-manager.php",
+                        "line": 160
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "teasers_dismissed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "base/inc/actions.php",
+                        "line": 385
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "mkdir",
+            "expression": "\\Less_Cache::$cache_dir",
+            "file": "base/inc/lib/Less/Cache.php",
+            "line": 219
+        },
+        {
+            "function": "mkdir",
+            "expression": "$dir",
+            "file": "base/inc/lib/Less/Parser.php",
+            "line": 572
+        }
+    ]
+}

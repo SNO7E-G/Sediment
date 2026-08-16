@@ -1,0 +1,329 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "rsfirewall",
+        "name": "RSFirewall!",
+        "version": "1.1.48",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:54Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 155,
+        "files_skipped": 0,
+        "write_calls_found": 33,
+        "verified": 22,
+        "resolved": 2,
+        "pattern": 1,
+        "dynamic": 8,
+        "resolution_rate": 0.727
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "rsfirewall_admin_users",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "libraries/core/active-scanner.php",
+                        "line": 822
+                    },
+                    {
+                        "file": "libraries/core/active-scanner.php",
+                        "line": 848
+                    },
+                    {
+                        "file": "models/configuration.php",
+                        "line": 431
+                    }
+                ]
+            },
+            {
+                "key": "rsfirewall_grade",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/check.php",
+                        "line": 947
+                    }
+                ]
+            },
+            {
+                "key": "rsfirewall_lite_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "installer/installer.php",
+                        "line": 80
+                    }
+                ]
+            },
+            {
+                "key": "rsfirewall_log_emails_count",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/logger.php",
+                        "line": 163
+                    },
+                    {
+                        "file": "helpers/logger.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "rsfirewall_log_emails_send_after",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/logger.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "rsfirewall_system_check_last_run",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/check.php",
+                        "line": 951
+                    }
+                ]
+            },
+            {
+                "key": "rsfirewall_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "installer/installer.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "installer/installer.php",
+                        "line": 260
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "rsfirewall_clear_transient",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "installer/installer.php",
+                        "line": 34
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "global_admin_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "controllers/configuration.php",
+                        "line": 83
+                    },
+                    {
+                        "file": "controllers/configuration.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "installer/installer.php",
+                        "line": 75
+                    },
+                    {
+                        "file": "libraries/rsfirewall.php",
+                        "line": 289
+                    }
+                ]
+            },
+            {
+                "key": "rsf_bulk_add_ips_form_data",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/listsbulkaddips.php",
+                        "line": 114
+                    }
+                ]
+            },
+            {
+                "key": "rsfirewall_addr_by_host",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/rsfirewall.php",
+                        "line": 361
+                    }
+                ]
+            },
+            {
+                "key": "rsfirewall_host_by_addr",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "helpers/rsfirewall.php",
+                        "line": 361
+                    }
+                ]
+            },
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "installer/installer.php",
+                        "line": 238
+                    },
+                    {
+                        "file": "models/configuration.php",
+                        "line": 285
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "rsfirewall_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/threats.php",
+                        "line": 278
+                    }
+                ]
+            },
+            {
+                "key": "rsfirewall_ip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/listsbulkaddips.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "rsfirewall_reason",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/listsbulkaddips.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "rsfirewall_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "models/listsbulkaddips.php",
+                        "line": 83
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$section_name",
+            "file": "installer/installer.php",
+            "line": 165
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "libraries/post.php",
+            "line": 82
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$name",
+            "file": "libraries/post.php",
+            "line": 84
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_transient_name($type)",
+            "file": "libraries/post.php",
+            "line": 190
+        },
+        {
+            "function": "update_option",
+            "expression": "$section['name']",
+            "file": "models/configuration.php",
+            "line": 132
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$this->prefix . 'exceptions'",
+            "file": "models/exceptions.php",
+            "line": 64
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$this->prefix . 'lists'",
+            "file": "models/lists.php",
+            "line": 62
+        },
+        {
+            "function": "register_post_type",
+            "expression": "$this->prefix . 'threats'",
+            "file": "models/threats.php",
+            "line": 62
+        }
+    ]
+}

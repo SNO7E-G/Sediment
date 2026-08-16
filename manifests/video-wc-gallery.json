@@ -1,0 +1,182 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "video-wc-gallery",
+        "name": "Video Gallery for WooCommerce",
+        "version": "2.10",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:00:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 22,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 16,
+        "resolved": 0,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.842
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "vwg_uninstall_settings_group",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "abl_vwg_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "video-wc-gallery.php",
+                        "line": 79
+                    }
+                ]
+            },
+            {
+                "key": "vwg_monthly_notice_dismissed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/basic-setup.php",
+                        "line": 201
+                    },
+                    {
+                        "file": "admin/basic-setup.php",
+                        "line": 240
+                    }
+                ]
+            },
+            {
+                "key": "vwg_settings_group",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/admin-ui-setup.php",
+                        "line": 126
+                    },
+                    {
+                        "file": "admin/basic-setup.php",
+                        "line": 34
+                    },
+                    {
+                        "file": "update.php",
+                        "line": 23
+                    },
+                    {
+                        "file": "update.php",
+                        "line": 30
+                    },
+                    {
+                        "file": "update.php",
+                        "line": 38
+                    }
+                ]
+            },
+            {
+                "key": "vwg_uninstall_settings_group",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/admin-ui-setup.php",
+                        "line": 140
+                    },
+                    {
+                        "file": "admin/basic-setup.php",
+                        "line": 42
+                    },
+                    {
+                        "file": "update.php",
+                        "line": 22
+                    },
+                    {
+                        "file": "update.php",
+                        "line": 29
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "vwg_monthly_admin_notice",
+                "recurrence": "monthly",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/basic-setup.php",
+                        "line": 192
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "vwg_video_url",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "functions/do.php",
+                        "line": 311
+                    },
+                    {
+                        "file": "functions/do.php",
+                        "line": 313
+                    },
+                    {
+                        "file": "update.php",
+                        "line": 89
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$target_dir",
+            "file": "admin/admin-ui-setup.php",
+            "line": 1028
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$target_dir",
+            "file": "functions/do.php",
+            "line": 271
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$target_dir",
+            "file": "update.php",
+            "line": 74
+        }
+    ]
+}

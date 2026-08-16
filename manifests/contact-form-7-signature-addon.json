@@ -1,0 +1,115 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "contact-form-7-signature-addon",
+        "name": "Contact Form 7 Signature Addon",
+        "version": "4.2.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:58Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 14,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 3,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.714
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "contact-form-7-signature-addon",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-wpcf7-signature.php",
+                        "line": 278
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "update_plugins",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-tgm-plugin-activation.php",
+                        "line": 970
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "tgmpa_dismissed_notice_tgmpa",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-tgm-plugin-activation.php",
+                        "line": 1352
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "recently_activated",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "includes/class-tgm-plugin-activation.php",
+                    "line": 2061
+                },
+                {
+                    "file": "includes/class-tgm-plugin-activation.php",
+                    "line": 3056
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$signature_dir",
+            "file": "includes/class-wpcf7-signature-mail-original.php",
+            "line": 165
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$signature_dir",
+            "file": "includes/class-wpcf7-signature-mail.php",
+            "line": 178
+        }
+    ]
+}

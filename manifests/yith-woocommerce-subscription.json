@@ -1,0 +1,505 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "yith-woocommerce-subscription",
+        "name": "YITH WooCommerce Subscription",
+        "version": "4.20.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:04:37Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 221,
+        "files_skipped": 0,
+        "write_calls_found": 53,
+        "verified": 16,
+        "resolved": 14,
+        "pattern": 0,
+        "dynamic": 23,
+        "resolution_rate": 0.566
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "yit_font_awesome_list",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin-fw/includes/class-yit-icons.php",
+                        "line": 1094
+                    }
+                ]
+            },
+            {
+                "key": "yit_plugin_fw_panel_wc_default_options_set",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin-fw/includes/class-yit-plugin-panel-woocommerce.php",
+                        "line": 647
+                    }
+                ]
+            },
+            {
+                "key": "yit_recently_activated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin-fw/includes/class-yit-pointers.php",
+                        "line": 306
+                    },
+                    {
+                        "file": "plugin-fw/yit-plugin-registration-hook.php",
+                        "line": 21
+                    }
+                ]
+            },
+            {
+                "key": "yith_system_info",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin-fw/includes/class-yith-system-status.php",
+                        "line": 288
+                    }
+                ]
+            },
+            {
+                "key": "ywsbs_pp_force_disabled_sources",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/gateways/woocommerce-paypal-payments/module/src/class-ywsbs-wc-paypal-disabled-sources.php",
+                        "line": 89
+                    },
+                    {
+                        "file": "includes/gateways/woocommerce-paypal-payments/module/src/legacy/2.9.6/class-ywsbs-wc-paypal-disabled-sources.php",
+                        "line": 86
+                    },
+                    {
+                        "file": "includes/gateways/woocommerce-paypal-payments/module/src/legacy/3.0.5/class-ywsbs-wc-paypal-disabled-sources.php",
+                        "line": 88
+                    },
+                    {
+                        "file": "includes/gateways/woocommerce-paypal-payments/module/src/legacy/3.4.1/class-ywsbs-wc-paypal-disabled-sources.php",
+                        "line": 88
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "ywsbs_pay_renew_subscription_orders",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription-cron.php",
+                        "line": 52
+                    }
+                ]
+            },
+            {
+                "key": "ywsbs_renew_orders",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription-cron.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "ywsbs_trash_cancelled_subscriptions",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription-cron.php",
+                        "line": 63
+                    }
+                ]
+            },
+            {
+                "key": "ywsbs_trash_pending_subscriptions",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription-cron.php",
+                        "line": 58
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "yith-plugin-fw-latest-hc-articles",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin-fw/includes/class-yit-help-desk.php",
+                        "line": 97
+                    }
+                ]
+            },
+            {
+                "key": "yith-plugin-fw-system-status-output-ip",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin-fw/includes/class-yith-system-status.php",
+                        "line": 717
+                    }
+                ]
+            },
+            {
+                "key": "yith-plugin-fw-system-status-tls-version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "plugin-fw/includes/class-yith-system-status.php",
+                        "line": 678
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "cancelled_by",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "cancelled_date",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "end_date",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "expired_date",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "expired_pause_date",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "payed_order_list",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "payment_due_date",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "payment_token_id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "rates_payed",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "renew_order",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "start_date",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "status",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription.php",
+                        "line": 251
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "ywsbs_subscription_ids",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-ywsbs-subscription-user.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "ywsbs_subscription",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-yith-wc-subscription-install.php",
+                        "line": 96
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_rewrite_endpoint",
+            "expression": "$endpoint",
+            "file": "includes/class-yith-wc-subscription.php",
+            "line": 114
+        },
+        {
+            "function": "add_cap",
+            "expression": "$cap",
+            "file": "includes/class-ywsbs-subscription-capabilities.php",
+            "line": 69
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$prop",
+            "file": "includes/class-ywsbs-subscription.php",
+            "line": 251
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "includes/class-ywsbs-subscription.php",
+            "line": 307
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$field_name",
+            "file": "plugin-fw/includes/class-yit-metabox.php",
+            "line": 356
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field_name",
+            "file": "plugin-fw/includes/class-yit-metabox.php",
+            "line": 357
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "plugin-fw/includes/class-yit-metabox.php",
+            "line": 430
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "plugin-fw/includes/class-yit-metabox.php",
+            "line": 455
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$field['id']",
+            "file": "plugin-fw/includes/class-yit-metabox.php",
+            "line": 462
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "plugin-fw/includes/class-yit-metabox.php",
+            "line": 462
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "plugin-fw/includes/class-yit-metabox.php",
+            "line": 465
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['id']",
+            "file": "plugin-fw/includes/class-yit-metabox.php",
+            "line": 467
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "plugin-fw/includes/class-yit-plugin-panel-woocommerce.php",
+            "line": 537
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "plugin-fw/includes/class-yit-plugin-panel-woocommerce.php",
+            "line": 543
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_name",
+            "file": "plugin-fw/includes/class-yit-plugin-panel-woocommerce.php",
+            "line": 545
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "plugin-fw/includes/class-yit-plugin-panel-woocommerce.php",
+            "line": 552
+        },
+        {
+            "function": "add_option",
+            "expression": "$value['id'] . '_width'",
+            "file": "plugin-fw/includes/class-yit-plugin-panel-woocommerce.php",
+            "line": 636
+        },
+        {
+            "function": "add_option",
+            "expression": "$value['id'] . '_height'",
+            "file": "plugin-fw/includes/class-yit-plugin-panel-woocommerce.php",
+            "line": 637
+        },
+        {
+            "function": "add_option",
+            "expression": "$value['id']",
+            "file": "plugin-fw/includes/class-yit-plugin-panel-woocommerce.php",
+            "line": 639
+        },
+        {
+            "function": "update_option",
+            "expression": "$option_id",
+            "file": "plugin-fw/includes/class-yit-plugin-panel-woocommerce.php",
+            "line": 905
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "plugin-fw/includes/class-yit-plugin-panel.php",
+            "line": 1280
+        },
+        {
+            "function": "update_option",
+            "expression": "$single_option['id']",
+            "file": "plugin-fw/includes/class-yith-bh-onboarding.php",
+            "line": 100
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "plugin-fw/yit-woocommerce-compatibility.php",
+            "line": 149
+        }
+    ]
+}

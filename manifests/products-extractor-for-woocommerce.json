@@ -1,0 +1,206 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "products-extractor-for-woocommerce",
+        "name": "افزونه رسمی ترب",
+        "version": "2.3.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:35Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 42,
+        "files_skipped": 0,
+        "write_calls_found": 14,
+        "verified": 0,
+        "resolved": 13,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.929
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "torob_order_status_enabled",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Utils/Options.php",
+                        "line": 75
+                    }
+                ]
+            },
+            {
+                "key": "torob_orders_list_api_enabled",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Utils/Options.php",
+                        "line": 99
+                    }
+                ]
+            },
+            {
+                "key": "torob_plugin_db_version",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Utils/Options.php",
+                        "line": 197
+                    }
+                ]
+            },
+            {
+                "key": "torob_plugin_reported_version",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Utils/Options.php",
+                        "line": 341
+                    }
+                ]
+            },
+            {
+                "key": "torob_product_page_webhook_enabled",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Utils/Options.php",
+                        "line": 128
+                    }
+                ]
+            },
+            {
+                "key": "torob_product_webhook_last_runner_completed_at",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Utils/Options.php",
+                        "line": 251
+                    }
+                ]
+            },
+            {
+                "key": "torob_product_webhook_last_runner_started_at",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Utils/Options.php",
+                        "line": 215
+                    },
+                    {
+                        "file": "includes/Utils/Options.php",
+                        "line": 232
+                    }
+                ]
+            },
+            {
+                "key": "torob_product_webhook_processing_lock",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ProductWebhook/QueueServices.php",
+                        "line": 214
+                    }
+                ]
+            },
+            {
+                "key": "torob_product_webhook_runner_lock",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ProductWebhook/QueueRunner.php",
+                        "line": 453
+                    }
+                ]
+            },
+            {
+                "key": "torob_token",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Utils/Options.php",
+                        "line": 152
+                    }
+                ]
+            },
+            {
+                "key": "torob_token_set_at",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Utils/Options.php",
+                        "line": 153
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "torob_process_pending_product_page_webhooks",
+                "recurrence": "every_five_minutes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/ProductWebhook/QueueRunner.php",
+                        "line": 382
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/ProductWebhook/WebhookQueueRepository.php",
+            "line": 50
+        }
+    ]
+}

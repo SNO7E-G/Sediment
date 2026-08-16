@@ -1,0 +1,129 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "ari-cf7-connector",
+        "name": "Contact Form 7 Connector",
+        "version": "1.2.8",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:17Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 56,
+    "coverage": {
+        "files_scanned": 128,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 1,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 7,
+        "resolution_rate": 0.3
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "ari_cf7connector",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-installer.php",
+                        "line": 57
+                    }
+                ]
+            },
+            {
+                "key": "ari_cf7connector_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "contact-form-7-connector.php",
+                        "line": 67
+                    }
+                ]
+            },
+            {
+                "key": "ari_cf7connector_settings",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-installer.php",
+                        "line": 66
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "cf7_addons/mailchimp/helpers/class-mailchimp.php",
+            "line": 126
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "cf7_addons/mailchimp/helpers/class-mailchimp.php",
+            "line": 213
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "cf7_addons/mailerlite/helpers/class-mailerlite.php",
+            "line": 101
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "cf7_addons/mailerlite/helpers/class-mailerlite.php",
+            "line": 147
+        },
+        {
+            "function": "mkdir",
+            "expression": "ARICF7CONNECTOR_LOG_PATH",
+            "file": "includes/class-installer.php",
+            "line": 32
+        },
+        {
+            "function": "update_option",
+            "expression": "$settings_key",
+            "file": "includes/class-installer.php",
+            "line": 130
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->settings_name",
+            "file": "libraries/arisoft/core/wordpress/class-settings-generic.php",
+            "line": 149
+        }
+    ]
+}

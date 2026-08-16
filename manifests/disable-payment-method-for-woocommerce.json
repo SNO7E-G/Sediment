@@ -1,0 +1,287 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "disable-payment-method-for-woocommerce",
+        "name": "PiWeb Disable payment method / Partial payment for WooCommerce",
+        "version": "1.1.10.3",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:25Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 88,
+        "files_skipped": 0,
+        "write_calls_found": 29,
+        "verified": 23,
+        "resolved": 1,
+        "pattern": 0,
+        "dynamic": 5,
+        "resolution_rate": 0.828
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "pi_dpmw_blocklist_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-blacklist-db.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "pi_dpmw_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "disable-payment-method-for-woocommerce.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "pisol_affsw_move_to_submenu",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/dependency.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "pisol_logged_gateways",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/class-filter-payment-methods.php",
+                        "line": 42
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "disable_payment_methods",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 320
+                    },
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 322
+                    }
+                ]
+            },
+            {
+                "key": "pi_condition_logic",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 292
+                    },
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 294
+                    }
+                ]
+            },
+            {
+                "key": "pi_currency",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 327
+                    },
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 329
+                    }
+                ]
+            },
+            {
+                "key": "pi_fees",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 285
+                    },
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 287
+                    }
+                ]
+            },
+            {
+                "key": "pi_fees_tax_class",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 339
+                    }
+                ]
+            },
+            {
+                "key": "pi_fees_taxable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 333
+                    },
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 335
+                    }
+                ]
+            },
+            {
+                "key": "pi_fees_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 280
+                    }
+                ]
+            },
+            {
+                "key": "pi_metabox",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 315
+                    }
+                ]
+            },
+            {
+                "key": "pi_payment_hiding_warning_message",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 298
+                    }
+                ]
+            },
+            {
+                "key": "pi_rule_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 274
+                    },
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 276
+                    }
+                ]
+            },
+            {
+                "key": "pi_status",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 268
+                    },
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 270
+                    },
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 369
+                    },
+                    {
+                        "file": "admin/class-add-disable-payment-rule.php",
+                        "line": 371
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->enable_tracking",
+            "file": "admin/class-analytics.php",
+            "line": 78
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-blacklist-db.php",
+            "line": 30
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->saved_value",
+            "file": "includes/review.php",
+            "line": 205
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->activation_date",
+            "file": "includes/review.php",
+            "line": 213
+        },
+        {
+            "function": "update_option",
+            "expression": "$lock_key",
+            "file": "public/class-partial-payment.php",
+            "line": 131
+        }
+    ]
+}

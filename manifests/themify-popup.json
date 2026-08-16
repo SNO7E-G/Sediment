@@ -1,0 +1,131 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "themify-popup",
+        "name": "Themify Popup",
+        "version": "1.4.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:01:35Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 18,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 2,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 7,
+        "resolution_rate": 0.182
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/themify-metabox/includes/themify-field-types.php",
+                        "line": 1276
+                    },
+                    {
+                        "file": "includes/themify-metabox/includes/themify-field-types.php",
+                        "line": 1305
+                    }
+                ]
+            },
+            {
+                "key": "popup_limit_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system.php",
+                        "line": 466
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "themify_popup",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/system.php",
+                        "line": 50
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$fields",
+            "file": "includes/themify-metabox/includes/themify-field-types.php",
+            "line": 1275
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\sanitize_text_field($_POST['field_name'])",
+            "file": "includes/themify-metabox/includes/themify-field-types.php",
+            "line": 1304
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$field['name']",
+            "file": "includes/themify-metabox/includes/themify-metabox-core.php",
+            "line": 231
+        },
+        {
+            "function": "add_option",
+            "expression": "$_key",
+            "file": "includes/themify-metabox/includes/themify-metabox-core.php",
+            "line": 577
+        },
+        {
+            "function": "add_option",
+            "expression": "$_key",
+            "file": "includes/themify-metabox/includes/themify-metabox-core.php",
+            "line": 602
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "$field['name']",
+            "file": "includes/themify-metabox/includes/themify-term-fields.php",
+            "line": 194
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$field['name']",
+            "file": "includes/themify-metabox/includes/themify-user-fields.php",
+            "line": 134
+        }
+    ]
+}

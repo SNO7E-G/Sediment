@@ -1,0 +1,212 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "force-refresh",
+        "name": "Force Refresh",
+        "version": "3.2.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:01Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 37,
+        "files_skipped": 0,
+        "write_calls_found": 15,
+        "verified": 0,
+        "resolved": 13,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.867
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "force_refresh_current_site_version",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/classes/class-versions-storage-service.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "force_refresh_debug_active_date",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/classes/class-debug-storage-service.php",
+                        "line": 48
+                    }
+                ]
+            },
+            {
+                "key": "force_refresh_last_cron_run",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/classes/class-api-handler-admin-schedule-refresh-site.php",
+                        "line": 145
+                    }
+                ]
+            },
+            {
+                "key": "force_refresh_migrations_ran",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/classes/class-migration-service.php",
+                        "line": 39
+                    }
+                ]
+            },
+            {
+                "key": "force_refresh_page_versions",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/classes/class-migration-service.php",
+                        "line": 84
+                    },
+                    {
+                        "file": "includes/services/classes/class-versions-storage-service.php",
+                        "line": 64
+                    }
+                ]
+            },
+            {
+                "key": "force_refresh_refresh_count_page",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/classes/class-refresh-counter-service.php",
+                        "line": 65
+                    }
+                ]
+            },
+            {
+                "key": "force_refresh_refresh_count_site",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/classes/class-refresh-counter-service.php",
+                        "line": 49
+                    }
+                ]
+            },
+            {
+                "key": "force_refresh_refresh_interval",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/classes/class-options-storage-service.php",
+                        "line": 98
+                    }
+                ]
+            },
+            {
+                "key": "force_refresh_show_in_wp_admin_bar",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/classes/class-options-storage-service.php",
+                        "line": 84
+                    }
+                ]
+            },
+            {
+                "key": "force_refresh_use_static_file_polling",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/services/classes/class-options-storage-service.php",
+                        "line": 123
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "force_refresh_scheduled_site_refresh",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/api/classes/class-api-handler-admin-schedule-refresh-site.php",
+                        "line": 349
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "invoke_force_refresh",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/actions/admin/inc-roles.php",
+                        "line": 17
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$transient_key",
+            "file": "includes/services/classes/class-eol-storage-service.php",
+            "line": 96
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$path",
+            "file": "includes/services/classes/class-version-file-service.php",
+            "line": 116
+        }
+    ]
+}

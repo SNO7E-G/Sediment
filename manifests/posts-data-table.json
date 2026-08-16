@@ -1,0 +1,243 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "posts-data-table",
+        "name": "Posts Table with Search & Sort",
+        "version": "1.4.12",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:04Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 91,
+        "files_skipped": 0,
+        "write_calls_found": 26,
+        "verified": 1,
+        "resolved": 3,
+        "pattern": 5,
+        "dynamic": 17,
+        "resolution_rate": 0.154
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "barn2_notice_dismissed_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dependencies/barn2/barn2-lib/src/Service/Updater.php",
+                        "line": 182
+                    }
+                ]
+            },
+            {
+                "key": "barn2_plugin_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dependencies/barn2/setup-wizard/src/Util.php",
+                        "line": 176
+                    }
+                ]
+            },
+            {
+                "key": "posts-table-search-sort-setup-wizard_completed",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Wizard/Starter.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "ptss_table_args",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Admin/Wizard/Steps/Layout.php",
+                        "line": 78
+                    },
+                    {
+                        "file": "src/Admin/Wizard/Steps/Loading.php",
+                        "line": 63
+                    },
+                    {
+                        "file": "src/Admin/Wizard/Steps/Search.php",
+                        "line": 115
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dependencies/barn2/setup-wizard/src/Starter.php",
+                        "line": 64
+                    }
+                ]
+            },
+            {
+                "key": "barn2_plugin_promo_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dependencies/barn2/barn2-lib/src/Admin/Abstract_Plugin_Promo.php",
+                        "line": 89
+                    }
+                ]
+            },
+            {
+                "key": "barn2_plugin_review_banner_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "dependencies/barn2/barn2-lib/src/Admin/Abstract_Plugin_Promo.php",
+                        "line": 76
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$this->options['option_prefix'] . '_' . $this->id",
+            "file": "dependencies/barn2/barn2-lib/src/Admin/Notice.php",
+            "line": 296
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->options['option_prefix'] . '_' . $this->id",
+            "file": "dependencies/barn2/barn2-lib/src/Admin/Notice.php",
+            "line": 299
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "dependencies/barn2/barn2-lib/src/Cache.php",
+            "line": 83
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$key",
+            "file": "dependencies/barn2/barn2-lib/src/Cache.php",
+            "line": 124
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_cache_key()",
+            "file": "dependencies/barn2/barn2-lib/src/Plugin/Admin/Plugin_Updater.php",
+            "line": 248
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->get_notice_dismissed_transient_name($notice_type)",
+            "file": "dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Notices.php",
+            "line": 205
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->license_option",
+            "file": "dependencies/barn2/barn2-lib/src/Plugin/License/Plugin_License.php",
+            "line": 541
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->get_basename() . '_plugin_activation'",
+            "file": "dependencies/barn2/barn2-lib/src/Plugin/Simple_Plugin.php",
+            "line": 101
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->get_cron_hook()",
+            "file": "dependencies/barn2/barn2-lib/src/Scheduled_Task.php",
+            "line": 30
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->options['version_option_name']",
+            "file": "dependencies/barn2/barn2-lib/src/Service/Updater.php",
+            "line": 247
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->plugin->get_slug() . '_upgrade_lock'",
+            "file": "dependencies/barn2/barn2-lib/src/Service/Updater.php",
+            "line": 384
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "dependencies/barn2/barn2-lib/src/Util.php",
+            "line": 314
+        },
+        {
+            "function": "update_option",
+            "expression": "$option",
+            "file": "dependencies/barn2/barn2-lib/src/Util.php",
+            "line": 335
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->get_slug()}_completed\"",
+            "file": "dependencies/barn2/setup-wizard/src/Setup_Wizard.php",
+            "line": 271
+        },
+        {
+            "function": "set_transient",
+            "expression": "$plugin->get_slug() . '_remote_utm_id'",
+            "file": "dependencies/barn2/setup-wizard/src/Util.php",
+            "line": 202
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "\"{$this->prefix}_{$this->id}\"",
+            "file": "dependencies/wptrt/admin-notices/src/Dismiss.php",
+            "line": 149
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->prefix}_{$this->id}\"",
+            "file": "dependencies/wptrt/admin-notices/src/Dismiss.php",
+            "line": 152
+        }
+    ]
+}

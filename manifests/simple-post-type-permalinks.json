@@ -1,0 +1,115 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "simple-post-type-permalinks",
+        "name": "Simple Post Type Permalinks",
+        "version": "2.0.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:20Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 65,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 8,
+        "verified": 3,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 4,
+        "resolution_rate": 0.375
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "sptp_options",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Module/Option.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "sptp_queue_flush_rewrite_rules",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Module/Flusher.php",
+                        "line": 31
+                    },
+                    {
+                        "file": "includes/Module/Flusher.php",
+                        "line": 41
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "%*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Module/Rewrite.php",
+                        "line": 83
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "add_rewrite_rule",
+            "expression": "\"{$slug}/?\\$\"",
+            "file": "includes/Module/Rewrite.php",
+            "line": 93
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "\"{$slug}/feed/{$feeds}/?\\$\"",
+            "file": "includes/Module/Rewrite.php",
+            "line": 97
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "\"{$slug}/{$feeds}/?\\$\"",
+            "file": "includes/Module/Rewrite.php",
+            "line": 98
+        },
+        {
+            "function": "add_rewrite_rule",
+            "expression": "\"{$slug}/{$wp_rewrite->pagination_base}/?([0-9]{1,})/?\\$\"",
+            "file": "includes/Module/Rewrite.php",
+            "line": 102
+        }
+    ]
+}

@@ -1,0 +1,260 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "nextend-facebook-connect",
+        "name": "Nextend Social Login",
+        "version": "3.1.26",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:35Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 1,
+    "coverage": {
+        "files_scanned": 106,
+        "files_skipped": 0,
+        "write_calls_found": 25,
+        "verified": 10,
+        "resolved": 5,
+        "pattern": 0,
+        "dynamic": 10,
+        "resolution_rate": 0.6
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "nsl-version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "nextend-social-login.php",
+                        "line": 310
+                    }
+                ]
+            },
+            {
+                "key": "nsl_pro_clear_update_cache",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/upgrader.php",
+                        "line": 156
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "nsl_pro_plugin_information",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/upgrader.php",
+                        "line": 190
+                    },
+                    {
+                        "file": "admin/upgrader.php",
+                        "line": 204
+                    },
+                    {
+                        "file": "admin/upgrader.php",
+                        "line": 212
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_wp_attachment_wp_user_avatar",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/avatar.php",
+                        "line": 357
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "billing_first_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/user.php",
+                        "line": 464
+                    }
+                ]
+            },
+            {
+                "key": "billing_last_name",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/user.php",
+                        "line": 469
+                    }
+                ]
+            },
+            {
+                "key": "fb_user_access_token",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "providers/facebook/facebook.php",
+                        "line": 292
+                    }
+                ]
+            },
+            {
+                "key": "nsl_newsletter_subscription",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/admin.php",
+                        "line": 309
+                    }
+                ]
+            },
+            {
+                "key": "nsl_user_avatar_md5",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/avatar.php",
+                        "line": 327
+                    },
+                    {
+                        "file": "includes/avatar.php",
+                        "line": 360
+                    }
+                ]
+            },
+            {
+                "key": "profile_photo",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/avatar.php",
+                        "line": 125
+                    }
+                ]
+            },
+            {
+                "key": "timestamp",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/user.php",
+                        "line": 519
+                    }
+                ]
+            },
+            {
+                "key": "wcemailverified",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/user.php",
+                        "line": 526
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_site_transient",
+            "expression": "$this->sessionId",
+            "file": "NSL/Persistent/Storage/Abstract.php",
+            "line": 59
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->optionKey",
+            "file": "class-settings.php",
+            "line": 89
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$pathInfo['path']",
+            "file": "includes/avatar.php",
+            "line": 160
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$wpdb->get_blog_prefix($blog_id) . 'user_avatar'",
+            "file": "includes/avatar.php",
+            "line": 232
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$nslUploadDir",
+            "file": "includes/avatar.php",
+            "line": 282
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$wpdb->get_blog_prefix($blog_id) . 'user_avatar'",
+            "file": "includes/avatar.php",
+            "line": 326
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$provider->getId() . '_avatar'",
+            "file": "includes/avatar.php",
+            "line": 356
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$wpdb->get_blog_prefix($blog_id) . 'user_avatar'",
+            "file": "includes/avatar.php",
+            "line": 359
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$this->id . '_' . $key",
+            "file": "includes/provider.php",
+            "line": 1126
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "nextend-social-login.php",
+            "line": 778
+        }
+    ]
+}

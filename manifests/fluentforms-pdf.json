@@ -1,0 +1,132 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "fluentforms-pdf",
+        "name": "Fluent PDF Generator",
+        "version": "2.1.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:23Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 64,
+    "coverage": {
+        "files_scanned": 554,
+        "files_skipped": 0,
+        "write_calls_found": 11,
+        "verified": 2,
+        "resolved": 7,
+        "pattern": 0,
+        "dynamic": 2,
+        "resolution_rate": 0.818
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_fluent_pdf_migration_completed",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Modules/FluentForms/Migration.php",
+                        "line": 32
+                    }
+                ]
+            },
+            {
+                "key": "_fluent_pdf_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Classes/Controller/GlobalFontManager.php",
+                        "line": 77
+                    },
+                    {
+                        "file": "Classes/Controller/GlobalFontManager.php",
+                        "line": 206
+                    },
+                    {
+                        "file": "Modules/FluentForms/FluentFormsIntegration.php",
+                        "line": 219
+                    },
+                    {
+                        "file": "Modules/FluentForms/Migration.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "_fluentform_pdf_settings",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Classes/Controller/GlobalPdfManager.php",
+                        "line": 191
+                    },
+                    {
+                        "file": "Classes/Controller/GlobalPdfManager.php",
+                        "line": 794
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "fluent_pdf_cleanup_tmp_dir",
+                "recurrence": "daily",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "Classes/Controller/Activator.php",
+                        "line": 17
+                    },
+                    {
+                        "file": "Modules/FluentForms/Migration.php",
+                        "line": 62
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$dir",
+            "file": "Classes/Controller/Activator.php",
+            "line": 75
+        },
+        {
+            "function": "mkdir",
+            "expression": "$basePath",
+            "file": "vendor-prefixed/mpdf/mpdf/src/Cache.php",
+            "line": 54
+        }
+    ]
+}

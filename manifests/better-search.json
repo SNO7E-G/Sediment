@@ -1,0 +1,232 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "better-search",
+        "name": "Better Search",
+        "version": "4.4.0",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:00Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 61,
+        "files_skipped": 0,
+        "write_calls_found": 25,
+        "verified": 11,
+        "resolved": 0,
+        "pattern": 1,
+        "dynamic": 13,
+        "resolution_rate": 0.44
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "bsearch_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-activator.php",
+                        "line": 110
+                    },
+                    {
+                        "file": "includes/admin/class-tools-page.php",
+                        "line": 482
+                    },
+                    {
+                        "file": "includes/admin/class-upgrader.php",
+                        "line": 168
+                    }
+                ]
+            },
+            {
+                "key": "bsearch_index_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-db.php",
+                        "line": 231
+                    }
+                ]
+            },
+            {
+                "key": "bsearch_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-tools-page.php",
+                        "line": 566
+                    },
+                    {
+                        "file": "includes/admin/network/class-admin.php",
+                        "line": 207
+                    },
+                    {
+                        "file": "includes/options-api.php",
+                        "line": 174
+                    },
+                    {
+                        "file": "includes/options-api.php",
+                        "line": 210
+                    }
+                ]
+            },
+            {
+                "key": "bsearch_show_wizard",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-settings-wizard.php",
+                        "line": 216
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "bsearch_deactivated_notice",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "better-search.php",
+                        "line": 122
+                    }
+                ]
+            },
+            {
+                "key": "bsearch_show_wizard_activation_redirect",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-settings-wizard.php",
+                        "line": 213
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/settings/class-metabox-api.php",
+                        "line": 226
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/admin/class-admin-notices-api.php",
+            "line": 187
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "includes/admin/class-admin-notices-api.php",
+            "line": 189
+        },
+        {
+            "function": "add_option",
+            "expression": "$settings_key",
+            "file": "includes/admin/settings/class-settings-api.php",
+            "line": 630
+        },
+        {
+            "function": "update_option",
+            "expression": "$this->settings_key",
+            "file": "includes/admin/settings/class-settings-wizard-api.php",
+            "line": 445
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->prefix}_wizard_completed\"",
+            "file": "includes/admin/settings/class-settings-wizard-api.php",
+            "line": 498
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->prefix}_wizard_completed_date\"",
+            "file": "includes/admin/settings/class-settings-wizard-api.php",
+            "line": 499
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->prefix}_wizard_current_step\"",
+            "file": "includes/admin/settings/class-settings-wizard-api.php",
+            "line": 553
+        },
+        {
+            "function": "update_option",
+            "expression": "\"{$this->prefix}_show_wizard\"",
+            "file": "includes/admin/settings/class-settings-wizard-api.php",
+            "line": 909
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-db.php",
+            "line": 321
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$key",
+            "file": "includes/util/class-cache.php",
+            "line": 234
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$key",
+            "file": "includes/util/class-cache.php",
+            "line": 234
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/util/class-cache.php",
+            "line": 236
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "includes/util/class-cache.php",
+            "line": 236
+        }
+    ]
+}

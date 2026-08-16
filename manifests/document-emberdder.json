@@ -1,0 +1,162 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "document-emberdder",
+        "name": "Document Embedder – Embed PDFs, Word, Excel, and Other Files",
+        "version": "2.2.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 8,
+    "coverage": {
+        "files_scanned": 18,
+        "files_skipped": 0,
+        "write_calls_found": 10,
+        "verified": 7,
+        "resolved": 2,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.9
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "de_db_version",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-bplde-document-embedder.php",
+                        "line": 169
+                    }
+                ]
+            },
+            {
+                "key": "de_file_type_migrated",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-bplde-document-embedder.php",
+                        "line": 91
+                    }
+                ]
+            },
+            {
+                "key": "de_migration_offset",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-bplde-document-embedder.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_de_download_count",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/features/class-bplde-ajaxcall.php",
+                        "line": 261
+                    }
+                ]
+            },
+            {
+                "key": "bplde_settings",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/features/class-bplde-ajaxcall.php",
+                        "line": 141
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "document_library",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/admin/class-bplde-document-library.php",
+                        "line": 43
+                    }
+                ]
+            },
+            {
+                "key": "ppt_viewer",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-bplde-ppt-viewer.php",
+                        "line": 48
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [
+            {
+                "key": "ppv_document_tags",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-bplde-ppt-viewer.php",
+                        "line": 83
+                    }
+                ]
+            },
+            {
+                "key": "ppv_file_type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/core/class-bplde-ppt-viewer.php",
+                        "line": 107
+                    }
+                ]
+            }
+        ],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "dbDelta",
+            "expression": "$sql",
+            "file": "includes/class-bplde-init.php",
+            "line": 96
+        }
+    ]
+}

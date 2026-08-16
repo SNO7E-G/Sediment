@@ -1,0 +1,250 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "trustpulse-api",
+        "name": "TrustPulse API",
+        "version": "1.2.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:30Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 17,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 16,
+        "resolved": 0,
+        "pattern": 2,
+        "dynamic": 1,
+        "resolution_rate": 0.842
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "_amn_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-am-notification.php",
+                        "line": 156
+                    }
+                ]
+            },
+            {
+                "key": "aioseo_activation_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "TPAPI/Plugins.php",
+                        "line": 492
+                    }
+                ]
+            },
+            {
+                "key": "trustpulse_api_plugin_do_activation_redirect",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "trustpulse.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "trustpulse_intercept_duplicator_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "TPAPI/Plugins.php",
+                        "line": 497
+                    }
+                ]
+            },
+            {
+                "key": "trustpulse_script_enabled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "TPAPI/Actions.php",
+                        "line": 82
+                    }
+                ]
+            },
+            {
+                "key": "trustpulse_script_id",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "TPAPI/Actions.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "wpforms_activation_redirect",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "TPAPI/Plugins.php",
+                        "line": 489
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "dismissable",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-am-notification.php",
+                        "line": 141
+                    }
+                ]
+            },
+            {
+                "key": "expiration",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-am-notification.php",
+                        "line": 145
+                    }
+                ]
+            },
+            {
+                "key": "location",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-am-notification.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "notification_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-am-notification.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "plans",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-am-notification.php",
+                        "line": 146
+                    }
+                ]
+            },
+            {
+                "key": "type",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-am-notification.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-am-notification.php",
+                        "line": 143
+                    }
+                ]
+            },
+            {
+                "key": "viewed",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-am-notification.php",
+                        "line": 144
+                    },
+                    {
+                        "file": "includes/class-am-notification.php",
+                        "line": 427
+                    },
+                    {
+                        "file": "includes/class-am-notification.php",
+                        "line": 444
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "amn_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/class-am-notification.php",
+                        "line": 77
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "\\sanitize_text_field($plugin['slug'] . '_referred_by')",
+            "file": "TPAPI/Plugins.php",
+            "line": 429
+        }
+    ]
+}

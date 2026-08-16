@@ -1,0 +1,274 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wordfence-login-security",
+        "name": "Wordfence Login Security",
+        "version": "1.1.18",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:21Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 9,
+    "coverage": {
+        "files_scanned": 67,
+        "files_skipped": 0,
+        "write_calls_found": 25,
+        "verified": 6,
+        "resolved": 10,
+        "pattern": 2,
+        "dynamic": 7,
+        "resolution_rate": 0.64
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wfls_last_role_change",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controller/permissions.php",
+                        "line": 136
+                    }
+                ]
+            },
+            {
+                "key": "wfls_last_role_sync",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controller/permissions.php",
+                        "line": 131
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_ls_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controller/wordfencels.php",
+                        "line": 282
+                    },
+                    {
+                        "file": "classes/controller/wordfencels.php",
+                        "line": 285
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wordfence_ls_ntp_cron",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controller/time.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "wordfence_ls_role_sync_cron",
+                "recurrence": "hourly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controller/permissions.php",
+                        "line": 108
+                    },
+                    {
+                        "file": "classes/controller/permissions.php",
+                        "line": 113
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wflsbucket:*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/model/tokenbucket.php",
+                        "line": 164
+                    },
+                    {
+                        "file": "classes/model/tokenbucket.php",
+                        "line": 195
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [
+            {
+                "key": "wfls-captcha-scores",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controller/users.php",
+                        "line": 1134
+                    },
+                    {
+                        "file": "classes/controller/users.php",
+                        "line": 1207
+                    }
+                ]
+            },
+            {
+                "key": "wfls-last-captcha-score",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controller/users.php",
+                        "line": 453
+                    }
+                ]
+            },
+            {
+                "key": "wfls-last-login",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controller/wordfencels.php",
+                        "line": 879
+                    }
+                ]
+            },
+            {
+                "key": "wfls-verification-tokens",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controller/users.php",
+                        "line": 1071
+                    }
+                ]
+            },
+            {
+                "key": "wfls_notices",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controller/notices.php",
+                        "line": 168
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "administrator",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controller/permissions.php",
+                        "line": 298
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [
+            {
+                "key": "wordfence-2fa",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "classes/controller/wordfencels.php",
+                        "line": 310
+                    }
+                ]
+            }
+        ],
+        "actions": []
+    },
+    "modifies_core": [
+        {
+            "type": "option",
+            "key": "rewrite_rules",
+            "confidence": "verified",
+            "sources": [
+                {
+                    "file": "classes/controller/wordfencels.php",
+                    "line": 303
+                }
+            ]
+        }
+    ],
+    "unresolved": [
+        {
+            "function": "add_cap",
+            "expression": "$role_name",
+            "file": "classes/controller/permissions.php",
+            "line": 298
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "classes/controller/users.php",
+            "line": 1070
+        },
+        {
+            "function": "set_transient",
+            "expression": "$key",
+            "file": "classes/controller/users.php",
+            "line": 1206
+        },
+        {
+            "function": "add_network_option",
+            "expression": "$key",
+            "file": "classes/model/settings/wpoptions.php",
+            "line": 22
+        },
+        {
+            "function": "add_option",
+            "expression": "$key",
+            "file": "classes/model/settings/wpoptions.php",
+            "line": 25
+        },
+        {
+            "function": "update_network_option",
+            "expression": "$key",
+            "file": "classes/model/settings/wpoptions.php",
+            "line": 30
+        },
+        {
+            "function": "update_option",
+            "expression": "$key",
+            "file": "classes/model/settings/wpoptions.php",
+            "line": 33
+        }
+    ]
+}

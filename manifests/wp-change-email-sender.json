@@ -1,0 +1,82 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-change-email-sender",
+        "name": "WP Change Email Sender",
+        "version": "3.3.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:03Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 10,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 1,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 0,
+        "resolution_rate": 1.0
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "wp_change_email_sender_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Upgrader.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "wp_change_email_sender_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/REST/SettingsController.php",
+                        "line": 107
+                    },
+                    {
+                        "file": "includes/Upgrader.php",
+                        "line": 90
+                    },
+                    {
+                        "file": "includes/Upgrader.php",
+                        "line": 114
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": []
+}

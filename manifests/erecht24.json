@@ -1,0 +1,136 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "erecht24",
+        "name": "eRecht24 Legal Texts",
+        "version": "4.0.5",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:19Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "C",
+    "score": 85,
+    "coverage": {
+        "files_scanned": 21,
+        "files_skipped": 0,
+        "write_calls_found": 12,
+        "verified": 4,
+        "resolved": 5,
+        "pattern": 0,
+        "dynamic": 3,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "erecht24_legal_text_settings",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Settings.php",
+                        "line": 222
+                    },
+                    {
+                        "file": "src/Settings.php",
+                        "line": 709
+                    },
+                    {
+                        "file": "src/Settings.php",
+                        "line": 721
+                    },
+                    {
+                        "file": "src/Settings.php",
+                        "line": 726
+                    }
+                ]
+            },
+            {
+                "key": "erecht24_v3_migrated",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "src/Settings.php",
+                        "line": 314
+                    },
+                    {
+                        "file": "src/Settings.php",
+                        "line": 703
+                    },
+                    {
+                        "file": "src/Settings.php",
+                        "line": 710
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "erecht24_push_reregister_attempted",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Plugin.php",
+                        "line": 165
+                    }
+                ]
+            },
+            {
+                "key": "erecht24_push_rl_global",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "src/Api/Push_Controller.php",
+                        "line": 119
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "src/Admin/Admin_Page.php",
+            "line": 778
+        },
+        {
+            "function": "set_transient",
+            "expression": "$this->notice_key()",
+            "file": "src/Admin/Admin_Page.php",
+            "line": 1241
+        },
+        {
+            "function": "set_transient",
+            "expression": "$ip_key",
+            "file": "src/Api/Push_Controller.php",
+            "line": 118
+        }
+    ]
+}

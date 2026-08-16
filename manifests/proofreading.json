@@ -1,0 +1,119 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "proofreading",
+        "name": "Proofreading",
+        "version": "1.2.2",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:57:09Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "A",
+    "score": 100,
+    "coverage": {
+        "files_scanned": 19,
+        "files_skipped": 0,
+        "write_calls_found": 7,
+        "verified": 2,
+        "resolved": 4,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.857
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": true,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "proofreading-language-default",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "admin/partials/proofreading-admin-display.php",
+                        "line": 54
+                    },
+                    {
+                        "file": "includes/class-proofreading-activator.php",
+                        "line": 77
+                    }
+                ]
+            },
+            {
+                "key": "proofreading-version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-proofreading-activator.php",
+                        "line": 80
+                    }
+                ]
+            }
+        ],
+        "tables": [
+            {
+                "key": "{prefix}proofreading_languages",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-proofreading-activator.php",
+                        "line": 33
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}proofreading_rules",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-proofreading-activator.php",
+                        "line": 45
+                    }
+                ]
+            },
+            {
+                "key": "{prefix}proofreading_rules_settings",
+                "confidence": "resolved",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "includes/class-proofreading-activator.php",
+                        "line": 58
+                    }
+                ]
+            }
+        ],
+        "cron": [],
+        "transients": [],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_post_meta",
+            "expression": "$name",
+            "file": "admin/includes/scribit_custom_field.php",
+            "line": 72
+        }
+    ]
+}

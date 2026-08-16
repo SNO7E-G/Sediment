@@ -1,0 +1,92 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "og",
+        "name": "OG — Better Share on Social Media",
+        "version": "3.3.9",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:56:36Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 32,
+        "files_skipped": 0,
+        "write_calls_found": 4,
+        "verified": 0,
+        "resolved": 3,
+        "pattern": 0,
+        "dynamic": 1,
+        "resolution_rate": 0.75
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "iworks_rates",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/iworks/rate/rate.php",
+                        "line": 212
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "_og_vimeo_thumbnails",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/iworks/class-iworks-opengraph.php",
+                        "line": 327
+                    }
+                ]
+            },
+            {
+                "key": "iworks_yt_thumbnails",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/iworks/class-iworks-opengraph.php",
+                        "line": 292
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "includes/iworks/class-iworks-opengraph.php",
+            "line": 781
+        }
+    ]
+}

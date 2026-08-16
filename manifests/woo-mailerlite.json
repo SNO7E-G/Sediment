@@ -1,0 +1,221 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "woo-mailerlite",
+        "name": "MailerLite - WooCommerce integration",
+        "version": "3.1.25",
+        "source": "local",
+        "scanned_at": "2026-08-16T18:03:03Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 49,
+    "coverage": {
+        "files_scanned": 50,
+        "files_skipped": 0,
+        "write_calls_found": 19,
+        "verified": 3,
+        "resolved": 9,
+        "pattern": 1,
+        "dynamic": 6,
+        "resolution_rate": 0.632
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woo_mailerlite",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/WooMailerLiteActivator.php",
+                        "line": 27
+                    }
+                ]
+            },
+            {
+                "key": "woo_mailerlite_options",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/common/WooMailerLiteOptions.php",
+                        "line": 85
+                    },
+                    {
+                        "file": "includes/common/WooMailerLiteOptions.php",
+                        "line": 95
+                    },
+                    {
+                        "file": "includes/common/WooMailerLiteOptions.php",
+                        "line": 104
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "mailerlite_custom_fields",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/WooMailerLite.php",
+                        "line": 221
+                    }
+                ]
+            },
+            {
+                "key": "woo_mailerlite_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/WooMailerLiteCache.php",
+                        "line": 9
+                    }
+                ]
+            },
+            {
+                "key": "woo_mailerlite_cart_cleanup_scheduled",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/WooMailerLiteCache.php",
+                        "line": 9
+                    }
+                ]
+            },
+            {
+                "key": "woo_mailerlite_manual_sync",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/WooMailerLiteCache.php",
+                        "line": 9
+                    }
+                ]
+            },
+            {
+                "key": "woo_mailerlite_resource_sync_counts",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/WooMailerLiteCache.php",
+                        "line": 9
+                    }
+                ]
+            },
+            {
+                "key": "woo_mailerlite_scheduled_jobs",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/WooMailerLiteCache.php",
+                        "line": 9
+                    }
+                ]
+            },
+            {
+                "key": "woo_mailerlite_table_check",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/WooMailerLiteCache.php",
+                        "line": 9
+                    }
+                ]
+            },
+            {
+                "key": "woo_mailerlite_valid_api",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/WooMailerLiteCache.php",
+                        "line": 9
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": [
+            {
+                "key": "sync_products_action",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "bootstrap.php",
+                        "line": 149
+                    }
+                ]
+            }
+        ]
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "as_schedule_recurring_action",
+            "expression": "\\WooMailerLiteCartCleanupJob::class",
+            "file": "includes/WooMailerLite.php",
+            "line": 170
+        },
+        {
+            "function": "dbDelta",
+            "expression": "$this->query",
+            "file": "includes/common/WooMailerLiteDBConnection.php",
+            "line": 68
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "$jobClass",
+            "file": "includes/jobs/WooMailerLiteAbstractJob.php",
+            "line": 37
+        },
+        {
+            "function": "as_enqueue_async_action",
+            "expression": "static::class",
+            "file": "includes/jobs/WooMailerLiteAbstractJob.php",
+            "line": 96
+        },
+        {
+            "function": "update_term_meta",
+            "expression": "\\array_search($updateAttribute, $this->meta)",
+            "file": "includes/models/WooMailerLiteModel.php",
+            "line": 92
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "\\array_search($updateAttribute, $this->meta)",
+            "file": "includes/models/WooMailerLiteModel.php",
+            "line": 103
+        }
+    ]
+}

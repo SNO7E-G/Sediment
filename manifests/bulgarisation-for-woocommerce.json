@@ -1,0 +1,330 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "bulgarisation-for-woocommerce",
+        "name": "Bulgarisation for WooCommerce",
+        "version": "4.0.13",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:13Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 9,
+    "coverage": {
+        "files_scanned": 143,
+        "files_skipped": 0,
+        "write_calls_found": 38,
+        "verified": 8,
+        "resolved": 1,
+        "pattern": 6,
+        "dynamic": 23,
+        "resolution_rate": 0.237
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "woo_bg_boxnow_message_dismiss",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Admin/BoxNow.php",
+                        "line": 573
+                    }
+                ]
+            },
+            {
+                "key": "woo_bg_pigeon_express_message_dismiss",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Admin/Pigeon.php",
+                        "line": 269
+                    }
+                ]
+            },
+            {
+                "key": "woo_bg_settings_*",
+                "autoload": "unknown",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Admin/Fields/Multi_Field.php",
+                        "line": 55
+                    },
+                    {
+                        "file": "app/Admin/Fields/Select_Field.php",
+                        "line": 59
+                    },
+                    {
+                        "file": "app/Admin/Fields/Text_Field.php",
+                        "line": 26
+                    },
+                    {
+                        "file": "app/Admin/Fields/Textarea_Field.php",
+                        "line": 36
+                    },
+                    {
+                        "file": "app/Admin/Fields/TrueFalse_Field.php",
+                        "line": 25
+                    },
+                    {
+                        "file": "app/functions.php",
+                        "line": 27
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "woo_bg/boxnow/clear_cache_folder",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Cron/BoxNow.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "woo_bg/cvc/clear_cache_folder",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Cron/CVC.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "woo_bg/econt/clear_cache_folder",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Cron/Econt.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "woo_bg/pigeon/clear_cache_folder",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Cron/Pigeon.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "woo_bg/speedy/clear_cache_folder",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Cron/Speedy.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "woo_bg/submit_stats",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Cron/Stats.php",
+                        "line": 19
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "woo_bg_activity_request_lock",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "app/Cron/Stats.php",
+                        "line": 64
+                    }
+                ]
+            }
+        ],
+        "post_meta": [],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::BOXNOW]::CACHE_FOLDER",
+            "file": "app/Client/BoxNow/Destinations.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::BOXNOW]::CACHE_FOLDER",
+            "file": "app/Client/BoxNow/Origins.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::CVC]::CACHE_FOLDER",
+            "file": "app/Client/CVC/Cities.php",
+            "line": 24
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::CVC]::CACHE_FOLDER",
+            "file": "app/Client/CVC/Countries.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::CVC]::CACHE_FOLDER",
+            "file": "app/Client/CVC/Hubs.php",
+            "line": 42
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::CVC]::CACHE_FOLDER",
+            "file": "app/Client/CVC/Offices.php",
+            "line": 44
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::CVC]::CACHE_FOLDER",
+            "file": "app/Client/CVC/Quarters.php",
+            "line": 21
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::CVC]::CACHE_FOLDER",
+            "file": "app/Client/CVC/Streets.php",
+            "line": 21
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::ECONT]::CACHE_FOLDER",
+            "file": "app/Client/Econt/Cities.php",
+            "line": 21
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::ECONT]::CACHE_FOLDER",
+            "file": "app/Client/Econt/Countries.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::ECONT]::CACHE_FOLDER",
+            "file": "app/Client/Econt/Offices.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::ECONT]::CACHE_FOLDER",
+            "file": "app/Client/Econt/Quarters.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::ECONT]::CACHE_FOLDER",
+            "file": "app/Client/Econt/Streets.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::PIGEON]::CACHE_FOLDER",
+            "file": "app/Client/Pigeon/Cities.php",
+            "line": 21
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::PIGEON]::CACHE_FOLDER",
+            "file": "app/Client/Pigeon/Lockers.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::PIGEON]::CACHE_FOLDER",
+            "file": "app/Client/Pigeon/Offices.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::PIGEON]::CACHE_FOLDER",
+            "file": "app/Client/Pigeon/Streets.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::SPEEDY]::CACHE_FOLDER",
+            "file": "app/Client/Speedy/Cities.php",
+            "line": 22
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::SPEEDY]::CACHE_FOLDER",
+            "file": "app/Client/Speedy/Countries.php",
+            "line": 21
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::SPEEDY]::CACHE_FOLDER",
+            "file": "app/Client/Speedy/Offices.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::SPEEDY]::CACHE_FOLDER",
+            "file": "app/Client/Speedy/Quarters.php",
+            "line": 20
+        },
+        {
+            "function": "wp_mkdir_p",
+            "expression": "$this->container[\\Woo_BG\\Container\\Client::SPEEDY]::CACHE_FOLDER",
+            "file": "app/Client/Speedy/Streets.php",
+            "line": 20
+        },
+        {
+            "function": "set_transient",
+            "expression": "$transient_name",
+            "file": "app/Front_End/Checkout/EU_Vat.php",
+            "line": 158
+        }
+    ]
+}

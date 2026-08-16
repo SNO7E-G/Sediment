@@ -1,0 +1,237 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "draw-attention",
+        "name": "Draw Attention",
+        "version": "2.1.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:55:15Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 99,
+        "files_skipped": 0,
+        "write_calls_found": 22,
+        "verified": 16,
+        "resolved": 2,
+        "pattern": 1,
+        "dynamic": 3,
+        "resolution_rate": 0.818
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "da_disable_third_party_js",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-drawattention-admin.php",
+                        "line": 345
+                    }
+                ]
+            },
+            {
+                "key": "drag-drop-file-types",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/includes/lib/drag-drop-featured-image/assets/views/options.php",
+                        "line": 19
+                    },
+                    {
+                        "file": "public/includes/lib/drag-drop-featured-image/index.php",
+                        "line": 46
+                    }
+                ]
+            },
+            {
+                "key": "drag-drop-page-reload",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/includes/lib/drag-drop-featured-image/assets/views/options.php",
+                        "line": 30
+                    },
+                    {
+                        "file": "public/includes/lib/drag-drop-featured-image/assets/views/options.php",
+                        "line": 32
+                    },
+                    {
+                        "file": "public/includes/lib/drag-drop-featured-image/index.php",
+                        "line": 47
+                    }
+                ]
+            },
+            {
+                "key": "drag-drop-post-types",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/includes/lib/drag-drop-featured-image/assets/views/options.php",
+                        "line": 15
+                    }
+                ]
+            },
+            {
+                "key": "drag-drop-user-capability",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/includes/lib/drag-drop-featured-image/assets/views/options.php",
+                        "line": 23
+                    },
+                    {
+                        "file": "public/includes/lib/drag-drop-featured-image/assets/views/options.php",
+                        "line": 25
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [],
+        "transients": [
+            {
+                "key": "da_bc_product_options",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/includes/actions/action-bigcommerce.php",
+                        "line": 36
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_da_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/includes/themes.php",
+                        "line": 44
+                    }
+                ]
+            },
+            {
+                "key": "_da_coordinates",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/includes/custom_fields.php",
+                        "line": 367
+                    }
+                ]
+            },
+            {
+                "key": "_da_hotspots",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-drawattention-admin.php",
+                        "line": 432
+                    }
+                ]
+            },
+            {
+                "key": "_da_hotspots_json",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "admin/class-drawattention-admin.php",
+                        "line": 410
+                    }
+                ]
+            },
+            {
+                "key": "_thumbnail_id",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/includes/lib/drag-drop-featured-image/index.php",
+                        "line": 501
+                    },
+                    {
+                        "file": "public/includes/lib/drag-drop-featured-image/index.php",
+                        "line": 503
+                    },
+                    {
+                        "file": "public/includes/lib/drag-drop-featured-image/index.php",
+                        "line": 534
+                    },
+                    {
+                        "file": "public/includes/lib/drag-drop-featured-image/index.php",
+                        "line": 536
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [
+            {
+                "key": "da_image",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "public/includes/cpt.php",
+                        "line": 31
+                    }
+                ]
+            }
+        ],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_option",
+            "expression": "$this->key",
+            "file": "public/includes/lib/CMB2/includes/CMB2_Options.php",
+            "line": 197
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->option_key",
+            "file": "public/includes/lib/CMB2/includes/CMB2_Options_Hookup.php",
+            "line": 331
+        },
+        {
+            "function": "set_transient",
+            "expression": "$cache_key",
+            "file": "public/includes/lib/CMB2/includes/types/CMB2_Type_Taxonomy_Base.php",
+            "line": 80
+        }
+    ]
+}

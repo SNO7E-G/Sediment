@@ -1,0 +1,253 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "wp-last-modified-info",
+        "name": "WP Last Modified Info",
+        "version": "1.9.6",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:59:56Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "D",
+    "score": 52,
+    "coverage": {
+        "files_scanned": 53,
+        "files_skipped": 0,
+        "write_calls_found": 21,
+        "verified": 15,
+        "resolved": 0,
+        "pattern": 3,
+        "dynamic": 3,
+        "resolution_rate": 0.714
+    },
+    "cleanup": {
+        "has_uninstall_php": true,
+        "has_uninstall_hook": false,
+        "conditional": true,
+        "condition_option": "lmt_plugin_global_settings",
+        "condition_default": false
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "lmt_dashboard_widget_options",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/Core/Backend/DashboardWidget.php",
+                        "line": 134
+                    }
+                ]
+            },
+            {
+                "key": "lmt_plugin_global_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/Base/PluginTools.php",
+                        "line": 108
+                    },
+                    {
+                        "file": "inc/Base/PluginTools.php",
+                        "line": 183
+                    }
+                ]
+            },
+            {
+                "key": "wplmi_plugin_api_data",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/Core/Backend/PluginsData.php",
+                        "line": 153
+                    },
+                    {
+                        "file": "inc/Core/Backend/PluginsData.php",
+                        "line": 277
+                    }
+                ]
+            },
+            {
+                "key": "wplmi_plugin_dismiss_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Base/AdminNotice.php",
+                        "line": 135
+                    },
+                    {
+                        "file": "inc/Base/AdminNotice.php",
+                        "line": 140
+                    }
+                ]
+            },
+            {
+                "key": "wplmi_plugin_dismissed_time",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Base/AdminNotice.php",
+                        "line": 144
+                    }
+                ]
+            },
+            {
+                "key": "wplmi_plugin_dismissed_time_donate",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Base/AdminNotice.php",
+                        "line": 142
+                    }
+                ]
+            },
+            {
+                "key": "wplmi_plugin_installed_time",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Base/AdminNotice.php",
+                        "line": 162
+                    }
+                ]
+            },
+            {
+                "key": "wplmi_plugin_no_thanks_*",
+                "autoload": "no",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Base/AdminNotice.php",
+                        "line": 139
+                    }
+                ]
+            },
+            {
+                "key": "wplmi_site_global_update_info",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": true,
+                "sources": [
+                    {
+                        "file": "inc/Core/Backend/MiscActions.php",
+                        "line": 123
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "wplmi/fetch_plugin_data",
+                "recurrence": "weekly",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Core/Backend/PluginsData.php",
+                        "line": 49
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "wplmi-show-notice-on-activation",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Base/Activate.php",
+                        "line": 26
+                    }
+                ]
+            },
+            {
+                "key": "wplmi_import_db_done",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Base/PluginTools.php",
+                        "line": 111
+                    },
+                    {
+                        "file": "inc/Base/PluginTools.php",
+                        "line": 186
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_date_updated",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Core/Backend/EditScreen.php",
+                        "line": 426
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "profile_last_modified",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/Core/Backend/UserColumn.php",
+                        "line": 47
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "register_meta",
+            "expression": "$key",
+            "file": "inc/Core/Backend/BlockEditor.php",
+            "line": 71
+        },
+        {
+            "function": "add_post_meta",
+            "expression": "$key",
+            "file": "inc/Helpers/SettingsData.php",
+            "line": 43
+        },
+        {
+            "function": "update_post_meta",
+            "expression": "$key",
+            "file": "inc/Helpers/SettingsData.php",
+            "line": 56
+        }
+    ]
+}

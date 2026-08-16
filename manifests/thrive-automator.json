@@ -1,0 +1,221 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "thrive-automator",
+        "name": "Thrive Automator",
+        "version": "10.6.1.1",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:58:22Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 33,
+    "coverage": {
+        "files_scanned": 164,
+        "files_skipped": 0,
+        "write_calls_found": 18,
+        "verified": 3,
+        "resolved": 8,
+        "pattern": 2,
+        "dynamic": 5,
+        "resolution_rate": 0.611
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "tap_db_version",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/database/class-tap-database-manager.php",
+                        "line": 103
+                    }
+                ]
+            },
+            {
+                "key": "tap_log_settings",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-tap-error-handler.php",
+                        "line": 350
+                    }
+                ]
+            },
+            {
+                "key": "tap_temp_webhook_data",
+                "autoload": "unknown",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-tap-integrations-rest-controller.php",
+                        "line": 138
+                    },
+                    {
+                        "file": "inc/classes/class-tap-integrations-rest-controller.php",
+                        "line": 160
+                    }
+                ]
+            },
+            {
+                "key": "thrive_automator_activation_redirect",
+                "autoload": "no",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-hooks.php",
+                        "line": 126
+                    }
+                ]
+            },
+            {
+                "key": "tve-tracking-allowed",
+                "autoload": "no",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-tap-tracking.php",
+                        "line": 78
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "tap_delayed_automations_improved",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/items/class-automation.php",
+                        "line": 605
+                    }
+                ]
+            },
+            {
+                "key": "tap_tracking_cron",
+                "recurrence": "single",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-tap-tracking.php",
+                        "line": 96
+                    }
+                ]
+            }
+        ],
+        "transients": [],
+        "post_meta": [
+            {
+                "key": "tap-*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-tap-utils.php",
+                        "line": 369
+                    }
+                ]
+            },
+            {
+                "key": "tap-aut-id",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-tap-utils.php",
+                        "line": 369
+                    }
+                ]
+            }
+        ],
+        "user_meta": [
+            {
+                "key": "tap-*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-tap-utils.php",
+                        "line": 398
+                    }
+                ]
+            }
+        ],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [
+            {
+                "key": "tve-use-tap",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "inc/classes/class-hooks.php",
+                        "line": 118
+                    },
+                    {
+                        "file": "inc/classes/class-hooks.php",
+                        "line": 123
+                    }
+                ]
+            }
+        ],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "inc/classes/items/actions/class-wordpress-new-register-action.php",
+            "line": 136
+        },
+        {
+            "function": "update_user_meta",
+            "expression": "$key",
+            "file": "inc/classes/items/actions/class-wordpress-update-user-action.php",
+            "line": 73
+        },
+        {
+            "function": "wp_schedule_single_event",
+            "expression": "$trigger::get_wp_hook()",
+            "file": "inc/classes/items/class-automation.php",
+            "line": 297
+        },
+        {
+            "function": "mkdir",
+            "expression": "$default_target",
+            "file": "inc/classes/suite/class-plugin-handler.php",
+            "line": 155
+        },
+        {
+            "function": "update_option",
+            "expression": "\\TPM_Connection::NAME",
+            "file": "inc/classes/suite/class-ttw.php",
+            "line": 217
+        }
+    ]
+}

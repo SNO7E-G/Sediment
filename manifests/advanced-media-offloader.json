@@ -1,0 +1,385 @@
+{
+    "schema_version": "2.0",
+    "plugin": {
+        "slug": "advanced-media-offloader",
+        "name": "Advanced Media Offloader",
+        "version": "4.4.4",
+        "source": "local",
+        "scanned_at": "2026-08-16T17:54:56Z",
+        "analyzer_version": "0.9.0"
+    },
+    "grade": "F",
+    "score": 0,
+    "coverage": {
+        "files_scanned": 46,
+        "files_skipped": 0,
+        "write_calls_found": 37,
+        "verified": 28,
+        "resolved": 2,
+        "pattern": 1,
+        "dynamic": 6,
+        "resolution_rate": 0.811
+    },
+    "cleanup": {
+        "has_uninstall_php": false,
+        "has_uninstall_hook": false,
+        "conditional": false,
+        "condition_option": null,
+        "condition_default": null
+    },
+    "creates": {
+        "options": [
+            {
+                "key": "advmo_bulk_offload_cancelled",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/BulkOffloadHandler.php",
+                        "line": 452
+                    }
+                ]
+            },
+            {
+                "key": "advmo_bulk_offload_data",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "utility-functions.php",
+                        "line": 261
+                    }
+                ]
+            },
+            {
+                "key": "advmo_bulk_offload_last_update",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "utility-functions.php",
+                        "line": 262
+                    }
+                ]
+            },
+            {
+                "key": "advmo_credentials",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/GeneralSettings.php",
+                        "line": 766
+                    },
+                    {
+                        "file": "utility-functions.php",
+                        "line": 445
+                    }
+                ]
+            },
+            {
+                "key": "advmo_first_activated_version",
+                "autoload": "yes",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "advanced-media-offloader.php",
+                        "line": 226
+                    }
+                ]
+            },
+            {
+                "key": "advmo_last_connection_check",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/GeneralSettings.php",
+                        "line": 628
+                    },
+                    {
+                        "file": "includes/Admin/GeneralSettings.php",
+                        "line": 640
+                    }
+                ]
+            },
+            {
+                "key": "advmo_settings",
+                "autoload": "unknown",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Admin/GeneralSettings.php",
+                        "line": 678
+                    }
+                ]
+            },
+            {
+                "key": "advmo_show_welcome_notice",
+                "autoload": "yes",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "advanced-media-offloader.php",
+                        "line": 230
+                    }
+                ]
+            }
+        ],
+        "tables": [],
+        "cron": [
+            {
+                "key": "advmo_check_stalled_processes",
+                "recurrence": "advmo_fifteen_min",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/BulkOffloadHandler.php",
+                        "line": 73
+                    }
+                ]
+            },
+            {
+                "key": "advmo_cleanup_orphaned_queue",
+                "recurrence": "single",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/BulkOffloadHandler.php",
+                        "line": 136
+                    }
+                ]
+            }
+        ],
+        "transients": [
+            {
+                "key": "advmo_delete_error_*",
+                "confidence": "pattern",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Observers/AttachmentDeleteObserver.php",
+                        "line": 92
+                    }
+                ]
+            }
+        ],
+        "post_meta": [
+            {
+                "key": "_advmo_ewww_deferred_retention",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Observers/EWWWCompatObserver.php",
+                        "line": 81
+                    }
+                ]
+            },
+            {
+                "key": "_advmo_ewww_optimized_preoffload",
+                "confidence": "resolved",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Observers/EWWWCompatObserver.php",
+                        "line": 186
+                    }
+                ]
+            },
+            {
+                "key": "_advmo_imagify_deferred_retention",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Observers/ImagifyCompatObserver.php",
+                        "line": 62
+                    }
+                ]
+            },
+            {
+                "key": "advmo_bucket",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/CloudAttachmentUploader.php",
+                        "line": 694
+                    }
+                ]
+            },
+            {
+                "key": "advmo_error_log",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/BulkOffloadHandler.php",
+                        "line": 336
+                    },
+                    {
+                        "file": "includes/CLI/OffloadCommand.php",
+                        "line": 350
+                    },
+                    {
+                        "file": "includes/Services/BulkMediaOffloader.php",
+                        "line": 47
+                    },
+                    {
+                        "file": "includes/Services/CloudAttachmentUploader.php",
+                        "line": 684
+                    },
+                    {
+                        "file": "includes/Services/CloudAttachmentUploader.php",
+                        "line": 810
+                    }
+                ]
+            },
+            {
+                "key": "advmo_object_version",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Traits/OffloaderTrait.php",
+                        "line": 51
+                    }
+                ]
+            },
+            {
+                "key": "advmo_offloaded",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/CloudAttachmentUploader.php",
+                        "line": 685
+                    },
+                    {
+                        "file": "includes/Services/CloudAttachmentUploader.php",
+                        "line": 691
+                    }
+                ]
+            },
+            {
+                "key": "advmo_offloaded_at",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/CloudAttachmentUploader.php",
+                        "line": 692
+                    }
+                ]
+            },
+            {
+                "key": "advmo_path",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/CloudAttachmentUploader.php",
+                        "line": 690
+                    }
+                ]
+            },
+            {
+                "key": "advmo_provider",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/CloudAttachmentUploader.php",
+                        "line": 693
+                    }
+                ]
+            },
+            {
+                "key": "advmo_retention_policy",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Services/CloudAttachmentUploader.php",
+                        "line": 192
+                    },
+                    {
+                        "file": "includes/Services/CloudAttachmentUploader.php",
+                        "line": 756
+                    }
+                ]
+            },
+            {
+                "key": "advmo_tmp_file",
+                "confidence": "verified",
+                "cleaned": false,
+                "sources": [
+                    {
+                        "file": "includes/Observers/GetAttachedFileObserver.php",
+                        "line": 84
+                    }
+                ]
+            }
+        ],
+        "user_meta": [],
+        "term_meta": [],
+        "comment_meta": [],
+        "roles": [],
+        "capabilities": [],
+        "post_types": [],
+        "taxonomies": [],
+        "directories": [],
+        "rewrite_rules": [],
+        "actions": []
+    },
+    "modifies_core": [],
+    "unresolved": [
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "includes/Abstracts/WP_Background_Processing/WP_Background_Process.php",
+            "line": 154
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$key",
+            "file": "includes/Abstracts/WP_Background_Processing/WP_Background_Process.php",
+            "line": 174
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_status_key()",
+            "file": "includes/Abstracts/WP_Background_Processing/WP_Background_Process.php",
+            "line": 215
+        },
+        {
+            "function": "update_site_option",
+            "expression": "$this->get_status_key()",
+            "file": "includes/Abstracts/WP_Background_Processing/WP_Background_Process.php",
+            "line": 246
+        },
+        {
+            "function": "set_site_transient",
+            "expression": "$this->identifier . '_process_lock'",
+            "file": "includes/Abstracts/WP_Background_Processing/WP_Background_Process.php",
+            "line": 441
+        },
+        {
+            "function": "wp_schedule_event",
+            "expression": "$this->cron_hook_identifier",
+            "file": "includes/Abstracts/WP_Background_Processing/WP_Background_Process.php",
+            "line": 773
+        }
+    ]
+}
