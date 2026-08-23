@@ -169,6 +169,21 @@ final class UninstallGeneratorTest extends TestCase
         self::assertStringNotContainsString('delete_option', $code);
     }
 
+    public function test_a_backtick_in_a_table_name_cannot_break_out_of_the_drop_statement(): void
+    {
+        // A hostile or merely odd table name containing a backtick would close
+        // the quoted identifier early and let whatever follows read as SQL.
+        // The emitted code doubles it at run time, so even the site's prefix
+        // cannot carry one through.
+        $code = (new UninstallGenerator())->generate([
+            $this->finding('table', '{prefix}evil`table', Finding::CONFIDENCE_RESOLVED, function: 'dbDelta'),
+        ], 'Example');
+
+        $this->assertValidPhp($code);
+        self::assertStringContainsString("str_replace('`', '``'", $code);
+        self::assertStringContainsString("'evil`table'", $code);
+    }
+
     public function test_generated_uninstall_targets_a_real_plugins_leftovers(): void
     {
         $result = (new Scanner())->scan(dirname(__DIR__) . '/fixtures/partial-plugin');

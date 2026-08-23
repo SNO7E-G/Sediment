@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Sediment\Analyzer;
 
-use PhpParser\Error;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;
@@ -199,7 +198,7 @@ final class Scanner
             $ast = $this->parser->parse($code);
 
             return $ast === null ? null : $this->resolveNames($ast);
-        } catch (Error | \Throwable $e) {
+        } catch (\Throwable $e) {
             $errors[] = ['file' => $relative, 'message' => $e->getMessage()];
 
             return null;

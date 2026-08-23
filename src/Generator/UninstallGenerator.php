@@ -141,7 +141,11 @@ final class UninstallGenerator
             $lines[] = '';
             $lines[] = '// Custom tables';
             foreach (array_keys($tables) as $key) {
-                $lines[] = '$table = ' . $this->keyExpression($key) . ';';
+                // A backtick inside an identifier would close the quoted name
+                // early and let the rest read as SQL. Doubling it at run time
+                // keeps every byte — from the literal or the site's prefix —
+                // inside the name MySQL sees.
+                $lines[] = "\$table = str_replace('`', '``', " . $this->keyExpression($key) . ');';
                 $lines[] = '$wpdb->query("DROP TABLE IF EXISTS `{$table}`");';
             }
         }
