@@ -361,10 +361,16 @@ final class OptionResolutionTest extends TestCase
         self::assertSame($autoload, $this->firstOption($body)->autoload);
     }
 
-    public function test_first_class_callable_is_ignored_and_never_throws(): void
+    public function test_first_class_callable_is_recorded_as_dynamic(): void
     {
-        // add_option(...) is a first-class callable, not an option write.
-        // It must not crash the scan (M14) and must produce no finding.
-        self::assertSame([], $this->options('$fn = add_option(...);'));
+        // add_option(...) is a first-class callable: a real write whose key
+        // only exists at call time. It is recorded as dynamic so coverage
+        // counts it — never silently dropped, never guessed at.
+        $findings = $this->options('$fn = add_option(...);');
+
+        self::assertCount(1, $findings);
+        self::assertSame(Finding::CONFIDENCE_DYNAMIC, $findings[0]->confidence);
+        self::assertNull($findings[0]->key);
+        self::assertSame('add_option', $findings[0]->function);
     }
 }

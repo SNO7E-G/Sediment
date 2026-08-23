@@ -111,6 +111,19 @@ final class TableVisitorTest extends TestCase
         self::assertSame($name, $finding->key);
     }
 
+    public function test_a_temporary_table_is_never_reported(): void
+    {
+        // The anchored CREATE TABLE match deliberately refuses CREATE TEMPORARY
+        // TABLE: a scratch table dies with the request and leaves no footprint.
+        // This pins that choice so nobody loosens the pattern later.
+        foreach ([
+            "function f() { global \$wpdb; dbDelta(\"CREATE TEMPORARY TABLE {\$wpdb->prefix}tmp_cache (id INT)\"); }",
+            "function f() { global \$wpdb; \$wpdb->query('CREATE TEMPORARY TABLE tt_scratch (id INT)'); }",
+        ] as $body) {
+            self::assertSame([], $this->tables($body), 'a temporary table is not persistent data');
+        }
+    }
+
     public function test_wpdb_query_that_is_not_a_create_is_ignored(): void
     {
         $findings = $this->tables("function f() { global \$wpdb; \$wpdb->query('SELECT 1'); }");

@@ -183,8 +183,14 @@ final class StructureVisitorTest extends TestCase
         self::assertSame('add_cap', $finding->function);
     }
 
-    public function test_first_class_callable_add_cap_is_ignored(): void
+    public function test_first_class_callable_add_cap_is_recorded_as_dynamic(): void
     {
-        self::assertSame([], $this->structures("\$role->add_cap(...);"));
+        // $role->add_cap(...) is a real grant whose capability name only exists
+        // at call time — recorded as dynamic so coverage counts it.
+        $findings = $this->structures('$role->add_cap(...);');
+
+        self::assertCount(1, $findings);
+        self::assertSame('capability', $findings[0]->type);
+        self::assertSame(Finding::CONFIDENCE_DYNAMIC, $findings[0]->confidence);
     }
 }
