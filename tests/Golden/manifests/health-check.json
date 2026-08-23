@@ -1,5 +1,5 @@
 {
-    "schema_version": "2.0",
+    "schema_version": "2.1",
     "plugin": {
         "slug": "health-check",
         "name": "Health Check & Troubleshooting",
@@ -11,12 +11,12 @@
     "coverage": {
         "files_scanned": 29,
         "files_skipped": 0,
-        "write_calls_found": 28,
+        "write_calls_found": 27,
         "verified": 25,
         "resolved": 0,
         "pattern": 1,
-        "dynamic": 2,
-        "resolution_rate": 0.893
+        "dynamic": 1,
+        "resolution_rate": 0.926
     },
     "cleanup": {
         "has_uninstall_php": true,
@@ -212,7 +212,9 @@
         "taxonomies": [],
         "directories": [],
         "rewrite_rules": [],
-        "actions": []
+        "actions": [],
+        "dropins": [],
+        "muplugins": []
     },
     "modifies_core": [
         {
@@ -233,12 +235,6 @@
             "expression": "$transient_name",
             "file": "HealthCheck/Tools/class-health-check-plugin-compatibility.php",
             "line": 149
-        },
-        {
-            "function": "$wp_filesystem->mkdir",
-            "expression": "\\WPMU_PLUGIN_DIR",
-            "file": "HealthCheck/class-health-check-troubleshoot.php",
-            "line": 89
         }
     ]
 }

@@ -25,7 +25,7 @@ final class Manifest
      * shape of this document is a breaking change and versioned as one.
      * The machine-readable contract lives in schema/manifest.schema.json.
      */
-    public const SCHEMA_VERSION = '2.0';
+    public const SCHEMA_VERSION = '2.1';
 
     /** Finding type => manifest group (§9). Public because consumers of a
      *  manifest (the Index builder, tests) need the same mapping to read
@@ -46,6 +46,8 @@ final class Manifest
         'directory' => 'directories',
         'rewrite_rule' => 'rewrite_rules',
         'action' => 'actions',
+        'dropin' => 'dropins',
+        'muplugin' => 'muplugins',
     ];
 
     /** Not detected yet; present so the schema never breaks for consumers. */

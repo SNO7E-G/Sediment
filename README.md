@@ -93,7 +93,7 @@ The manifest carries the grade, the coverage counts, and every artifact with its
 
 ## What it detects
 
-Options (with the autoload flag), custom tables, cron events, transients, post/user/term/comment metadata, roles and capabilities, custom post types and taxonomies, directories, rewrite rules, and Action Scheduler jobs.
+Options (with the autoload flag), custom tables, cron events, transients, post/user/term/comment metadata, roles and capabilities, custom post types and taxonomies, directories, rewrite rules, Action Scheduler jobs — and the drop-ins and `mu-plugins` files a plugin installs, which keep executing on every request after the plugin itself is deleted.
 
 Custom post types are the group prefix-matching tools structurally cannot reach. Uninstall an e-commerce plugin and its products stay behind as unreachable rows in `wp_posts` — often tens of thousands. No prefix reveals that. Reading the source does.
 

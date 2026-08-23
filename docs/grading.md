@@ -26,6 +26,11 @@ harm they actually do on a live site — not by how many rows there are:
 - **Registered post types** orphan their content: the posts stay in `wp_posts`
   with nothing left to render them, often tens of thousands of rows. This weighs
   like a table and caps the grade at D.
+- **Drop-ins and must-use plugins** are code that keeps *executing* after the
+  plugin is gone — a leftover `object-cache.php` runs on every request, a
+  leftover `mu-plugins` file loads before anything can manage it. Both weigh
+  like tables and cap the grade at D. Unlike orphaned content, both are safe to
+  delete, so generated uninstall routines remove them outright.
 - **Metadata** multiplies per object, and **roles and capabilities** ride on every
   user, so both weigh above a plain option.
 - **Action Scheduler jobs** behave like cron events — a queued job keeps firing a

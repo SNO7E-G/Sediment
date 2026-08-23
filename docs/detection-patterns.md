@@ -155,7 +155,39 @@ skipped.
 `as_schedule_cron_action`, and `as_enqueue_async_action` for Action Scheduler,
 the queue library many larger plugins use instead of WP-Cron.
 
+### Drop-ins and must-use plugins
+
+`file_put_contents()`, `copy()` (its destination), and
+`$wp_filesystem->put_contents()`, classified by where the path lands:
+
+- A file written into the wp-content root under one of the names WordPress
+  itself loads — `advanced-cache.php`, `object-cache.php`, `db.php`,
+  `sunrise.php`, `db-error.php`, `install.php`, `maintenance.php` — is a
+  **drop-in**. WordPress includes these on every request whether or not their
+  author still exists, so a leftover one can slow or break an entire site.
+- Any `.php` file written into `mu-plugins/` is a **must-use plugin**: it runs
+  before normal plugins load and is not manageable from the Plugins screen,
+  surviving until someone deletes it by hand.
+
+Both weigh like tables for the grade and cap it at D, because both keep
+executing after the plugin is gone. Both are also safe for the uninstall
+generator to remove — they are code the plugin installed, not user data — so
+generated teardowns emit `wp_delete_file()` with the root rebuilt from its
+constant (`WP_CONTENT_DIR`, `WPMU_PLUGIN_DIR`).
+
+Only exact targets are recorded. The name is the artifact here, so a partly
+dynamic path such as `{content_dir}/cache_*.php` cannot be honestly attributed
+and is left to coverage instead. Ordinary files under wp-content that WordPress
+does not load are not footprint in this sense and are not reported.
+
+Removals are read symmetrically — `unlink()`, `wp_delete_file()`, and
+`$wp_filesystem->delete()` on a rooted path — so cleanup credit works the same
+way as every other type.
+
 ## Not yet detected
 
 Options written through direct `$wpdb` SQL, widget instances, theme mods, and
-`wp-config.php` / `.htaccess` edits. See [limitations](limitations.md).
+`wp-config.php` / `.htaccess` edits. See [limitations](limitations.md). A file
+write whose path is only knowable at run time — wp-super-cache builds its
+`advanced-cache.php` path into a global before `fopen()`-ing it — is also out of
+reach today.

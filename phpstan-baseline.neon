@@ -49,6 +49,12 @@ parameters:
 			path: src/Analyzer/Visitors/CronVisitor.php
 
 		-
+			message: '#^Parameter \#1 \$args of method Sediment\\Analyzer\\Visitors\\AbstractDetectionVisitor\:\:argValue\(\) expects list\<PhpParser\\Node\\Arg\>, array\<PhpParser\\Node\\Arg\> given\.$#'
+			identifier: argument.type
+			count: 3
+			path: src/Analyzer/Visitors/DropinVisitor.php
+
+		-
 			message: '#^Cannot cast PhpParser\\Node\\Expr\|PhpParser\\Node\\Identifier to string\.$#'
 			identifier: cast.string
 			count: 1
@@ -201,7 +207,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$args of method Sediment\\Analyzer\\Visitors\\AbstractDetectionVisitor\:\:argValue\(\) expects list\<PhpParser\\Node\\Arg\>, array\<PhpParser\\Node\\Arg\> given\.$#'
 			identifier: argument.type
-			count: 7
+			count: 9
 			path: src/Cleanup/CleanupVisitor.php
 
 		-
@@ -337,7 +343,7 @@ parameters:
 			path: src/Command/IndexCommand.php
 
 		-
-			message: '#^Binary operation "\." between ''action\:''\|''capability\:''\|''comment_meta\:''\|''cron\:''\|''directory\:''\|''option\:''\|''post_meta\:''\|''post_type\:''\|''rewrite_rule\:''\|''role\:''\|''table\:''\|''taxonomy\:''\|''term_meta\:''\|''transient\:''\|''user_meta\:'' and mixed results in an error\.$#'
+			message: '#^Binary operation "\." between ''action\:''\|''capability\:''\|''comment_meta\:''\|''cron\:''\|''directory\:''\|''dropin\:''\|''muplugin\:''\|''option\:''\|''post_meta\:''\|''post_type\:''\|''rewrite_rule\:''\|''role\:''\|''table\:''\|''taxonomy\:''\|''term_meta\:''\|''transient\:''\|''user_meta\:'' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Command/IndexCommand.php
@@ -437,6 +443,12 @@ parameters:
 			identifier: cast.string
 			count: 1
 			path: src/Command/UninstallCommand.php
+
+		-
+			message: '#^Argument of an invalid type list\<string\>\|false supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Generator/UninstallGenerator.php
 
 		-
 			message: '#^Cannot access an offset on mixed\.$#'
@@ -1745,6 +1757,66 @@ parameters:
 			identifier: function.notFound
 			count: 1
 			path: tests/fixtures/double-schedule-plugin/uninstall.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/advanced\-cache\.php'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: tests/fixtures/dropin-plugin/dropin-plugin.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/dp\-loader\.php'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: tests/fixtures/dropin-plugin/dropin-plugin.php
+
+		-
+			message: '#^Cannot call method put_contents\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/fixtures/dropin-plugin/dropin-plugin.php
+
+		-
+			message: '#^Constant WPMU_PLUGIN_DIR not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: tests/fixtures/dropin-plugin/dropin-plugin.php
+
+		-
+			message: '#^Constant WP_CONTENT_DIR not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: tests/fixtures/dropin-plugin/dropin-plugin.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/advanced\-cache\.php'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: tests/fixtures/dropin-plugin/uninstall.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/dp\-loader\.php'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: tests/fixtures/dropin-plugin/uninstall.php
+
+		-
+			message: '#^Constant WPMU_PLUGIN_DIR not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: tests/fixtures/dropin-plugin/uninstall.php
+
+		-
+			message: '#^Constant WP_CONTENT_DIR not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: tests/fixtures/dropin-plugin/uninstall.php
+
+		-
+			message: '#^Function wp_delete_file not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: tests/fixtures/dropin-plugin/uninstall.php
 
 		-
 			message: '#^Cannot access property \$prefix on mixed\.$#'

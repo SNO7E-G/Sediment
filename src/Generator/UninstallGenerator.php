@@ -35,6 +35,8 @@ final class UninstallGenerator
         $roles = [];
         $actions = [];
         $capabilities = []; // reported as a comment: removal needs the role that holds it
+        $dropins = [];      // deletable: the plugin wrote these files itself
+        $muplugins = [];
         $content = [];      // reported as a comment, never deleted
 
         foreach ($findings as $finding) {
@@ -59,17 +61,22 @@ final class UninstallGenerator
                 'role'      => $roles[$key] = true,
                 'action'    => $actions[$key] = true,
                 'capability'=> $capabilities[$key] = true,
+                // A drop-in or mu-plugin file is something the plugin wrote;
+                // deleting it removes code that would otherwise run forever.
+                // Unlike posts or directories there is no user data at stake.
+                'dropin'    => $dropins[$key] = true,
+                'muplugin'  => $muplugins[$key] = true,
                 'post_type', 'taxonomy', 'directory', 'rewrite_rule' => $content[$key] = $finding->type,
                 default     => null,
             };
         }
 
-        foreach ([&$options, &$siteOptions, &$tables, &$cron, &$transients, &$meta, &$roles, &$actions, &$capabilities, &$content] as &$group) {
+        foreach ([&$options, &$siteOptions, &$tables, &$cron, &$transients, &$meta, &$roles, &$actions, &$capabilities, &$dropins, &$muplugins, &$content] as &$group) {
             ksort($group);
         }
         unset($group);
 
-        return $this->render($pluginName, $options, $siteOptions, $tables, $cron, $transients, $meta, $roles, $actions, $capabilities, $content);
+        return $this->render($pluginName, $options, $siteOptions, $tables, $cron, $transients, $meta, $roles, $actions, $capabilities, $dropins, $muplugins, $content);
     }
 
     private function isDeletable(Finding $finding): bool
@@ -99,9 +106,11 @@ final class UninstallGenerator
      * @param array<string, true> $roles
      * @param array<string, true> $actions Action Scheduler hooks
      * @param array<string, true> $capabilities capabilities reported as a comment only
+     * @param array<string, true> $dropins files to delete with wp_delete_file()
+     * @param array<string, true> $muplugins files to delete with wp_delete_file()
      * @param array<string, string> $content artifacts reported as a comment only
      */
-    private function render(string $pluginName, array $options, array $siteOptions, array $tables, array $cron, array $transients, array $meta = [], array $roles = [], array $actions = [], array $capabilities = [], array $content = []): string
+    private function render(string $pluginName, array $options, array $siteOptions, array $tables, array $cron, array $transients, array $meta = [], array $roles = [], array $actions = [], array $capabilities = [], array $dropins = [], array $muplugins = [], array $content = []): string
     {
         $needsWpdb = $tables !== [] || $this->anyPrefixed([
             ...array_keys($options), ...array_keys($siteOptions), ...array_keys($cron),
@@ -197,6 +206,27 @@ final class UninstallGenerator
             $lines[] = '}';
         }
 
+        if ($dropins !== [] || $muplugins !== []) {
+            // These files are code the plugin installed, not user data, so
+            // deleting them is exactly what an uninstall is for. wp_delete_file()
+            // over a bare unlink() because it runs the filters other caching
+            // layers listen to.
+            if ($dropins !== []) {
+                $lines[] = '';
+                $lines[] = '// Drop-ins (WordPress loads these on every request)';
+                foreach (array_keys($dropins) as $path) {
+                    $lines[] = 'wp_delete_file(' . $this->keyExpression($path) . ');';
+                }
+            }
+            if ($muplugins !== []) {
+                $lines[] = '';
+                $lines[] = '// Must-use plugin files (they load before normal plugins)';
+                foreach (array_keys($muplugins) as $path) {
+                    $lines[] = 'wp_delete_file(' . $this->keyExpression($path) . ');';
+                }
+            }
+        }
+
         if ($capabilities !== []) {
             // A capability is stored inside a role's array, and which role
             // received it is not something static analysis can attribute —
@@ -232,23 +262,33 @@ final class UninstallGenerator
     }
 
     /**
-     * Build a PHP expression for a key, rebuilding {prefix} from $wpdb->prefix
-     * wherever it appears: "{prefix}logs" -> $wpdb->prefix . 'logs'.
+     * Build a PHP expression for a key, rebuilding every portable token:
+     * "{prefix}logs" -> $wpdb->prefix . 'logs',
+     * "{content_dir}/db.php" -> WP_CONTENT_DIR . '/db.php'.
      */
     private function keyExpression(string $key): string
     {
-        if (!str_contains($key, self::PREFIX_TOKEN)) {
+        $pattern = '/(\{prefix\}|\{content_dir\}|\{mu_plugins\}|\{plugin_dir\}|\{abspath\})/';
+        if (!preg_match($pattern, $key)) {
             return var_export($key, true);
         }
 
         $expression = [];
-        foreach (explode(self::PREFIX_TOKEN, $key) as $index => $part) {
-            if ($index > 0) {
-                $expression[] = '$wpdb->prefix';
+        foreach (preg_split($pattern, $key, -1, PREG_SPLIT_DELIM_CAPTURE) as $part) {
+            if ($part === '') {
+                continue;
             }
-            if ($part !== '') {
-                $expression[] = var_export($part, true);
-            }
+
+            // The table prefix is only knowable at run time; the roots are
+            // constants WordPress itself defines.
+            $expression[] = match ($part) {
+                '{prefix}' => '$wpdb->prefix',
+                '{content_dir}' => 'WP_CONTENT_DIR',
+                '{mu_plugins}' => 'WPMU_PLUGIN_DIR',
+                '{plugin_dir}' => 'WP_PLUGIN_DIR',
+                '{abspath}' => 'ABSPATH',
+                default => var_export($part, true),
+            };
         }
 
         return implode(' . ', $expression);

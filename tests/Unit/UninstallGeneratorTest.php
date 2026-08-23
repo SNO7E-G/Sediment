@@ -169,6 +169,23 @@ final class UninstallGeneratorTest extends TestCase
         self::assertStringNotContainsString('delete_option', $code);
     }
 
+    public function test_dropins_and_mu_plugins_are_deleted_with_their_roots_rebuilt(): void
+    {
+        // These files are code the plugin installed, not user data — deleting
+        // them is what an uninstall is for. The roots come back as constants,
+        // never hardcoded paths.
+        $code = (new UninstallGenerator())->generate([
+            $this->finding('dropin', '{content_dir}/advanced-cache.php', Finding::CONFIDENCE_RESOLVED, function: 'file_put_contents'),
+            $this->finding('muplugin', '{mu_plugins}/acme-loader.php', Finding::CONFIDENCE_RESOLVED, function: 'put_contents'),
+        ], 'Example');
+
+        $this->assertValidPhp($code);
+        self::assertStringContainsString("wp_delete_file(WP_CONTENT_DIR . '/advanced-cache.php');", $code);
+        self::assertStringContainsString("wp_delete_file(WPMU_PLUGIN_DIR . '/acme-loader.php');", $code);
+        // No {prefix} tokens anywhere, so no $wpdb line either.
+        self::assertStringNotContainsString('$wpdb', $code);
+    }
+
     public function test_leftover_capabilities_are_reported_not_executed(): void
     {
         // A capability lives inside a role's array, and which role received it

@@ -44,6 +44,14 @@ final class Grader
         // A queued Action Scheduler job behaves like a cron event: it keeps
         // firing a hook whose callback is gone.
         'action'       => 12,
+        // A drop-in is loaded by WordPress itself on every request, whether or
+        // not its author still exists — a leftover object-cache.php or db.php
+        // slows or breaks the whole site.
+        'dropin'       => 16,
+        // A must-use plugin runs before normal plugins load and is not
+        // manageable from the Plugins screen; it executes until someone
+        // deletes the file by hand.
+        'muplugin'     => 14,
         // A directory of logs or exports sits on disk forever, but costs nothing
         // per request. A rewrite rule is one entry in a single option.
         'directory'    => 7,
@@ -122,14 +130,15 @@ final class Grader
         $tables = $this->countType($left, 'table');
         $cron = $this->countType($left, 'cron');
         $postTypes = $this->countType($left, 'post_type');
+        $dropins = $this->countType($left, 'dropin') + $this->countType($left, 'muplugin');
         // 'unknown' autoload is treated as autoloaded for the grade — the safe direction.
         $autoloaded = count(array_filter(
             $left,
             static fn (Finding $f): bool => $f->type === 'option' && ($f->autoload === 'yes' || $f->autoload === 'unknown'),
         ));
 
-        if ($tables > 0 || $autoloaded > 0 || $cron > 0 || $postTypes > 0) {
-            return self::make('D', $score, $cleaned, count($left), $this->describeHeavy($tables, $autoloaded, $cron, $postTypes));
+        if ($tables > 0 || $autoloaded > 0 || $cron > 0 || $postTypes > 0 || $dropins > 0) {
+            return self::make('D', $score, $cleaned, count($left), $this->describeHeavy($tables, $autoloaded, $cron, $postTypes, $dropins));
         }
 
         if (count($left) < self::MINOR_LEFTOVER_LIMIT) {
@@ -277,7 +286,7 @@ final class Grader
         return $default === '' ? 'an empty value' : '"' . $default . '"';
     }
 
-    private function describeHeavy(int $tables, int $autoloaded, int $cron, int $postTypes = 0): string
+    private function describeHeavy(int $tables, int $autoloaded, int $cron, int $postTypes = 0, int $dropins = 0): string
     {
         $parts = [];
         if ($tables > 0) {
@@ -291,6 +300,9 @@ final class Grader
         }
         if ($postTypes > 0) {
             $parts[] = sprintf('%d post type(s) with orphaned content', $postTypes);
+        }
+        if ($dropins > 0) {
+            $parts[] = sprintf('%d drop-in or must-use file(s) WordPress keeps loading', $dropins);
         }
 
         return 'Leaves ' . implode(', ', $parts) . ' behind.';

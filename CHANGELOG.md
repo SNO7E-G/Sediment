@@ -12,6 +12,14 @@ interfaces — including the manifest schema — may still change before 1.0.
 
 ### Added
 
+- **Drop-in and must-use plugin detection.** A plugin that writes
+  `advanced-cache.php`, `object-cache.php`, or any other file WordPress loads
+  from wp-content, or drops a `.php` file into `mu-plugins/`, is now reported —
+  and capped at grade D, because those files keep executing after the plugin is
+  deleted. Generated uninstall routines remove them with `wp_delete_file()`,
+  roots rebuilt from their constants. The manifest gains `dropins` and
+  `muplugins` groups; schema version is now **2.1**, additive over the frozen
+  2.0 per the rules in stability.md.
 - **Cleanup credit follows require chains.** WordPress runs only the plugin-root
   `uninstall.php`, but a real teardown is often split across files pulled in with
   `require` — top-level code in those files runs on uninstall just the same, and

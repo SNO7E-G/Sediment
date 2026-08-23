@@ -28,7 +28,9 @@ use PhpParser\Node\Stmt\Return_;
 use PhpParser\NodeFinder;
 use Sediment\Analyzer\Sql\TableStatements;
 use Sediment\Analyzer\Visitors\AbstractDetectionVisitor;
+use Sediment\Analyzer\Visitors\DropinVisitor;
 use Sediment\Analyzer\Wpdb;
+use Sediment\Analyzer\WpRoots;
 
 /**
  * Finds the cleanup path (M7): the removal calls a plugin makes to undo what it
@@ -136,6 +138,11 @@ final class CleanupVisitor extends AbstractDetectionVisitor
                 $this->recordDeleteMetadata($node);
             } elseif (isset(self::REMOVALS[$function])) {
                 $this->recordRemoval($node, $function);
+            } elseif ($function === 'unlink' || $function === 'wp_delete_file') {
+                // Drop-ins and mu-plugins are the two file types whose removal
+                // is unambiguously cleanup; classify by path like delete_metadata
+                // classifies by its object-type argument.
+                $this->recordFileRemovalNode($node, $function, $this->argValue($node->getArgs(), 0, 'path'));
             }
 
             return;
@@ -143,6 +150,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
 
         if ($node instanceof MethodCall) {
             $this->recordDropTable($node);
+            $this->recordFileRemoval($node);
         }
     }
 
@@ -447,6 +455,60 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         $truncated = !$resolution->isResolved();
         foreach (TableStatements::dropped($resolution->value, $truncated) as $name) {
             $this->addRemoval('table', $name, 'wpdb::query');
+        }
+    }
+
+    /**
+     * `$wp_filesystem->delete($path)` — the WP_Filesystem abstraction's removal,
+     * mirroring the put_contents write the drop-in detector reads.
+     */
+    private function recordFileRemoval(MethodCall $node): void
+    {
+        if (
+            !$node->name instanceof \PhpParser\Node\Identifier
+            || strtolower((string) $node->name) !== 'delete'
+            || !$node->var instanceof Variable
+            || !is_string($node->var->name)
+            || strtolower($node->var->name) !== 'wp_filesystem'
+        ) {
+            return;
+        }
+
+        $this->recordFileRemovalNode($node, '$wp_filesystem->delete', $this->argValue($node->getArgs(), 0, 'path'));
+    }
+
+    /**
+     * Classify a deleted path as a drop-in or mu-plugin removal, reusing the
+     * detector's rules so a create and its cleanup always agree on the key.
+     */
+    private function recordFileRemovalNode(FuncCall|MethodCall $node, string $via, ?Expr $target): void
+    {
+        if ($target === null) {
+            return;
+        }
+
+        $rooted = WpRoots::split($target);
+        if ($rooted === null) {
+            return; // an un-rooted path is not provably one of ours
+        }
+
+        [$token, $remainder] = $rooted;
+        if ($remainder === null) {
+            return;
+        }
+
+        $tail = $this->resolveKey($remainder);
+        if (!$tail->isResolved() || $tail->value === '') {
+            return;
+        }
+
+        $path = $token . $tail->value;
+
+        // The classification lives with the detector so the two ends of the
+        // diff can never disagree about what a path means.
+        $type = DropinVisitor::classifyPath($path);
+        if ($type !== null) {
+            $this->addRemoval($type, $path, $via);
         }
     }
 

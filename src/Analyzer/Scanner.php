@@ -11,6 +11,7 @@ use PhpParser\Parser;
 use PhpParser\ParserFactory;
 use Sediment\Analyzer\Visitors\AbstractDetectionVisitor;
 use Sediment\Analyzer\Visitors\CronVisitor;
+use Sediment\Analyzer\Visitors\DropinVisitor;
 use Sediment\Analyzer\Visitors\FilesystemVisitor;
 use Sediment\Analyzer\Visitors\MetaVisitor;
 use Sediment\Analyzer\Visitors\ScheduleVisitor;
@@ -136,6 +137,7 @@ final class Scanner
                 new StructureVisitor($entry['file'], $resolver, $callSites),
                 new RewriteVisitor($entry['file'], $resolver, $callSites),
                 new FilesystemVisitor($entry['file'], $resolver, $callSites),
+                new DropinVisitor($entry['file'], $resolver, $callSites),
                 new ScheduleVisitor($entry['file'], $resolver, $callSites),
             ];
             $cleanup = new CleanupVisitor($entry['file'], $resolver, $callSites);

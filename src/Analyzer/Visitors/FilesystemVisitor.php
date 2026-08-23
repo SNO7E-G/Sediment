@@ -15,6 +15,7 @@ use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\InterpolatedString;
 use Sediment\Analyzer\Finding;
 use Sediment\Analyzer\Resolution;
+use Sediment\Analyzer\WpRoots;
 
 /**
  * Detects directories a plugin creates under a WordPress root: wp_mkdir_p()
@@ -51,13 +52,6 @@ use Sediment\Analyzer\Resolution;
  */
 final class FilesystemVisitor extends AbstractDetectionVisitor
 {
-    /** root constant name (case-sensitive) => portable placeholder token */
-    private const ROOTS = [
-        'WP_CONTENT_DIR' => '{content_dir}',
-        'WP_PLUGIN_DIR'  => '{plugin_dir}',
-        'ABSPATH'        => '{abspath}',
-    ];
-
     protected function inspect(Node $node): void
     {
         if ($node instanceof MethodCall && $node->name instanceof Identifier) {
@@ -140,7 +134,7 @@ final class FilesystemVisitor extends AbstractDetectionVisitor
      */
     private function resolvePath(Expr $expr): ?Resolution
     {
-        $rooted = $this->splitRootedPath($expr);
+        $rooted = WpRoots::split($expr);
         if ($rooted === null) {
             return $this->resolveKey($expr);
         }
@@ -172,61 +166,5 @@ final class FilesystemVisitor extends AbstractDetectionVisitor
         // the whole expression (which degrades to dynamic) rather than reporting
         // the placeholder alone.
         return $this->resolveKey($expr);
-    }
-
-    /**
-     * @return array{0: string, 1: Expr|null}|null the placeholder token and the
-     *         expression for whatever follows the root (null = nothing follows
-     *         it), or null when the expression is not rooted at a known constant.
-     */
-    private function splitRootedPath(Expr $expr): ?array
-    {
-        if ($expr instanceof ConstFetch) {
-            $token = self::ROOTS[$expr->name->toString()] ?? null;
-
-            return $token !== null ? [$token, null] : null;
-        }
-
-        if ($expr instanceof Concat) {
-            $leaves = $this->flattenConcat($expr);
-            $first = $leaves[0];
-            $token = $first instanceof ConstFetch ? (self::ROOTS[$first->name->toString()] ?? null) : null;
-            if ($token === null) {
-                return null;
-            }
-
-            $rest = array_slice($leaves, 1);
-            $remainder = array_reduce(
-                array_slice($rest, 1),
-                static fn (Expr $carry, Expr $next): Expr => new Concat($carry, $next),
-                $rest[0],
-            );
-
-            return [$token, $remainder];
-        }
-
-        if ($expr instanceof InterpolatedString && $expr->parts !== []) {
-            $first = $expr->parts[0];
-            $token = $first instanceof ConstFetch ? (self::ROOTS[$first->name->toString()] ?? null) : null;
-            if ($token === null) {
-                return null;
-            }
-
-            $rest = array_slice($expr->parts, 1);
-
-            return [$token, $rest === [] ? null : new InterpolatedString($rest)];
-        }
-
-        return null;
-    }
-
-    /** @return list<Expr> */
-    private function flattenConcat(Expr $expr): array
-    {
-        if (!$expr instanceof Concat) {
-            return [$expr];
-        }
-
-        return [...$this->flattenConcat($expr->left), ...$this->flattenConcat($expr->right)];
     }
 }
