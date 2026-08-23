@@ -201,7 +201,7 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
     /** Resolve an expression to a key using the current class and local scope. */
     protected function resolveKey(Expr $expr): Resolution
     {
-        return $this->resolver->resolve($expr, $this->currentClass(), $this->currentLocals());
+        return $this->resolver->resolve($expr, $this->currentClass(), $this->currentLocals(), $this->currentFunction());
     }
 
     /**
@@ -221,7 +221,7 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
      */
     protected function resolveFindingKey(Expr $expr, Node $call): Resolution
     {
-        $resolution = $this->resolver->resolve($expr, $this->currentClass(), $this->currentLocals());
+        $resolution = $this->resolver->resolve($expr, $this->currentClass(), $this->currentLocals(), $this->currentFunction());
 
         if (!$resolution->isResolved()) {
             $expansion = $this->expandThroughCallers($expr);
@@ -254,8 +254,8 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
         $scope = $this->currentFunction();
 
         if ($expr instanceof Concat) {
-            $left = $this->resolver->resolve($expr->left, $this->currentClass(), $this->currentLocals());
-            $right = $this->resolver->resolve($expr->right, $this->currentClass(), $this->currentLocals());
+            $left = $this->resolver->resolve($expr->left, $this->currentClass(), $this->currentLocals(), $this->currentFunction());
+            $right = $this->resolver->resolve($expr->right, $this->currentClass(), $this->currentLocals(), $this->currentFunction());
 
             // Exactly one side must be the caller-supplied part; if both are
             // unknown there is nothing to anchor the key to.
@@ -349,7 +349,7 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
 
         $value = null;
         if ($node instanceof Assign) {
-            $resolution = $this->resolver->resolve($node->expr, $this->currentClass(), $this->currentLocals());
+            $resolution = $this->resolver->resolve($node->expr, $this->currentClass(), $this->currentLocals(), $this->currentFunction());
             $value = $resolution->isResolved() ? $resolution->value : null;
         }
 

@@ -373,4 +373,60 @@ final class OptionResolutionTest extends TestCase
         self::assertNull($findings[0]->key);
         self::assertSame('add_option', $findings[0]->function);
     }
+
+    public function test_trait_constants_resolve_for_the_using_class(): void
+    {
+        // Traits compose their members into the class that uses them — PHP's
+        // own lookup rule — so self::SLUG through a used trait resolves.
+        $finding = $this->firstOption(
+            "trait Has_Keys { const SLUG = 'tk'; }\n"
+            . "class Consumer { use Has_Keys;\n"
+            . "    public function boot(): void { update_option(self::SLUG . '_active', true); } }",
+        );
+
+        self::assertSame(Finding::CONFIDENCE_RESOLVED, $finding->confidence);
+        self::assertSame('tk_active', $finding->key);
+    }
+
+    public function test_trait_property_defaults_resolve_for_the_using_class(): void
+    {
+        $finding = $this->firstOption(
+            "trait With_Prefix { protected \$prefix = 'tp_'; }\n"
+            . "class Uses_Trait { use With_Prefix;\n"
+            . "    public function boot(): void { add_option(\$this->prefix . 'mode', 'on'); } }",
+        );
+
+        self::assertSame(Finding::CONFIDENCE_RESOLVED, $finding->confidence);
+        self::assertSame('tp_mode', $finding->key);
+    }
+
+    public function test_magic_class_constant_resolves_as_a_key_seed(): void
+    {
+        $finding = $this->firstOption(
+            "class Acme { public function boot(): void { add_option(__CLASS__ . '_version', '1'); } }",
+        );
+
+        self::assertSame(Finding::CONFIDENCE_RESOLVED, $finding->confidence);
+        self::assertSame('Acme_version', $finding->key);
+    }
+
+    public function test_class_name_constant_resolves(): void
+    {
+        $finding = $this->firstOption(
+            "class Acme { public function boot(): void { update_option(Acme::class . '_active', true); } }",
+        );
+
+        self::assertSame(Finding::CONFIDENCE_RESOLVED, $finding->confidence);
+        self::assertSame('Acme_active', $finding->key);
+    }
+
+    public function test_magic_method_constant_resolves_inside_a_class(): void
+    {
+        $finding = $this->firstOption(
+            "class Acme { public function boot(): void { add_option('ran_' . __METHOD__, 1); } }",
+        );
+
+        self::assertSame(Finding::CONFIDENCE_RESOLVED, $finding->confidence);
+        self::assertSame('ran_Acme::boot', $finding->key);
+    }
 }

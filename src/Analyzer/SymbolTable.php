@@ -38,6 +38,9 @@ final class SymbolTable
     /** @var array<string, list<string>> parent => direct children, built during reconciliation */
     private array $children = [];
 
+    /** @var array<string, list<string>> class => used traits (all lowercased) */
+    private array $traitUses = [];
+
     public function addConstant(string $name, ?string $value): void
     {
         self::merge($this->constants, $name, $value);
@@ -56,6 +59,15 @@ final class SymbolTable
     public function addParent(string $child, string $parent): void
     {
         $this->parents[strtolower($child)] = strtolower($parent);
+    }
+
+    public function addTraitUse(string $class, string $trait): void
+    {
+        if ($class === '') {
+            return;
+        }
+
+        $this->traitUses[strtolower($class)][] = strtolower($trait);
     }
 
     public function hasConstant(string $name): bool
@@ -119,26 +131,38 @@ final class SymbolTable
     }
 
     /**
-     * The class a member is actually declared on: the class itself, or the nearest
-     * ancestor that declares it. PHP looks members up the same way, so a constant
-     * or property defined on a base class resolves for every subclass that does
-     * not redefine it.
+     * The class a member is actually declared on: the class itself, the nearest
+     * ancestor that declares it, or any trait in its composition. PHP looks
+     * members up the same way — traits compose their members into the class —
+     * so a constant or property defined on a base class or used trait resolves
+     * for every class that does not redefine it.
      *
      * @param array<string, string|null> $map
      */
     private function declaringClass(array $map, string $class, string $member): ?string
     {
-        $current = strtolower($class);
+        $stack = [strtolower($class)];
         $seen = [];
 
-        while ($current !== '' && !isset($seen[$current])) {
+        while ($stack !== []) {
+            $current = array_pop($stack);
+
+            if ($current === '' || isset($seen[$current])) {
+                continue;
+            }
             $seen[$current] = true;
 
             if (array_key_exists($current . '::' . $member, $map)) {
                 return $current;
             }
 
-            $current = $this->parents[$current] ?? '';
+            if (($this->parents[$current] ?? '') !== '') {
+                $stack[] = $this->parents[$current];
+            }
+
+            foreach ($this->traitUses[$current] ?? [] as $trait) {
+                $stack[] = $trait;
+            }
         }
 
         return null;

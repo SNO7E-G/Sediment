@@ -17,6 +17,7 @@ use PhpParser\Node\InterpolatedStringPart;
 use PhpParser\Node\Name;
 use PhpParser\Node\VarLikeIdentifier;
 use PhpParser\Node\Scalar\InterpolatedString;
+use PhpParser\Node\Scalar\MagicConst;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\PrettyPrinter\Standard as PrettyPrinter;
 
@@ -49,13 +50,19 @@ final class ExpressionResolver
      * @param array<string, string|null> $locals in-scope local variable values
      *        (null = poisoned: known but not a single literal), supplied by the
      *        visitor tracking straight-line assignments in the current function.
+     * @param string|null $function the enclosing function or method ("Class::method"),
+     *        for __FUNCTION__ / __METHOD__
      */
-    public function resolve(Expr $expr, ?string $class = null, array $locals = []): Resolution
+    public function resolve(Expr $expr, ?string $class = null, array $locals = [], ?string $function = null): Resolution
     {
         if ($expr instanceof String_) {
             // An empty literal key is meaningless downstream (WP rejects it);
             // treat it as unresolved rather than a confident empty string.
             return $expr->value === '' ? Resolution::dynamic($this->raw($expr)) : Resolution::verified($expr->value);
+        }
+
+        if ($expr instanceof MagicConst) {
+            return $this->resolveMagicConstant($expr, $class, $function);
         }
 
         if ($expr instanceof Variable) {
@@ -79,11 +86,11 @@ final class ExpressionResolver
         }
 
         if ($expr instanceof Concat) {
-            return $this->resolveSegments([$expr->left, $expr->right], $class, $locals, $expr);
+            return $this->resolveSegments([$expr->left, $expr->right], $class, $locals, $expr, $function);
         }
 
         if ($expr instanceof InterpolatedString) {
-            return $this->resolveSegments($expr->parts, $class, $locals, $expr);
+            return $this->resolveSegments($expr->parts, $class, $locals, $expr, $function);
         }
 
         return Resolution::dynamic($this->raw($expr));
@@ -120,6 +127,31 @@ final class ExpressionResolver
         return Resolution::dynamic($this->raw($expr));
     }
 
+    /**
+     * __CLASS__, __METHOD__, and __FUNCTION__ are real strings at runtime and
+     * a common key seed in class-organized plugins (`add_option(__CLASS__ . ...)`)
+     * — resolving them upgrades honest coverage, not guesswork. Anything whose
+     * value depends on the call site (__NAMESPACE__, __DIR__, __LINE__) stays
+     * unresolved: it is rarely a key, and the enclosing context here is the
+     * declaration site, not where code happens to run.
+     */
+    private function resolveMagicConstant(MagicConst $expr, ?string $class, ?string $function): Resolution
+    {
+        $value = match (true) {
+            $expr instanceof MagicConst\Class_ => $class,
+            $expr instanceof MagicConst\Method => $function,
+            // Inside a method __FUNCTION__ is just the method name.
+            $expr instanceof MagicConst\Function_ => $function !== null && str_contains($function, '::')
+                ? substr($function, strrpos($function, '::') + 2)
+                : $function,
+            default => null,
+        };
+
+        return $value !== null && $value !== ''
+            ? Resolution::resolved($value)
+            : Resolution::dynamic($this->raw($expr));
+    }
+
     private function resolveClassConstant(ClassConstFetch $expr, ?string $class): Resolution
     {
         if (!$expr->class instanceof Name || !$expr->name instanceof Identifier) {
@@ -127,6 +159,22 @@ final class ExpressionResolver
         }
 
         $reference = strtolower($expr->class->toString());
+
+        // `Foo::class` / `self::class` is the class's own name — a literal at
+        // heart, and a common option-key seed. static::class stays dynamic:
+        // which subclass answers is decided at runtime.
+        if ($expr->name->toLowerString() === 'class') {
+            $name = match ($reference) {
+                'self' => $class,
+                'static', 'parent' => null,
+                default => $expr->class->toString(),
+            };
+
+            return $name !== null && $name !== ''
+                ? Resolution::resolved($name)
+                : Resolution::dynamic($this->raw($expr));
+        }
+
         if ($reference === 'self') {
             $target = $class;
         } elseif ($reference === 'static') {
@@ -226,7 +274,7 @@ final class ExpressionResolver
      *
      * @param array<Node> $segments
      */
-    private function resolveSegments(array $segments, ?string $class, array $locals, Expr $original): Resolution
+    private function resolveSegments(array $segments, ?string $class, array $locals, Expr $original, ?string $function = null): Resolution
     {
         $full = '';
         $prefix = '';
@@ -249,7 +297,7 @@ final class ExpressionResolver
                 continue;
             }
 
-            $resolution = $this->resolve($segment, $class, $locals);
+            $resolution = $this->resolve($segment, $class, $locals, $function);
 
             switch ($resolution->confidence) {
                 case Finding::CONFIDENCE_VERIFIED:

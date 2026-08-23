@@ -30,6 +30,8 @@ use PhpParser\Node\Stmt\Function_;
 use PhpParser\Node\Stmt\ClassConst;
 use PhpParser\Node\Stmt\Const_ as ConstStmt;
 use PhpParser\Node\Stmt\Property;
+use PhpParser\Node\Stmt\Trait_;
+use PhpParser\Node\Stmt\TraitUse;
 use PhpParser\NodeVisitorAbstract;
 
 /**
@@ -66,11 +68,26 @@ final class SymbolCollector extends NodeVisitorAbstract
 
     public function enterNode(Node $node)
     {
-        if ($node instanceof Class_) {
+        if ($node instanceof Class_ || $node instanceof Trait_) {
             $this->classStack[] = $this->classContext($node);
             $child = ($node->namespacedName ?? null)?->toString() ?? $node->name?->toString();
-            if ($child !== null && $node->extends instanceof Name) {
+            if ($child !== null && $node instanceof Class_ && $node->extends instanceof Name) {
                 $this->symbols->addParent($child, $node->extends->toString());
+            }
+
+            return null;
+        }
+
+        if ($node instanceof TraitUse) {
+            // A trait's members compose into the using class, so the lookup
+            // edge is what makes `use Keys_Trait; self::SLUG` resolvable. The
+            // trait's own declarations are collected because its name is on
+            // the context stack while its body is visited.
+            $using = $this->currentClass();
+            if ($using !== null) {
+                foreach ($node->traits as $trait) {
+                    $this->symbols->addTraitUse($using, $trait->toString());
+                }
             }
 
             return null;
@@ -108,7 +125,7 @@ final class SymbolCollector extends NodeVisitorAbstract
 
     public function leaveNode(Node $node)
     {
-        if ($node instanceof Class_) {
+        if ($node instanceof Class_ || $node instanceof Trait_) {
             array_pop($this->classStack);
         }
 
@@ -120,7 +137,7 @@ final class SymbolCollector extends NodeVisitorAbstract
         return $this->classStack === [] ? null : $this->classStack[count($this->classStack) - 1];
     }
 
-    private function classContext(Class_ $node): string
+    private function classContext(Class_|Trait_ $node): string
     {
         // Fully-qualified after NameResolver (falling back to the short name if it
         // has not run); anonymous classes get a per-file, per-line key so two
