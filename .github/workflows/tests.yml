@@ -39,6 +39,61 @@ jobs:
       - name: Static analysis
         run: composer phpstan
 
+      # Known advisories fail the build; unknown ones surface as warnings.
+      - name: Audit dependencies
+        run: composer audit
+
+      - name: Run tests
+        run: composer test
+
+  # The tool's own output is a contract: the same input must produce the
+  # same bytes, whatever the machine or the hour. scanned_at is stripped —
+  # it records when the scan ran, not what was found.
+  determinism:
+    name: Byte-identical output across runs
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-interaction --no-progress
+
+      - name: Scan twice, compare bytes
+        run: |
+          for fixture in clean-plugin partial-plugin dirty-plugin uninstall-require-plugin; do
+            php bin/sediment scan "tests/fixtures/$fixture" --json > /tmp/a.json
+            php bin/sediment scan "tests/fixtures/$fixture" --json > /tmp/b.json
+            jq -S 'del(.plugin.scanned_at)' /tmp/a.json > /tmp/a.norm
+            jq -S 'del(.plugin.scanned_at)' /tmp/b.json > /tmp/b.norm
+            cmp /tmp/a.norm /tmp/b.norm || { echo "$fixture differs between runs"; exit 1; }
+            echo "$fixture: identical"
+          done
+
+  windows:
+    name: Windows smoke (PHP 8.3)
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-interaction --no-progress
+
       - name: Run tests
         run: composer test
 

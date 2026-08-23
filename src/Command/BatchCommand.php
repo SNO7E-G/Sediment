@@ -74,6 +74,16 @@ final class BatchCommand extends Command
             return Command::FAILURE;
         }
 
+        // Two batches writing one output directory would interleave manifests
+        // and poison --resume. An exclusive flock refuses them; the kernel
+        // drops it if the holder dies, so there is no stale lock to clean up.
+        $lock = @fopen($out . '/.sediment-batch.lock', 'c');
+        if ($lock === false || !flock($lock, LOCK_EX | LOCK_NB)) {
+            $io->error("Another batch appears to be running against {$out}; use a different --out or wait.");
+
+            return Command::FAILURE;
+        }
+
         $io->title('Sediment batch');
         $io->progressStart(count($plugins));
 
@@ -213,6 +223,11 @@ final class BatchCommand extends Command
         if ($failed !== []) {
             $io->newLine();
             $io->warning(sprintf('%d plugin(s) could not be scanned: %s', count($failed), implode(', ', array_keys($failed))));
+        }
+
+        if ($lock !== false) {
+            flock($lock, LOCK_UN);
+            fclose($lock);
         }
 
         return Command::SUCCESS;

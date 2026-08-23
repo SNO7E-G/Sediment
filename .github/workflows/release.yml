@@ -16,6 +16,8 @@ on:
 
 permissions:
   contents: write
+  id-token: write
+  attestations: write
 
 jobs:
   release:
@@ -86,6 +88,20 @@ jobs:
           php bin/build-phar.php
           php build/sediment.phar --version
 
+      # Anyone who downloads the binary can verify what they received is
+      # exactly what this workflow built.
+      - name: Checksum the PHAR
+        if: steps.changelog.outputs.publish == 'true'
+        run: |
+          cd build
+          sha256sum sediment.phar > SHA256SUMS.txt
+
+      - name: Attest build provenance
+        if: steps.changelog.outputs.publish == 'true'
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject_path: build/sediment.phar
+
       - name: Create the release
         if: steps.changelog.outputs.publish == 'true'
         uses: softprops/action-gh-release@v2
@@ -94,6 +110,8 @@ jobs:
           target_commitish: ${{ github.sha }}
           name: v${{ steps.changelog.outputs.version }}
           body_path: RELEASE_NOTES.md
-          files: build/sediment.phar
+          files: |
+            build/sediment.phar
+            build/SHA256SUMS.txt
           prerelease: ${{ contains(steps.changelog.outputs.version, '-') }}
           make_latest: ${{ !contains(steps.changelog.outputs.version, '-') }}
