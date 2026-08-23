@@ -34,6 +34,11 @@ jobs:
       - name: Install dependencies
         run: composer update --prefer-dist --no-interaction --no-progress
 
+      # Level max with a committed baseline: new code must arrive clean, and
+      # the baseline only shrinks.
+      - name: Static analysis
+        run: composer phpstan
+
       - name: Run tests
         run: composer test
 

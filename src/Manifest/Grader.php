@@ -50,9 +50,6 @@ final class Grader
         'rewrite_rule' => 2,
     ];
 
-    /** Artifact types heavy enough to cap a plugin at grade D (§10). */
-    private const HEAVY_TYPES = ['table', 'cron', 'post_type'];
-
     /** Below this many leftover light items a plugin can still reach grade C. */
     private const MINOR_LEFTOVER_LIMIT = 5;
 
