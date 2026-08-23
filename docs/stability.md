@@ -41,6 +41,20 @@ and check `schema_version`'s major — that consumer will survive every release.
 
 Gate CI on "non-zero", or on the specific code; both are stable.
 
+### Error codes
+
+A scan that degrades — a file it could not parse, read, or afford — records an
+entry with a machine-readable `code`, so tooling can branch on *why* without
+parsing prose. The vocabulary is frozen the same way: existing values never
+change meaning, new values may be added.
+
+| Code | Meaning |
+| --- | --- |
+| `E_PARSE` | The file exists but PHP cannot parse it. |
+| `E_IO` | The file could not be read at all — permissions, a race. |
+| `E_SIZE` | The file exceeds the per-file size limit and was skipped. |
+| `E_INTERNAL` | An analyzer bug or unexpected node shape; the scan's never-fatal guarantee turned it into an entry instead of an exception. |
+
 ### Command-line interface
 
 Command names, argument order, and existing flags with their defaults. A flag

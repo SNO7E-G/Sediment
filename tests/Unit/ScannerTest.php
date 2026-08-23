@@ -86,11 +86,12 @@ final class ScannerTest extends TestCase
             $options = $this->optionsByKey($result['findings']);
             self::assertArrayHasKey('normal_key', $options, 'the healthy file must still be scanned');
 
-            $oversized = array_filter(
+            $oversized = array_values(array_filter(
                 $result['errors'],
                 static fn (array $e): bool => str_contains($e['file'], 'huge.php'),
-            );
+            ));
             self::assertCount(1, $oversized, 'the oversized file must be reported exactly once');
+            self::assertSame('E_SIZE', $oversized[0]['code']);
         } finally {
             @unlink($root . '/plugin.php');
             @unlink($root . '/huge.php');
@@ -103,6 +104,9 @@ final class ScannerTest extends TestCase
         $result = (new Scanner())->scan(dirname(__DIR__) . '/fuzz');
 
         self::assertGreaterThanOrEqual(1, count($result['errors']));
+        foreach ($result['errors'] as $error) {
+            self::assertSame('E_PARSE', $error['code'], 'a file that exists but will not parse is E_PARSE');
+        }
     }
 
     public function test_it_excludes_dependency_and_test_directories(): void

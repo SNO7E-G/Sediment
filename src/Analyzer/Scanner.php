@@ -58,7 +58,7 @@ final class Scanner
      * @return array{
      *     files: list<string>,
      *     findings: list<Finding>,
-     *     errors: list<array{file: string, message: string}>,
+     *     errors: list<array{file: string, message: string, code: ErrorCode::*}>,
      *     cleanup: array{has_uninstall_php: bool, has_uninstall_hook: bool, conditional: bool, condition_option: string|null, condition_default: bool|string|null}
      * }
      */
@@ -93,7 +93,7 @@ final class Scanner
                 $collector->addVisitor(new SymbolCollector($symbols, $relative, $callSites));
                 $collector->traverse($ast);
             } catch (\Throwable $e) {
-                $errors[] = ['file' => $relative, 'message' => $e->getMessage()];
+                $errors[] = ['file' => $relative, 'message' => $e->getMessage(), 'code' => ErrorCode::INTERNAL];
                 continue;
             }
 
@@ -149,7 +149,7 @@ final class Scanner
                 $traverser->traverse($ast);
             } catch (\Throwable $e) {
                 // M14 — a visitor bug or unexpected node must never abort the scan.
-                $errors[] = ['file' => $entry['file'], 'message' => $e->getMessage()];
+                $errors[] = ['file' => $entry['file'], 'message' => $e->getMessage(), 'code' => ErrorCode::INTERNAL];
                 continue;
             }
 
@@ -198,10 +198,10 @@ final class Scanner
      * Returns null when the file cannot be read or parsed, recording why — a
      * malformed file never ends a scan (M14).
      *
-     * @param list<array{file: string, message: string}>|null $errors
+     * @param list<array{file: string, message: string, code: ErrorCode::*}> $errors
      * @return Node[]|null
      */
-    private function parse(string $path, string $relative, ?array &$errors): ?array
+    private function parse(string $path, string $relative, array &$errors): ?array
     {
         $size = filesize($path);
         if ($size !== false && $size > self::MAX_FILE_BYTES) {
@@ -212,6 +212,7 @@ final class Scanner
                     $size,
                     self::MAX_FILE_BYTES,
                 ),
+                'code' => ErrorCode::SIZE,
             ];
 
             return null;
@@ -219,7 +220,7 @@ final class Scanner
 
         $code = @file_get_contents($path);
         if ($code === false) {
-            $errors[] = ['file' => $relative, 'message' => 'unreadable'];
+            $errors[] = ['file' => $relative, 'message' => 'unreadable', 'code' => ErrorCode::IO];
 
             return null;
         }
@@ -229,7 +230,7 @@ final class Scanner
 
             return $ast === null ? null : $this->resolveNames($ast);
         } catch (\Throwable $e) {
-            $errors[] = ['file' => $relative, 'message' => $e->getMessage()];
+            $errors[] = ['file' => $relative, 'message' => $e->getMessage(), 'code' => ErrorCode::PARSE];
 
             return null;
         }

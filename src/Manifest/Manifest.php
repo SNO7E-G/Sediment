@@ -52,7 +52,7 @@ final class Manifest
     private const FUTURE_KEYS = [];
 
     /**
-     * @param array{files: list<string>, findings: list<Finding>, errors: list<array{file: string, message: string}>, cleanup: array{has_uninstall_php: bool, has_uninstall_hook: bool, conditional?: bool, condition_option?: string|null, condition_default?: bool|string|null}} $scan
+     * @param array{files: list<string>, findings: list<Finding>, errors: list<array{file: string, message: string, code?: string}>, cleanup: array{has_uninstall_php: bool, has_uninstall_hook: bool, conditional?: bool, condition_option?: string|null, condition_default?: bool|string|null}} $scan
      * @return array<string, mixed>
      */
     public static function build(array $scan, Grade $grade, string $path, string $scannedAt): array
