@@ -41,7 +41,12 @@ final class TableVisitor extends AbstractDetectionVisitor
 
     private function inspectDbDelta(FuncCall $node): void
     {
-        if (!$node->name instanceof Name || strtolower($node->name->toString()) !== 'dbdelta' || $node->isFirstClassCallable()) {
+        if (!$node->name instanceof Name || strtolower($node->name->toString()) !== 'dbdelta') {
+            return;
+        }
+
+        // dbDelta(...) as a callable still runs a schema write — dynamic, not dropped.
+        if ($this->recordFirstClassCallable($node, 'table', 'dbDelta')) {
             return;
         }
 
@@ -52,8 +57,17 @@ final class TableVisitor extends AbstractDetectionVisitor
             : [];
 
         if ($names === []) {
-            // dbDelta is always a schema write, so record the unresolved case.
-            $this->findings[] = $this->dynamicTable('dbDelta', $node->getStartLine(), $resolution->raw);
+            // dbDelta is always a schema write, so record the unresolved case —
+            // unless the body proves itself free of persistent tables: a fully
+            // resolved string whose CREATE statements are all TEMPORARY leaves
+            // no footprint, because a scratch table dies with the request.
+            $provesTemporary = $resolution->value !== null
+                && $resolution->confidence !== Finding::CONFIDENCE_PATTERN
+                && preg_match('/CREATE\s+TEMPORARY\s+TABLE/i', $resolution->value) === 1;
+
+            if (!$provesTemporary) {
+                $this->findings[] = $this->dynamicTable('dbDelta', $node->getStartLine(), $resolution->raw);
+            }
 
             return;
         }

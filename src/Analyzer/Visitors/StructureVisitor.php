@@ -32,13 +32,32 @@ final class StructureVisitor extends AbstractDetectionVisitor
 {
     protected function inspect(Node $node): void
     {
-        if ($node instanceof FuncCall && $node->name instanceof Name && !$node->isFirstClassCallable()) {
+        if ($node instanceof FuncCall && $node->name instanceof Name) {
+            $fn = strtolower($node->name->toString());
+
+            // The structural registrations name their artifact type in the call
+            // itself, so even a first-class callable can be recorded honestly.
+            $type = match ($fn) {
+                'add_role'           => 'role',
+                'register_post_type' => 'post_type',
+                'register_taxonomy'  => 'taxonomy',
+                default              => null,
+            };
+
+            if ($type !== null && $this->recordFirstClassCallable($node, $type, $fn)) {
+                return;
+            }
+
             $this->inspectFuncCall($node);
 
             return;
         }
 
-        if ($node instanceof MethodCall && $node->name instanceof Identifier && !$node->isFirstClassCallable()) {
+        if ($node instanceof MethodCall && $node->name instanceof Identifier) {
+            if (strtolower((string) $node->name) === 'add_cap' && $this->recordFirstClassCallable($node, 'capability', 'add_cap')) {
+                return;
+            }
+
             $this->inspectMethodCall($node);
         }
     }

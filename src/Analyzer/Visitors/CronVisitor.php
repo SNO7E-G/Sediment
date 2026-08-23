@@ -32,11 +32,22 @@ final class CronVisitor extends AbstractDetectionVisitor
 
     protected function inspect(Node $node): void
     {
-        if (!$node instanceof FuncCall || !$node->name instanceof Name || $node->isFirstClassCallable()) {
+        if (!$node instanceof FuncCall || !$node->name instanceof Name) {
             return;
         }
 
         $fn = strtolower($node->name->toString());
+
+        if ($fn !== 'wp_schedule_event' && $fn !== 'wp_schedule_single_event') {
+            return;
+        }
+
+        // `wp_schedule_event(...)` as a callable still schedules something —
+        // recorded as dynamic so coverage sees it.
+        if ($this->recordFirstClassCallable($node, 'cron', $fn)) {
+            return;
+        }
+
         $args = $node->getArgs();
 
         if ($fn === 'wp_schedule_event') {

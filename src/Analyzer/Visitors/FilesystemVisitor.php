@@ -58,11 +58,20 @@ final class FilesystemVisitor extends AbstractDetectionVisitor
 
     protected function inspect(Node $node): void
     {
-        if (!$node instanceof FuncCall || !$node->name instanceof Name || $node->isFirstClassCallable()) {
+        if (!$node instanceof FuncCall || !$node->name instanceof Name) {
             return;
         }
 
         $fn = strtolower($node->name->toString());
+
+        if ($fn !== 'wp_mkdir_p' && $fn !== 'mkdir') {
+            return;
+        }
+
+        if ($this->recordFirstClassCallable($node, 'directory', $fn)) {
+            return;
+        }
+
         $args = $node->getArgs();
 
         if ($fn === 'wp_mkdir_p') {

@@ -47,7 +47,7 @@ final class MetaVisitor extends AbstractDetectionVisitor
 
     protected function inspect(Node $node): void
     {
-        if (!$node instanceof FuncCall || !$node->name instanceof Name || $node->isFirstClassCallable()) {
+        if (!$node instanceof FuncCall || !$node->name instanceof Name) {
             return;
         }
 
@@ -55,6 +55,12 @@ final class MetaVisitor extends AbstractDetectionVisitor
         $args = $node->getArgs();
 
         if (isset(self::FUNCTIONS[$fn])) {
+            // The typed helpers name their artifact type in the function itself,
+            // so even a first-class callable can be recorded honestly.
+            if ($this->recordFirstClassCallable($node, self::FUNCTIONS[$fn], $fn)) {
+                return;
+            }
+
             $this->recordMeta($node, $fn, self::FUNCTIONS[$fn], $args, 1, 'meta_key');
 
             return;

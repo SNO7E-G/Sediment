@@ -12,6 +12,7 @@ use PhpParser\Node\Expr\BinaryOp\Concat;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\AssignOp;
+use PhpParser\Node\Expr\CallLike;
 use PhpParser\Node\Expr\List_;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\FunctionLike;
@@ -149,6 +150,33 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
 
     /** Inspect a single node and record any findings. */
     abstract protected function inspect(Node $node): void;
+
+    /**
+     * Record a first-class callable write (`update_option(...)`) as one dynamic
+     * finding, reporting whether it was handled.
+     *
+     * Such a call is a real write whose key only exists at call time; dropping
+     * it silently would make the coverage report flatter than the truth. It is
+     * recorded as unresolved exactly like any other key that cannot be named,
+     * so the resolution rate stays an honest account of what was seen.
+     */
+    protected function recordFirstClassCallable(CallLike $node, string $type, string $function): bool
+    {
+        if (!$node->isFirstClassCallable()) {
+            return false;
+        }
+
+        $this->findings[] = new Finding(
+            type: $type,
+            function: $function,
+            key: null,
+            confidence: Finding::CONFIDENCE_DYNAMIC,
+            file: $this->file,
+            line: $node->getStartLine(),
+        );
+
+        return true;
+    }
 
     /** @return list<Finding> */
     public function findings(): array

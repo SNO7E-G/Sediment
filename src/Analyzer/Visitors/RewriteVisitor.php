@@ -32,12 +32,16 @@ final class RewriteVisitor extends AbstractDetectionVisitor
 
     protected function inspect(Node $node): void
     {
-        if (!$node instanceof FuncCall || !$node->name instanceof Name || $node->isFirstClassCallable()) {
+        if (!$node instanceof FuncCall || !$node->name instanceof Name) {
             return;
         }
 
         $function = strtolower($node->name->toString());
         if (!isset(self::FUNCTIONS[$function])) {
+            return;
+        }
+
+        if ($this->recordFirstClassCallable($node, 'rewrite_rule', $function)) {
             return;
         }
 

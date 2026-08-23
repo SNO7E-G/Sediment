@@ -60,12 +60,14 @@ final class OptionVisitor extends AbstractDetectionVisitor
         }
 
         $function = strtolower($node->name->toString());
-        if ($node->isFirstClassCallable()) {
+        $isNetwork = in_array($function, self::NETWORK_FUNCTIONS, true);
+        if (!$isNetwork && !array_key_exists($function, self::FUNCTIONS)) {
             return;
         }
 
-        $isNetwork = in_array($function, self::NETWORK_FUNCTIONS, true);
-        if (!$isNetwork && !array_key_exists($function, self::FUNCTIONS)) {
+        // `update_option(...)` handed around as a callable is a real write with
+        // a call-time key — recorded, never dropped.
+        if ($this->recordFirstClassCallable($node, 'option', $function)) {
             return;
         }
 

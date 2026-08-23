@@ -37,11 +37,29 @@ final class ScheduleVisitor extends AbstractDetectionVisitor
 
     protected function inspect(Node $node): void
     {
-        if (!$node instanceof FuncCall || !$node->name instanceof Name || $node->isFirstClassCallable()) {
+        if (!$node instanceof FuncCall || !$node->name instanceof Name) {
             return;
         }
 
         $fn = strtolower($node->name->toString());
+
+        $type = match ($fn) {
+            'as_schedule_recurring_action',
+            'as_schedule_single_action',
+            'as_schedule_cron_action',
+            'as_enqueue_async_action' => 'action',
+            default => null,
+        };
+
+        if ($type === null) {
+            return;
+        }
+
+        // An Action Scheduler call passed as a callable still queues a job.
+        if ($this->recordFirstClassCallable($node, $type, $fn)) {
+            return;
+        }
+
         $args = $node->getArgs();
 
         if ($fn === 'as_schedule_recurring_action') {
