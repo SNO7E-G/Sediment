@@ -8,6 +8,51 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [Unreleased]
+
+### Added
+
+- **Cleanup credit follows require chains.** WordPress runs only the plugin-root
+  `uninstall.php`, but a real teardown is often split across files pulled in with
+  `require` — top-level code in those files runs on uninstall just the same, and
+  its removals are now credited. Previously such plugins graded dirtier than they
+  were.
+- **Trait members resolve.** Constants and literal property defaults declared in
+  a trait now compose into every class that uses it — PHP's own lookup rule — so
+  `self::PREFIX . 'key'` through a used trait resolves instead of degrading.
+- **Magic constants resolve as key seeds:** `__CLASS__`, `__METHOD__`,
+  `__FUNCTION__`, and `Foo::class` / `self::class`. Call-site-dependent constants
+  (`static::class`) stay dynamic by design.
+- **Two more write paths detected:** `wp_reschedule_event` (shares the schedule
+  signature) and the WP_Filesystem abstraction's `$wp_filesystem->mkdir()`.
+- **Stable error codes** on every degraded-file entry: `E_PARSE`, `E_IO`,
+  `E_SIZE`, `E_INTERNAL` — documented in stability.md alongside the exit codes.
+- **CI hardening in kind:** PHPStan at level max behind a committed baseline,
+  byte-identical-output and Windows smoke jobs, `composer audit`, Renovate with
+  action digest pinning, and release checksums with build provenance
+  attestations.
+- Batch refuses to run twice over one output directory: an advisory flock
+  replaces the interleaved-manifests race `--resume` could not survive.
+
+### Changed
+
+- First-class callable writes (`update_option(...)`) are recorded as `dynamic`
+  findings across every detector rather than silently dropped, so coverage says
+  what was seen.
+- A fully resolved `dbDelta` body whose CREATE statements are all TEMPORARY
+  records nothing: a scratch table dies with the request.
+- Generated uninstalls report leftover capabilities as guidance comments instead
+  of dropping them silently; which role holds a cap is not statically
+  attributable, and `remove_cap()` on the wrong role does nothing.
+
+### Fixed
+
+- Backticks in generated `DROP TABLE` identifiers are doubled at run time, so no
+  table name — from source or from a site's prefix — can break out of the quoted
+  identifier.
+- Files over 8 MB are recorded as errors and skipped instead of parsing; one
+  minified blob cannot end a batch child.
+
 ## [0.9.0] — 2026-08-16
 
 Public. This is the release the project has been building toward since 0.1:
