@@ -98,6 +98,19 @@ final class CleanupTest extends TestCase
         self::assertTrue($scan['findings']['option:ch_opt']->cleaned);
     }
 
+    public function test_top_level_code_in_files_required_by_uninstall_php_is_credited(): void
+    {
+        $scan = $this->scan('uninstall-require-plugin');
+
+        // uninstall.php requires includes/tasks.php, which deletes urp_first at
+        // top level and requires more-deletes.php one hop deeper for urp_second.
+        self::assertTrue($scan['findings']['option:urp_first']->cleaned);
+        self::assertTrue($scan['findings']['option:urp_second']->cleaned);
+
+        // A dead function inside a required file is still dead.
+        self::assertFalse($scan['findings']['option:urp_dead']->cleaned);
+    }
+
     public function test_a_plugin_with_no_uninstall_path_cleans_nothing(): void
     {
         $scan = $this->scan('dirty-plugin');

@@ -25,16 +25,17 @@ final class CleanupDiffer
      * @param list<string> $callbacks uninstall callback identifiers
      * @param list<string> $uninstallCalls functions called at the top level of uninstall.php
      * @param list<array{type: string, function: string|null, file: string}> $blankets removals that clear a whole type
+     * @param array<string, true> $uninstallFiles every file whose top-level code runs on uninstall — see {@see reachableUninstallFiles()}
      * @return list<Finding> the same findings with `cleaned` set
      */
-    public static function apply(array $findings, array $removals, array $callbacks, array $uninstallCalls = [], array $blankets = []): array
+    public static function apply(array $findings, array $removals, array $callbacks, array $uninstallCalls = [], array $blankets = [], array $uninstallFiles = []): array
     {
         $scopedFunctions = self::scopedFunctions($callbacks, $uninstallCalls);
 
         /** @var array<string, array<string, list<string>>> $removed type => key => removal calls */
         $removed = [];
         foreach ($removals as $removal) {
-            if (self::runsOnUninstall($removal['file'], $removal['function'], $scopedFunctions)) {
+            if (self::runsOnUninstall($removal['file'], $removal['function'], $scopedFunctions, $uninstallFiles)) {
                 $removed[$removal['type']][$removal['key']][] = $removal['via'] ?? '';
             }
         }
@@ -42,7 +43,7 @@ final class CleanupDiffer
         /** @var array<string, true> $clearedWholesale artifact types cleared in one call */
         $clearedWholesale = [];
         foreach ($blankets as $blanket) {
-            if (self::runsOnUninstall($blanket['file'], $blanket['function'], $scopedFunctions)) {
+            if (self::runsOnUninstall($blanket['file'], $blanket['function'], $scopedFunctions, $uninstallFiles)) {
                 $clearedWholesale[$blanket['type']] = true;
             }
         }
@@ -102,15 +103,16 @@ final class CleanupDiffer
      * @param list<string> $callbacks
      * @param list<string> $uninstallCalls
      * @param list<array{type: string, key: string, via: string, function: string|null, file: string}> $removals
+     * @param array<string, true> $uninstallFiles every file whose top-level code runs on uninstall — see {@see reachableUninstallFiles()}
      * @return array{option: string, default: bool|string|null}|null
      */
-    public static function condition(array $guards, array $callbacks, array $uninstallCalls = [], array $removals = []): ?array
+    public static function condition(array $guards, array $callbacks, array $uninstallCalls = [], array $removals = [], array $uninstallFiles = []): ?array
     {
         $scopedFunctions = self::scopedFunctions($callbacks, $uninstallCalls);
         $cleanupFunctions = self::functionsThatRemove($removals, $scopedFunctions);
 
         foreach ($guards as $guard) {
-            if (!self::runsOnUninstall($guard['file'], $guard['function'], $scopedFunctions)) {
+            if (!self::runsOnUninstall($guard['file'], $guard['function'], $scopedFunctions, $uninstallFiles)) {
                 continue;
             }
 
@@ -164,15 +166,17 @@ final class CleanupDiffer
 
     /**
      * Code runs on uninstall when it is a top-level statement in the plugin-root
-     * uninstall.php, or lives in a registered uninstall callback or a function
-     * that uninstall.php invokes at top level.
+     * uninstall.php, in a file uninstall.php requires (transitively — a real
+     * teardown is often split across files), in a registered uninstall callback,
+     * or in a function that uninstall.php invokes at top level.
      *
      * @param array<string, true> $scopedFunctions
+     * @param array<string, true> $uninstallFiles
      */
-    private static function runsOnUninstall(string $file, ?string $function, array $scopedFunctions): bool
+    private static function runsOnUninstall(string $file, ?string $function, array $scopedFunctions, array $uninstallFiles = []): bool
     {
         return $function === null
-            ? self::isUninstallFile($file)
+            ? self::isUninstallFile($file) || isset($uninstallFiles[self::normalizeFile($file)])
             : isset($scopedFunctions[strtolower($function)]);
     }
 
@@ -188,10 +192,46 @@ final class CleanupDiffer
         return array_fill_keys(array_map('strtolower', array_merge($callbacks, $uninstallCalls)), true);
     }
 
+    /**
+     * Every file whose top-level code runs on uninstall: the plugin-root
+     * uninstall.php plus everything it pulls in with require/include,
+     * transitively. Keys are normalized file paths; an edge naming a file that
+     * does not exist simply matches nothing later.
+     *
+     * @param list<array{from: string, to: string}> $edges require edges as recorded by the cleanup visitor
+     * @return array<string, true>
+     */
+    public static function reachableUninstallFiles(array $edges): array
+    {
+        $outgoing = [];
+        foreach ($edges as $edge) {
+            $outgoing[self::normalizeFile($edge['from'])][self::normalizeFile($edge['to'])] = true;
+        }
+
+        $reachable = ['uninstall.php' => true];
+        $queue = ['uninstall.php'];
+        while ($queue !== []) {
+            foreach ($outgoing[array_pop($queue)] ?? [] as $next => $true) {
+                if (!isset($reachable[$next])) {
+                    $reachable[$next] = true;
+                    $queue[] = $next;
+                }
+            }
+        }
+
+        return $reachable;
+    }
+
+    /** Forward slashes, lowercased — the form every comparison here uses. */
+    private static function normalizeFile(string $file): string
+    {
+        return strtolower(str_replace('\\', '/', $file));
+    }
+
     public static function isUninstallFile(string $file): bool
     {
         // WordPress runs only the plugin-root uninstall.php (relative path
         // "uninstall.php"), never a nested one — so only that credits cleanup.
-        return strtolower(str_replace('\\', '/', $file)) === 'uninstall.php';
+        return self::normalizeFile($file) === 'uninstall.php';
     }
 }

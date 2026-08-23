@@ -100,6 +100,7 @@ final class Scanner
         $uninstallCalls = [];
         $guards = [];
         $blankets = [];
+        $requires = [];
         $hasUninstallPhp = false;
 
         foreach ($parsed as $entry) {
@@ -158,10 +159,15 @@ final class Scanner
             array_push($uninstallCalls, ...$cleanup->uninstallCalls());
             array_push($guards, ...$cleanup->guards());
             array_push($blankets, ...$cleanup->blanketRemovals());
+            array_push($requires, ...$cleanup->requires());
         }
 
-        $findings = CleanupDiffer::apply($findings, $removals, $callbacks, $uninstallCalls, $blankets);
-        $condition = CleanupDiffer::condition($guards, $callbacks, $uninstallCalls, $removals);
+        // Top-level code in a file uninstall.php requires runs on uninstall too,
+        // so its removals credit cleanup the same way uninstall.php's own do.
+        $uninstallFiles = CleanupDiffer::reachableUninstallFiles($requires);
+
+        $findings = CleanupDiffer::apply($findings, $removals, $callbacks, $uninstallCalls, $blankets, $uninstallFiles);
+        $condition = CleanupDiffer::condition($guards, $callbacks, $uninstallCalls, $removals, $uninstallFiles);
 
         return [
             'files' => $files,

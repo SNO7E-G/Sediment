@@ -9,16 +9,20 @@ use PhpParser\Node\ArrayItem;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\Assign;
+use PhpParser\Node\Expr\BinaryOp\Concat;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
-use PhpParser\Node\Expr\Variable;
-use PhpParser\Node\Name;
 use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\Exit_;
+use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\FunctionLike;
+use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\MagicConst\Class_ as MagicClass;
+use PhpParser\Node\Scalar\MagicConst\Dir as MagicDir;
+use PhpParser\Node\Scalar\MagicConst\File as MagicFile;
 use PhpParser\Node\Scalar\String_;
+use PhpParser\Node\Expr\Include_;
 use PhpParser\Node\Stmt\If_;
 use PhpParser\Node\Stmt\Return_;
 use PhpParser\NodeFinder;
@@ -90,8 +94,17 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     /** @var list<array{type: string, function: string|null, file: string}> */
     private array $blankets = [];
 
+    /** @var list<array{from: string, to: string}> require/include edges, project-relative paths */
+    private array $requires = [];
+
     protected function inspect(Node $node): void
     {
+        if ($node instanceof Include_) {
+            $this->recordRequire($node);
+
+            return;
+        }
+
         if ($node instanceof Assign) {
             $this->trackOptionRead($node);
 
@@ -532,6 +545,112 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     public function uninstallCalls(): array
     {
         return $this->uninstallCalls;
+    }
+
+    /**
+     * require/include edges out of this file. WordPress runs only the plugin-root
+     * uninstall.php, but a real teardown is often split across files pulled in
+     * with require — and top-level code in those files runs on uninstall too.
+     *
+     * A target anchored to the requiring file's directory resolves to one
+     * project-relative path (`__DIR__ . '/x.php'`, `plugin_dir_path(__FILE__) .
+     * 'x.php'`). A bare string ('tasks.php') PHP would hunt for in the caller's
+     * directory as well, so both readings are recorded — whichever misses simply
+     * never matches a scanned file, so an over-broad candidate cannot credit a
+     * removal that does not exist.
+     */
+    private function recordRequire(Include_ $node): void
+    {
+        $candidates = $this->requireCandidates($node->expr);
+
+        if (count($candidates) === 1 && $node->expr instanceof String_) {
+            $candidates[] = $this->normalizePath($this->dirPrefix() . $candidates[0]);
+        }
+
+        foreach ($candidates as $to) {
+            if ($to !== '') {
+                $this->requires[] = ['from' => $this->file, 'to' => $to];
+            }
+        }
+    }
+
+    /**
+     * Every path the require expression can denote, resolved against the
+     * requiring file's directory. Unresolvable pieces (variables, function
+     * results other than the two known helpers) yield no candidates — an edge
+     * we cannot name is one we do not follow.
+     *
+     * @return list<string>
+     */
+    private function requireCandidates(Expr $expr): array
+    {
+        if ($expr instanceof String_) {
+            return [$this->normalizePath($expr->value)];
+        }
+
+        if ($expr instanceof MagicDir || $expr instanceof MagicFile) {
+            return [$this->dirPrefix()];
+        }
+
+        // The canonical WordPress form: plugin_dir_path(__FILE__) . 'x.php'.
+        if (
+            $expr instanceof FuncCall
+            && $expr->name instanceof Name
+            && strtolower($expr->name->toString()) === 'plugin_dir_path'
+            && ($first = $this->positionalArg($expr->getArgs(), 0)) !== null
+        ) {
+            return $this->requireCandidates($first->value);
+        }
+
+        if ($expr instanceof Concat) {
+            $candidates = [];
+            foreach ($this->requireCandidates($expr->left) as $left) {
+                foreach ($this->requireCandidates($expr->right) as $right) {
+                    $candidates[] = $this->normalizePath($left . $right);
+                }
+            }
+
+            return $candidates;
+        }
+
+        return [];
+    }
+
+    /** The requiring file's directory as a root-relative prefix, with trailing slash. */
+    private function dirPrefix(): string
+    {
+        $dir = str_replace('\\', '/', dirname($this->file));
+
+        return $dir === '.' ? '' : $dir . '/';
+    }
+
+    /** Forward slashes, no empty/./ segments, .. collapsed against what precedes it. */
+    private function normalizePath(string $path): string
+    {
+        $segments = [];
+        foreach (explode('/', str_replace('\\', '/', $path)) as $segment) {
+            if ($segment === '' || $segment === '.') {
+                continue;
+            }
+
+            if ($segment === '..' && $segments !== []) {
+                array_pop($segments);
+
+                continue;
+            }
+
+            $segments[] = $segment;
+        }
+
+        return implode('/', $segments);
+    }
+
+    /**
+     * @return list<array{from: string, to: string}>
+     */
+    public function requires(): array
+    {
+        return $this->requires;
     }
 
     /** @return list<array{type: string, function: string|null, file: string}> */
