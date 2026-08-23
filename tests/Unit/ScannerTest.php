@@ -71,6 +71,33 @@ final class ScannerTest extends TestCase
         self::assertSame(Finding::CONFIDENCE_PATTERN, $options['rp_*']->confidence);
     }
 
+    public function test_an_oversized_file_is_recorded_as_an_error_and_skipped(): void
+    {
+        // One pathological blob must not end a scan — or a batch child — so it
+        // is recorded as an error entry and everything else still scans.
+        $root = sys_get_temp_dir() . '/sediment-size-test-' . getmypid();
+        @mkdir($root);
+        file_put_contents($root . '/plugin.php', "<?php\nadd_option('normal_key', '1');\n");
+        file_put_contents($root . '/huge.php', '<?php /* ' . str_repeat('x', Scanner::MAX_FILE_BYTES + 1024) . " */\n");
+
+        try {
+            $result = (new Scanner())->scan($root);
+
+            $options = $this->optionsByKey($result['findings']);
+            self::assertArrayHasKey('normal_key', $options, 'the healthy file must still be scanned');
+
+            $oversized = array_filter(
+                $result['errors'],
+                static fn (array $e): bool => str_contains($e['file'], 'huge.php'),
+            );
+            self::assertCount(1, $oversized, 'the oversized file must be reported exactly once');
+        } finally {
+            @unlink($root . '/plugin.php');
+            @unlink($root . '/huge.php');
+            @rmdir($root);
+        }
+    }
+
     public function test_malformed_php_is_recorded_as_an_error_not_thrown(): void
     {
         $result = (new Scanner())->scan(dirname(__DIR__) . '/fuzz');

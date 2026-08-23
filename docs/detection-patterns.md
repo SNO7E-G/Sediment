@@ -12,9 +12,15 @@ organized by artifact type; every finding also carries a confidence level.
 | `pattern` | The key is partly dynamic but has a stable leading prefix, reported as `prefix*`. | `update_post_meta($id, '_mp_' . $f, …)` → `_mp_*` |
 | `dynamic` | The key is only knowable at runtime. Recorded with its raw source, never treated as certain. | `update_option($key)` |
 
+A write passed around as a first-class callable (`add_option(...)`) is recorded
+as `dynamic` too: it is a real write whose key only exists at call time, so it
+counts toward coverage rather than vanishing from it.
+
 Resolution runs in two passes: first a symbol-table pass harvests `define()`
-constants, class constants, and literal properties across the whole plugin;
-then detection resolves each key against that table. This is what lets
+constants, class constants (including `self::class` / `Foo::class`), magic
+constants (`__CLASS__`, `__METHOD__`, `__FUNCTION__`), trait members composed
+into their using classes, and literal properties across the whole plugin; then
+detection resolves each key against that table. This is what lets
 `self::PREFIX . 'key'` become `mp_key` instead of falling to `dynamic`.
 
 ## Artifacts
@@ -26,6 +32,17 @@ multisite `add_network_option` / `update_network_option` — whose key is the
 second argument, after the network id. The autoload flag is captured where it
 applies (`add_option` arg 4, `update_option` arg 3); site and network options are
 never autoloaded.
+
+Two autoload subtleties are read deliberately:
+
+- `update_option`'s autoload argument only takes effect when the option does
+  not exist yet — for an existing row WordPress leaves autoload unchanged. An
+  absent or runtime-value flag is therefore recorded as `unknown`, never
+  guessed toward yes or no, and `unknown` is graded as if autoloaded (the safe
+  direction).
+- Since WordPress 6.6 the flag also accepts `'auto'`, `'auto-on'`, and
+  `'auto-off'` alongside `'yes'`/`true` and `'no'`/`false`; every accepted form
+  is mapped to its meaning.
 
 `register_setting` is intentionally *not* treated as a create: it registers a
 setting with the Settings API but does not itself write an option row, so
@@ -53,6 +70,12 @@ transient is stored by WordPress as two option rows — `_transient_{key}` and
 Sediment records the canonical transient name; the twin rows are materialized
 later, by the uninstall generator.
 
+One WordPress detail matters for reading (not deleting): when the expiration is
+`0` — "never expires" — core writes *no* timeout row at all, only the value row.
+The generator's `delete_transient()` removes both forms regardless, so cleanup
+needs no branching; but anyone comparing a runtime snapshot against Sediment's
+output should expect one row, not two, for non-expiring transients.
+
 ## Cleanup
 
 The cleanup path is parsed with the same engine. Removal calls — `delete_option`,
@@ -62,7 +85,9 @@ The cleanup path is parsed with the same engine. Removal calls — `delete_optio
 and every created artifact carries a `cleaned` flag.
 
 A removal only counts when it actually runs on uninstall: inside `uninstall.php`,
-or inside a function or method registered via `register_uninstall_hook`. A
+inside a file `uninstall.php` requires (transitively — a teardown is often split
+across files, and top-level code in those files runs just the same), or inside a
+function or method registered via `register_uninstall_hook`. A
 `delete_option()` called during normal operation does not credit cleanup.
 Matching is by exact key within an artifact type; a partly-dynamic (`pattern`)
 key is reported as not cleaned rather than guessed.
@@ -118,10 +143,12 @@ Removing posts or terms destroys user data, and that decision belongs to a human
 
 ### Directories, rewrite rules, and Action Scheduler
 
-`wp_mkdir_p` and `mkdir` for directories, with `WP_CONTENT_DIR`, `WP_PLUGIN_DIR`,
-and `ABSPATH` rewritten to `{content_dir}`, `{plugin_dir}`, and `{abspath}` —
-the same portability trick as `{prefix}`, so a finding is not tied to one
-install's layout. A path that is only a root, with nothing under it, is skipped.
+`wp_mkdir_p`, `mkdir`, and the WP_Filesystem abstraction's
+`$wp_filesystem->mkdir()` for directories, with `WP_CONTENT_DIR`,
+`WP_PLUGIN_DIR`, and `ABSPATH` rewritten to `{content_dir}`, `{plugin_dir}`, and
+`{abspath}` — the same portability trick as `{prefix}`, so a finding is not tied
+to one install's layout. A path that is only a root, with nothing under it, is
+skipped.
 
 `add_rewrite_rule`, `add_rewrite_endpoint`, and `add_rewrite_tag` for routing.
 `as_schedule_recurring_action`, `as_schedule_single_action`,

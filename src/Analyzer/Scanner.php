@@ -35,6 +35,16 @@ use Sediment\Cleanup\CleanupVisitor;
  */
 final class Scanner
 {
+    /**
+     * A single PHP file larger than this is recorded as an error entry and
+     * skipped rather than parsed. Real plugins never ship files this big; a
+     * minified or generated blob would spend minutes of parser time and tens
+     * of megabytes of memory for keys that are almost certainly assembled at
+     * runtime anyway. The limit bounds the cost of one pathological file so a
+     * batch child cannot be ended by it.
+     */
+    public const MAX_FILE_BYTES = 8_000_000;
+
     private Parser $parser;
 
     public function __construct(
@@ -193,6 +203,20 @@ final class Scanner
      */
     private function parse(string $path, string $relative, ?array &$errors): ?array
     {
+        $size = filesize($path);
+        if ($size !== false && $size > self::MAX_FILE_BYTES) {
+            $errors[] = [
+                'file' => $relative,
+                'message' => sprintf(
+                    'file is %d bytes, over the %d byte limit — skipped',
+                    $size,
+                    self::MAX_FILE_BYTES,
+                ),
+            ];
+
+            return null;
+        }
+
         $code = @file_get_contents($path);
         if ($code === false) {
             $errors[] = ['file' => $relative, 'message' => 'unreadable'];
