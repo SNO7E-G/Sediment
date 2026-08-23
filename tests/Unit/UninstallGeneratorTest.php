@@ -169,6 +169,22 @@ final class UninstallGeneratorTest extends TestCase
         self::assertStringNotContainsString('delete_option', $code);
     }
 
+    public function test_leftover_capabilities_are_reported_not_executed(): void
+    {
+        // A capability lives inside a role's array, and which role received it
+        // is not attributable statically — so the generator reports it with the
+        // exact call to make, and never executes a guess.
+        $code = (new UninstallGenerator())->generate([
+            $this->finding('capability', 'acme_manage_things', Finding::CONFIDENCE_RESOLVED, function: 'add_cap'),
+        ], 'Example');
+
+        $this->assertValidPhp($code);
+        self::assertStringContainsString('acme_manage_things', $code);
+        // Every mention sits in a comment: no executable remove_cap() call.
+        self::assertDoesNotMatchRegularExpression('/^(?!\/\/).*remove_cap\(/m', $code);
+        self::assertMatchesRegularExpression('/^\/\/   remove_cap\(/m', $code);
+    }
+
     public function test_a_backtick_in_a_table_name_cannot_break_out_of_the_drop_statement(): void
     {
         // A hostile or merely odd table name containing a backtick would close

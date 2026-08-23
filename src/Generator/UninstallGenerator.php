@@ -34,6 +34,7 @@ final class UninstallGenerator
         $meta = [];         // key => meta object type
         $roles = [];
         $actions = [];
+        $capabilities = []; // reported as a comment: removal needs the role that holds it
         $content = [];      // reported as a comment, never deleted
 
         foreach ($findings as $finding) {
@@ -57,17 +58,18 @@ final class UninstallGenerator
                 'post_meta', 'user_meta', 'term_meta', 'comment_meta' => $meta[$key] = str_replace('_meta', '', $finding->type),
                 'role'      => $roles[$key] = true,
                 'action'    => $actions[$key] = true,
+                'capability'=> $capabilities[$key] = true,
                 'post_type', 'taxonomy', 'directory', 'rewrite_rule' => $content[$key] = $finding->type,
                 default     => null,
             };
         }
 
-        foreach ([&$options, &$siteOptions, &$tables, &$cron, &$transients, &$meta, &$roles, &$actions, &$content] as &$group) {
+        foreach ([&$options, &$siteOptions, &$tables, &$cron, &$transients, &$meta, &$roles, &$actions, &$capabilities, &$content] as &$group) {
             ksort($group);
         }
         unset($group);
 
-        return $this->render($pluginName, $options, $siteOptions, $tables, $cron, $transients, $meta, $roles, $actions, $content);
+        return $this->render($pluginName, $options, $siteOptions, $tables, $cron, $transients, $meta, $roles, $actions, $capabilities, $content);
     }
 
     private function isDeletable(Finding $finding): bool
@@ -96,9 +98,10 @@ final class UninstallGenerator
      * @param array<string, string> $meta key => object type (post|user|term|comment)
      * @param array<string, true> $roles
      * @param array<string, true> $actions Action Scheduler hooks
+     * @param array<string, true> $capabilities capabilities reported as a comment only
      * @param array<string, string> $content artifacts reported as a comment only
      */
-    private function render(string $pluginName, array $options, array $siteOptions, array $tables, array $cron, array $transients, array $meta = [], array $roles = [], array $actions = [], array $content = []): string
+    private function render(string $pluginName, array $options, array $siteOptions, array $tables, array $cron, array $transients, array $meta = [], array $roles = [], array $actions = [], array $capabilities = [], array $content = []): string
     {
         $needsWpdb = $tables !== [] || $this->anyPrefixed([
             ...array_keys($options), ...array_keys($siteOptions), ...array_keys($cron),
@@ -192,6 +195,22 @@ final class UninstallGenerator
                 $lines[] = '    as_unschedule_all_actions(' . $this->keyExpression($hook) . ');';
             }
             $lines[] = '}';
+        }
+
+        if ($capabilities !== []) {
+            // A capability is stored inside a role's array, and which role
+            // received it is not something static analysis can attribute —
+            // remove_cap on the wrong role would silently do nothing. Report,
+            // with the exact call to make once a human has checked.
+            $lines[] = '';
+            $lines[] = '// Capabilities this plugin grants may be left behind. Find the role that';
+            $lines[] = '// holds each one (wp cap list <role>), then remove it explicitly:';
+            foreach (array_keys($capabilities) as $cap) {
+                $lines[] = sprintf(
+                    '//   remove_cap( \'<role>\', %s );',
+                    str_replace(["\r", "\n"], ' ', var_export($cap, true)),
+                );
+            }
         }
 
         if ($content !== []) {
