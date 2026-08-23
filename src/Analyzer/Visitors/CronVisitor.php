@@ -38,7 +38,7 @@ final class CronVisitor extends AbstractDetectionVisitor
 
         $fn = strtolower($node->name->toString());
 
-        if ($fn !== 'wp_schedule_event' && $fn !== 'wp_schedule_single_event') {
+        if ($fn !== 'wp_schedule_event' && $fn !== 'wp_reschedule_event' && $fn !== 'wp_schedule_single_event') {
             return;
         }
 
@@ -50,7 +50,10 @@ final class CronVisitor extends AbstractDetectionVisitor
 
         $args = $node->getArgs();
 
-        if ($fn === 'wp_schedule_event') {
+        // wp_reschedule_event shares wp_schedule_event's signature: timestamp,
+        // recurrence, hook, args. It is rare, but it writes the cron option
+        // exactly the same way.
+        if ($fn === 'wp_schedule_event' || $fn === 'wp_reschedule_event') {
             $this->recordScheduleEvent($node, $fn, $args);
 
             return;

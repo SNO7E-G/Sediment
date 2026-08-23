@@ -105,6 +105,13 @@ final class CronVisitorTest extends TestCase
             null,
             'single',
         ];
+
+        yield 'reschedule shares the schedule signature' => [
+            "wp_reschedule_event(time(), 'daily', 'cf_renew');",
+            Finding::CONFIDENCE_VERIFIED,
+            'cf_renew',
+            'daily',
+        ];
     }
 
     #[DataProvider('keyCases')]

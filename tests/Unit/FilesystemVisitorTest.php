@@ -109,6 +109,18 @@ final class FilesystemVisitorTest extends TestCase
             Finding::CONFIDENCE_DYNAMIC,
             null,
         ];
+
+        yield 'WP_Filesystem abstraction with a rooted path' => [
+            "function f() { global \$wp_filesystem; \$wp_filesystem->mkdir(WP_CONTENT_DIR . '/acme-backups'); }",
+            Finding::CONFIDENCE_VERIFIED,
+            '{content_dir}/acme-backups',
+        ];
+
+        yield 'WP_Filesystem abstraction with a literal path' => [
+            "\$fs->mkdir('/var/www/uploads/acme-static');",
+            Finding::CONFIDENCE_VERIFIED,
+            '/var/www/uploads/acme-static',
+        ];
     }
 
     #[DataProvider('keyCases')]

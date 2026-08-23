@@ -9,6 +9,8 @@ use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\BinaryOp\Concat;
 use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\FuncCall;
+use PhpParser\Node\Expr\MethodCall;
+use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\InterpolatedString;
 use Sediment\Analyzer\Finding;
@@ -58,6 +60,12 @@ final class FilesystemVisitor extends AbstractDetectionVisitor
 
     protected function inspect(Node $node): void
     {
+        if ($node instanceof MethodCall && $node->name instanceof Identifier) {
+            $this->inspectMethodCall($node);
+
+            return;
+        }
+
         if (!$node instanceof FuncCall || !$node->name instanceof Name) {
             return;
         }
@@ -85,7 +93,24 @@ final class FilesystemVisitor extends AbstractDetectionVisitor
         }
     }
 
-    private function recordDirectory(FuncCall $node, string $fn, ?Expr $value): void
+    /**
+     * The WP_Filesystem abstraction: security and backup plugins do their
+     * filesystem work through `$wp_filesystem->mkdir()` rather than PHP's
+     * mkdir(), and the directory it creates is just as persistent. Only the
+     * mkdir method is read — put_contents writes files, which are content,
+     * not footprint.
+     */
+    private function inspectMethodCall(MethodCall $node): void
+    {
+        if (strtolower((string) $node->name) !== 'mkdir' || $node->isFirstClassCallable()) {
+            return;
+        }
+
+        $args = $node->getArgs();
+        $this->recordDirectory($node, '$wp_filesystem->mkdir', $this->argValue($args, 0, 'directory'));
+    }
+
+    private function recordDirectory(FuncCall|MethodCall $node, string $fn, ?Expr $value): void
     {
         if ($value === null) {
             return;
