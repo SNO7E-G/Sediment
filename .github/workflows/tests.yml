@@ -26,6 +26,9 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
           tools: composer:v2
+          # ext-zip backs the fetch unpacker and its tests; curl is the
+          # transport it prefers.
+          extensions: zip, curl
 
       - name: Validate composer.json
         run: composer validate --strict
@@ -90,6 +93,7 @@ jobs:
           php-version: '8.3'
           coverage: none
           tools: composer:v2
+          extensions: zip, curl
 
       - name: Install dependencies
         run: composer update --prefer-dist --no-interaction --no-progress

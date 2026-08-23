@@ -21,6 +21,13 @@ final class WordPressOrgClientTest extends TestCase
 
     protected function setUp(): void
     {
+        // The unpacker is built on ext-zip, which composer.json lists as a
+        // suggestion — an environment without it cannot run these tests, but
+        // that is an environment fact, not a defect in the code.
+        if (!class_exists(ZipArchive::class)) {
+            self::markTestSkipped('ext-zip is not available; fetch cannot unpack archives.');
+        }
+
         $this->cache = sys_get_temp_dir() . '/sediment-fetch-' . getmypid() . '-' . bin2hex(random_bytes(3));
     }
 
