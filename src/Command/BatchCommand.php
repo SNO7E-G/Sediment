@@ -225,7 +225,7 @@ final class BatchCommand extends Command
             $io->warning(sprintf('%d plugin(s) could not be scanned: %s', count($failed), implode(', ', array_keys($failed))));
         }
 
-        if ($lock !== false) {
+        if (is_resource($lock)) {
             flock($lock, LOCK_UN);
             fclose($lock);
         }
