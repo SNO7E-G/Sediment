@@ -8,7 +8,7 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
-## [Unreleased]
+## [0.10.0] — 2026-08-23
 
 ### Added
 

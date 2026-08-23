@@ -26,7 +26,7 @@ final class Application extends BaseApplication
      * this is stamped into every manifest as `analyzer_version`, so a stale value
      * silently mislabels the data downstream consumers keep.
      */
-    public const VERSION = '0.9.0';
+    public const VERSION = '0.10.0';
 
     public function __construct()
     {
