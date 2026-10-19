@@ -99,6 +99,44 @@ final class ScannerTest extends TestCase
         }
     }
 
+    public function test_a_long_generated_concatenation_scans_in_linear_time(): void
+    {
+        // Every visitor resolves every assignment, so a resolver that is
+        // quadratic in a chain's length turned a 3000-term SQL builder into
+        // minutes of scan time.
+        $terms = [];
+        for ($i = 0; $i < 3000; $i++) {
+            $terms[] = $i % 2 === 0 ? "'s{$i}'" : '$v' . $i;
+        }
+        $chain = implode(' . ', $terms);
+
+        $root = sys_get_temp_dir() . '/sediment-concat-test-' . getmypid();
+        @mkdir($root);
+        file_put_contents($root . '/plugin.php', "<?php\n\$q = {$chain};\nupdate_option({$chain}, \$q);\nadd_option('acme_' . 'version', '1');\n");
+
+        try {
+            $start = microtime(true);
+            $result = (new Scanner())->scan($root);
+            $elapsed = microtime(true) - $start;
+
+            self::assertLessThan(5.0, $elapsed, 'a long concatenation must not be quadratic to resolve');
+            self::assertSame([], $result['errors']);
+
+            $options = $this->optionsByKey($result['findings']);
+            self::assertArrayHasKey('acme_version', $options, 'short chains still resolve');
+
+            $long = array_values(array_filter(
+                $result['findings'],
+                static fn (Finding $f): bool => $f->function === 'update_option',
+            ));
+            self::assertCount(1, $long);
+            self::assertSame(Finding::CONFIDENCE_DYNAMIC, $long[0]->confidence, 'past the segment cap the key is dynamic');
+        } finally {
+            @unlink($root . '/plugin.php');
+            @rmdir($root);
+        }
+    }
+
     public function test_malformed_php_is_recorded_as_an_error_not_thrown(): void
     {
         $result = (new Scanner())->scan(dirname(__DIR__) . '/fuzz');
