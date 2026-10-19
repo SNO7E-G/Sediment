@@ -8,12 +8,17 @@ use PhpParser\Node;
 use PhpParser\Node\ArrayItem;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Array_;
+use PhpParser\Node\Expr\ArrowFunction;
 use PhpParser\Node\Expr\Assign;
+use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\BinaryOp\Concat;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
+use PhpParser\Node\Expr\New_;
+use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Expr\ConstFetch;
+use PhpParser\Node\Identifier;
 use PhpParser\Node\Expr\Exit_;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\FunctionLike;
@@ -81,6 +86,9 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         'delete_comment_meta' => true,
     ];
 
+    /** Words that name a "remove my data on uninstall" setting. */
+    private const REMOVAL_SETTING = '/(delete|remove|clean|purge|wipe|keep|preserve|retain)[\w-]*(data|settings|options|tables|uninstall|all)|uninstall[\w-]*(data|delete|remove|clean)/i';
+
     /** delete_metadata()'s object type comes from its first argument. */
     private const META_OBJECT_TYPES = [
         'post' => 'post_meta', 'user' => 'user_meta', 'term' => 'term_meta', 'comment' => 'comment_meta',
@@ -92,10 +100,16 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     /** @var list<string> */
     private array $callbacks = [];
 
-    /** @var list<string> lowercased function names called at the top level of uninstall.php */
-    private array $uninstallCalls = [];
+    /** @var list<string> register_deactivation_hook callbacks */
+    private array $deactivationCallbacks = [];
 
-    /** @var list<array{option: string, default: bool|string|null, function: string|null, file: string, exits: bool, removes: bool, calls: list<string>}> */
+    /** @var array<string, array{from: string|null, file: string, to: string}> call edges, deduplicated; from = null at file top level */
+    private array $calls = [];
+
+    /** @var array<int, string> spl_object_id of a closure registered as a hook => its identifier */
+    private array $closureIds = [];
+
+    /** @var list<array{option: string|null, default: bool|string|null, function: string|null, file: string, exits: bool, removes: bool, calls: list<string>}> */
     private array $guards = [];
 
     /** @var array<string, FuncCall> variable name => the option read assigned to it */
@@ -127,19 +141,19 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             return;
         }
 
+        $this->recordCallEdge($node);
+
         if ($node instanceof FuncCall && $node->name instanceof Name && !$node->isFirstClassCallable()) {
             $function = strtolower($node->name->toString());
 
-            if ($this->currentFunction() === null && $this->inUninstallPhp()) {
-                $this->uninstallCalls[] = $function;
-            }
-
             if ($function === 'register_uninstall_hook') {
-                $this->recordCallback($node);
+                $this->recordCallback($node, $this->callbacks);
+            } elseif ($function === 'register_deactivation_hook') {
+                $this->recordCallback($node, $this->deactivationCallbacks);
             } elseif (isset(self::BLANKET_REMOVALS[$function])) {
                 $this->blankets[] = [
                     'type' => self::BLANKET_REMOVALS[$function],
-                    'function' => $this->currentFunction(),
+                    'function' => $this->scope(),
                     'file' => $this->file,
                 ];
             } elseif ($function === 'delete_metadata') {
@@ -206,7 +220,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             $this->guards[] = [
                 'option' => (string) $key->value,
                 'default' => $this->guardDefault($call),
-                'function' => $this->currentFunction(),
+                'function' => $this->scope(),
                 'file' => $this->file,
                 // Evidence that this `if` gates cleanup. Whether the calls it
                 // makes are themselves part of the uninstall path is something
@@ -218,6 +232,65 @@ final class CleanupVisitor extends AbstractDetectionVisitor
 
             return; // one guard per `if` is enough
         }
+
+        // Not a get_option() read — but plugins also gate through their own
+        // settings layer: `if (!Settings::get('remove_data')) return;`,
+        // `if ($opts['delete_on_uninstall'])`. Counted only when the condition
+        // names a data-removal setting, so an `if (is_multisite())` around the
+        // removals never turns a clean plugin into a B.
+        $setting = $this->namedRemovalSetting($node);
+        if ($setting !== null) {
+            $this->guards[] = [
+                'option' => $setting === '' ? null : $setting,
+                'default' => null,
+                'function' => $this->scope(),
+                'file' => $this->file,
+                'exits' => $this->bailsOut($node),
+                'removes' => $this->containsRemoval($node),
+                'calls' => $this->calledFunctions($node),
+            ];
+        }
+    }
+
+    /**
+     * The setting an `if` reads to decide whether data is removed: the string
+     * naming it when there is one ('' when the words appear only in a name),
+     * or null when the condition does not look like a data-removal setting.
+     * ponytail: a keyword heuristic over the condition's strings and names;
+     * a setting called something else entirely is missed (under-reports B).
+     */
+    private function namedRemovalSetting(If_ $node): ?string
+    {
+        $words = [];
+        $literal = null;
+        foreach ((new NodeFinder())->find($this->conditions($node), static fn (Node $n): bool => $n instanceof String_ || $n instanceof Name || $n instanceof Identifier || $n instanceof Variable) as $n) {
+            $word = match (true) {
+                $n instanceof String_ => $n->value,
+                $n instanceof Variable => is_string($n->name) ? $n->name : '',
+                $n instanceof Name, $n instanceof Identifier => $n->toString(),
+                default => '',
+            };
+
+            // The standard entry guard, or a check that code exists
+            // (`function_exists('acme_delete_data')`) — neither is a setting.
+            // `defined('WC_REMOVE_ALL_DATA')` stays: a wp-config constant is
+            // exactly how some plugins gate their teardown.
+            if (stripos($word, 'WP_UNINSTALL_PLUGIN') !== false
+                || in_array(strtolower($word), ['function_exists', 'class_exists', 'method_exists', 'is_callable'], true)) {
+                return null;
+            }
+
+            $words[] = $word;
+            if ($literal === null && $n instanceof String_ && preg_match(self::REMOVAL_SETTING, $word) === 1) {
+                $literal = $word;
+            }
+        }
+
+        if ($literal !== null) {
+            return $literal;
+        }
+
+        return preg_match(self::REMOVAL_SETTING, implode(' ', $words)) === 1 ? '' : null;
     }
 
     /** Remember `$keep = get_option('x');` so a later `if ($keep)` can be read. */
@@ -336,9 +409,10 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     private function calledFunctions(If_ $node): array
     {
         $names = [];
-        foreach ((new NodeFinder())->findInstanceOf($node, FuncCall::class) as $call) {
-            if ($call instanceof FuncCall && $call->name instanceof Name) {
-                $names[] = strtolower($call->name->toString());
+        foreach ((new NodeFinder())->find($node, static fn (Node $n): bool => $n instanceof Expr\CallLike) as $call) {
+            $target = $this->callTarget($call);
+            if ($target !== null) {
+                $names[] = strtolower($target);
             }
         }
 
@@ -369,17 +443,88 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         return $default instanceof String_ ? $default->value : null;
     }
 
-    private function recordCallback(FuncCall $node): void
+    /** @param list<string> $into */
+    private function recordCallback(FuncCall $node, array &$into): void
     {
         $callback = $this->argValue($this->args($node), 1, 'callback');
         if ($callback === null) {
             return;
         }
 
-        $identifier = $this->callbackIdentifier($callback);
-        if ($identifier !== null) {
-            $this->callbacks[] = $identifier;
+        // A closure has no name to call it by, so it gets one here: the hook
+        // registration is entered before its argument, so the id is in place
+        // by the time the closure's own removals are recorded.
+        if ($callback instanceof Closure || $callback instanceof ArrowFunction) {
+            $identifier = sprintf('{closure}@%s:%d', $this->file, $callback->getStartLine());
+            $this->closureIds[spl_object_id($callback)] = $identifier;
+        } else {
+            $identifier = $this->callbackIdentifier($callback);
         }
+
+        if ($identifier !== null) {
+            $into[] = $identifier;
+        }
+    }
+
+    /**
+     * Where recorded code sits: the named function or method, a closure
+     * registered as a hook callback, or null for top-level code (and any
+     * other closure, which runs wherever its enclosing code runs).
+     */
+    private function scope(): ?string
+    {
+        $node = $this->currentFunctionNode();
+
+        return $this->currentFunction()
+            ?? ($node !== null ? $this->closureIds[spl_object_id($node)] ?? null : null);
+    }
+
+    /**
+     * One edge of the call graph the differ walks to decide what runs on
+     * uninstall: a teardown is routinely `Uninstaller::run()` calling helpers
+     * that call delete_option(). Only targets nameable without guessing are
+     * recorded — a function, `Class::method()`, `self::`/`static::`, `$this->`,
+     * and `(new Class)->method()`; a call on any other receiver is skipped,
+     * which can only under-credit.
+     * ponytail: `$this->m()` resolves to the current class, not the parent
+     * that may declare m(); walk SymbolTable parents if that gap shows up.
+     */
+    private function recordCallEdge(Node $node): void
+    {
+        $to = $this->callTarget($node);
+        if ($to === null) {
+            return;
+        }
+
+        // Deduplicated: a large plugin makes hundreds of thousands of calls, and
+        // the graph needs each edge once. The file only matters for top-level
+        // calls, which are roots when the file runs on uninstall.
+        $from = $this->scope();
+        $file = $from === null ? $this->file : '';
+        $this->calls[$from . "\0" . $file . "\0" . strtolower($to)] = ['from' => $from, 'file' => $file, 'to' => $to];
+    }
+
+    private function callTarget(Node $node): ?string
+    {
+        $to = null;
+
+        if ($node instanceof FuncCall && $node->name instanceof Name) {
+            $to = $node->name->toString();
+        } elseif ($node instanceof StaticCall && $node->class instanceof Name && $node->name instanceof Identifier) {
+            $class = strtolower($node->class->toString()) === 'self' || strtolower($node->class->toString()) === 'static'
+                ? $this->currentClass()
+                : (strtolower($node->class->toString()) === 'parent' ? null : $node->class->toString());
+            $to = $class !== null ? $class . '::' . $node->name->toString() : null;
+        } elseif ($node instanceof MethodCall && $node->name instanceof Identifier) {
+            $class = match (true) {
+                $node->var instanceof Variable && $node->var->name === 'this' => $this->currentClass(),
+                $node->var instanceof New_ && $node->var->class instanceof Name => $node->var->class->toString(),
+                default => null,
+            };
+            $to = $class !== null ? $class . '::' . $node->name->toString() : null;
+        }
+
+        return $to;
     }
 
     private function recordRemoval(FuncCall $node, string $function): void
@@ -469,15 +614,99 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $resolution = $this->resolveKey($value);
-        if ($resolution->value === null) {
-            return;
+        // The bulk teardown most plugins write goes through prepare():
+        // $wpdb->query($wpdb->prepare("DELETE ... LIKE %s", $wpdb->esc_like('acme_') . '%')).
+        $sql = Wpdb::isMethodCall($value, 'prepare') && $value instanceof MethodCall
+            ? $this->preparedSql($value)
+            : null;
+
+        $truncated = false;
+        if ($sql === null) {
+            $resolution = $this->resolveKey($value);
+            if ($resolution->value === null) {
+                return;
+            }
+
+            $sql = $resolution->value;
+            $truncated = !$resolution->isResolved();
         }
 
-        $truncated = !$resolution->isResolved();
-        foreach (TableStatements::dropped($resolution->value, $truncated) as $name) {
+        foreach (TableStatements::dropped($sql, $truncated) as $name) {
             $this->addRemoval('table', $name, 'wpdb::query');
         }
+
+        if ($truncated) {
+            return; // a DELETE cut short could have lost a narrowing AND
+        }
+
+        foreach (TableStatements::deletedRows($sql) as [$type, $pattern]) {
+            $this->addRemoval($type, $pattern, CleanupDiffer::LIKE);
+        }
+    }
+
+    /**
+     * The SQL a fully-resolvable `$wpdb->prepare()` produces: `%s` placeholders
+     * filled with their quoted arguments, `%d` with numbers, `%%` collapsed.
+     * Null when any piece cannot be resolved — a guessed argument could widen
+     * a DELETE into crediting keys it never touches.
+     */
+    private function preparedSql(MethodCall $prepare): ?string
+    {
+        $args = $this->args($prepare);
+        if ($args === []) {
+            return null;
+        }
+
+        $query = $this->resolveKey($args[0]->value);
+        if (!$query->isResolved()) {
+            return null;
+        }
+
+        $values = [];
+        foreach (array_slice($args, 1) as $arg) {
+            $value = $this->resolveSqlValue($arg->value);
+            if ($value === null) {
+                return null;
+            }
+            $values[] = $value;
+        }
+
+        $sql = preg_replace_callback('/%%|%[sdf]/', static function (array $m) use (&$values): string {
+            if ($m[0] === '%%') {
+                return '%';
+            }
+
+            $value = array_shift($values);
+            if ($value === null) {
+                return $m[0];
+            }
+
+            return $m[0] === '%s' ? "'" . str_replace("'", "\\'", $value) . "'" : $value;
+        }, (string) $query->value);
+
+        return $values === [] ? $sql : null;
+    }
+
+    /** A prepare() argument, reading `$wpdb->esc_like($x)` as $x with LIKE wildcards escaped. */
+    private function resolveSqlValue(Expr $expr): ?string
+    {
+        if (Wpdb::isMethodCall($expr, 'esc_like') && $expr instanceof MethodCall) {
+            $inner = $this->args($expr)[0]->value ?? null;
+            $value = $inner !== null ? $this->resolveKey($inner) : null;
+
+            return $value !== null && $value->isResolved() ? addcslashes((string) $value->value, '_%\\') : null;
+        }
+
+        if ($expr instanceof Concat) {
+            $left = $this->resolveSqlValue($expr->left);
+            $right = $this->resolveSqlValue($expr->right);
+
+            return $left !== null && $right !== null ? $left . $right : null;
+        }
+
+        $value = $this->resolveKey($expr);
+
+        return $value->isResolved() ? (string) $value->value : null;
     }
 
     /**
@@ -550,14 +779,9 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             'type' => $type,
             'key' => $key,
             'via' => $via,                          // the removal call itself
-            'function' => $this->currentFunction(), // the function it sits in
+            'function' => $this->scope(), // the function it sits in
             'file' => $this->file,
         ];
-    }
-
-    private function inUninstallPhp(): bool
-    {
-        return strtolower(str_replace('\\', '/', $this->file)) === 'uninstall.php';
     }
 
     private function callbackIdentifier(Expr $callback): ?string
@@ -626,9 +850,15 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     }
 
     /** @return list<string> */
-    public function uninstallCalls(): array
+    public function deactivationCallbacks(): array
     {
-        return $this->uninstallCalls;
+        return $this->deactivationCallbacks;
+    }
+
+    /** @return list<array{from: string|null, file: string, to: string}> */
+    public function calls(): array
+    {
+        return array_values($this->calls);
     }
 
     /**
@@ -743,7 +973,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         return $this->blankets;
     }
 
-    /** @return list<array{option: string, default: bool|string|null, function: string|null, file: string, exits: bool, removes: bool, calls: list<string>}> */
+    /** @return list<array{option: string|null, default: bool|string|null, function: string|null, file: string, exits: bool, removes: bool, calls: list<string>}> */
     public function guards(): array
     {
         return $this->guards;

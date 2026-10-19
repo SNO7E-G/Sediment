@@ -67,4 +67,30 @@ final class CheckCommandTest extends TestCase
     {
         self::assertSame(Command::FAILURE, $this->check('does-not-exist')->getStatusCode());
     }
+
+    public function test_min_coverage_fails_a_plugin_whose_writes_cannot_be_read(): void
+    {
+        // Every key is built at runtime, so there is nothing confident to grade
+        // and the letter is an empty A. --min-coverage is how a gate refuses that.
+        $dir = sys_get_temp_dir() . '/sediment-coverage-' . getmypid();
+        @mkdir($dir, 0777, true);
+        file_put_contents($dir . '/plugin.php', "<?php\nupdate_option(\$_GET['k'], 1);\nset_transient(get_key(), 1);\n");
+
+        try {
+            $run = function (array $options) use ($dir): int {
+                $tester = new CommandTester(new CheckCommand());
+                $tester->execute(['path' => $dir, '--fail-on' => 'A'] + $options);
+
+                return $tester->getStatusCode();
+            };
+
+            self::assertSame(Command::SUCCESS, $run([]), 'the letter alone passes');
+            self::assertSame(Command::FAILURE, $run(['--min-coverage' => '50']));
+            self::assertSame(Command::SUCCESS, $run(['--min-coverage' => '0']));
+            self::assertSame(Command::INVALID, $run(['--min-coverage' => 'lots']));
+        } finally {
+            @unlink($dir . '/plugin.php');
+            @rmdir($dir);
+        }
+    }
 }

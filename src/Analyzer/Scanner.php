@@ -108,7 +108,8 @@ final class Scanner
         $findings = [];
         $removals = [];
         $callbacks = [];
-        $uninstallCalls = [];
+        $deactivationCallbacks = [];
+        $calls = [];
         $guards = [];
         $blankets = [];
         $requires = [];
@@ -168,7 +169,8 @@ final class Scanner
             }
             array_push($removals, ...$cleanup->removals());
             array_push($callbacks, ...$cleanup->uninstallCallbacks());
-            array_push($uninstallCalls, ...$cleanup->uninstallCalls());
+            array_push($deactivationCallbacks, ...$cleanup->deactivationCallbacks());
+            array_push($calls, ...$cleanup->calls());
             array_push($guards, ...$cleanup->guards());
             array_push($blankets, ...$cleanup->blanketRemovals());
             array_push($requires, ...$cleanup->requires());
@@ -178,8 +180,11 @@ final class Scanner
         // so its removals credit cleanup the same way uninstall.php's own do.
         $uninstallFiles = CleanupDiffer::reachableUninstallFiles($requires);
 
-        $findings = CleanupDiffer::apply($findings, $removals, $callbacks, $uninstallCalls, $blankets, $uninstallFiles);
-        $condition = CleanupDiffer::condition($guards, $callbacks, $uninstallCalls, $removals, $uninstallFiles);
+        $scopedFunctions = CleanupDiffer::scopedFunctions($callbacks, $calls, $uninstallFiles);
+        $deactivationFunctions = CleanupDiffer::reachableFunctions($deactivationCallbacks, $calls);
+
+        $findings = CleanupDiffer::apply($findings, $removals, $scopedFunctions, $blankets, $uninstallFiles, $deactivationFunctions);
+        $condition = CleanupDiffer::condition($guards, $scopedFunctions, $removals, $uninstallFiles);
 
         return [
             'files' => $files,

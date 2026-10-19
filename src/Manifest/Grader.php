@@ -102,7 +102,10 @@ final class Grader
         $cleaned = count($confident) - count($left);
         $hasPath = $cleanup['has_uninstall_php'] || $cleanup['has_uninstall_hook'];
 
-        if (!$hasPath) {
+        // A plugin whose only cleanup is a deactivation hook, and which clears
+        // everything there, leaves nothing behind; "no uninstall routine" would
+        // be true and beside the point. Anything left over is still an F.
+        if (!$hasPath && $left !== []) {
             // No teardown at all — cap the score so the letter and number agree.
             return self::make('F', $this->score($left), $cleaned, count($left), 'No uninstall routine — everything it creates is left behind.');
         }
