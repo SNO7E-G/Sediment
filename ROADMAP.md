@@ -4,8 +4,8 @@ Where Sediment is going, and what each release has to prove before the next one
 starts. Every release ships publicly on its own, so a pause between any two
 still leaves something finished.
 
-Current: **v0.11.0**. The Index has shipped, and 0.10 and 0.11 hardened what
-it stands on. What remains before 1.0 is thirty days of the schema holding, not
+Current: **v0.12.0**. The Index has shipped, and 0.10 through 0.12 hardened
+what it stands on. What remains before 1.0 is thirty days of the schema holding, not
 features.
 
 ## What is already proven
@@ -135,10 +135,10 @@ The Index ships. This is the release candidate.
 **Done when:** the Index is published, and "zero WordPress core artifacts" is
 asserted across all 5,000 manifests rather than only across fixtures.
 
-## 0.10 and 0.11 — shipped
+## 0.10, 0.11 and 0.12 — shipped
 
-Neither release was on the original plan. Both came from auditing the
-analyzer against the corpus it grades.
+None of these releases was on the original plan. All three came from auditing
+the analyzer against the corpus it grades.
 
 0.10 added drop-in and `mu-plugins` detection, which made the manifest schema
 2.1 (an additive change), and hardened the pipeline: PHPStan at max level, error
@@ -158,6 +158,18 @@ cleanup that real plugins perform:
 - **Pipeline.** A release now publishes only after the full suite passes.
 
 The changes move published grades, so the Index is rebuilt from 0.11.
+
+0.12 finished that audit:
+
+- **Multisite.** Removals are matched by scope, so `delete_site_option()` no
+  longer credits `update_option()`, and the generated `uninstall.php` removes
+  per-site data from every site on a network.
+- **Contract.** `check` and `diff` exit 2 for a usage or I/O error and 1 only
+  for a failed gate, and `diff` flags an option that starts autoloading and a
+  drop in coverage.
+- **Pipeline.** Manifests are written atomically, CI actions are pinned to
+  commits, the live WordPress test runs a checksummed release, and the Index
+  gate counts coverage against the pinned list.
 
 ## 1.0 — Stable
 

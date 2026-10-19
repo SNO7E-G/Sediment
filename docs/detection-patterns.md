@@ -107,10 +107,19 @@ gated on a setting Sediment does not read for deactivation.
 **Bulk deletes.** `$wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name
 LIKE 'acme\_%'")` credits every option whose key the pattern matches. The same
 applies to `sitemeta` and the four meta tables, and to the `$wpdb->prepare()` +
-`$wpdb->esc_like()` form. A transient is matched through its `_transient_` row.
-Only a WHERE made purely of `LIKE`/`=` terms on the key column, joined by `OR`,
-is read: an `AND` or any other condition could narrow the delete, so it credits
-nothing.
+`$wpdb->esc_like()` form. A transient is matched through its `_transient_` row
+in the options table, and a site transient through its `_site_transient_` row
+in `sitemeta`. Only a WHERE made purely of `LIKE`/`=` terms on the key column,
+joined by `OR`, is read: an `AND` or any other condition could narrow the
+delete, so it credits nothing.
+
+**Scope.** On multisite, `update_option()` writes the current site's options
+table and `update_site_option()` writes the network's `sitemeta` table, so a
+removal is credited only in its own scope. `delete_site_option()`,
+`delete_network_option()`, `delete_site_transient()`, and a bulk delete on
+`sitemeta` clear network writes; `delete_option()`, `delete_transient()`, and a
+bulk delete on the options table clear per-site ones. On a single site the two
+share a table, but a removal that is right only there is not credited.
 
 **Loops over literal arrays.** `foreach (['acme_a', 'acme_b'] as $key)` binds the
 loop variable to each element, on both the create and the remove side. The array
@@ -195,12 +204,16 @@ the queue library many larger plugins use instead of WP-Cron.
 
 - A file written into the wp-content root under one of the names WordPress
   itself loads — `advanced-cache.php`, `object-cache.php`, `db.php`,
-  `sunrise.php`, `db-error.php`, `install.php`, `maintenance.php` — is a
-  **drop-in**. WordPress includes these on every request whether or not their
-  author still exists, so a leftover one can slow or break an entire site.
-- Any `.php` file written into `mu-plugins/` is a **must-use plugin**: it runs
-  before normal plugins load and is not manageable from the Plugins screen,
-  surviving until someone deletes it by hand.
+  `sunrise.php`, `db-error.php`, `install.php`, `maintenance.php`,
+  `php-error.php`, `fatal-error-handler.php`, and the multisite status pages
+  `blog-deleted.php`, `blog-inactive.php`, `blog-suspended.php` — is a
+  **drop-in**. WordPress includes these whether or not their author still
+  exists, so a leftover one can slow or break an entire site. The same name in
+  a subdirectory (`wp-content/cache/db.php`) is an ordinary file.
+- A `.php` file written directly into `mu-plugins/` is a **must-use plugin**:
+  it runs before normal plugins load and is not manageable from the Plugins
+  screen, surviving until someone deletes it by hand. WordPress loads only the
+  top-level files there, so one in a subdirectory is not reported.
 
 Both weigh like tables for the grade and cap it at D, because both keep
 executing after the plugin is gone. Both are also safe for the uninstall

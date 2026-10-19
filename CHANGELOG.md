@@ -8,6 +8,93 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [0.12.0] — 2026-10-20
+
+A hardening release that finishes the 0.11 audit: multisite, the exit-code
+contract, and the pipeline that fetches, scans, and publishes. No grade in the
+golden corpus moved. The recorded manifests changed in two ways. Network
+options in six of the ten plugins now read `autoload: "no"` where they read
+`"unknown"`, because WordPress never autoloads them. Four WooCommerce network
+options are no longer credited as cleaned: WooCommerce writes them with
+`update_site_option()`, which on a network is the `sitemeta` table, but its
+uninstall routine deletes only from the options table.
+
+### Changed
+
+- **Breaking: `check` and `diff` exit 2 for a usage or I/O error.** A missing
+  plugin path, or a baseline that is missing, unreadable, not JSON, or not a
+  manifest, used to exit 1, the same code as a failed gate. It now exits 2, and
+  so does any command line that cannot be parsed (a missing argument, an
+  unknown option). Exit 1 from `check` or `diff` now always means the plugin
+  failed the gate. A CI step that treats any non-zero exit as failure is
+  unaffected. See [`docs/stability.md`](docs/stability.md).
+- **Removals are matched by scope.** On multisite, `update_option()` and
+  `update_site_option()` write different tables, so `delete_site_option('x')`
+  no longer credits `update_option('x')`, or the reverse. A bulk delete on the
+  options table no longer credits a site transient, which a network keeps in
+  `sitemeta`. On a single site the two share a table, but cleanup that only
+  works there is not credited.
+- **The generated `uninstall.php` cleans every site on a network.** Options,
+  tables, cron events, transients, post, term and comment meta, roles, and
+  Action Scheduler jobs are removed once per site, through `get_sites()` (with
+  no 100-site limit) and `switch_to_blog()`. Network options and transients,
+  user meta, and drop-in and mu-plugin files are removed once. A single-site
+  install runs the same code once.
+- **`diff` catches the regressions the grade weighs most.** An option whose
+  autoload rose (`no` to `yes` or `unknown`) is listed, and fails the diff
+  unless the option is cleaned up. So is a coverage drop: a lower resolution
+  rate, or more skipped files, than the baseline. A baseline without coverage
+  is not compared on it.
+- **The manifest and the grader agree on autoload.** Both keep the worst claim
+  any write makes, `yes` over `unknown` over `no`. A key written once with
+  autoload off and once without a flag was shown as `no` but graded as
+  `unknown`. A network option is reported as `no`, which is how the grader
+  already weighed it.
+- **Drop-ins and mu-plugins classify only where WordPress loads them.**
+  `wp-content/cache/db.php` is not a drop-in and `mu-plugins/lib/x.php` is not
+  a must-use plugin, so neither is reported or deleted. `blog-deleted.php`,
+  `blog-inactive.php`, `blog-suspended.php`, `php-error.php`, and
+  `fatal-error-handler.php` are now recognised as drop-ins.
+
+### Fixed
+
+- **A truncated manifest is no longer trusted by `--resume`.** `batch` writes
+  each manifest to a temporary file and renames it into place, and resumes past
+  a plugin only when its manifest reads back whole. The Index shard script
+  applies the same check.
+- **PHP notices can no longer corrupt a batch child's manifest.** The child
+  sends them to stderr, and a child whose output still is not a manifest is
+  reported with the first line it printed.
+- **Errors go to stderr** in `scan`, `grade`, `fetch`, `check`, and `diff`, so
+  `scan --json > manifest.json` and `fetch --quiet-path` never mistake an
+  error message for output.
+- **Directories named with `[`, `]`, `*` or `?` are read literally** by `batch`
+  and `index`, which used `glob()` and found nothing under them.
+- **`fetch` reports the real reason a download failed** when it falls back to
+  PHP's stream wrapper, with a hint about the CA bundle setting when the
+  failure is a certificate problem.
+
+### Security
+
+- **The unversioned fallback archive must prove its version.** When a pinned
+  version has no versioned zip, `fetch` falls back to the current release's
+  zip, which may already be newer than the version the API reported a moment
+  earlier. It now refuses that archive unless the plugin's `Version:` header
+  matches the pin. Versioned archives are fixed to their tag by URL and are not
+  checked.
+- **`fetch` only speaks HTTPS.** A plain-HTTP URL is refused, curl will not
+  follow a redirect to any other protocol, and the stream wrapper refuses a
+  response that was redirected through plain HTTP. Slugs and versions are
+  anchored with `\z`, so a trailing newline no longer passes validation.
+- **Every third-party GitHub Action is pinned to a commit SHA**, including the
+  ones in the release job that hold a write token and a signing identity.
+- **The live WordPress test runs a pinned, checksummed release** instead of
+  whatever `latest.tar.gz` serves that day.
+- **The Index gate counts coverage against the pinned plugin list.** Stale
+  manifests can no longer stand in for missing ones, and the run fails when
+  more pinned plugins are missing than the floor allows. A resumed shard keeps
+  the provenance its interrupted run recorded.
+
 ## [0.11.0] — 2026-10-20
 
 A safety and accuracy release. The safety fixes close ways Sediment could name,
