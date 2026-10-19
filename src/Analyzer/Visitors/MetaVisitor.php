@@ -52,7 +52,7 @@ final class MetaVisitor extends AbstractDetectionVisitor
         }
 
         $fn = strtolower($node->name->toString());
-        $args = $node->getArgs();
+        $args = $this->args($node);
 
         if (isset(self::FUNCTIONS[$fn])) {
             // The typed helpers name their artifact type in the function itself,

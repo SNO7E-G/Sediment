@@ -15,14 +15,23 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
-  id-token: write
-  attestations: write
+  contents: read
 
 jobs:
+  # A release ships a signed, attested binary, so it must be built from a
+  # commit the full suite has passed — not merely one that touched the
+  # changelog. Only the publishing job gets write access.
+  tests:
+    uses: ./.github/workflows/tests.yml
+
   release:
     name: Publish from changelog
+    needs: tests
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
 
     steps:
       - uses: actions/checkout@v4

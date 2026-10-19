@@ -173,7 +173,7 @@ final class IndexCommand extends Command
 
         // The lookup is for machines and can run to tens of megabytes, so it is
         // compact; stats and QA are for people first.
-        file_put_contents($out . '/reverse-lookup.json', (string) json_encode($lookup, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+        file_put_contents($out . '/reverse-lookup.json', json_encode($lookup, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE | JSON_THROW_ON_ERROR));
         file_put_contents($out . '/stats.json', Manifest::toJson($stats));
         file_put_contents($out . '/qa.json', Manifest::toJson($qa));
 

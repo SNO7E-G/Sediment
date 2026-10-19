@@ -97,7 +97,7 @@ final class BatchCommandTest extends TestCase
             '--memory-limit' => '32M',
         ]);
 
-        self::assertSame(Command::SUCCESS, $tester->getStatusCode());
+        self::assertSame(Command::FAILURE, $tester->getStatusCode(), 'a lost plugin fails the run, and the rest still lands');
         self::assertFileDoesNotExist($this->out . '/hog.json');
         self::assertFileExists($this->out . '/tiny.json');
 
@@ -128,7 +128,7 @@ final class BatchCommandTest extends TestCase
             '--timeout' => '1',
         ]);
 
-        self::assertSame(Command::SUCCESS, $tester->getStatusCode());
+        self::assertSame(Command::FAILURE, $tester->getStatusCode());
         self::assertFileDoesNotExist($this->out . '/slow.json');
 
         $summary = json_decode((string) file_get_contents($report), true);

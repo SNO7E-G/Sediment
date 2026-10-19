@@ -50,7 +50,7 @@ final class TableVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $sql = $this->argValue($node->getArgs(), 0, 'queries');
+        $sql = $this->argValue($this->args($node), 0, 'queries');
         $resolution = $sql !== null ? $this->resolveKey($sql) : Resolution::dynamic();
         $names = $resolution->value !== null
             ? TableStatements::created($resolution->value, $resolution->confidence === Finding::CONFIDENCE_PATTERN)
@@ -83,7 +83,7 @@ final class TableVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $sql = $this->argValue($node->getArgs(), 0, 'query');
+        $sql = $this->argValue($this->args($node), 0, 'query');
         if ($sql === null) {
             return;
         }

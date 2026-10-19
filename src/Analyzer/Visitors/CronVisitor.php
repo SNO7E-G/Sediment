@@ -48,7 +48,7 @@ final class CronVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $args = $node->getArgs();
+        $args = $this->args($node);
 
         // wp_reschedule_event shares wp_schedule_event's signature: timestamp,
         // recurrence, hook, args. It is rare, but it writes the cron option

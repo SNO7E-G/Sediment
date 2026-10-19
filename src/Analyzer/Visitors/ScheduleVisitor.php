@@ -60,7 +60,7 @@ final class ScheduleVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $args = $node->getArgs();
+        $args = $this->args($node);
 
         if ($fn === 'as_schedule_recurring_action') {
             $this->record($node, $fn, $args, 2, 'hook', $this->resolvedArg($args, 1, 'interval_in_seconds'), $this->passesArgs($args, 3, 'args'));

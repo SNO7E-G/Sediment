@@ -47,7 +47,7 @@ final class RewriteVisitor extends AbstractDetectionVisitor
 
         [$index, $parameter] = self::FUNCTIONS[$function];
 
-        $value = $this->argValue($node->getArgs(), $index, $parameter);
+        $value = $this->argValue($this->args($node), $index, $parameter);
         if ($value === null) {
             return;
         }

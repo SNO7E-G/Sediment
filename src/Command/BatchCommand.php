@@ -206,7 +206,7 @@ final class BatchCommand extends Command
         if (is_string($report) && $report !== '') {
             // A run of thousands cannot be debugged from a terminal warning that
             // scrolled past, so the failures are written down with their reasons.
-            file_put_contents($report, (string) json_encode([
+            file_put_contents($report, json_encode([
                 'scanned' => $scanned,
                 'skipped' => $skipped,
                 'grades' => $grades,
@@ -215,7 +215,7 @@ final class BatchCommand extends Command
                     'write_calls' => $resolutionTotals['total'],
                 ],
                 'failed' => $failed,
-            ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+            ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE | JSON_THROW_ON_ERROR));
 
             $io->writeln(sprintf(' Report written to <comment>%s</comment>.', OutputFormatter::escape($report)));
         }
@@ -230,7 +230,10 @@ final class BatchCommand extends Command
             fclose($lock);
         }
 
-        return Command::SUCCESS;
+        // A run that lost plugins did not fully do its job, and a script or CI
+        // step must be able to tell without parsing the warning above. The
+        // manifests that were written stay valid; --resume picks up the rest.
+        return $failed === [] ? Command::SUCCESS : Command::FAILURE;
     }
 
     /**
@@ -251,6 +254,12 @@ final class BatchCommand extends Command
 
         try {
             $process->start();
+        } catch (ProcessTimedOutException) {
+            // start() checks the timeout itself, so a spawn slower than the
+            // budget (a loaded Windows host) times out here, not in the poll.
+            $failed[$slug] = ['reason' => 'timeout', 'detail' => sprintf('exceeded the %ds wall-clock timeout', $timeout)];
+
+            return null;
         } catch (\Throwable $e) {
             $failed[$slug] = ['reason' => 'error', 'detail' => $e->getMessage()];
 

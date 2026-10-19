@@ -73,6 +73,14 @@ final class CleanupVisitor extends AbstractDetectionVisitor
      */
     private const BLANKET_REMOVALS = ['flush_rewrite_rules' => 'rewrite_rule'];
 
+    /** Removals scoped to one object id, which clear a key everywhere only when looped. */
+    private const SINGLE_OBJECT_META = [
+        'delete_post_meta' => true,
+        'delete_user_meta' => true,
+        'delete_term_meta' => true,
+        'delete_comment_meta' => true,
+    ];
+
     /** delete_metadata()'s object type comes from its first argument. */
     private const META_OBJECT_TYPES = [
         'post' => 'post_meta', 'user' => 'user_meta', 'term' => 'term_meta', 'comment' => 'comment_meta',
@@ -142,7 +150,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
                 // Drop-ins and mu-plugins are the two file types whose removal
                 // is unambiguously cleanup; classify by path like delete_metadata
                 // classifies by its object-type argument.
-                $this->recordFileRemovalNode($node, $function, $this->argValue($node->getArgs(), 0, 'path'));
+                $this->recordFileRemovalNode($node, $function, $this->argValue($this->args($node), 0, 'path'));
             }
 
             return;
@@ -185,7 +193,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
                 continue;
             }
 
-            $keyValue = $this->argValue($call->getArgs(), 0, 'option');
+            $keyValue = $this->argValue($this->args($call), 0, 'option');
             if ($keyValue === null) {
                 continue;
             }
@@ -344,7 +352,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
      */
     private function guardDefault(FuncCall $call): bool|string|null
     {
-        $default = $this->argValue($call->getArgs(), 1, 'default');
+        $default = $this->argValue($this->args($call), 1, 'default');
 
         if ($default === null) {
             return false;
@@ -363,7 +371,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
 
     private function recordCallback(FuncCall $node): void
     {
-        $callback = $this->argValue($node->getArgs(), 1, 'callback');
+        $callback = $this->argValue($this->args($node), 1, 'callback');
         if ($callback === null) {
             return;
         }
@@ -378,7 +386,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
     {
         [$keyIndex, $type, $parameter] = self::REMOVALS[$function];
 
-        $value = $this->argValue($node->getArgs(), $keyIndex, $parameter);
+        $value = $this->argValue($this->args($node), $keyIndex, $parameter);
         if ($value === null) {
             return;
         }
@@ -387,10 +395,17 @@ final class CleanupVisitor extends AbstractDetectionVisitor
         // with those exact arguments, so it cannot stand for a blanket clear —
         // and Action Scheduler's as_unschedule_all_actions($hook, $args) narrows
         // itself the same way the moment arguments are passed.
-        if ($function === 'wp_clear_scheduled_hook' && $this->passesArgs($node->getArgs(), 1, 'args')) {
+        if ($function === 'wp_clear_scheduled_hook' && $this->passesArgs($this->args($node), 1, 'args')) {
             return;
         }
-        if ($function === 'as_unschedule_all_actions' && $this->passesArgs($node->getArgs(), 1, 'args')) {
+        if ($function === 'as_unschedule_all_actions' && $this->passesArgs($this->args($node), 1, 'args')) {
+            return;
+        }
+
+        // delete_post_meta($id, 'k') removes the key from ONE object. Credit it
+        // only where it plausibly runs over every object — inside a loop or a
+        // callback — never as a single call that leaves the rest behind.
+        if (isset(self::SINGLE_OBJECT_META[$function]) && !$this->inLoop()) {
             return;
         }
 
@@ -418,7 +433,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
      */
     private function recordDeleteMetadata(FuncCall $node): void
     {
-        $args = $node->getArgs();
+        $args = $this->args($node);
 
         $typeValue = $this->argValue($args, 0, 'meta_type');
         $keyValue = $this->argValue($args, 2, 'meta_key');
@@ -433,6 +448,13 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             return;
         }
 
+        // Without $delete_all this removes the key from one object only.
+        $deleteAll = $this->argValue($args, 4, 'delete_all');
+        $isDeleteAll = $deleteAll instanceof ConstFetch && strtolower($deleteAll->name->toString()) === 'true';
+        if (!$isDeleteAll && !$this->inLoop()) {
+            return;
+        }
+
         $this->addRemoval(self::META_OBJECT_TYPES[(string) $type->value], (string) $key->value, 'delete_metadata');
     }
 
@@ -442,7 +464,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $value = $this->argValue($node->getArgs(), 0, 'query');
+        $value = $this->argValue($this->args($node), 0, 'query');
         if ($value === null) {
             return;
         }
@@ -474,7 +496,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $this->recordFileRemovalNode($node, '$wp_filesystem->delete', $this->argValue($node->getArgs(), 0, 'path'));
+        $this->recordFileRemovalNode($node, '$wp_filesystem->delete', $this->argValue($this->args($node), 0, 'path'));
     }
 
     /**
@@ -659,7 +681,7 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             $expr instanceof FuncCall
             && $expr->name instanceof Name
             && strtolower($expr->name->toString()) === 'plugin_dir_path'
-            && ($first = $this->positionalArg($expr->getArgs(), 0)) !== null
+            && ($first = $this->positionalArg($this->args($expr), 0)) !== null
         ) {
             return $this->requireCandidates($first->value);
         }

@@ -89,13 +89,19 @@ final class Manifest
      * a change where nothing changed, and gives the Index two types for one
      * field. Encoding goes through here so the flag cannot be forgotten.
      *
+     * Keys come from source files in whatever encoding their author used, so a
+     * Latin-1 `'caf\xE9'` is invalid UTF-8. That used to make json_encode
+     * return false, which became an empty manifest and a successful exit; the
+     * byte is now replaced with U+FFFD, and anything else unencodable throws.
+     *
      * @param array<string, mixed> $manifest
      */
     public static function toJson(array $manifest): string
     {
-        return (string) json_encode(
+        return json_encode(
             $manifest,
-            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION,
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION
+                | JSON_INVALID_UTF8_SUBSTITUTE | JSON_THROW_ON_ERROR,
         );
     }
 

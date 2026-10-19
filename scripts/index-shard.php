@@ -115,6 +115,14 @@ foreach (array_chunk(array_keys($pending), WAVE_SIZE) as $slugs) {
 
     removeDir($stage);
 
+    // 1 means some plugins in the wave could not be scanned — expected at this
+    // scale, and the assemble step's coverage floor judges it. Anything else
+    // means batch itself broke, and carrying on would publish a hollow shard.
+    if (!in_array($batch->getExitCode(), [0, 1], true)) {
+        fwrite(STDERR, sprintf("shard %d wave %d: batch failed with exit %d\n", $shard, $wave, (int) $batch->getExitCode()));
+        exit(1);
+    }
+
     fwrite(STDOUT, sprintf(
         "shard %d wave %d done (batch exit %d), %d manifest(s) so far\n",
         $shard,

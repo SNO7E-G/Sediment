@@ -8,6 +8,51 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
+## [Unreleased]
+
+A safety release: every fix here closes a way Sediment could name, credit, or
+emit something the source did not prove.
+
+### Fixed
+
+- **A wrapper that rewrites its parameter is no longer expanded to its callers'
+  keys.** `set($name) { $name = 'acme_' . $name; update_option($name, …); }`
+  called as `set('enabled')` was reported as the option `enabled`, and a
+  generated uninstall.php would have deleted that key, which may belong to
+  another plugin. A parameter now expands only while it still holds what
+  the caller passed.
+- **Generated uninstall.php comments can no longer be turned into code.** A
+  post type, taxonomy, or capability name containing a closing PHP tag ended
+  the comment it was written into, and anything after it ran on uninstall.
+- **Drop-ins are deleted only if the plugin still owns them.** `object-cache.php`,
+  `advanced-cache.php`, and `db.php` are slots plugins share. The generated
+  routine now removes the file only while it still contains the plugin's name,
+  rather than deleting whatever another plugin has put there since.
+- **Removing meta from a single object no longer credits the key everywhere.**
+  `delete_post_meta($id, 'k')` and `delete_metadata()` without `$delete_all`
+  count as cleanup only inside a loop or callback that plausibly visits every
+  object.
+- **A first-class callable no longer discards a file's findings.** With
+  assertions enabled, `strlen(...)` anywhere in a file threw inside the
+  detectors and every finding in that file was lost.
+- **Keys that are not valid UTF-8 no longer produce an empty manifest.** A
+  Latin-1 source file made `scan --json` print nothing and exit 0. The bad byte
+  is now replaced with U+FFFD, and any other encoding failure is an error.
+- **`batch` exits 1 when any plugin could not be scanned**, and a child that
+  timed out while starting is recorded as `timeout` rather than `error`.
+- **`fetch` enforces the unpacked-size ceiling on the bytes it actually
+  inflates**, not on the sizes an archive declares about itself. It also
+  refuses symlink entries and unreadable entries, and leaves nothing
+  half-unpacked in the cache.
+
+### Security
+
+- The release workflow runs the full test suite and publishes only if it
+  passes. Write permission is limited to the publishing job.
+- Index shards, which unpack thousands of third-party archives, run with a
+  read-only token that is not saved to `.git/config`. Only the job that
+  publishes the dataset can write.
+
 ## [0.10.0] — 2026-08-23
 
 ### Added

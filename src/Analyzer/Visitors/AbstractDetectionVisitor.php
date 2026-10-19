@@ -9,21 +9,28 @@ use PhpParser\Node\Arg;
 use PhpParser\Node\ArrayItem;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\BinaryOp\Concat;
+use PhpParser\Node\Expr\ArrayDimFetch;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\AssignOp;
+use PhpParser\Node\Expr\AssignRef;
 use PhpParser\Node\Expr\CallLike;
 use PhpParser\Node\Expr\List_;
+use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Param;
 use PhpParser\Node\Stmt\Catch_;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
+use PhpParser\Node\Stmt\Do_;
+use PhpParser\Node\Stmt\For_;
 use PhpParser\Node\Stmt\Foreach_;
+use PhpParser\Node\Stmt\While_;
 use PhpParser\Node\Stmt\Function_;
 use PhpParser\Node\Stmt\Global_;
 use PhpParser\Node\Stmt\Static_;
+use PhpParser\Node\Stmt\Unset_;
 use PhpParser\NodeVisitorAbstract;
 use Sediment\Analyzer\CallSites;
 use Sediment\Analyzer\ExpressionResolver;
@@ -56,6 +63,11 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
 
     /** @var list<array<string, string|null>> per-function local scopes (null = poisoned) */
     private array $localScopes = [[]];
+
+    private int $loopDepth = 0;
+
+    /** @var list<array<string, true>> per-function parameters never re-bound since entry */
+    private array $rawParams = [[]];
 
     /** @var array<int, string|null> line => the function enclosing it */
     private array $scopeByLine = [];
@@ -94,8 +106,13 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
                 ?? ('@anon@' . $this->file . '@' . $node->getStartLine());
         }
 
+        if ($node instanceof Foreach_ || $node instanceof For_ || $node instanceof While_ || $node instanceof Do_) {
+            $this->loopDepth++;
+        }
+
         if ($node instanceof FunctionLike) {
             $this->localScopes[] = [];
+            $this->rawParams[] = [];
             $this->functionStack[] = $this->functionIdentifier($node);
         }
 
@@ -131,6 +148,14 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
             return null;
         }
 
+        // And only while `$key` still holds what the caller passed. After
+        // `$key = 'acme_' . $key` or `$key = sanitize_key($key)` the callers'
+        // literals are no longer the key, and naming them would put another
+        // plugin's option into a generated uninstall.php.
+        if (!isset($this->rawParams[count($this->rawParams) - 1][$expr->name])) {
+            return null;
+        }
+
         return $this->callSites->forParameter($scope, $expr->name);
     }
 
@@ -140,8 +165,13 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
             array_pop($this->classStack);
         }
 
+        if ($node instanceof Foreach_ || $node instanceof For_ || $node instanceof While_ || $node instanceof Do_) {
+            $this->loopDepth--;
+        }
+
         if ($node instanceof FunctionLike) {
             array_pop($this->localScopes);
+            array_pop($this->rawParams);
             array_pop($this->functionStack);
         }
 
@@ -178,6 +208,18 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
         return true;
     }
 
+    /**
+     * A call's arguments, or none for a first-class callable. `getArgs()`
+     * asserts on `strlen(...)`, and with assertions on that one throw used to
+     * cost every finding in the file — so visitors read arguments through here.
+     *
+     * @return list<Arg>
+     */
+    protected function args(CallLike $node): array
+    {
+        return $node->isFirstClassCallable() ? [] : array_values($node->getArgs());
+    }
+
     /** @return list<Finding> */
     public function findings(): array
     {
@@ -196,6 +238,17 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
     protected function currentFunction(): ?string
     {
         return $this->functionStack === [] ? null : $this->functionStack[count($this->functionStack) - 1];
+    }
+
+    /**
+     * Inside a loop or a closure — where a per-object call plausibly runs over
+     * every object (`foreach (get_users() ...)`, `array_map(fn ...)`).
+     * ponytail: structural only; a loop over a single id still counts.
+     */
+    protected function inLoop(): bool
+    {
+        return $this->loopDepth > 0
+            || ($this->functionStack !== [] && $this->functionStack[count($this->functionStack) - 1] === null);
     }
 
     /** Resolve an expression to a key using the current class and local scope. */
@@ -314,8 +367,17 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
     {
         if ($node instanceof Assign || $node instanceof AssignOp) {
             $this->recordAssignment($node);
+        } elseif ($node instanceof AssignRef) {
+            $this->poisonTarget($node->var);
         } elseif ($node instanceof Param) {
             $this->poisonTarget($node->var); // caller-supplied
+            if ($node->var instanceof Variable && is_string($node->var->name)) {
+                $this->rawParams[count($this->rawParams) - 1][$node->var->name] = true;
+            }
+        } elseif ($node instanceof Unset_) {
+            foreach ($node->vars as $var) {
+                $this->poisonTarget($var);
+            }
         } elseif ($node instanceof Foreach_) {
             $this->poisonTarget($node->valueVar);
             if ($node->keyVar !== null) {
@@ -339,6 +401,19 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
         // Destructuring targets get unknowable per-element values.
         if ($node->var instanceof List_ || $node->var instanceof Array_) {
             $this->poisonTarget($node->var);
+
+            return;
+        }
+
+        // `$key['x'] = ...` changes `$key` too, so it is no longer the raw parameter.
+        // ponytail: by-reference arguments (`preg_match(..., $key)`) and
+        // `use (&$key)` closures are not tracked; add when a corpus plugin needs it.
+        $target = $node->var;
+        while ($target instanceof ArrayDimFetch || $target instanceof PropertyFetch) {
+            $target = $target->var;
+        }
+        if ($target !== $node->var && $target instanceof Variable && is_string($target->name)) {
+            $this->poisonLocal($target->name);
 
             return;
         }
@@ -371,12 +446,14 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
 
     private function poisonLocal(string $name): void
     {
+        unset($this->rawParams[count($this->rawParams) - 1][$name]);
         $this->localScopes[count($this->localScopes) - 1][$name] = null;
     }
 
     private function bindLocal(string $name, ?string $value): void
     {
         $index = count($this->localScopes) - 1;
+        unset($this->rawParams[$index][$name]);
 
         if (!array_key_exists($name, $this->localScopes[$index])) {
             $this->localScopes[$index][$name] = $value;
