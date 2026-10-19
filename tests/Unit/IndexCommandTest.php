@@ -146,4 +146,29 @@ final class IndexCommandTest extends TestCase
 
         self::assertSame(Command::FAILURE, $tester->getStatusCode());
     }
+
+    public function test_a_directory_named_with_glob_characters_is_read_literally(): void
+    {
+        // glob() read "[run-1]" as a character class and found nothing. A
+        // hidden temp file left by an interrupted write is not a manifest.
+        $this->writeManifest('alpha', "<?php\nupdate_option('alpha_own', 1);\n");
+        $literal = $this->dir . '/[run-1]';
+        mkdir($literal);
+        rename($this->dir . '/manifests/alpha.json', $literal . '/alpha.json');
+        file_put_contents($literal . '/.alpha.json.1234.tmp', '{"grade": "A"');
+
+        try {
+            $tester = new CommandTester(new IndexCommand());
+            $tester->execute(['manifests' => $literal, '--out' => $this->dir . '/out']);
+
+            self::assertSame(Command::SUCCESS, $tester->getStatusCode());
+            $stats = json_decode((string) file_get_contents($this->dir . '/out/stats.json'), true);
+            self::assertIsArray($stats);
+            self::assertSame(1, $stats['plugins']);
+        } finally {
+            @unlink($literal . '/alpha.json');
+            @unlink($literal . '/.alpha.json.1234.tmp');
+            @rmdir($literal);
+        }
+    }
 }

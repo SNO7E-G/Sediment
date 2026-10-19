@@ -61,7 +61,7 @@ final class BatchCommand extends Command
             return Command::FAILURE;
         }
 
-        $plugins = array_values(array_filter((array) glob($directory . '/*'), 'is_dir'));
+        $plugins = self::pluginDirectories($directory);
         if ($plugins === []) {
             $io->error("No plugin directories found in {$directory}");
 
@@ -110,8 +110,9 @@ final class BatchCommand extends Command
                 // A run over thousands of plugins will be interrupted — a
                 // timeout, a full disk, a machine going away. Resuming from the
                 // manifests already written turns that from "start again" into
-                // "carry on".
-                if ($resume && is_file($out . '/' . $slug . '.json')) {
+                // "carry on". Only a manifest that reads back whole counts: a
+                // damaged one is scanned again rather than trusted forever.
+                if ($resume && Manifest::readFile($out . '/' . $slug . '.json') !== null) {
                     $skipped++;
                     $io->progressAdvance();
 
@@ -154,7 +155,12 @@ final class BatchCommand extends Command
                     // Re-encoded rather than written as the child sent it, so
                     // the document on disk cannot pick up platform line endings
                     // on the way through a pipe.
-                    file_put_contents($out . '/' . $slug . '.json', Manifest::toJson($manifest));
+                    if (!Manifest::writeFile($out . '/' . $slug . '.json', $manifest)) {
+                        $failed[$slug] = ['reason' => 'error', 'detail' => 'the manifest could not be written to ' . $out];
+                        $io->progressAdvance();
+
+                        continue;
+                    }
 
                     $grades[$manifest['grade']] = ($grades[$manifest['grade']] ?? 0) + 1;
                     $resolutionTotals['resolved'] += $manifest['coverage']['verified'] + $manifest['coverage']['resolved'];
@@ -249,7 +255,10 @@ final class BatchCommand extends Command
         // the parent is running.
         $binary = \Phar::running(false) !== '' ? \Phar::running(false) : dirname(__DIR__, 2) . '/bin/sediment';
 
-        $process = new Process([\PHP_BINARY, '-d', 'memory_limit=' . $memoryLimit, $binary, 'scan', $path, '--json']);
+        // The manifest is the child's stdout, so PHP's own notices and
+        // deprecations must not land there: one would corrupt the JSON and be
+        // reported as "no readable manifest", hiding the real cause.
+        $process = new Process([\PHP_BINARY, '-d', 'memory_limit=' . $memoryLimit, '-d', 'display_errors=stderr', $binary, 'scan', $path, '--json']);
         $process->setTimeout((float) $timeout);
 
         try {
@@ -289,11 +298,39 @@ final class BatchCommand extends Command
 
         $manifest = json_decode($process->getOutput(), true);
         if (!is_array($manifest) || !isset($manifest['grade'], $manifest['coverage'])) {
-            $failed[$slug] = ['reason' => 'error', 'detail' => 'the scan produced no readable manifest'];
+            // Whatever the child printed instead says why; its first line is
+            // usually the whole story.
+            $first = strtok(trim($process->getOutput()), "\n");
+            $failed[$slug] = [
+                'reason' => 'error',
+                'detail' => 'the scan produced no readable manifest' . (is_string($first) ? ': ' . mb_substr(trim($first), 0, 300) : ''),
+            ];
 
             return null;
         }
 
         return $manifest;
+    }
+
+    /**
+     * Every plugin directory under `$directory`, sorted. Not glob(): it reads
+     * `[`, `]`, `*` and `?` in the directory's own name as wildcards. Hidden
+     * entries are skipped, as glob() skipped them.
+     *
+     * @return list<string>
+     */
+    private static function pluginDirectories(string $directory): array
+    {
+        $plugins = [];
+        foreach (new \FilesystemIterator($directory, \FilesystemIterator::SKIP_DOTS) as $entry) {
+            /** @var \SplFileInfo $entry */
+            if ($entry->isDir() && !str_starts_with($entry->getFilename(), '.')) {
+                $plugins[] = $directory . '/' . $entry->getFilename();
+            }
+        }
+
+        sort($plugins, SORT_STRING);
+
+        return $plugins;
     }
 }

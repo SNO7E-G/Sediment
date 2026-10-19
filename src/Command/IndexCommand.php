@@ -46,7 +46,7 @@ final class IndexCommand extends Command
         $directory = rtrim((string) $input->getArgument('manifests'), "/\\");
         $out = rtrim((string) $input->getOption('out'), "/\\");
 
-        $files = (array) glob($directory . '/*.json');
+        $files = is_dir($directory) ? self::manifestFiles($directory) : [];
         if ($files === []) {
             $io->error("No manifests found in {$directory}");
 
@@ -75,15 +75,15 @@ final class IndexCommand extends Command
         ];
 
         foreach ($files as $file) {
-            $manifest = json_decode((string) file_get_contents((string) $file), true);
+            $manifest = json_decode((string) file_get_contents($file), true);
             if (!is_array($manifest) || !isset($manifest['creates'], $manifest['coverage'], $manifest['grade'])) {
                 // Every manifest the analyzer writes has all three; one missing
                 // any of them is truncated or hand-edited, not merely sparse.
-                $qa['unreadable'][] = basename((string) $file);
+                $qa['unreadable'][] = basename($file);
                 continue;
             }
 
-            $slug = $manifest['plugin']['slug'] ?? basename((string) $file, '.json');
+            $slug = $manifest['plugin']['slug'] ?? basename($file, '.json');
 
             // The Index is built against the frozen schema; a manifest from a
             // different major belongs to a different dataset.
@@ -199,5 +199,28 @@ final class IndexCommand extends Command
         $io->success('QA passed: zero core artifacts attributed, every manifest on the frozen schema, every plugin actually scanned.');
 
         return Command::SUCCESS;
+    }
+
+    /**
+     * Every `*.json` in the directory, sorted. Not glob(): it reads `[`, `]`,
+     * `*` and `?` in the directory's own name as wildcards. Hidden files, such
+     * as a batch's half-written temp files, are skipped.
+     *
+     * @return list<string>
+     */
+    private static function manifestFiles(string $directory): array
+    {
+        $files = [];
+        foreach (new \FilesystemIterator($directory, \FilesystemIterator::SKIP_DOTS) as $entry) {
+            /** @var \SplFileInfo $entry */
+            $name = $entry->getFilename();
+            if ($entry->isFile() && str_ends_with($name, '.json') && !str_starts_with($name, '.')) {
+                $files[] = $directory . '/' . $name;
+            }
+        }
+
+        sort($files, SORT_STRING);
+
+        return $files;
     }
 }

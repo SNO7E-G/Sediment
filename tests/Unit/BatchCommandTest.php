@@ -135,17 +135,23 @@ final class BatchCommandTest extends TestCase
         self::assertSame('timeout', $summary['failed']['slow']['reason']);
     }
 
-    public function test_resume_skips_a_plugin_whose_manifest_already_exists(): void
+    public function test_resume_skips_a_whole_manifest_and_rescans_a_truncated_one(): void
     {
-        $this->plugins = sys_get_temp_dir() . '/sediment-resume-' . getmypid();
+        // The brackets are for glob(), which read them as a character class
+        // and found no plugins at all under a directory named like this.
+        $this->plugins = sys_get_temp_dir() . '/sediment-resume-[1]-' . getmypid();
         $this->out = sys_get_temp_dir() . '/sediment-resume-out-' . getmypid();
         @mkdir($this->plugins . '/already-done', 0777, true);
+        @mkdir($this->plugins . '/cut-short', 0777, true);
         @mkdir($this->out, 0777, true);
         file_put_contents($this->plugins . '/already-done/plugin.php', "<?php\nupdate_option('x', 1);\n");
+        file_put_contents($this->plugins . '/cut-short/plugin.php', "<?php\nupdate_option('y', 1);\n");
 
-        // A sentinel, not a real manifest: resume must not even look inside,
-        // let alone overwrite it.
-        file_put_contents($this->out . '/already-done.json', 'sentinel');
+        // A whole manifest is trusted as it stands; one cut off by a full disk
+        // or a killed write is scanned again rather than skipped forever.
+        $whole = '{"grade": "A", "coverage": {}, "creates": {}, "sentinel": true}';
+        file_put_contents($this->out . '/already-done.json', $whole);
+        file_put_contents($this->out . '/cut-short.json', '{"grade": "A", "cover');
 
         $tester = new CommandTester(new BatchCommand());
         $tester->execute([
@@ -155,8 +161,33 @@ final class BatchCommandTest extends TestCase
         ]);
 
         self::assertSame(Command::SUCCESS, $tester->getStatusCode());
-        self::assertSame('sentinel', file_get_contents($this->out . '/already-done.json'));
+        self::assertSame($whole, file_get_contents($this->out . '/already-done.json'));
         self::assertStringContainsString('skipped 1 plugin(s)', $tester->getDisplay());
+
+        self::assertStringContainsString('"slug": "cut-short"', (string) file_get_contents($this->out . '/cut-short.json'));
+        self::assertSame(['already-done.json', 'cut-short.json'], array_values(array_diff(scandir($this->out) ?: [], ['.', '..', '.sediment-batch.lock'])), 'no temp file is left behind');
+    }
+
+    public function test_a_child_that_prints_junk_is_reported_with_what_it_printed(): void
+    {
+        $batch = new BatchCommand();
+        /** @var array<string, array{reason: string, detail: string}> $failed */
+        $failed = [];
+
+        // PHP's notices would land on the manifest's stream; the child is
+        // started with them sent to stderr instead.
+        $start = new \ReflectionMethod($batch, 'startChild');
+        $child = $start->invokeArgs($batch, [dirname(__DIR__) . '/fixtures/clean-plugin', 60, '256M', &$failed, 'clean-plugin']);
+        self::assertInstanceOf(\Symfony\Component\Process\Process::class, $child);
+        self::assertStringContainsString('display_errors=stderr', $child->getCommandLine());
+        $child->stop(0);
+
+        // And if something still corrupts it, the failure says what.
+        $junk = new \Symfony\Component\Process\Process([\PHP_BINARY, '-r', 'echo "Deprecated: something noisy\n{\"grade\":";']);
+        $junk->run();
+        $harvest = new \ReflectionMethod($batch, 'harvest');
+        self::assertNull($harvest->invokeArgs($batch, [$junk, &$failed, 'noisy']));
+        self::assertStringContainsString('Deprecated: something noisy', $failed['noisy']['detail'] ?? '');
     }
 
     public function test_a_missing_directory_fails(): void
@@ -184,8 +215,9 @@ final class BatchCommandTest extends TestCase
 
     private function removeDir(string $dir): void
     {
-        foreach ((array) glob($dir . '/*') as $path) {
-            is_dir((string) $path) ? $this->removeDir((string) $path) : @unlink((string) $path);
+        foreach (array_diff(scandir($dir) ?: [], ['.', '..']) as $name) {
+            $path = $dir . '/' . $name;
+            is_dir($path) ? $this->removeDir($path) : @unlink($path);
         }
         @rmdir($dir);
     }

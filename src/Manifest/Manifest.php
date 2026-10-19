@@ -104,6 +104,50 @@ final class Manifest
     }
 
     /**
+     * Write a manifest so it is either all there or not there at all: into a
+     * temporary file beside it, then renamed over the target. A disk filling
+     * up or a process killed mid-write leaves a stray temp file, never a
+     * truncated `slug.json` that `--resume` would trust forever. The temp name
+     * starts with a dot and does not end in `.json`, so nothing that lists
+     * manifests can pick it up.
+     *
+     * @param array<string, mixed> $manifest
+     */
+    public static function writeFile(string $path, array $manifest): bool
+    {
+        $json = self::toJson($manifest);
+        $temporary = dirname($path) . '/.' . basename($path) . '.' . bin2hex(random_bytes(4)) . '.tmp';
+
+        if (@file_put_contents($temporary, $json) !== strlen($json) || !@rename($temporary, $path)) {
+            @unlink($temporary);
+
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Read a manifest written earlier, or null when it is unreadable,
+     * truncated, or not a manifest. Every manifest the analyzer writes has a
+     * grade, coverage, and creates; one missing any of them is damaged.
+     *
+     * @return array<string, mixed>|null
+     */
+    public static function readFile(string $path): ?array
+    {
+        $contents = @file_get_contents($path);
+        $manifest = $contents !== false ? json_decode($contents, true) : null;
+
+        if (!is_array($manifest) || !isset($manifest['grade'], $manifest['coverage'], $manifest['creates'])) {
+            return null;
+        }
+
+        /** @var array<string, mixed> $manifest */
+        return $manifest;
+    }
+
+    /**
      * @param list<string> $files
      * @return array<string, string|null>
      */
