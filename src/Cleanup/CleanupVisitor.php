@@ -639,8 +639,8 @@ final class CleanupVisitor extends AbstractDetectionVisitor
             return; // a DELETE cut short could have lost a narrowing AND
         }
 
-        foreach (TableStatements::deletedRows($sql) as [$type, $pattern]) {
-            $this->addRemoval($type, $pattern, CleanupDiffer::LIKE);
+        foreach (TableStatements::deletedRows($sql) as [$type, $pattern, $network]) {
+            $this->addRemoval($type, $pattern, $network ? CleanupDiffer::LIKE_NETWORK : CleanupDiffer::LIKE);
         }
     }
 

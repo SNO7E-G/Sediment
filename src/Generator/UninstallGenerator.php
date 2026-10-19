@@ -30,8 +30,10 @@ final class UninstallGenerator
         $siteOptions = [];
         $tables = [];
         $cron = [];
-        $transients = [];   // key => delete function
-        $meta = [];         // key => meta object type
+        $transients = [];
+        $siteTransients = [];
+        $meta = [];         // key => meta object type (post|term|comment)
+        $userMeta = [];     // the users table is shared by the whole network
         $roles = [];
         $actions = [];
         $capabilities = []; // reported as a comment: removal needs the role that holds it
@@ -48,7 +50,7 @@ final class UninstallGenerator
             $key = $finding->key;
 
             match ($finding->type) {
-                'option'    => $this->isSiteScoped($finding) ? $siteOptions[$key] = true : $options[$key] = true,
+                'option'    => $finding->isNetworkScoped() ? $siteOptions[$key] = true : $options[$key] = true,
                 'table'     => $tables[$key] = true,
                 // An event scheduled with arguments is not removed by
                 // wp_clear_scheduled_hook(), so it needs the broader call. If the
@@ -56,8 +58,9 @@ final class UninstallGenerator
                 'cron'      => $cron[$key] = ($finding->hasArgs || ($cron[$key] ?? null) === 'wp_unschedule_hook')
                     ? 'wp_unschedule_hook'
                     : 'wp_clear_scheduled_hook',
-                'transient' => $transients[$key] = $this->isSiteScoped($finding) ? 'delete_site_transient' : 'delete_transient',
-                'post_meta', 'user_meta', 'term_meta', 'comment_meta' => $meta[$key] = str_replace('_meta', '', $finding->type),
+                'transient' => $finding->isNetworkScoped() ? $siteTransients[$key] = true : $transients[$key] = true,
+                'user_meta' => $userMeta[$key] = true,
+                'post_meta', 'term_meta', 'comment_meta' => $meta[$key] = str_replace('_meta', '', $finding->type),
                 'role'      => $roles[$key] = true,
                 'action'    => $actions[$key] = true,
                 'capability'=> $capabilities[$key] = true,
@@ -71,12 +74,16 @@ final class UninstallGenerator
             };
         }
 
-        foreach ([&$options, &$siteOptions, &$tables, &$cron, &$transients, &$meta, &$roles, &$actions, &$capabilities, &$dropins, &$muplugins, &$content] as &$group) {
+        foreach ([&$options, &$siteOptions, &$tables, &$cron, &$transients, &$siteTransients, &$meta, &$userMeta, &$roles, &$actions, &$capabilities, &$dropins, &$muplugins, &$content] as &$group) {
             ksort($group);
         }
         unset($group);
 
-        return $this->render($pluginName, $options, $siteOptions, $tables, $cron, $transients, $meta, $roles, $actions, $capabilities, $dropins, $muplugins, $content);
+        return $this->render(
+            $pluginName,
+            $this->perSite($options, $tables, $cron, $transients, $meta, $roles, $actions),
+            $this->networkWide($pluginName, $siteOptions, $siteTransients, $userMeta, $dropins, $muplugins, $capabilities, $content),
+        );
     }
 
     private function isDeletable(Finding $finding): bool
@@ -88,64 +95,36 @@ final class UninstallGenerator
     }
 
     /**
-     * Network options and site options are the same rows; delete_site_option
-     * delegates to delete_network_option, so both are removed the site way.
-     */
-    private function isSiteScoped(Finding $finding): bool
-    {
-        return str_contains($finding->function, 'site') || str_contains($finding->function, 'network');
-    }
-
-    /**
+     * The removals for data every site keeps its own copy of: its options
+     * table, its `{prefix}` tables, its cron array, its posts' and terms' meta,
+     * its roles, its Action Scheduler queue.
+     *
      * @param array<string, true> $options
-     * @param array<string, true> $siteOptions
      * @param array<string, true> $tables
      * @param array<string, string> $cron hook => clearing function
-     * @param array<string, string> $transients
-     * @param array<string, string> $meta key => object type (post|user|term|comment)
+     * @param array<string, true> $transients
+     * @param array<string, string> $meta key => object type (post|term|comment)
      * @param array<string, true> $roles
      * @param array<string, true> $actions Action Scheduler hooks
-     * @param array<string, true> $capabilities capabilities reported as a comment only
-     * @param array<string, true> $dropins files to delete with wp_delete_file()
-     * @param array<string, true> $muplugins files to delete with wp_delete_file()
-     * @param array<string, string> $content artifacts reported as a comment only
+     * @return list<string>
      */
-    private function render(string $pluginName, array $options, array $siteOptions, array $tables, array $cron, array $transients, array $meta = [], array $roles = [], array $actions = [], array $capabilities = [], array $dropins = [], array $muplugins = [], array $content = []): string
+    private function perSite(array $options, array $tables, array $cron, array $transients, array $meta, array $roles, array $actions): array
     {
-        $needsWpdb = $tables !== [] || $this->anyPrefixed([
-            ...array_keys($options), ...array_keys($siteOptions), ...array_keys($cron),
-            ...array_keys($transients), ...array_keys($meta), ...array_keys($roles), ...array_keys($actions),
-        ]);
+        $lines = [];
 
-        $lines = [
-            '<?php',
-            '',
-            '/**',
-            ' * Uninstall routine generated by Sediment for ' . $this->safeName($pluginName) . '.',
-            ' *',
-            ' * Removes the data this plugin leaves behind. Review before shipping:',
-            ' * Sediment only emits artifacts it attributed with high confidence, so',
-            ' * check the scan\'s coverage report for anything it could not resolve.',
-            ' */',
-            '',
-            "if (!defined('WP_UNINSTALL_PLUGIN')) {",
-            '    exit;',
-            '}',
-        ];
-
-        if ($needsWpdb) {
+        if ($tables !== [] || $this->anyPrefixed([
+            ...array_keys($options), ...array_keys($cron), ...array_keys($transients),
+            ...array_keys($meta), ...array_keys($roles), ...array_keys($actions),
+        ])) {
             $lines[] = '';
             $lines[] = 'global $wpdb;';
         }
 
-        if ($options !== [] || $siteOptions !== []) {
+        if ($options !== []) {
             $lines[] = '';
             $lines[] = '// Options';
             foreach (array_keys($options) as $key) {
                 $lines[] = 'delete_option(' . $this->keyExpression($key) . ');';
-            }
-            foreach (array_keys($siteOptions) as $key) {
-                $lines[] = 'delete_site_option(' . $this->keyExpression($key) . ');';
             }
         }
 
@@ -173,8 +152,8 @@ final class UninstallGenerator
         if ($transients !== []) {
             $lines[] = '';
             $lines[] = '// Transients';
-            foreach ($transients as $key => $function) {
-                $lines[] = $function . '(' . $this->keyExpression($key) . ');';
+            foreach (array_keys($transients) as $key) {
+                $lines[] = 'delete_transient(' . $this->keyExpression($key) . ');';
             }
         }
 
@@ -204,6 +183,59 @@ final class UninstallGenerator
                 $lines[] = '    as_unschedule_all_actions(' . $this->keyExpression($hook) . ');';
             }
             $lines[] = '}';
+        }
+
+        return $lines;
+    }
+
+    /**
+     * The removals for what exists once per installation, however many sites
+     * it runs: network options and transients, user meta (every site shares
+     * the users table), and the files the plugin wrote. Then the report of
+     * what is deliberately left alone.
+     *
+     * @param array<string, true> $siteOptions
+     * @param array<string, true> $siteTransients
+     * @param array<string, true> $userMeta
+     * @param array<string, true> $dropins files to delete with wp_delete_file()
+     * @param array<string, true> $muplugins files to delete with wp_delete_file()
+     * @param array<string, true> $capabilities capabilities reported as a comment only
+     * @param array<string, string> $content artifacts reported as a comment only
+     * @return list<string>
+     */
+    private function networkWide(string $pluginName, array $siteOptions, array $siteTransients, array $userMeta, array $dropins, array $muplugins, array $capabilities, array $content): array
+    {
+        $lines = [];
+
+        if ($this->anyPrefixed([...array_keys($siteOptions), ...array_keys($siteTransients), ...array_keys($userMeta)])) {
+            $lines[] = '';
+            $lines[] = 'global $wpdb;';
+        }
+
+        if ($siteOptions !== []) {
+            // Network options and site options are the same rows;
+            // delete_site_option delegates to delete_network_option.
+            $lines[] = '';
+            $lines[] = '// Network options';
+            foreach (array_keys($siteOptions) as $key) {
+                $lines[] = 'delete_site_option(' . $this->keyExpression($key) . ');';
+            }
+        }
+
+        if ($siteTransients !== []) {
+            $lines[] = '';
+            $lines[] = '// Network transients';
+            foreach (array_keys($siteTransients) as $key) {
+                $lines[] = 'delete_site_transient(' . $this->keyExpression($key) . ');';
+            }
+        }
+
+        if ($userMeta !== []) {
+            $lines[] = '';
+            $lines[] = '// User metadata (removed across every user)';
+            foreach (array_keys($userMeta) as $key) {
+                $lines[] = sprintf("delete_metadata('user', 0, %s, '', true);", $this->keyExpression($key));
+            }
         }
 
         if ($dropins !== [] || $muplugins !== []) {
@@ -262,6 +294,58 @@ final class UninstallGenerator
                 $lines[] = sprintf('//   - %s "%s"', str_replace('_', ' ', $type), $this->commentSafe($name));
             }
         }
+
+        return $lines;
+    }
+
+    /**
+     * On a multisite network every site has its own copy of the per-site
+     * data, and uninstall.php runs once, on the main site. So the per-site
+     * removals sit in a closure that runs for every site on a network, and
+     * once otherwise. `'number' => 0` matters: get_sites() stops at 100.
+     *
+     * @param list<string> $perSite
+     * @param list<string> $networkWide
+     */
+    private function render(string $pluginName, array $perSite, array $networkWide): string
+    {
+        $lines = [
+            '<?php',
+            '',
+            '/**',
+            ' * Uninstall routine generated by Sediment for ' . $this->safeName($pluginName) . '.',
+            ' *',
+            ' * Removes the data this plugin leaves behind. Review before shipping:',
+            ' * Sediment only emits artifacts it attributed with high confidence, so',
+            ' * check the scan\'s coverage report for anything it could not resolve.',
+            ' */',
+            '',
+            "if (!defined('WP_UNINSTALL_PLUGIN')) {",
+            '    exit;',
+            '}',
+        ];
+
+        if ($perSite !== []) {
+            $lines[] = '';
+            $lines[] = '// Every site on a multisite network keeps its own copy of this data.';
+            $lines[] = '$sediment_uninstall_site = static function (): void {';
+            foreach (array_slice($perSite, 1) as $line) { // each section opens with a blank line
+                $lines[] = $line === '' ? '' : '    ' . $line;
+            }
+            $lines[] = '};';
+            $lines[] = '';
+            $lines[] = 'if (is_multisite()) {';
+            $lines[] = "    foreach (get_sites(['fields' => 'ids', 'number' => 0]) as \$site_id) {";
+            $lines[] = '        switch_to_blog((int) $site_id);';
+            $lines[] = '        $sediment_uninstall_site();';
+            $lines[] = '        restore_current_blog();';
+            $lines[] = '    }';
+            $lines[] = '} else {';
+            $lines[] = '    $sediment_uninstall_site();';
+            $lines[] = '}';
+        }
+
+        array_push($lines, ...$networkWide);
 
         return implode("\n", $lines) . "\n";
     }

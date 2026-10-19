@@ -38,6 +38,9 @@ final class CleanupDiffer
      */
     public const LIKE = 'wpdb::query like';
 
+    /** The same, against the network-wide `sitemeta` table. */
+    public const LIKE_NETWORK = 'wpdb::query like sitemeta';
+
     /**
      * @param list<Finding> $findings created artifacts
      * @param list<array{type: string, key: string, via: string, function: string|null, file: string}> $removals
@@ -53,19 +56,22 @@ final class CleanupDiffer
             => self::runsOnUninstall($file, $function, $scopedFunctions, $uninstallFiles)
                 || (isset(self::DEACTIVATION_TYPES[$type]) && $function !== null && isset($deactivationFunctions[strtolower($function)]));
 
-        /** @var array<string, array<string, list<string>>> $removed type => key => removal calls */
+        // Removals are keyed by scope as well as type and key: on multisite,
+        // delete_site_option('x') and delete_option('x') clear different tables.
+        /** @var array<string, array<string, array<string, list<string>>>> $removed type => scope => key => removal calls */
         $removed = [];
-        /** @var array<string, list<string>> $likes type => regexes over the keys a bulk DELETE removes */
+        /** @var array<string, array<string, list<string>>> $likes type => scope => regexes over the keys a bulk DELETE removes */
         $likes = [];
         foreach ($removals as $removal) {
             if (!$runs($removal['type'], $removal['file'], $removal['function'])) {
                 continue;
             }
 
-            if ($removal['via'] === self::LIKE) {
-                $likes[$removal['type']][] = $removal['key'];
+            $scope = self::scope($removal['via'] === self::LIKE_NETWORK || Finding::isNetworkCall($removal['via']));
+            if ($removal['via'] === self::LIKE || $removal['via'] === self::LIKE_NETWORK) {
+                $likes[$removal['type']][$scope][] = $removal['key'];
             } else {
-                $removed[$removal['type']][$removal['key']][] = $removal['via'];
+                $removed[$removal['type']][$scope][$removal['key']][] = $removal['via'];
             }
         }
 
@@ -84,22 +90,34 @@ final class CleanupDiffer
                 continue;
             }
 
-            $via = ($finding->key !== null ? $removed[$finding->type][$finding->key] ?? null : null);
+            $scope = self::scope($finding->isNetworkScoped());
+            $via = ($finding->key !== null ? $removed[$finding->type][$scope][$finding->key] ?? null : null);
             $result[] = $finding->withCleaned(
-                ($via !== null && self::clears($finding, $via)) || self::deletedInBulk($finding, $likes),
+                ($via !== null && self::clears($finding, $via)) || self::deletedInBulk($finding, $likes[self::bulkType($finding)][$scope] ?? []),
             );
         }
 
         return $result;
     }
 
+    private static function scope(bool $network): string
+    {
+        return $network ? 'network' : 'site';
+    }
+
+    /** The row type a bulk delete must match: a transient is a row in the options table. */
+    private static function bulkType(Finding $finding): string
+    {
+        return $finding->type === 'transient' ? 'option' : $finding->type;
+    }
+
     /**
-     * Whether a bulk `DELETE FROM ... LIKE` removes this key's row. A transient
-     * lives in the options table under `_transient_<key>` (`_site_transient_`
-     * network-wide), so an options delete matching that row clears it.
+     * Whether a bulk `DELETE FROM ... LIKE` in the finding's own scope removes
+     * its row. A transient lives under `_transient_<key>` in the site's options
+     * table, and a site transient under `_site_transient_<key>` in sitemeta.
      * Pattern and dynamic keys are never matched: their real names are unknown.
      *
-     * @param array<string, list<string>> $likes
+     * @param list<string> $likes regexes from deletes against the matching table
      */
     private static function deletedInBulk(Finding $finding, array $likes): bool
     {
@@ -107,15 +125,15 @@ final class CleanupDiffer
             return false;
         }
 
-        [$type, $rows] = $finding->type === 'transient'
-            ? ['option', ['_transient_' . $finding->key, '_site_transient_' . $finding->key]]
-            : [$finding->type, [$finding->key]];
+        $row = match (true) {
+            $finding->type !== 'transient' => $finding->key,
+            $finding->isNetworkScoped() => '_site_transient_' . $finding->key,
+            default => '_transient_' . $finding->key,
+        };
 
-        foreach ($likes[$type] ?? [] as $regex) {
-            foreach ($rows as $row) {
-                if (preg_match($regex, $row) === 1) {
-                    return true;
-                }
+        foreach ($likes as $regex) {
+            if (preg_match($regex, $row) === 1) {
+                return true;
             }
         }
 

@@ -34,14 +34,14 @@ final class TableStatements
         return self::names($sql, 'DROP', $truncated);
     }
 
-    /** Core tables whose rows a plugin's own keys live in: table => [key column, artifact type]. */
+    /** Core tables whose rows a plugin's own keys live in: table => [key column, artifact type, network-wide]. */
     private const KEYED_ROWS = [
-        '{prefix}options' => ['option_name', 'option'],
-        '{prefix}sitemeta' => ['meta_key', 'option'],
-        '{prefix}postmeta' => ['meta_key', 'post_meta'],
-        '{prefix}usermeta' => ['meta_key', 'user_meta'],
-        '{prefix}termmeta' => ['meta_key', 'term_meta'],
-        '{prefix}commentmeta' => ['meta_key', 'comment_meta'],
+        '{prefix}options' => ['option_name', 'option', false],
+        '{prefix}sitemeta' => ['meta_key', 'option', true],
+        '{prefix}postmeta' => ['meta_key', 'post_meta', false],
+        '{prefix}usermeta' => ['meta_key', 'user_meta', false],
+        '{prefix}termmeta' => ['meta_key', 'term_meta', false],
+        '{prefix}commentmeta' => ['meta_key', 'comment_meta', false],
     ];
 
     /**
@@ -52,7 +52,7 @@ final class TableStatements
      * read. Anything else — an AND, a second column, a NOT — can narrow the
      * delete, and crediting a narrowed delete would claim rows it keeps.
      *
-     * @return list<array{0: string, 1: string}> [artifact type, anchored regex matching the keys removed]
+     * @return list<array{0: string, 1: string, 2: bool}> [artifact type, anchored regex matching the keys removed, whether the table is network-wide]
      */
     public static function deletedRows(string $sql): array
     {
@@ -62,7 +62,7 @@ final class TableStatements
                 continue;
             }
 
-            [$column, $type] = self::KEYED_ROWS[strtolower($m[1])] ?? [null, null];
+            [$column, $type, $network] = self::KEYED_ROWS[strtolower($m[1])] ?? [null, null, false];
             if ($column === null || $type === null) {
                 continue;
             }
@@ -74,7 +74,7 @@ final class TableStatements
 
             preg_match_all('/' . $term . '/is', $m[2], $terms, PREG_SET_ORDER);
             foreach ($terms as $t) {
-                $rows[] = [$type, self::likeRegex($t[2], strtoupper($t[1]) === '=')];
+                $rows[] = [$type, self::likeRegex($t[2], strtoupper($t[1]) === '='), $network];
             }
         }
 

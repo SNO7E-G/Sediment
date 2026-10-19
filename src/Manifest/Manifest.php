@@ -233,8 +233,8 @@ final class Manifest
             $entry = &$grouped[$group][$finding->key];
             $entry['sources'][] = $source;
             $entry['cleaned'] = $entry['cleaned'] && $finding->cleaned === true;
-            if (($entry['autoload'] ?? null) !== null && $finding->autoload === 'yes') {
-                $entry['autoload'] = 'yes';
+            if (isset($entry['autoload'])) {
+                $entry['autoload'] = self::autoload(Finding::worseAutoload(is_string($entry['autoload']) ? $entry['autoload'] : null, $finding->autoload));
             }
             unset($entry);
         }
@@ -258,6 +258,16 @@ final class Manifest
     }
 
     /**
+     * An option's autoload as the manifest states it. A network option has no
+     * autoload flag because WordPress never autoloads one, so it is "no" — the
+     * grader weighs it that way too.
+     */
+    private static function autoload(?string $autoload): string
+    {
+        return $autoload ?? 'no';
+    }
+
+    /**
      * @param array{file: string, line: int} $source
      * @return array<string, mixed>
      */
@@ -266,7 +276,7 @@ final class Manifest
         $item = ['key' => $finding->key];
 
         if ($finding->type === 'option') {
-            $item['autoload'] = $finding->autoload ?? 'unknown';
+            $item['autoload'] = self::autoload($finding->autoload);
         }
         if ($finding->type === 'cron' || $finding->type === 'action') {
             $item['recurrence'] = $finding->recurrence;
