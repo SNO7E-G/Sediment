@@ -192,6 +192,28 @@ final class WordPressOrgClientTest extends TestCase
         $client->fetch('demo-plugin', '1.0');
     }
 
+    public function test_an_archive_that_lies_about_its_sizes_is_stopped_by_the_bytes_it_inflates(): void
+    {
+        // The entry table's sizes are written by whoever made the archive. Patch
+        // both copies of an entry's uncompressed size down to 10 bytes and the
+        // table-only guard waves through a file that inflates to 64 KB.
+        $bytes = $this->pluginZip('demo-plugin', str_repeat("\0", 65536));
+        $local = (int) strpos($bytes, "PK\x03\x04");
+        $central = (int) strpos($bytes, "PK\x01\x02");
+        $bytes = substr_replace($bytes, pack('V', 10), $local + 22, 4);
+        $bytes = substr_replace($bytes, pack('V', 10), $central + 24, 4);
+
+        $client = new WordPressOrgClient($this->cache, $this->http(['demo-plugin.1.0.zip' => $bytes]), maxUnpackedBytes: 1024);
+
+        try {
+            $client->fetch('demo-plugin', '1.0');
+            self::fail('an archive inflating past the ceiling was accepted');
+        } catch (RuntimeException) {
+            // Refused — and nothing half-unpacked was left in the cache.
+            self::assertSame([], array_values(array_diff((array) scandir($this->cache), ['.', '..'])));
+        }
+    }
+
     public function test_a_hostile_slug_is_refused_before_it_reaches_a_url_or_a_path(): void
     {
         $client = new WordPressOrgClient($this->cache, $this->http([]));

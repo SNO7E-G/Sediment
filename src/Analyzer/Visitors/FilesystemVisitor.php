@@ -74,7 +74,7 @@ final class FilesystemVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $args = $node->getArgs();
+        $args = $this->args($node);
 
         if ($fn === 'wp_mkdir_p') {
             $this->recordDirectory($node, $fn, $this->argValue($args, 0, 'target'));
@@ -100,7 +100,7 @@ final class FilesystemVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $args = $node->getArgs();
+        $args = $this->args($node);
         $this->recordDirectory($node, '$wp_filesystem->mkdir', $this->argValue($args, 0, 'directory'));
     }
 

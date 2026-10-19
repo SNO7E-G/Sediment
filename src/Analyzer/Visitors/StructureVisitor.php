@@ -65,7 +65,7 @@ final class StructureVisitor extends AbstractDetectionVisitor
     private function inspectFuncCall(FuncCall $node): void
     {
         $fn = strtolower($node->name->toString());
-        $args = $node->getArgs();
+        $args = $this->args($node);
 
         if ($fn === 'add_role') {
             $this->record($node, $fn, 'role', $args, 0, 'role');
@@ -91,7 +91,7 @@ final class StructureVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $this->record($node, 'add_cap', 'capability', $node->getArgs(), 0, 'cap');
+        $this->record($node, 'add_cap', 'capability', $this->args($node), 0, 'cap');
     }
 
     /**

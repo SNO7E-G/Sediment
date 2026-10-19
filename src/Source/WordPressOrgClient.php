@@ -126,7 +126,10 @@ final class WordPressOrgClient
         $temporary = $this->cacheDirectory . '/.' . $slug . '-' . bin2hex(random_bytes(4));
         $archiveFile = $temporary . '.zip';
 
-        file_put_contents($archiveFile, $archive);
+        if (file_put_contents($archiveFile, $archive) !== strlen($archive)) {
+            @unlink($archiveFile);
+            throw new RuntimeException("Could not write the archive downloaded for \"{$slug}\".");
+        }
 
         $zip = new \ZipArchive();
         if ($zip->open($archiveFile) !== true) {
@@ -134,41 +137,18 @@ final class WordPressOrgClient
             throw new RuntimeException("Could not open the archive downloaded for \"{$slug}\".");
         }
 
-        // Refuse before extracting, not after: an entry named "../x" writes
-        // outside the extraction directory on PHP builds that do not sanitise
-        // (zip-slip), and an archive claiming gigabytes unpacked is a bomb.
-        // The guard depends on nothing but the entry table.
-        $unpacked = 0;
-        for ($i = 0; $i < $zip->numFiles; $i++) {
-            $stat = $zip->statIndex($i);
-            if ($stat === false) {
-                continue;
-            }
-
-            $name = str_replace('\\', '/', (string) $stat['name']);
-            if (str_starts_with($name, '/') || preg_match('#(^|/)\.\.(/|$)#', $name) === 1 || preg_match('/^[a-z]:/i', $name) === 1) {
-                $zip->close();
-                @unlink($archiveFile);
-                throw new RuntimeException("The archive for \"{$slug}\" contains an entry that escapes its directory and was refused.");
-            }
-
-            $unpacked += (int) $stat['size'];
-        }
-
-        if ($unpacked > $this->maxUnpackedBytes) {
+        try {
+            $this->unpack($zip, $slug, $temporary);
+        } catch (\Throwable $e) {
+            // A half-unpacked plugin must never reach the cache: it would be
+            // served as `cached: true` later, and usually grade cleaner than
+            // the real one.
+            self::remove($temporary);
+            throw $e;
+        } finally {
             $zip->close();
             @unlink($archiveFile);
-            throw new RuntimeException(sprintf(
-                'The archive for "%s" claims %d MB unpacked, over the %d MB ceiling, and was refused.',
-                $slug,
-                intdiv($unpacked, 1024 * 1024),
-                intdiv($this->maxUnpackedBytes, 1024 * 1024),
-            ));
         }
-
-        $zip->extractTo($temporary);
-        $zip->close();
-        @unlink($archiveFile);
 
         $unwrapped = is_dir($temporary . '/' . $slug) ? $temporary . '/' . $slug : $temporary;
 
@@ -193,6 +173,104 @@ final class WordPressOrgClient
 
         if ($unwrapped !== $temporary) {
             self::remove($temporary);
+        }
+    }
+
+    /**
+     * Refuse before writing anything, then write while counting.
+     *
+     * The entry table is checked first: an entry named "../x" writes outside
+     * the extraction directory on PHP builds that do not sanitise (zip-slip), a
+     * symlink entry can point anywhere, and an entry that cannot even be read is
+     * no plugin. Its declared sizes give a cheap early refusal — but they are
+     * written by whoever made the archive, so the real ceiling is enforced on
+     * the bytes actually inflated, one stream at a time.
+     */
+    private function unpack(\ZipArchive $zip, string $slug, string $temporary): void
+    {
+        $refuse = static fn (string $why): RuntimeException
+            => new RuntimeException("The archive for \"{$slug}\" {$why} and was refused.");
+
+        $names = [];
+        $declared = 0;
+        for ($i = 0; $i < $zip->numFiles; $i++) {
+            $stat = $zip->statIndex($i);
+            if ($stat === false) {
+                throw $refuse('has an entry that cannot be read');
+            }
+
+            $name = str_replace('\\', '/', (string) $stat['name']);
+            if (str_starts_with($name, '/') || preg_match('#(^|/)\.\.(/|$)#', $name) === 1 || preg_match('/^[a-z]:/i', $name) === 1) {
+                throw $refuse('contains an entry that escapes its directory');
+            }
+
+            $opsys = 0;
+            $attributes = 0;
+            if ($zip->getExternalAttributesIndex($i, $opsys, $attributes)
+                && $opsys === \ZipArchive::OPSYS_UNIX
+                && is_int($attributes)
+                && (($attributes >> 16) & 0170000) === 0120000) {
+                throw $refuse('contains a symbolic link');
+            }
+
+            $names[$i] = $name;
+            $declared += (int) $stat['size'];
+        }
+
+        if ($declared > $this->maxUnpackedBytes) {
+            throw $refuse(sprintf(
+                'claims %d MB unpacked, over the %d MB ceiling,',
+                intdiv($declared, 1024 * 1024),
+                intdiv($this->maxUnpackedBytes, 1024 * 1024),
+            ));
+        }
+
+        $written = 0;
+        foreach ($names as $i => $name) {
+            $destination = $temporary . '/' . $name;
+
+            if (str_ends_with($name, '/')) {
+                if (!is_dir($destination) && !@mkdir($destination, 0777, true) && !is_dir($destination)) {
+                    throw new RuntimeException("Could not create {$destination}.");
+                }
+
+                continue;
+            }
+
+            $directory = dirname($destination);
+            if (!is_dir($directory) && !@mkdir($directory, 0777, true) && !is_dir($directory)) {
+                throw new RuntimeException("Could not create {$directory}.");
+            }
+
+            $in = $zip->getStreamIndex($i);
+            $out = @fopen($destination, 'wb');
+            if ($in === false || $out === false) {
+                throw new RuntimeException("Could not unpack \"{$name}\" from the archive for \"{$slug}\".");
+            }
+
+            try {
+                while (!feof($in)) {
+                    $chunk = fread($in, 65536);
+                    if ($chunk === false) {
+                        throw $refuse('has an entry that does not inflate');
+                    }
+
+                    $written += strlen($chunk);
+                    if ($written > $this->maxUnpackedBytes) {
+                        throw $refuse(sprintf(
+                            'inflates past the %d MB ceiling',
+                            intdiv($this->maxUnpackedBytes, 1024 * 1024),
+                        ));
+                    }
+
+                    if (fwrite($out, $chunk) !== strlen($chunk)) {
+                        throw new RuntimeException("Could not write {$destination}.");
+                    }
+                }
+            } finally {
+                fclose($in);
+                fclose($out);
+            }
         }
     }
 

@@ -212,10 +212,21 @@ final class UninstallGenerator
             // over a bare unlink() because it runs the filters other caching
             // layers listen to.
             if ($dropins !== []) {
+                // A drop-in name is a slot several plugins compete for: the
+                // object-cache.php here now may belong to whatever replaced
+                // this plugin. Delete it only while it still mentions us.
                 $lines[] = '';
-                $lines[] = '// Drop-ins (WordPress loads these on every request)';
+                $lines[] = '// Drop-ins (WordPress loads these on every request). Another plugin may';
+                $lines[] = '// own the file by now, so it is removed only if it still names this one —';
+                $lines[] = '// change the marker if your drop-in does not contain it.';
                 foreach (array_keys($dropins) as $path) {
-                    $lines[] = 'wp_delete_file(' . $this->keyExpression($path) . ');';
+                    $lines[] = '$dropin = ' . $this->keyExpression($path) . ';';
+                    $lines[] = sprintf(
+                        'if (is_file($dropin) && stripos((string) file_get_contents($dropin), %s) !== false) {',
+                        var_export($pluginName, true),
+                    );
+                    $lines[] = '    wp_delete_file($dropin);';
+                    $lines[] = '}';
                 }
             }
             if ($muplugins !== []) {
@@ -236,10 +247,7 @@ final class UninstallGenerator
             $lines[] = '// Capabilities this plugin grants may be left behind. Find the role that';
             $lines[] = '// holds each one (wp cap list <role>), then remove it explicitly:';
             foreach (array_keys($capabilities) as $cap) {
-                $lines[] = sprintf(
-                    '//   remove_cap( \'<role>\', %s );',
-                    str_replace(["\r", "\n"], ' ', var_export($cap, true)),
-                );
+                $lines[] = '//   remove_cap( \'<role>\', ' . $this->commentSafe(var_export($cap, true)) . ' );';
             }
         }
 
@@ -251,10 +259,7 @@ final class UninstallGenerator
             $lines[] = '// This plugin also leaves the following behind. They are intentionally NOT';
             $lines[] = '// removed here, because doing so could destroy data you want to keep:';
             foreach ($content as $name => $type) {
-                // The name comes from the scanned plugin's own source. A newline
-                // inside it would end this comment early and turn whatever
-                // follows into live code in a file people run — flatten it.
-                $lines[] = sprintf('//   - %s "%s"', str_replace('_', ' ', $type), str_replace(["\r", "\n"], ' ', $name));
+                $lines[] = sprintf('//   - %s "%s"', str_replace('_', ' ', $type), $this->commentSafe($name));
             }
         }
 
@@ -306,6 +311,16 @@ final class UninstallGenerator
         }
 
         return false;
+    }
+
+    /**
+     * Text from the scanned plugin's source, made safe for a `//` comment in a
+     * file people run. A newline ends the comment early, and so does `?>` — it
+     * leaves PHP mode, and a `<?php` after it would be live code.
+     */
+    private function commentSafe(string $text): string
+    {
+        return str_replace(["\r", "\n", '?>'], [' ', ' ', '? >'], $text);
     }
 
     private function safeName(string $name): string

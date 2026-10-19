@@ -173,14 +173,16 @@ final class UninstallGeneratorTest extends TestCase
     {
         // These files are code the plugin installed, not user data — deleting
         // them is what an uninstall is for. The roots come back as constants,
-        // never hardcoded paths.
+        // never hardcoded paths. A drop-in slot is shared, so it is deleted
+        // only while the file still names this plugin.
         $code = (new UninstallGenerator())->generate([
             $this->finding('dropin', '{content_dir}/advanced-cache.php', Finding::CONFIDENCE_RESOLVED, function: 'file_put_contents'),
             $this->finding('muplugin', '{mu_plugins}/acme-loader.php', Finding::CONFIDENCE_RESOLVED, function: 'put_contents'),
         ], 'Example');
 
         $this->assertValidPhp($code);
-        self::assertStringContainsString("wp_delete_file(WP_CONTENT_DIR . '/advanced-cache.php');", $code);
+        self::assertStringContainsString("\$dropin = WP_CONTENT_DIR . '/advanced-cache.php';", $code);
+        self::assertStringContainsString("stripos((string) file_get_contents(\$dropin), 'Example') !== false", $code);
         self::assertStringContainsString("wp_delete_file(WPMU_PLUGIN_DIR . '/acme-loader.php');", $code);
         // No {prefix} tokens anywhere, so no $wpdb line either.
         self::assertStringNotContainsString('$wpdb', $code);

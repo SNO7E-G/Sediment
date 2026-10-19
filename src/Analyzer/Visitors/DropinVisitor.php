@@ -52,13 +52,13 @@ final class DropinVisitor extends AbstractDetectionVisitor
             $fn = strtolower($node->name->toString());
             // copy($source, $dest): the destination is what persists.
             if ($fn === 'copy') {
-                $this->record($node, 'copy', $this->argValue($node->getArgs(), 1, 'to'));
+                $this->record($node, 'copy', $this->argValue($this->args($node), 1, 'to'));
 
                 return;
             }
 
             if ($fn === 'file_put_contents') {
-                $this->record($node, 'file_put_contents', $this->argValue($node->getArgs(), 0, 'filename'));
+                $this->record($node, 'file_put_contents', $this->argValue($this->args($node), 0, 'filename'));
             }
 
             return;
@@ -66,7 +66,7 @@ final class DropinVisitor extends AbstractDetectionVisitor
 
         if ($node instanceof MethodCall && $node->name instanceof Identifier) {
             if (strtolower((string) $node->name) === 'put_contents') {
-                $this->record($node, '$wp_filesystem->put_contents', $this->argValue($node->getArgs(), 0, 'filepath'));
+                $this->record($node, '$wp_filesystem->put_contents', $this->argValue($this->args($node), 0, 'filepath'));
             }
         }
     }
