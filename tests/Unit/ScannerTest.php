@@ -147,6 +147,49 @@ final class ScannerTest extends TestCase
         }
     }
 
+    public function test_a_syntax_error_records_e_parse_but_keeps_the_rest_of_the_file(): void
+    {
+        $root = sys_get_temp_dir() . '/sediment-partial-test-' . getmypid();
+        @mkdir($root);
+        file_put_contents($root . '/plugin.php', "<?php\nupdate_option('acme_before', 1);\nfunction f() {\n    \$x = ;\n}\nadd_option('acme_after', 2);\n");
+
+        try {
+            $result = (new Scanner())->scan($root);
+
+            self::assertCount(1, $result['errors']);
+            self::assertSame('E_PARSE', $result['errors'][0]['code']);
+
+            $options = $this->optionsByKey($result['findings']);
+            self::assertArrayHasKey('acme_before', $options);
+            self::assertArrayHasKey('acme_after', $options, 'code past the syntax error is still read');
+        } finally {
+            @unlink($root . '/plugin.php');
+            @rmdir($root);
+        }
+    }
+
+    public function test_a_broken_uninstall_file_earns_no_cleanup_credit(): void
+    {
+        // PHP will not run a file that does not parse, so the removals that
+        // could still be read from it never happen.
+        $root = sys_get_temp_dir() . '/sediment-broken-uninstall-' . getmypid();
+        @mkdir($root);
+        file_put_contents($root . '/plugin.php', "<?php\nadd_option('acme_settings', []);\n");
+        file_put_contents($root . '/uninstall.php', "<?php\ndelete_option('acme_settings');\n\$x = ;\n");
+
+        try {
+            $result = (new Scanner())->scan($root);
+
+            self::assertSame('E_PARSE', $result['errors'][0]['code'] ?? null);
+            self::assertFalse($result['cleanup']['has_uninstall_php']);
+            self::assertFalse($this->optionsByKey($result['findings'])['acme_settings']->cleaned);
+        } finally {
+            @unlink($root . '/plugin.php');
+            @unlink($root . '/uninstall.php');
+            @rmdir($root);
+        }
+    }
+
     public function test_it_excludes_dependency_and_test_directories(): void
     {
         // Scanning the repo root must not pick up vendor/ or tests/ fixtures.

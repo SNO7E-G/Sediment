@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sediment\Analyzer;
 
+use PhpParser\ErrorHandler\Collecting;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;
@@ -71,7 +72,7 @@ final class Scanner
         $callSites = new CallSites();
         $errors = [];
 
-        /** @var list<array{path: string, file: string}> $parsed files that parsed cleanly */
+        /** @var list<array{path: string, file: string, broken: bool}> $parsed files with a syntax tree, broken = only partly parsed */
         $parsed = [];
 
         // Pass 1 — parse, resolve names, collect symbols.
@@ -83,6 +84,7 @@ final class Scanner
         // of a scan proportional to the largest single file rather than the whole tree.
         foreach ($files as $file) {
             $relative = $this->relativePath($root, $file);
+            $errorsBefore = count($errors);
             $ast = $this->parse($file, $relative, $errors);
 
             if ($ast === null) {
@@ -98,7 +100,7 @@ final class Scanner
                 continue;
             }
 
-            $parsed[] = ['path' => $file, 'file' => $relative];
+            $parsed[] = ['path' => $file, 'file' => $relative, 'broken' => count($errors) > $errorsBefore];
         }
 
         $symbols->reconcileInheritedProperties();
@@ -116,13 +118,17 @@ final class Scanner
         $hasUninstallPhp = false;
 
         foreach ($parsed as $entry) {
-            if (CleanupDiffer::isUninstallFile($entry['file'])) {
+            // A file with a syntax error fatals the moment WordPress loads it,
+            // so none of its cleanup ever runs. What it creates is still
+            // reported; what it removes is never credited.
+            $creditsCleanup = !$entry['broken'];
+
+            if ($creditsCleanup && CleanupDiffer::isUninstallFile($entry['file'])) {
                 $hasUninstallPhp = true;
             }
 
-            // Re-read rather than held from pass 1, to keep memory bounded. It
-            // parsed cleanly then, so a failure here is not recorded twice — it
-            // simply leaves nothing to detect in this file.
+            // Re-read rather than held from pass 1, to keep memory bounded. Any
+            // problem was recorded then, so it is not recorded twice here.
             $ignored = [];
             $ast = $this->parse($entry['path'], $entry['file'], $ignored);
             if ($ast === null) {
@@ -141,14 +147,16 @@ final class Scanner
                 new DropinVisitor($entry['file'], $resolver, $callSites),
                 new ScheduleVisitor($entry['file'], $resolver, $callSites),
             ];
-            $cleanup = new CleanupVisitor($entry['file'], $resolver, $callSites);
+            $cleanup = $creditsCleanup ? new CleanupVisitor($entry['file'], $resolver, $callSites) : null;
 
             try {
                 $traverser = new NodeTraverser();
                 foreach ($detectors as $detector) {
                     $traverser->addVisitor($detector);
                 }
-                $traverser->addVisitor($cleanup);
+                if ($cleanup !== null) {
+                    $traverser->addVisitor($cleanup);
+                }
                 $traverser->traverse($ast);
             } catch (\Throwable $e) {
                 // M14 — a visitor bug or unexpected node must never abort the scan.
@@ -167,6 +175,10 @@ final class Scanner
                     }
                 }
             }
+            if ($cleanup === null) {
+                continue;
+            }
+
             array_push($removals, ...$cleanup->removals());
             array_push($callbacks, ...$cleanup->uninstallCallbacks());
             array_push($deactivationCallbacks, ...$cleanup->deactivationCallbacks());
@@ -205,6 +217,10 @@ final class Scanner
      * Returns null when the file cannot be read or parsed, recording why — a
      * malformed file never ends a scan (M14).
      *
+     * A syntax error is recorded but does not cost the file: the parser
+     * recovers what it can, so one bad line in a large file still leaves the
+     * rest of it to detect.
+     *
      * @param list<array{file: string, message: string, code: ErrorCode::*}> $errors
      * @return Node[]|null
      */
@@ -233,7 +249,13 @@ final class Scanner
         }
 
         try {
-            $ast = $this->parser->parse($code);
+            $syntax = new Collecting();
+            $ast = $this->parser->parse($code, $syntax);
+
+            $first = $syntax->getErrors()[0] ?? null;
+            if ($first !== null) {
+                $errors[] = ['file' => $relative, 'message' => $first->getMessage(), 'code' => ErrorCode::PARSE];
+            }
 
             return $ast === null ? null : $this->resolveNames($ast);
         } catch (\Throwable $e) {
