@@ -47,36 +47,30 @@ final class Finding
      */
     public function withKey(string $key, string $confidence): self
     {
-        return new self(
-            type: $this->type,
-            function: $this->function,
-            key: $key,
-            confidence: $confidence,
-            file: $this->file,
-            line: $this->line,
-            autoload: $this->autoload,
-            expression: $this->expression,
-            recurrence: $this->recurrence,
-            cleaned: $this->cleaned,
-            hasArgs: $this->hasArgs,
-        );
+        return $this->copy($key, $confidence, $this->cleaned);
     }
 
     /** Return a copy with the cleanup verdict set (§8, M8). */
     public function withCleaned(?bool $cleaned): self
     {
+        return $this->copy($this->key, $this->confidence, $cleaned);
+    }
+
+    /** Readonly properties cannot be set on a clone, so copies come through here. */
+    private function copy(?string $key, string $confidence, ?bool $cleaned): self
+    {
         return new self(
-            type: $this->type,
-            function: $this->function,
-            key: $this->key,
-            confidence: $this->confidence,
-            file: $this->file,
-            line: $this->line,
-            autoload: $this->autoload,
-            expression: $this->expression,
-            recurrence: $this->recurrence,
-            cleaned: $cleaned,
-            hasArgs: $this->hasArgs,
+            $this->type,
+            $this->function,
+            $key,
+            $confidence,
+            $this->file,
+            $this->line,
+            $this->autoload,
+            $this->expression,
+            $this->recurrence,
+            $cleaned,
+            $this->hasArgs,
         );
     }
 }

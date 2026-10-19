@@ -333,6 +333,7 @@ final class ExpressionResolver
      * a surviving leading prefix -> a pattern; nothing -> dynamic.
      *
      * @param array<Node> $segments
+     * @param array<string, string|null> $locals
      */
     private function resolveSegments(array $segments, ?string $class, array $locals, ?string $function): Resolution
     {
