@@ -48,7 +48,8 @@ known cases it does not yet resolve, and reports honestly instead of guessing:
   property declared on a base class resolves for subclasses that do not redefine
   it, and `static::` resolves when no subclass redefines it — but when one does,
   the value depends on the object at runtime, so it stays `dynamic`.
-- **Constants in traits, enums, and interfaces.**
+- **Constants in enums and interfaces, and `self::` inside a trait's own
+  body.** A trait's constants do resolve through a class that uses the trait.
 - **`define()` / `const` values built from concatenation or other constants**, and
   keys built with `sprintf()` or other function calls.
 - **Promoted constructor properties, and any property set from a constructor

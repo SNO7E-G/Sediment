@@ -40,7 +40,8 @@ Most contributions add or refine a detection. The shape is consistent:
    `AbstractDetectionVisitor`, or extend an existing one. Resolve keys with
    `$this->resolveKey()` — never re-implement resolution or reach for a regex on
    raw PHP.
-2. If the Scanner needs to run it, register it (see `Scanner::OPTIONAL_VISITORS`).
+2. Register it in the `$detectors` list in `Scanner::scan()`, which runs every
+   detector in one traversal per file.
 3. Add a small **fixture** under `tests/fixtures/` that isolates the pattern —
    ideally one `verified`, one `resolved`, and one `dynamic` case — and a test
    that pins the expected findings. Fixtures are both the regression net and the

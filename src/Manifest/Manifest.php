@@ -20,9 +20,10 @@ use Sediment\Application;
 final class Manifest
 {
     /**
-     * Frozen at 2.0 (see docs/stability.md). Manifests published under the
-     * mutable alpha schema self-identify as `1.0`; from here a change to the
-     * shape of this document is a breaking change and versioned as one.
+     * Frozen at 2.0 (see docs/stability.md); 2.1 added the dropins and
+     * muplugins groups, an additive change. Manifests published under the
+     * mutable alpha schema self-identify as `1.0`; from 2.0 on, a change to
+     * the shape of this document is a breaking change and versioned as one.
      * The machine-readable contract lives in schema/manifest.schema.json.
      */
     public const SCHEMA_VERSION = '2.1';

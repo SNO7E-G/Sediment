@@ -8,7 +8,7 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
-## [Unreleased]
+## [0.11.0] — 2026-10-20
 
 A safety and accuracy release. The safety fixes close ways Sediment could name,
 credit, or emit something the source did not prove. The grading changes credit
