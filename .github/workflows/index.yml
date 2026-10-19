@@ -37,12 +37,12 @@ jobs:
     steps:
       # Shards unpack thousands of third-party archives; they get a read-only
       # token, and it is not left behind in .git/config.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           persist-credentials: false
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: '8.3'
           extensions: zip
@@ -60,14 +60,14 @@ jobs:
         run: php scripts/index-shard.php
 
       - name: Upload manifests
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: manifests-shard-${{ matrix.shard }}
           path: build/index/manifests
           if-no-files-found: error
 
       - name: Upload shard records
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: meta-shard-${{ matrix.shard }}
           path: |
@@ -85,10 +85,10 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: '8.3'
           coverage: none
@@ -98,14 +98,14 @@ jobs:
         run: composer update --no-dev --prefer-dist --no-interaction --no-progress
 
       - name: Collect every shard's manifests
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           pattern: manifests-shard-*
           path: build/index/manifests
           merge-multiple: true
 
       - name: Collect every shard's records
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           pattern: meta-shard-*
           path: build/index/meta
@@ -118,7 +118,7 @@ jobs:
         run: php bin/sediment index build/index/manifests --out build/index-artifacts
 
       - name: Upload the dataset as a run artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: sediment-index
           path: |
