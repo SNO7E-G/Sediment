@@ -81,16 +81,42 @@ output should expect one row, not two, for non-expiring transients.
 The cleanup path is parsed with the same engine. Removal calls — `delete_option`,
 `delete_site_option`, `delete_transient`, `delete_site_transient`,
 `wp_clear_scheduled_hook`, `wp_unschedule_hook`, `wp_unschedule_event`, and
-`DROP TABLE` via `$wpdb->query()` — are matched against the creates they mirror,
-and every created artifact carries a `cleaned` flag.
+`DROP TABLE` via `$wpdb->query()` (every table in a `DROP TABLE a, b` list) —
+are matched against the creates they mirror, and every created artifact carries
+a `cleaned` flag.
 
 A removal only counts when it actually runs on uninstall: inside `uninstall.php`,
 inside a file `uninstall.php` requires (transitively — a teardown is often split
-across files, and top-level code in those files runs just the same), or inside a
-function or method registered via `register_uninstall_hook`. A
-`delete_option()` called during normal operation does not credit cleanup.
-Matching is by exact key within an artifact type; a partly-dynamic (`pattern`)
-key is reported as not cleaned rather than guessed.
+across files, and top-level code in those files runs just the same), inside a
+function or method registered via `register_uninstall_hook`, or in anything
+those call, however many hops down. Calls are followed when their target can be
+named: a function, `Class::method()`, `self::`/`static::`, `$this->method()`, and
+`(new Class)->method()`. A call on any other object is not followed, which can
+only under-credit. A `delete_option()` called during normal operation does not
+credit cleanup. Matching is by exact key within an artifact type; a
+partly-dynamic (`pattern`) key is reported as not cleaned rather than guessed.
+
+**Deactivation.** WordPress deletes only inactive plugins, so a
+`register_deactivation_hook` callback (a function, method, or closure) always
+runs before uninstall. Removals reached from one are credited for the state
+that is routinely cleared there: cron events, Action Scheduler jobs, transients,
+and rewrite rules. Options, tables, and content deleted on deactivation are not
+credited. Deleting them destroys data on a plain deactivate, and that is often
+gated on a setting Sediment does not read for deactivation.
+
+**Bulk deletes.** `$wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name
+LIKE 'acme\_%'")` credits every option whose key the pattern matches. The same
+applies to `sitemeta` and the four meta tables, and to the `$wpdb->prepare()` +
+`$wpdb->esc_like()` form. A transient is matched through its `_transient_` row.
+Only a WHERE made purely of `LIKE`/`=` terms on the key column, joined by `OR`,
+is read: an `AND` or any other condition could narrow the delete, so it credits
+nothing.
+
+**Loops over literal arrays.** `foreach (['acme_a', 'acme_b'] as $key)` binds the
+loop variable to each element, on both the create and the remove side. The array
+can also be a local variable holding such a literal, and `foreach ($defaults as
+$key => $value)` binds the string keys. After the loop the variable is unknown
+again.
 
 Naming the key is not always enough. A cron event scheduled *with arguments* is
 not removed by an argument-less `wp_clear_scheduled_hook()` — that call only
@@ -111,6 +137,13 @@ default. Four shapes are recognised: an `if` that bails out early, one that wrap
 the removals, one that calls a function which performs them, and one written as
 an `elseif`. The option may be read in the condition itself or into a variable
 the condition tests.
+
+A plugin's own settings layer counts too (`if (!Settings::get('remove_data'))
+return;`, `if ($options['delete_on_uninstall'])`), but only when the condition
+names a data-removal setting: words such as *delete*, *remove*, *keep*, or
+*preserve*, next to *data*, *settings*, *tables*, or *uninstall*. An
+`if (is_multisite())` around the removals, or a `function_exists()` check, is
+never a gate.
 
 An `if` that reads an option without gating cleanup is not a condition, and a
 `return` inside a closure is not a bail-out. Sediment reports *which* setting

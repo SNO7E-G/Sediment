@@ -78,6 +78,7 @@ php bin/sediment grade path/to/plugin
 php bin/sediment uninstall path/to/plugin > uninstall.php
 php bin/sediment scan path/to/plugin --json > manifest.json
 php bin/sediment check path/to/plugin --fail-on=C   # exit 1 if worse than C
+php bin/sediment check path/to/plugin --min-coverage=70 # also exit 1 if under 70% of writes resolve
 ```
 
 Guard a release against footprint creep, or scan a whole collection at once:

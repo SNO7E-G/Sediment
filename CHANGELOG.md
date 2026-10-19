@@ -10,8 +10,49 @@ interfaces — including the manifest schema — may still change before 1.0.
 
 ## [Unreleased]
 
-A safety release: every fix here closes a way Sediment could name, credit, or
-emit something the source did not prove.
+A safety and accuracy release. The safety fixes close ways Sediment could name,
+credit, or emit something the source did not prove. The grading changes credit
+cleanup that real plugins perform and Sediment used to miss. Published grades
+will move: in the golden corpus, cron events cleared on deactivation now count
+for Akismet, Wordfence, and WooCommerce, and so do WooCommerce's bulk option
+deletes. WooCommerce's cleanup is now reported as conditional on
+`WC_REMOVE_ALL_DATA`, as it should have been.
+
+### Changed
+
+- **Cleanup in a deactivation hook counts.** WordPress deletes only inactive
+  plugins, so `register_deactivation_hook` always runs first. Cron events,
+  Action Scheduler jobs, transients, and rewrite rules cleared there are now
+  credited, including from a closure. Data deleted on deactivation is still not
+  credited. A plugin that clears everything that way is no longer graded F for
+  lacking an uninstall routine.
+- **Uninstall code is followed through calls.** `Uninstaller::run()`,
+  `(new Teardown)->go()`, `$this->drop()`, and plain helper functions are
+  followed however deep they go, not just one hop from `uninstall.php`.
+- **Bulk deletes are credited.** `DELETE FROM {$wpdb->options} WHERE option_name
+  LIKE 'acme\_%'` credits every option and transient it matches. The same applies
+  to `sitemeta` and the meta tables, and to the `prepare()` + `esc_like()` form.
+  A WHERE with an `AND` is not credited, because it may narrow the delete.
+  `DROP TABLE a, b` now credits every table in the list.
+- **Loops over literal arrays resolve.** `foreach (['a', 'b'] as $key)
+  add_option($key)`, and the same over a local array or its string keys, now
+  yields one resolved finding per element, for creates and removals alike.
+- **More cleanup gates are recognised.** Cleanup gated through a plugin's own
+  settings layer (`Settings::get('remove_data')`) or a wp-config constant
+  (`WC_REMOVE_ALL_DATA`) is now reported as conditional. A gate must name a
+  data-removal setting, so `is_multisite()` or `function_exists()` around the
+  removals never counts.
+- **WordPress's own data is no longer blamed on plugins.** Core roles,
+  capabilities (`read`, `edit_posts`, …), post types, taxonomies, profile and
+  attachment meta (`first_name`, `_wp_page_template`, …), and about 40 more core
+  options are reported under `modifies_core`. `wp_roles()->add_cap($role, $cap)`
+  no longer reports the role name as a capability.
+
+### Added
+
+- `check --min-coverage=<percent>` fails a plugin when too few of its write
+  calls resolve. A plugin whose keys are all built at runtime has nothing
+  confident to grade, and should not pass a gate on an empty A.
 
 ### Fixed
 

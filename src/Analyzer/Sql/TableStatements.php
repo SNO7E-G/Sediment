@@ -15,10 +15,6 @@ namespace Sediment\Analyzer\Sql;
  */
 final class TableStatements
 {
-    // Anchored at statement start; the name stops at whitespace, backtick,
-    // paren, comma, semicolon, or a quote, so junk like `backup')` is excluded.
-    private const NAME = '`?([^\s`(;,\'"]+)`?';
-
     /**
      * @param bool $truncated the SQL was only partly resolved, so it may stop
      *        mid-name — see {@see names()}
@@ -38,6 +34,78 @@ final class TableStatements
         return self::names($sql, 'DROP', $truncated);
     }
 
+    /** Core tables whose rows a plugin's own keys live in: table => [key column, artifact type]. */
+    private const KEYED_ROWS = [
+        '{prefix}options' => ['option_name', 'option'],
+        '{prefix}sitemeta' => ['meta_key', 'option'],
+        '{prefix}postmeta' => ['meta_key', 'post_meta'],
+        '{prefix}usermeta' => ['meta_key', 'user_meta'],
+        '{prefix}termmeta' => ['meta_key', 'term_meta'],
+        '{prefix}commentmeta' => ['meta_key', 'comment_meta'],
+    ];
+
+    /**
+     * Rows a bulk `DELETE FROM` removes from a core keyed table — the usual
+     * teardown, `DELETE FROM {$wpdb->options} WHERE option_name LIKE 'acme\_%'`.
+     *
+     * Only a WHERE made purely of `column LIKE/= '...'` terms joined by OR is
+     * read. Anything else — an AND, a second column, a NOT — can narrow the
+     * delete, and crediting a narrowed delete would claim rows it keeps.
+     *
+     * @return list<array{0: string, 1: string}> [artifact type, anchored regex matching the keys removed]
+     */
+    public static function deletedRows(string $sql): array
+    {
+        $rows = [];
+        foreach (explode(';', $sql) as $statement) {
+            if (preg_match('/^\s*DELETE\s+FROM\s+`?(\{prefix\}\w+)`?\s+WHERE\s+(.+)$/is', $statement, $m) !== 1) {
+                continue;
+            }
+
+            [$column, $type] = self::KEYED_ROWS[strtolower($m[1])] ?? [null, null];
+            if ($column === null || $type === null) {
+                continue;
+            }
+
+            $term = '`?' . $column . '`?\s+(LIKE|=)\s+\'((?:[^\'\\\\]|\\\\.)*)\'';
+            if (preg_match('/^\s*\(?\s*' . $term . '(?:\s+OR\s+' . $term . ')*\s*\)?\s*$/is', $m[2]) !== 1) {
+                continue;
+            }
+
+            preg_match_all('/' . $term . '/is', $m[2], $terms, PREG_SET_ORDER);
+            foreach ($terms as $t) {
+                $rows[] = [$type, self::likeRegex($t[2], strtoupper($t[1]) === '=')];
+            }
+        }
+
+        return $rows;
+    }
+
+    /**
+     * A LIKE pattern as an anchored regex: `%` any run, `_` any one character,
+     * a backslash escapes the next. Case-insensitive, like MySQL's default
+     * collation. An `=` value is read literally.
+     */
+    private static function likeRegex(string $pattern, bool $exact): string
+    {
+        $regex = '';
+        $length = strlen($pattern);
+        for ($i = 0; $i < $length; $i++) {
+            $char = $pattern[$i];
+            if ($char === '\\' && $i + 1 < $length) {
+                $regex .= preg_quote($pattern[++$i], '/');
+            } elseif (!$exact && $char === '%') {
+                $regex .= '.*';
+            } elseif (!$exact && $char === '_') {
+                $regex .= '.';
+            } else {
+                $regex .= preg_quote($char, '/');
+            }
+        }
+
+        return '/^' . $regex . '$/is';
+    }
+
     /**
      * When the SQL was only partly resolved, its tail was cut off at the first
      * unresolvable piece — and that cut may land inside the table name itself:
@@ -55,14 +123,26 @@ final class TableStatements
     private static function names(string $sql, string $verb, bool $truncated = false): array
     {
         $terminator = $truncated ? '(?=[\s`(;,])' : '(?=[\s`(;,]|$)';
-        $pattern = '/^\s*' . $verb . '\s+TABLE\s+(?:IF\s+(?:NOT\s+)?EXISTS\s+)?' . self::NAME . $terminator . '/i';
+
+        // Anchored at statement start; a name stops at whitespace, backtick,
+        // paren, comma, semicolon, or a quote, so junk like `backup')` is excluded.
+        // DROP TABLE takes a list (`DROP TABLE IF EXISTS a, b`); CREATE takes one.
+        // The terminator applies to the end of the list, so a truncated last
+        // name is dropped by backtracking while the names before it stand.
+        $name = '`?[^\s`(;,\'"]+`?';
+        $list = $verb === 'DROP' ? $name . '(?:\s*,\s*' . $name . ')*' : $name;
+        $pattern = '/^\s*' . $verb . '\s+TABLE\s+(?:IF\s+(?:NOT\s+)?EXISTS\s+)?(' . $list . ')' . $terminator . '/i';
 
         $names = [];
         foreach (explode(';', $sql) as $statement) {
-            if (preg_match($pattern, $statement, $matches) === 1) {
-                $name = trim($matches[1], '`');
-                if ($name !== '') {
-                    $names[] = $name;
+            if (preg_match($pattern, $statement, $matches) !== 1) {
+                continue;
+            }
+
+            foreach (explode(',', $matches[1]) as $part) {
+                $part = trim($part, " \t\r\n`");
+                if ($part !== '') {
+                    $names[] = $part;
                 }
             }
         }

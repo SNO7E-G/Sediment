@@ -61,6 +61,9 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
     /** @var list<string|null> */
     private array $functionStack = [];
 
+    /** @var list<FunctionLike> the function-like nodes behind functionStack */
+    private array $functionNodes = [];
+
     /** @var list<array<string, string|null>> per-function local scopes (null = poisoned) */
     private array $localScopes = [[]];
 
@@ -68,6 +71,15 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
 
     /** @var list<array<string, true>> per-function parameters never re-bound since entry */
     private array $rawParams = [[]];
+
+    /** @var list<array<string, list<string>>> per-function foreach variables => every value they take */
+    private array $loopValues = [[]];
+
+    /** @var list<array<string, array{values: list<string>, keys: list<string>|null}>> per-function locals holding a literal array */
+    private array $arrayLocals = [[]];
+
+    /** A literal array longer than this is not expanded element by element. */
+    private const MAX_LOOP_VALUES = 100;
 
     /** @var array<int, string|null> line => the function enclosing it */
     private array $scopeByLine = [];
@@ -113,7 +125,10 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
         if ($node instanceof FunctionLike) {
             $this->localScopes[] = [];
             $this->rawParams[] = [];
+            $this->loopValues[] = [];
+            $this->arrayLocals[] = [];
             $this->functionStack[] = $this->functionIdentifier($node);
+            $this->functionNodes[] = $node;
         }
 
         if (!array_key_exists($node->getStartLine(), $this->scopeByLine)) {
@@ -169,10 +184,22 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
             $this->loopDepth--;
         }
 
+        // After the loop the variable holds only the last element.
+        if ($node instanceof Foreach_) {
+            foreach ([$node->valueVar, $node->keyVar] as $var) {
+                if ($var instanceof Variable && is_string($var->name)) {
+                    unset($this->loopValues[count($this->loopValues) - 1][$var->name]);
+                }
+            }
+        }
+
         if ($node instanceof FunctionLike) {
             array_pop($this->localScopes);
             array_pop($this->rawParams);
+            array_pop($this->loopValues);
+            array_pop($this->arrayLocals);
             array_pop($this->functionStack);
+            array_pop($this->functionNodes);
         }
 
         return null;
@@ -238,6 +265,12 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
     protected function currentFunction(): ?string
     {
         return $this->functionStack === [] ? null : $this->functionStack[count($this->functionStack) - 1];
+    }
+
+    /** The innermost function, method, or closure node being traversed. */
+    protected function currentFunctionNode(): ?FunctionLike
+    {
+        return $this->functionNodes === [] ? null : $this->functionNodes[count($this->functionNodes) - 1];
     }
 
     /**
@@ -313,14 +346,32 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
             // Exactly one side must be the caller-supplied part; if both are
             // unknown there is nothing to anchor the key to.
             if ($left->isResolved() && !$right->isResolved()) {
-                return self::prefixed((string) $left->value, $this->wrapperLiterals($expr->right, $scope), '');
+                return self::prefixed((string) $left->value, $this->knownValues($expr->right, $scope), '');
             }
 
             if ($right->isResolved() && !$left->isResolved()) {
-                return self::prefixed('', $this->wrapperLiterals($expr->left, $scope), (string) $right->value);
+                return self::prefixed('', $this->knownValues($expr->left, $scope), (string) $right->value);
             }
 
             return null;
+        }
+
+        return $this->knownValues($expr, $scope);
+    }
+
+    /**
+     * Every value a variable takes: each element of the literal array a
+     * foreach is walking, or else the keys a wrapper's callers pass.
+     *
+     * @return array{literals: list<string>, complete: bool}|null
+     */
+    private function knownValues(Expr $expr, ?string $scope): ?array
+    {
+        if ($expr instanceof Variable && is_string($expr->name)) {
+            $values = $this->loopValues[count($this->loopValues) - 1][$expr->name] ?? null;
+            if ($values !== null) {
+                return ['literals' => $values, 'complete' => true];
+            }
         }
 
         return $this->wrapperLiterals($expr, $scope);
@@ -383,6 +434,7 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
             if ($node->keyVar !== null) {
                 $this->poisonTarget($node->keyVar);
             }
+            $this->bindLoopValues($node);
         } elseif ($node instanceof Global_) {
             foreach ($node->vars as $var) {
                 $this->poisonTarget($var);
@@ -426,6 +478,16 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
         if ($node instanceof Assign) {
             $resolution = $this->resolver->resolve($node->expr, $this->currentClass(), $this->currentLocals(), $this->currentFunction());
             $value = $resolution->isResolved() ? $resolution->value : null;
+
+            if ($node->expr instanceof Array_) {
+                $array = $this->literalArray($node->expr);
+                $this->bindLocal($node->var->name, null);
+                if ($array !== null) {
+                    $this->arrayLocals[count($this->arrayLocals) - 1][$node->var->name] = $array;
+                }
+
+                return;
+            }
         }
 
         $this->bindLocal($node->var->name, $value);
@@ -444,16 +506,78 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
         }
     }
 
+    /**
+     * `foreach (['a', 'b'] as $o)` — or over a local holding that literal, or
+     * over `$defaults as $k => $v` — binds the loop variables to every value
+     * they take, so `add_option($o)` inside reads as two keys, not one unknown.
+     */
+    private function bindLoopValues(Foreach_ $node): void
+    {
+        $array = null;
+        if ($node->expr instanceof Array_) {
+            $array = $this->literalArray($node->expr);
+        } elseif ($node->expr instanceof Variable && is_string($node->expr->name)) {
+            $array = $this->arrayLocals[count($this->arrayLocals) - 1][$node->expr->name] ?? null;
+        }
+
+        if ($array === null) {
+            return;
+        }
+
+        $scope = count($this->loopValues) - 1;
+        if ($node->valueVar instanceof Variable && is_string($node->valueVar->name) && $array['values'] !== []) {
+            $this->loopValues[$scope][$node->valueVar->name] = $array['values'];
+        }
+        if ($node->keyVar instanceof Variable && is_string($node->keyVar->name) && $array['keys'] !== null) {
+            $this->loopValues[$scope][$node->keyVar->name] = $array['keys'];
+        }
+    }
+
+    /**
+     * Every value (and string key) of an array literal, or null when the array
+     * is too long or any element cannot be resolved. Values that are not all
+     * strings yield an empty value list rather than a partial one.
+     *
+     * @return array{values: list<string>, keys: list<string>|null}|null
+     */
+    private function literalArray(Array_ $array): ?array
+    {
+        if ($array->items === [] || count($array->items) > self::MAX_LOOP_VALUES) {
+            return null;
+        }
+
+        $values = [];
+        $keys = [];
+        foreach ($array->items as $item) {
+            if ($item->unpack || $item->byRef) {
+                return null;
+            }
+
+            $value = $this->resolver->resolve($item->value, $this->currentClass(), $this->currentLocals(), $this->currentFunction());
+            $values[] = $value->isResolved() ? (string) $value->value : null;
+
+            $key = $item->key !== null ? $this->resolver->resolve($item->key, $this->currentClass(), $this->currentLocals(), $this->currentFunction()) : null;
+            $keys[] = $key !== null && $key->isResolved() ? (string) $key->value : null;
+        }
+
+        return [
+            'values' => in_array(null, $values, true) ? [] : array_values(array_filter($values, 'is_string')),
+            'keys' => in_array(null, $keys, true) ? null : array_values(array_filter($keys, 'is_string')),
+        ];
+    }
+
     private function poisonLocal(string $name): void
     {
         unset($this->rawParams[count($this->rawParams) - 1][$name]);
+        unset($this->loopValues[count($this->loopValues) - 1][$name]);
+        unset($this->arrayLocals[count($this->arrayLocals) - 1][$name]);
         $this->localScopes[count($this->localScopes) - 1][$name] = null;
     }
 
     private function bindLocal(string $name, ?string $value): void
     {
         $index = count($this->localScopes) - 1;
-        unset($this->rawParams[$index][$name]);
+        unset($this->rawParams[$index][$name], $this->loopValues[$index][$name], $this->arrayLocals[$index][$name]);
 
         if (!array_key_exists($name, $this->localScopes[$index])) {
             $this->localScopes[$index][$name] = $value;

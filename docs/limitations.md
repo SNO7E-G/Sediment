@@ -74,8 +74,9 @@ track which role received them. All are reported so a human can decide.
 
 ## Scope of a scan
 
-- Analysis is per file within the plugin directory. Following `require`/`include`
-  of literal paths to build the full file set is planned but not yet done.
+- Every PHP file in the plugin directory is scanned. `require`/`include` of
+  literal paths is followed only to decide which files' top-level code runs on
+  uninstall.
 - Bundled dependencies (`vendor/`, `node_modules/`) and test directories are
   excluded by design, so a plugin is never blamed for code it did not author.
 

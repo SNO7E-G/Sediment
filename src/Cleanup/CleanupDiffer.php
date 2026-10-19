@@ -11,39 +11,68 @@ use Sediment\Analyzer\Finding;
  * a per-item `cleaned` flag on every created finding.
  *
  * A removal only counts if it actually runs on uninstall: it lives in
- * `uninstall.php`, or inside a function/method registered via
- * `register_uninstall_hook`. Matching is by exact key within the same artifact
- * type — a create is `cleaned` only when a scoped removal names the same key.
- * Under-crediting (marking something not-cleaned when it might be) is the safe
- * direction for a grade.
+ * `uninstall.php` (or a file it requires), or in a function reachable from
+ * there or from a `register_uninstall_hook` callback. Matching is by exact key
+ * within the same artifact type — a create is `cleaned` only when a scoped
+ * removal names the same key. Under-crediting (marking something not-cleaned
+ * when it might be) is the safe direction for a grade.
+ *
+ * Deactivation counts too, for state that is routinely cleared there.
+ * WordPress deletes only inactive plugins, so a deactivation hook always runs
+ * before uninstall, and clearing scheduled events and rewrite rules on
+ * deactivation is the documented pattern.
  */
 final class CleanupDiffer
 {
     /**
+     * Types a deactivation hook is credited for. Options, tables and content
+     * deleted on deactivation are gone too, but that is data loss on a plain
+     * deactivate and is often gated on a setting this pass does not read for
+     * deactivation, so it is not credited.
+     */
+    private const DEACTIVATION_TYPES = ['cron' => true, 'action' => true, 'transient' => true, 'rewrite_rule' => true];
+
+    /**
+     * The `via` of a removal whose key is a regex over the keys a bulk
+     * `DELETE FROM ... LIKE` removes, rather than one exact key.
+     */
+    public const LIKE = 'wpdb::query like';
+
+    /**
      * @param list<Finding> $findings created artifacts
      * @param list<array{type: string, key: string, via: string, function: string|null, file: string}> $removals
-     * @param list<string> $callbacks uninstall callback identifiers
-     * @param list<string> $uninstallCalls functions called at the top level of uninstall.php
+     * @param array<string, true> $scopedFunctions functions that run on uninstall — see {@see scopedFunctions()}
      * @param list<array{type: string, function: string|null, file: string}> $blankets removals that clear a whole type
      * @param array<string, true> $uninstallFiles every file whose top-level code runs on uninstall — see {@see reachableUninstallFiles()}
+     * @param array<string, true> $deactivationFunctions functions that run on deactivation — see {@see reachableFunctions()}
      * @return list<Finding> the same findings with `cleaned` set
      */
-    public static function apply(array $findings, array $removals, array $callbacks, array $uninstallCalls = [], array $blankets = [], array $uninstallFiles = []): array
+    public static function apply(array $findings, array $removals, array $scopedFunctions, array $blankets = [], array $uninstallFiles = [], array $deactivationFunctions = []): array
     {
-        $scopedFunctions = self::scopedFunctions($callbacks, $uninstallCalls);
+        $runs = static fn (string $type, string $file, ?string $function): bool
+            => self::runsOnUninstall($file, $function, $scopedFunctions, $uninstallFiles)
+                || (isset(self::DEACTIVATION_TYPES[$type]) && $function !== null && isset($deactivationFunctions[strtolower($function)]));
 
         /** @var array<string, array<string, list<string>>> $removed type => key => removal calls */
         $removed = [];
+        /** @var array<string, list<string>> $likes type => regexes over the keys a bulk DELETE removes */
+        $likes = [];
         foreach ($removals as $removal) {
-            if (self::runsOnUninstall($removal['file'], $removal['function'], $scopedFunctions, $uninstallFiles)) {
-                $removed[$removal['type']][$removal['key']][] = $removal['via'] ?? '';
+            if (!$runs($removal['type'], $removal['file'], $removal['function'])) {
+                continue;
+            }
+
+            if ($removal['via'] === self::LIKE) {
+                $likes[$removal['type']][] = $removal['key'];
+            } else {
+                $removed[$removal['type']][$removal['key']][] = $removal['via'];
             }
         }
 
         /** @var array<string, true> $clearedWholesale artifact types cleared in one call */
         $clearedWholesale = [];
         foreach ($blankets as $blanket) {
-            if (self::runsOnUninstall($blanket['file'], $blanket['function'], $scopedFunctions, $uninstallFiles)) {
+            if ($runs($blanket['type'], $blanket['file'], $blanket['function'])) {
                 $clearedWholesale[$blanket['type']] = true;
             }
         }
@@ -56,10 +85,41 @@ final class CleanupDiffer
             }
 
             $via = ($finding->key !== null ? $removed[$finding->type][$finding->key] ?? null : null);
-            $result[] = $finding->withCleaned($via !== null && self::clears($finding, $via));
+            $result[] = $finding->withCleaned(
+                ($via !== null && self::clears($finding, $via)) || self::deletedInBulk($finding, $likes),
+            );
         }
 
         return $result;
+    }
+
+    /**
+     * Whether a bulk `DELETE FROM ... LIKE` removes this key's row. A transient
+     * lives in the options table under `_transient_<key>` (`_site_transient_`
+     * network-wide), so an options delete matching that row clears it.
+     * Pattern and dynamic keys are never matched: their real names are unknown.
+     *
+     * @param array<string, list<string>> $likes
+     */
+    private static function deletedInBulk(Finding $finding, array $likes): bool
+    {
+        if ($finding->key === null || !$finding->isConfident()) {
+            return false;
+        }
+
+        [$type, $rows] = $finding->type === 'transient'
+            ? ['option', ['_transient_' . $finding->key, '_site_transient_' . $finding->key]]
+            : [$finding->type, [$finding->key]];
+
+        foreach ($likes[$type] ?? [] as $regex) {
+            foreach ($rows as $row) {
+                if (preg_match($regex, $row) === 1) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -99,16 +159,14 @@ final class CleanupDiffer
      * my_cleanup(); }`). An `if` that merely reads an option without gating
      * anything is not a condition, and must not cost a clean plugin its A.
      *
-     * @param list<array{option: string, default: bool|string|null, function: string|null, file: string, exits?: bool, removes?: bool, calls?: list<string>}> $guards
-     * @param list<string> $callbacks
-     * @param list<string> $uninstallCalls
+     * @param list<array{option: string|null, default: bool|string|null, function: string|null, file: string, exits?: bool, removes?: bool, calls?: list<string>}> $guards
+     * @param array<string, true> $scopedFunctions functions that run on uninstall
      * @param list<array{type: string, key: string, via: string, function: string|null, file: string}> $removals
      * @param array<string, true> $uninstallFiles every file whose top-level code runs on uninstall — see {@see reachableUninstallFiles()}
-     * @return array{option: string, default: bool|string|null}|null
+     * @return array{option: string|null, default: bool|string|null}|null
      */
-    public static function condition(array $guards, array $callbacks, array $uninstallCalls = [], array $removals = [], array $uninstallFiles = []): ?array
+    public static function condition(array $guards, array $scopedFunctions, array $removals = [], array $uninstallFiles = []): ?array
     {
-        $scopedFunctions = self::scopedFunctions($callbacks, $uninstallCalls);
         $cleanupFunctions = self::functionsThatRemove($removals, $scopedFunctions);
 
         foreach ($guards as $guard) {
@@ -181,15 +239,59 @@ final class CleanupDiffer
     }
 
     /**
+     * Every function that runs on uninstall: the uninstall callbacks, whatever
+     * top-level code in an uninstall file calls, and everything those call in
+     * turn.
+     *
+     * @param list<string> $callbacks register_uninstall_hook callbacks
+     * @param list<array{from: string|null, file: string, to: string}> $calls
+     * @param array<string, true> $uninstallFiles
+     * @return array<string, true> lowercased identifiers
+     */
+    public static function scopedFunctions(array $callbacks, array $calls, array $uninstallFiles = []): array
+    {
+        $roots = $callbacks;
+        foreach ($calls as $call) {
+            if ($call['from'] === null && (self::isUninstallFile($call['file']) || isset($uninstallFiles[self::normalizeFile($call['file'])]))) {
+                $roots[] = $call['to'];
+            }
+        }
+
+        return self::reachableFunctions($roots, $calls);
+    }
+
+    /**
+     * The transitive closure of the call graph from a set of entry points.
      * PHP callables are case-insensitive, so identifiers are compared lowercased.
      *
-     * @param list<string> $callbacks
-     * @param list<string> $uninstallCalls
+     * @param list<string> $roots
+     * @param list<array{from: string|null, file: string, to: string}> $calls
      * @return array<string, true>
      */
-    private static function scopedFunctions(array $callbacks, array $uninstallCalls): array
+    public static function reachableFunctions(array $roots, array $calls): array
     {
-        return array_fill_keys(array_map('strtolower', array_merge($callbacks, $uninstallCalls)), true);
+        $outgoing = [];
+        foreach ($calls as $call) {
+            if ($call['from'] !== null) {
+                $outgoing[strtolower($call['from'])][strtolower($call['to'])] = true;
+            }
+        }
+
+        $reachable = [];
+        $queue = array_map('strtolower', $roots);
+        while ($queue !== []) {
+            $function = array_pop($queue);
+            if (isset($reachable[$function])) {
+                continue;
+            }
+
+            $reachable[$function] = true;
+            foreach ($outgoing[$function] ?? [] as $next => $true) {
+                $queue[] = $next;
+            }
+        }
+
+        return $reachable;
     }
 
     /**

@@ -75,6 +75,32 @@ final class Wpdb
     }
 
     /** Is this a read of $wpdb->prefix or $wpdb->base_prefix? */
+    /** wpdb properties naming a core table, e.g. `$wpdb->options`. */
+    private const CORE_TABLES = [
+        'posts', 'postmeta', 'comments', 'commentmeta', 'terms', 'termmeta', 'term_taxonomy',
+        'term_relationships', 'users', 'usermeta', 'options', 'links', 'sitemeta', 'site',
+        'blogs', 'blogmeta', 'signups', 'registration_log',
+    ];
+
+    /**
+     * `$wpdb->options` and friends, as the portable `{prefix}options` token —
+     * how cleanup SQL names the core table it deletes rows from.
+     */
+    public static function coreTable(Expr $expr): ?string
+    {
+        if (
+            !$expr instanceof PropertyFetch
+            || !$expr->name instanceof Identifier
+            || !self::isHandle($expr->var)
+        ) {
+            return null;
+        }
+
+        $name = strtolower($expr->name->toString());
+
+        return in_array($name, self::CORE_TABLES, true) ? '{prefix}' . $name : null;
+    }
+
     public static function isPrefix(Expr $expr): bool
     {
         return $expr instanceof PropertyFetch

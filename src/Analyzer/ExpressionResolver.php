@@ -249,6 +249,11 @@ final class ExpressionResolver
             return Resolution::resolved('{prefix}');
         }
 
+        $coreTable = Wpdb::coreTable($expr);
+        if ($coreTable !== null) {
+            return Resolution::resolved($coreTable);
+        }
+
         if (
             $class !== null
             && $expr->var instanceof Variable

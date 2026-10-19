@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Sediment\Analyzer\Visitors;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr\ArrayDimFetch;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
+use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
@@ -91,7 +93,16 @@ final class StructureVisitor extends AbstractDetectionVisitor
             return;
         }
 
-        $this->record($node, 'add_cap', 'capability', $this->args($node), 0, 'cap');
+        // WP_Role::add_cap($cap) names the capability first; WP_Roles::add_cap($role,
+        // $cap) — wp_roles(), $wp_roles — names the role first. Reading the
+        // wrong one reports `administrator` as a capability the plugin owns.
+        $args = $this->args($node);
+        $rolesObject = ($node->var instanceof FuncCall && $node->var->name instanceof Name && strtolower($node->var->name->toString()) === 'wp_roles')
+            || ($node->var instanceof Variable && $node->var->name === 'wp_roles')
+            || ($node->var instanceof ArrayDimFetch && $node->var->dim instanceof String_ && $node->var->dim->value === 'wp_roles')
+            || $this->argValue($args, 1, 'cap') instanceof String_;
+
+        $this->record($node, 'add_cap', 'capability', $args, $rolesObject ? 1 : 0, 'cap');
     }
 
     /**
