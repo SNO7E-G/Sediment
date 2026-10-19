@@ -14,8 +14,8 @@ use Sediment\Application;
  * plugin.
  *
  * Findings are grouped by key so the same option written from three places is
- * one entry with three `sources`. Artifact types that arrive in v0.2 are emitted
- * as empty arrays so consumers never have to handle a missing field.
+ * one entry with three `sources`. Every artifact type is emitted, empty or not,
+ * so consumers never have to handle a missing field.
  */
 final class Manifest
 {
@@ -49,9 +49,6 @@ final class Manifest
         'dropin' => 'dropins',
         'muplugin' => 'muplugins',
     ];
-
-    /** Not detected yet; present so the schema never breaks for consumers. */
-    private const FUTURE_KEYS = [];
 
     /**
      * @param array{files: list<string>, findings: list<Finding>, errors: list<array{file: string, message: string, code?: string}>, cleanup: array{has_uninstall_php: bool, has_uninstall_hook: bool, conditional?: bool, condition_option?: string|null, condition_default?: bool|string|null}} $scan
@@ -195,7 +192,6 @@ final class Manifest
     private static function creates(array $findings): array
     {
         $creates = array_fill_keys(array_values(self::TYPE_KEYS), []);
-        $creates += array_fill_keys(self::FUTURE_KEYS, []);
 
         /** @var array<string, array<string, array<string, mixed>>> $grouped */
         $grouped = [];

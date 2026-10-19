@@ -13,13 +13,15 @@ use SplFileInfo;
 /**
  * Walks a plugin directory and returns the set of PHP files to analyze (M1).
  *
- * Excludes dependency, build, and test directories by default so a plugin is
- * never blamed for its vendored code (§12). Symlinks are not followed, which
- * keeps the walk bounded and loop-free.
+ * Excludes dependency, build, and test directories by default, matched without
+ * regard to case, so a plugin is never blamed for its vendored code (§12). The
+ * one exception is a block's `render.php`: WordPress loads it straight from
+ * `build/<block>/`, so it is plugin code that runs. Symlinks are not followed,
+ * which keeps the walk bounded and loop-free.
  */
 final class FileWalker
 {
-    /** Directory names skipped by default (M1, §12). */
+    /** Directory names skipped by default (M1, §12), compared lowercase. */
     public const DEFAULT_EXCLUDES = [
         'vendor',
         'node_modules',
@@ -37,7 +39,7 @@ final class FileWalker
     /** @param list<string> $excludes */
     public function __construct(array $excludes = self::DEFAULT_EXCLUDES)
     {
-        $this->excludes = $excludes;
+        $this->excludes = array_map('strtolower', $excludes);
     }
 
     /**
@@ -63,14 +65,23 @@ final class FileWalker
             FilesystemIterator::SKIP_DOTS | FilesystemIterator::CURRENT_AS_FILEINFO
         );
 
+        $skipsBuild = in_array('build', $this->excludes, true);
+
         $filter = new RecursiveCallbackFilterIterator(
             $directoryIterator,
-            function (SplFileInfo $current): bool {
+            function (SplFileInfo $current) use ($root, $skipsBuild): bool {
+                $name = strtolower($current->getFilename());
+
                 if ($current->isDir()) {
-                    return !in_array($current->getFilename(), $this->excludes, true);
+                    // A build directory is entered, but only for render.php.
+                    return !in_array($name, $this->excludes, true) || ($skipsBuild && $name === 'build');
                 }
 
-                return true;
+                if ($current->isLink()) {
+                    return false;
+                }
+
+                return !$skipsBuild || $name === 'render.php' || !$this->insideBuild($root, $current->getPath());
             }
         );
 
@@ -103,6 +114,13 @@ final class FileWalker
         sort($files);
 
         return $files;
+    }
+
+    private function insideBuild(string $root, string $directory): bool
+    {
+        $relative = str_replace('\\', '/', substr($directory, strlen($root)));
+
+        return in_array('build', explode('/', strtolower($relative)), true);
     }
 
     private function isPhp(string $path): bool

@@ -7,7 +7,6 @@ namespace Sediment\Analyzer;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\BinaryOp\Concat;
 use PhpParser\Node\Expr\ConstFetch;
-use PhpParser\Node\Scalar\InterpolatedString;
 use PhpParser\Node\Name;
 
 /**
@@ -46,7 +45,11 @@ final class WpRoots
         }
 
         if ($expr instanceof Concat) {
-            $leaves = self::flatten($expr);
+            $leaves = ExpressionResolver::concatOperands($expr);
+            if ($leaves === null) {
+                return null;
+            }
+
             $first = $leaves[0];
             $token = $first instanceof ConstFetch ? (self::MAP[$first->name->toString()] ?? null) : null;
             if ($token === null) {
@@ -63,40 +66,8 @@ final class WpRoots
             return [$token, $remainder];
         }
 
-        if ($expr instanceof InterpolatedString && $expr->parts !== []) {
-            $first = $expr->parts[0];
-            if (!$first instanceof ConstFetch) {
-                return null;
-            }
-            $token = self::MAP[$first->name->toString()] ?? null;
-            if ($token === null) {
-                return null;
-            }
-
-            $rest = array_slice($expr->parts, 1);
-            $remainder = $rest === [] ? null : new InterpolatedString($rest);
-
-            return [$token, $remainder];
-        }
-
+        // An interpolated string never starts with a root: a constant cannot
+        // be interpolated.
         return null;
-    }
-
-    /** @return list<Expr> */
-    private static function flatten(Expr $expr): array
-    {
-        if (!$expr instanceof Concat) {
-            return [$expr];
-        }
-
-        return [...self::flatten($expr->left), ...self::flatten($expr->right)];
-    }
-
-    /**
-     * A `Name` node for a root constant, for callers building expressions.
-     */
-    public static function constantFor(string $token): ?string
-    {
-        return array_search($token, self::MAP, true) ?: null;
     }
 }
