@@ -46,8 +46,9 @@ and check `schema_version`'s major — that consumer will survive every release.
 
 A CI step can therefore treat `1` from `check` or `diff` as "the plugin
 regressed" and `2` as "the pipeline is misconfigured". Gate on "non-zero", or
-on the specific code; both are stable. Errors are written to stderr, so they
-never mix with a manifest on stdout.
+on the specific code; both are stable. Usage and I/O errors from `scan`,
+`grade`, `check`, `diff`, `fetch`, and `uninstall` are written to stderr, so they
+never mix with a manifest, a path, or a generated file on stdout.
 
 Before 0.12.0, `check` and `diff` returned `1` for a missing path or a bad
 baseline as well.

@@ -145,6 +145,7 @@ update_site_option('acme_network', 1);
             new Finding(type: 'table', function: 'dbDelta', key: '{prefix}acme_log', confidence: Finding::CONFIDENCE_VERIFIED, file: 'p.php', line: 2),
             new Finding(type: 'option', function: 'update_site_option', key: 'acme_net', confidence: Finding::CONFIDENCE_VERIFIED, file: 'p.php', line: 3),
             new Finding(type: 'user_meta', function: 'update_user_meta', key: 'acme_um', confidence: Finding::CONFIDENCE_VERIFIED, file: 'p.php', line: 4),
+            new Finding(type: 'user_meta', function: 'update_user_meta', key: '{prefix}acme_seen', confidence: Finding::CONFIDENCE_VERIFIED, file: 'p.php', line: 5),
         ], 'acme');
 
         $generated = sys_get_temp_dir() . '/sediment-multisite-' . bin2hex(random_bytes(3)) . '.php';
@@ -180,10 +181,13 @@ update_site_option('acme_network', 1);
             'switch 1',
             'delete_option acme_opt',
             'DROP TABLE IF EXISTS `wp_acme_log`',
+            // A user meta key built on the table prefix is one per site.
+            'delete_metadata user wp_acme_seen',
             'restore',
             'switch 2',
             'delete_option acme_opt',
             'DROP TABLE IF EXISTS `wp_2_acme_log`',
+            'delete_metadata user wp_2_acme_seen',
             'restore',
             // Network-wide data, once.
             'delete_site_option acme_net',

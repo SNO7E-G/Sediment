@@ -37,14 +37,19 @@ uninstall routine deletes only from the options table.
 - **The generated `uninstall.php` cleans every site on a network.** Options,
   tables, cron events, transients, post, term and comment meta, roles, and
   Action Scheduler jobs are removed once per site, through `get_sites()` (with
-  no 100-site limit) and `switch_to_blog()`. Network options and transients,
-  user meta, and drop-in and mu-plugin files are removed once. A single-site
+  no 100-site limit) and `switch_to_blog()`, and so is user meta whose key is
+  built on the table prefix. Network options and transients, other user meta,
+  and drop-in and mu-plugin files are removed once. A single-site
   install runs the same code once.
 - **`diff` catches the regressions the grade weighs most.** An option whose
   autoload rose (`no` to `yes` or `unknown`) is listed, and fails the diff
   unless the option is cleaned up. So is a coverage drop: a lower resolution
   rate, or more skipped files, than the baseline. A baseline without coverage
-  is not compared on it.
+  is not compared on it. Re-record a baseline after upgrading: one saved by an
+  earlier release can differ for reasons in the analyzer, not the plugin. From
+  this release, an option written both with autoload off and without a flag
+  now reads `unknown` and shows as autoload raised, and a removal in the other
+  scope shows as no longer cleaned.
 - **The manifest and the grader agree on autoload.** Both keep the worst claim
   any write makes, `yes` over `unknown` over `no`. A key written once with
   autoload off and once without a flag was shown as `no` but graded as

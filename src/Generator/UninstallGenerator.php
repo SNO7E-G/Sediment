@@ -32,7 +32,7 @@ final class UninstallGenerator
         $cron = [];
         $transients = [];
         $siteTransients = [];
-        $meta = [];         // key => meta object type (post|term|comment)
+        $meta = [];         // key => meta object type (post|term|comment, or user for a prefixed key)
         $userMeta = [];     // the users table is shared by the whole network
         $roles = [];
         $actions = [];
@@ -59,7 +59,9 @@ final class UninstallGenerator
                     ? 'wp_unschedule_hook'
                     : 'wp_clear_scheduled_hook',
                 'transient' => $finding->isNetworkScoped() ? $siteTransients[$key] = true : $transients[$key] = true,
-                'user_meta' => $userMeta[$key] = true,
+                // Users are shared by the network, but a key built on the
+                // table prefix (`wp_2_acme_seen`) is one per site.
+                'user_meta' => str_contains($key, self::PREFIX_TOKEN) ? $meta[$key] = 'user' : $userMeta[$key] = true,
                 'post_meta', 'term_meta', 'comment_meta' => $meta[$key] = str_replace('_meta', '', $finding->type),
                 'role'      => $roles[$key] = true,
                 'action'    => $actions[$key] = true,
@@ -103,7 +105,7 @@ final class UninstallGenerator
      * @param array<string, true> $tables
      * @param array<string, string> $cron hook => clearing function
      * @param array<string, true> $transients
-     * @param array<string, string> $meta key => object type (post|term|comment)
+     * @param array<string, string> $meta key => object type (post|term|comment, or user for a prefixed key)
      * @param array<string, true> $roles
      * @param array<string, true> $actions Action Scheduler hooks
      * @return list<string>
