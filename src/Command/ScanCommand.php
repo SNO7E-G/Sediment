@@ -39,8 +39,10 @@ final class ScanCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $path = (string) $input->getArgument('path');
 
+        // Errors go to stderr, so `scan --json > manifest.json` never writes
+        // an error message where a manifest should be.
         if (!file_exists($path)) {
-            $io->error("Path not found: {$path}");
+            $io->getErrorStyle()->error("Path not found: {$path}");
 
             return Command::FAILURE;
         }

@@ -49,7 +49,9 @@ final class FetchCommand extends Command
         try {
             $result = (new WordPressOrgClient($cache))->fetch($slug, $version !== null ? (string) $version : null);
         } catch (\Throwable $e) {
-            $io->error($e->getMessage());
+            // On stderr, so `--quiet-path` never prints an error where a script
+            // expects a path.
+            $io->getErrorStyle()->error($e->getMessage());
 
             return Command::FAILURE;
         }

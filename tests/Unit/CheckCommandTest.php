@@ -5,8 +5,12 @@ declare(strict_types=1);
 namespace Sediment\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use Sediment\Application;
 use Sediment\Command\CheckCommand;
+use Sediment\Command\FetchCommand;
+use Sediment\Command\ScanCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Tester\ApplicationTester;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
@@ -63,9 +67,37 @@ final class CheckCommandTest extends TestCase
         self::assertStringContainsString('Invalid --fail-on', $tester->getDisplay());
     }
 
-    public function test_a_missing_path_fails(): void
+    public function test_a_usage_error_exits_2_so_ci_can_tell_it_from_a_failed_gate(): void
     {
-        self::assertSame(Command::FAILURE, $this->check('does-not-exist')->getStatusCode());
+        // A path that is not there, on stderr, with nothing on stdout.
+        $tester = new CommandTester(new CheckCommand());
+        $tester->execute(['path' => dirname(__DIR__) . '/fixtures/does-not-exist'], ['capture_stderr_separately' => true]);
+        self::assertSame(Command::INVALID, $tester->getStatusCode());
+        self::assertSame('', $tester->getDisplay());
+        self::assertStringContainsString('Path not found', $tester->getErrorOutput());
+
+        // A command line Symfony cannot parse exits 2 as well, not 1.
+        $app = new Application();
+        $app->setAutoExit(false);
+        $console = new ApplicationTester($app);
+        self::assertSame(Command::INVALID, $console->run(['command' => 'check']));
+        self::assertSame(Command::INVALID, $console->run(['command' => 'check', 'path' => '.', '--bogus' => true]));
+    }
+
+    public function test_scan_and_fetch_errors_go_to_stderr(): void
+    {
+        // `scan --json > manifest.json` and `fetch --quiet-path` are read by
+        // scripts; an error on stdout would be taken for the output.
+        $scan = new CommandTester(new ScanCommand());
+        $scan->execute(['path' => '/does/not/exist', '--json' => true], ['capture_stderr_separately' => true]);
+        self::assertSame('', $scan->getDisplay());
+        self::assertStringContainsString('Path not found', $scan->getErrorOutput());
+
+        $fetch = new CommandTester(new FetchCommand());
+        $fetch->execute(['slug' => "akismet\n", '--quiet-path' => true], ['capture_stderr_separately' => true]);
+        self::assertSame(Command::FAILURE, $fetch->getStatusCode());
+        self::assertSame('', $fetch->getDisplay());
+        self::assertStringContainsString('not a valid plugin slug', $fetch->getErrorOutput());
     }
 
     public function test_min_coverage_fails_a_plugin_whose_writes_cannot_be_read(): void

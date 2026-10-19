@@ -38,35 +38,38 @@ final class DiffCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
+        // Usage and I/O errors exit 2 and go to stderr; 1 means the footprint
+        // got worse, and nothing else.
+        $errors = $io->getErrorStyle();
         $baselinePath = (string) $input->getArgument('baseline');
         $path = (string) $input->getArgument('path');
 
         if (!is_file($baselinePath)) {
-            $io->error("Baseline manifest not found: {$baselinePath}");
+            $errors->error("Baseline manifest not found: {$baselinePath}");
 
-            return Command::FAILURE;
+            return Command::INVALID;
         }
 
         $before = json_decode((string) @file_get_contents($baselinePath), true);
         if (!is_array($before)) {
-            $io->error("Baseline manifest is not valid JSON: {$baselinePath}");
+            $errors->error("Baseline manifest is not valid JSON: {$baselinePath}");
 
-            return Command::FAILURE;
+            return Command::INVALID;
         }
 
         // Any JSON object decodes to an array; without this check a file that
         // is not a manifest at all "diffs" as if every artifact were new and
         // reports a regression that never happened.
         if (!isset($before['grade'], $before['creates'])) {
-            $io->error("Not a Sediment manifest (no grade/creates): {$baselinePath}");
+            $errors->error("Not a Sediment manifest (no grade/creates): {$baselinePath}");
 
-            return Command::FAILURE;
+            return Command::INVALID;
         }
 
         if (!file_exists($path)) {
-            $io->error("Path not found: {$path}");
+            $errors->error("Path not found: {$path}");
 
-            return Command::FAILURE;
+            return Command::INVALID;
         }
 
         $scan = (new Scanner())->scan($path);
@@ -83,6 +86,8 @@ final class DiffCommand extends Command
 
         $this->listGroup($io, 'New artifacts', $diff['added'], 'yellow');
         $this->listGroup($io, 'No longer cleaned up', $diff['no_longer_cleaned'], 'red');
+        $this->listGroup($io, 'Autoload raised', $diff['autoload_raised'], 'red');
+        $this->listGroup($io, 'Coverage dropped', $diff['coverage_dropped'], 'red');
         $this->listGroup($io, 'Now cleaned up', $diff['newly_cleaned'], 'green');
         $this->listGroup($io, 'No longer created', $diff['removed'], 'green');
 

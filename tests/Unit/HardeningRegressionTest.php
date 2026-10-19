@@ -121,9 +121,8 @@ final class HardeningRegressionTest extends TestCase
             PHP]);
 
         $grade = (new Grader())->grade($scan['findings'], $scan['cleanup']);
+        /** @var array{creates: array{options: list<array{key: string, autoload: string}>}} $manifest */
         $manifest = Manifest::build($scan, $grade, 'plugin', '2026-01-01T00:00:00Z');
-
-        /** @var list<array{key: string, autoload: string}> $options */
         $options = $manifest['creates']['options'];
         $autoload = array_column($options, 'autoload', 'key');
 

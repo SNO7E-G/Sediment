@@ -141,12 +141,39 @@ final class ManifestDiffTest extends TestCase
         }
     }
 
+    public function test_an_option_that_starts_autoloading_or_a_scan_that_sees_less_is_a_regression(): void
+    {
+        $manifest = static fn (string $autoload, bool $cleaned, float $rate, int $skipped): array => [
+            'grade' => 'D',
+            'creates' => ['options' => [['key' => 'acme_cache', 'autoload' => $autoload, 'cleaned' => $cleaned]]],
+            'coverage' => ['resolution_rate' => $rate, 'files_skipped' => $skipped],
+        ];
+
+        // no → yes moves the option from the lightest weight to the heaviest.
+        $diff = ManifestDiff::between($manifest('no', false, 0.9, 0), $manifest('yes', false, 0.9, 0));
+        self::assertSame(['options:acme_cache'], $diff['autoload_raised']);
+        self::assertTrue($diff['regressed']);
+
+        // Autoloading something the plugin also removes is not left behind.
+        self::assertFalse(ManifestDiff::between($manifest('no', true, 0.9, 0), $manifest('yes', true, 0.9, 0))['regressed']);
+
+        // Fewer writes resolved, or more files skipped, hides footprint.
+        $diff = ManifestDiff::between($manifest('no', false, 0.9, 0), $manifest('no', false, 0.8, 1));
+        self::assertSame(['resolution rate: 90.0% → 80.0%', 'files skipped: 0 → 1'], $diff['coverage_dropped']);
+        self::assertTrue($diff['regressed']);
+
+        // A baseline from before coverage was recorded is not compared on it.
+        $old = $manifest('no', false, 0.9, 0);
+        unset($old['coverage']);
+        self::assertFalse(ManifestDiff::between($old, $manifest('no', false, 0.5, 3))['regressed']);
+    }
+
     public function test_a_missing_or_invalid_baseline_fails_clearly(): void
     {
         $tester = new CommandTester(new DiffCommand());
         $tester->execute(['baseline' => '/does/not/exist.json', 'path' => dirname(__DIR__) . '/fixtures/clean-plugin']);
 
-        self::assertSame(Command::FAILURE, $tester->getStatusCode());
+        self::assertSame(Command::INVALID, $tester->getStatusCode());
         self::assertStringContainsString('not found', $tester->getDisplay());
     }
 }
