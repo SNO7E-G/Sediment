@@ -91,7 +91,7 @@ final class ScanCommand extends Command
 
         if ($result['errors'] !== []) {
             $io->warning(sprintf(
-                '%d file(s) could not be parsed and were skipped (degraded, never fatal).',
+                '%d file(s) were skipped or only partly parsed (degraded, never fatal).',
                 count($result['errors'])
             ));
         }

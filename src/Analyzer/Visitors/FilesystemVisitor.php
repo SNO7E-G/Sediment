@@ -6,16 +6,11 @@ namespace Sediment\Analyzer\Visitors;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr;
-use PhpParser\Node\Expr\BinaryOp\Concat;
-use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
-use PhpParser\Node\Scalar\InterpolatedString;
 use Sediment\Analyzer\Finding;
-use Sediment\Analyzer\Resolution;
-use Sediment\Analyzer\WpRoots;
 
 /**
  * Detects directories a plugin creates under a WordPress root: wp_mkdir_p()
@@ -29,8 +24,8 @@ use Sediment\Analyzer\WpRoots;
  * from them would otherwise degrade to `pattern`/`dynamic` and lose the root
  * entirely. Instead of teaching the shared resolver about specific WordPress
  * constants, this visitor special-cases the AST shape here: if the expression
- * is `ROOT . remainder` (a `Concat`/`InterpolatedString` whose first operand
- * is one of the three root constants, or the constant used bare), the root is
+ * is `ROOT . remainder` (a concatenation whose first operand is one of the
+ * root constants, or the constant used bare), the root is
  * rewritten to a placeholder token and only the remainder is handed to the
  * resolver:
  *
@@ -124,47 +119,5 @@ final class FilesystemVisitor extends AbstractDetectionVisitor
             line: $node->getStartLine(),
             expression: $resolution->raw,
         );
-    }
-
-    /**
-     * Resolve a path expression, substituting a leading WP_CONTENT_DIR /
-     * WP_PLUGIN_DIR / ABSPATH root with its placeholder token.
-     *
-     * @return Resolution|null null means: skip entirely (root alone, no path).
-     */
-    private function resolvePath(Expr $expr): ?Resolution
-    {
-        $rooted = WpRoots::split($expr);
-        if ($rooted === null) {
-            return $this->resolveKey($expr);
-        }
-
-        [$token, $remainder] = $rooted;
-        if ($remainder === null) {
-            return null;
-        }
-
-        $tail = $this->resolveKey($remainder);
-
-        if ($tail->confidence === Finding::CONFIDENCE_VERIFIED || $tail->confidence === Finding::CONFIDENCE_RESOLVED) {
-            if ($tail->value === '') {
-                return null; // token + nothing == the root alone
-            }
-
-            $value = $token . $tail->value;
-
-            return $tail->confidence === Finding::CONFIDENCE_VERIFIED
-                ? Resolution::verified($value)
-                : Resolution::resolved($value);
-        }
-
-        if ($tail->confidence === Finding::CONFIDENCE_PATTERN) {
-            return Resolution::pattern($token . ($tail->value ?? ''), $this->resolveKey($expr)->raw);
-        }
-
-        // Nothing survived past the root — fall back to the plain resolution of
-        // the whole expression (which degrades to dynamic) rather than reporting
-        // the placeholder alone.
-        return $this->resolveKey($expr);
     }
 }

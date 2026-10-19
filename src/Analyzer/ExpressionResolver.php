@@ -39,6 +39,13 @@ final class ExpressionResolver
 {
     private const NON_STRING_CONSTANTS = ['true', 'false', 'null'];
 
+    /**
+     * A concatenation or interpolation with more pieces than this is dynamic.
+     * Hand-written keys have a handful; past this it is a generated SQL builder
+     * or minified code, and following it buys nothing but time.
+     */
+    public const MAX_SEGMENTS = 256;
+
     public function __construct(
         private readonly SymbolTable $symbols,
         private readonly PrettyPrinter $printer = new PrettyPrinter(),
@@ -55,10 +62,54 @@ final class ExpressionResolver
      */
     public function resolve(Expr $expr, ?string $class = null, array $locals = [], ?string $function = null): Resolution
     {
+        $resolution = $this->resolveValue($expr, $class, $locals, $function);
+
+        // The raw source is printed once, for the expression asked about. Nested
+        // segments never need theirs, and printing at every level of a long
+        // concatenation made resolving it quadratic.
+        return $resolution->isResolved()
+            ? $resolution
+            : new Resolution($resolution->confidence, $resolution->value, $this->raw($expr));
+    }
+
+    /**
+     * The operands of a concatenation chain, left to right, however it nests —
+     * or null past {@see MAX_SEGMENTS}. Walked with a stack, not recursion, so a
+     * generated thousand-term chain costs one linear pass.
+     *
+     * @return list<Expr>|null
+     */
+    public static function concatOperands(Concat $concat): ?array
+    {
+        $operands = [];
+        $pending = [$concat];
+
+        while ($pending !== []) {
+            $node = array_pop($pending);
+            if ($node instanceof Concat) {
+                $pending[] = $node->right;
+                $pending[] = $node->left;
+                continue;
+            }
+
+            if (count($operands) === self::MAX_SEGMENTS) {
+                return null;
+            }
+            $operands[] = $node;
+        }
+
+        return $operands;
+    }
+
+    /**
+     * @param array<string, string|null> $locals
+     */
+    private function resolveValue(Expr $expr, ?string $class, array $locals, ?string $function): Resolution
+    {
         if ($expr instanceof String_) {
             // An empty literal key is meaningless downstream (WP rejects it);
             // treat it as unresolved rather than a confident empty string.
-            return $expr->value === '' ? Resolution::dynamic($this->raw($expr)) : Resolution::verified($expr->value);
+            return $expr->value === '' ? Resolution::dynamic() : Resolution::verified($expr->value);
         }
 
         if ($expr instanceof MagicConst) {
@@ -86,14 +137,18 @@ final class ExpressionResolver
         }
 
         if ($expr instanceof Concat) {
-            return $this->resolveSegments([$expr->left, $expr->right], $class, $locals, $expr, $function);
+            $operands = self::concatOperands($expr);
+
+            return $operands !== null ? $this->resolveSegments($operands, $class, $locals, $function) : Resolution::dynamic();
         }
 
         if ($expr instanceof InterpolatedString) {
-            return $this->resolveSegments($expr->parts, $class, $locals, $expr, $function);
+            return count($expr->parts) <= self::MAX_SEGMENTS
+                ? $this->resolveSegments($expr->parts, $class, $locals, $function)
+                : Resolution::dynamic();
         }
 
-        return Resolution::dynamic($this->raw($expr));
+        return Resolution::dynamic();
     }
 
     /**
@@ -102,12 +157,12 @@ final class ExpressionResolver
     private function resolveLocal(Variable $expr, array $locals): Resolution
     {
         if (!is_string($expr->name) || !array_key_exists($expr->name, $locals)) {
-            return Resolution::dynamic($this->raw($expr));
+            return Resolution::dynamic();
         }
 
         $value = $locals[$expr->name];
 
-        return $value !== null ? Resolution::resolved($value) : Resolution::dynamic($this->raw($expr));
+        return $value !== null ? Resolution::resolved($value) : Resolution::dynamic();
     }
 
     private function resolveConstant(ConstFetch $expr): Resolution
@@ -115,16 +170,16 @@ final class ExpressionResolver
         $name = $expr->name->toString();
 
         if (in_array(strtolower($name), self::NON_STRING_CONSTANTS, true)) {
-            return Resolution::dynamic($this->raw($expr));
+            return Resolution::dynamic();
         }
 
         if ($this->symbols->hasConstant($name)) {
             $value = $this->symbols->constant($name);
 
-            return $value !== null ? Resolution::resolved($value) : Resolution::dynamic($this->raw($expr));
+            return $value !== null ? Resolution::resolved($value) : Resolution::dynamic();
         }
 
-        return Resolution::dynamic($this->raw($expr));
+        return Resolution::dynamic();
     }
 
     /**
@@ -149,13 +204,13 @@ final class ExpressionResolver
 
         return $value !== null && $value !== ''
             ? Resolution::resolved($value)
-            : Resolution::dynamic($this->raw($expr));
+            : Resolution::dynamic();
     }
 
     private function resolveClassConstant(ClassConstFetch $expr, ?string $class): Resolution
     {
         if (!$expr->class instanceof Name || !$expr->name instanceof Identifier) {
-            return Resolution::dynamic($this->raw($expr));
+            return Resolution::dynamic();
         }
 
         $reference = strtolower($expr->class->toString());
@@ -172,7 +227,7 @@ final class ExpressionResolver
 
             return $name !== null && $name !== ''
                 ? Resolution::resolved($name)
-                : Resolution::dynamic($this->raw($expr));
+                : Resolution::dynamic();
         }
 
         if ($reference === 'self') {
@@ -182,16 +237,16 @@ final class ExpressionResolver
             // the call was made against. Resolve it only when no subclass in the
             // plugin redefines the constant, which makes the two identical.
             if ($class === null || !$this->symbols->hasLateBoundClassConstant($class, $expr->name->toString())) {
-                return Resolution::dynamic($this->raw($expr));
+                return Resolution::dynamic();
             }
 
             $value = $this->symbols->lateBoundClassConstant($class, $expr->name->toString());
 
-            return $value !== null ? Resolution::resolved($value) : Resolution::dynamic($this->raw($expr));
+            return $value !== null ? Resolution::resolved($value) : Resolution::dynamic();
         } elseif ($reference === 'parent') {
             $target = $this->symbols->parentOf($class);
             if ($target === null) {
-                return Resolution::dynamic($this->raw($expr));
+                return Resolution::dynamic();
             }
         } else {
             // Fully-qualified by NameResolver, so out-of-tree/aliased classes no
@@ -200,17 +255,17 @@ final class ExpressionResolver
         }
 
         if ($target === null) {
-            return Resolution::dynamic($this->raw($expr));
+            return Resolution::dynamic();
         }
 
         $constant = $expr->name->toString();
         if ($this->symbols->hasClassConstant($target, $constant)) {
             $value = $this->symbols->classConstant($target, $constant);
 
-            return $value !== null ? Resolution::resolved($value) : Resolution::dynamic($this->raw($expr));
+            return $value !== null ? Resolution::resolved($value) : Resolution::dynamic();
         }
 
-        return Resolution::dynamic($this->raw($expr));
+        return Resolution::dynamic();
     }
 
     /**
@@ -221,7 +276,7 @@ final class ExpressionResolver
     private function resolveStaticProperty(StaticPropertyFetch $expr, ?string $class): Resolution
     {
         if (!$expr->class instanceof Name || !$expr->name instanceof VarLikeIdentifier) {
-            return Resolution::dynamic($this->raw($expr));
+            return Resolution::dynamic();
         }
 
         $reference = strtolower($expr->class->toString());
@@ -232,12 +287,12 @@ final class ExpressionResolver
         };
 
         if ($target === null || !$this->symbols->hasProperty($target, $expr->name->toString())) {
-            return Resolution::dynamic($this->raw($expr));
+            return Resolution::dynamic();
         }
 
         $value = $this->symbols->property($target, $expr->name->toString());
 
-        return $value !== null ? Resolution::resolved($value) : Resolution::dynamic($this->raw($expr));
+        return $value !== null ? Resolution::resolved($value) : Resolution::dynamic();
     }
 
     private function resolveProperty(PropertyFetch $expr, ?string $class): Resolution
@@ -263,10 +318,10 @@ final class ExpressionResolver
         ) {
             $value = $this->symbols->property($class, $expr->name->toString());
 
-            return $value !== null ? Resolution::resolved($value) : Resolution::dynamic($this->raw($expr));
+            return $value !== null ? Resolution::resolved($value) : Resolution::dynamic();
         }
 
-        return Resolution::dynamic($this->raw($expr));
+        return Resolution::dynamic();
     }
 
     /**
@@ -278,8 +333,9 @@ final class ExpressionResolver
      * a surviving leading prefix -> a pattern; nothing -> dynamic.
      *
      * @param array<Node> $segments
+     * @param array<string, string|null> $locals
      */
-    private function resolveSegments(array $segments, ?string $class, array $locals, Expr $original, ?string $function = null): Resolution
+    private function resolveSegments(array $segments, ?string $class, array $locals, ?string $function): Resolution
     {
         $full = '';
         $prefix = '';
@@ -302,7 +358,7 @@ final class ExpressionResolver
                 continue;
             }
 
-            $resolution = $this->resolve($segment, $class, $locals, $function);
+            $resolution = $this->resolveValue($segment, $class, $locals, $function);
 
             switch ($resolution->confidence) {
                 case Finding::CONFIDENCE_VERIFIED:
@@ -342,10 +398,10 @@ final class ExpressionResolver
         }
 
         if ($prefix !== '') {
-            return Resolution::pattern($prefix, $this->raw($original));
+            return Resolution::pattern($prefix);
         }
 
-        return Resolution::dynamic($this->raw($original));
+        return Resolution::dynamic();
     }
 
     private function raw(Node $node): string

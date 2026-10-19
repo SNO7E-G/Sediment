@@ -99,6 +99,44 @@ final class ScannerTest extends TestCase
         }
     }
 
+    public function test_a_long_generated_concatenation_scans_in_linear_time(): void
+    {
+        // Every visitor resolves every assignment, so a resolver that is
+        // quadratic in a chain's length turned a 3000-term SQL builder into
+        // minutes of scan time.
+        $terms = [];
+        for ($i = 0; $i < 3000; $i++) {
+            $terms[] = $i % 2 === 0 ? "'s{$i}'" : '$v' . $i;
+        }
+        $chain = implode(' . ', $terms);
+
+        $root = sys_get_temp_dir() . '/sediment-concat-test-' . getmypid();
+        @mkdir($root);
+        file_put_contents($root . '/plugin.php', "<?php\n\$q = {$chain};\nupdate_option({$chain}, \$q);\nadd_option('acme_' . 'version', '1');\n");
+
+        try {
+            $start = microtime(true);
+            $result = (new Scanner())->scan($root);
+            $elapsed = microtime(true) - $start;
+
+            self::assertLessThan(5.0, $elapsed, 'a long concatenation must not be quadratic to resolve');
+            self::assertSame([], $result['errors']);
+
+            $options = $this->optionsByKey($result['findings']);
+            self::assertArrayHasKey('acme_version', $options, 'short chains still resolve');
+
+            $long = array_values(array_filter(
+                $result['findings'],
+                static fn (Finding $f): bool => $f->function === 'update_option',
+            ));
+            self::assertCount(1, $long);
+            self::assertSame(Finding::CONFIDENCE_DYNAMIC, $long[0]->confidence, 'past the segment cap the key is dynamic');
+        } finally {
+            @unlink($root . '/plugin.php');
+            @rmdir($root);
+        }
+    }
+
     public function test_malformed_php_is_recorded_as_an_error_not_thrown(): void
     {
         $result = (new Scanner())->scan(dirname(__DIR__) . '/fuzz');
@@ -106,6 +144,49 @@ final class ScannerTest extends TestCase
         self::assertGreaterThanOrEqual(1, count($result['errors']));
         foreach ($result['errors'] as $error) {
             self::assertSame('E_PARSE', $error['code'], 'a file that exists but will not parse is E_PARSE');
+        }
+    }
+
+    public function test_a_syntax_error_records_e_parse_but_keeps_the_rest_of_the_file(): void
+    {
+        $root = sys_get_temp_dir() . '/sediment-partial-test-' . getmypid();
+        @mkdir($root);
+        file_put_contents($root . '/plugin.php', "<?php\nupdate_option('acme_before', 1);\nfunction f() {\n    \$x = ;\n}\nadd_option('acme_after', 2);\n");
+
+        try {
+            $result = (new Scanner())->scan($root);
+
+            self::assertCount(1, $result['errors']);
+            self::assertSame('E_PARSE', $result['errors'][0]['code']);
+
+            $options = $this->optionsByKey($result['findings']);
+            self::assertArrayHasKey('acme_before', $options);
+            self::assertArrayHasKey('acme_after', $options, 'code past the syntax error is still read');
+        } finally {
+            @unlink($root . '/plugin.php');
+            @rmdir($root);
+        }
+    }
+
+    public function test_a_broken_uninstall_file_earns_no_cleanup_credit(): void
+    {
+        // PHP will not run a file that does not parse, so the removals that
+        // could still be read from it never happen.
+        $root = sys_get_temp_dir() . '/sediment-broken-uninstall-' . getmypid();
+        @mkdir($root);
+        file_put_contents($root . '/plugin.php', "<?php\nadd_option('acme_settings', []);\n");
+        file_put_contents($root . '/uninstall.php', "<?php\ndelete_option('acme_settings');\n\$x = ;\n");
+
+        try {
+            $result = (new Scanner())->scan($root);
+
+            self::assertSame('E_PARSE', $result['errors'][0]['code'] ?? null);
+            self::assertFalse($result['cleanup']['has_uninstall_php']);
+            self::assertFalse($this->optionsByKey($result['findings'])['acme_settings']->cleaned);
+        } finally {
+            @unlink($root . '/plugin.php');
+            @unlink($root . '/uninstall.php');
+            @rmdir($root);
         }
     }
 

@@ -31,7 +31,7 @@ version was mutable alpha output and self-identifies as such.
   "score": 55,                    // 0–100, weighted by damage
   "coverage": {
     "files_scanned": 214,          // PHP files read
-    "files_skipped": 2,            // of those, files that could not be parsed
+    "files_skipped": 2,            // of those, files that could not be parsed in full
     "write_calls_found": 25,
     "verified": 18,
     "resolved": 5,
@@ -105,9 +105,9 @@ version was mutable alpha output and self-identifies as such.
   the list wholesale. Only `verified` and `resolved` are safe to act on; `pattern`
   needs human confirmation and `dynamic` is never actionable.
 - **`coverage` says how much source stood behind the document.** A parse
-  failure never aborts a scan — the file is skipped and counted in
-  `files_skipped` — and `resolution_rate` covers only the write calls that were
-  found. Weigh a grade by both before trusting it.
+  failure never aborts a scan — the file is counted in `files_skipped`, and
+  whatever part of it still parsed is scanned — and `resolution_rate` covers
+  only the write calls that were found. Weigh a grade by both before trusting it.
 - **`unresolved` is first-class, not hidden.** Writes Sediment could not resolve
   are listed with their raw expression and location, which is what makes the
   `resolution_rate` auditable rather than a claim.

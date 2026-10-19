@@ -8,7 +8,7 @@ All notable changes to Sediment are recorded here. The format follows
 ready rather than per change, so each one carries real features. Public
 interfaces — including the manifest schema — may still change before 1.0.
 
-## [Unreleased]
+## [0.11.0] — 2026-10-20
 
 A safety and accuracy release. The safety fixes close ways Sediment could name,
 credit, or emit something the source did not prove. The grading changes credit
@@ -85,6 +85,18 @@ deletes. WooCommerce's cleanup is now reported as conditional on
   inflates**, not on the sizes an archive declares about itself. It also
   refuses symlink entries and unreadable entries, and leaves nothing
   half-unpacked in the cache.
+- **Long concatenations no longer stall a scan.** Resolving a chain cost time
+  quadratic in its length, so a generated 800-term SQL builder took about 20
+  seconds and a 3000-term one several minutes. It is now linear, and a chain
+  of more than 256 pieces is reported as dynamic.
+- **One syntax error no longer costs a whole file.** The file is still recorded
+  as an `E_PARSE` error and counted in `files_skipped`, but whatever the parser
+  can recover is scanned for creates. Cleanup in such a file is never credited,
+  because PHP will not run a file that does not parse.
+- **Excluded directories match regardless of case**, so `Tests/` and `Vendor/`
+  are skipped like `tests/` and `vendor/`. A block's `build/<block>/render.php`
+  is now read, since WordPress loads it from there. Symlinked PHP files are no
+  longer read.
 
 ### Security
 

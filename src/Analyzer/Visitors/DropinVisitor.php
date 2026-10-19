@@ -10,8 +10,6 @@ use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name;
 use Sediment\Analyzer\Finding;
-use Sediment\Analyzer\Resolution;
-use Sediment\Analyzer\WpRoots;
 
 /**
  * Detects drop-in and must-use plugin files a plugin installs (C5/C6).
@@ -116,38 +114,5 @@ final class DropinVisitor extends AbstractDetectionVisitor
         }
 
         return null;
-    }
-
-    /**
-     * Resolve through the shared root tokens first, then fall back to plain
-     * resolution for paths that need no rewrite.
-     */
-    private function resolvePath(Node\Expr $expr): ?Resolution
-    {
-        $rooted = WpRoots::split($expr);
-        if ($rooted === null) {
-            return $this->resolveKey($expr);
-        }
-
-        [$token, $remainder] = $rooted;
-        if ($remainder === null) {
-            return null;
-        }
-
-        $tail = $this->resolveKey($remainder);
-
-        if ($tail->confidence === Finding::CONFIDENCE_VERIFIED || $tail->confidence === Finding::CONFIDENCE_RESOLVED) {
-            if ($tail->value === '') {
-                return null;
-            }
-
-            $value = $token . $tail->value;
-
-            return $tail->confidence === Finding::CONFIDENCE_VERIFIED
-                ? Resolution::verified($value)
-                : Resolution::resolved($value);
-        }
-
-        return null; // a partly-known filename cannot name a drop-in
     }
 }

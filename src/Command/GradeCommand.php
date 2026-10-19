@@ -6,7 +6,6 @@ namespace Sediment\Command;
 
 use Sediment\Analyzer\Finding;
 use Sediment\Analyzer\Scanner;
-use Sediment\Manifest\Grade;
 use Sediment\Manifest\Grader;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;

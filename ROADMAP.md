@@ -4,8 +4,9 @@ Where Sediment is going, and what each release has to prove before the next one
 starts. Every release ships publicly on its own, so a pause between any two
 still leaves something finished.
 
-Current: **v0.9.0** — the release candidate. The Index has shipped; what
-remains before 1.0 is thirty days of the schema holding, not features.
+Current: **v0.11.0**. The Index has shipped, and 0.10 and 0.11 hardened what
+it stands on. What remains before 1.0 is thirty days of the schema holding, not
+features.
 
 ## What is already proven
 
@@ -133,6 +134,30 @@ The Index ships. This is the release candidate.
 
 **Done when:** the Index is published, and "zero WordPress core artifacts" is
 asserted across all 5,000 manifests rather than only across fixtures.
+
+## 0.10 and 0.11 — shipped
+
+Neither release was on the original plan. Both came from auditing the
+analyzer against the corpus it grades.
+
+0.10 added drop-in and `mu-plugins` detection, which made the manifest schema
+2.1 (an additive change), and hardened the pipeline: PHPStan at max level, error
+codes, a Windows CI job, and an attested PHAR.
+
+0.11 closed the ways a scan could claim more than the source proves, and credited
+cleanup that real plugins perform:
+
+- **Safety.** A wrapper that rewrites its parameter no longer names its callers'
+  keys. Generated `uninstall.php` comments cannot become code. A shared drop-in
+  slot is deleted only while it still names the plugin.
+- **Accuracy.** Cleanup in deactivation hooks, through call chains, in bulk
+  `DELETE … LIKE`, and in literal loops is now credited. More cleanup gates are
+  recognised, and core roles, capabilities, and meta move to `modifies_core`.
+- **Robustness.** Long concatenations resolve in linear time, and a file with a
+  syntax error keeps its readable part.
+- **Pipeline.** A release now publishes only after the full suite passes.
+
+The changes move published grades, so the Index is rebuilt from 0.11.
 
 ## 1.0 — Stable
 

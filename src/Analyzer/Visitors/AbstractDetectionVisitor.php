@@ -36,6 +36,7 @@ use Sediment\Analyzer\CallSites;
 use Sediment\Analyzer\ExpressionResolver;
 use Sediment\Analyzer\Finding;
 use Sediment\Analyzer\Resolution;
+use Sediment\Analyzer\WpRoots;
 
 /**
  * Base class for detection visitors. Provides class context (for `self::` and
@@ -81,9 +82,6 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
     /** A literal array longer than this is not expanded element by element. */
     private const MAX_LOOP_VALUES = 100;
 
-    /** @var array<int, string|null> line => the function enclosing it */
-    private array $scopeByLine = [];
-
     /** @var array<int, array{literals: list<string>, complete: bool}> line => keys its callers supply */
     private array $expansionsByLine = [];
 
@@ -92,20 +90,6 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
         protected readonly ExpressionResolver $resolver,
         protected readonly ?CallSites $callSites = null,
     ) {
-    }
-
-    /**
-     * The function enclosing a given line, which is what turns a write keyed on
-     * `$key` into a question the call-site index can answer.
-     *
-     * Recorded per line during the traversal because a finding is inspected
-     * again once traversal is over, when the function stack is long gone. The
-     * first (outermost) node on a line wins, so a statement is attributed to the
-     * named function containing it rather than to a closure nested inside.
-     */
-    public function scopeAt(int $line): ?string
-    {
-        return $this->scopeByLine[$line] ?? null;
     }
 
     final public function enterNode(Node $node)
@@ -129,10 +113,6 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
             $this->arrayLocals[] = [];
             $this->functionStack[] = $this->functionIdentifier($node);
             $this->functionNodes[] = $node;
-        }
-
-        if (!array_key_exists($node->getStartLine(), $this->scopeByLine)) {
-            $this->scopeByLine[$node->getStartLine()] = $this->currentFunction();
         }
 
         $this->trackBindings($node);
@@ -288,6 +268,48 @@ abstract class AbstractDetectionVisitor extends NodeVisitorAbstract
     protected function resolveKey(Expr $expr): Resolution
     {
         return $this->resolver->resolve($expr, $this->currentClass(), $this->currentLocals(), $this->currentFunction());
+    }
+
+    /**
+     * Resolve a path expression, substituting a leading WP_CONTENT_DIR /
+     * WP_PLUGIN_DIR / ABSPATH root with its placeholder token.
+     *
+     * @return Resolution|null null means: skip entirely (root alone, no path).
+     */
+    protected function resolvePath(Expr $expr): ?Resolution
+    {
+        $rooted = WpRoots::split($expr);
+        if ($rooted === null) {
+            return $this->resolveKey($expr);
+        }
+
+        [$token, $remainder] = $rooted;
+        if ($remainder === null) {
+            return null;
+        }
+
+        $tail = $this->resolveKey($remainder);
+
+        if ($tail->confidence === Finding::CONFIDENCE_VERIFIED || $tail->confidence === Finding::CONFIDENCE_RESOLVED) {
+            if ($tail->value === '') {
+                return null; // token + nothing == the root alone
+            }
+
+            $value = $token . $tail->value;
+
+            return $tail->confidence === Finding::CONFIDENCE_VERIFIED
+                ? Resolution::verified($value)
+                : Resolution::resolved($value);
+        }
+
+        if ($tail->confidence === Finding::CONFIDENCE_PATTERN) {
+            return Resolution::pattern($token . ($tail->value ?? ''), $this->resolveKey($expr)->raw);
+        }
+
+        // Nothing survived past the root — fall back to the plain resolution of
+        // the whole expression (which degrades to dynamic) rather than reporting
+        // the placeholder alone.
+        return $this->resolveKey($expr);
     }
 
     /**
