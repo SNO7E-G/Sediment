@@ -33,14 +33,23 @@ use Sediment\Analyzer\Finding;
  */
 final class DropinVisitor extends AbstractDetectionVisitor
 {
-    /** Drop-ins WordPress loads from the wp-content root, by exact name. */
+    /**
+     * Drop-ins WordPress loads from the wp-content root, by exact name: the
+     * list `_get_dropins()` keeps, including the multisite status pages and the
+     * error-handling overrides.
+     */
     private const DROPINS = [
         'advanced-cache.php' => true,
+        'blog-deleted.php' => true,
+        'blog-inactive.php' => true,
+        'blog-suspended.php' => true,
         'db.php' => true,
         'db-error.php' => true,
+        'fatal-error-handler.php' => true,
         'install.php' => true,
         'maintenance.php' => true,
         'object-cache.php' => true,
+        'php-error.php' => true,
         'sunrise.php' => true,
     ];
 
@@ -100,16 +109,21 @@ final class DropinVisitor extends AbstractDetectionVisitor
      * The portable path decides the artifact type, or rejects it. Static and
      * shared with the cleanup reader, so a create and its removal always agree
      * on what a path means.
+     *
+     * WordPress looks for drop-ins only in the wp-content root, and loads only
+     * the top-level files of mu-plugins, so `{content_dir}/cache/db.php` and
+     * `{mu_plugins}/lib/helper.php` are neither. They are just files.
      */
     public static function classifyPath(string $path): ?string
     {
         $basename = basename(strtolower($path));
+        $directory = dirname($path);
 
-        if (str_starts_with($path, '{content_dir}/') && isset(self::DROPINS[$basename])) {
+        if ($directory === '{content_dir}' && isset(self::DROPINS[$basename])) {
             return 'dropin';
         }
 
-        if (str_starts_with($path, '{mu_plugins}/') && str_ends_with($basename, '.php')) {
+        if ($directory === '{mu_plugins}' && str_ends_with($basename, '.php')) {
             return 'muplugin';
         }
 

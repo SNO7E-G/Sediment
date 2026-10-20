@@ -80,10 +80,10 @@ final class WordPressOrgClient
             }
         }
 
-        $archive = $this->download($slug, $version);
+        [$archive, $fellBack] = $this->download($slug, $version);
         $sha256 = hash('sha256', $archive);
 
-        $this->extract($archive, $slug, $target);
+        $this->extract($archive, $slug, $target, $fellBack ? $version : null);
         file_put_contents($checksumFile, $sha256);
 
         return ['path' => $target, 'version' => $version, 'sha256' => $sha256, 'cached' => false];
@@ -95,25 +95,31 @@ final class WordPressOrgClient
      * pilot's top-500 fetches hit this). That zip may stand in only when the
      * version asked for IS the current one; anything else would silently
      * deliver different code than was pinned.
+     *
+     * @return array{0: string, 1: bool} the archive, and whether it is the
+     *         unversioned stand-in, whose contents must still prove the version
      */
-    private function download(string $slug, string $version): string
+    private function download(string $slug, string $version): array
     {
         try {
-            return $this->http->get(sprintf(self::DOWNLOAD_URL, $slug, $version));
+            return [$this->http->get(sprintf(self::DOWNLOAD_URL, $slug, $version)), false];
         } catch (RuntimeException $e) {
             if ($version !== $this->latestVersion($slug)) {
                 throw $e;
             }
 
-            return $this->http->get(sprintf(self::LATEST_URL, $slug));
+            return [$this->http->get(sprintf(self::LATEST_URL, $slug)), true];
         }
     }
 
     /**
      * wordpress.org archives contain a single top-level directory named for the
      * plugin; it is unwrapped so callers get the plugin root directly.
+     *
+     * @param string|null $expectVersion when set, the plugin header must state
+     *        exactly this version, or nothing reaches the cache
      */
-    private function extract(string $archive, string $slug, string $target): void
+    private function extract(string $archive, string $slug, string $target, ?string $expectVersion = null): void
     {
         if (!class_exists(\ZipArchive::class)) {
             throw new RuntimeException('Fetching plugins needs the zip extension (ext-zip).');
@@ -151,6 +157,23 @@ final class WordPressOrgClient
         }
 
         $unwrapped = is_dir($temporary . '/' . $slug) ? $temporary . '/' . $slug : $temporary;
+
+        // The unversioned zip is whatever is current when it is downloaded,
+        // which may already be a release newer than the version the API named
+        // a moment earlier. Recording those bytes under the pinned version
+        // would be a false provenance, so the plugin must say which it is.
+        if ($expectVersion !== null) {
+            $found = self::headerVersion($unwrapped);
+            if ($found !== $expectVersion) {
+                self::remove($temporary);
+                throw new RuntimeException(sprintf(
+                    'The current archive for "%s" is version %s, not the pinned %s, and was refused.',
+                    $slug,
+                    $found ?? '(no Version header)',
+                    $expectVersion,
+                ));
+            }
+        }
 
         if (is_dir($target)) {
             self::remove($target);
@@ -274,10 +297,47 @@ final class WordPressOrgClient
         }
     }
 
-    /** Slugs come from the command line and end up in a URL and a path. */
+    /**
+     * The `Version:` header of the plugin's main file: the root-level PHP file
+     * whose header names the plugin, read the way WordPress reads it (the first
+     * 8 KB, with a closing comment marker trimmed off). Null when no file has one.
+     */
+    private static function headerVersion(string $directory): ?string
+    {
+        $files = [];
+        foreach (new \FilesystemIterator($directory, \FilesystemIterator::SKIP_DOTS) as $entry) {
+            /** @var \SplFileInfo $entry */
+            if ($entry->isFile() && strtolower($entry->getExtension()) === 'php') {
+                $files[] = $entry->getPathname();
+            }
+        }
+        sort($files, SORT_STRING);
+
+        foreach ($files as $file) {
+            $head = str_replace("\r", "\n", (string) @file_get_contents($file, false, null, 0, 8192));
+            if (preg_match('/^(?:[ \t]*<\?php)?[ \t\/*#@]*Plugin Name:/mi', $head) !== 1) {
+                continue;
+            }
+
+            if (preg_match('/^(?:[ \t]*<\?php)?[ \t\/*#@]*Version:(.*)$/mi', $head, $m) === 1) {
+                $version = trim((string) preg_replace('/\s*(?:\*\/|\?>).*/', '', $m[1]));
+
+                return $version !== '' ? $version : null;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Slugs come from the command line and end up in a URL and a path. `\z`,
+     * not `$`: `$` also matches before a trailing newline, so "akismet
+"
+     * would pass.
+     */
     private function guardSlug(string $slug): void
     {
-        if (preg_match('/^[a-z0-9][a-z0-9\-]*$/i', $slug) !== 1) {
+        if (preg_match('/^[a-z0-9][a-z0-9\-]*\z/i', $slug) !== 1) {
             throw new RuntimeException("\"{$slug}\" is not a valid plugin slug.");
         }
     }
@@ -288,7 +348,7 @@ final class WordPressOrgClient
      */
     private function guardVersion(string $version): void
     {
-        if (preg_match('/^[a-z0-9][a-z0-9.\-]*$/i', $version) !== 1) {
+        if (preg_match('/^[a-z0-9][a-z0-9.\-]*\z/i', $version) !== 1) {
             throw new RuntimeException("\"{$version}\" is not a valid plugin version.");
         }
     }

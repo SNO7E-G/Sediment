@@ -6,6 +6,7 @@ namespace Sediment\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
+use Sediment\Source\CurlHttp;
 use Sediment\Source\Http;
 use Sediment\Source\WordPressOrgClient;
 use ZipArchive;
@@ -137,7 +138,7 @@ final class WordPressOrgClientTest extends TestCase
         // A tenth of the pilot's top-500 plugins keep no per-version archive on
         // wordpress.org; only the unversioned zip of the current release
         // exists. It may stand in exactly when the pinned version IS current.
-        $zip = $this->pluginZip('demo-plugin', "<?php\n");
+        $zip = $this->pluginZip('demo-plugin', "<?php\n/**\n * Plugin Name: Demo\n * Version: 1.9.5\n */\n");
         $http = $this->http([
             'plugin_information' => json_encode(['version' => '1.9.5']),
             'demo-plugin.zip' => $zip,
@@ -159,6 +160,48 @@ final class WordPressOrgClientTest extends TestCase
 
         $this->expectException(RuntimeException::class);
         $client->fetch('demo-plugin', '1.9.5');
+    }
+
+    public function test_the_fallback_zip_must_carry_the_pinned_version_in_its_header(): void
+    {
+        // The API said 1.9.5 is current, but by the time the unversioned zip
+        // was downloaded the author had shipped 2.0.0. Those bytes must not be
+        // cached as 1.9.5.
+        $zip = $this->pluginZip('demo-plugin', "<?php\n/*\nPlugin Name: Demo\nVersion: 2.0.0\n*/\n");
+        $client = new WordPressOrgClient($this->cache, $this->http([
+            'plugin_information' => (string) json_encode(['version' => '1.9.5']),
+            'demo-plugin.zip' => $zip,
+        ]));
+
+        try {
+            $client->fetch('demo-plugin', '1.9.5');
+            self::fail('a newer release was recorded under the pinned version');
+        } catch (RuntimeException $e) {
+            self::assertStringContainsString('version 2.0.0, not the pinned 1.9.5', $e->getMessage());
+        }
+
+        self::assertDirectoryDoesNotExist($this->cache . '/demo-plugin-1.9.5');
+    }
+
+    public function test_only_https_is_fetched_and_a_stream_failure_says_why(): void
+    {
+        try {
+            (new CurlHttp())->get('http://downloads.wordpress.org/plugin/akismet.zip');
+            self::fail('a plain-HTTP URL was fetched');
+        } catch (RuntimeException $e) {
+            self::assertStringContainsString('only https://', $e->getMessage());
+        }
+
+        // Nothing listens on port 1; the message must carry the stream
+        // wrapper's own reason rather than a generic "could not fetch".
+        $viaStream = new \ReflectionMethod(CurlHttp::class, 'viaStream');
+        try {
+            $viaStream->invoke(new CurlHttp(timeoutSeconds: 5), 'https://127.0.0.1:1/');
+            self::fail('nothing should answer on port 1');
+        } catch (RuntimeException $e) {
+            self::assertMatchesRegularExpression('/the stream wrapper said: \S/', $e->getMessage());
+            self::assertStringNotContainsString('said: no further detail', $e->getMessage());
+        }
     }
 
     public function test_an_archive_entry_that_escapes_its_directory_is_refused_before_extraction(): void

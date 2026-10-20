@@ -31,15 +31,27 @@ and check `schema_version`'s major — that consumer will survive every release.
 
 ### Exit codes
 
-`0` is success, and non-zero is failure — with two meanings kept distinct:
+`0` is success, and non-zero is failure, with two meanings kept distinct:
 
-- **`1`** — the command could not do its job (bad path, unreadable input), or
-  the gate it exists to enforce failed: `check` grading worse than `--fail-on`,
-  `diff` finding a worse footprint.
-- **`2`** — the invocation itself was invalid (e.g. a `--fail-on` value that is
-  not a grade).
+- **`1`**: the gate failed, or the work did. For `check` and `diff` this is
+  the only meaning of `1`: the plugin graded worse than `--fail-on` or under
+  `--min-coverage`, or `diff` found a worse footprint. For the other commands
+  it means the command could not finish its job: `batch` lost plugins, `fetch`
+  could not download or unpack, `scan` or `grade` got a path that is not there.
+- **`2`**: the invocation was wrong, so nothing was judged. That covers a
+  command line that cannot be parsed (a missing argument, an unknown option or
+  command), an invalid option value (a `--fail-on` that is not a grade), and,
+  for `check` and `diff`, a plugin path that does not exist or a baseline
+  manifest that is missing, unreadable, not JSON, or not a manifest.
 
-Gate CI on "non-zero", or on the specific code; both are stable.
+A CI step can therefore treat `1` from `check` or `diff` as "the plugin
+regressed" and `2` as "the pipeline is misconfigured". Gate on "non-zero", or
+on the specific code; both are stable. Usage and I/O errors from `scan`,
+`grade`, `check`, `diff`, `fetch`, and `uninstall` are written to stderr, so they
+never mix with a manifest, a path, or a generated file on stdout.
+
+Before 0.12.0, `check` and `diff` returned `1` for a missing path or a bad
+baseline as well.
 
 ### Error codes
 

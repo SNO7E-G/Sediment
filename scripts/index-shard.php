@@ -12,17 +12,20 @@ declare(strict_types=1);
  * wordpress.org slug — scanned with `sediment batch`, and deleted, keeping the
  * disk footprint to one wave regardless of shard size.
  *
- * Environment: SHARD (0-based, default 0), SHARDS (default 1), JOBS (default 4).
- * Everything is resumable: manifests already written are skipped.
+ * Environment: SHARD (0-based, default 0), SHARDS (default 1), JOBS (default 4),
+ * INDEX_RUN (default build/index), INDEX_LIST (default scripts/index-plugins.json).
+ * Everything is resumable: manifests already written whole are skipped, and
+ * the provenance and fetch-failure records carry over from the earlier run.
  */
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
+use Sediment\Manifest\Manifest;
 use Sediment\Source\WordPressOrgClient;
 use Symfony\Component\Process\Process;
 
 $root = dirname(__DIR__);
-$run = $root . '/build/index';
+$run = getenv('INDEX_RUN') ?: $root . '/build/index';
 $shard = max(0, (int) (getenv('SHARD') ?: 0));
 $shards = max(1, (int) (getenv('SHARDS') ?: 1));
 $jobs = max(1, (int) (getenv('JOBS') ?: 4));
@@ -31,7 +34,7 @@ const WAVE_SIZE = 100;
 @mkdir($run . '/manifests', 0777, true);
 
 /** @var array<string, string> $list */
-$list = json_decode((string) file_get_contents(__DIR__ . '/index-plugins.json'), true);
+$list = json_decode((string) file_get_contents(getenv('INDEX_LIST') ?: __DIR__ . '/index-plugins.json'), true);
 
 $mine = [];
 $position = 0;
@@ -43,7 +46,8 @@ foreach ($list as $slug => $version) {
 
 $pending = array_filter(
     $mine,
-    static fn (string $version, string $slug): bool => !is_file($run . '/manifests/' . $slug . '.json'),
+    // A manifest cut short by a killed run is no manifest: stage it again.
+    static fn (string $version, string $slug): bool => Manifest::readFile($run . '/manifests/' . $slug . '.json') === null,
     ARRAY_FILTER_USE_BOTH,
 );
 
@@ -64,9 +68,24 @@ function removeDir(string $dir): void
     @rmdir($dir);
 }
 
+/**
+ * A shard record written by an earlier, interrupted run of this shard.
+ *
+ * @return array<string, mixed>
+ */
+function shardRecord(string $file): array
+{
+    $record = is_file($file) ? json_decode((string) file_get_contents($file), true) : [];
+
+    return is_array($record) ? $record : [];
+}
+
+// Resuming must not forget what the interrupted run already recorded: the
+// plugins it staged have their manifests now and will not be fetched again,
+// so their provenance exists only in these files.
 $client = new WordPressOrgClient($run . '/cache');
-$provenance = [];
-$fetchFailures = [];
+$provenance = shardRecord($run . '/provenance-shard-' . $shard . '.json');
+$fetchFailures = shardRecord($run . '/fetch-failures-shard-' . $shard . '.json');
 $wave = 0;
 
 foreach (array_chunk(array_keys($pending), WAVE_SIZE) as $slugs) {
@@ -86,6 +105,7 @@ foreach (array_chunk(array_keys($pending), WAVE_SIZE) as $slugs) {
             }
             @unlink($result['path'] . '.sha256');
             $provenance[$slug] = ['version' => $version, 'sha256' => $result['sha256']];
+            unset($fetchFailures[$slug]); // an earlier run's failure, since recovered
             $staged++;
             usleep(250000); // stay polite to wordpress.org
         } catch (Throwable $e) {

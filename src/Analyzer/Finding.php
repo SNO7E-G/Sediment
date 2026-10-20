@@ -41,6 +41,46 @@ final class Finding
             || $this->confidence === self::CONFIDENCE_RESOLVED;
     }
 
+    /** Whether this write lands in network-wide storage rather than the current site's. */
+    public function isNetworkScoped(): bool
+    {
+        return self::isNetworkCall($this->function);
+    }
+
+    /**
+     * Whether a write or removal call works on network-wide storage. On
+     * multisite, `update_site_option()` and `set_site_transient()` write the
+     * sitemeta table while `update_option()` writes each site's own options
+     * table, so a removal clears a write only when both name the same scope.
+     * (On a single site the two share a table, but a removal that is right
+     * only there is not credited.)
+     */
+    public static function isNetworkCall(string $function): bool
+    {
+        $function = strtolower($function);
+
+        return str_contains($function, 'site_option')
+            || str_contains($function, 'network_option')
+            || str_contains($function, 'site_transient');
+    }
+
+    /**
+     * The worse of two autoload claims for the same option: 'yes' over
+     * 'unknown' over 'no'. Null — a network option, which WordPress never
+     * autoloads — ranks with 'no'. The manifest and the grader both merge
+     * duplicate writes through this, so they cannot disagree about a key.
+     */
+    public static function worseAutoload(?string $a, ?string $b): ?string
+    {
+        $rank = static fn (?string $autoload): int => match ($autoload) {
+            'yes' => 2,
+            'unknown' => 1,
+            default => 0,
+        };
+
+        return $rank($b) > $rank($a) ? $b : $a;
+    }
+
     /**
      * Return a copy naming a key the write's callers supply — the same call
      * site, now attributed to one of the keys that actually reaches it.

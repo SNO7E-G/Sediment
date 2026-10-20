@@ -93,6 +93,21 @@ final class DropinVisitorTest extends TestCase
         self::assertSame([], $this->findings('file_put_contents(WPMU_PLUGIN_DIR, "x");'));
     }
 
+    public function test_only_root_level_names_wordpress_loads_classify(): void
+    {
+        // WordPress reads drop-ins from the wp-content root and loads only the
+        // top-level mu-plugin files; anything nested is an ordinary file.
+        self::assertNull(DropinVisitor::classifyPath('{content_dir}/mycache/db.php'));
+        self::assertNull(DropinVisitor::classifyPath('{mu_plugins}/lib/helper.php'));
+        self::assertSame('muplugin', DropinVisitor::classifyPath('{mu_plugins}/acme.php'));
+
+        foreach (['blog-deleted.php', 'blog-inactive.php', 'blog-suspended.php', 'php-error.php', 'fatal-error-handler.php'] as $name) {
+            self::assertSame('dropin', DropinVisitor::classifyPath('{content_dir}/' . $name), $name);
+        }
+
+        self::assertSame([], $this->findings("file_put_contents(WP_CONTENT_DIR . '/mycache/db.php', 'x');"));
+    }
+
     public function test_fixture_cleans_both_files_and_grades_A(): void
     {
         $result = (new Scanner())->scan(dirname(__DIR__) . '/fixtures/dropin-plugin');

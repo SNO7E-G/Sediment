@@ -106,3 +106,11 @@ and all err toward *not* crediting cleanup or resolution:
 - **Directories and rewrite rules are reported but never removed** by the
   generated `uninstall.php`. Deleting a directory can destroy user uploads, and
   flushing rewrite rules on uninstall is the site's decision, not a plugin's.
+- **Site and network scope are kept apart, even on a single site.**
+  `delete_site_option('x')` does not credit `update_option('x')`, although on a
+  single site both name the same row, because on a network they do not. A
+  plugin that only ever runs single-site and mixes the two is reported as not
+  cleaning up.
+- **The generated multisite teardown is tested with stand-ins.** The live
+  WordPress check runs a single-site install. The per-site loop (`get_sites()`,
+  `switch_to_blog()`) is exercised against recorded calls, not a real network.

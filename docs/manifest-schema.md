@@ -124,4 +124,7 @@ places is a single entry with three `sources`. An entry is `cleaned` only when
 **every** one of those writes is matched by a removal that actually runs on
 uninstall — a cron hook scheduled both with and without arguments needs both
 cleared, and crediting it on one would report a plugin as spotless while an
-event kept firing. An option is reported as autoloaded if any write autoloads it.
+event kept firing. An option's `autoload` is the worst any write of it claims:
+`yes` over `unknown` over `no`. A network option (`update_site_option()`,
+`update_network_option()`) is never autoloaded, so it is reported as `no`; the
+grader weighs every option by the same rule.

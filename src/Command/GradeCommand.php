@@ -42,7 +42,7 @@ final class GradeCommand extends Command
         $path = (string) $input->getArgument('path');
 
         if (!file_exists($path)) {
-            $io->error("Path not found: {$path}");
+            $io->getErrorStyle()->error("Path not found: {$path}");
 
             return Command::FAILURE;
         }

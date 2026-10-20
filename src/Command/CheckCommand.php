@@ -38,26 +38,29 @@ final class CheckCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
+        $errors = $io->getErrorStyle();
         $path = (string) $input->getArgument('path');
         $threshold = strtoupper((string) $input->getOption('fail-on'));
 
         if (!in_array($threshold, self::ORDER, true)) {
-            $io->error(sprintf('Invalid --fail-on value "%s". Use one of: %s.', $threshold, implode(', ', self::ORDER)));
+            $errors->error(sprintf('Invalid --fail-on value "%s". Use one of: %s.', $threshold, implode(', ', self::ORDER)));
 
             return Command::INVALID;
         }
 
         $minCoverage = $input->getOption('min-coverage');
         if ($minCoverage !== null && (!is_string($minCoverage) || !is_numeric($minCoverage) || $minCoverage < 0 || $minCoverage > 100)) {
-            $io->error(sprintf('Invalid --min-coverage value "%s". Use a percentage from 0 to 100.', is_string($minCoverage) ? $minCoverage : '?'));
+            $errors->error(sprintf('Invalid --min-coverage value "%s". Use a percentage from 0 to 100.', is_string($minCoverage) ? $minCoverage : '?'));
 
             return Command::INVALID;
         }
 
+        // A path that is not there is a broken invocation, not a plugin that
+        // failed the gate, so CI can tell the two apart (exit 2, not 1).
         if (!file_exists($path)) {
-            $io->error("Path not found: {$path}");
+            $errors->error("Path not found: {$path}");
 
-            return Command::FAILURE;
+            return Command::INVALID;
         }
 
         $result = (new Scanner())->scan($path);
