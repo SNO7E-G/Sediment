@@ -104,15 +104,32 @@ final class CurlHttp implements Http
         }
 
         // The stream wrapper follows redirects on its own, so check every
-        // hop it took: bytes that crossed plain HTTP are not used.
-        $headers = function_exists('http_get_last_response_headers') ? (http_get_last_response_headers() ?? []) : $http_response_header;
-        foreach ($headers as $header) {
-            if (preg_match('/^Location:\s*(\S+)/i', $header, $m) === 1 && str_contains($m[1], '://') && !self::isHttps($m[1])) {
-                throw new RuntimeException("Request to {$url} was redirected to {$m[1]}: only https:// URLs are allowed.");
-            }
+        // hop it took: bytes that crossed plain HTTP are not used. PHP 8.4
+        // added a function for the headers; before it, only the magic local
+        // exists, which 8.5 deprecates by name, so it is not named here.
+        $location = self::plainHttpRedirect(
+            function_exists('http_get_last_response_headers')
+                ? http_get_last_response_headers()
+                : get_defined_vars()['http_response_header'],
+        );
+        if ($location !== null) {
+            throw new RuntimeException("Request to {$url} was redirected to {$location}: only https:// URLs are allowed.");
         }
 
         return $body;
+    }
+
+    /** The first redirect target in a response's headers that is not https, if any. */
+    private static function plainHttpRedirect(mixed $headers): ?string
+    {
+        foreach (is_array($headers) ? $headers : [] as $header) {
+            if (is_string($header) && preg_match('/^Location:\s*(\S+)/i', $header, $m) === 1
+                && str_contains($m[1], '://') && !self::isHttps($m[1])) {
+                return $m[1];
+            }
+        }
+
+        return null;
     }
 
     /**
